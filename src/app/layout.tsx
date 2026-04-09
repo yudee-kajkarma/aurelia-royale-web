@@ -3,6 +3,7 @@ import { Manrope, Playfair_Display } from "next/font/google";
 import { ArrowUp } from "lucide-react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { PageTransition } from "@/components/layout/PageTransition";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -39,7 +40,9 @@ export default function RootLayout({
     >
       <body id="top" className="min-h-full flex flex-col grain bg-[var(--background)] text-[var(--foreground)]">
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
         <a
           href="#top"

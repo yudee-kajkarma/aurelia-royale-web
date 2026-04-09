@@ -3,6 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import {
+  AnimatePresence,
+  motion,
+  useReducedMotion,
+} from "framer-motion";
+import {
   Menu,
   Search,
   ShoppingBag,
@@ -93,6 +98,7 @@ export function Header() {
   const [openMenu, setOpenMenu] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
   const [activePanel, setActivePanel] = useState<"category" | "edition">("category");
+  const reduceMotion = useReducedMotion();
 
   const activeShopItems = activePanel === "category" ? shopCategoryItems : shopEditionItems;
 
@@ -136,12 +142,24 @@ export function Header() {
 
       </header>
 
-      {openMenu && (
-        <div className="fixed inset-0 z-40 bg-black/55 backdrop-blur-[2px]" onClick={() => setOpenMenu(false)}>
-          <div
-            className="h-full w-full overflow-y-auto bg-[#074f3a] text-white"
-            onClick={(event) => event.stopPropagation()}
+      <AnimatePresence>
+        {openMenu && (
+          <motion.div
+            className="fixed inset-0 z-40 bg-black/55 backdrop-blur-[2px]"
+            onClick={() => setOpenMenu(false)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: reduceMotion ? 0 : 0.22, ease: "easeOut" }}
           >
+            <motion.div
+              className="h-full w-full overflow-y-auto bg-[#074f3a] text-white"
+              onClick={(event) => event.stopPropagation()}
+              initial={{ opacity: 0, x: reduceMotion ? 0 : -24 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: reduceMotion ? 0 : -18 }}
+              transition={{ duration: reduceMotion ? 0 : 0.28, ease: [0.22, 1, 0.36, 1] }}
+            >
             <div className="flex h-20 items-center justify-between border-b border-white/20 bg-[linear-gradient(90deg,#020202,#0a4a38)] px-6 sm:px-8">
               <button
                 onClick={() => setOpenMenu(false)}
@@ -319,16 +337,29 @@ export function Header() {
                 </div>
               </main>
             </div>
-          </div>
-        </div>
-      )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      {openSearch && (
-        <div className="fixed inset-0 z-50 grid place-items-start bg-black/55 p-4 pt-24" onClick={() => setOpenSearch(false)}>
-          <div
-            className="mx-auto flex w-full max-w-2xl items-center gap-2 border border-[var(--gold)]/35 bg-[#0a0f18] p-3"
-            onClick={(event) => event.stopPropagation()}
+      <AnimatePresence>
+        {openSearch && (
+          <motion.div
+            className="fixed inset-0 z-50 grid place-items-start bg-black/55 p-4 pt-24"
+            onClick={() => setOpenSearch(false)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: reduceMotion ? 0 : 0.2, ease: "easeOut" }}
           >
+            <motion.div
+              className="mx-auto flex w-full max-w-2xl items-center gap-2 border border-[var(--gold)]/35 bg-[#0a0f18] p-3"
+              onClick={(event) => event.stopPropagation()}
+              initial={{ opacity: 0, y: reduceMotion ? 0 : -16, scale: reduceMotion ? 1 : 0.985 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: reduceMotion ? 0 : -12, scale: reduceMotion ? 1 : 0.99 }}
+              transition={{ duration: reduceMotion ? 0 : 0.24, ease: [0.22, 1, 0.36, 1] }}
+            >
             <Search size={18} className="text-[var(--gold)]" />
             <input
               autoFocus
@@ -339,9 +370,10 @@ export function Header() {
             <button onClick={() => setOpenSearch(false)} className="rounded border border-white/20 p-2 text-white/75">
               <X size={16} />
             </button>
-          </div>
-        </div>
-      )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
