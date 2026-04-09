@@ -9,7 +9,7 @@ export function Footer() {
         <p className="mt-5 text-sm text-white/70">info@dalila.com · +09 666 888 999</p>
 
         <nav className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm font-semibold uppercase tracking-[0.15em]">
-          <Link href="/home" className="transition hover:text-[var(--gold)]">
+          <Link href="/" className="transition hover:text-[var(--gold)]">
             Home
           </Link>
           <Link href="/about" className="transition hover:text-[var(--gold)]">

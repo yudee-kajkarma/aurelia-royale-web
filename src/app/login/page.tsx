@@ -1,12 +1,48 @@
+"use client";
+
+import { FormEvent, useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter, useSearchParams } from "next/navigation";
 import DalilaLogo from "@/assets/DalilaLogo.png";
+import { useAuth } from "@/providers/AuthProvider";
+import { getSafeAuthRedirect } from "@/services/auth/auth.types";
 
-export default async function LoginPage() {
-  await new Promise((resolve) => setTimeout(resolve, 1200));
+export default function LoginPage() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const { isAuthenticated, isReady, login, user } = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (!isReady || !isAuthenticated || !user) {
+      return;
+    }
+
+    const redirectPath = getSafeAuthRedirect(user.role, searchParams.get("redirect"));
+    router.replace(redirectPath);
+  }, [isAuthenticated, isReady, router, searchParams, user]);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setErrorMessage(null);
+
+    try {
+      await login({ email, password });
+      router.replace('/');
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : "Unable to sign in.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
 
   return (
-    <main className="min-h-screen overflow-x-clip ">
+    <main className="min-h-screen overflow-x-clip">
       <div className="relative mx-auto flex min-h-screen w-full max-w-7xl items-center justify-center px-6 py-12 sm:px-8">
         <div className="pointer-events-none absolute left-0 top-0 h-full w-[280px] " />
 
@@ -32,30 +68,47 @@ export default async function LoginPage() {
 
           <div className="relative min-h-[520px] bg-[#f6f6f8] px-8 py-8 sm:px-12 sm:py-10">
             <div className="flex justify-end">
-              <Link href="/home" className="inline-flex items-center rounded-full bg-[var(--deep)] px-5 py-2 text-sm font-bold text-white transition hover:bg-[#0a2e28]">
+              <Link href="/" className="inline-flex items-center rounded-full bg-[var(--deep)] px-5 py-2 text-sm font-bold text-white transition hover:bg-[#0a2e28]">
                 Home
               </Link>
             </div>
 
             <div className="mx-auto mt-10 max-w-lg sm:mt-16">
               <h1 className="text-4xl font-bold text-[#0f1216] sm:text-3xl lg:text-3xl">Login</h1>
+              <p className="mt-3 text-sm leading-6 text-[#5a6370] sm:text-base">
+                Sign in with your email and password. USER accounts land on the account page and ADMIN accounts land on the admin page.
+              </p>
 
-              <form className="mt-8 grid gap-4">
+              <form className="mt-8 grid gap-4" onSubmit={handleSubmit}>
                 <input
                   type="email"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
                   placeholder="Email"
+                  autoComplete="email"
+                  required
                   className="h-14 rounded-xl border border-black/12 bg-white px-4 text-base font-semibold text-[#1f242b] outline-none placeholder:text-[#9ea3ad] sm:text-lg"
                 />
                 <input
                   type="password"
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
                   placeholder="Password"
+                  autoComplete="current-password"
+                  required
                   className="h-14 rounded-xl border border-black/12 bg-white px-4 text-base font-semibold text-[#1f242b] outline-none placeholder:text-[#9ea3ad] sm:text-lg"
                 />
+                {errorMessage && (
+                  <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+                    {errorMessage}
+                  </p>
+                )}
                 <button
                   type="submit"
+                  disabled={isSubmitting || !isReady}
                   className="mt-2 h-14 rounded-xl bg-[var(--gold)] text-base font-extrabold text-[#1a1710] transition hover:bg-[#b8972f] sm:text-sm"
                 >
-                  Login
+                  {isSubmitting ? "Signing in..." : "Login"}
                 </button>
               </form>
 
