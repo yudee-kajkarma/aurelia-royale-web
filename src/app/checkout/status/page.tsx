@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { CheckCircle2, RotateCcw, ShoppingBag, XCircle } from "lucide-react";
@@ -8,7 +8,7 @@ import { AuthGuard } from "@/components/auth/AuthGuard";
 import { useCart } from "@/providers/CartProvider";
 import { clearPendingOrderStatus, getPendingOrderStatus } from "@/services/orders/checkout.storage";
 
-export default function CheckoutStatusPage() {
+function CheckoutStatusContent() {
   const searchParams = useSearchParams();
   const { refresh } = useCart();
   const paymentResult = searchParams.get("payment") === "cancel" ? "cancel" : "success";
@@ -99,5 +99,26 @@ export default function CheckoutStatusPage() {
         </section>
       </main>
     </AuthGuard>
+  );
+}
+
+function CheckoutStatusFallback() {
+  return (
+    <main className="grid min-h-[60vh] place-items-center px-6 py-16 text-center">
+      <div>
+        <p className="display-font text-3xl text-[var(--foreground)]">Loading checkout status</p>
+        <p className="mt-3 text-sm uppercase tracking-[0.2em] text-[var(--foreground)]/65">
+          Preparing your order details
+        </p>
+      </div>
+    </main>
+  );
+}
+
+export default function CheckoutStatusPage() {
+  return (
+    <Suspense fallback={<CheckoutStatusFallback />}>
+      <CheckoutStatusContent />
+    </Suspense>
   );
 }
