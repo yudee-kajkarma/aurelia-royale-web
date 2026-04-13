@@ -8,7 +8,7 @@ export function Footer() {
         <div className="flex justify-center">
           <BrandWordmark size="hero" className="text-center" />
         </div>
-        <p className="mt-5 text-sm text-white/70">info@dalila.com · +09 666 888 999</p>
+        {/* <p className="mt-5 text-sm text-white/70">info@dalila.com · +09 666 888 999</p> */}
 
         <nav className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm font-semibold uppercase tracking-[0.15em]">
           <Link href="/" className="transition hover:text-[var(--gold)]">
