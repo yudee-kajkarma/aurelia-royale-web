@@ -2,9 +2,8 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import DalilaLogo from "@/assets/DalilaLogo.png";
+import { BrandWordmark } from "@/components/brand/BrandWordmark";
 import { useAuth } from "@/providers/AuthProvider";
 import { getSafeAuthRedirect } from "@/services/auth/auth.types";
 
@@ -51,13 +50,7 @@ export default function LoginPage() {
           <aside className="flex min-h-[420px] items-center justify-center bg-[linear-gradient(160deg,#045942_0%,#022f25_58%,#010d0a_100%)] px-8 py-12 sm:min-h-[520px] sm:px-12">
             <div className="text-center text-white">
               <div className="mx-auto  inline-flex items-center justify-center">
-               <Image
-                  src={DalilaLogo}
-                  alt="Dalila Diamonds"
-                  width={150}
-                  height={46}
-                  className="h-auto w-[100px] sm:w-[150px]"
-                />
+                <BrandWordmark size="hero" className="items-center text-center" />
               </div>
 
               <h2 className="text-4xl font-bold leading-[1.08] text-[var(--gold)] sm:text-3xl lg:text-3xl">Begin Your Diamond Journey</h2>
