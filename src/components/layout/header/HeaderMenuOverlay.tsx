@@ -20,9 +20,11 @@ type HeaderMenuOverlayProps = {
   user: AuthUser | null;
   accountHref: string;
   openProfileMenu: boolean;
+  cartCount: number;
   wishlistCount: number;
   onCloseMenu: () => void;
   onCloseAll: () => void;
+  onCartOpen: () => void;
   onProfileTrigger: () => void;
   onWishlistOpen: () => void;
   onLogout: () => void | Promise<void>;
@@ -38,9 +40,11 @@ export function HeaderMenuOverlay({
   user,
   accountHref,
   openProfileMenu,
+  cartCount,
   wishlistCount,
   onCloseMenu,
   onCloseAll,
+  onCartOpen,
   onProfileTrigger,
   onWishlistOpen,
   onLogout,
@@ -107,8 +111,13 @@ export function HeaderMenuOverlay({
                     {wishlistCount}
                   </span>
                 </button>
-                <button type="button" className="text-white/95 transition hover:text-[var(--gold)]" aria-label="Shopping bag">
+                <button type="button" className="relative text-white/95 transition hover:text-[var(--gold)]" aria-label="Shopping bag" onClick={onCartOpen}>
                   <ShoppingBag size={29} strokeWidth={2} />
+                  {cartCount > 0 ? (
+                    <span className="absolute -right-2 -top-2 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-[var(--gold)] px-1 text-[10px] font-extrabold text-[#15110a]">
+                      {cartCount}
+                    </span>
+                  ) : null}
                 </button>
               </div>
             </div>

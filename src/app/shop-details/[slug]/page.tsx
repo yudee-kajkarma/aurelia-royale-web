@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { AddToCartButton } from "@/components/cart/AddToCartButton";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { ProductCard } from "@/components/shared/ProductCard";
 import { WishlistToggleButton } from "@/components/wishlist/WishlistToggleButton";
@@ -103,8 +104,8 @@ export default async function ShopDetailsBySlugPage({ params }: ShopDetailsPageP
           </div>
 
           <div className="mt-9 grid gap-4 sm:grid-cols-2">
-            <button className="h-16 bg-[#101723] text-xl font-extrabold uppercase tracking-[0.04em] text-white">Add To Cart</button>
-            <button className="h-16 bg-[#101723] text-xl font-extrabold uppercase tracking-[0.04em] text-white">Buy Now</button>
+            <AddToCartButton productId={product.id} className="h-16 bg-[#101723] text-xl font-extrabold uppercase tracking-[0.04em] text-white" label="Add To Cart" />
+            <AddToCartButton productId={product.id} className="h-16 bg-[#101723] text-xl font-extrabold uppercase tracking-[0.04em] text-white" label="Buy Now" redirectToCart />
           </div>
 
           <WishlistToggleButton productId={product.id} className="mt-8 inline-flex items-center gap-2 text-xl font-extrabold uppercase tracking-[0.06em] text-[#a5a7ab] transition hover:text-[var(--gold)] disabled:opacity-60" />

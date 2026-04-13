@@ -13,6 +13,7 @@ import {
   shopEditionItems,
 } from "@/components/layout/header/header.data";
 import { useAuth } from "@/providers/AuthProvider";
+import { useCart } from "@/providers/CartProvider";
 import { useWishlist } from "@/providers/WishlistProvider";
 import { getDefaultRouteForRole } from "@/services/auth/auth.types";
 
@@ -25,6 +26,7 @@ export function Header() {
   const pathname = usePathname();
   const router = useRouter();
   const { isAuthenticated, isReady, logout, user } = useAuth();
+  const { count: cartCount } = useCart();
   const { count } = useWishlist();
 
   const activeShopItems = activePanel === "category" ? shopCategoryItems : shopEditionItems;
@@ -72,6 +74,23 @@ export function Header() {
 
     closeAllOverlays();
     router.push(wishlistPath);
+  }
+
+  function handleCartOpen() {
+    const cartPath = "/cart";
+
+    if (!isReady) {
+      return;
+    }
+
+    if (!isAuthenticated) {
+      closeAllOverlays();
+      router.push(`/login?redirect=${encodeURIComponent(cartPath)}`);
+      return;
+    }
+
+    closeAllOverlays();
+    router.push(cartPath);
   }
 
   return (
@@ -131,8 +150,13 @@ export function Header() {
                 {count}
               </span>
             </button>
-            <button type="button" className="rounded-full border border-white/15 p-2 transition hover:border-[var(--gold)] hover:text-[var(--gold)]" aria-label="Shopping bag">
+            <button type="button" onClick={handleCartOpen} className="relative rounded-full border border-white/15 p-2 transition hover:border-[var(--gold)] hover:text-[var(--gold)]" aria-label="Shopping bag">
               <ShoppingBag size={18} />
+              {cartCount > 0 ? (
+                <span className="absolute -right-1 -top-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-[var(--gold)] px-1 text-[10px] font-extrabold text-[#15110a]">
+                  {cartCount}
+                </span>
+              ) : null}
             </button>
           </div>
         </div>
@@ -148,9 +172,11 @@ export function Header() {
         user={user}
         accountHref={accountHref}
         openProfileMenu={openProfileMenu}
+        cartCount={cartCount}
         wishlistCount={count}
         onCloseMenu={() => setOpenMenu(false)}
         onCloseAll={closeAllOverlays}
+        onCartOpen={handleCartOpen}
         onProfileTrigger={handleProfileTrigger}
         onWishlistOpen={handleWishlistOpen}
         onLogout={handleLogout}
