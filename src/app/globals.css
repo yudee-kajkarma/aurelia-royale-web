@@ -23,6 +23,20 @@ body {
   overflow-x: clip;
 }
 
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  cursor: pointer;
+}
+
+button:disabled,
+input[type="button"]:disabled,
+input[type="submit"]:disabled,
+input[type="reset"]:disabled {
+  cursor: not-allowed;
+}
+
 .display-font {
   font-family: var(--font-playfair), Georgia, serif;
 }
