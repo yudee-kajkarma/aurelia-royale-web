@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { ProductCard } from "@/components/shared/ProductCard";
 import { ProductDetailsTabs } from "@/components/shop/ProductDetailsTabs";
 import { ProductMediaGallery } from "@/components/shop/ProductMediaGallery";
 import {
-  formatProductPrice,
   getProductBySlug,
   getProductCategory,
   toProductCardModel,
@@ -79,7 +79,7 @@ export default async function ShopDetailsBySlugPage({ params }: ShopDetailsPageP
           <h2 className="display-font mt-4 text-3xl text-[var(--deep)]">{product.title}</h2>
           <p className="mt-3 text-sm font-bold uppercase tracking-[0.12em] text-[#8f9195]">{getProductCategory(product)} by {product.vendor}</p>
           <p className="mt-6 text-xl font-semibold text-[var(--deep)]">
-            {formatProductPrice(product.price)} <span className="mx-3 text-[var(--gold)]">•</span> <span className="text-[var(--gold)]">{product.available ? "IN STOCK" : "OUT OF STOCK"}</span>
+            <PriceDisplay value={product.price} /> <span className="mx-3 text-[var(--gold)]">•</span> <span className="text-[var(--gold)]">{product.available ? "IN STOCK" : "OUT OF STOCK"}</span>
           </p>
           <p className="mt-8 max-w-2xl text-[1.05rem] font-semibold leading-9 text-[#8f9195]">{product.description}</p>
 

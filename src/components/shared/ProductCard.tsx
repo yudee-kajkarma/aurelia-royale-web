@@ -1,8 +1,9 @@
 import { ShoppingBag } from "lucide-react";
+import { PriceDisplay } from "@/components/shared/PriceDisplay";
 
 type ProductCardProps = {
   name: string;
-  price: string;
+  price: number | string;
   category?: string;
   imageUrl?: string;
   description?: string;
@@ -60,7 +61,7 @@ export function ProductCard({
       <p className="mt-4 text-center text-sm font-semibold text-[var(--deep)]/85">{name}</p>
       {compact && category ? <p className="mt-1 text-center text-xs uppercase tracking-[0.12em] text-[var(--deep)]/45">{category}</p> : null}
       {description ? <p className="text-center text-sm text-[var(--deep)]/60">{description}</p> : null}
-      <p className="text-center text-lg font-bold text-[var(--gold)]">{price}</p>
+      <PriceDisplay value={price} className="block text-center text-lg font-bold text-[var(--gold)]" />
     </article>
   );
 }

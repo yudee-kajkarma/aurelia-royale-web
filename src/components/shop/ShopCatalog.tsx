@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Trash2 } from "lucide-react";
 import { ProductCard } from "@/components/shared/ProductCard";
+import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { ShopPagination } from "@/components/shop/ShopPagination";
 import { ShopSelector } from "@/components/shop/ShopSelector";
 import type { ProductCardModel, ProductsPagination } from "@/services/products/product.types";
@@ -141,7 +142,9 @@ export function ShopCatalog({
             <button onClick={applyFilters} className="bg-[var(--gold)] px-8 py-3 text-sm font-bold uppercase tracking-[0.06em] text-white">
               Apply
             </button>
-            <p className="text-base font-bold text-[#8f9195]">Price : ${initialMinPrice} - ${initialMaxPrice}</p>
+            <p className="text-base font-bold text-[#8f9195]">
+              Price : <PriceDisplay value={initialMinPrice} /> - <PriceDisplay value={initialMaxPrice} />
+            </p>
           </div>
 
           <button onClick={clearFilters} className="mt-6 inline-flex items-center gap-2 text-sm font-bold uppercase text-[#8f9195]">
@@ -176,7 +179,7 @@ export function ShopCatalog({
                 <div>
                   <p className="text-lg font-bold text-[var(--deep)]">{item.title}</p>
                   <p className="mt-1 text-xs uppercase tracking-[0.12em] text-[#8f9195]">{item.category}</p>
-                  <p className="text-2xl font-bold text-[var(--deep)]">{item.price}</p>
+                  <PriceDisplay value={item.price} className="block text-2xl font-bold text-[var(--deep)]" />
                 </div>
               </Link>
             ))}
