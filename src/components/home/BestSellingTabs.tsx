@@ -13,7 +13,7 @@ type BestSellingTabsProps = {
 export function BestSellingTabs({ products, categories }: BestSellingTabsProps) {
   const tabNames = useMemo(() => {
     const availableCategories = categories.filter((category) => products.some((item) => item.category === category));
-    return ["All", ...availableCategories.slice(0, 5)];
+    return ["All", ...availableCategories];
   }, [categories, products]);
   const [activeTab, setActiveTab] = useState(tabNames[0] ?? "All");
 
@@ -24,7 +24,8 @@ export function BestSellingTabs({ products, categories }: BestSellingTabsProps) 
       <p className="text-center text-xs font-bold uppercase tracking-[0.35em] text-[var(--gold)]">Best Selling</p>
       <h2 className="display-font mt-3 text-center text-5xl uppercase text-[var(--deep)]">Signature Collection</h2>
 
-      <div className="mx-auto mt-8 grid w-full max-w-[560px] grid-cols-3 border border-[#1b2f2a] bg-[#04100e] sm:grid-cols-6">
+      <div className="mx-auto mt-8 w-full border border-[#1b2f2a] bg-[#04100e]">
+        <div className="grid w-full" style={{ gridTemplateColumns: `repeat(${tabNames.length}, minmax(0, 1fr))` }}>
         {tabNames.map((tab) => {
           const active = tab === activeTab;
           return (
@@ -33,17 +34,18 @@ export function BestSellingTabs({ products, categories }: BestSellingTabsProps) 
               onClick={() => setActiveTab(tab)}
               className={
                 active
-                  ? "border-r border-[#1b2f2a] border-b border-b-[var(--gold)] bg-[#040d0b] px-2 py-3 text-[11px] font-semibold uppercase tracking-[0.04em] text-white"
-                  : "border-r border-[#1b2f2a] border-b border-[#1b2f2a] bg-[#050f0d] px-2 py-3 text-[11px] font-semibold uppercase tracking-[0.04em] text-white/75 transition hover:text-white"
+                  ? "min-h-[72px] border-r border-[#1b2f2a] border-b border-b-[var(--gold)] bg-[#040d0b] px-2 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.04em] text-white"
+                  : "min-h-[72px] border-r border-[#1b2f2a] border-b border-[#1b2f2a] bg-[#050f0d] px-2 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.04em] text-white/75 transition hover:text-white"
               }
             >
               {tab}
             </button>
           );
         })}
+        </div>
       </div>
 
-      <div className="mx-auto mt-10 grid max-w-[780px] gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto mt-10 grid w-full max-w-[1240px] gap-5 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
         {visibleProducts.slice(0, 8).map((product) => (
           <Link key={product.id} href={`/shop-details/${product.slug}`} className="block">
             <ProductCard
