@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { AuthProvider } from "@/providers/AuthProvider";
+import { WishlistProvider } from "@/providers/WishlistProvider";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -48,17 +49,19 @@ export default function RootLayout({
     >
       <body id="top" className="min-h-full flex flex-col grain bg-[var(--background)] text-[var(--foreground)]">
         <AuthProvider>
-          <Header />
-          <main className="flex-1">
-            <PageTransition>{children}</PageTransition>
-          </main>
-          <Footer />
-          <a
-            href="#top"
-            className="fixed bottom-5 right-5 inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-dashed border-[var(--gold)] bg-[#d3b442] text-white shadow-xl transition hover:scale-105"
-          >
-            <ArrowUp size={18} />
-          </a>
+          <WishlistProvider>
+            <Header />
+            <main className="flex-1">
+              <PageTransition>{children}</PageTransition>
+            </main>
+            <Footer />
+            <a
+              href="#top"
+              className="fixed bottom-5 right-5 inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-dashed border-[var(--gold)] bg-[#d3b442] text-white shadow-xl transition hover:scale-105"
+            >
+              <ArrowUp size={18} />
+            </a>
+          </WishlistProvider>
         </AuthProvider>
       </body>
     </html>

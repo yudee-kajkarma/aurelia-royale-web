@@ -3,7 +3,7 @@
 import { AnimatePresence, useReducedMotion } from "framer-motion";
 import { Heart, Menu, Search, ShoppingBag, UserRound } from "lucide-react";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { HeaderLogo } from "@/components/layout/header/HeaderLogo";
 import { HeaderMenuOverlay } from "@/components/layout/header/HeaderMenuOverlay";
 import { HeaderProfileMenu } from "@/components/layout/header/HeaderProfileMenu";
@@ -13,6 +13,7 @@ import {
   shopEditionItems,
 } from "@/components/layout/header/header.data";
 import { useAuth } from "@/providers/AuthProvider";
+import { useWishlist } from "@/providers/WishlistProvider";
 import { getDefaultRouteForRole } from "@/services/auth/auth.types";
 
 export function Header() {
@@ -21,8 +22,10 @@ export function Header() {
   const [openProfileMenu, setOpenProfileMenu] = useState(false);
   const [activePanel, setActivePanel] = useState<"category" | "edition">("category");
   const reduceMotion = useReducedMotion();
+  const pathname = usePathname();
   const router = useRouter();
   const { isAuthenticated, isReady, logout, user } = useAuth();
+  const { count } = useWishlist();
 
   const activeShopItems = activePanel === "category" ? shopCategoryItems : shopEditionItems;
   const accountHref = user ? getDefaultRouteForRole(user.role) : "/login";
@@ -51,6 +54,24 @@ export function Header() {
     }
 
     setOpenProfileMenu((currentValue) => !currentValue);
+  }
+
+  function handleWishlistOpen() {
+    const wishlistPath = "/wishlist";
+
+    if (!isReady) {
+      return;
+    }
+
+    if (!isAuthenticated) {
+      const redirectPath = pathname ?? wishlistPath;
+      closeAllOverlays();
+      router.push(`/login?redirect=${encodeURIComponent(redirectPath === "/login" ? wishlistPath : wishlistPath)}`);
+      return;
+    }
+
+    closeAllOverlays();
+    router.push(wishlistPath);
   }
 
   return (
@@ -101,10 +122,14 @@ export function Header() {
             </div>
             <button
               type="button"
-              className="rounded-full border border-white/15 p-2 transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+              onClick={handleWishlistOpen}
+              className="relative rounded-full border border-white/15 p-2 transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
               aria-label="Wishlist"
             >
               <Heart size={18} />
+              <span className="absolute -right-1 -top-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-[var(--gold)] px-1 text-[10px] font-extrabold text-[#15110a]">
+                {count}
+              </span>
             </button>
             <button type="button" className="rounded-full border border-white/15 p-2 transition hover:border-[var(--gold)] hover:text-[var(--gold)]" aria-label="Shopping bag">
               <ShoppingBag size={18} />
@@ -123,9 +148,11 @@ export function Header() {
         user={user}
         accountHref={accountHref}
         openProfileMenu={openProfileMenu}
+        wishlistCount={count}
         onCloseMenu={() => setOpenMenu(false)}
         onCloseAll={closeAllOverlays}
         onProfileTrigger={handleProfileTrigger}
+        onWishlistOpen={handleWishlistOpen}
         onLogout={handleLogout}
         onActivatePanel={setActivePanel}
       />

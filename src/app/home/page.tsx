@@ -63,15 +63,16 @@ export default async function HomePage() {
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {featuredProducts.map((product) => (
-              <Link key={product.id} href={`/shop-details/${product.slug}`} className="block">
-                <ProductCard
-                  name={product.title}
-                  price={product.price}
-                  category={product.category}
-                  imageUrl={product.imageUrl}
-                  compact
-                />
-              </Link>
+              <ProductCard
+                key={product.id}
+                name={product.title}
+                price={product.price}
+                productId={product.id}
+                href={`/shop-details/${product.slug}`}
+                category={product.category}
+                imageUrl={product.imageUrl}
+                compact
+              />
             ))}
           </div>
 
