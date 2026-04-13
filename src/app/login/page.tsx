@@ -32,8 +32,9 @@ export default function LoginPage() {
     setErrorMessage(null);
 
     try {
-      await login({ email, password });
-      router.replace('/');
+      const session = await login({ email, password });
+      const redirectPath = getSafeAuthRedirect(session.user.role, searchParams.get("redirect"));
+      router.replace(redirectPath);
     } catch (error) {
       setErrorMessage(error instanceof Error ? error.message : "Unable to sign in.");
     } finally {

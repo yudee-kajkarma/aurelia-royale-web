@@ -6,23 +6,12 @@ import { Trash2 } from "lucide-react";
 import { ProductCard } from "@/components/shared/ProductCard";
 import { ShopPagination } from "@/components/shop/ShopPagination";
 import { ShopSelector } from "@/components/shop/ShopSelector";
+import type { ProductCardModel } from "@/services/products/product.types";
 
-type ShopProduct = {
-  id: string;
-  name: string;
-  price: string;
-  category: string;
-  imageUrl: string;
-};
-
-type SideProduct = {
-  name: string;
-  price: string;
-  imageUrl: string;
-};
+type SideProduct = ProductCardModel;
 
 type ShopCatalogProps = {
-  products: ShopProduct[];
+  products: ProductCardModel[];
   latestProducts: SideProduct[];
   instagramImages: string[];
 };
@@ -78,7 +67,7 @@ export function ShopCatalog({ products, latestProducts, instagramImages }: ShopC
       return [...filtered].sort((a, b) => toNumberPrice(b.price) - toNumberPrice(a.price));
     }
     if (sortBy === "name") {
-      return [...filtered].sort((a, b) => a.name.localeCompare(b.name));
+      return [...filtered].sort((a, b) => a.title.localeCompare(b.title));
     }
     return filtered;
   }, [products, category, minPrice, maxPrice, sortBy]);
@@ -155,17 +144,18 @@ export function ShopCatalog({ products, latestProducts, instagramImages }: ShopC
           <div className="mt-4 h-px bg-black/28" />
           <div className="mt-5 space-y-5">
             {latestProducts.map((item) => (
-              <div key={item.name} className="flex items-center gap-4 border-b border-black/25 pb-4">
+              <Link key={item.id} href={`/shop-details/${item.slug}`} className="flex items-center gap-4 border-b border-black/25 pb-4">
                 <div
                   className="h-24 w-24 shrink-0 bg-cover bg-center"
                   style={{ backgroundImage: `url(${item.imageUrl})` }}
                   aria-hidden="true"
                 />
                 <div>
-                  <p className="text-lg font-bold text-[var(--deep)]">{item.name}</p>
+                  <p className="text-lg font-bold text-[var(--deep)]">{item.title}</p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.12em] text-[#8f9195]">{item.category}</p>
                   <p className="text-2xl font-bold text-[var(--deep)]">{item.price}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -212,9 +202,9 @@ export function ShopCatalog({ products, latestProducts, instagramImages }: ShopC
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {pagedProducts.map((product) => (
-            <Link key={product.id} href={`/shop-details/${product.id}`} className="block">
+            <Link key={product.id} href={`/shop-details/${product.slug}`} className="block">
               <ProductCard
-                name={product.name}
+                name={product.title}
                 price={product.price}
                 category={product.category}
                 imageUrl={product.imageUrl}
@@ -223,6 +213,12 @@ export function ShopCatalog({ products, latestProducts, instagramImages }: ShopC
             </Link>
           ))}
         </div>
+
+        {pagedProducts.length === 0 ? (
+          <div className="mt-8 border border-dashed border-black/15 bg-white px-6 py-10 text-center text-sm font-semibold uppercase tracking-[0.1em] text-[#8f9195]">
+            No products match the current filters.
+          </div>
+        ) : null}
 
         <ShopPagination
           currentPage={activePage}

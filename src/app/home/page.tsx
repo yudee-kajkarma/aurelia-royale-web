@@ -4,9 +4,7 @@ import { BestSellingTabs } from "@/components/home/BestSellingTabs";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import { TestimonialSlider } from "@/components/home/TestimonialSlider";
 import { ProductCard } from "@/components/shared/ProductCard";
-import { shopProducts } from "@/data/shopProducts";
-
-const products = shopProducts;
+import { getAllProducts, toProductCardModel } from "@/services/products/product.service";
 
 const categories = [
   {
@@ -35,7 +33,13 @@ const categories = [
   },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const products = await getAllProducts()
+    .then((items) => items.map(toProductCardModel))
+    .catch(() => []);
+
+  const featuredProducts = products.slice(0, 4);
+
   return (
     <>
       <Hero />
@@ -46,10 +50,10 @@ export default function HomePage() {
           <h2 className="display-font mt-2 text-5xl uppercase text-[var(--deep)] sm:text-6xl">Top Trending</h2>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {products.map((product) => (
-              <Link key={product.id} href={`/shop-details/${product.id}`} className="block">
+            {featuredProducts.map((product) => (
+              <Link key={product.id} href={`/shop-details/${product.slug}`} className="block">
                 <ProductCard
-                  name={product.name}
+                  name={product.title}
                   price={product.price}
                   category={product.category}
                   imageUrl={product.imageUrl}
@@ -90,7 +94,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <BestSellingTabs />
+        <BestSellingTabs products={products} />
       </div>
 
       <TestimonialSlider />

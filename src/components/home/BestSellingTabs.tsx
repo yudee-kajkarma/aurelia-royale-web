@@ -1,25 +1,24 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { ProductCard } from "@/components/shared/ProductCard";
-import { shopProducts } from "@/data/shopProducts";
+import type { ProductCardModel } from "@/services/products/product.types";
 
-const tabNames = ["Rings", "Bracelet", "Ear Rings", "Necklace", "Pendant", "Watches"];
+type BestSellingTabsProps = {
+  products: ProductCardModel[];
+};
 
-const baseProducts = shopProducts;
+export function BestSellingTabs({ products }: BestSellingTabsProps) {
+  const tabNames = useMemo(() => ["All", ...Array.from(new Set(products.map((item) => item.category))).slice(0, 5)], [products]);
+  const [activeTab, setActiveTab] = useState(tabNames[0] ?? "All");
 
-export function BestSellingTabs() {
-  const [activeTab, setActiveTab] = useState(tabNames[0]);
-  const products =
-    activeTab === "Rings"
-      ? baseProducts
-      : baseProducts.filter((item) => item.category.toLowerCase() === activeTab.toLowerCase());
+  const visibleProducts = activeTab === "All" ? products : products.filter((item) => item.category === activeTab);
 
   return (
     <section className="mt-24">
       <p className="text-center text-xs font-bold uppercase tracking-[0.35em] text-[var(--gold)]">Best Selling</p>
-      <h2 className="display-font mt-3 text-center text-5xl uppercase text-[var(--deep)]">Graceful Ear Drops</h2>
+      <h2 className="display-font mt-3 text-center text-5xl uppercase text-[var(--deep)]">Signature Collection</h2>
 
       <div className="mx-auto mt-8 grid w-full max-w-[560px] grid-cols-3 border border-[#1b2f2a] bg-[#04100e] sm:grid-cols-6">
         {tabNames.map((tab) => {
@@ -41,10 +40,10 @@ export function BestSellingTabs() {
       </div>
 
       <div className="mx-auto mt-10 grid max-w-[780px] gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {products.map((product) => (
-          <Link key={product.id} href={`/shop-details/${product.id}`} className="block">
+        {visibleProducts.slice(0, 8).map((product) => (
+          <Link key={product.id} href={`/shop-details/${product.slug}`} className="block">
             <ProductCard
-              name={product.name}
+              name={product.title}
               price={product.price}
               category={product.category}
               imageUrl={product.imageUrl}

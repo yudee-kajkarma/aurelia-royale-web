@@ -1,25 +1,5 @@
 import { ShopCatalog } from "@/components/shop/ShopCatalog";
-import { shopProducts } from "@/data/shopProducts";
-
-const products = shopProducts;
-
-const latestProducts = [
-  {
-    name: "Ear Ring",
-    price: "$30.00",
-    imageUrl: "https://jewellery-bay-two.vercel.app/assets/our_image/client_products/ear_rings1.png",
-  },
-  {
-    name: "Ear Rings",
-    price: "$22.00",
-    imageUrl: "https://jewellery-bay-two.vercel.app/assets/our_image/instagram/5.jpeg",
-  },
-  {
-    name: "Bracelate",
-    price: "$18.00",
-    imageUrl: "https://jewellery-bay-two.vercel.app/assets/our_image/client_products/bracelet1.png",
-  },
-];
+import { getAllProducts, toProductCardModel } from "@/services/products/product.service";
 
 const instagramImages = [
   "https://jewellery-bay-two.vercel.app/assets/our_image/instagram/1.jpeg",
@@ -28,7 +8,13 @@ const instagramImages = [
   "https://jewellery-bay-two.vercel.app/assets/our_image/instagram/4.jpeg",
 ];
 
-export default function ShopPage() {
+export default async function ShopPage() {
+  const productCards = await getAllProducts()
+    .then((products) => products.map(toProductCardModel))
+    .catch(() => []);
+
+  const latestProducts = productCards.slice(0, 3);
+
   return (
     <main className="min-h-screen overflow-x-clip bg-[var(--background)]">
       <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden">
@@ -50,7 +36,7 @@ export default function ShopPage() {
         <div className="h-3 [background:radial-gradient(circle,#0e2230_3px,transparent_4px)] [background-size:22px_100%]" />
       </section>
 
-      <ShopCatalog products={products} latestProducts={latestProducts} instagramImages={instagramImages} />
+      <ShopCatalog products={productCards} latestProducts={latestProducts} instagramImages={instagramImages} />
 
     </main>
   );
