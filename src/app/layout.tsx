@@ -24,10 +24,10 @@ export const metadata: Metadata = {
   description: "dalila - luxury jewelry storefront",
   keywords: ["dalila", "jewelry", "rings", "earrings", "bracelet", "watches"],
   authors: [{ name: "vecuro" }],
-  icons: {
-    icon: "/icon.png",
-    apple: "/icon.png",
-  },
+  // icons: {
+  //   icon: "/icon.png",
+  //   apple: "/icon.png",
+  // },
   robots: {
     index: true,
     follow: true,
