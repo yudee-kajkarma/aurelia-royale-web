@@ -4,41 +4,53 @@ import { BestSellingTabs } from "@/components/home/BestSellingTabs";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import { TestimonialSlider } from "@/components/home/TestimonialSlider";
 import { ProductCard } from "@/components/shared/ProductCard";
-import { getAllProducts, toProductCardModel } from "@/services/products/product.service";
+import {
+  getAllProductFilters,
+  getAllProducts,
+  toProductCardModel,
+} from "@/services/products/product.service";
 
-const categories = [
-  {
-    name: "Rings",
-    imageUrl: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/ring.webp",
-  },
-  {
-    name: "Necklace Set",
-    imageUrl: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/nacklace.png",
-  },
-  {
-    name: "Earrings",
-    imageUrl: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/ear-ring.webp",
-  },
-  {
-    name: "Bracelets",
-    imageUrl: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/bracelet.webp",
-  },
-  {
-    name: "Watches",
-    imageUrl: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/waches.png",
-  },
-  {
-    name: "Pendant",
-    imageUrl: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/necklace.webp",
-  },
-];
+const categoryImageMap: Record<string, string> = {
+  Bracelet: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/bracelet.webp",
+  Earring: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/ear-ring.webp",
+  Necklace: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/necklace.webp",
+  "Necklace + Earring": "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/nacklace.png",
+  Pendant: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/necklace.webp",
+  Ring: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/ring.webp",
+  Watch: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/waches.png",
+};
+
+function getCategoryImage(category: string) {
+  return categoryImageMap[category] ?? "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/necklace.webp";
+}
 
 export default async function HomePage() {
-  const products = await getAllProducts()
-    .then((items) => items.map(toProductCardModel))
-    .catch(() => []);
+  const [products, filterOptions] = await Promise.all([
+    getAllProducts()
+      .then((items) => items.map(toProductCardModel))
+      .catch(() => []),
+    getAllProductFilters().catch(() => ({
+      categories: [],
+      stoneTypes: [],
+      colors: [],
+      shapes: [],
+      origins: [],
+      treatments: [],
+      certificates: [],
+      measurements: [],
+      vendors: [],
+      tags: [],
+      priceRange: { min: 0, max: 0 },
+      ratingRange: { min: 0, max: 0 },
+      caratRange: { min: 0, max: 0 },
+    })),
+  ]);
 
   const featuredProducts = products.slice(0, 4);
+  const categoryTiles = filterOptions.categories.map((category) => ({
+    name: category,
+    imageUrl: getCategoryImage(category),
+  }));
 
   return (
     <>
@@ -75,8 +87,8 @@ export default async function HomePage() {
           <h2 className="display-font mt-3 text-center text-5xl uppercase text-[var(--deep)]">Shop By Category</h2>
 
           <div className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((category) => (
-              <div key={category.name} className="group relative h-56 overflow-hidden bg-[#0d1f1a] sm:h-60">
+            {categoryTiles.map((category) => (
+              <Link key={category.name} href={`/shop?category=${encodeURIComponent(category.name)}`} className="group relative block h-56 overflow-hidden bg-[#0d1f1a] sm:h-60">
                 <div
                   className="absolute inset-0 bg-cover bg-center transition duration-500 group-hover:scale-105"
                   style={{ backgroundImage: `url(${category.imageUrl})` }}
@@ -89,12 +101,12 @@ export default async function HomePage() {
                     {category.name}
                   </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </section>
 
-        <BestSellingTabs products={products} />
+        <BestSellingTabs products={products} categories={filterOptions.categories} />
       </div>
 
       <TestimonialSlider />

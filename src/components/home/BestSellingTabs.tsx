@@ -7,10 +7,14 @@ import type { ProductCardModel } from "@/services/products/product.types";
 
 type BestSellingTabsProps = {
   products: ProductCardModel[];
+  categories: string[];
 };
 
-export function BestSellingTabs({ products }: BestSellingTabsProps) {
-  const tabNames = useMemo(() => ["All", ...Array.from(new Set(products.map((item) => item.category))).slice(0, 5)], [products]);
+export function BestSellingTabs({ products, categories }: BestSellingTabsProps) {
+  const tabNames = useMemo(() => {
+    const availableCategories = categories.filter((category) => products.some((item) => item.category === category));
+    return ["All", ...availableCategories.slice(0, 5)];
+  }, [categories, products]);
   const [activeTab, setActiveTab] = useState(tabNames[0] ?? "All");
 
   const visibleProducts = activeTab === "All" ? products : products.filter((item) => item.category === activeTab);

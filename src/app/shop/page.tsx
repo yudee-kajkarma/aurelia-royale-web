@@ -1,5 +1,9 @@
 import { ShopCatalog } from "@/components/shop/ShopCatalog";
-import { getAllProducts, toProductCardModel } from "@/services/products/product.service";
+import {
+  getAllProductFilters,
+  getProducts,
+  toProductCardModel,
+} from "@/services/products/product.service";
 
 const instagramImages = [
   "https://jewellery-bay-two.vercel.app/assets/our_image/instagram/1.jpeg",
@@ -8,12 +12,48 @@ const instagramImages = [
   "https://jewellery-bay-two.vercel.app/assets/our_image/instagram/4.jpeg",
 ];
 
-export default async function ShopPage() {
-  const productCards = await getAllProducts()
-    .then((products) => products.map(toProductCardModel))
-    .catch(() => []);
+type ShopPageProps = {
+  searchParams: Promise<{
+    page?: string;
+    category?: string;
+    minPrice?: string;
+    maxPrice?: string;
+    sort?: string;
+  }>;
+};
+
+export default async function ShopPage({ searchParams }: ShopPageProps) {
+  const params = await searchParams;
+  const page = Math.max(1, Number(params.page) || 1);
+  const selectedSort = params.sort ?? "top-rating";
+  const filterOptions = await getAllProductFilters();
+  const selectedMinPrice = params.minPrice ? Number(params.minPrice) : filterOptions.priceRange.min;
+  const selectedMaxPrice = params.maxPrice ? Number(params.maxPrice) : filterOptions.priceRange.max;
+  const selectedCategory = params.category ?? "All";
+
+  const result = await getProducts({
+    page,
+    limit: 8,
+    category: params.category,
+    priceMin: selectedMinPrice,
+    priceMax: selectedMaxPrice,
+  }).catch(() => ({
+    products: [],
+    pagination: {
+      currentPage: page,
+      totalPages: 1,
+      totalRecords: 0,
+      recordsPerPage: 8,
+      hasNextPage: false,
+      hasPrevPage: false,
+    },
+    appliedFilters: [],
+  }));
+
+  const productCards = result.products.map(toProductCardModel);
 
   const latestProducts = productCards.slice(0, 3);
+  const categories = ["All", ...filterOptions.categories];
 
   return (
     <main className="min-h-screen overflow-x-clip bg-[var(--background)]">
@@ -36,7 +76,19 @@ export default async function ShopPage() {
         <div className="h-3 [background:radial-gradient(circle,#0e2230_3px,transparent_4px)] [background-size:22px_100%]" />
       </section>
 
-      <ShopCatalog products={productCards} latestProducts={latestProducts} instagramImages={instagramImages} />
+      <ShopCatalog
+        products={productCards}
+        latestProducts={latestProducts}
+        instagramImages={instagramImages}
+        categories={categories}
+        pagination={result.pagination}
+        initialCategory={selectedCategory}
+        initialMinPrice={selectedMinPrice}
+        initialMaxPrice={selectedMaxPrice}
+        minAllowedPrice={filterOptions.priceRange.min}
+        maxAllowedPrice={filterOptions.priceRange.max}
+        initialSortBy={selectedSort}
+      />
 
     </main>
   );

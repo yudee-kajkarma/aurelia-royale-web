@@ -1,8 +1,12 @@
 import type {
+  AllFiltersResponse,
+  GetProductsParams,
   ProductCardModel,
   ProductDetail,
   ProductDetailResponse,
+  ProductFilterOptions,
   ProductListItem,
+  ProductsApiResult,
   ProductsListResponse,
 } from "@/services/products/product.types";
 
@@ -76,6 +80,101 @@ export async function getProductsPage(page = 1, limit = DEFAULT_PAGE_SIZE) {
   }
 
   return response;
+}
+
+export async function getProducts(params: GetProductsParams = {}): Promise<ProductsApiResult> {
+  const requestParams = new URLSearchParams();
+  const page = params.page ?? 1;
+  const limit = params.limit ?? DEFAULT_PAGE_SIZE;
+
+  requestParams.set("page", String(page));
+  requestParams.set("limit", String(limit));
+
+  if (params.category) {
+    requestParams.set("category", params.category);
+  }
+
+  if (params.search) {
+    requestParams.set("search", params.search);
+  }
+
+  if (params.stoneType) {
+    requestParams.set("stoneType", params.stoneType);
+  }
+
+  if (params.color) {
+    requestParams.set("color", params.color);
+  }
+
+  if (params.shape) {
+    requestParams.set("shape", params.shape);
+  }
+
+  if (params.origin) {
+    requestParams.set("origin", params.origin);
+  }
+
+  if (params.treatment) {
+    requestParams.set("treatment", params.treatment);
+  }
+
+  if (params.certificate) {
+    requestParams.set("certificate", params.certificate);
+  }
+
+  if (params.measurement) {
+    requestParams.set("measurement", params.measurement);
+  }
+
+  if (params.vendor) {
+    requestParams.set("vendor", params.vendor);
+  }
+
+  if (params.tags) {
+    requestParams.set("tags", Array.isArray(params.tags) ? params.tags.join(",") : params.tags);
+  }
+
+  if (params.metal) {
+    requestParams.set("metal", Array.isArray(params.metal) ? params.metal.join(",") : params.metal);
+  }
+
+  if (params.priceMin !== undefined && params.priceMin !== "") {
+    requestParams.set("price_min", String(params.priceMin));
+  }
+
+  if (params.priceMax !== undefined && params.priceMax !== "") {
+    requestParams.set("price_max", String(params.priceMax));
+  }
+
+  if (params.carat !== undefined && params.carat !== "") {
+    requestParams.set("carat", String(params.carat));
+  }
+
+  if (params.availability !== undefined && params.availability !== "") {
+    requestParams.set("availability", String(params.availability));
+  }
+
+  const response = await getJson<ProductsListResponse>(`/products?${requestParams.toString()}`);
+
+  if (!response) {
+    throw new Error("Products endpoint returned no data.");
+  }
+
+  return {
+    products: response.data,
+    pagination: response.pagination,
+    appliedFilters: response.filters.applied,
+  };
+}
+
+export async function getAllProductFilters(): Promise<ProductFilterOptions> {
+  const response = await getJson<AllFiltersResponse>("/products/all-filters");
+
+  if (!response) {
+    throw new Error("Product filters endpoint returned no data.");
+  }
+
+  return response.data;
 }
 
 export async function getAllProducts() {
