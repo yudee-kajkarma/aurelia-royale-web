@@ -66,7 +66,7 @@ export function AddToCartButton({
       className={className || "inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/90 px-3 py-2 text-sm font-bold text-[var(--deep)] shadow-sm transition hover:border-[var(--gold)] hover:text-[var(--gold)] disabled:opacity-60"}
       aria-label={label}
     >
-      <ShoppingBag size={18} />
+      {/* <ShoppingBag size={18} /> */}
       {iconOnly ? null : isSubmitting ? "Adding..." : label}
     </button>
   );
