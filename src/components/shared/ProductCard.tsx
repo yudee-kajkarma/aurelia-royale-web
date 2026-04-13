@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AddToCartButton } from "@/components/cart/AddToCartButton";
+import { ProductImage } from "./ProductImage";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { WishlistToggleButton } from "@/components/wishlist/WishlistToggleButton";
 
@@ -30,7 +31,7 @@ export function ProductCard({
     <article
       className={
         compact
-          ? "group relative border border-black/5 bg-[#f7f7f7] p-4 transition hover:-translate-y-0.5 hover:shadow-md"
+          ? "group relative overflow-hidden border border-black/5 bg-[#f7f7f7] pb-4 transition hover:-translate-y-0.5 hover:shadow-md"
           : "group relative rounded-2xl border border-black/5 bg-[var(--surface)] p-5 transition hover:-translate-y-1 hover:shadow-lg"
       }
     >
@@ -46,16 +47,12 @@ export function ProductCard({
       <div
         className={
           compact
-            ? "relative z-0 flex h-44 items-center justify-center overflow-hidden bg-[#f9f9f9] sm:h-48"
+            ? "relative z-0 flex h-52 items-center justify-center overflow-hidden bg-[#f3f1ec] sm:h-56"
             : "relative z-0 flex h-48 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-white to-[#ecebe5]"
         }
       >
         {compact ? (
-          <div
-            className="h-full w-full bg-contain bg-center bg-no-repeat"
-            style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : undefined}
-            aria-hidden="true"
-          />
+          <ProductImage src={imageUrl} alt={name} className="block h-full w-full object-cover object-center" />
         ) : category ? (
           <span className="display-font text-sm tracking-[0.3em] text-[var(--deep)]/45">{category}</span>
         ) : null}
@@ -74,10 +71,12 @@ export function ProductCard({
         ) : null}
       </div>
 
-      <p className="relative z-0 mt-4 text-center text-sm font-semibold text-[var(--deep)]/85">{name}</p>
-      {compact && category ? <p className="relative z-0 mt-1 text-center text-xs uppercase tracking-[0.12em] text-[var(--deep)]/45">{category}</p> : null}
-      {description ? <p className="relative z-0 text-center text-sm text-[var(--deep)]/60">{description}</p> : null}
-      <PriceDisplay value={price} className="relative z-0 block text-center text-lg font-bold text-[var(--gold)]" />
+      <div className={compact ? "px-4 pt-4" : ""}>
+        <p className="relative z-0 text-center text-sm font-semibold text-[var(--deep)]/85">{name}</p>
+        {compact && category ? <p className="relative z-0 mt-1 text-center text-xs uppercase tracking-[0.12em] text-[var(--deep)]/45">{category}</p> : null}
+        {description ? <p className="relative z-0 text-center text-sm text-[var(--deep)]/60">{description}</p> : null}
+        <PriceDisplay value={price} className="relative z-0 block text-center text-lg font-bold text-[var(--gold)]" />
+      </div>
     </article>
   );
 }

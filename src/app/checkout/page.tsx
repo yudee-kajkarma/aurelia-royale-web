@@ -11,6 +11,7 @@ import { useCart } from "@/providers/CartProvider";
 import { clearPendingOrderStatus, setPendingOrderStatus } from "@/services/orders/checkout.storage";
 import { orderService } from "@/services/orders/order.service";
 import type { CreateOrderPayload, PaymentMethod } from "@/services/orders/order.types";
+import { ProductImage } from "../../components/shared/ProductImage";
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -141,11 +142,7 @@ export default function CheckoutPage() {
                         className="grid gap-4 rounded-[24px] border border-[var(--foreground)]/10 bg-white p-4 sm:grid-cols-[92px_minmax(0,1fr)_auto] sm:items-center"
                       >
                         <div className="overflow-hidden rounded-[18px] border border-[var(--gold)]/15 bg-[linear-gradient(180deg,#f7efe3_0%,#ffffff_100%)] p-2">
-                          <div
-                            className="h-20 w-full bg-contain bg-center bg-no-repeat"
-                            style={item.thumbnail ? { backgroundImage: `url(${item.thumbnail})` } : undefined}
-                            aria-hidden="true"
-                          />
+                          <ProductImage src={item.thumbnail} alt={item.title} className="h-20 w-full object-contain" />
                         </div>
 
                         <div>

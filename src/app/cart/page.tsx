@@ -6,6 +6,7 @@ import { LoaderCircle, Minus, Plus, Trash2 } from "lucide-react";
 import { AuthGuard } from "@/components/auth/AuthGuard";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { useCart } from "@/providers/CartProvider";
+import { ProductImage } from "../../components/shared/ProductImage";
 
 export default function CartPage() {
   const { items, count, totalValue, clearAll, isLoading, updateItemQuantity, removeItem } = useCart();
@@ -96,11 +97,7 @@ export default function CartPage() {
                     className="grid gap-5 rounded-[28px] border border-[var(--foreground)]/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.94)_0%,rgba(248,248,245,0.94)_100%)] p-4 sm:grid-cols-[120px_minmax(0,1fr)_auto] sm:items-center"
                   >
                     <div className="overflow-hidden rounded-[20px] border border-[var(--gold)]/15 bg-[linear-gradient(180deg,#f7efe3_0%,#ffffff_100%)] p-3">
-                      <div
-                        className="h-28 w-full bg-contain bg-center bg-no-repeat"
-                        style={item.thumbnail ? { backgroundImage: `url(${item.thumbnail})` } : undefined}
-                        aria-hidden="true"
-                      />
+                      <ProductImage src={item.thumbnail} alt={item.title} className="h-28 w-full object-contain" />
                     </div>
 
                     <div>
