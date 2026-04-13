@@ -1,13 +1,47 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { Minus, Plus, Trash2 } from "lucide-react";
+import { LoaderCircle, Minus, Plus, Trash2 } from "lucide-react";
 import { AuthGuard } from "@/components/auth/AuthGuard";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { useCart } from "@/providers/CartProvider";
 
 export default function CartPage() {
   const { items, count, totalValue, clearAll, isLoading, updateItemQuantity, removeItem } = useCart();
+  const [isClearing, setIsClearing] = useState(false);
+  const [removingProductId, setRemovingProductId] = useState<string | null>(null);
+  const [updatingProductId, setUpdatingProductId] = useState<string | null>(null);
+
+  async function handleClearAll() {
+    setIsClearing(true);
+
+    try {
+      await clearAll();
+    } finally {
+      setIsClearing(false);
+    }
+  }
+
+  async function handleRemoveItem(productId: string) {
+    setRemovingProductId(productId);
+
+    try {
+      await removeItem(productId);
+    } finally {
+      setRemovingProductId(null);
+    }
+  }
+
+  async function handleUpdateQuantity(productId: string, quantity: number) {
+    setUpdatingProductId(productId);
+
+    try {
+      await updateItemQuantity(productId, quantity);
+    } finally {
+      setUpdatingProductId(null);
+    }
+  }
 
   return (
     <AuthGuard allowedRoles={["USER", "ADMIN"]}>
@@ -31,12 +65,12 @@ export default function CartPage() {
               </div>
               <button
                 type="button"
-                onClick={() => void clearAll()}
-                disabled={count === 0}
+                onClick={() => void handleClearAll()}
+                disabled={count === 0 || isClearing || removingProductId !== null || updatingProductId !== null}
                 className="inline-flex items-center gap-2 rounded-full border border-red-200 bg-red-50 px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-red-700 disabled:opacity-60"
               >
-                <Trash2 size={16} />
-                Clear Cart
+                {isClearing ? <LoaderCircle size={16} className="animate-spin" /> : <Trash2 size={16} />}
+                {isClearing ? "Clearing..." : "Clear Cart"}
               </button>
             </div>
 
@@ -66,29 +100,32 @@ export default function CartPage() {
                       <div className="inline-flex items-center overflow-hidden rounded-full border border-[var(--foreground)]/10">
                         <button
                           type="button"
-                          onClick={() => void updateItemQuantity(item.productId, Math.max(1, item.quantity - 1))}
-                          className="inline-flex h-11 w-11 items-center justify-center bg-[var(--surface)] text-[var(--foreground)]"
+                          onClick={() => void handleUpdateQuantity(item.productId, Math.max(1, item.quantity - 1))}
+                          disabled={isClearing || removingProductId !== null || updatingProductId !== null}
+                          className="inline-flex h-11 w-11 items-center justify-center bg-[var(--surface)] text-[var(--foreground)] disabled:opacity-60"
                           aria-label={`Decrease quantity for ${item.title}`}
                         >
-                          <Minus size={16} />
+                          {updatingProductId === item.productId ? <LoaderCircle size={16} className="animate-spin" /> : <Minus size={16} />}
                         </button>
                         <span className="inline-flex h-11 min-w-12 items-center justify-center px-4 text-sm font-bold text-[var(--foreground)]">{item.quantity}</span>
                         <button
                           type="button"
-                          onClick={() => void updateItemQuantity(item.productId, item.quantity + 1)}
-                          className="inline-flex h-11 w-11 items-center justify-center bg-[var(--surface)] text-[var(--foreground)]"
+                          onClick={() => void handleUpdateQuantity(item.productId, item.quantity + 1)}
+                          disabled={isClearing || removingProductId !== null || updatingProductId !== null}
+                          className="inline-flex h-11 w-11 items-center justify-center bg-[var(--surface)] text-[var(--foreground)] disabled:opacity-60"
                           aria-label={`Increase quantity for ${item.title}`}
                         >
-                          <Plus size={16} />
+                          {updatingProductId === item.productId ? <LoaderCircle size={16} className="animate-spin" /> : <Plus size={16} />}
                         </button>
                       </div>
                       <button
                         type="button"
-                        onClick={() => void removeItem(item.productId)}
-                        className="inline-flex items-center gap-2 rounded-full border border-red-200 px-4 py-2 text-sm font-bold uppercase tracking-[0.08em] text-red-700"
+                        onClick={() => void handleRemoveItem(item.productId)}
+                        disabled={isClearing || removingProductId !== null || updatingProductId !== null}
+                        className="inline-flex items-center gap-2 rounded-full border border-red-200 px-4 py-2 text-sm font-bold uppercase tracking-[0.08em] text-red-700 disabled:opacity-60"
                       >
-                        <Trash2 size={15} />
-                        Remove
+                        {removingProductId === item.productId ? <LoaderCircle size={15} className="animate-spin" /> : <Trash2 size={15} />}
+                        {removingProductId === item.productId ? "Removing..." : "Remove"}
                       </button>
                     </div>
                   </article>

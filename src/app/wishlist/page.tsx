@@ -1,13 +1,36 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { Trash2 } from "lucide-react";
+import { LoaderCircle, Trash2 } from "lucide-react";
 import { AuthGuard } from "@/components/auth/AuthGuard";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { useWishlist } from "@/providers/WishlistProvider";
 
 export default function WishlistPage() {
   const { items, count, totalValue, clearAll, isLoading, removeItem } = useWishlist();
+  const [isClearing, setIsClearing] = useState(false);
+  const [removingProductId, setRemovingProductId] = useState<string | null>(null);
+
+  async function handleClearAll() {
+    setIsClearing(true);
+
+    try {
+      await clearAll();
+    } finally {
+      setIsClearing(false);
+    }
+  }
+
+  async function handleRemoveItem(productId: string) {
+    setRemovingProductId(productId);
+
+    try {
+      await removeItem(productId);
+    } finally {
+      setRemovingProductId(null);
+    }
+  }
 
   return (
     <AuthGuard allowedRoles={["USER", "ADMIN"]}>
@@ -31,12 +54,12 @@ export default function WishlistPage() {
               </div>
               <button
                 type="button"
-                onClick={() => void clearAll()}
-                disabled={count === 0}
+                onClick={() => void handleClearAll()}
+                disabled={count === 0 || isClearing || removingProductId !== null}
                 className="inline-flex items-center gap-2 rounded-full border border-red-200 bg-red-50 px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-red-700 disabled:opacity-60"
               >
-                <Trash2 size={16} />
-                Clear Wishlist
+                {isClearing ? <LoaderCircle size={16} className="animate-spin" /> : <Trash2 size={16} />}
+                {isClearing ? "Clearing..." : "Clear Wishlist"}
               </button>
             </div>
 
@@ -68,10 +91,12 @@ export default function WishlistPage() {
                       </Link>
                       <button
                         type="button"
-                        onClick={() => void removeItem(item.productId)}
-                        className="inline-flex items-center justify-center rounded-full border border-red-200 px-4 py-3 text-sm font-bold uppercase tracking-[0.08em] text-red-700"
+                        onClick={() => void handleRemoveItem(item.productId)}
+                        disabled={isClearing || removingProductId !== null}
+                        className="inline-flex items-center justify-center gap-2 rounded-full border border-red-200 px-4 py-3 text-sm font-bold uppercase tracking-[0.08em] text-red-700 disabled:opacity-60"
                       >
-                        Remove
+                        {removingProductId === item.productId ? <LoaderCircle size={16} className="animate-spin" /> : <Trash2 size={16} />}
+                        {removingProductId === item.productId ? "Removing..." : "Remove"}
                       </button>
                     </div>
                   </article>
