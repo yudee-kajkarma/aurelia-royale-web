@@ -108,14 +108,14 @@ export function Header() {
           <HeaderLogo />
 
           <div className="flex items-center gap-2">
-            <button
+            {/* <button
               type="button"
               onClick={() => setOpenSearch(true)}
               className="rounded-full border border-white/15 p-2 transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
               aria-label="Open search"
             >
               <Search size={18} />
-            </button>
+            </button> */}
             <div className="relative">
               <button
                 type="button"

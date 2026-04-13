@@ -63,8 +63,8 @@ export function ProductCard({
               iconOnly={false}
               className={
               compact
-                ? "absolute bottom-3 z-0 inline-flex translate-y-10 items-center gap-1 bg-[var(--deep)] px-3 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"
-                : "absolute bottom-3 z-0 inline-flex translate-y-12 items-center gap-1 border border-[var(--deep)]/20 bg-white px-3 py-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--deep)] opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100"
+                ? "absolute bottom-3 z-20 inline-flex translate-y-10 items-center gap-1 bg-[var(--deep)] px-3 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"
+                : "absolute bottom-3 z-20 inline-flex translate-y-12 items-center gap-1 border border-[var(--deep)]/20 bg-white px-3 py-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--deep)] opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100"
               }
             />
           ) : null
