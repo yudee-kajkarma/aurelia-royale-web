@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { Heart, ShoppingBag, UserRound, X } from "lucide-react";
 import { HeaderLogo } from "@/components/layout/header/HeaderLogo";
 import { HeaderProfileMenu } from "@/components/layout/header/HeaderProfileMenu";
@@ -31,6 +31,130 @@ type HeaderMenuOverlayProps = {
   onActivatePanel: (panel: "category" | "edition") => void;
 };
 
+const desktopListVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.08,
+    },
+  },
+  exit: {
+    transition: {
+      staggerChildren: 0.04,
+      staggerDirection: -1,
+    },
+  },
+};
+
+const mobileListVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.1,
+    },
+  },
+  exit: {
+    transition: {
+      staggerChildren: 0.025,
+      staggerDirection: -1,
+    },
+  },
+};
+
+const linkItemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    x: -18,
+    y: 12,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: {
+      duration: 0.34,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+  exit: {
+    opacity: 0,
+    x: -12,
+    y: -6,
+    transition: {
+      duration: 0.18,
+      ease: "easeInOut",
+    },
+  },
+};
+
+const panelContentVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 20,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.38,
+      ease: [0.22, 1, 0.36, 1],
+      delay: 0.08,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: 14,
+    transition: {
+      duration: 0.2,
+      ease: "easeInOut",
+    },
+  },
+};
+
+const cardGridVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren: 0.16,
+    },
+  },
+  exit: {
+    transition: {
+      staggerChildren: 0.03,
+      staggerDirection: -1,
+    },
+  },
+};
+
+const cardItemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 24,
+    scale: 0.97,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.36,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: 18,
+    scale: 0.98,
+    transition: {
+      duration: 0.18,
+      ease: "easeInOut",
+    },
+  },
+};
+
 export function HeaderMenuOverlay({
   open,
   reduceMotion,
@@ -50,6 +174,13 @@ export function HeaderMenuOverlay({
   onLogout,
   onActivatePanel,
 }: HeaderMenuOverlayProps) {
+  const listVariants = reduceMotion ? undefined : desktopListVariants;
+  const mobileVariants = reduceMotion ? undefined : mobileListVariants;
+  const itemVariants = reduceMotion ? undefined : linkItemVariants;
+  const contentVariants = reduceMotion ? undefined : panelContentVariants;
+  const gridVariants = reduceMotion ? undefined : cardGridVariants;
+  const tileVariants = reduceMotion ? undefined : cardItemVariants;
+
   return (
     <AnimatePresence>
       {open && (
@@ -123,10 +254,10 @@ export function HeaderMenuOverlay({
             </div>
 
             <div className="grid min-h-[calc(100vh-5rem)] grid-cols-1 lg:grid-cols-[340px_minmax(0,1fr)]">
-              <aside className="hidden border-r border-white/45 bg-[#074b37] lg:block">
+              <motion.aside className="hidden border-r border-white/45 bg-[#074b37] lg:block" variants={contentVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
                 <nav className="h-full px-10 py-12">
-                  <ul className="space-y-10 text-[2.1rem] uppercase leading-none tracking-[0.03em] text-white/90">
-                    <li>
+                  <motion.ul className="space-y-10 text-[2.1rem] uppercase leading-none tracking-[0.03em] text-white/90" variants={listVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
+                    <motion.li variants={itemVariants}>
                       <div className="space-y-4">
                         <Link
                           href="/about"
@@ -135,9 +266,9 @@ export function HeaderMenuOverlay({
                         >
                           About Us
                         </Link>
-                        <ul className="space-y-3 pl-1 text-sm font-medium uppercase tracking-[0.14em] text-white/75">
+                        <motion.ul className="space-y-3 pl-1 text-sm font-medium uppercase tracking-[0.14em] text-white/75" variants={mobileVariants}>
                           {aboutItems.map((item) => (
-                            <li key={item.href}>
+                            <motion.li key={item.href} variants={itemVariants}>
                               <Link
                                 href={item.href}
                                 className="block transition hover:text-[var(--gold)]"
@@ -145,13 +276,13 @@ export function HeaderMenuOverlay({
                               >
                                 {item.label}
                               </Link>
-                            </li>
+                            </motion.li>
                           ))}
-                        </ul>
+                        </motion.ul>
                       </div>
-                    </li>
+                    </motion.li>
 
-                    <li>
+                    <motion.li variants={itemVariants}>
                       <div className="space-y-4">
                         <Link
                           href="/shop"
@@ -160,8 +291,8 @@ export function HeaderMenuOverlay({
                         >
                           Shop
                         </Link>
-                        <ul className="space-y-3 pl-1 text-sm font-medium uppercase tracking-[0.14em] text-white/75">
-                          <li>
+                        <motion.ul className="space-y-3 pl-1 text-sm font-medium uppercase tracking-[0.14em] text-white/75" variants={mobileVariants}>
+                          <motion.li variants={itemVariants}>
                             <button
                               type="button"
                               className={`block transition hover:text-[var(--gold)] ${
@@ -172,8 +303,8 @@ export function HeaderMenuOverlay({
                             >
                               Shop by Category
                             </button>
-                          </li>
-                          <li>
+                          </motion.li>
+                          <motion.li variants={itemVariants}>
                             <button
                               type="button"
                               className={`block transition hover:text-[var(--gold)] ${
@@ -184,13 +315,13 @@ export function HeaderMenuOverlay({
                             >
                               Shop by Edition
                             </button>
-                          </li>
+                          </motion.li>
 
                           {activePanel === "edition" && (
-                            <li className="pt-1 text-xs uppercase tracking-[0.16em] text-white/65">
-                              <ul className="space-y-2">
+                            <motion.li className="pt-1 text-xs uppercase tracking-[0.16em] text-white/65" variants={itemVariants}>
+                              <motion.ul className="space-y-2" variants={mobileVariants}>
                                 {shopEditionItems.map((item) => (
-                                  <li key={item.href}>
+                                  <motion.li key={item.href} variants={itemVariants}>
                                     <Link
                                       href={item.href}
                                       className="block transition hover:text-[var(--gold)]"
@@ -198,17 +329,17 @@ export function HeaderMenuOverlay({
                                     >
                                       {item.label}
                                     </Link>
-                                  </li>
+                                  </motion.li>
                                 ))}
-                              </ul>
-                            </li>
+                              </motion.ul>
+                            </motion.li>
                           )}
-                        </ul>
+                        </motion.ul>
                       </div>
-                    </li>
+                    </motion.li>
 
                     {navItems.map((item) => (
-                      <li key={item.href}>
+                      <motion.li key={item.href} variants={itemVariants}>
                         <Link
                           href={item.href}
                           className="display-font transition hover:text-[var(--gold)]"
@@ -216,46 +347,48 @@ export function HeaderMenuOverlay({
                         >
                           {item.label}
                         </Link>
-                      </li>
+                      </motion.li>
                     ))}
-                  </ul>
+                  </motion.ul>
 
-                  <div className="mt-12 border-t border-white/25 pt-6 text-xs uppercase tracking-[0.16em] text-white/70">
+                  <motion.div className="mt-12 border-t border-white/25 pt-6 text-xs uppercase tracking-[0.16em] text-white/70" variants={contentVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
                     <p className="mb-2">Positioning</p>
                     <p>Personal | Family</p>
-                  </div>
+                  </motion.div>
                 </nav>
-              </aside>
+              </motion.aside>
 
-              <main className="px-6 py-10 sm:px-10 lg:px-14 lg:py-16">
-                <h2 className="display-font text-center text-5xl text-white sm:text-6xl">
+              <motion.main className="px-6 py-10 sm:px-10 lg:px-14 lg:py-16" variants={contentVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
+                <motion.h2 className="display-font text-center text-5xl text-white sm:text-6xl" variants={itemVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
                   {activePanel === "category" ? "Shop By Category" : "Shop By Edition"}
-                </h2>
+                </motion.h2>
 
-                <div className="mx-auto mt-10 grid w-full max-w-5xl grid-cols-1 gap-[3px] bg-[#0e5b45] sm:grid-cols-2 lg:grid-cols-3">
+                <motion.div className="mx-auto mt-10 grid w-full max-w-5xl grid-cols-1 gap-[3px] bg-[#0e5b45] sm:grid-cols-2 lg:grid-cols-3" variants={gridVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
                   {activeShopItems.map((item) => (
-                    <Link
+                    <motion.div key={item.href} variants={tileVariants}>
+                      <Link
                       key={item.href}
                       href={item.href}
                       onClick={onCloseMenu}
                       className="group relative block h-48 overflow-hidden sm:h-52 lg:h-56"
-                    >
-                      <div
-                        className="absolute inset-0 bg-cover bg-center transition duration-500 group-hover:scale-105"
-                        style={{ backgroundImage: `url(${item.imageUrl})` }}
-                        aria-hidden="true"
-                      />
-                      <div className="absolute inset-0 bg-black/20 transition group-hover:bg-black/5" />
-                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-4 py-3">
-                        <p className="text-xs uppercase tracking-[0.16em] text-white/95">{item.label}</p>
-                      </div>
-                    </Link>
+                      >
+                        <div
+                          className="absolute inset-0 bg-cover bg-center transition duration-500 group-hover:scale-105"
+                          style={{ backgroundImage: `url(${item.imageUrl})` }}
+                          aria-hidden="true"
+                        />
+                        <div className="absolute inset-0 bg-black/20 transition group-hover:bg-black/5" />
+                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-4 py-3">
+                          <p className="text-xs uppercase tracking-[0.16em] text-white/95">{item.label}</p>
+                        </div>
+                      </Link>
+                    </motion.div>
                   ))}
-                </div>
+                </motion.div>
 
-                <div className="mt-10 block lg:hidden">
+                <motion.div className="mt-10 block lg:hidden" variants={contentVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
                   {!isAuthenticated && (
-                    <div className="mb-4 rounded-[24px] border border-white/20 bg-white/8 p-5 text-center text-white">
+                    <motion.div className="mb-4 rounded-[24px] border border-white/20 bg-white/8 p-5 text-center text-white" variants={itemVariants}>
                       <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">Profile</p>
                       <p className="mt-2 text-sm text-white/72">Sign in to see your account details here.</p>
                       <Link
@@ -265,12 +398,12 @@ export function HeaderMenuOverlay({
                       >
                         Open Login
                       </Link>
-                    </div>
+                    </motion.div>
                   )}
 
-                  <ul className="grid grid-cols-2 gap-3 text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
+                  <motion.ul className="grid grid-cols-2 gap-3 text-sm font-semibold uppercase tracking-[0.12em] text-white/90" variants={mobileVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
                     {[...aboutItems, ...activeShopItems.slice(0, 2), ...navItems].map((item) => (
-                      <li key={`mobile-${item.href}`}>
+                      <motion.li key={`mobile-${item.href}`} variants={itemVariants}>
                         <Link
                           href={item.href}
                           className="block border border-white/30 px-4 py-3 text-center transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
@@ -278,11 +411,11 @@ export function HeaderMenuOverlay({
                         >
                           {item.label}
                         </Link>
-                      </li>
+                      </motion.li>
                     ))}
-                  </ul>
-                </div>
-              </main>
+                  </motion.ul>
+                </motion.div>
+              </motion.main>
             </div>
           </motion.div>
         </motion.div>
