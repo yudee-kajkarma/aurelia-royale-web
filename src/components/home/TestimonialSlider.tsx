@@ -12,7 +12,7 @@ const testimonials = [
   {
     name: "Dalaxander Dee",
     text: "Premium service and elegant finishing made every order memorable. Their design language feels timeless while still modern and wearable.",
-    avatarUrl: "https://jewellery-bay-two.vercel.app/assets/our_image/tstimonal/2.jpg",
+    avatarUrl: "https://jewellery-bay-two.vercel.app/assets/our_image/tstimonal/1.jpg",
   },
 ];
 
@@ -25,14 +25,14 @@ export function TestimonialSlider() {
 
   return (
     <section className="relative left-1/2 mt-24 w-screen -translate-x-1/2 overflow-hidden bg-[#f6f6f8]">
-      <div className="grid min-h-[740px] md:grid-cols-[1fr_1.62fr]">
+      <div className="grid md:grid-cols-[1fr_1.62fr] md:items-stretch">
         <div
-          className="min-h-[420px] bg-cover bg-center"
+          className="min-h-[320px] bg-cover bg-center md:min-h-full"
           style={{ backgroundImage: 'url("https://jewellery-bay-two.vercel.app/assets/our_image/testi-1-1.jpg")' }}
           aria-hidden="true"
         />
 
-        <div className="relative flex items-center justify-center px-6 py-16 sm:px-12">
+        <div className="relative flex min-h-[560px] justify-center px-6 py-16 sm:px-12 md:min-h-[740px] md:py-20">
           <div
             className="pointer-events-none absolute bottom-20 right-20 hidden h-28 w-28 bg-contain bg-center bg-no-repeat opacity-35 lg:block"
             style={{ backgroundImage: 'url("https://jewellery-bay-two.vercel.app/assets/img/shapes/ele-m-1-1.svg")' }}
@@ -40,18 +40,18 @@ export function TestimonialSlider() {
           />
           <div
             className="pointer-events-none absolute bottom-36 right-64 hidden h-28 w-28 bg-contain bg-center bg-no-repeat opacity-30 lg:block"
-            style={{ backgroundImage: 'url("https://jewellery-bay-two.vercel.app/assets/img/shapes/ele-m-1-2.svg")' }}
+            style={{ backgroundImage: 'url("https://jewellery-bay-two.vercel.app/assets/img/shapes/ele-m-1-1.svg")' }}
             aria-hidden="true"
           />
 
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto flex w-full max-w-3xl flex-col justify-center self-center py-4 text-center">
             <p className="text-xs font-bold uppercase tracking-[0.35em] text-[var(--gold)]">Client Testimonials</p>
             <h2 className="display-font mt-4 text-5xl uppercase leading-[1.02] text-[var(--deep)] sm:text-6xl">
               Our Happy Clients
             </h2>
             <div
               className="mx-auto mt-6 h-5 w-40 bg-contain bg-center bg-no-repeat opacity-50"
-              style={{ backgroundImage: 'url("https://jewellery-bay-two.vercel.app/assets/img/shapes/title-shape-2.svg")' }}
+              style={{ backgroundImage: 'url("https://jewellery-bay-two.vercel.app/assets/img/shapes/title-shape-1.svg")' }}
               aria-hidden="true"
             />
 
@@ -71,9 +71,11 @@ export function TestimonialSlider() {
               </button>
             </div>
 
-            <p className="mx-auto mt-10 max-w-4xl text-center text-[2rem] leading-[1.9] text-[#5f6368] sm:text-[2.1rem]">
-              “{current.text}“
-            </p>
+            <div className="mx-auto mt-10 flex min-h-[220px] w-full max-w-4xl flex-col justify-center sm:min-h-[260px]">
+              <p className="text-center text-[1.7rem] leading-[1.75] text-[#5f6368] sm:text-[1.95rem] sm:leading-[1.85]">
+                “{current.text}“
+              </p>
+            </div>
             <p className="mt-8 text-sm font-extrabold uppercase tracking-[0.14em] text-[#162321]">- {current.name} -</p>
           </div>
         </div>
