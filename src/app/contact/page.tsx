@@ -1,5 +1,3 @@
-import { Camera, Globe, Mail, MessageCircle, PhoneCall } from "lucide-react";
-
 export default function ContactPage() {
   return (
     <main className="min-h-screen overflow-x-clip bg-[var(--background)]">
@@ -22,53 +20,13 @@ export default function ContactPage() {
         <div className="h-3 [background:radial-gradient(circle,#0e2230_3px,transparent_4px)] [background-size:22px_100%]" />
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-10 px-6 py-20 sm:px-8 lg:grid-cols-[1fr_1.35fr]">
-        <div>
+      <section className="mx-auto flex max-w-4xl flex-col items-center px-6 py-20 sm:px-8">
+        <div className="w-full max-w-3xl text-center">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-[var(--gold)]">Contact Info</p>
-          <h2 className="display-font mt-3 text-6xl uppercase leading-[1.04] text-[var(--deep)]">Get In Touch</h2>
-
-          <div className="mt-8 space-y-5">
-            <p className="text-lg font-bold uppercase text-[var(--deep)]">
-              Address: <span className="text-[var(--gold)]">Abx Xyd</span>
-            </p>
-
-            <div className="h-px bg-black/12" />
-
-            <div className="flex flex-wrap items-center gap-3 text-[var(--deep)]">
-              <PhoneCall size={22} className="text-[var(--deep)]" />
-              <p className="text-lg font-bold uppercase">Customer Service :</p>
-              <p className="text-lg font-bold text-[var(--gold)]">+9-555-888-679</p>
-            </div>
-
-            <div className="h-px bg-black/12" />
-
-            <div className="flex flex-wrap items-center gap-3 text-[var(--deep)]">
-              <Mail size={22} className="text-[var(--deep)]" />
-              <p className="text-lg font-bold uppercase">Careers :</p>
-              <p className="text-lg font-bold uppercase text-[var(--gold)]">Dalila@Info.Com</p>
-            </div>
-
-            <div className="h-px bg-black/12" />
-
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <p className="text-lg font-bold uppercase text-[var(--deep)]">Follow</p>
-              <a href="#" className="inline-flex h-8 w-8 items-center justify-center bg-[#3f6ad8] text-white" aria-label="Facebook">
-                <Globe size={15} />
-              </a>
-              <a href="#" className="inline-flex h-8 w-8 items-center justify-center bg-[#7f3fcc] text-white" aria-label="Instagram">
-                <Camera size={15} />
-              </a>
-              <a href="#" className="inline-flex h-8 w-8 items-center justify-center bg-[#2f9adf] text-white" aria-label="Twitter">
-                <MessageCircle size={15} />
-              </a>
-              <a href="#" className="inline-flex h-8 w-8 items-center justify-center bg-[#0c76aa] text-white" aria-label="LinkedIn">
-                <Mail size={15} />
-              </a>
-            </div>
-          </div>
+          <h2 className="display-font mt-3 text-5xl uppercase leading-[1.04] text-[var(--deep)] sm:text-6xl">Get In Touch</h2>
         </div>
 
-        <form className="grid gap-4">
+        <form className="mt-8 grid w-full max-w-3xl gap-4">
           <div className="grid gap-4 sm:grid-cols-2">
             <input
               type="text"
@@ -101,8 +59,8 @@ export default function ContactPage() {
           />
 
           <div>
-            <button className="bg-[var(--deep)] px-8 py-4 text-lg font-extrabold uppercase tracking-[0.04em] text-white transition hover:bg-[#0a2e28]">
-              Submit Now
+            <button className="cta-sweep border border-[var(--deep)] bg-[var(--deep)] px-8 py-4 text-lg font-extrabold uppercase tracking-[0.04em] text-white transition hover:border-[var(--gold)] hover:text-[var(--deep)] focus-visible:border-[var(--gold)] focus-visible:text-[var(--deep)]">
+              <span className="relative z-10">Submit Now</span>
             </button>
           </div>
         </form>
