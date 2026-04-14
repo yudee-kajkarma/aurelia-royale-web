@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { CreditCard, LogOut, ReceiptText, Shield } from "lucide-react";
+import { CreditCard, LogOut, ReceiptText, Shield, UserRound } from "lucide-react";
 import type { AuthUser } from "@/services/auth/auth.types";
 
 type HeaderProfileMenuProps = {
@@ -21,7 +21,6 @@ export function HeaderProfileMenu({
   onLogout,
 }: HeaderProfileMenuProps) {
   const isDesktop = variant === "desktop";
-  const destinationLabel = user.role === "ADMIN" ? "Admin" : "Home";
 
   return (
     <motion.div
@@ -61,12 +60,13 @@ export function HeaderProfileMenu({
           <Link
             href={accountHref}
             className={isDesktop
-              ? "rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
-              : "block rounded-2xl border border-white/10 px-4 py-3 text-center text-sm font-semibold text-white transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+              ? "inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+              : "inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold text-white transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
             }
             onClick={onNavigate}
           >
-            Open {destinationLabel} Page
+            <UserRound size={16} />
+            Profile
           </Link>
           <Link
             href="/orders"

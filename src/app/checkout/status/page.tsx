@@ -88,11 +88,11 @@ function CheckoutStatusContent() {
               </Link>
 
               <Link
-                href={paymentResult === "success" ? "/account" : "/checkout"}
+                href={paymentResult === "success" ? "/profile" : "/checkout"}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--gold)]/35 px-6 py-4 text-sm font-bold uppercase tracking-[0.08em] text-[var(--deep)] transition hover:bg-[var(--deep)] hover:text-white"
               >
                 <RotateCcw className="h-4 w-4" />
-                {paymentResult === "success" ? "View Account" : "Try Checkout Again"}
+                {paymentResult === "success" ? "View Profile" : "Try Checkout Again"}
               </Link>
             </div>
           </div>

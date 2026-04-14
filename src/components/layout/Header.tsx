@@ -15,7 +15,6 @@ import {
 import { useAuth } from "@/providers/AuthProvider";
 import { useCart } from "@/providers/CartProvider";
 import { useWishlist } from "@/providers/WishlistProvider";
-import { getDefaultRouteForRole } from "@/services/auth/auth.types";
 
 export function Header() {
   const [openMenu, setOpenMenu] = useState(false);
@@ -30,7 +29,7 @@ export function Header() {
   const { count } = useWishlist();
 
   const activeShopItems = activePanel === "category" ? shopCategoryItems : shopEditionItems;
-  const accountHref = user ? getDefaultRouteForRole(user.role) : "/login";
+  const profileHref = user ? "/profile" : "/login";
 
   function closeAllOverlays() {
     setOpenMenu(false);
@@ -130,7 +129,7 @@ export function Header() {
                 {openProfileMenu && isAuthenticated && user && (
                   <HeaderProfileMenu
                     user={user}
-                    accountHref={accountHref}
+                    accountHref={profileHref}
                     reduceMotion={reduceMotion}
                     variant="desktop"
                     onNavigate={() => setOpenProfileMenu(false)}
@@ -170,7 +169,7 @@ export function Header() {
         activeShopItems={activeShopItems}
         isAuthenticated={isAuthenticated}
         user={user}
-        accountHref={accountHref}
+        accountHref={profileHref}
         openProfileMenu={openProfileMenu}
         cartCount={cartCount}
         wishlistCount={count}
