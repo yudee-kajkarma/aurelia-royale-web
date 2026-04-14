@@ -4,7 +4,9 @@ import type {
   ApiResponse,
   AuthSession,
   LoginRequest,
+  ResetPasswordRequest,
   RegisterRequest,
+  SendOtpRequest,
   VerifyOtpRequest,
 } from "@/services/auth/auth.types";
 
@@ -68,9 +70,35 @@ async function verifyOtp(payload: VerifyOtpRequest) {
   }
 }
 
+async function sendOtp(payload: SendOtpRequest) {
+  try {
+    const response = await apiClient.post<ApiResponse<unknown>>("/users/send-otp", payload);
+
+    return {
+      message: response.data.message,
+    };
+  } catch (error) {
+    throw new Error(getApiErrorMessage(error));
+  }
+}
+
+async function resetPassword(payload: ResetPasswordRequest) {
+  try {
+    const response = await apiClient.post<ApiResponse<unknown>>("/users/reset-password", payload);
+
+    return {
+      message: response.data.message,
+    };
+  } catch (error) {
+    throw new Error(getApiErrorMessage(error));
+  }
+}
+
 export const authService = {
   login,
   logout,
+  resetPassword,
   register,
+  sendOtp,
   verifyOtp,
 };

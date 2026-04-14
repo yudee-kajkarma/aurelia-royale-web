@@ -104,6 +104,11 @@ export default function LoginPage() {
                     {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                   </button>
                 </div>
+                <div className="flex justify-end">
+                  <Link href="/reset-password" className="text-sm font-semibold text-[#0e5a47] transition hover:text-[var(--gold)]">
+                    Forgot password?
+                  </Link>
+                </div>
                 {errorMessage && (
                   <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
                     {errorMessage}

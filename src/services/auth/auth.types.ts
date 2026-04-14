@@ -47,6 +47,17 @@ export type VerifyOtpRequest = {
   otp: string;
 };
 
+export type SendOtpRequest = {
+  email: string;
+  purpose: "register" | "password_reset";
+};
+
+export type ResetPasswordRequest = {
+  email: string;
+  otp: string;
+  newPassword: string;
+};
+
 export type ApiResponse<T> = {
   success: boolean;
   code: string;
