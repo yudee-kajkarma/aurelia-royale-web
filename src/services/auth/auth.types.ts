@@ -69,7 +69,7 @@ export const AUTH_STORAGE_KEY = "dalila.auth.session";
 export const AUTH_STATE_CHANGE_EVENT = "dalila:auth-state-change";
 
 export function getDefaultRouteForRole(role: UserRole) {
-  return role === "ADMIN" ? "/admin" : "/";
+  return role === "ADMIN" ? "/admin/products" : "/";
 }
 
 export function getSafeAuthRedirect(role: UserRole, requestedPath: string | null) {

@@ -13,6 +13,7 @@ import {
   shopEditionItems,
 } from "@/components/layout/header/header.data";
 import { useAuth } from "@/providers/AuthProvider";
+import { getDefaultRouteForRole } from "@/services/auth/auth.types";
 import { useCart } from "@/providers/CartProvider";
 import { useWishlist } from "@/providers/WishlistProvider";
 
@@ -29,7 +30,7 @@ export function Header() {
   const { count } = useWishlist();
 
   const activeShopItems = activePanel === "category" ? shopCategoryItems : shopEditionItems;
-  const profileHref = user ? "/profile" : "/login";
+  const profileHref = user ? getDefaultRouteForRole(user.role) : "/login";
 
   function closeAllOverlays() {
     setOpenMenu(false);

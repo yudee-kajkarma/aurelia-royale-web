@@ -1,4 +1,5 @@
 export type HeaderLinkItem = {
+  key?: string;
   href: string;
   label: string;
 };
@@ -10,6 +11,14 @@ export type HeaderVisualLinkItem = HeaderLinkItem & {
 export const navItems: HeaderLinkItem[] = [
   { href: "/", label: "Home" },
   { href: "/contact", label: "Contact" },
+];
+
+export const ADMIN_NAV_ITEMS: HeaderLinkItem[] = [
+  { key: "product_management", href: "/admin/products", label: "Product Management" },
+  { key: "orders_all", href: "/admin/orders", label: "All Orders" },
+  { key: "wishlists_all", href: "/admin/wishlists", label: "All Wishlists" },
+  { key: "carts_all", href: "/admin/carts", label: "All Carts" },
+  { key: "tickets_all", href: "/admin/support", label: "Support Tickets" },
 ];
 
 export const aboutItems: HeaderLinkItem[] = [

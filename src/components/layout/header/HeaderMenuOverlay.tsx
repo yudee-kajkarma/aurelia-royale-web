@@ -4,6 +4,7 @@ import { Heart, ShoppingBag, UserRound, X } from "lucide-react";
 import { HeaderLogo } from "@/components/layout/header/HeaderLogo";
 import { HeaderProfileMenu } from "@/components/layout/header/HeaderProfileMenu";
 import {
+  ADMIN_NAV_ITEMS,
   aboutItems,
   navItems,
   shopEditionItems,
@@ -174,6 +175,7 @@ export function HeaderMenuOverlay({
   onLogout,
   onActivatePanel,
 }: HeaderMenuOverlayProps) {
+  const isAdmin = user?.role === "ADMIN";
   const listVariants = reduceMotion ? undefined : desktopListVariants;
   const mobileVariants = reduceMotion ? undefined : mobileListVariants;
   const itemVariants = reduceMotion ? undefined : linkItemVariants;
@@ -349,9 +351,42 @@ export function HeaderMenuOverlay({
                         </Link>
                       </motion.li>
                     ))}
+
+                    {isAdmin && (
+                      <motion.li variants={itemVariants}>
+                        <div className="space-y-4">
+                          <p className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--gold)]">Admin</p>
+                          <motion.ul className="space-y-3 pl-1 text-sm font-medium uppercase tracking-[0.14em] text-white/75" variants={mobileVariants}>
+                            {ADMIN_NAV_ITEMS.map((item) => (
+                              <motion.li key={item.key ?? item.href} variants={itemVariants}>
+                                <Link
+                                  href={item.href}
+                                  className="block transition hover:text-[var(--gold)]"
+                                  onClick={onCloseMenu}
+                                >
+                                  {item.label}
+                                </Link>
+                              </motion.li>
+                            ))}
+                          </motion.ul>
+                        </div>
+                      </motion.li>
+                    )}
                   </motion.ul>
 
                   <motion.div className="mt-12 border-t border-white/25 pt-6 text-xs uppercase tracking-[0.16em] text-white/70" variants={contentVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
+                    {isAuthenticated && user ? (
+                      <div className="mb-6">
+                        <HeaderProfileMenu
+                          user={user}
+                          accountHref={accountHref}
+                          reduceMotion={reduceMotion}
+                          variant="panel"
+                          onNavigate={onCloseAll}
+                          onLogout={onLogout}
+                        />
+                      </div>
+                    ) : null}
                     <p className="mb-2">Positioning</p>
                     <p>Personal | Family</p>
                   </motion.div>
@@ -402,7 +437,7 @@ export function HeaderMenuOverlay({
                   )}
 
                   <motion.ul className="grid grid-cols-2 gap-3 text-sm font-semibold uppercase tracking-[0.12em] text-white/90" variants={mobileVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
-                    {[...aboutItems, ...activeShopItems.slice(0, 2), ...navItems].map((item) => (
+                    {[...aboutItems, ...activeShopItems.slice(0, 2), ...navItems, ...(isAdmin ? ADMIN_NAV_ITEMS : [])].map((item) => (
                       <motion.li key={`mobile-${item.href}`} variants={itemVariants}>
                         <Link
                           href={item.href}
