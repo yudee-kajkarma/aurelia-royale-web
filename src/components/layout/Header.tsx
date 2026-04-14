@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Heart, Menu, Search, ShoppingBag, UserRound } from "lucide-react";
 import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
@@ -43,6 +43,11 @@ export function Header() {
     router.push("/");
   }
 
+  function handleGuestNavigate(href: string) {
+    closeAllOverlays();
+    router.push(href);
+  }
+
   function handleProfileTrigger() {
     if (!isReady) {
       return;
@@ -50,7 +55,7 @@ export function Header() {
 
     if (!isAuthenticated) {
       setOpenMenu(false);
-      router.push("/login");
+      setOpenProfileMenu((currentValue) => !currentValue);
       return;
     }
 
@@ -120,12 +125,41 @@ export function Header() {
                 type="button"
                 onClick={handleProfileTrigger}
                 className="rounded-full border border-white/15 p-2 transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
-                aria-label={isAuthenticated ? "Open profile menu" : "Go to login"}
+                aria-label={isAuthenticated ? "Open profile menu" : "Open account menu"}
               >
                 <UserRound size={18} />
               </button>
 
               <AnimatePresence>
+                {openProfileMenu && !isAuthenticated && isReady && (
+                  <motion.div
+                    className="absolute right-0 top-14 w-64 overflow-hidden rounded-[22px] border border-white/10 bg-[#08140f] p-4 text-white shadow-[0_18px_60px_rgba(0,0,0,0.35)]"
+                    initial={{ opacity: 0, y: reduceMotion ? 0 : 10, scale: reduceMotion ? 1 : 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: reduceMotion ? 0 : 8, scale: reduceMotion ? 1 : 0.98 }}
+                    transition={{ duration: reduceMotion ? 0 : 0.18, ease: "easeOut" }}
+                  >
+                    <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">Welcome</p>
+                    <p className="mt-2 text-sm leading-6 text-white/72">Sign in to access your profile, orders, wishlist, and checkout history.</p>
+
+                    <div className="mt-5 grid gap-2">
+                      <button
+                        type="button"
+                        onClick={() => handleGuestNavigate("/login")}
+                        className="inline-flex items-center justify-center rounded-2xl bg-[var(--gold)] px-4 py-3 text-sm font-extrabold text-[#17120a] transition hover:bg-[#b89428]"
+                      >
+                        Login
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleGuestNavigate("/register")}
+                        className="inline-flex items-center justify-center rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold text-white transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+                      >
+                        Register
+                      </button>
+                    </div>
+                  </motion.div>
+                )}
                 {openProfileMenu && isAuthenticated && user && (
                   <HeaderProfileMenu
                     user={user}
