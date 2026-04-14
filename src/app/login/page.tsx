@@ -72,7 +72,7 @@ export default function LoginPage() {
             <div className="mx-auto mt-10 max-w-lg sm:mt-16">
               <h1 className="text-4xl font-bold text-[#0f1216] sm:text-3xl lg:text-3xl">Login</h1>
               <p className="mt-3 text-sm leading-6 text-[#5a6370] sm:text-base">
-                Sign in with your email and password. USER accounts land on the account page and ADMIN accounts land on the admin page.
+                Sign in with your email and password. USER accounts land on the profile page and ADMIN accounts land on the admin page.
               </p>
 
               <form className="mt-8 grid gap-4" onSubmit={handleSubmit}>
@@ -119,7 +119,7 @@ export default function LoginPage() {
               </form>
 
               <p className="mt-6 text-base font-medium text-[#1f242b] sm:text-lg">
-                Don&apos;t have account? <a href="#" className="font-bold text-[#0e5a47]">Register</a>
+                Don&apos;t have account? <Link href="/register" className="font-bold text-[#0e5a47]">Register</Link>
               </p>
             </div>
           </div>

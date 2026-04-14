@@ -20,6 +20,33 @@ export type LoginRequest = {
   password: string;
 };
 
+export type AddressPayload = {
+  street: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  country: string;
+  isDefault: boolean;
+  addressType: string;
+};
+
+export type RegisterRequest = {
+  username: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  countryCode: string;
+  address: AddressPayload;
+};
+
+export type VerifyOtpRequest = {
+  email: string;
+  otp: string;
+};
+
 export type ApiResponse<T> = {
   success: boolean;
   code: string;

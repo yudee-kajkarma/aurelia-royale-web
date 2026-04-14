@@ -4,6 +4,8 @@ import type {
   ApiResponse,
   AuthSession,
   LoginRequest,
+  RegisterRequest,
+  VerifyOtpRequest,
 } from "@/services/auth/auth.types";
 
 function getApiErrorMessage(error: unknown) {
@@ -44,7 +46,31 @@ async function logout() {
   }
 }
 
+async function register(payload: RegisterRequest) {
+  try {
+    const response = await apiClient.post<ApiResponse<unknown>>("/users/register", payload);
+
+    return {
+      email: payload.email,
+      message: response.data.message,
+    };
+  } catch (error) {
+    throw new Error(getApiErrorMessage(error));
+  }
+}
+
+async function verifyOtp(payload: VerifyOtpRequest) {
+  try {
+    const response = await apiClient.post<ApiResponse<AuthSession>>("/users/verify-otp", payload);
+    return response.data.data;
+  } catch (error) {
+    throw new Error(getApiErrorMessage(error));
+  }
+}
+
 export const authService = {
   login,
   logout,
+  register,
+  verifyOtp,
 };
