@@ -1,12 +1,20 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { BrandWordmark } from "@/components/brand/BrandWordmark";
 import { authService } from "@/services/auth/auth.service";
 
 export default function VerifyOtpPage() {
+  return (
+    <Suspense fallback={<VerifyOtpPageShell />}>
+      <VerifyOtpPageContent />
+    </Suspense>
+  );
+}
+
+function VerifyOtpPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [email, setEmail] = useState(searchParams.get("email") ?? "");
@@ -32,6 +40,40 @@ export default function VerifyOtpPage() {
       setIsSubmitting(false);
     }
   }
+
+  return (
+    <VerifyOtpPageShell
+      email={email}
+      otp={otp}
+      isSubmitting={isSubmitting}
+      errorMessage={errorMessage}
+      onEmailChange={setEmail}
+      onOtpChange={setOtp}
+      onSubmit={handleSubmit}
+    />
+  );
+}
+
+type VerifyOtpPageShellProps = {
+  email?: string;
+  otp?: string;
+  isSubmitting?: boolean;
+  errorMessage?: string | null;
+  onEmailChange?: (value: string) => void;
+  onOtpChange?: (value: string) => void;
+  onSubmit?: (event: FormEvent<HTMLFormElement>) => void;
+};
+
+function VerifyOtpPageShell({
+  email = "",
+  otp = "",
+  isSubmitting = false,
+  errorMessage = null,
+  onEmailChange,
+  onOtpChange,
+  onSubmit,
+}: VerifyOtpPageShellProps = {}) {
+  const handleSubmit = onSubmit ?? ((event: FormEvent<HTMLFormElement>) => event.preventDefault());
 
   return (
     <main className="min-h-screen overflow-x-clip">
@@ -67,7 +109,7 @@ export default function VerifyOtpPage() {
                 <input
                   type="email"
                   value={email}
-                  onChange={(event) => setEmail(event.target.value)}
+                  onChange={(event) => onEmailChange?.(event.target.value)}
                   placeholder="Email"
                   autoComplete="email"
                   required
@@ -76,7 +118,7 @@ export default function VerifyOtpPage() {
                 <input
                   type="text"
                   value={otp}
-                  onChange={(event) => setOtp(event.target.value)}
+                  onChange={(event) => onOtpChange?.(event.target.value)}
                   placeholder="Enter OTP"
                   required
                   maxLength={6}
