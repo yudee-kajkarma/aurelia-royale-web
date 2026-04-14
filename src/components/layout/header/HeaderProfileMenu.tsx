@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { LogOut, Shield } from "lucide-react";
+import { CreditCard, LogOut, ReceiptText, Shield } from "lucide-react";
 import type { AuthUser } from "@/services/auth/auth.types";
 
 type HeaderProfileMenuProps = {
@@ -67,6 +67,28 @@ export function HeaderProfileMenu({
             onClick={onNavigate}
           >
             Open {destinationLabel} Page
+          </Link>
+          <Link
+            href="/orders"
+            className={isDesktop
+              ? "inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+              : "inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold text-white transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+            }
+            onClick={onNavigate}
+          >
+            <ReceiptText size={16} />
+            My Orders
+          </Link>
+          <Link
+            href="/payments/history"
+            className={isDesktop
+              ? "inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+              : "inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold text-white transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+            }
+            onClick={onNavigate}
+          >
+            <CreditCard size={16} />
+            Payment History
           </Link>
           <button
             type="button"
