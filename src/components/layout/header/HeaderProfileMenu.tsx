@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { CreditCard, LogOut, ReceiptText, Shield, UserRound } from "lucide-react";
+import { CreditCard, LifeBuoy, LogOut, ReceiptText, Shield, UserRound } from "lucide-react";
 import type { AuthUser } from "@/services/auth/auth.types";
 
 type HeaderProfileMenuProps = {
@@ -89,6 +89,17 @@ export function HeaderProfileMenu({
           >
             <CreditCard size={16} />
             Payment History
+          </Link>
+          <Link
+            href="/tickets"
+            className={isDesktop
+              ? "inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+              : "inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold text-white transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+            }
+            onClick={onNavigate}
+          >
+            <LifeBuoy size={16} />
+            My Tickets
           </Link>
           <button
             type="button"
