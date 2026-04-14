@@ -9,20 +9,11 @@ import {
   getAllProducts,
   toProductCardModel,
 } from "@/services/products/product.service";
-
-const categoryImageMap: Record<string, string> = {
-  Bracelet: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/bracelet.webp",
-  Earring: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/ear-ring.webp",
-  Necklace: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/necklace.webp",
-  "Necklace + Earring": "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/nacklace.png",
-  Pendant: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/necklace.webp",
-  Ring: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/ring.webp",
-  Watch: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/waches.png",
-};
-
-function getCategoryImage(category: string) {
-  return categoryImageMap[category] ?? "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/necklace.webp";
-}
+import {
+  getCategoryDisplayLabel,
+  getCategoryImage,
+  getPrimaryShopCategories,
+} from "@/services/products/product-category";
 
 export default async function HomePage() {
   const [products, filterOptions] = await Promise.all([
@@ -47,8 +38,9 @@ export default async function HomePage() {
   ]);
 
   const featuredProducts = products.slice(0, 4);
-  const categoryTiles = filterOptions.categories.map((category) => ({
+  const categoryTiles = getPrimaryShopCategories(filterOptions.categories).map((category) => ({
     name: category,
+    label: getCategoryDisplayLabel(category),
     imageUrl: getCategoryImage(category),
   }));
 
@@ -99,7 +91,7 @@ export default async function HomePage() {
 
                 <div className="pointer-events-none absolute inset-x-0 top-1/2 z-10 flex justify-center translate-y-[140%] opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                   <span className="display-font bg-black/45 px-5 py-2 text-3xl uppercase tracking-[0.08em] text-white backdrop-blur-sm">
-                    {category.name}
+                    {category.label}
                   </span>
                 </div>
               </Link>

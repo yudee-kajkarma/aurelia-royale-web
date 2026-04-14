@@ -8,6 +8,7 @@ import { ProductCard } from "@/components/shared/ProductCard";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { ShopPagination } from "@/components/shop/ShopPagination";
 import { ShopSelector } from "@/components/shop/ShopSelector";
+import { getCategoryDisplayLabel } from "@/services/products/product-category";
 import type { ProductCardModel, ProductsPagination } from "@/services/products/product.types";
 
 type SideProduct = ProductCardModel;
@@ -160,7 +161,7 @@ export function ShopCatalog({
             ariaLabel="Filter by category"
             value={categoryDraft}
             onChange={setCategoryDraft}
-            options={categories.map((value) => ({ value, label: value }))}
+            options={categories.map((value) => ({ value, label: value === "All" ? value : getCategoryDisplayLabel(value) }))}
             className="mt-5"
           />
         </div>

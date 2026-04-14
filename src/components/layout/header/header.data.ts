@@ -1,3 +1,5 @@
+import { SHOP_CATEGORY_TILES } from "@/services/products/product-category";
+
 export type HeaderLinkItem = {
   key?: string;
   href: string;
@@ -27,44 +29,11 @@ export const aboutItems: HeaderLinkItem[] = [
   { href: "/about#why-special", label: "Why Our Design is Special" },
 ];
 
-export const shopCategoryItems: HeaderVisualLinkItem[] = [
-  {
-    href: "/shop?category=bracelets",
-    label: "Bracelets",
-    imageUrl:
-      "https://images.unsplash.com/photo-1600721391689-2564bb8055de?auto=format&fit=crop&w=1000&q=80",
-  },
-  {
-    href: "/shop?category=earrings",
-    label: "Earrings",
-    imageUrl:
-      "https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1000&q=80",
-  },
-  {
-    href: "/shop?category=necklaces",
-    label: "Necklaces",
-    imageUrl:
-      "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1000&q=80",
-  },
-  {
-    href: "/shop?category=rings",
-    label: "Rings",
-    imageUrl:
-      "https://images.unsplash.com/photo-1611107683227-e9060eccd846?auto=format&fit=crop&w=1000&q=80",
-  },
-  {
-    href: "/shop?category=pendants",
-    label: "Pendants",
-    imageUrl:
-      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1000&q=80",
-  },
-  {
-    href: "/shop?category=sets",
-    label: "Sets",
-    imageUrl:
-      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=80",
-  },
-];
+export const shopCategoryItems: HeaderVisualLinkItem[] = SHOP_CATEGORY_TILES.map((tile) => ({
+  href: `/shop?category=${encodeURIComponent(tile.queryValue)}`,
+  label: tile.label,
+  imageUrl: tile.imageUrl,
+}));
 
 export const shopEditionItems: HeaderVisualLinkItem[] = [
   {

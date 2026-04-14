@@ -1,4 +1,5 @@
 import { ShopCatalog } from "@/components/shop/ShopCatalog";
+import { getPrimaryShopCategories, resolveCategoryValue } from "@/services/products/product-category";
 import {
   getAllProductFilters,
   getProducts,
@@ -27,14 +28,15 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
   const page = Math.max(1, Number(params.page) || 1);
   const selectedSort = params.sort ?? "top-rating";
   const filterOptions = await getAllProductFilters();
+  const resolvedCategory = resolveCategoryValue(params.category, filterOptions.categories);
   const selectedMinPrice = params.minPrice ? Number(params.minPrice) : filterOptions.priceRange.min;
   const selectedMaxPrice = params.maxPrice ? Number(params.maxPrice) : filterOptions.priceRange.max;
-  const selectedCategory = params.category ?? "All";
+  const selectedCategory = resolvedCategory ?? "All";
 
   const result = await getProducts({
     page,
     limit: 8,
-    category: params.category,
+    category: resolvedCategory ?? undefined,
     priceMin: selectedMinPrice,
     priceMax: selectedMaxPrice,
   }).catch(() => ({
@@ -53,7 +55,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
   const productCards = result.products.map(toProductCardModel);
 
   const latestProducts = productCards.slice(0, 3);
-  const categories = ["All", ...filterOptions.categories];
+  const categories = ["All", ...getPrimaryShopCategories(filterOptions.categories)];
 
   return (
     <main className="min-h-screen overflow-x-clip bg-[var(--background)]">
