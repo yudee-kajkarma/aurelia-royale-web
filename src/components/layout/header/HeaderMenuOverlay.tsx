@@ -190,10 +190,9 @@ export function HeaderMenuOverlay({
     { href: "/shop", label: "SHOP" },
     { href: "/contact", label: "CONTACT" },
   ];
-  const mobileMenuItems = [
-    ...desktopSidebarItems,
-    ...(isAdmin ? ADMIN_NAV_ITEMS.map((item) => ({ href: item.href, label: item.label })) : []),
-  ];
+  const mobileAdminItems = isAdmin
+    ? ADMIN_NAV_ITEMS.map((item) => ({ href: item.href, label: item.label }))
+    : [];
 
   return (
     <AnimatePresence>
@@ -370,19 +369,24 @@ export function HeaderMenuOverlay({
                     </motion.div>
                   )}
 
-                  <motion.ul className="grid grid-cols-2 gap-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#153f35]" variants={mobileVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
-                    {mobileMenuItems.map((item) => (
-                      <motion.li key={`mobile-${item.href}`} variants={itemVariants}>
-                        <Link
-                          href={item.href}
-                          className="block border border-[#d6d6ca] bg-white/60 px-4 py-3 text-center transition hover:border-[#0e5b45] hover:text-[#0e5b45]"
-                          onClick={onCloseMenu}
-                        >
-                          {item.label}
-                        </Link>
-                      </motion.li>
-                    ))}
-                  </motion.ul>
+                  {mobileAdminItems.length > 0 ? (
+                    <>
+                      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#0f5f49]">Admin</p>
+                      <motion.ul className="grid grid-cols-2 gap-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#153f35]" variants={mobileVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
+                        {mobileAdminItems.map((item) => (
+                          <motion.li key={`mobile-admin-${item.href}`} variants={itemVariants}>
+                            <Link
+                              href={item.href}
+                              className="block border border-[#d6d6ca] bg-white/60 px-4 py-3 text-center transition hover:border-[#0e5b45] hover:text-[#0e5b45]"
+                              onClick={onCloseMenu}
+                            >
+                              {item.label}
+                            </Link>
+                          </motion.li>
+                        ))}
+                      </motion.ul>
+                    </>
+                  ) : null}
                 </motion.div>
               </motion.main>
             </div>
