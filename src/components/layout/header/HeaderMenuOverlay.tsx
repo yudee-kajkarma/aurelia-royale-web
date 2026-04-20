@@ -1,13 +1,14 @@
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
-import { Heart, ShoppingBag, UserRound, X } from "lucide-react";
+import { ShoppingBag, UserRound, X } from "lucide-react";
 import { HeaderLogo } from "@/components/layout/header/HeaderLogo";
 import { HeaderProfileMenu } from "@/components/layout/header/HeaderProfileMenu";
 import {
   ADMIN_NAV_ITEMS,
   aboutItems,
   navItems,
-  shopEditionItems,
+  shopCategoryItems,
   type HeaderVisualLinkItem,
 } from "@/components/layout/header/header.data";
 import type { AuthUser } from "@/services/auth/auth.types";
@@ -182,6 +183,13 @@ export function HeaderMenuOverlay({
   const contentVariants = reduceMotion ? undefined : panelContentVariants;
   const gridVariants = reduceMotion ? undefined : cardGridVariants;
   const tileVariants = reduceMotion ? undefined : cardItemVariants;
+  const pathname = usePathname();
+  const desktopSidebarItems = [
+    { href: "/", label: "HOME" },
+    { href: "/about", label: "ABOUT" },
+    { href: "/shop", label: "SHOP" },
+    { href: "/contact", label: "CONTACT" },
+  ];
 
   return (
     <AnimatePresence>
@@ -195,7 +203,7 @@ export function HeaderMenuOverlay({
           transition={{ duration: reduceMotion ? 0 : 0.22, ease: "easeOut" }}
         >
           <motion.div
-            className="h-full w-full overflow-y-auto bg-[#074f3a] text-white"
+            className="h-full w-full overflow-y-auto bg-[#efefe8] text-[#153f35]"
             onClick={(event) => event.stopPropagation()}
             initial={{ opacity: 0, x: reduceMotion ? 0 : -24 }}
             animate={{ opacity: 1, x: 0 }}
@@ -238,12 +246,6 @@ export function HeaderMenuOverlay({
                     )}
                   </AnimatePresence>
                 </div>
-                <button type="button" className="relative text-white/95 transition hover:text-[var(--gold)]" aria-label="Wishlist" onClick={onWishlistOpen}>
-                  <Heart size={29} strokeWidth={2} />
-                  <span className="absolute -right-2 -top-2 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-[var(--gold)] px-1 text-[10px] font-extrabold text-[#15110a]">
-                    {wishlistCount}
-                  </span>
-                </button>
                 <button type="button" className="relative text-white/95 transition hover:text-[var(--gold)]" aria-label="Shopping bag" onClick={onCartOpen}>
                   <ShoppingBag size={29} strokeWidth={2} />
                   {cartCount > 0 ? (
@@ -255,166 +257,74 @@ export function HeaderMenuOverlay({
               </div>
             </div>
 
-            <div className="grid min-h-[calc(100vh-5rem)] grid-cols-1 lg:grid-cols-[340px_minmax(0,1fr)]">
-              <motion.aside className="hidden border-r border-white/45 bg-[#074b37] lg:block" variants={contentVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
-                <nav className="h-full px-10 py-12">
-                  <motion.ul className="space-y-10 text-[2.1rem] uppercase leading-none tracking-[0.03em] text-white/90" variants={listVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
-                    <motion.li variants={itemVariants}>
-                      <div className="space-y-4">
-                        <Link
-                          href="/about"
-                          className="display-font block transition hover:text-[var(--gold)]"
-                          onClick={onCloseMenu}
-                        >
-                          About Us
-                        </Link>
-                        <motion.ul className="space-y-3 pl-1 text-sm font-medium uppercase tracking-[0.14em] text-white/75" variants={mobileVariants}>
-                          {aboutItems.map((item) => (
-                            <motion.li key={item.href} variants={itemVariants}>
-                              <Link
-                                href={item.href}
-                                className="block transition hover:text-[var(--gold)]"
-                                onClick={onCloseMenu}
-                              >
-                                {item.label}
-                              </Link>
-                            </motion.li>
-                          ))}
-                        </motion.ul>
-                      </div>
-                    </motion.li>
+            <div className="grid min-h-[calc(100vh-5rem)] grid-cols-1 lg:grid-cols-[300px_minmax(0,1fr)]">
+              <motion.aside className="hidden border-r border-[#e7e7de] bg-[#f3f3ed] lg:block" variants={contentVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
+                <nav className="h-full px-10 py-24">
+                  <motion.ul className="space-y-10 text-[2.6rem] uppercase leading-none tracking-[0.03em] text-[#153f35]" variants={listVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
+                    {desktopSidebarItems.map((item) => {
+                      const isActive = item.href === "/"
+                        ? pathname === "/" || pathname === "/home"
+                        : pathname?.startsWith(item.href);
 
-                    <motion.li variants={itemVariants}>
-                      <div className="space-y-4">
-                        <Link
-                          href="/shop"
-                          className="display-font block transition hover:text-[var(--gold)]"
-                          onClick={onCloseMenu}
-                        >
-                          Shop
-                        </Link>
-                        <motion.ul className="space-y-3 pl-1 text-sm font-medium uppercase tracking-[0.14em] text-white/75" variants={mobileVariants}>
-                          <motion.li variants={itemVariants}>
-                            <button
-                              type="button"
-                              className={`block transition hover:text-[var(--gold)] ${
-                                activePanel === "category" ? "text-[var(--gold)]" : ""
-                              }`}
-                              onMouseEnter={() => onActivatePanel("category")}
-                              onFocus={() => onActivatePanel("category")}
-                            >
-                              Shop by Category
-                            </button>
-                          </motion.li>
-                          <motion.li variants={itemVariants}>
-                            <button
-                              type="button"
-                              className={`block transition hover:text-[var(--gold)] ${
-                                activePanel === "edition" ? "text-[var(--gold)]" : ""
-                              }`}
-                              onMouseEnter={() => onActivatePanel("edition")}
-                              onFocus={() => onActivatePanel("edition")}
-                            >
-                              Shop by Edition
-                            </button>
-                          </motion.li>
+                      return (
+                        <motion.li key={item.href} variants={itemVariants}>
+                          <Link
+                            href={item.href}
+                            className={`display-font inline-block border-b border-transparent px-1 transition ${isActive ? "text-[#0f5f49] border-[#0f5f49]" : "hover:text-[#0f5f49]"}`}
+                            onClick={onCloseMenu}
+                          >
+                            {item.label}
+                          </Link>
+                        </motion.li>
+                      );
+                    })}
 
-                          {activePanel === "edition" && (
-                            <motion.li className="pt-1 text-xs uppercase tracking-[0.16em] text-white/65" variants={itemVariants}>
-                              <motion.ul className="space-y-2" variants={mobileVariants}>
-                                {shopEditionItems.map((item) => (
-                                  <motion.li key={item.href} variants={itemVariants}>
-                                    <Link
-                                      href={item.href}
-                                      className="block transition hover:text-[var(--gold)]"
-                                      onClick={onCloseMenu}
-                                    >
-                                      {item.label}
-                                    </Link>
-                                  </motion.li>
-                                ))}
-                              </motion.ul>
-                            </motion.li>
-                          )}
-                        </motion.ul>
-                      </div>
-                    </motion.li>
-
-                    {navItems.map((item) => (
-                      <motion.li key={item.href} variants={itemVariants}>
-                        <Link
-                          href={item.href}
-                          className="display-font transition hover:text-[var(--gold)]"
-                          onClick={onCloseMenu}
-                        >
-                          {item.label}
-                        </Link>
-                      </motion.li>
-                    ))}
-
-                    {isAdmin && (
+                    {isAdmin ? (
                       <motion.li variants={itemVariants}>
-                        <div className="space-y-4">
-                          <p className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--gold)]">Admin</p>
-                          <motion.ul className="space-y-3 pl-1 text-sm font-medium uppercase tracking-[0.14em] text-white/75" variants={mobileVariants}>
+                        <div className="mt-3 border-t border-[#d8d8cd] pt-6">
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0f5f49]">Admin</p>
+                          <ul className="mt-3 space-y-2">
                             {ADMIN_NAV_ITEMS.map((item) => (
-                              <motion.li key={item.key ?? item.href} variants={itemVariants}>
+                              <li key={item.key ?? item.href}>
                                 <Link
                                   href={item.href}
-                                  className="block transition hover:text-[var(--gold)]"
+                                  className="block text-base font-semibold uppercase tracking-[0.12em] text-[#153f35] transition hover:text-[#0f5f49]"
                                   onClick={onCloseMenu}
                                 >
                                   {item.label}
                                 </Link>
-                              </motion.li>
+                              </li>
                             ))}
-                          </motion.ul>
+                          </ul>
                         </div>
                       </motion.li>
-                    )}
-                  </motion.ul>
-
-                  <motion.div className="mt-12 border-t border-white/25 pt-6 text-xs uppercase tracking-[0.16em] text-white/70" variants={contentVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
-                    {isAuthenticated && user ? (
-                      <div className="mb-6">
-                        <HeaderProfileMenu
-                          user={user}
-                          accountHref={accountHref}
-                          reduceMotion={reduceMotion}
-                          variant="panel"
-                          onNavigate={onCloseAll}
-                          onLogout={onLogout}
-                        />
-                      </div>
                     ) : null}
-                    <p className="mb-2">Positioning</p>
-                    <p>Personal | Family</p>
-                  </motion.div>
+                  </motion.ul>
                 </nav>
               </motion.aside>
 
-              <motion.main className="px-6 py-10 sm:px-10 lg:px-14 lg:py-16" variants={contentVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
-                <motion.h2 className="display-font text-center text-5xl text-white sm:text-6xl" variants={itemVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
+              <motion.main className="bg-[#efefe8] px-6 py-10 sm:px-10 lg:px-14 lg:py-16" variants={contentVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
+                <motion.h2 className="display-font text-center text-5xl text-[#113d34] sm:text-6xl" variants={itemVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
                   {activePanel === "category" ? "Shop By Category" : "Shop By Edition"}
                 </motion.h2>
 
-                <motion.div className="mx-auto mt-10 grid w-full max-w-5xl grid-cols-1 gap-[3px] bg-[#0e5b45] sm:grid-cols-2 lg:grid-cols-3" variants={gridVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
+                <motion.div className="mx-auto mt-10 grid w-full max-w-5xl grid-cols-1 gap-[2px] bg-[#ecebe3] sm:grid-cols-2 lg:grid-cols-3" variants={gridVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
                   {activeShopItems.map((item) => (
                     <motion.div key={item.href} variants={tileVariants}>
                       <Link
                       key={item.href}
                       href={item.href}
                       onClick={onCloseMenu}
-                      className="group relative block h-48 overflow-hidden sm:h-52 lg:h-56"
+                      className="group relative block h-52 overflow-hidden sm:h-56 lg:h-60"
                       >
                         <div
                           className="absolute inset-0 bg-cover bg-center transition duration-500 group-hover:scale-105"
                           style={{ backgroundImage: `url(${item.imageUrl})` }}
                           aria-hidden="true"
                         />
-                        <div className="absolute inset-0 bg-black/20 transition group-hover:bg-black/5" />
-                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-4 py-3">
-                          <p className="text-xs uppercase tracking-[0.16em] text-white/95">{item.label}</p>
+                        <div className="absolute inset-0 bg-black/12 transition group-hover:bg-black/5" />
+                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 to-transparent px-4 py-3">
+                          <p className="text-xs uppercase tracking-[0.16em] text-white">{item.label}</p>
                         </div>
                       </Link>
                     </motion.div>
@@ -436,12 +346,12 @@ export function HeaderMenuOverlay({
                     </motion.div>
                   )}
 
-                  <motion.ul className="grid grid-cols-2 gap-3 text-sm font-semibold uppercase tracking-[0.12em] text-white/90" variants={mobileVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
+                  <motion.ul className="grid grid-cols-2 gap-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#153f35]" variants={mobileVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
                     {[...aboutItems, ...activeShopItems.slice(0, 2), ...navItems, ...(isAdmin ? ADMIN_NAV_ITEMS : [])].map((item) => (
                       <motion.li key={`mobile-${item.href}`} variants={itemVariants}>
                         <Link
                           href={item.href}
-                          className="block border border-white/30 px-4 py-3 text-center transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+                          className="block border border-[#d6d6ca] bg-white/60 px-4 py-3 text-center transition hover:border-[#0e5b45] hover:text-[#0e5b45]"
                           onClick={onCloseMenu}
                         >
                           {item.label}
