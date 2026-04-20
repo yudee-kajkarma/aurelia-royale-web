@@ -190,6 +190,10 @@ export function HeaderMenuOverlay({
     { href: "/shop", label: "SHOP" },
     { href: "/contact", label: "CONTACT" },
   ];
+  const mobileMenuItems = [
+    ...desktopSidebarItems,
+    ...(isAdmin ? ADMIN_NAV_ITEMS.map((item) => ({ href: item.href, label: item.label })) : []),
+  ];
 
   return (
     <AnimatePresence>
@@ -304,6 +308,26 @@ export function HeaderMenuOverlay({
               </motion.aside>
 
               <motion.main className="bg-[#efefe8] px-6 py-10 sm:px-10 lg:px-14 lg:py-16" variants={contentVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
+                <motion.ul
+                  className="mb-6 grid grid-cols-2 gap-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#153f35] lg:hidden"
+                  variants={mobileVariants}
+                  initial={reduceMotion ? false : "hidden"}
+                  animate={reduceMotion ? undefined : "visible"}
+                  exit={reduceMotion ? undefined : "exit"}
+                >
+                  {desktopSidebarItems.map((item) => (
+                    <motion.li key={`mobile-primary-${item.href}`} variants={itemVariants}>
+                      <Link
+                        href={item.href}
+                        className="block border border-[#d6d6ca] bg-white/70 px-4 py-3 text-center transition hover:border-[#0e5b45] hover:text-[#0e5b45]"
+                        onClick={onCloseMenu}
+                      >
+                        {item.label}
+                      </Link>
+                    </motion.li>
+                  ))}
+                </motion.ul>
+
                 <motion.h2 className="display-font text-center text-5xl text-[#113d34] sm:text-6xl" variants={itemVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
                   {activePanel === "category" ? "Shop By Category" : "Shop By Edition"}
                 </motion.h2>
@@ -347,7 +371,7 @@ export function HeaderMenuOverlay({
                   )}
 
                   <motion.ul className="grid grid-cols-2 gap-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#153f35]" variants={mobileVariants} initial={reduceMotion ? false : "hidden"} animate={reduceMotion ? undefined : "visible"} exit={reduceMotion ? undefined : "exit"}>
-                    {[...aboutItems, ...activeShopItems.slice(0, 2), ...navItems, ...(isAdmin ? ADMIN_NAV_ITEMS : [])].map((item) => (
+                    {mobileMenuItems.map((item) => (
                       <motion.li key={`mobile-${item.href}`} variants={itemVariants}>
                         <Link
                           href={item.href}
