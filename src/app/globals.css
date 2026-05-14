@@ -1,67 +1,101 @@
 @import "tailwindcss";
 
 :root {
-  --background: #efefe8;
-  --foreground: #153f35;
-  --surface: #f8f8f5;
-  --ink: #111111;
-  --gold: #c7a63d;
-  --deep: #031b16;
+    --background: #efefe8;
+    --foreground: #153f35;
+    --surface: #f8f8f5;
+    --ink: #111111;
+    --gold: #c7a63d;
+    --deep: #031b16;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-manrope);
-  --font-serif: var(--font-playfair);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-manrope);
+    --font-serif: var(--font-playfair);
+    --font-cormorant: var(--font-cormorant);
+    --font-jost: var(--font-jost);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-manrope), "Segoe UI", sans-serif;
-  overflow-x: clip;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-manrope), "Segoe UI", sans-serif;
+    overflow-x: clip;
 }
 
 button,
 input[type="button"],
 input[type="submit"],
 input[type="reset"] {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 button:disabled,
 input[type="button"]:disabled,
 input[type="submit"]:disabled,
 input[type="reset"]:disabled {
-  cursor: not-allowed;
+    cursor: not-allowed;
 }
 
 .display-font {
-  font-family: var(--font-playfair), Georgia, serif;
+    font-family: var(--font-playfair), Georgia, serif;
 }
 
 .hero-glow {
-  background: radial-gradient(circle at 70% 20%, rgba(199, 166, 61, 0.2), transparent 45%);
+    background: radial-gradient(
+        circle at 70% 20%,
+        rgba(199, 166, 61, 0.2),
+        transparent 45%
+    );
 }
 
 .grain {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02)),
-    radial-gradient(circle at 15% 20%, rgba(199, 166, 61, 0.06), transparent 35%),
-    radial-gradient(circle at 80% 70%, rgba(3, 27, 22, 0.07), transparent 40%);
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02)),
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(199, 166, 61, 0.06),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(3, 27, 22, 0.07),
+            transparent 40%
+        );
 }
 
 .rise {
-  animation: rise 0.7s ease-out both;
+    animation: rise 0.7s ease-out both;
 }
 
 @keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.marquee-track {
+    animation: marquee 32s linear infinite;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+        animation: none;
+    }
 }

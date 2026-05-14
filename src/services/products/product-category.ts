@@ -1,4 +1,4 @@
-const DEFAULT_CATEGORY_IMAGE = "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/necklace.webp";
+const DEFAULT_CATEGORY_IMAGE = "/category/Necklace.png";
 
 type ShopCategoryTile = {
   label: string;
@@ -7,44 +7,50 @@ type ShopCategoryTile = {
   aliases: string[];
 };
 
-export const SHOP_CATEGORY_LIMIT = 6;
+export const SHOP_CATEGORY_LIMIT = 7;
 
 export const SHOP_CATEGORY_TILES: ShopCategoryTile[] = [
   {
     label: "Bracelets",
     queryValue: "bracelets",
-    imageUrl: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/bracelet.webp",
+    imageUrl: "/category/Bracelete.png",
     aliases: ["bracelets", "bracelet"],
   },
   {
     label: "Earrings",
     queryValue: "earrings",
-    imageUrl: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/ear-ring.webp",
+    imageUrl: "/category/Earring.png",
     aliases: ["earrings", "earring", "ear rings", "ear ring"],
   },
   {
     label: "Necklaces",
     queryValue: "necklaces",
-    imageUrl: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/necklace.webp",
+    imageUrl: "/category/Necklace.png",
     aliases: ["necklaces", "necklace"],
   },
   {
     label: "Rings",
     queryValue: "rings",
-    imageUrl: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/ring.webp",
+    imageUrl: "/category/Ring.png",
     aliases: ["rings", "ring"],
   },
   {
     label: "Pendants",
     queryValue: "pendants",
-    imageUrl: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/necklace.webp",
+    imageUrl: "/category/Pendant.png",
     aliases: ["pendants", "pendant"],
   },
   {
     label: "Sets",
     queryValue: "sets",
-    imageUrl: "https://jewellery-bay-two.vercel.app/assets/our_image/category/webp/nacklace.png",
+    imageUrl: "/category/SET.png",
     aliases: ["sets", "set", "necklace + earring", "necklace+earring", "matching sets"],
+  },
+  {
+    label: "Watches",
+    queryValue: "watches",
+    imageUrl: "/category/Watch.png",
+    aliases: ["watches", "watch"],
   },
 ];
 
