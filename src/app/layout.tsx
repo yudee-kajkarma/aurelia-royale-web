@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import {
     Manrope,
     Playfair_Display,
@@ -67,7 +67,7 @@ export default function RootLayout({
         >
             <body
                 id="top"
-                className="min-h-full flex flex-col grain bg-[var(--background)] text-[var(--foreground)]"
+                className="min-h-full flex flex-col  bg-background text-foreground"
             >
                 <AuthProvider>
                     <WishlistProvider>
@@ -79,7 +79,7 @@ export default function RootLayout({
                             <Footer />
                             <a
                                 href="#top"
-                                className="fixed bottom-5 right-5 inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-dashed border-[var(--gold)] bg-[#d3b442] text-white shadow-xl transition hover:scale-105"
+                                className="fixed bottom-5 right-5 inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-dashed border-gold bg-[#d3b442] text-white shadow-xl transition hover:scale-105"
                             >
                                 <ArrowUp size={18} />
                             </a>

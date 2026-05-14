@@ -1,34 +1,56 @@
 import Link from "next/link";
-import { BrandWordmark } from "@/components/brand/BrandWordmark";
+
+const footerLinks = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/shop", label: "Shop" },
+    { href: "/contact", label: "Contact" },
+];
 
 export function Footer() {
-  return (
-    <footer className="border-t border-white/10 bg-[linear-gradient(180deg,#050606,#010101)] px-4 py-14 text-white sm:px-6">
-      <div className="mx-auto max-w-4xl text-center">
-        <div className="flex justify-center">
-          <BrandWordmark size="hero" className="text-center" />
-        </div>
-        {/* <p className="mt-5 text-sm text-white/70">info@dalila.com · +09 666 888 999</p> */}
+    return (
+        <footer className="bg-[linear-gradient(180deg,#0d3a2d,#06241b)] px-6 py-14 text-white sm:px-10 md:py-20">
+            <div className="mx-auto flex max-w-6xl flex-col items-start gap-10 md:items-center md:text-center">
+                <Link
+                    href="/"
+                    aria-label="Aurelia Royale"
+                    className="flex flex-col leading-none md:items-center"
+                >
+                    <span className="font-cormorant text-4xl font-medium uppercase tracking-[0.04em] text-white sm:text-5xl md:text-6xl">
+                        Aurelia
+                    </span>
+                    <span className="font-jost mt-2 text-[0.7rem] font-semibold uppercase tracking-[0.5em] text-white/90 sm:text-xs sm:tracking-[0.62em]">
+                        Royale
+                    </span>
+                </Link>
 
-        <nav className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm font-semibold uppercase tracking-[0.15em]">
-          <Link href="/" className="transition hover:text-[var(--gold)]">
-            Home
-          </Link>
-          <Link href="/about" className="transition hover:text-[var(--gold)]">
-            About
-          </Link>
-          <Link href="/shop" className="transition hover:text-[var(--gold)]">
-            Shop
-          </Link>
-          <Link href="/contact" className="transition hover:text-[var(--gold)]">
-            Contact
-          </Link>
-        </nav>
+                <p className="font-jost max-w-2xl text-[0.78rem] italic text-gold/90 sm:text-sm md:text-center">
+                    Fine jewelry crafted for those who value beauty, heritage,
+                    and permanence above all.
+                </p>
 
-        <p className="mt-8 text-xs uppercase tracking-[0.2em] text-white/45">
-          Copyright 2026 Aurelia Royale. All rights reserved by Aurelia Royale.
-        </p>
-      </div>
-    </footer>
-  );
+                <nav
+                    aria-label="Footer"
+                    className="flex flex-col gap-5 text-[0.78rem] font-semibold uppercase tracking-[0.28em] sm:text-sm md:flex-row md:gap-12"
+                >
+                    {footerLinks.map((link) => (
+                        <Link
+                            key={link.href}
+                            href={link.href}
+                            className="transition hover:text-gold"
+                        >
+                            {link.label}
+                        </Link>
+                    ))}
+                </nav>
+
+                <div className="w-full border-t border-white/15 pt-6 md:pt-8">
+                    <p className="font-jost text-[0.7rem] font-medium uppercase tracking-[0.22em] text-white/65 sm:text-xs md:text-center">
+                        Copyright 2026 Aurelia Royale. All rights reserved by
+                        Aurelia Royale.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    );
 }

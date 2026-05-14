@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { motion } from "framer-motion";
 import { LogOut, Shield, UserRound } from "lucide-react";
 import type { AuthUser } from "@/services/auth/auth.types";
@@ -39,13 +39,13 @@ export function HeaderProfileMenu({
     >
       {isDesktop || isPanel ? (
         <div className="border-b border-white/10 bg-[linear-gradient(135deg,#05241d,#0f5d47)] px-5 py-4">
-          <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">Signed In</p>
+          <p className="text-xs uppercase tracking-[0.18em] text-gold">Signed In</p>
           <p className="mt-2 text-base font-semibold">{user.username}</p>
           <p className="mt-1 text-sm text-white/70">{user.email}</p>
         </div>
       ) : (
         <>
-          <p className="text-xs uppercase tracking-[0.16em] text-[var(--gold)]">My Profile</p>
+          <p className="text-xs uppercase tracking-[0.16em] text-gold">My Profile</p>
           <p className="mt-2 text-base font-semibold text-white">{user.username}</p>
           <p className="mt-1 text-sm text-white/70">{user.email}</p>
         </>
@@ -54,7 +54,7 @@ export function HeaderProfileMenu({
       <div className={isDesktop || isPanel ? "px-4 py-4" : "mt-4"}>
         <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm">
           <span className="text-white/65">Role</span>
-          <span className="inline-flex items-center gap-2 font-semibold text-[var(--gold)]">
+          <span className="inline-flex items-center gap-2 font-semibold text-gold">
             <Shield size={15} />
             {user.role}
           </span>
@@ -64,8 +64,8 @@ export function HeaderProfileMenu({
           <Link
             href={accountHref}
             className={isDesktop || isPanel
-              ? "inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
-              : "inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold text-white transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+              ? "inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold transition hover:border-gold hover:text-gold"
+              : "inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold text-white transition hover:border-gold hover:text-gold"
             }
             onClick={onNavigate}
           >
@@ -75,7 +75,7 @@ export function HeaderProfileMenu({
           <button
             type="button"
             onClick={onLogout}
-            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[var(--gold)] px-4 py-3 text-sm font-extrabold text-[#17120a] transition hover:bg-[#b89428]"
+            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gold px-4 py-3 text-sm font-extrabold text-[#17120a] transition hover:bg-[#b89428]"
           >
             <LogOut size={16} />
             Logout

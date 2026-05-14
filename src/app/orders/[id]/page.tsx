@@ -205,23 +205,23 @@ export default function OrderDetailPage() {
   return (
     <AuthGuard allowedRoles={["USER", "ADMIN"]}>
       <main className="mx-auto min-h-[70vh] w-full max-w-[1480px] px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
-        <nav className="mb-6 text-sm text-[var(--foreground)]/58">
-          <Link href="/orders" className="transition hover:text-[var(--deep)]">Orders</Link>
+        <nav className="mb-6 text-sm text-foreground/58">
+          <Link href="/orders" className="transition hover:text-deep">Orders</Link>
           <span>{" / "}</span>
-          <span className="text-[var(--deep)]">{order?.orderNumber || orderId}</span>
+          <span className="text-deep">{order?.orderNumber || orderId}</span>
         </nav>
 
-        {isLoading ? <p className="text-sm font-medium text-[var(--foreground)]/60">Loading order...</p> : null}
+        {isLoading ? <p className="text-sm font-medium text-foreground/60">Loading order...</p> : null}
         {!isLoading && error ? <div className="rounded-[28px] border border-rose-200 bg-rose-50 px-6 py-8 text-sm text-rose-700">{error}</div> : null}
 
         {!isLoading && order ? (
           <div className="grid gap-8 xl:grid-cols-[1fr_380px]">
-            <section className="rounded-[34px] border border-[var(--foreground)]/10 bg-white/90 p-6 shadow-[0_20px_60px_rgba(55,31,10,0.06)] backdrop-blur-sm sm:p-8">
-              <div className="flex flex-col gap-4 border-b border-[var(--foreground)]/10 pb-6 sm:flex-row sm:items-start sm:justify-between">
+            <section className="rounded-[34px] border border-foreground/10 bg-white/90 p-6 shadow-[0_20px_60px_rgba(55,31,10,0.06)] backdrop-blur-sm sm:p-8">
+              <div className="flex flex-col gap-4 border-b border-foreground/10 pb-6 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--foreground)]/42">{order.orderNumber}</p>
-                  <h1 className="display-font mt-3 text-4xl text-[var(--deep)]">Order Details</h1>
-                  <p className="mt-3 text-sm text-[var(--foreground)]/58">Placed {formatOrderDate(order.createdAt)}</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-foreground/42">{order.orderNumber}</p>
+                  <h1 className="display-font mt-3 text-4xl text-deep">Order Details</h1>
+                  <p className="mt-3 text-sm text-foreground/58">Placed {formatOrderDate(order.createdAt)}</p>
                 </div>
 
                 <div className="flex flex-wrap gap-2">
@@ -236,61 +236,61 @@ export default function OrderDetailPage() {
 
               <div className="mt-6 space-y-5">
                 {order.items.map((item, index) => (
-                  <article key={`${item.productId}-${item.sku}-${index}`} className="grid gap-5 rounded-[24px] border border-[var(--foreground)]/10 bg-[var(--surface)] p-4 sm:grid-cols-[110px_minmax(0,1fr)_auto] sm:items-center">
-                    <div className="overflow-hidden rounded-[20px] border border-[var(--gold)]/15 bg-[linear-gradient(180deg,#fff5ec_0%,#ffffff_100%)] p-3">
+                  <article key={`${item.productId}-${item.sku}-${index}`} className="grid gap-5 rounded-[24px] border border-foreground/10 bg-surface p-4 sm:grid-cols-[110px_minmax(0,1fr)_auto] sm:items-center">
+                    <div className="overflow-hidden rounded-[20px] border border-gold/15 bg-[linear-gradient(180deg,#fff5ec_0%,#ffffff_100%)] p-3">
                       <ProductImage src={item.thumbnail} alt={item.title} className="h-24 w-full object-contain" />
                     </div>
                     <div>
-                      <p className="text-lg font-bold text-[var(--deep)]">{item.title}</p>
-                      <p className="mt-1 text-sm text-[var(--foreground)]/55">{item.variantName || "Default item"}</p>
-                      <p className="mt-1 text-sm text-[var(--foreground)]/55">SKU: {item.sku || "N/A"}</p>
-                      <p className="mt-1 text-sm text-[var(--foreground)]/55">Quantity: {item.quantity}</p>
+                      <p className="text-lg font-bold text-deep">{item.title}</p>
+                      <p className="mt-1 text-sm text-foreground/55">{item.variantName || "Default item"}</p>
+                      <p className="mt-1 text-sm text-foreground/55">SKU: {item.sku || "N/A"}</p>
+                      <p className="mt-1 text-sm text-foreground/55">Quantity: {item.quantity}</p>
                     </div>
-                    <PriceDisplay value={item.price * item.quantity} className="text-lg font-bold text-[var(--deep)]" />
+                    <PriceDisplay value={item.price * item.quantity} className="text-lg font-bold text-deep" />
                   </article>
                 ))}
               </div>
             </section>
 
-            <aside className="rounded-[34px] border border-[var(--foreground)]/10 bg-white/90 p-6 shadow-[0_20px_60px_rgba(55,31,10,0.06)] backdrop-blur-sm sm:p-8">
+            <aside className="rounded-[34px] border border-foreground/10 bg-white/90 p-6 shadow-[0_20px_60px_rgba(55,31,10,0.06)] backdrop-blur-sm sm:p-8">
               <div className="space-y-6">
-                <div className="rounded-[26px] border border-[var(--foreground)]/10 bg-[var(--surface)] p-5">
-                  <div className="flex items-center gap-3 text-[var(--deep)]">
+                <div className="rounded-[26px] border border-foreground/10 bg-surface p-5">
+                  <div className="flex items-center gap-3 text-deep">
                     <CreditCard className="h-5 w-5" />
                     <h2 className="text-xl font-bold">Payment</h2>
                   </div>
-                  <div className="mt-4 space-y-2 text-sm text-[var(--foreground)]/62">
-                    <p>Method: <span className="font-semibold text-[var(--deep)]">{order.paymentMethod}</span></p>
-                    <p>Status: <span className="font-semibold text-[var(--deep)]">{order.paymentStatus}</span></p>
-                    <p>Total: <PriceDisplay value={order.totalAmount} className="font-semibold text-[var(--deep)]" /></p>
+                  <div className="mt-4 space-y-2 text-sm text-foreground/62">
+                    <p>Method: <span className="font-semibold text-deep">{order.paymentMethod}</span></p>
+                    <p>Status: <span className="font-semibold text-deep">{order.paymentStatus}</span></p>
+                    <p>Total: <PriceDisplay value={order.totalAmount} className="font-semibold text-deep" /></p>
                   </div>
                 </div>
 
-                <div className="rounded-[26px] border border-[var(--foreground)]/10 bg-[var(--surface)] p-5">
-                  <div className="flex items-center gap-3 text-[var(--deep)]">
+                <div className="rounded-[26px] border border-foreground/10 bg-surface p-5">
+                  <div className="flex items-center gap-3 text-deep">
                     <MapPinHouse className="h-5 w-5" />
                     <h2 className="text-xl font-bold">Shipping Address</h2>
                   </div>
                   {order.shippingAddress ? (
-                    <div className="mt-4 text-sm leading-7 text-[var(--foreground)]/62">
+                    <div className="mt-4 text-sm leading-7 text-foreground/62">
                       <p>{order.shippingAddress.street}</p>
                       <p>{order.shippingAddress.city}, {order.shippingAddress.state} {order.shippingAddress.postalCode}</p>
                       <p>{order.shippingAddress.country}</p>
                     </div>
                   ) : (
-                    <p className="mt-4 text-sm text-[var(--foreground)]/55">No shipping address available.</p>
+                    <p className="mt-4 text-sm text-foreground/55">No shipping address available.</p>
                   )}
                 </div>
 
-                <div className="rounded-[26px] border border-[var(--foreground)]/10 bg-[var(--surface)] p-5">
-                  <div className="flex items-center gap-3 text-[var(--deep)]">
+                <div className="rounded-[26px] border border-foreground/10 bg-surface p-5">
+                  <div className="flex items-center gap-3 text-deep">
                     <Package className="h-5 w-5" />
                     <h2 className="text-xl font-bold">Order Summary</h2>
                   </div>
-                  <div className="mt-4 space-y-2 text-sm text-[var(--foreground)]/62">
-                    <p>Items: <span className="font-semibold text-[var(--deep)]">{order.totalItems}</span></p>
-                    <p>Updated: <span className="font-semibold text-[var(--deep)]">{formatOrderDate(order.updatedAt)}</span></p>
-                    <p>Refund status: <span className="font-semibold text-[var(--deep)]">{order.refundStatus}</span></p>
+                  <div className="mt-4 space-y-2 text-sm text-foreground/62">
+                    <p>Items: <span className="font-semibold text-deep">{order.totalItems}</span></p>
+                    <p>Updated: <span className="font-semibold text-deep">{formatOrderDate(order.updatedAt)}</span></p>
+                    <p>Refund status: <span className="font-semibold text-deep">{order.refundStatus}</span></p>
                   </div>
                 </div>
 
@@ -301,7 +301,7 @@ export default function OrderDetailPage() {
                     type="button"
                     onClick={() => void handleRegeneratePayment()}
                     disabled={isRegeneratingPayment || isCancelling}
-                    className="cta-sweep inline-flex w-full items-center justify-center gap-2 border border-[var(--deep)] bg-[var(--deep)] px-6 py-4 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:border-[var(--gold)] focus-visible:border-[var(--gold)] disabled:opacity-60"
+                    className="cta-sweep inline-flex w-full items-center justify-center gap-2 border border-deep bg-deep px-6 py-4 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:border-gold focus-visible:border-gold disabled:opacity-60"
                   >
                     <span className="relative z-10 inline-flex items-center gap-2">
                       <CreditCard className="h-4 w-4" />
@@ -321,7 +321,7 @@ export default function OrderDetailPage() {
                     {isCancelling ? "Cancelling..." : "Cancel Order"}
                   </button>
                 ) : (
-                  <p className="text-sm leading-6 text-[var(--foreground)]/58">
+                  <p className="text-sm leading-6 text-foreground/58">
                     This order can no longer be cancelled after it reaches shipped or delivered status.
                   </p>
                 )}

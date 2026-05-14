@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from "react";
@@ -177,15 +177,15 @@ function ModalShell({
             aria-label={title}
             className={panelClass}
           >
-            <div className="sticky top-0 z-10 flex items-start justify-between gap-4 rounded-t-[30px] border-b border-[var(--foreground)]/10 bg-white/95 px-6 py-5 backdrop-blur sm:px-7">
+            <div className="sticky top-0 z-10 flex items-start justify-between gap-4 rounded-t-[30px] border-b border-foreground/10 bg-white/95 px-6 py-5 backdrop-blur sm:px-7">
               <div>
-                <h2 className="display-font text-3xl text-[var(--foreground)]">{title}</h2>
-                <p className="mt-1 text-sm leading-6 text-[var(--foreground)]/68">{subtitle}</p>
+                <h2 className="display-font text-3xl text-foreground">{title}</h2>
+                <p className="mt-1 text-sm leading-6 text-foreground/68">{subtitle}</p>
               </div>
               <button
                 type="button"
                 onClick={onClose}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full text-[var(--foreground)] transition hover:bg-[var(--gold)]/10 hover:text-[var(--gold)]"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full text-foreground transition hover:bg-gold/10 hover:text-gold"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -219,8 +219,8 @@ function ThemedPagination({
   const visiblePages = Array.from({ length: windowEnd - windowStart + 1 }, (_, index) => windowStart + index);
 
   return (
-    <div className="mt-6 flex flex-col gap-4 rounded-[28px] border border-[var(--foreground)]/10 bg-white px-5 py-4 shadow-[0_20px_60px_rgba(6,28,23,0.06)] sm:flex-row sm:items-center sm:justify-between sm:px-6">
-      <div className="text-sm text-[var(--foreground)]/68">
+    <div className="mt-6 flex flex-col gap-4 rounded-[28px] border border-foreground/10 bg-white px-5 py-4 shadow-[0_20px_60px_rgba(6,28,23,0.06)] sm:flex-row sm:items-center sm:justify-between sm:px-6">
+      <div className="text-sm text-foreground/68">
         Showing page {pagination.currentPage} of {pagination.totalPages} with {pagination.totalRecords} total records
       </div>
 
@@ -229,7 +229,7 @@ function ThemedPagination({
           type="button"
           onClick={() => onPageChange(currentPage - 1)}
           disabled={disabled || !pagination.hasPrevPage}
-          className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[var(--foreground)]/10 px-4 text-sm font-semibold text-[var(--foreground)] transition hover:border-[var(--gold)] hover:text-[var(--gold)] disabled:cursor-not-allowed disabled:opacity-45"
+          className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-foreground/10 px-4 text-sm font-semibold text-foreground transition hover:border-gold hover:text-gold disabled:cursor-not-allowed disabled:opacity-45"
         >
           <ChevronLeft size={16} />
           Prev
@@ -242,8 +242,8 @@ function ThemedPagination({
             onClick={() => onPageChange(page)}
             disabled={disabled}
             className={page === currentPage
-              ? "inline-flex h-11 min-w-11 items-center justify-center rounded-full bg-[var(--gold)] px-4 text-sm font-extrabold text-[#17120a]"
-              : "inline-flex h-11 min-w-11 items-center justify-center rounded-full border border-[var(--foreground)]/10 px-4 text-sm font-semibold text-[var(--foreground)] transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+              ? "inline-flex h-11 min-w-11 items-center justify-center rounded-full bg-gold px-4 text-sm font-extrabold text-[#17120a]"
+              : "inline-flex h-11 min-w-11 items-center justify-center rounded-full border border-foreground/10 px-4 text-sm font-semibold text-foreground transition hover:border-gold hover:text-gold"
             }
           >
             {page}
@@ -254,7 +254,7 @@ function ThemedPagination({
           type="button"
           onClick={() => onPageChange(currentPage + 1)}
           disabled={disabled || !pagination.hasNextPage}
-          className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[var(--foreground)]/10 px-4 text-sm font-semibold text-[var(--foreground)] transition hover:border-[var(--gold)] hover:text-[var(--gold)] disabled:cursor-not-allowed disabled:opacity-45"
+          className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-foreground/10 px-4 text-sm font-semibold text-foreground transition hover:border-gold hover:text-gold disabled:cursor-not-allowed disabled:opacity-45"
         >
           Next
           <ChevronRight size={16} />
@@ -594,17 +594,17 @@ export default function AdminProductsPage() {
   return (
     <AuthGuard allowedRoles={["ADMIN"]}>
       <main className="mx-auto min-h-[70vh] w-full max-w-7xl px-6 py-12 sm:px-8">
-        <section className="rounded-[28px] border border-[var(--foreground)]/10 bg-white p-5 shadow-sm sm:p-6">
+        <section className="rounded-[28px] border border-foreground/10 bg-white p-5 shadow-sm sm:p-6">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <form onSubmit={handleSearchSubmit} className="grid flex-1 gap-3 lg:grid-cols-[minmax(0,1.6fr)_minmax(12rem,0.95fr)_auto_auto]">
               <div className="relative">
-                <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--foreground)]/45" />
+                <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-foreground/45" />
                 <input
                   type="search"
                   value={searchTerm}
                   onChange={(event) => setSearchTerm(event.target.value)}
                   placeholder="Search products"
-                  className="h-12 w-full rounded-xl border border-[var(--foreground)]/12 bg-white px-11 text-sm text-[var(--foreground)] outline-none transition focus:border-[var(--gold)] focus:ring-2 focus:ring-[var(--gold)]/15"
+                  className="h-12 w-full rounded-xl border border-foreground/12 bg-white px-11 text-sm text-foreground outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/15"
                 />
               </div>
 
@@ -614,7 +614,7 @@ export default function AdminProductsPage() {
                   setSelectedCategory(event.target.value);
                   setCurrentPage(1);
                 }}
-                className="h-12 rounded-xl border border-[var(--foreground)]/12 bg-white px-4 text-sm text-[var(--foreground)] outline-none transition focus:border-[var(--gold)] focus:ring-2 focus:ring-[var(--gold)]/15"
+                className="h-12 rounded-xl border border-foreground/12 bg-white px-4 text-sm text-foreground outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/15"
               >
                 <option value="">All Categories</option>
                 {categories.map((category) => (
@@ -626,7 +626,7 @@ export default function AdminProductsPage() {
 
               <button
                 type="submit"
-                className="inline-flex h-12 items-center justify-center rounded-xl bg-[var(--foreground)] px-5 text-sm font-bold text-white transition hover:bg-[#0f342c]"
+                className="inline-flex h-12 items-center justify-center rounded-xl bg-foreground px-5 text-sm font-bold text-white transition hover:bg-[#0f342c]"
               >
                 Search
               </button>
@@ -635,7 +635,7 @@ export default function AdminProductsPage() {
                 type="button"
                 onClick={handleClearFilters}
                 disabled={!hasActiveFilters}
-                className="inline-flex h-12 items-center justify-center rounded-xl border border-[var(--foreground)]/12 px-5 text-sm font-semibold text-[var(--foreground)] transition hover:border-[var(--gold)] hover:text-[var(--gold)] disabled:cursor-not-allowed disabled:opacity-45"
+                className="inline-flex h-12 items-center justify-center rounded-xl border border-foreground/12 px-5 text-sm font-semibold text-foreground transition hover:border-gold hover:text-gold disabled:cursor-not-allowed disabled:opacity-45"
               >
                 Clear
               </button>
@@ -643,7 +643,7 @@ export default function AdminProductsPage() {
 
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link href="/admin/products/import" className="inline-flex max-sm:w-full">
-                <span className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-[var(--foreground)]/12 px-5 text-sm font-semibold text-[var(--foreground)] transition hover:border-[var(--gold)] hover:text-[var(--gold)] max-sm:w-full">
+                <span className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-foreground/12 px-5 text-sm font-semibold text-foreground transition hover:border-gold hover:text-gold max-sm:w-full">
                   <FileUp className="h-4 w-4" />
                   Import Data
                 </span>
@@ -651,7 +651,7 @@ export default function AdminProductsPage() {
               <button
                 type="button"
                 onClick={openCreateEditor}
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-[var(--gold)] px-5 text-sm font-extrabold text-[#17120a] transition hover:bg-[#b89428] max-sm:w-full"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-gold px-5 text-sm font-extrabold text-[#17120a] transition hover:bg-[#b89428] max-sm:w-full"
               >
                 <Plus className="h-4 w-4" />
                 Add Product
@@ -660,12 +660,12 @@ export default function AdminProductsPage() {
           </div>
 
           <div className="mt-4 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-            <div className="flex items-center gap-2 text-sm text-[var(--foreground)]/62">
+            <div className="flex items-center gap-2 text-sm text-foreground/62">
               <RefreshCw className={`h-4 w-4 shrink-0 ${loading ? "animate-spin" : ""}`} />
               <span>{resultLabel}</span>
             </div>
 
-            <div className="rounded-full border border-[var(--foreground)]/10 bg-[var(--surface)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--foreground)]/60">
+            <div className="rounded-full border border-foreground/10 bg-surface px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-foreground/60">
               Page {currentPage}{pagination ? ` / ${pagination.totalPages}` : ""}
             </div>
           </div>
@@ -677,8 +677,8 @@ export default function AdminProductsPage() {
           </div>
         ) : null}
 
-        <section className="mt-5 overflow-hidden rounded-[28px] border border-[var(--foreground)]/10 bg-white shadow-sm">
-          <div className="hidden xl:grid xl:grid-cols-[minmax(0,2.4fr)_1fr_1fr_0.85fr_0.9fr_8.5rem] gap-4 border-b border-[var(--foreground)]/10 bg-[var(--surface)] px-5 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--foreground)]/55">
+        <section className="mt-5 overflow-hidden rounded-[28px] border border-foreground/10 bg-white shadow-sm">
+          <div className="hidden xl:grid xl:grid-cols-[minmax(0,2.4fr)_1fr_1fr_0.85fr_0.9fr_8.5rem] gap-4 border-b border-foreground/10 bg-surface px-5 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-foreground/55">
             <span>Product</span>
             <span>Category</span>
             <span>SKU</span>
@@ -688,9 +688,9 @@ export default function AdminProductsPage() {
           </div>
 
           {loading ? (
-            <div className="grid min-h-[320px] place-items-center px-6 py-12 text-center text-[var(--foreground)]/60">
+            <div className="grid min-h-[320px] place-items-center px-6 py-12 text-center text-foreground/60">
               <div>
-                <LoaderCircle className="mx-auto h-8 w-8 animate-spin text-[var(--gold)]" />
+                <LoaderCircle className="mx-auto h-8 w-8 animate-spin text-gold" />
                 <p className="mt-4 text-sm font-medium">Loading product workspace</p>
               </div>
             </div>
@@ -702,57 +702,57 @@ export default function AdminProductsPage() {
             </div>
           ) : products.length === 0 ? (
             <div className="px-6 py-16 text-center">
-              <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-[var(--gold)]/10 text-[var(--gold)]">
+              <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-gold/10 text-gold">
                 <PackageSearch className="h-9 w-9" />
               </div>
-              <p className="display-font text-3xl text-[var(--foreground)]">No products matched</p>
-              <p className="mx-auto mt-3 max-w-xl text-sm text-[var(--foreground)]/65">Adjust the filter or add your first product to begin the catalog.</p>
+              <p className="display-font text-3xl text-foreground">No products matched</p>
+              <p className="mx-auto mt-3 max-w-xl text-sm text-foreground/65">Adjust the filter or add your first product to begin the catalog.</p>
               {hasActiveFilters ? (
                 <button
                   type="button"
                   onClick={handleClearFilters}
-                  className="mt-6 inline-flex items-center justify-center rounded-xl border border-[var(--foreground)]/12 px-5 py-3 text-sm font-semibold text-[var(--foreground)] transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+                  className="mt-6 inline-flex items-center justify-center rounded-xl border border-foreground/12 px-5 py-3 text-sm font-semibold text-foreground transition hover:border-gold hover:text-gold"
                 >
                   Clear Filters
                 </button>
               ) : null}
             </div>
           ) : (
-            <div className="divide-y divide-[var(--foreground)]/10">
+            <div className="divide-y divide-foreground/10">
               {products.map((product) => (
                 <article
                   key={product.id}
                   className="grid gap-4 px-5 py-5 md:grid-cols-2 xl:grid-cols-[minmax(0,2.4fr)_1fr_1fr_0.85fr_0.9fr_8.5rem] xl:items-center"
                 >
                   <div className="flex items-start gap-4 min-w-0 md:col-span-2 xl:col-span-1">
-                    <div className="relative h-[72px] w-[72px] shrink-0 overflow-hidden rounded-2xl border border-[var(--foreground)]/10 bg-gray-50">
+                    <div className="relative h-[72px] w-[72px] shrink-0 overflow-hidden rounded-2xl border border-foreground/10 bg-gray-50">
                       <ProductImage src={product.thumbnail} alt={product.title} className="h-full w-full object-cover" />
                     </div>
 
                     <div className="min-w-0 space-y-1">
-                      <p className="line-clamp-2 text-sm font-semibold text-[var(--foreground)]">{product.title}</p>
-                      <p className="text-xs text-[var(--foreground)]/58">ID: {product.id}</p>
-                      <p className="text-xs text-[var(--foreground)]/58">Vendor: {product.vendor}</p>
+                      <p className="line-clamp-2 text-sm font-semibold text-foreground">{product.title}</p>
+                      <p className="text-xs text-foreground/58">ID: {product.id}</p>
+                      <p className="text-xs text-foreground/58">Vendor: {product.vendor}</p>
                     </div>
                   </div>
 
                   <div className="space-y-1">
-                    <p className="text-xs uppercase tracking-[0.14em] text-[var(--foreground)]/45 xl:hidden">Category</p>
-                    <p className="text-sm font-medium text-[var(--foreground)]">{getProductCategory(product)}</p>
+                    <p className="text-xs uppercase tracking-[0.14em] text-foreground/45 xl:hidden">Category</p>
+                    <p className="text-sm font-medium text-foreground">{getProductCategory(product)}</p>
                   </div>
 
                   <div className="space-y-1">
-                    <p className="text-xs uppercase tracking-[0.14em] text-[var(--foreground)]/45 xl:hidden">SKU</p>
-                    <p className="text-sm font-medium text-[var(--foreground)]">{product.sku}</p>
+                    <p className="text-xs uppercase tracking-[0.14em] text-foreground/45 xl:hidden">SKU</p>
+                    <p className="text-sm font-medium text-foreground">{product.sku}</p>
                   </div>
 
                   <div className="space-y-1">
-                    <p className="text-xs uppercase tracking-[0.14em] text-[var(--foreground)]/45 xl:hidden">Price</p>
-                    <p className="text-sm font-semibold text-[var(--foreground)]">{formatMoney(product.price)}</p>
+                    <p className="text-xs uppercase tracking-[0.14em] text-foreground/45 xl:hidden">Price</p>
+                    <p className="text-sm font-semibold text-foreground">{formatMoney(product.price)}</p>
                   </div>
 
                   <div className="space-y-1">
-                    <p className="text-xs uppercase tracking-[0.14em] text-[var(--foreground)]/45 xl:hidden">Stock</p>
+                    <p className="text-xs uppercase tracking-[0.14em] text-foreground/45 xl:hidden">Stock</p>
                     <span className={product.stock > 0
                       ? "inline-flex rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700"
                       : "inline-flex rounded-full bg-red-50 px-3 py-1 text-xs font-semibold text-red-700"
@@ -763,13 +763,13 @@ export default function AdminProductsPage() {
 
                   <div className="flex items-center gap-2 md:col-span-2 xl:col-span-1 xl:justify-end xl:flex-nowrap">
                     <Link href={`/shop-details/${product.slug}`} className="inline-flex shrink-0">
-                      <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--foreground)]/10 text-[var(--foreground)] transition hover:border-[var(--gold)] hover:text-[var(--gold)]">
+                      <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-foreground/10 text-foreground transition hover:border-gold hover:text-gold">
                         <Eye className="h-4 w-4" />
                       </span>
                     </Link>
                     <button
                       type="button"
-                      className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--foreground)]/10 text-[var(--foreground)] transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+                      className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-foreground/10 text-foreground transition hover:border-gold hover:text-gold"
                       onClick={() => openEditEditor(product.id)}
                       disabled={loading || deletingId === product.id}
                     >
@@ -821,7 +821,7 @@ export default function AdminProductsPage() {
                 type="button"
                 onClick={() => setPendingDeleteProduct(null)}
                 disabled={Boolean(deletingId)}
-                className="inline-flex items-center justify-center rounded-xl border border-[var(--foreground)]/10 px-5 py-3 text-sm font-semibold text-[var(--foreground)] transition hover:border-[var(--gold)] hover:text-[var(--gold)] disabled:cursor-not-allowed disabled:opacity-45"
+                className="inline-flex items-center justify-center rounded-xl border border-foreground/10 px-5 py-3 text-sm font-semibold text-foreground transition hover:border-gold hover:text-gold disabled:cursor-not-allowed disabled:opacity-45"
               >
                 Cancel
               </button>
@@ -847,7 +847,7 @@ export default function AdminProductsPage() {
         >
           {loadingEditor ? (
             <div className="grid min-h-[280px] place-items-center">
-              <LoaderCircle className="h-8 w-8 animate-spin text-[var(--gold)]" />
+              <LoaderCircle className="h-8 w-8 animate-spin text-gold" />
             </div>
           ) : (
             <form onSubmit={handleSave} className="space-y-6">
@@ -859,127 +859,127 @@ export default function AdminProductsPage() {
 
               <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                 <label className="grid gap-2">
-                  <span className="text-sm font-medium text-[var(--foreground)]">Title</span>
-                  <input value={formState.title} onChange={(event) => updateFormField("title", event.target.value)} className="h-12 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 text-sm outline-none transition focus:border-[var(--gold)]" required />
+                  <span className="text-sm font-medium text-foreground">Title</span>
+                  <input value={formState.title} onChange={(event) => updateFormField("title", event.target.value)} className="h-12 rounded-2xl border border-foreground/12 bg-white px-4 text-sm outline-none transition focus:border-gold" required />
                 </label>
                 <label className="grid gap-2">
-                  <span className="text-sm font-medium text-[var(--foreground)]">Vendor</span>
-                  <input value={formState.vendor} onChange={(event) => updateFormField("vendor", event.target.value)} className="h-12 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 text-sm outline-none transition focus:border-[var(--gold)]" required />
+                  <span className="text-sm font-medium text-foreground">Vendor</span>
+                  <input value={formState.vendor} onChange={(event) => updateFormField("vendor", event.target.value)} className="h-12 rounded-2xl border border-foreground/12 bg-white px-4 text-sm outline-none transition focus:border-gold" required />
                 </label>
                 <label className="grid gap-2">
-                  <span className="text-sm font-medium text-[var(--foreground)]">Category</span>
-                  <input value={formState.category} onChange={(event) => updateFormField("category", event.target.value)} className="h-12 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 text-sm outline-none transition focus:border-[var(--gold)]" required />
+                  <span className="text-sm font-medium text-foreground">Category</span>
+                  <input value={formState.category} onChange={(event) => updateFormField("category", event.target.value)} className="h-12 rounded-2xl border border-foreground/12 bg-white px-4 text-sm outline-none transition focus:border-gold" required />
                 </label>
 
                 <label className="grid gap-2 md:col-span-2 xl:col-span-3">
-                  <span className="text-sm font-medium text-[var(--foreground)]">Description</span>
-                  <textarea value={formState.description} onChange={(event) => updateFormField("description", event.target.value)} className="min-h-28 rounded-[22px] border border-[var(--foreground)]/12 bg-white px-4 py-3 text-sm outline-none transition focus:border-[var(--gold)]" required />
+                  <span className="text-sm font-medium text-foreground">Description</span>
+                  <textarea value={formState.description} onChange={(event) => updateFormField("description", event.target.value)} className="min-h-28 rounded-[22px] border border-foreground/12 bg-white px-4 py-3 text-sm outline-none transition focus:border-gold" required />
                 </label>
 
                 <label className="grid gap-2">
-                  <span className="text-sm font-medium text-[var(--foreground)]">Stone Type</span>
-                  <input value={formState.stoneType} onChange={(event) => updateFormField("stoneType", event.target.value)} className="h-12 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 text-sm outline-none transition focus:border-[var(--gold)]" required />
+                  <span className="text-sm font-medium text-foreground">Stone Type</span>
+                  <input value={formState.stoneType} onChange={(event) => updateFormField("stoneType", event.target.value)} className="h-12 rounded-2xl border border-foreground/12 bg-white px-4 text-sm outline-none transition focus:border-gold" required />
                 </label>
                 <label className="grid gap-2">
-                  <span className="text-sm font-medium text-[var(--foreground)]">Color</span>
-                  <input value={formState.color} onChange={(event) => updateFormField("color", event.target.value)} className="h-12 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 text-sm outline-none transition focus:border-[var(--gold)]" required />
+                  <span className="text-sm font-medium text-foreground">Color</span>
+                  <input value={formState.color} onChange={(event) => updateFormField("color", event.target.value)} className="h-12 rounded-2xl border border-foreground/12 bg-white px-4 text-sm outline-none transition focus:border-gold" required />
                 </label>
                 <label className="grid gap-2">
-                  <span className="text-sm font-medium text-[var(--foreground)]">Shape</span>
-                  <input value={formState.shape} onChange={(event) => updateFormField("shape", event.target.value)} className="h-12 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 text-sm outline-none transition focus:border-[var(--gold)]" required />
+                  <span className="text-sm font-medium text-foreground">Shape</span>
+                  <input value={formState.shape} onChange={(event) => updateFormField("shape", event.target.value)} className="h-12 rounded-2xl border border-foreground/12 bg-white px-4 text-sm outline-none transition focus:border-gold" required />
                 </label>
 
                 <label className="grid gap-2">
-                  <span className="text-sm font-medium text-[var(--foreground)]">Carat</span>
-                  <input type="number" min="0" step="0.01" value={formState.carat} onChange={(event) => updateFormField("carat", event.target.value)} className="h-12 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 text-sm outline-none transition focus:border-[var(--gold)]" required />
+                  <span className="text-sm font-medium text-foreground">Carat</span>
+                  <input type="number" min="0" step="0.01" value={formState.carat} onChange={(event) => updateFormField("carat", event.target.value)} className="h-12 rounded-2xl border border-foreground/12 bg-white px-4 text-sm outline-none transition focus:border-gold" required />
                 </label>
                 <label className="grid gap-2">
-                  <span className="text-sm font-medium text-[var(--foreground)]">Origin</span>
-                  <input value={formState.origin} onChange={(event) => updateFormField("origin", event.target.value)} className="h-12 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 text-sm outline-none transition focus:border-[var(--gold)]" required />
+                  <span className="text-sm font-medium text-foreground">Origin</span>
+                  <input value={formState.origin} onChange={(event) => updateFormField("origin", event.target.value)} className="h-12 rounded-2xl border border-foreground/12 bg-white px-4 text-sm outline-none transition focus:border-gold" required />
                 </label>
                 <label className="grid gap-2">
-                  <span className="text-sm font-medium text-[var(--foreground)]">Treatment</span>
-                  <input value={formState.treatment} onChange={(event) => updateFormField("treatment", event.target.value)} className="h-12 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 text-sm outline-none transition focus:border-[var(--gold)]" required />
+                  <span className="text-sm font-medium text-foreground">Treatment</span>
+                  <input value={formState.treatment} onChange={(event) => updateFormField("treatment", event.target.value)} className="h-12 rounded-2xl border border-foreground/12 bg-white px-4 text-sm outline-none transition focus:border-gold" required />
                 </label>
 
                 <label className="grid gap-2">
-                  <span className="text-sm font-medium text-[var(--foreground)]">Certificate</span>
-                  <input value={formState.certificate} onChange={(event) => updateFormField("certificate", event.target.value)} className="h-12 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 text-sm outline-none transition focus:border-[var(--gold)]" required />
+                  <span className="text-sm font-medium text-foreground">Certificate</span>
+                  <input value={formState.certificate} onChange={(event) => updateFormField("certificate", event.target.value)} className="h-12 rounded-2xl border border-foreground/12 bg-white px-4 text-sm outline-none transition focus:border-gold" required />
                 </label>
                 <label className="grid gap-2">
-                  <span className="text-sm font-medium text-[var(--foreground)]">Measurement</span>
-                  <input value={formState.measurement} onChange={(event) => updateFormField("measurement", event.target.value)} className="h-12 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 text-sm outline-none transition focus:border-[var(--gold)]" required />
+                  <span className="text-sm font-medium text-foreground">Measurement</span>
+                  <input value={formState.measurement} onChange={(event) => updateFormField("measurement", event.target.value)} className="h-12 rounded-2xl border border-foreground/12 bg-white px-4 text-sm outline-none transition focus:border-gold" required />
                 </label>
                 <label className="grid gap-2">
-                  <span className="text-sm font-medium text-[var(--foreground)]">SKU</span>
-                  <input value={formState.sku} onChange={(event) => updateFormField("sku", event.target.value)} className="h-12 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 text-sm outline-none transition focus:border-[var(--gold)]" required />
-                </label>
-
-                <label className="grid gap-2 md:col-span-2 xl:col-span-3">
-                  <span className="text-sm font-medium text-[var(--foreground)]">Details</span>
-                  <textarea value={formState.details} onChange={(event) => updateFormField("details", event.target.value)} className="min-h-24 rounded-[22px] border border-[var(--foreground)]/12 bg-white px-4 py-3 text-sm outline-none transition focus:border-[var(--gold)]" required />
-                </label>
-
-                <label className="grid gap-2">
-                  <span className="text-sm font-medium text-[var(--foreground)]">Price</span>
-                  <input type="number" min="0" step="0.01" value={formState.price} onChange={(event) => updateFormField("price", event.target.value)} className="h-12 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 text-sm outline-none transition focus:border-[var(--gold)]" required />
-                </label>
-                <label className="grid gap-2">
-                  <span className="text-sm font-medium text-[var(--foreground)]">Stock</span>
-                  <input type="number" min="0" step="1" value={formState.stock} onChange={(event) => updateFormField("stock", event.target.value)} className="h-12 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 text-sm outline-none transition focus:border-[var(--gold)]" required />
-                </label>
-                <label className="grid gap-2">
-                  <span className="text-sm font-medium text-[var(--foreground)]">Diamond Pieces</span>
-                  <input type="number" min="0" step="1" value={formState.diamondPcs} onChange={(event) => updateFormField("diamondPcs", event.target.value)} className="h-12 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 text-sm outline-none transition focus:border-[var(--gold)]" required />
+                  <span className="text-sm font-medium text-foreground">SKU</span>
+                  <input value={formState.sku} onChange={(event) => updateFormField("sku", event.target.value)} className="h-12 rounded-2xl border border-foreground/12 bg-white px-4 text-sm outline-none transition focus:border-gold" required />
                 </label>
 
                 <label className="grid gap-2 md:col-span-2 xl:col-span-3">
-                  <span className="text-sm font-medium text-[var(--foreground)]">Tags</span>
-                  <input value={formState.tags} onChange={(event) => updateFormField("tags", event.target.value)} placeholder="Engagement,Solitaire,White Gold" className="h-12 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 text-sm outline-none transition focus:border-[var(--gold)]" />
+                  <span className="text-sm font-medium text-foreground">Details</span>
+                  <textarea value={formState.details} onChange={(event) => updateFormField("details", event.target.value)} className="min-h-24 rounded-[22px] border border-foreground/12 bg-white px-4 py-3 text-sm outline-none transition focus:border-gold" required />
+                </label>
+
+                <label className="grid gap-2">
+                  <span className="text-sm font-medium text-foreground">Price</span>
+                  <input type="number" min="0" step="0.01" value={formState.price} onChange={(event) => updateFormField("price", event.target.value)} className="h-12 rounded-2xl border border-foreground/12 bg-white px-4 text-sm outline-none transition focus:border-gold" required />
+                </label>
+                <label className="grid gap-2">
+                  <span className="text-sm font-medium text-foreground">Stock</span>
+                  <input type="number" min="0" step="1" value={formState.stock} onChange={(event) => updateFormField("stock", event.target.value)} className="h-12 rounded-2xl border border-foreground/12 bg-white px-4 text-sm outline-none transition focus:border-gold" required />
+                </label>
+                <label className="grid gap-2">
+                  <span className="text-sm font-medium text-foreground">Diamond Pieces</span>
+                  <input type="number" min="0" step="1" value={formState.diamondPcs} onChange={(event) => updateFormField("diamondPcs", event.target.value)} className="h-12 rounded-2xl border border-foreground/12 bg-white px-4 text-sm outline-none transition focus:border-gold" required />
                 </label>
 
                 <label className="grid gap-2 md:col-span-2 xl:col-span-3">
-                  <span className="text-sm font-medium text-[var(--foreground)]">Video URLs</span>
-                  <input value={formState.videoUrls} onChange={(event) => updateFormField("videoUrls", event.target.value)} placeholder="https://example.com/video1.mp4,https://example.com/video2.mp4" className="h-12 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 text-sm outline-none transition focus:border-[var(--gold)]" />
+                  <span className="text-sm font-medium text-foreground">Tags</span>
+                  <input value={formState.tags} onChange={(event) => updateFormField("tags", event.target.value)} placeholder="Engagement,Solitaire,White Gold" className="h-12 rounded-2xl border border-foreground/12 bg-white px-4 text-sm outline-none transition focus:border-gold" />
                 </label>
 
                 <label className="grid gap-2 md:col-span-2 xl:col-span-3">
-                  <span className="text-sm font-medium text-[var(--foreground)]">Certificate URLs</span>
-                  <input value={formState.certificateUrls} onChange={(event) => updateFormField("certificateUrls", event.target.value)} placeholder="https://example.com/cert1.pdf" className="h-12 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 text-sm outline-none transition focus:border-[var(--gold)]" />
+                  <span className="text-sm font-medium text-foreground">Video URLs</span>
+                  <input value={formState.videoUrls} onChange={(event) => updateFormField("videoUrls", event.target.value)} placeholder="https://example.com/video1.mp4,https://example.com/video2.mp4" className="h-12 rounded-2xl border border-foreground/12 bg-white px-4 text-sm outline-none transition focus:border-gold" />
+                </label>
+
+                <label className="grid gap-2 md:col-span-2 xl:col-span-3">
+                  <span className="text-sm font-medium text-foreground">Certificate URLs</span>
+                  <input value={formState.certificateUrls} onChange={(event) => updateFormField("certificateUrls", event.target.value)} placeholder="https://example.com/cert1.pdf" className="h-12 rounded-2xl border border-foreground/12 bg-white px-4 text-sm outline-none transition focus:border-gold" />
                 </label>
 
                 <div className="grid gap-3 md:col-span-2 xl:col-span-3 sm:grid-cols-2">
-                  <label className="inline-flex items-center gap-3 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 py-3 text-sm font-medium text-[var(--foreground)]">
-                    <input type="checkbox" checked={formState.availability} onChange={(event) => updateFormField("availability", event.target.checked)} className="h-4 w-4 rounded border-[var(--foreground)]/20" />
+                  <label className="inline-flex items-center gap-3 rounded-2xl border border-foreground/12 bg-white px-4 py-3 text-sm font-medium text-foreground">
+                    <input type="checkbox" checked={formState.availability} onChange={(event) => updateFormField("availability", event.target.checked)} className="h-4 w-4 rounded border-foreground/20" />
                     Available for sale
                   </label>
-                  <label className="inline-flex items-center gap-3 rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 py-3 text-sm font-medium text-[var(--foreground)]">
-                    <input type="checkbox" checked={formState.is_featured} onChange={(event) => updateFormField("is_featured", event.target.checked)} className="h-4 w-4 rounded border-[var(--foreground)]/20" />
+                  <label className="inline-flex items-center gap-3 rounded-2xl border border-foreground/12 bg-white px-4 py-3 text-sm font-medium text-foreground">
+                    <input type="checkbox" checked={formState.is_featured} onChange={(event) => updateFormField("is_featured", event.target.checked)} className="h-4 w-4 rounded border-foreground/20" />
                     Featured on storefront
                   </label>
                 </div>
 
                 <div className="md:col-span-2 xl:col-span-3">
-                  <label className="flex cursor-pointer flex-col items-center justify-center gap-3 rounded-[24px] border border-dashed border-[var(--foreground)]/18 bg-[var(--surface)] px-6 py-8 text-center transition hover:border-[var(--gold)] hover:bg-[var(--gold)]/5">
-                    <Upload className="h-6 w-6 text-[var(--gold)]" />
+                  <label className="flex cursor-pointer flex-col items-center justify-center gap-3 rounded-[24px] border border-dashed border-foreground/18 bg-surface px-6 py-8 text-center transition hover:border-gold hover:bg-gold/5">
+                    <Upload className="h-6 w-6 text-gold" />
                     <div>
-                      <p className="text-sm font-semibold text-[var(--foreground)]">Upload Product Images</p>
-                      <p className="mt-1 text-xs text-[var(--foreground)]/60">Use the `files` field from the API with JPG or PNG images.</p>
+                      <p className="text-sm font-semibold text-foreground">Upload Product Images</p>
+                      <p className="mt-1 text-xs text-foreground/60">Use the `files` field from the API with JPG or PNG images.</p>
                     </div>
                     <input type="file" accept="image/*" multiple className="hidden" onChange={handleFilesChange} />
                   </label>
 
                   {existingImages.length > 0 ? (
                     <div className="mt-4">
-                      <p className="text-sm font-semibold text-[var(--foreground)]">Existing Images</p>
+                      <p className="text-sm font-semibold text-foreground">Existing Images</p>
                       <div className="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
                         {existingImages.map((image) => (
-                          <div key={image.id} className="overflow-hidden rounded-[22px] border border-[var(--foreground)]/10 bg-white">
-                            <div className="aspect-square bg-[var(--surface)]">
+                          <div key={image.id} className="overflow-hidden rounded-[22px] border border-foreground/10 bg-white">
+                            <div className="aspect-square bg-surface">
                               <ProductImage src={image.src} alt="Product" className="h-full w-full object-cover" />
                             </div>
                             <div className="flex items-center justify-between px-3 py-3 text-xs">
-                              <span className="font-medium text-[var(--foreground)]/60">Image {image.index + 1}</span>
+                              <span className="font-medium text-foreground/60">Image {image.index + 1}</span>
                               <button type="button" onClick={() => setExistingImages((currentValue) => currentValue.filter((item) => item.index !== image.index))} className="font-semibold text-red-600 transition hover:text-red-700">
                                 Remove
                               </button>
@@ -992,12 +992,12 @@ export default function AdminProductsPage() {
 
                   {selectedFiles.length > 0 ? (
                     <div className="mt-4">
-                      <p className="text-sm font-semibold text-[var(--foreground)]">New Uploads</p>
+                      <p className="text-sm font-semibold text-foreground">New Uploads</p>
                       <div className="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
                         {selectedFiles.map((file) => (
-                          <div key={`${file.name}-${file.size}-${file.lastModified}`} className="rounded-[22px] border border-[var(--foreground)]/10 bg-white px-4 py-3">
-                            <p className="truncate text-sm font-semibold text-[var(--foreground)]">{file.name}</p>
-                            <p className="mt-1 text-xs text-[var(--foreground)]/55">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
+                          <div key={`${file.name}-${file.size}-${file.lastModified}`} className="rounded-[22px] border border-foreground/10 bg-white px-4 py-3">
+                            <p className="truncate text-sm font-semibold text-foreground">{file.name}</p>
+                            <p className="mt-1 text-xs text-foreground/55">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
                           </div>
                         ))}
                       </div>
@@ -1006,11 +1006,11 @@ export default function AdminProductsPage() {
                 </div>
               </div>
 
-              <div className="flex flex-col-reverse gap-3 border-t border-[var(--foreground)]/10 pt-5 sm:flex-row sm:justify-end">
-                <button type="button" onClick={closeEditor} className="inline-flex items-center justify-center rounded-full border border-[var(--foreground)]/10 px-6 py-3 text-sm font-semibold text-[var(--foreground)] transition hover:border-[var(--gold)] hover:text-[var(--gold)]" disabled={saving}>
+              <div className="flex flex-col-reverse gap-3 border-t border-foreground/10 pt-5 sm:flex-row sm:justify-end">
+                <button type="button" onClick={closeEditor} className="inline-flex items-center justify-center rounded-full border border-foreground/10 px-6 py-3 text-sm font-semibold text-foreground transition hover:border-gold hover:text-gold" disabled={saving}>
                   Cancel
                 </button>
-                <button type="submit" className="inline-flex items-center justify-center rounded-full bg-[var(--gold)] px-6 py-3 text-sm font-extrabold text-[#17120a] transition hover:bg-[#b89428] disabled:opacity-60" disabled={saving}>
+                <button type="submit" className="inline-flex items-center justify-center rounded-full bg-gold px-6 py-3 text-sm font-extrabold text-[#17120a] transition hover:bg-[#b89428] disabled:opacity-60" disabled={saving}>
                   {saving ? "Saving..." : editorMode === "create" ? "Create Product" : "Update Product"}
                 </button>
               </div>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -58,68 +58,70 @@ export function ShopByCategory({ categories }: ShopByCategoryProps) {
     }
 
     return (
-        <section className="mt-20">
-            <div className="mb-8 px-1">
-                <p className="flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-[var(--gold)]">
-                    <span
-                        className="inline-block h-px w-8 bg-[var(--gold)]"
-                        aria-hidden="true"
-                    />
-                    Our Categories
-                </p>
-                <h2 className="font-cormorant mt-4 text-5xl font-medium text-[var(--deep)] sm:text-6xl">
-                    Shop By Category
-                </h2>
-            </div>
+        <section className="mt-20 py-20 bg-[#EDE8DF]  ">
+            <div className="max-w-7xl mx-auto ">
+                <div className="mb-12 px-1 ">
+                    <p className="flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-gold">
+                        <span
+                            className="inline-block h-px w-8 bg-gold"
+                            aria-hidden="true"
+                        />
+                        Our Categories
+                    </p>
+                    <h2 className="font-cormorant mt-4 text-5xl font-medium text-deep sm:text-6xl">
+                        Shop By Category
+                    </h2>
+                </div>
 
-            <div className="relative">
-                <button
-                    type="button"
-                    onClick={() => scrollByCards(-1)}
-                    aria-label="Scroll categories left"
-                    disabled={!canScrollLeft}
-                    className="absolute left-2 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full  text-[var(--gold)] transition  hover:text-white disabled:cursor-not-allowed sm:left-4 sm:h-12 sm:w-12"
-                >
-                    <ChevronLeft size={20} strokeWidth={2} />
-                </button>
+                <div className="relative">
+                    <button
+                        type="button"
+                        onClick={() => scrollByCards(-1)}
+                        aria-label="Scroll categories left"
+                        disabled={!canScrollLeft}
+                        className="absolute -left-3 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full text-gold transition hover:text-white disabled:cursor-not-allowed sm:-left-6 sm:h-12 sm:w-12 lg:-left-10"
+                    >
+                        <ChevronLeft size={20} strokeWidth={2} />
+                    </button>
 
-                <button
-                    type="button"
-                    onClick={() => scrollByCards(1)}
-                    aria-label="Scroll categories right"
-                    disabled={!canScrollRight}
-                    className="absolute right-50 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full  text-[var(--gold)] transition  hover:text-white disabled:cursor-not-allowed disabled:opacity-0 sm:right-4 sm:h-12 sm:w-12"
-                >
-                    <ChevronRight size={20} strokeWidth={2} />
-                </button>
+                    <button
+                        type="button"
+                        onClick={() => scrollByCards(1)}
+                        aria-label="Scroll categories right"
+                        disabled={!canScrollRight}
+                        className="absolute -right-3 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full text-gold transition hover:text-white disabled:cursor-not-allowed sm:-right-6 sm:h-12 sm:w-12 lg:-right-10"
+                    >
+                        <ChevronRight size={20} strokeWidth={2} />
+                    </button>
 
-                <div
-                    ref={trackRef}
-                    className="flex gap-2 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-                >
-                    {categories.map((category) => (
-                        <Link
-                            key={category.name}
-                            href={`/shop?category=${encodeURIComponent(category.name)}`}
-                            data-category-card
-                            className="group relative block aspect-[3/4] w-[72%] shrink-0 overflow-hidden bg-[#e9e4d8] sm:w-[44%] md:w-[34%] lg:w-[24%]"
-                            aria-label={`Shop ${category.label}`}
-                        >
-                            <div
-                                className="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-105"
-                                style={{
-                                    backgroundImage: `url(${category.imageUrl})`,
-                                }}
-                                aria-hidden="true"
-                            />
-                            <div className="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/25" />
-                            <div className="pointer-events-none absolute inset-x-0 bottom-6 z-10 flex justify-center opacity-0 transition duration-500 group-hover:opacity-100">
-                                <span className="font-cormorant bg-black/45 px-5 py-2 text-2xl uppercase tracking-[0.08em] text-white backdrop-blur-sm">
-                                    {category.label}
-                                </span>
-                            </div>
-                        </Link>
-                    ))}
+                    <div
+                        ref={trackRef}
+                        className="flex gap-2 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                    >
+                        {categories.map((category) => (
+                            <Link
+                                key={category.name}
+                                href={`/shop?category=${encodeURIComponent(category.name)}`}
+                                data-category-card
+                                className="group relative block aspect-[3/4] w-[72%] shrink-0 overflow-hidden bg-[#e9e4d8] sm:w-[44%] md:w-[34%] lg:w-[24%]"
+                                aria-label={`Shop ${category.label}`}
+                            >
+                                <div
+                                    className="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-105"
+                                    style={{
+                                        backgroundImage: `url(${category.imageUrl})`,
+                                    }}
+                                    aria-hidden="true"
+                                />
+                                <div className="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/25" />
+                                <div className="pointer-events-none absolute inset-x-0 bottom-6 z-10 flex justify-center opacity-0 transition duration-500 group-hover:opacity-100">
+                                    <span className="font-cormorant bg-black/45 px-5 py-2 text-2xl uppercase tracking-[0.08em] text-white backdrop-blur-sm">
+                                        {category.label}
+                                    </span>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
@@ -38,8 +38,8 @@ export function AuthGuard({ children, allowedRoles }: AuthGuardProps) {
     return (
       <main className="grid min-h-[60vh] place-items-center px-6 py-16 text-center">
         <div>
-          <p className="display-font text-3xl text-[var(--foreground)]">Checking access</p>
-          <p className="mt-3 text-sm uppercase tracking-[0.2em] text-[var(--foreground)]/65">
+          <p className="display-font text-3xl text-foreground">Checking access</p>
+          <p className="mt-3 text-sm uppercase tracking-[0.2em] text-foreground/65">
             Preparing your session
           </p>
         </div>

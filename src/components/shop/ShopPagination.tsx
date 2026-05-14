@@ -1,82 +1,105 @@
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
 type ShopPaginationProps = {
-  currentPage: number;
-  totalPages: number;
-  onPageChange: (page: number) => void;
-  className?: string;
+    currentPage: number;
+    totalPages: number;
+    onPageChange: (page: number) => void;
+    className?: string;
 };
 
-function getPageItems(currentPage: number, totalPages: number): Array<number | "ellipsis"> {
-  if (totalPages <= 5) {
-    return Array.from({ length: totalPages }, (_, index) => index + 1);
-  }
+function getPageItems(
+    currentPage: number,
+    totalPages: number,
+): Array<number | "ellipsis"> {
+    if (totalPages <= 5) {
+        return Array.from({ length: totalPages }, (_, index) => index + 1);
+    }
 
-  if (currentPage <= 3) {
-    return [1, 2, 3, "ellipsis", totalPages];
-  }
+    if (currentPage <= 3) {
+        return [1, 2, 3, "ellipsis", totalPages];
+    }
 
-  if (currentPage >= totalPages - 2) {
-    return [1, "ellipsis", totalPages - 2, totalPages - 1, totalPages];
-  }
+    if (currentPage >= totalPages - 2) {
+        return [1, "ellipsis", totalPages - 2, totalPages - 1, totalPages];
+    }
 
-  return [1, "ellipsis", currentPage, "ellipsis", totalPages];
+    return [1, "ellipsis", currentPage, "ellipsis", totalPages];
 }
 
-export function ShopPagination({ currentPage, totalPages, onPageChange, className = "" }: ShopPaginationProps) {
-  if (totalPages <= 1) {
-    return null;
-  }
+export function ShopPagination({
+    currentPage,
+    totalPages,
+    onPageChange,
+    className = "",
+}: ShopPaginationProps) {
+    if (totalPages <= 1) {
+        return null;
+    }
 
-  const canGoPrev = currentPage > 1;
-  const canGoNext = currentPage < totalPages;
-  const pageItems = getPageItems(currentPage, totalPages);
+    const canGoPrev = currentPage > 1;
+    const canGoNext = currentPage < totalPages;
+    const pageItems = getPageItems(currentPage, totalPages);
 
-  return (
-    <div className={`mt-8 inline-flex border border-black/45 bg-white ${className}`}>
-      <button
-        onClick={() => canGoPrev && onPageChange(currentPage - 1)}
-        disabled={!canGoPrev}
-        className="h-12 w-11 bg-[#090f1a] text-xl text-white disabled:cursor-not-allowed disabled:opacity-45"
-        aria-label="Previous page"
-      >
-        «
-      </button>
+    const baseTile =
+        "inline-flex h-11 min-w-11 items-center justify-center font-jost text-sm font-semibold uppercase tracking-[0.18em] transition";
 
-      {pageItems.map((item, index) => {
-        if (item === "ellipsis") {
-          return (
-            <span key={`ellipsis-${index}`} className="inline-flex h-12 w-11 items-center justify-center border-l border-black/45 text-lg font-bold text-[#8f9195]">
-              …
-            </span>
-          );
-        }
+    return (
+        <nav
+            aria-label="Pagination"
+            className={`mt-14 flex flex-wrap items-center justify-center gap-2 ${className}`}
+        >
+            <button
+                type="button"
+                onClick={() => canGoPrev && onPageChange(currentPage - 1)}
+                disabled={!canGoPrev}
+                className={`${baseTile} w-11 border border-deep/30 text-deep transition hover:border-gold hover:text-gold disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-deep/30 disabled:hover:text-deep`}
+                aria-label="Previous page"
+            >
+                <ChevronLeft size={16} strokeWidth={1.75} />
+            </button>
 
-        const active = item === currentPage;
+            {pageItems.map((item, index) => {
+                if (item === "ellipsis") {
+                    return (
+                        <span
+                            key={`ellipsis-${index}`}
+                            className={`${baseTile} text-deep/40`}
+                            aria-hidden="true"
+                        >
+                            …
+                        </span>
+                    );
+                }
 
-        return (
-          <button
-            key={item}
-            onClick={() => onPageChange(item)}
-            className={
-              active
-                ? "h-12 w-11 border-l border-black/45 bg-[#090f1a] text-lg font-bold text-white"
-                : "h-12 w-11 border-l border-black/45 text-lg font-bold text-[#8f9195]"
-            }
-            aria-label={`Page ${item}`}
-            aria-current={active ? "page" : undefined}
-          >
-            {item}
-          </button>
-        );
-      })}
+                const active = item === currentPage;
 
-      <button
-        onClick={() => canGoNext && onPageChange(currentPage + 1)}
-        disabled={!canGoNext}
-        className="h-12 w-11 border-l border-black/45 bg-[#090f1a] text-xl text-white disabled:cursor-not-allowed disabled:opacity-45"
-        aria-label="Next page"
-      >
-        »
-      </button>
-    </div>
-  );
+                return (
+                    <button
+                        key={item}
+                        type="button"
+                        onClick={() => onPageChange(item)}
+                        className={
+                            active
+                                ? `${baseTile} bg-deep text-gold`
+                                : `${baseTile} text-deep/70 hover:text-gold`
+                        }
+                        aria-label={`Page ${item}`}
+                        aria-current={active ? "page" : undefined}
+                    >
+                        {String(item).padStart(2, "0")}
+                    </button>
+                );
+            })}
+
+            <button
+                type="button"
+                onClick={() => canGoNext && onPageChange(currentPage + 1)}
+                disabled={!canGoNext}
+                className={`${baseTile} w-11 border border-deep/30 text-deep transition hover:border-gold hover:text-gold disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-deep/30 disabled:hover:text-deep`}
+                aria-label="Next page"
+            >
+                <ChevronRight size={16} strokeWidth={1.75} />
+            </button>
+        </nav>
+    );
 }

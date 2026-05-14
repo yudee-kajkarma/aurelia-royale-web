@@ -1,6 +1,6 @@
-export default function ContactPage() {
+﻿export default function ContactPage() {
   return (
-    <main className="min-h-screen overflow-x-clip bg-[var(--background)]">
+    <main className="min-h-screen overflow-x-clip bg-background">
       <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden">
         <div
           className="relative h-[320px] bg-cover bg-center"
@@ -11,8 +11,8 @@ export default function ContactPage() {
           <div className="relative mx-auto flex h-full max-w-7xl items-end px-6 pb-12 sm:px-8">
             <div>
               <h1 className="display-font text-6xl font-semibold uppercase text-white sm:text-7xl">Contact Us</h1>
-              <p className="mt-2 text-sm font-bold uppercase tracking-[0.15em] text-[var(--gold)]">
-                Home <span className="text-[var(--gold)]">&gt;</span> <span className="text-white">Contact Us</span>
+              <p className="mt-2 text-sm font-bold uppercase tracking-[0.15em] text-gold">
+                Home <span className="text-gold">&gt;</span> <span className="text-white">Contact Us</span>
               </p>
             </div>
           </div>
@@ -22,8 +22,8 @@ export default function ContactPage() {
 
       <section className="mx-auto flex max-w-4xl flex-col items-center px-6 py-20 sm:px-8">
         <div className="w-full max-w-3xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-[var(--gold)]">Contact Info</p>
-          <h2 className="display-font mt-3 text-5xl uppercase leading-[1.04] text-[var(--deep)] sm:text-6xl">Get In Touch</h2>
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-gold">Contact Info</p>
+          <h2 className="display-font mt-3 text-5xl uppercase leading-[1.04] text-deep sm:text-6xl">Get In Touch</h2>
         </div>
 
         <form className="mt-8 grid w-full max-w-3xl gap-4">
@@ -59,7 +59,7 @@ export default function ContactPage() {
           />
 
           <div>
-            <button className="cta-sweep border border-[var(--deep)] bg-[var(--deep)] px-8 py-4 text-lg font-extrabold uppercase tracking-[0.04em] text-white transition hover:border-[var(--gold)] hover:text-[var(--deep)] focus-visible:border-[var(--gold)] focus-visible:text-[var(--deep)]">
+            <button className="cta-sweep border border-deep bg-deep px-8 py-4 text-lg font-extrabold uppercase tracking-[0.04em] text-white transition hover:border-gold hover:text-deep focus-visible:border-gold focus-visible:text-deep">
               <span className="relative z-10">Submit Now</span>
             </button>
           </div>
@@ -67,8 +67,8 @@ export default function ContactPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pb-24 sm:px-8">
-        <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-[var(--gold)]">Find Us</p>
-        <h2 className="display-font mt-3 text-center text-5xl uppercase text-[var(--deep)]">Location Map</h2>
+        <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-gold">Find Us</p>
+        <h2 className="display-font mt-3 text-center text-5xl uppercase text-deep">Location Map</h2>
 
         <div className="mt-8 overflow-hidden border border-black/15 bg-white">
           <iframe

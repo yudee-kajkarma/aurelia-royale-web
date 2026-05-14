@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/home/Hero";
 import { BestSellingTabs } from "@/components/home/BestSellingTabs";
@@ -53,24 +53,24 @@ export default async function HomePage() {
         <>
             <Hero />
 
-            <div className="mx-auto max-w-7xl overflow-x-clip px-4 py-6 sm:px-6 sm:py-10">
-                <section className="mt-14">
+            <div className=" overflow-x-clip ">
+                <section className="mx-auto max-w-7xl mt-14 px-4 py-6 sm:px-6 sm:py-10">
                     <div className="flex flex-wrap items-end justify-between gap-6">
                         <div>
-                            <p className="flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-[var(--gold)]">
+                            <p className="flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-gold">
                                 <span
-                                    className="inline-block h-px w-8 bg-[var(--gold)]"
+                                    className="inline-block h-px w-8 bg-gold"
                                     aria-hidden="true"
                                 />
                                 Find New In
                             </p>
-                            <h2 className="font-cormorant mt-4 text-5xl font-medium text-[var(--deep)] sm:text-6xl">
+                            <h2 className="font-cormorant mt-4 text-5xl font-medium text-deep sm:text-6xl">
                                 Top Trending
                             </h2>
                         </div>
                         <Link
                             href="/shop"
-                            className="group inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.28em] text-[var(--gold)] underline decoration-[1px] underline-offset-[6px] transition hover:text-[#a8862c]"
+                            className="group inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.28em] text-gold underline decoration-[1px] underline-offset-[6px] transition hover:text-[#a8862c]"
                         >
                             View All Pieces
                             <ArrowRight

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import {
@@ -65,14 +65,14 @@ function TicketListShimmer() {
   return (
     <div className="space-y-4">
       {Array.from({ length: 4 }, (_, index) => (
-        <div key={index} className="rounded-[28px] border border-[var(--foreground)]/10 bg-[var(--surface)] p-4">
-          <div className="h-4 w-28 animate-pulse rounded-full bg-[var(--foreground)]/10" />
-          <div className="mt-3 h-6 w-3/4 animate-pulse rounded-full bg-[var(--foreground)]/10" />
+        <div key={index} className="rounded-[28px] border border-foreground/10 bg-surface p-4">
+          <div className="h-4 w-28 animate-pulse rounded-full bg-foreground/10" />
+          <div className="mt-3 h-6 w-3/4 animate-pulse rounded-full bg-foreground/10" />
           <div className="mt-3 flex gap-2">
-            <div className="h-7 w-24 animate-pulse rounded-full bg-[var(--foreground)]/10" />
-            <div className="h-7 w-20 animate-pulse rounded-full bg-[var(--foreground)]/10" />
+            <div className="h-7 w-24 animate-pulse rounded-full bg-foreground/10" />
+            <div className="h-7 w-20 animate-pulse rounded-full bg-foreground/10" />
           </div>
-          <div className="mt-4 h-12 animate-pulse rounded-2xl bg-[var(--foreground)]/10" />
+          <div className="mt-4 h-12 animate-pulse rounded-2xl bg-foreground/10" />
         </div>
       ))}
     </div>
@@ -82,11 +82,11 @@ function TicketListShimmer() {
 function TicketDetailShimmer() {
   return (
     <div className="space-y-4">
-      <div className="h-4 w-24 animate-pulse rounded-full bg-[var(--foreground)]/10" />
-      <div className="h-8 w-2/3 animate-pulse rounded-full bg-[var(--foreground)]/10" />
-      <div className="h-24 animate-pulse rounded-[28px] bg-[var(--foreground)]/10" />
-      <div className="h-24 animate-pulse rounded-[28px] bg-[var(--foreground)]/10" />
-      <div className="h-44 animate-pulse rounded-[28px] bg-[var(--foreground)]/10" />
+      <div className="h-4 w-24 animate-pulse rounded-full bg-foreground/10" />
+      <div className="h-8 w-2/3 animate-pulse rounded-full bg-foreground/10" />
+      <div className="h-24 animate-pulse rounded-[28px] bg-foreground/10" />
+      <div className="h-24 animate-pulse rounded-[28px] bg-foreground/10" />
+      <div className="h-44 animate-pulse rounded-[28px] bg-foreground/10" />
     </div>
   );
 }
@@ -307,12 +307,12 @@ export default function AdminSupportPage() {
   return (
     <AuthGuard allowedRoles={["ADMIN"]}>
       <main className="mx-auto min-h-[70vh] w-full max-w-7xl px-6 py-12 sm:px-8">
-        <section className="rounded-[28px] border border-[var(--foreground)]/10 bg-white p-5 shadow-sm sm:p-6">
+        <section className="rounded-[28px] border border-foreground/10 bg-white p-5 shadow-sm sm:p-6">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--gold)]">Admin Support</p>
-              <h1 className="display-font mt-3 text-3xl text-[var(--foreground)] sm:text-4xl">Support Queue Workspace</h1>
-              <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--foreground)]/65 sm:text-base">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">Admin Support</p>
+              <h1 className="display-font mt-3 text-3xl text-foreground sm:text-4xl">Support Queue Workspace</h1>
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-foreground/65 sm:text-base">
                 Review tickets, update status and priority, escalate urgent cases, and reply to customers from a single admin panel.
               </p>
             </div>
@@ -320,7 +320,7 @@ export default function AdminSupportPage() {
             <button
               type="button"
               onClick={() => void refreshCurrentState()}
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-[var(--foreground)]/12 px-5 text-sm font-semibold text-[var(--foreground)] transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-foreground/12 px-5 text-sm font-semibold text-foreground transition hover:border-gold hover:text-gold"
             >
               {refreshing ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <CheckCheck className="h-4 w-4" />}
               Refresh
@@ -329,9 +329,9 @@ export default function AdminSupportPage() {
 
           <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-6">
             {summaryCards.map((card) => (
-              <div key={card.label} className="rounded-[22px] border border-[var(--foreground)]/10 bg-[var(--surface)] px-4 py-4">
-                <p className="text-xs uppercase tracking-[0.16em] text-[var(--foreground)]/45">{card.label}</p>
-                <p className="mt-2 text-2xl font-semibold text-[var(--foreground)]">{card.value}</p>
+              <div key={card.label} className="rounded-[22px] border border-foreground/10 bg-surface px-4 py-4">
+                <p className="text-xs uppercase tracking-[0.16em] text-foreground/45">{card.label}</p>
+                <p className="mt-2 text-2xl font-semibold text-foreground">{card.value}</p>
               </div>
             ))}
           </div>
@@ -344,8 +344,8 @@ export default function AdminSupportPage() {
                 onClick={() => handleFilterChange(status)}
                 disabled={listLoading || Boolean(actionLoading)}
                 className={statusFilter === status
-                  ? "rounded-full border border-[var(--foreground)] bg-[var(--foreground)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-white"
-                  : "rounded-full border border-[var(--foreground)]/12 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-[var(--foreground)]/65 transition hover:border-[var(--gold)] hover:text-[var(--gold)] disabled:pointer-events-none disabled:opacity-50"
+                  ? "rounded-full border border-foreground bg-foreground px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-white"
+                  : "rounded-full border border-foreground/12 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-foreground/65 transition hover:border-gold hover:text-gold disabled:pointer-events-none disabled:opacity-50"
                 }
               >
                 {status.replaceAll("_", " ")}
@@ -361,15 +361,15 @@ export default function AdminSupportPage() {
         </section>
 
         <div className="mt-5 grid gap-6 xl:grid-cols-[380px_minmax(0,1fr)]">
-          <section className="rounded-[28px] border border-[var(--foreground)]/10 bg-white p-4 shadow-sm">
-            <div className="mb-4 flex items-center justify-between gap-3 border-b border-[var(--foreground)]/10 px-1 pb-4">
+          <section className="rounded-[28px] border border-foreground/10 bg-white p-4 shadow-sm">
+            <div className="mb-4 flex items-center justify-between gap-3 border-b border-foreground/10 px-1 pb-4">
               <div>
-                <p className="text-sm font-semibold text-[var(--foreground)]">Support Tickets</p>
-                <p className="mt-1 text-sm text-[var(--foreground)]/60">
+                <p className="text-sm font-semibold text-foreground">Support Tickets</p>
+                <p className="mt-1 text-sm text-foreground/60">
                   {pagination ? `Page ${pagination.currentPage} of ${pagination.totalPages}` : "Current queue"}
                 </p>
               </div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[var(--gold)]/20 bg-[var(--gold)]/8 px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] text-[var(--gold)]">
+              <div className="inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/8 px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] text-gold">
                 <Ticket className="h-3.5 w-3.5" />
                 {pagination?.totalRecords ?? tickets.length}
               </div>
@@ -378,7 +378,7 @@ export default function AdminSupportPage() {
             {listLoading ? <TicketListShimmer /> : null}
 
             {!listLoading && tickets.length === 0 ? (
-              <div className="rounded-[22px] border border-dashed border-[var(--foreground)]/10 bg-[var(--surface)] px-5 py-10 text-center text-sm text-[var(--foreground)]/60">
+              <div className="rounded-[22px] border border-dashed border-foreground/10 bg-surface px-5 py-10 text-center text-sm text-foreground/60">
                 No tickets matched the current status filter.
               </div>
             ) : null}
@@ -391,19 +391,19 @@ export default function AdminSupportPage() {
                     type="button"
                     onClick={() => void handleSelectTicket(ticket.ticketId)}
                     className={selectedTicketId === ticket.ticketId
-                      ? "w-full rounded-[28px] border border-[var(--gold)]/45 bg-[var(--gold)]/8 p-4 text-left shadow-sm transition"
-                      : "w-full rounded-[28px] border border-[var(--foreground)]/10 bg-white p-4 text-left transition hover:border-[var(--gold)]/40 hover:bg-[var(--surface)]"
+                      ? "w-full rounded-[28px] border border-gold/45 bg-gold/8 p-4 text-left shadow-sm transition"
+                      : "w-full rounded-[28px] border border-foreground/10 bg-white p-4 text-left transition hover:border-gold/40 hover:bg-surface"
                     }
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--foreground)]/45">
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/45">
                           {ticket.ticketId}
                         </p>
-                        <h2 className="mt-2 text-base font-semibold text-[var(--foreground)]">{ticket.subject}</h2>
-                        <p className="mt-2 text-sm text-[var(--foreground)]/60">{ticket.category}</p>
+                        <h2 className="mt-2 text-base font-semibold text-foreground">{ticket.subject}</h2>
+                        <p className="mt-2 text-sm text-foreground/60">{ticket.category}</p>
                       </div>
-                      <Clock3 className="h-4 w-4 text-[var(--gold)]" />
+                      <Clock3 className="h-4 w-4 text-gold" />
                     </div>
 
                     <div className="mt-4 flex flex-wrap gap-2">
@@ -420,7 +420,7 @@ export default function AdminSupportPage() {
                       ) : null}
                     </div>
 
-                    <p className="mt-4 text-sm text-[var(--foreground)]/60">
+                    <p className="mt-4 text-sm text-foreground/60">
                       Created {formatTicketDate(ticket.createdAt)}
                     </p>
                   </button>
@@ -429,14 +429,14 @@ export default function AdminSupportPage() {
             ) : null}
 
             {pagination ? (
-              <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-[var(--foreground)]/10 px-1 pt-4 text-sm text-[var(--foreground)]/60">
+              <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-foreground/10 px-1 pt-4 text-sm text-foreground/60">
                 <span>{pagination.totalRecords} ticket{pagination.totalRecords === 1 ? "" : "s"}</span>
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={() => handlePageChange(currentPage - 1)}
                     disabled={!pagination.hasPrevPage || listLoading}
-                    className="inline-flex h-10 items-center justify-center rounded-full border border-[var(--foreground)]/10 px-4 font-semibold text-[var(--foreground)] transition hover:border-[var(--gold)] hover:text-[var(--gold)] disabled:cursor-not-allowed disabled:opacity-45"
+                    className="inline-flex h-10 items-center justify-center rounded-full border border-foreground/10 px-4 font-semibold text-foreground transition hover:border-gold hover:text-gold disabled:cursor-not-allowed disabled:opacity-45"
                   >
                     Prev
                   </button>
@@ -444,7 +444,7 @@ export default function AdminSupportPage() {
                     type="button"
                     onClick={() => handlePageChange(currentPage + 1)}
                     disabled={!pagination.hasNextPage || listLoading}
-                    className="inline-flex h-10 items-center justify-center rounded-full border border-[var(--foreground)]/10 px-4 font-semibold text-[var(--foreground)] transition hover:border-[var(--gold)] hover:text-[var(--gold)] disabled:cursor-not-allowed disabled:opacity-45"
+                    className="inline-flex h-10 items-center justify-center rounded-full border border-foreground/10 px-4 font-semibold text-foreground transition hover:border-gold hover:text-gold disabled:cursor-not-allowed disabled:opacity-45"
                   >
                     Next
                   </button>
@@ -453,26 +453,26 @@ export default function AdminSupportPage() {
             ) : null}
           </section>
 
-          <section className="rounded-[28px] border border-[var(--foreground)]/10 bg-white p-5 shadow-sm">
+          <section className="rounded-[28px] border border-foreground/10 bg-white p-5 shadow-sm">
             {detailLoading ? <TicketDetailShimmer /> : null}
 
             {!detailLoading && !selectedTicket ? (
-              <div className="rounded-[22px] border border-dashed border-[var(--foreground)]/10 bg-[var(--surface)] px-6 py-12 text-center text-sm text-[var(--foreground)]/60">
+              <div className="rounded-[22px] border border-dashed border-foreground/10 bg-surface px-6 py-12 text-center text-sm text-foreground/60">
                 Select a ticket to view the full conversation.
               </div>
             ) : null}
 
             {!detailLoading && selectedTicket ? (
               <>
-                <div className="flex flex-col gap-4 border-b border-[var(--foreground)]/10 pb-6 sm:flex-row sm:items-start sm:justify-between">
+                <div className="flex flex-col gap-4 border-b border-foreground/10 pb-6 sm:flex-row sm:items-start sm:justify-between">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--foreground)]/45">
+                    <p className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/45">
                       {selectedTicket.ticketId}
                     </p>
-                    <h2 className="mt-2 text-3xl font-semibold tracking-[-0.04em] text-[var(--foreground)]">
+                    <h2 className="mt-2 text-3xl font-semibold tracking-[-0.04em] text-foreground">
                       {selectedTicket.subject}
                     </h2>
-                    <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm text-[var(--foreground)]/60">
+                    <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm text-foreground/60">
                       <span>{selectedTicket.category}</span>
                       <span>Updated {formatTicketDate(selectedTicket.updatedAt)}</span>
                       <span>User ID: {selectedTicket.userId}</span>
@@ -492,26 +492,26 @@ export default function AdminSupportPage() {
                 <div className="mt-6 grid gap-4 lg:grid-cols-[minmax(0,1fr)_280px]">
                   <div className="space-y-4">
                     {selectedTicket.messages.map((message, index) => (
-                      <article key={`${message.createdAt}-${index}`} className="rounded-[28px] border border-[var(--foreground)]/10 bg-[var(--surface)] p-5">
+                      <article key={`${message.createdAt}-${index}`} className="rounded-[28px] border border-foreground/10 bg-surface p-5">
                         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                           <div>
-                            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--foreground)]/45">
+                            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/45">
                               {message.senderRole}
                             </p>
-                            <p className="mt-1 text-sm text-[var(--foreground)]/60">{message.sender}</p>
+                            <p className="mt-1 text-sm text-foreground/60">{message.sender}</p>
                           </div>
-                          <p className="text-sm text-[var(--foreground)]/45">{formatTicketDate(message.createdAt)}</p>
+                          <p className="text-sm text-foreground/45">{formatTicketDate(message.createdAt)}</p>
                         </div>
-                        <p className="mt-4 whitespace-pre-wrap text-sm leading-7 text-[var(--foreground)]">
+                        <p className="mt-4 whitespace-pre-wrap text-sm leading-7 text-foreground">
                           {message.message}
                         </p>
                       </article>
                     ))}
                   </div>
 
-                  <aside className="space-y-4 rounded-[28px] border border-[var(--foreground)]/10 bg-[var(--surface)] p-4">
-                    <div className="rounded-[22px] border border-[var(--foreground)]/10 bg-white p-4">
-                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--foreground)]/45">
+                  <aside className="space-y-4 rounded-[28px] border border-foreground/10 bg-surface p-4">
+                    <div className="rounded-[22px] border border-foreground/10 bg-white p-4">
+                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/45">
                         Status
                       </p>
                       <div className="mt-3 grid gap-2">
@@ -521,7 +521,7 @@ export default function AdminSupportPage() {
                             type="button"
                             disabled={actionLoading === "status" || selectedTicket.status === status}
                             onClick={() => void handleStatusChange(status)}
-                            className="rounded-full border border-[var(--foreground)]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-[var(--foreground)]/65 transition hover:border-[var(--gold)] hover:text-[var(--gold)] disabled:pointer-events-none disabled:opacity-50"
+                            className="rounded-full border border-foreground/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-foreground/65 transition hover:border-gold hover:text-gold disabled:pointer-events-none disabled:opacity-50"
                           >
                             {status.replaceAll("_", " ")}
                           </button>
@@ -529,14 +529,14 @@ export default function AdminSupportPage() {
                       </div>
                     </div>
 
-                    <div className="rounded-[22px] border border-[var(--foreground)]/10 bg-white p-4">
-                      <label className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--foreground)]/45">
+                    <div className="rounded-[22px] border border-foreground/10 bg-white p-4">
+                      <label className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/45">
                         Priority
                         <select
                           value={selectedTicket.priority}
                           disabled={actionLoading === "priority"}
                           onChange={(event) => void handlePriorityChange(event.target.value as AdminTicketPriority)}
-                          className="mt-3 h-11 w-full rounded-2xl border border-[var(--foreground)]/10 bg-white px-4 text-sm text-[var(--foreground)] outline-none transition focus:border-[var(--gold)] focus:ring-2 focus:ring-[var(--gold)]/15"
+                          className="mt-3 h-11 w-full rounded-2xl border border-foreground/10 bg-white px-4 text-sm text-foreground outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/15"
                         >
                           {PRIORITIES.map((priority) => (
                             <option key={priority} value={priority}>
@@ -547,31 +547,31 @@ export default function AdminSupportPage() {
                       </label>
                     </div>
 
-                    <div className="rounded-[22px] border border-[var(--foreground)]/10 bg-white p-4">
+                    <div className="rounded-[22px] border border-foreground/10 bg-white p-4">
                       <button
                         type="button"
                         disabled={actionLoading === "escalate" || selectedTicket.isEscalated}
                         onClick={() => void handleEscalate()}
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--foreground)] px-5 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-[#0f342c] disabled:pointer-events-none disabled:opacity-50"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-[#0f342c] disabled:pointer-events-none disabled:opacity-50"
                       >
                         <AlertTriangle className="h-4 w-4" />
                         {selectedTicket.isEscalated ? "Escalated" : "Escalate"}
                       </button>
                     </div>
 
-                    <form className="rounded-[22px] border border-[var(--foreground)]/10 bg-white p-4" onSubmit={(event) => void handleReplySubmit(event)}>
-                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--foreground)]/45">Reply</p>
+                    <form className="rounded-[22px] border border-foreground/10 bg-white p-4" onSubmit={(event) => void handleReplySubmit(event)}>
+                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/45">Reply</p>
                       <textarea
                         value={replyMessage}
                         onChange={(event) => setReplyMessage(event.target.value)}
                         rows={6}
-                        className="mt-3 w-full rounded-2xl border border-[var(--foreground)]/10 px-4 py-3 text-sm text-[var(--foreground)] outline-none transition focus:border-[var(--gold)] focus:ring-2 focus:ring-[var(--gold)]/15"
+                        className="mt-3 w-full rounded-2xl border border-foreground/10 px-4 py-3 text-sm text-foreground outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/15"
                         placeholder="We are checking with the team and will update you shortly."
                       />
                       <button
                         type="submit"
                         disabled={actionLoading === "reply"}
-                        className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--foreground)] px-5 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-[#0f342c] disabled:pointer-events-none disabled:opacity-50"
+                        className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-[#0f342c] disabled:pointer-events-none disabled:opacity-50"
                       >
                         <MessageSquareText className="h-4 w-4" />
                         {actionLoading === "reply" ? "Sending..." : "Send Reply"}

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Suspense, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
@@ -45,8 +45,8 @@ function CheckoutStatusContent() {
   return (
     <AuthGuard allowedRoles={["USER", "ADMIN"]}>
       <main className="mx-auto max-w-[980px] px-4 py-10 lg:px-8">
-        <section className="overflow-hidden rounded-[36px] border border-[var(--foreground)]/10 bg-white shadow-[0_24px_70px_rgba(55,31,10,0.08)]">
-          <div className={`px-6 py-8 text-white sm:px-8 ${paymentResult === "success" ? "bg-[var(--deep)]" : "bg-[#8a2638]"}`}>
+        <section className="overflow-hidden rounded-[36px] border border-foreground/10 bg-white shadow-[0_24px_70px_rgba(55,31,10,0.08)]">
+          <div className={`px-6 py-8 text-white sm:px-8 ${paymentResult === "success" ? "bg-deep" : "bg-[#8a2638]"}`}>
             <div className="flex items-center gap-4">
               {paymentResult === "success" ? <CheckCircle2 className="h-10 w-10" /> : <XCircle className="h-10 w-10" />}
               <div>
@@ -59,10 +59,10 @@ function CheckoutStatusContent() {
           </div>
 
           <div className="space-y-6 px-6 py-8 sm:px-8">
-            <div className="rounded-[28px] border border-[var(--foreground)]/10 bg-[var(--surface)] p-5 text-sm leading-7 text-[var(--foreground)]/68">
+            <div className="rounded-[28px] border border-foreground/10 bg-surface p-5 text-sm leading-7 text-foreground/68">
               {pendingOrder?.orderNumber ? (
                 <p>
-                  Order number: <span className="font-bold text-[var(--deep)]">{pendingOrder.orderNumber}</span>
+                  Order number: <span className="font-bold text-deep">{pendingOrder.orderNumber}</span>
                 </p>
               ) : null}
               <p>
@@ -72,14 +72,14 @@ function CheckoutStatusContent() {
                     : "Cash on delivery order was created successfully."
                   : "You returned from the payment flow without completing payment. You can retry checkout when ready."}
               </p>
-              {isSyncing ? <p className="mt-3 text-[var(--foreground)]/55">Syncing your cart and checkout state...</p> : null}
+              {isSyncing ? <p className="mt-3 text-foreground/55">Syncing your cart and checkout state...</p> : null}
               {syncError ? <p className="mt-3 text-red-700">{syncError}</p> : null}
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
               <Link
                 href="/shop"
-                className="cta-sweep inline-flex items-center justify-center gap-2 border border-[var(--deep)] bg-[var(--deep)] px-6 py-4 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:border-[var(--gold)] hover:text-[var(--deep)] focus-visible:border-[var(--gold)] focus-visible:text-[var(--deep)]"
+                className="cta-sweep inline-flex items-center justify-center gap-2 border border-deep bg-deep px-6 py-4 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:border-gold hover:text-deep focus-visible:border-gold focus-visible:text-deep"
               >
                 <span className="relative z-10 inline-flex items-center gap-2">
                   <ShoppingBag className="h-4 w-4" />
@@ -89,7 +89,7 @@ function CheckoutStatusContent() {
 
               <Link
                 href={paymentResult === "success" ? "/profile" : "/checkout"}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--gold)]/35 px-6 py-4 text-sm font-bold uppercase tracking-[0.08em] text-[var(--deep)] transition hover:bg-[var(--deep)] hover:text-white"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-gold/35 px-6 py-4 text-sm font-bold uppercase tracking-[0.08em] text-deep transition hover:bg-deep hover:text-white"
               >
                 <RotateCcw className="h-4 w-4" />
                 {paymentResult === "success" ? "View Profile" : "Try Checkout Again"}
@@ -106,8 +106,8 @@ function CheckoutStatusFallback() {
   return (
     <main className="grid min-h-[60vh] place-items-center px-6 py-16 text-center">
       <div>
-        <p className="display-font text-3xl text-[var(--foreground)]">Loading checkout status</p>
-        <p className="mt-3 text-sm uppercase tracking-[0.2em] text-[var(--foreground)]/65">
+        <p className="display-font text-3xl text-foreground">Loading checkout status</p>
+        <p className="mt-3 text-sm uppercase tracking-[0.2em] text-foreground/65">
           Preparing your order details
         </p>
       </div>

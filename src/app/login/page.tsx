@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { FormEvent, useEffect, useState } from "react";
 import Link from "next/link";
@@ -55,7 +55,7 @@ export default function LoginPage() {
                 <BrandWordmark size="hero" className="items-center text-center" />
               </div>
 
-              <h2 className="text-4xl font-bold leading-[1.08] text-[var(--gold)] sm:text-3xl lg:text-3xl">Begin Your Diamond Journey</h2>
+              <h2 className="text-4xl font-bold leading-[1.08] text-gold sm:text-3xl lg:text-3xl">Begin Your Diamond Journey</h2>
               <p className="mx-auto mt-6 max-w-sm text-lg leading-[1.45] text-white/85 sm:mt-8 sm:text-xl lg:text-2xl">
                 Experience timeless elegance and brilliance.
               </p>
@@ -64,7 +64,7 @@ export default function LoginPage() {
 
           <div className="relative min-h-[520px] bg-[#f6f6f8] px-8 py-8 sm:px-12 sm:py-10">
             <div className="flex justify-end">
-              <Link href="/" className="inline-flex items-center rounded-full bg-[var(--deep)] px-5 py-2 text-sm font-bold text-white transition hover:bg-[#0a2e28]">
+              <Link href="/" className="inline-flex items-center rounded-full bg-deep px-5 py-2 text-sm font-bold text-white transition hover:bg-[#0a2e28]">
                 Home
               </Link>
             </div>
@@ -105,7 +105,7 @@ export default function LoginPage() {
                   </button>
                 </div>
                 <div className="flex justify-end">
-                  <Link href="/reset-password" className="text-sm font-semibold text-[#0e5a47] transition hover:text-[var(--gold)]">
+                  <Link href="/reset-password" className="text-sm font-semibold text-[#0e5a47] transition hover:text-gold">
                     Forgot password?
                   </Link>
                 </div>
@@ -117,7 +117,7 @@ export default function LoginPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting || !isReady}
-                  className="mt-2 h-14 rounded-xl bg-[var(--gold)] text-base font-extrabold text-[#1a1710] transition hover:bg-[#b8972f] sm:text-sm"
+                  className="mt-2 h-14 rounded-xl bg-gold text-base font-extrabold text-[#1a1710] transition hover:bg-[#b8972f] sm:text-sm"
                 >
                   {isSubmitting ? "Signing in..." : "Login"}
                 </button>

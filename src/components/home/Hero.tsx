@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 import HeroBanner from "@/assets/Hero-Banner.png";
 
@@ -37,7 +37,7 @@ export function Hero() {
                         </p>
                         <Link
                             href="/shop"
-                            className="mt-10 inline-flex h-14 min-w-44 items-center justify-center bg-[var(--deep)] px-10 text-sm font-semibold uppercase tracking-[0.32em] text-[var(--gold)] transition hover:bg-[#0a2e28]"
+                            className="mt-10 inline-flex h-14 min-w-44 items-center justify-center bg-deep px-10 text-sm font-semibold uppercase tracking-[0.32em] text-gold transition hover:bg-[#0a2e28]"
                         >
                             Shop Now
                         </Link>
@@ -61,7 +61,7 @@ export function Hero() {
                                         {item}
                                     </span>
                                     <span
-                                        className="inline-block h-2 w-2 shrink-0 rounded-full bg-[var(--gold)]"
+                                        className="inline-block h-2 w-2 shrink-0 rounded-full bg-gold"
                                         aria-hidden="true"
                                     />
                                 </div>

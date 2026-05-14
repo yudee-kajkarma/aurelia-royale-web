@@ -88,23 +88,23 @@ export default function TicketDetailPage() {
   return (
     <AuthGuard allowedRoles={["USER", "ADMIN"]}>
       <main className="mx-auto min-h-[70vh] w-full max-w-[1480px] px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
-        <nav className="mb-6 text-sm text-[var(--foreground)]/58">
-          <Link href="/tickets" className="transition hover:text-[var(--deep)]">Support Tickets</Link>
+        <nav className="mb-6 text-sm text-foreground/58">
+          <Link href="/tickets" className="transition hover:text-deep">Support Tickets</Link>
           <span>{" / "}</span>
-          <span className="text-[var(--deep)]">{ticketId}</span>
+          <span className="text-deep">{ticketId}</span>
         </nav>
 
-        {isLoading ? <p className="text-sm font-medium text-[var(--foreground)]/60">Loading ticket...</p> : null}
+        {isLoading ? <p className="text-sm font-medium text-foreground/60">Loading ticket...</p> : null}
         {!isLoading && error ? <div className="rounded-[32px] border border-rose-200 bg-rose-50 px-6 py-8 text-rose-700">{error}</div> : null}
 
         {!isLoading && ticket ? (
           <div className="grid gap-8 xl:grid-cols-[1fr_380px]">
-            <section className="rounded-[34px] border border-[var(--foreground)]/10 bg-white/90 p-6 shadow-[0_20px_60px_rgba(55,31,10,0.06)] backdrop-blur-sm sm:p-8">
-              <div className="flex flex-col gap-4 border-b border-[var(--foreground)]/10 pb-6 sm:flex-row sm:items-start sm:justify-between">
+            <section className="rounded-[34px] border border-foreground/10 bg-white/90 p-6 shadow-[0_20px_60px_rgba(55,31,10,0.06)] backdrop-blur-sm sm:p-8">
+              <div className="flex flex-col gap-4 border-b border-foreground/10 pb-6 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--foreground)]/42">{ticket.ticketId}</p>
-                  <h1 className="display-font mt-3 text-4xl text-[var(--deep)]">{ticket.subject}</h1>
-                  <p className="mt-3 text-sm text-[var(--foreground)]/58">{ticket.category} · {ticket.priority} priority</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-foreground/42">{ticket.ticketId}</p>
+                  <h1 className="display-font mt-3 text-4xl text-deep">{ticket.subject}</h1>
+                  <p className="mt-3 text-sm text-foreground/58">{ticket.category} · {ticket.priority} priority</p>
                 </div>
 
                 <div className="flex flex-wrap gap-2">
@@ -121,33 +121,33 @@ export default function TicketDetailPage() {
 
               <div className="mt-6 space-y-5">
                 {ticket.messages.map((message, index) => (
-                  <article key={`${message.createdAt}-${index}`} className="rounded-[24px] border border-[var(--foreground)]/10 bg-[var(--surface)] p-5">
+                  <article key={`${message.createdAt}-${index}`} className="rounded-[24px] border border-foreground/10 bg-surface p-5">
                     <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                       <div>
-                        <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--foreground)]/42">{message.senderRole}</p>
-                        <p className="mt-1 text-sm text-[var(--foreground)]/58">{message.sender}</p>
+                        <p className="text-xs font-bold uppercase tracking-[0.12em] text-foreground/42">{message.senderRole}</p>
+                        <p className="mt-1 text-sm text-foreground/58">{message.sender}</p>
                       </div>
-                      <p className="text-sm text-[var(--foreground)]/42">{formatTicketDate(message.createdAt)}</p>
+                      <p className="text-sm text-foreground/42">{formatTicketDate(message.createdAt)}</p>
                     </div>
-                    <p className="mt-4 text-sm leading-7 text-[var(--foreground)]/68">{message.message}</p>
+                    <p className="mt-4 text-sm leading-7 text-foreground/68">{message.message}</p>
                   </article>
                 ))}
               </div>
             </section>
 
-            <aside className="rounded-[34px] border border-[var(--foreground)]/10 bg-white/90 p-6 shadow-[0_20px_60px_rgba(55,31,10,0.06)] backdrop-blur-sm sm:p-8">
-              <p className="text-sm font-bold uppercase tracking-[0.22em] text-[var(--foreground)]/45">Reply</p>
-              <h2 className="display-font mt-3 text-3xl text-[var(--deep)]">Send a Message</h2>
-              <p className="mt-3 text-sm leading-7 text-[var(--foreground)]/65">Add more details or respond to the support team from here.</p>
+            <aside className="rounded-[34px] border border-foreground/10 bg-white/90 p-6 shadow-[0_20px_60px_rgba(55,31,10,0.06)] backdrop-blur-sm sm:p-8">
+              <p className="text-sm font-bold uppercase tracking-[0.22em] text-foreground/45">Reply</p>
+              <h2 className="display-font mt-3 text-3xl text-deep">Send a Message</h2>
+              <p className="mt-3 text-sm leading-7 text-foreground/65">Add more details or respond to the support team from here.</p>
 
               <form className="mt-6 grid gap-4" onSubmit={(event) => void handleReplySubmit(event)}>
-                <label className="text-sm font-semibold text-[var(--deep)]">
+                <label className="text-sm font-semibold text-deep">
                   Message
                   <textarea
                     value={reply}
                     onChange={(event) => setReply(event.target.value)}
                     rows={8}
-                    className="mt-2 w-full rounded-2xl border border-[var(--foreground)]/12 bg-white px-4 py-3 text-sm text-[var(--deep)] outline-none transition focus:border-[var(--deep)]"
+                    className="mt-2 w-full rounded-2xl border border-foreground/12 bg-white px-4 py-3 text-sm text-deep outline-none transition focus:border-deep"
                     placeholder="Thanks for the quick response. Please expedite."
                   />
                 </label>
@@ -157,7 +157,7 @@ export default function TicketDetailPage() {
                 <button
                   type="submit"
                   disabled={isSending}
-                  className="cta-sweep inline-flex items-center justify-center gap-2 border border-[var(--deep)] bg-[var(--deep)] px-6 py-4 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:border-[var(--gold)] hover:text-[var(--deep)] focus-visible:border-[var(--gold)] focus-visible:text-[var(--deep)] disabled:opacity-60"
+                  className="cta-sweep inline-flex items-center justify-center gap-2 border border-deep bg-deep px-6 py-4 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:border-gold hover:text-deep focus-visible:border-gold focus-visible:text-deep disabled:opacity-60"
                 >
                   <span className="relative z-10 inline-flex items-center gap-2">
                     <SendHorizonal className="h-4 w-4" />
@@ -166,12 +166,12 @@ export default function TicketDetailPage() {
                 </button>
               </form>
 
-              <div className="mt-6 border-t border-[var(--foreground)]/10 pt-6 text-sm text-[var(--foreground)]/58">
+              <div className="mt-6 border-t border-foreground/10 pt-6 text-sm text-foreground/58">
                 <p>Created {formatTicketDate(ticket.createdAt)}</p>
                 <p className="mt-2">Last updated {formatTicketDate(ticket.updatedAt)}</p>
-                <div className="mt-5 rounded-[24px] border border-[var(--gold)]/20 bg-[var(--surface)] p-4">
-                  <div className="flex items-start gap-3 text-sm leading-6 text-[var(--foreground)]/62">
-                    <MessageSquareText className="mt-0.5 h-4 w-4 text-[var(--deep)]" />
+                <div className="mt-5 rounded-[24px] border border-gold/20 bg-surface p-4">
+                  <div className="flex items-start gap-3 text-sm leading-6 text-foreground/62">
+                    <MessageSquareText className="mt-0.5 h-4 w-4 text-deep" />
                     <p>Keep all order-related communication in this thread so the support team can resolve issues faster.</p>
                   </div>
                 </div>

@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+﻿import { AnimatePresence, motion } from "framer-motion";
 import { Search, X } from "lucide-react";
 
 type HeaderSearchOverlayProps = {
@@ -24,14 +24,14 @@ export function HeaderSearchOverlay({
           transition={{ duration: reduceMotion ? 0 : 0.2, ease: "easeOut" }}
         >
           <motion.div
-            className="mx-auto flex w-full max-w-2xl items-center gap-2 border border-[var(--gold)]/35 bg-[#0a0f18] p-3"
+            className="mx-auto flex w-full max-w-2xl items-center gap-2 border border-gold/35 bg-[#0a0f18] p-3"
             onClick={(event) => event.stopPropagation()}
             initial={{ opacity: 0, y: reduceMotion ? 0 : -16, scale: reduceMotion ? 1 : 0.985 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: reduceMotion ? 0 : -12, scale: reduceMotion ? 1 : 0.99 }}
             transition={{ duration: reduceMotion ? 0 : 0.24, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Search size={18} className="text-[var(--gold)]" />
+            <Search size={18} className="text-gold" />
             <input
               autoFocus
               type="text"

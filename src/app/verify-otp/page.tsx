@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { FormEvent, Suspense, useEffect, useState } from "react";
 import Link from "next/link";
@@ -85,7 +85,7 @@ function VerifyOtpPageShell({
                 <BrandWordmark size="hero" className="items-center text-center" />
               </div>
 
-              <h2 className="text-4xl font-bold leading-[1.08] text-[var(--gold)] sm:text-3xl lg:text-3xl">One Final Verification</h2>
+              <h2 className="text-4xl font-bold leading-[1.08] text-gold sm:text-3xl lg:text-3xl">One Final Verification</h2>
               <p className="mx-auto mt-6 max-w-sm text-lg leading-[1.45] text-white/85 sm:mt-8 sm:text-xl lg:text-2xl">
                 Enter the OTP sent to your email and complete your account setup.
               </p>
@@ -94,7 +94,7 @@ function VerifyOtpPageShell({
 
           <div className="relative min-h-[520px] bg-[#f6f6f8] px-8 py-8 sm:px-12 sm:py-10">
             <div className="flex justify-end">
-              <Link href="/register" className="inline-flex items-center rounded-full bg-[var(--deep)] px-5 py-2 text-sm font-bold text-white transition hover:bg-[#0a2e28]">
+              <Link href="/register" className="inline-flex items-center rounded-full bg-deep px-5 py-2 text-sm font-bold text-white transition hover:bg-[#0a2e28]">
                 Register
               </Link>
             </div>
@@ -132,7 +132,7 @@ function VerifyOtpPageShell({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="mt-2 h-14 rounded-xl bg-[var(--gold)] text-base font-extrabold text-[#1a1710] transition hover:bg-[#b8972f] disabled:opacity-60 sm:text-sm"
+                  className="mt-2 h-14 rounded-xl bg-gold text-base font-extrabold text-[#1a1710] transition hover:bg-[#b8972f] disabled:opacity-60 sm:text-sm"
                 >
                   {isSubmitting ? "Verifying..." : "Verify OTP"}
                 </button>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { Heart } from "lucide-react";
@@ -55,9 +55,9 @@ export function WishlistToggleButton({ productId, className = "", iconOnly = fal
       onClick={(event) => void handleClick(event)}
       disabled={isSubmitting}
       aria-label={inWishlist ? "Remove from wishlist" : "Add to wishlist"}
-      className={className || "inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/90 px-3 py-2 text-sm font-bold text-[var(--deep)] shadow-sm transition hover:border-[var(--gold)] hover:text-[var(--gold)] disabled:opacity-60"}
+      className={className || "inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/90 px-3 py-2 text-sm font-bold text-deep shadow-sm transition hover:border-gold hover:text-gold disabled:opacity-60"}
     >
-      <Heart size={18} className={inWishlist ? "fill-current text-[var(--gold)]" : ""} />
+      <Heart size={18} className={inWishlist ? "fill-current text-gold" : ""} />
       {iconOnly ? null : inWishlist ? "Wishlisted" : "Add To Wishlist"}
     </button>
   );
