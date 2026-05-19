@@ -1,5 +1,5 @@
-import axios from "axios";
 import { apiClient } from "@/services/http/api-client";
+import { getApiErrorMessage } from "@/services/http/api-error";
 import type {
   AdminOrder,
   AdminOrderItem,
@@ -45,18 +45,6 @@ type AdminOrdersListResponse = {
   data?: AdminOrderApi[];
   pagination?: Partial<AdminOrdersPagination>;
 };
-
-function getApiErrorMessage(error: unknown) {
-  if (axios.isAxiosError(error)) {
-    return error.response?.data?.message ?? error.response?.data?.error ?? error.message ?? "Something went wrong.";
-  }
-
-  if (error instanceof Error) {
-    return error.message;
-  }
-
-  return "Something went wrong.";
-}
 
 function toNumber(value: number | string | undefined, fallback = 0) {
   if (typeof value === "number") {

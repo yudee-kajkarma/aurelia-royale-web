@@ -1,5 +1,5 @@
-import axios from "axios";
 import { apiClient } from "@/services/http/api-client";
+import { getApiErrorMessage } from "@/services/http/api-error";
 import type {
   AddTicketMessagePayload,
   CreateTicketPayload,
@@ -54,18 +54,6 @@ type TicketCreateApiResponse = {
   message: string;
   data?: TicketApiResponse;
 };
-
-function getApiErrorMessage(error: unknown) {
-  if (axios.isAxiosError(error)) {
-    return error.response?.data?.message ?? error.response?.data?.error ?? error.message ?? "Something went wrong.";
-  }
-
-  if (error instanceof Error) {
-    return error.message;
-  }
-
-  return "Something went wrong.";
-}
 
 function normalizeTicketMessage(message: TicketMessageApiResponse): TicketMessage {
   return {

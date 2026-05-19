@@ -1,5 +1,5 @@
-import axios from "axios";
 import { apiClient } from "@/services/http/api-client";
+import { getApiErrorMessage } from "@/services/http/api-error";
 import type { ApiResponse } from "@/services/auth/auth.types";
 import type { ProductsPagination } from "@/services/products/product.types";
 import type {
@@ -49,18 +49,6 @@ type AdminTicketsListResponse = {
 };
 
 type AdminTicketDetailResponse = ApiResponse<AdminTicketApiResponse>;
-
-function getApiErrorMessage(error: unknown) {
-  if (axios.isAxiosError(error)) {
-    return error.response?.data?.message ?? error.response?.data?.error ?? error.message ?? "Something went wrong.";
-  }
-
-  if (error instanceof Error) {
-    return error.message;
-  }
-
-  return "Something went wrong.";
-}
 
 function normalizeStatus(status: string | undefined): AdminTicketStatus {
   switch (status) {

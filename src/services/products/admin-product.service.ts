@@ -1,5 +1,5 @@
-import axios from "axios";
 import { apiClient } from "@/services/http/api-client";
+import { getApiErrorMessage } from "@/services/http/api-error";
 import type { ApiResponse } from "@/services/auth/auth.types";
 import type {
   ProductDetail,
@@ -16,23 +16,6 @@ import type {
 type ProductListResponse = ApiResponse<ProductListItem[]> & {
   pagination?: ProductsPagination;
 };
-
-function getApiErrorMessage(error: unknown) {
-  if (axios.isAxiosError(error)) {
-    return (
-      error.response?.data?.message ??
-      error.response?.data?.error ??
-      error.message ??
-      "Something went wrong."
-    );
-  }
-
-  if (error instanceof Error) {
-    return error.message;
-  }
-
-  return "Something went wrong.";
-}
 
 function toListResult(responseData: ProductListResponse): AdminProductListResult {
   return {
