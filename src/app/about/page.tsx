@@ -1,127 +1,155 @@
-﻿import { Phone } from "lucide-react";
-import Link from "next/link";
+﻿import Image from "next/image";
+import AboutHero from "@/assets/About-Hero.png";
+import Vector1 from "@/assets/vector-1.png";
+import Vector2 from "@/assets/vector-2.png";
+import Vector3 from "@/assets/vector-3.png";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import { TestimonialSlider } from "@/components/home/TestimonialSlider";
 
 export default function AboutPage() {
-  return (
-    <main className="min-h-screen overflow-x-clip bg-background">
-      <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden">
-        <div
-          className="relative h-[290px] bg-cover bg-center"
-          style={{ backgroundImage: 'url("https://jewellery-bay-two.vercel.app/assets/our_image/bg.jpg")' }}
-          aria-hidden="true"
-        >
-          <div className="absolute inset-0 bg-black/15" />
-          <div className="relative mx-auto flex h-full max-w-7xl items-end px-6 pb-10 sm:px-8">
-            <div>
-              <h1 className="display-font text-6xl font-semibold uppercase text-white sm:text-7xl">About Us</h1>
-              <p className="mt-2 text-sm font-bold uppercase tracking-[0.15em] text-gold">
-                Home <span className="text-gold">&gt;</span> <span className="text-white">About Us</span>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="h-3 [background:radial-gradient(circle,#0e2230_3px,transparent_4px)] [background-size:22px_100%]" />
-      </section>
+    return (
+        <main className="min-h-screen overflow-x-clip bg-background">
+            {/* Hero banner */}
+            <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc]">
+                <div className="mx-auto flex h-[300px] max-w-7xl items-center justify-center px-6">
+                    <h1 className="font-[family-name:var(--font-cormorant)] text-7xl font-semibold uppercase tracking-[0.04em] text-foreground sm:text-8xl">
+                        About Us
+                    </h1>
+                </div>
+            </section>
 
-      <section className="mx-auto grid max-w-6xl gap-12 px-6 py-20 sm:px-8 lg:grid-cols-[1fr_1.05fr] lg:items-center">
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.28em] text-gold">About Us</p>
-          <h2 className="display-font mt-3 text-6xl uppercase leading-[1.04] text-deep">Graceful Drops</h2>
-          <p className="mt-8 max-w-xl text-[1.05rem] font-semibold leading-10 text-[#8d8f94]">
-            Lorem Ipsum Dolor Sit Amet, Conse Elit, Sedid Golden Eiusmod Tempor Aboret Dolore Magna Aliqua. Ipsum
-            Conseel Dimonds Usndi Labois Sitamet Sedid Sedid Do Eiusm.
-          </p>
+            {/* Legacy / intro */}
+            <section className="mx-auto grid max-w-6xl gap-14 px-6 py-24 sm:px-8 lg:grid-cols-2 lg:items-center lg:gap-16">
+                <div>
+                    <div className="flex items-center gap-4">
+                        <span className="h-px w-12 bg-gold" />
+                        <p className="font-[family-name:var(--font-jost)] text-xs font-semibold uppercase tracking-[0.3em] text-gold">
+                            About Us
+                        </p>
+                    </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-10 text-[#8e9094]">
-            <div className="inline-flex items-center gap-3 text-lg font-semibold">
-              <span
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-gold bg-center bg-no-repeat"
-                style={{ backgroundImage: 'url("https://jewellery-bay-two.vercel.app/assets/img/icons/vs-about-icon-1.svg")', backgroundSize: "20px 20px" }}
-              />
-              Online Booking
-            </div>
-            <div className="inline-flex items-center gap-3 text-lg font-semibold">
-              <span
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-gold bg-center bg-no-repeat"
-                style={{ backgroundImage: 'url("https://jewellery-bay-two.vercel.app/assets/img/icons/vs-about-icon-2.svg")', backgroundSize: "20px 20px" }}
-              />
-              Amazing Deals
-            </div>
-          </div>
+                    <h2 className="mt-6 font-[family-name:var(--font-cormorant)] text-6xl font-medium leading-[1.05] text-foreground sm:text-6xl">
+                        A Legacy Of Fine Craft.
+                    </h2>
 
-          <div className="mt-8 h-px w-full max-w-[560px] bg-black/12" />
+                    <div className="mt-8 space-y-6 font-[family-name:var(--font-jost)] text-[1.05rem] font-light  text-[#3b3b3b]">
+                        <p>
+                            At Aurelia Royal, elegance is more than a style — it
+                            is a statement of timeless sophistication. Our
+                            collection is crafted to celebrate modern luxury
+                            through finely designed jewellery pieces that blend
+                            contemporary artistry with classic charm. Every
+                            detail reflects grace, confidence, and refined
+                            beauty for those who appreciate exclusivity.
+                        </p>
+                        <p>
+                            We believe jewellery should feel personal,
+                            memorable, and effortlessly luxurious. From dazzling
+                            statement rings to delicate necklaces and radiant
+                            earrings, Aurelia Royal brings together
+                            craftsmanship and premium aesthetics to create
+                            pieces that elevate every occasion. Designed for the
+                            modern muse, our creations embody luxury with a
+                            minimalist touch.
+                        </p>
+                    </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-5">
-            <Link href="/contact" className="inline-flex bg-gold px-10 py-4 text-base font-extrabold uppercase tracking-[0.05em] text-white">
-              Contact Us
-            </Link>
+                    <div className="mt-11 flex justify-between  gap-x-7 gap-y-8">
+                        {[
+                            { value: "5+", label: "Year's Of Expertise" },
+                            { value: "850+", label: "Exclusive Designs" },
+                            { value: "1500+", label: "Jewelry Lovers" },
+                        ].map((stat) => (
+                            <div key={stat.label}>
+                                <p className="font-[family-name:var(--font-cormorant)] text-6xl font-semibold leading-none text-gold">
+                                    {stat.value}
+                                </p>
+                                <p className="mt-3 font-[family-name:var(--font-jost)] text-xs font-semibold uppercase tracking-[0.18em] text-[#5a5a5a]">
+                                    {stat.label}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
-            <div className="inline-flex items-center gap-3">
-              {/* <span
-                className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#b8b8b8] bg-cover bg-center"
-                style={{ backgroundImage: 'url("https://jewellery-bay-two.vercel.app/assets/img/author/about-auth-1-1.jpg")' }}
-              /> */}
-              <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-gold text-white">
-                <Phone size={18} />
-              </span>
-              <div>
-                <p className="text-lg font-bold uppercase tracking-[0.08em] text-[#8e9094]">Call For Us</p>
-                <p className="text-3xl font-bold text-gold">+1 444 888 966</p>
-              </div>
-            </div>
-          </div>
-        </div>
+                <div className="relative h-140 w-full">
+                    <Image
+                        src={AboutHero}
+                        alt="Model wearing Aurelia Royal jewellery"
+                        fill
+                        sizes="(min-width: 1024px) 50vw, 100vw"
+                        className="object-cover object-center"
+                        priority
+                    />
+                </div>
+            </section>
 
-        <div
-          className="h-[430px] w-full bg-cover bg-center"
-          style={{ backgroundImage: 'url("https://jewellery-bay-two.vercel.app/assets/our_image/about/About-1.jpg")' }}
-          aria-hidden="true"
-        />
-      </section>
+            {/* Our philosophy */}
+            <section className="relative left-1/2 w-screen -translate-x-1/2 [background:radial-gradient(ellipse_115%_85%_at_50%_16%,#2e5a48_0%,#173f31_52%,#0a261c_100%)]">
+                <div className="mx-auto max-w-6xl px-6 py-24 sm:px-8">
+                    <div className="flex items-center gap-4">
+                        <span className="h-px w-12 bg-gold" />
+                        <p className="font-[family-name:var(--font-jost)] text-xs font-semibold uppercase tracking-[0.3em] text-gold">
+                            Our Philosophy
+                        </p>
+                    </div>
 
-      <section className="mx-auto grid max-w-6xl gap-12 px-6 pb-24 pt-6 sm:px-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
-        <div className="relative mx-auto h-[560px] w-full max-w-[420px]">
-          <div className="absolute left-0 top-0 h-44 w-6 bg-gold" />
-          <div
-            className="absolute right-0 top-6 h-[530px] w-[95%] bg-cover bg-center"
-            style={{ backgroundImage: 'url("https://jewellery-bay-two.vercel.app/assets/our_image/about/About-2.jpg")' }}
-            aria-hidden="true"
-          />
-        </div>
+                    <h2 className="mt-7 max-w-3xl font-[family-name:var(--font-cormorant)] text-5xl font-medium leading-[1.12] text-[#f3f1e4] sm:text-6xl">
+                        We Believe Jewellery Is Not Decoration{" "}
+                        <span className="text-gold">—</span> It Is Memory Made
+                        Permanent.
+                    </h2>
 
-        <div className="grid items-center gap-12 lg:grid-cols-[160px_1fr]">
-          <div className="mx-auto inline-flex h-56 w-40 items-center justify-center rounded-[5rem] bg-gold">
-            <div
-              className="h-20 w-20 bg-contain bg-center bg-no-repeat"
-              style={{ backgroundImage: 'url("https://jewellery-bay-two.vercel.app/assets/img/about/about-1-2.svg")' }}
-              aria-hidden="true"
-            />
-          </div>
+                    <div className="mt-20 grid gap-14 sm:grid-cols-3 sm:gap-10">
+                        {[
+                            {
+                                no: "01",
+                                title: "Uncompromising Quality",
+                                body: "Every gemstone is hand-selected by our master gemmologist. Every metal is tested and hallmarked. We accept only what is genuinely extraordinary.",
+                                icon: Vector1,
+                            },
+                            {
+                                no: "02",
+                                title: "Ethical Provenance",
+                                body: "Our supply chain is independently audited to ensure no conflict minerals or exploitative practices are ever part of your piece.",
+                                icon: Vector2,
+                            },
+                            {
+                                no: "03",
+                                title: "Timeless Design",
+                                body: "We resist trend. Our pieces are designed to be worn by your daughter and her daughter — forms that feel as relevant in fifty years as they do today.",
+                                icon: Vector3,
+                            },
+                        ].map((item) => (
+                            <div key={item.no}>
+                                <div className="flex items-center justify-between md: gap-10">
+                                    <span className="font-[family-name:var(--font-cormorant)] text-6xl font-medium leading-none text-white/30">
+                                        {item.no}
+                                    </span>
+                                    <Image
+                                        src={item.icon}
+                                        alt={item.title}
+                                        width={44}
+                                        height={44}
+                                        className="h-11 w-11 object-contain"
+                                    />
+                                </div>
 
-          <div className="text-center lg:text-left">
-            <div
-              className="mx-auto mb-5 h-24 w-24 bg-contain bg-center bg-no-repeat opacity-45 lg:mx-0"
-              style={{ backgroundImage: 'url("https://jewellery-bay-two.vercel.app/assets/img/about/about-1-6.svg")' }}
-              aria-hidden="true"
-            />
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-gold">Customs Jewelry</p>
-            <h3 className="display-font mt-3 text-6xl uppercase leading-[1.04] text-deep">Graceful Ear Drops</h3>
-            <p className="mx-auto mt-7 max-w-2xl text-[1.05rem] font-semibold leading-10 text-[#8d8f94] lg:mx-0">
-              Lorem Ipsum Dolor Sit Amet, Conse Elit, Sedid Do Eiusmod Tempor Incidit Laboret Dolore Magna Aliqua.
-              Quis Ipsum Conseel Usndi Laboris Sitamet Sedid Sedid Do Eiusm.
-            </p>
-            <Link href="/shop" className="mt-9 inline-flex bg-gold px-10 py-4 text-base font-extrabold uppercase tracking-[0.05em] text-white">
-              Shop Now
-            </Link>
-          </div>
-        </div>
-      </section>
+                                <h3 className="mt-7 font-[family-name:var(--font-cormorant)] text-3xl font-medium text-[#f3f1e4]">
+                                    {item.title}
+                                </h3>
+                                <p className="mt-4 font-[family-name:var(--font-jost)] text-lg font-light leading-[1.8] text-[#FAE9BD]">
+                                    {item.body}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
 
-      <TestimonialSlider />
+            <TestimonialSlider />
 
-      <NewsletterSection />
-    </main>
-  );
+            <NewsletterSection />
+        </main>
+    );
 }
