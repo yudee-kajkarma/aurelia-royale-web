@@ -1,7 +1,7 @@
 ﻿import Link from "next/link";
 import { AddToCartButton } from "@/components/cart/AddToCartButton";
 import { ProductImage } from "./ProductImage";
-import { PriceDisplay } from "@/components/shared/PriceDisplay";
+import { DiscountedPrice } from "@/components/shared/DiscountedPrice";
 import { WishlistToggleButton } from "@/components/wishlist/WishlistToggleButton";
 
 type ProductCardProps = {
@@ -75,7 +75,11 @@ export function ProductCard({
         <p className="relative z-0 text-center text-sm font-semibold text-deep/85">{name}</p>
         {compact && category ? <p className="relative z-0 mt-1 text-center text-xs uppercase tracking-[0.12em] text-deep/45">{category}</p> : null}
         {description ? <p className="relative z-0 text-center text-sm text-deep/60">{description}</p> : null}
-        <PriceDisplay value={price} className="relative z-0 block text-center text-lg font-bold text-gold" />
+        <DiscountedPrice
+          value={price}
+          className="relative z-0 mt-1 flex justify-center text-lg font-bold text-gold"
+          discountedClassName="text-gold"
+        />
       </div>
     </article>
   );

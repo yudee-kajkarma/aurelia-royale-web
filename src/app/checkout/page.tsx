@@ -19,8 +19,7 @@ export default function CheckoutPage() {
   const { user } = useAuth();
   const { items, count, totalValue, isLoading, refresh } = useCart();
   const { discountPercent } = useDiscount();
-  const discountAmount = (totalValue * discountPercent) / 100;
-  const payableTotal = totalValue - discountAmount;
+  const payableTotal = totalValue * (1 - discountPercent / 100);
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("ONLINE");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -228,20 +227,12 @@ export default function CheckoutPage() {
               </div>
               <div className="flex items-center justify-between">
                 <span>Subtotal</span>
-                <PriceDisplay value={totalValue} className="font-semibold text-deep" />
+                <PriceDisplay value={payableTotal} className="font-semibold text-deep" />
               </div>
               <div className="flex items-center justify-between">
                 <span>Shipping</span>
                 <span className="font-semibold text-deep">Free</span>
               </div>
-              {discountPercent > 0 ? (
-                <div className="flex items-center justify-between">
-                  <span>Family Discount ({discountPercent}%)</span>
-                  <span className="font-semibold text-emerald-700">
-                    -<PriceDisplay value={discountAmount} />
-                  </span>
-                </div>
-              ) : null}
             </div>
 
             <div className="mt-6 rounded-[24px] border border-gold/20 bg-surface p-4">

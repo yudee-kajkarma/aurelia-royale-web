@@ -6,7 +6,7 @@ import { NewsletterSection } from "@/components/home/NewsletterSection";
 import { ShopByCategory } from "@/components/home/ShopByCategory";
 import { TestimonialSlider } from "@/components/home/TestimonialSlider";
 import { ProductImage } from "@/components/shared/ProductImage";
-import { PriceDisplay } from "@/components/shared/PriceDisplay";
+import { DiscountedPrice } from "@/components/shared/DiscountedPrice";
 import {
     getAllProductFilters,
     getAllProducts,
@@ -103,9 +103,10 @@ export default async function HomePage() {
                                     <p className="font-jost mt-2 text-lg font-semibold uppercase tracking-[0.04em] text-[#111]">
                                         {product.title}
                                     </p>
-                                    <PriceDisplay
+                                    <DiscountedPrice
                                         value={product.price}
-                                        className="font-jost mt-2 block text-sm text-[#3b3b3b]"
+                                        className="font-jost mt-2 flex text-sm text-[#3b3b3b]"
+                                        discountedClassName="text-[#3b3b3b]"
                                     />
                                 </div>
                             </Link>

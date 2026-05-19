@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Star } from "lucide-react";
-import { PriceDisplay } from "@/components/shared/PriceDisplay";
+import { DiscountedPrice } from "@/components/shared/DiscountedPrice";
 import { ProductImage } from "@/components/shared/ProductImage";
 import { ProductPurchasePanel } from "../../../components/shop/ProductPurchasePanel";
 import { WishlistToggleButton } from "@/components/wishlist/WishlistToggleButton";
@@ -151,9 +151,11 @@ export default async function ShopDetailsBySlugPage({
                     </h2>
 
                     <div className="mt-6 flex flex-wrap items-baseline gap-x-6 gap-y-3">
-                        <PriceDisplay
+                        <DiscountedPrice
                             value={product.price}
                             className="font-cormorant text-3xl font-medium text-deep"
+                            originalClassName="text-2xl font-medium text-deep/45 line-through"
+                            discountedClassName="text-deep"
                         />
                         <span
                             className={`font-jost inline-flex items-center gap-2 text-[0.7rem] font-semibold uppercase tracking-[0.28em] ${
@@ -257,9 +259,10 @@ export default async function ShopDetailsBySlugPage({
                                     <p className="font-jost mt-2 text-lg font-semibold uppercase tracking-[0.04em] text-[#111]">
                                         {item.title}
                                     </p>
-                                    <PriceDisplay
+                                    <DiscountedPrice
                                         value={item.price}
-                                        className="font-jost mt-2 block text-sm text-[#3b3b3b]"
+                                        className="font-jost mt-2 flex text-sm text-[#3b3b3b]"
+                                        discountedClassName="text-[#3b3b3b]"
                                     />
                                 </div>
                             </Link>
