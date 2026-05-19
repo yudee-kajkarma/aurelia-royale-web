@@ -1,135 +1,231 @@
-﻿"use client";
+"use client";
 
 import { FormEvent, useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { Eye, EyeOff } from "lucide-react";
+import { ArrowLeft, Eye, EyeOff } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { BrandWordmark } from "@/components/brand/BrandWordmark";
+import LoginImage from "@/assets/login-image.png";
 import { useAuth } from "@/providers/AuthProvider";
 import { getSafeAuthRedirect } from "@/services/auth/auth.types";
 
 export default function LoginPage() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const { isAuthenticated, isReady, login, user } = useAuth();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const { isAuthenticated, isReady, login, user } = useAuth();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    if (!isReady || !isAuthenticated || !user) {
-      return;
+    useEffect(() => {
+        if (!isReady || !isAuthenticated || !user) {
+            return;
+        }
+
+        const redirectPath = getSafeAuthRedirect(
+            user.role,
+            searchParams.get("redirect"),
+        );
+        router.replace(redirectPath);
+    }, [isAuthenticated, isReady, router, searchParams, user]);
+
+    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        setIsSubmitting(true);
+        setErrorMessage(null);
+
+        try {
+            const session = await login({ email, password });
+            const redirectPath = getSafeAuthRedirect(
+                session.user.role,
+                searchParams.get("redirect"),
+            );
+            router.replace(redirectPath);
+        } catch (error) {
+            setErrorMessage(
+                error instanceof Error ? error.message : "Unable to sign in.",
+            );
+        } finally {
+            setIsSubmitting(false);
+        }
     }
 
-    const redirectPath = getSafeAuthRedirect(user.role, searchParams.get("redirect"));
-    router.replace(redirectPath);
-  }, [isAuthenticated, isReady, router, searchParams, user]);
-
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setIsSubmitting(true);
-    setErrorMessage(null);
-
-    try {
-      const session = await login({ email, password });
-      const redirectPath = getSafeAuthRedirect(session.user.role, searchParams.get("redirect"));
-      router.replace(redirectPath);
-    } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "Unable to sign in.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  }
-
-  return (
-    <main className="min-h-screen overflow-x-clip">
-      <div className="relative mx-auto flex min-h-screen w-full max-w-7xl items-center justify-center px-6 py-12 sm:px-8">
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-[280px] " />
-
-        <section className="relative z-10 grid w-full max-w-5xl overflow-hidden rounded-[22px] border border-white/5 bg-white lg:grid-cols-[0.92fr_1.08fr]">
-          <aside className="flex min-h-[420px] items-center justify-center bg-[linear-gradient(160deg,#045942_0%,#022f25_58%,#010d0a_100%)] px-8 py-12 sm:min-h-[520px] sm:px-12">
-            <div className="text-center text-white">
-              <div className="mx-auto  inline-flex items-center justify-center">
-                <BrandWordmark size="hero" className="items-center text-center" />
-              </div>
-
-              <h2 className="text-4xl font-bold leading-[1.08] text-gold sm:text-3xl lg:text-3xl">Begin Your Diamond Journey</h2>
-              <p className="mx-auto mt-6 max-w-sm text-lg leading-[1.45] text-white/85 sm:mt-8 sm:text-xl lg:text-2xl">
-                Experience timeless elegance and brilliance.
-              </p>
-            </div>
-          </aside>
-
-          <div className="relative min-h-[520px] bg-[#f6f6f8] px-8 py-8 sm:px-12 sm:py-10">
-            <div className="flex justify-end">
-              <Link href="/" className="inline-flex items-center rounded-full bg-deep px-5 py-2 text-sm font-bold text-white transition hover:bg-[#0a2e28]">
-                Home
-              </Link>
-            </div>
-
-            <div className="mx-auto mt-10 max-w-lg sm:mt-16">
-              <h1 className="text-4xl font-bold text-[#0f1216] sm:text-3xl lg:text-3xl">Login</h1>
-              <p className="mt-3 text-sm leading-6 text-[#5a6370] sm:text-base">
-                Sign in with your email and password. USER accounts land on the profile page and ADMIN accounts land on the admin page.
-              </p>
-
-              <form className="mt-8 grid gap-4" onSubmit={handleSubmit}>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                  placeholder="Email"
-                  autoComplete="email"
-                  required
-                  className="h-14 rounded-xl border border-black/12 bg-white px-4 text-base font-semibold text-[#1f242b] outline-none placeholder:text-[#9ea3ad] sm:text-lg"
-                />
-                <div className="relative">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
-                    placeholder="Password"
-                    autoComplete="current-password"
-                    required
-                    className="h-14 w-full rounded-xl border border-black/12 bg-white px-4 pr-14 text-base font-semibold text-[#1f242b] outline-none placeholder:text-[#9ea3ad] sm:text-lg"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword((currentValue) => !currentValue)}
-                    className="absolute right-4 top-1/2 inline-flex -translate-y-1/2 items-center justify-center text-[#66707c] transition hover:text-[#0e5a47]"
-                    aria-label={showPassword ? "Hide password" : "Show password"}
-                  >
-                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-                  </button>
+    return (
+        <main className="min-h-screen overflow-x-clip">
+            <div className="grid min-h-screen md:grid-cols-2">
+                {/* Left — campaign image */}
+                <div className="relative hidden md:block">
+                    <Image
+                        src={LoginImage}
+                        alt="Model wearing Aurelia Royale jewellery"
+                        fill
+                        sizes="50vw"
+                        className="object-cover object-center"
+                        priority
+                    />
                 </div>
-                <div className="flex justify-end">
-                  <Link href="/reset-password" className="text-sm font-semibold text-[#0e5a47] transition hover:text-gold">
-                    Forgot password?
-                  </Link>
-                </div>
-                {errorMessage && (
-                  <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
-                    {errorMessage}
-                  </p>
-                )}
-                <button
-                  type="submit"
-                  disabled={isSubmitting || !isReady}
-                  className="mt-2 h-14 rounded-xl bg-gold text-base font-extrabold text-[#1a1710] transition hover:bg-[#b8972f] sm:text-sm"
-                >
-                  {isSubmitting ? "Signing in..." : "Login"}
-                </button>
-              </form>
 
-              <p className="mt-6 text-base font-medium text-[#1f242b] sm:text-lg">
-                Don&apos;t have account? <Link href="/register" className="font-bold text-[#0e5a47]">Register</Link>
-              </p>
+                {/* Right — form panel */}
+                <div className="flex min-h-screen flex-col bg-[#f7f6f2] px-6 py-8 sm:px-12 lg:px-16">
+                    {/* Top bar */}
+                    <div className="flex items-center justify-between">
+                        <Link
+                            href="/"
+                            className="inline-flex items-center gap-2 font-[family-name:var(--font-jost)] text-xs font-semibold uppercase tracking-[0.16em] text-[#2a2a2a] transition hover:text-foreground"
+                        >
+                            <ArrowLeft size={16} />
+                            Back to Home
+                        </Link>
+
+                        <div className="inline-flex border border-black/12">
+                            <span className="bg-[#1f4a37] px-5 py-2.5 font-[family-name:var(--font-jost)] text-[11px] font-semibold uppercase tracking-[0.16em] text-white">
+                                Sign In
+                            </span>
+                            <Link
+                                href="/register"
+                                className="bg-white px-5 py-2.5 font-[family-name:var(--font-jost)] text-[11px] font-semibold uppercase tracking-[0.16em] text-[#2a2a2a] transition hover:text-foreground"
+                            >
+                                Register
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* Main */}
+                    <div className="mx-auto flex w-full max-w-md flex-1 flex-col justify-center py-12">
+                        <div className="flex items-center gap-3">
+                            <span className="h-px w-10 bg-gold" />
+                            <p className="font-[family-name:var(--font-jost)] text-xs font-semibold uppercase tracking-[0.3em] text-gold">
+                                Welcome Back
+                            </p>
+                        </div>
+
+                        <h1 className="mt-5 font-[family-name:var(--font-cormorant)] text-6xl font-medium leading-[1.05] text-foreground">
+                            Sign Into Your Account.
+                        </h1>
+
+                        <p className="mt-5 font-[family-name:var(--font-jost)] text-[0.95rem] font-light leading-[1.7] text-[#5a5a5a]">
+                            Access your collection, track orders, and manage
+                            your bespoke commissions in one place.
+                        </p>
+
+                        <form className="mt-10" onSubmit={handleSubmit}>
+                            <div>
+                                <label
+                                    htmlFor="email"
+                                    className="font-[family-name:var(--font-jost)] text-xs font-semibold uppercase tracking-[0.18em] text-[#2a2a2a]"
+                                >
+                                    Email Address
+                                </label>
+                                <input
+                                    id="email"
+                                    type="email"
+                                    value={email}
+                                    onChange={(event) =>
+                                        setEmail(event.target.value)
+                                    }
+                                    placeholder="you@example.com"
+                                    autoComplete="email"
+                                    required
+                                    className="mt-3 w-full border-0 border-b border-[#d8c9a4] bg-transparent pb-3 font-[family-name:var(--font-jost)] text-base text-[#1f242b] outline-none transition placeholder:text-[#a6a6a6] focus:border-gold"
+                                />
+                            </div>
+
+                            <div className="mt-7">
+                                <label
+                                    htmlFor="password"
+                                    className="font-[family-name:var(--font-jost)] text-xs font-semibold uppercase tracking-[0.18em] text-[#2a2a2a]"
+                                >
+                                    Password
+                                </label>
+                                <div className="relative">
+                                    <input
+                                        id="password"
+                                        type={
+                                            showPassword ? "text" : "password"
+                                        }
+                                        value={password}
+                                        onChange={(event) =>
+                                            setPassword(event.target.value)
+                                        }
+                                        placeholder="Your Password"
+                                        autoComplete="current-password"
+                                        required
+                                        className="mt-3 w-full border-0 border-b border-[#d8c9a4] bg-transparent pb-3 pr-10 font-[family-name:var(--font-jost)] text-base text-[#1f242b] outline-none transition placeholder:text-[#a6a6a6] focus:border-gold"
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={() =>
+                                            setShowPassword(
+                                                (currentValue) => !currentValue,
+                                            )
+                                        }
+                                        className="absolute bottom-3 right-0 inline-flex items-center justify-center text-[#66707c] transition hover:text-foreground"
+                                        aria-label={
+                                            showPassword
+                                                ? "Hide password"
+                                                : "Show password"
+                                        }
+                                    >
+                                        {showPassword ? (
+                                            <EyeOff size={20} />
+                                        ) : (
+                                            <Eye size={20} />
+                                        )}
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div className="mt-4 flex justify-end">
+                                <Link
+                                    href="/reset-password"
+                                    className="font-[family-name:var(--font-jost)] text-sm font-bold text-foreground transition hover:text-gold"
+                                >
+                                    Forgot Password?
+                                </Link>
+                            </div>
+
+                            {errorMessage && (
+                                <p className="mt-5 border border-red-200 bg-red-50 px-4 py-3 font-[family-name:var(--font-jost)] text-sm font-medium text-red-700">
+                                    {errorMessage}
+                                </p>
+                            )}
+
+                            <button
+                                type="submit"
+                                disabled={isSubmitting || !isReady}
+                                className="mt-8 w-full bg-[#1f4a37] py-4 font-[family-name:var(--font-jost)] text-sm font-semibold uppercase tracking-[0.2em] text-gold transition hover:bg-[#173a2b] disabled:opacity-60"
+                            >
+                                {isSubmitting ? "Signing In..." : "Sign In"}
+                            </button>
+                        </form>
+
+                        <p className="mt-7 text-center font-[family-name:var(--font-jost)] text-base font-medium text-[#1f242b]">
+                            Don&apos;t have an account?{" "}
+                            <Link
+                                href="/register"
+                                className="font-bold text-foreground underline underline-offset-4"
+                            >
+                                Create one
+                            </Link>
+                        </p>
+                    </div>
+
+                    {/* Footer */}
+                    <div>
+                        <div className="h-px w-full bg-black/10" />
+                        <div className="mt-5 flex flex-col items-center gap-3 font-[family-name:var(--font-jost)] text-xs text-[#9a9a9a] sm:flex-row sm:justify-end">
+                            <span>© 2025 Aurelia Royale</span>
+                            {/* <span className="flex gap-6">
+                <span>Privacy</span>
+                <span>Terms</span>
+                <span>Support</span>
+              </span> */}
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </section>
-      </div>
-    </main>
-  );
+        </main>
+    );
 }
