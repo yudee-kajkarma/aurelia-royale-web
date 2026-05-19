@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { LockKeyhole, MapPinHouse, Plus, UserRound, X } from "lucide-react";
 import { AuthGuard } from "@/components/auth/AuthGuard";
+import { FamilySection } from "@/components/profile/family/FamilySection";
 import { useAuth } from "@/providers/AuthProvider";
 import { profileService } from "@/services/profile/profile.service";
 import type { UserAddress, UserProfile, UserProfileAddressPayload } from "@/services/profile/profile.types";
@@ -539,6 +540,8 @@ export default function ProfilePage() {
             </div>
           </form>
         </section>
+
+        <FamilySection />
 
         <section className="mt-8 rounded-[34px] border border-foreground/10 bg-white/90 p-6 shadow-[0_20px_60px_rgba(55,31,10,0.06)] backdrop-blur-sm sm:p-8">
           <div className="rounded-[28px] border border-foreground/10 bg-[linear-gradient(135deg,#fdfbf7_0%,#f5f0e8_100%)] p-5 sm:p-6">

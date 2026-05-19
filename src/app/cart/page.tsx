@@ -6,10 +6,14 @@ import { LoaderCircle, Minus, Plus, Trash2 } from "lucide-react";
 import { AuthGuard } from "@/components/auth/AuthGuard";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { useCart } from "@/providers/CartProvider";
+import { useDiscount } from "@/services/family/useDiscount";
 import { ProductImage } from "../../components/shared/ProductImage";
 
 export default function CartPage() {
   const { items, count, totalValue, clearAll, isLoading, updateItemQuantity, removeItem } = useCart();
+  const { discountPercent } = useDiscount();
+  const discountAmount = (totalValue * discountPercent) / 100;
+  const payableTotal = totalValue - discountAmount;
   const [isClearing, setIsClearing] = useState(false);
   const [removingProductId, setRemovingProductId] = useState<string | null>(null);
   const [updatingProductId, setUpdatingProductId] = useState<string | null>(null);
@@ -165,6 +169,14 @@ export default function CartPage() {
                 <span>Shipping</span>
                 <span className="font-semibold text-deep">Free</span>
               </div>
+              {discountPercent > 0 ? (
+                <div className="flex items-center justify-between">
+                  <span>Family Discount ({discountPercent}%)</span>
+                  <span className="font-semibold text-emerald-700">
+                    -<PriceDisplay value={discountAmount} />
+                  </span>
+                </div>
+              ) : null}
             </div>
 
             <div className="mt-6 rounded-[24px] border border-gold/20 bg-surface p-4 text-sm leading-7 text-foreground/62">
@@ -174,7 +186,7 @@ export default function CartPage() {
             <div className="mt-6 border-t border-foreground/10 pt-6">
               <div className="flex items-center justify-between text-lg font-bold text-deep">
                 <span>Total</span>
-                <PriceDisplay value={totalValue} />
+                <PriceDisplay value={payableTotal} />
               </div>
 
               <Link

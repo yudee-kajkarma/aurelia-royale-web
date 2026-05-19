@@ -11,12 +11,16 @@ import { useCart } from "@/providers/CartProvider";
 import { clearPendingOrderStatus, setPendingOrderStatus } from "@/services/orders/checkout.storage";
 import { orderService } from "@/services/orders/order.service";
 import type { CreateOrderPayload, PaymentMethod } from "@/services/orders/order.types";
+import { useDiscount } from "@/services/family/useDiscount";
 import { ProductImage } from "../../components/shared/ProductImage";
 
 export default function CheckoutPage() {
   const router = useRouter();
   const { user } = useAuth();
   const { items, count, totalValue, isLoading, refresh } = useCart();
+  const { discountPercent } = useDiscount();
+  const discountAmount = (totalValue * discountPercent) / 100;
+  const payableTotal = totalValue - discountAmount;
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("ONLINE");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -230,6 +234,14 @@ export default function CheckoutPage() {
                 <span>Shipping</span>
                 <span className="font-semibold text-deep">Free</span>
               </div>
+              {discountPercent > 0 ? (
+                <div className="flex items-center justify-between">
+                  <span>Family Discount ({discountPercent}%)</span>
+                  <span className="font-semibold text-emerald-700">
+                    -<PriceDisplay value={discountAmount} />
+                  </span>
+                </div>
+              ) : null}
             </div>
 
             <div className="mt-6 rounded-[24px] border border-gold/20 bg-surface p-4">
@@ -244,7 +256,7 @@ export default function CheckoutPage() {
             <div className="mt-6 border-t border-foreground/10 pt-6">
               <div className="flex items-center justify-between text-lg font-bold text-deep">
                 <span>Total</span>
-                <PriceDisplay value={totalValue} />
+                <PriceDisplay value={payableTotal} />
               </div>
 
               <button
