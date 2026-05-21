@@ -4,8 +4,10 @@ import { FormEvent, useState } from "react";
 import Link from "next/link";
 import { Eye, EyeOff } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import { BrandWordmark } from "@/components/brand/BrandWordmark";
 import { authService } from "@/services/auth/auth.service";
+import { notifyError } from "@/utils/notify";
 
 export default function ResetPasswordPage() {
   const router = useRouter();
@@ -15,24 +17,22 @@ export default function ResetPasswordPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [isSendingOtp, setIsSendingOtp] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   async function handleSendOtp() {
     if (!email.trim()) {
-      setErrorMessage("Enter your email first.");
+      toast.error("Enter your email first.");
       return;
     }
 
     setIsSendingOtp(true);
-    setErrorMessage(null);
     setSuccessMessage(null);
 
     try {
       const response = await authService.sendOtp({ email: email.trim(), purpose: "password_reset" });
       setSuccessMessage(response.message || "OTP sent to your email.");
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "Unable to send OTP right now. Please try again.");
+      notifyError(error);
     } finally {
       setIsSendingOtp(false);
     }
@@ -42,12 +42,11 @@ export default function ResetPasswordPage() {
     event.preventDefault();
 
     if (!email.trim() || !otp.trim() || !newPassword.trim()) {
-      setErrorMessage("Email, OTP, and new password are required.");
+      toast.error("Email, OTP, and new password are required.");
       return;
     }
 
     setIsSubmitting(true);
-    setErrorMessage(null);
     setSuccessMessage(null);
 
     try {
@@ -60,7 +59,7 @@ export default function ResetPasswordPage() {
       setSuccessMessage(response.message || "Password reset successful. You can sign in now.");
       router.replace("/login");
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "Password reset failed. Check email, OTP, and password, then try again.");
+      notifyError(error);
     } finally {
       setIsSubmitting(false);
     }
@@ -154,11 +153,6 @@ export default function ResetPasswordPage() {
                   </div>
                 </label>
 
-                {errorMessage ? (
-                  <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
-                    {errorMessage}
-                  </p>
-                ) : null}
                 {successMessage ? (
                   <p className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-700">
                     {successMessage}

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { ProductImage } from "@/components/shared/ProductImage";
-import { DiscountedPrice } from "@/components/shared/DiscountedPrice";
+// import { DiscountedPrice } from "@/components/shared/DiscountedPrice";
 import type { ProductCardModel } from "@/services/products/product.types";
 
 type BestSellingTabsProps = {
@@ -103,14 +103,14 @@ export function BestSellingTabs({
                                     {product.category}
                                 </p>
                             ) : null}
-                            <p className="font-jost mt-2 text-lg font-semibold uppercase tracking-[0.04em] text-[#111]">
+                            <p className="font-jost mt-2 text-md font-semibold uppercase tracking-[0.04em] text-[#111]">
                                 {product.title}
                             </p>
-                            <DiscountedPrice
+                            {/* <DiscountedPrice
                                 value={product.price}
                                 className="font-jost mt-2 flex text-sm text-[#3b3b3b]"
                                 discountedClassName="text-[#3b3b3b]"
-                            />
+                            /> */}
                         </div>
                     </Link>
                 ))}

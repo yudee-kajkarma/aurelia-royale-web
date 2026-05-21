@@ -8,6 +8,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import LoginImage from "@/assets/login-image.png";
 import { useAuth } from "@/providers/AuthProvider";
 import { getSafeAuthRedirect } from "@/services/auth/auth.types";
+import { notifyError } from "@/utils/notify";
 
 export default function LoginPage() {
     const router = useRouter();
@@ -16,7 +17,6 @@ export default function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
-    const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     useEffect(() => {
@@ -34,7 +34,6 @@ export default function LoginPage() {
     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
         setIsSubmitting(true);
-        setErrorMessage(null);
 
         try {
             const session = await login({ email, password });
@@ -44,9 +43,7 @@ export default function LoginPage() {
             );
             router.replace(redirectPath);
         } catch (error) {
-            setErrorMessage(
-                error instanceof Error ? error.message : "Unable to sign in.",
-            );
+            notifyError(error);
         } finally {
             setIsSubmitting(false);
         }
@@ -185,12 +182,6 @@ export default function LoginPage() {
                                     Forgot Password?
                                 </Link>
                             </div>
-
-                            {errorMessage && (
-                                <p className="mt-5 border border-red-200 bg-red-50 px-4 py-3 font-[family-name:var(--font-jost)] text-sm font-medium text-red-700">
-                                    {errorMessage}
-                                </p>
-                            )}
 
                             <button
                                 type="submit"

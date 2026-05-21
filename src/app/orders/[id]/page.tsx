@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { toast } from "sonner";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { Ban, CreditCard, MapPinHouse, Package } from "lucide-react";
@@ -9,6 +10,7 @@ import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { ProductImage } from "@/components/shared/ProductImage";
 import { orderService } from "@/services/orders/order.service";
 import type { Order } from "@/services/orders/order.types";
+import { notifyError } from "@/utils/notify";
 
 function formatOrderDate(value: string) {
   return new Intl.DateTimeFormat("en-IN", {
@@ -68,7 +70,7 @@ export default function OrderDetailPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [isCancelling, setIsCancelling] = useState(false);
   const [isRegeneratingPayment, setIsRegeneratingPayment] = useState(false);
-  const [error, setError] = useState("");
+  const [hasLoadError, setHasLoadError] = useState(false);
   const [feedback, setFeedback] = useState("");
   const paymentStatusPollRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -80,11 +82,12 @@ export default function OrderDetailPage() {
     try {
       const response = await orderService.getOrderById(currentOrderId);
       setOrder(response.data);
-      setError("");
+      setHasLoadError(false);
       return response.data;
-    } catch {
+    } catch (loadError) {
       setOrder(null);
-      setError("Unable to load this order right now.");
+      setHasLoadError(true);
+      notifyError(loadError, "Unable to load this order right now.");
       return null;
     } finally {
       if (showLoader) {
@@ -131,7 +134,7 @@ export default function OrderDetailPage() {
       setOrder(response.data);
       setFeedback("Order cancelled successfully.");
     } catch (cancelError) {
-      setFeedback(cancelError instanceof Error ? cancelError.message : "Unable to cancel this order right now.");
+      notifyError(cancelError, "Unable to cancel this order right now.");
     } finally {
       setIsCancelling(false);
     }
@@ -164,7 +167,7 @@ export default function OrderDetailPage() {
       );
 
       if (!checkoutWindow) {
-        setFeedback("Popup was blocked by your browser. Please allow popups and try again.");
+        toast.error("Popup was blocked by your browser. Please allow popups and try again.");
         return;
       }
 
@@ -196,7 +199,7 @@ export default function OrderDetailPage() {
         });
       }, 1500);
     } catch (paymentError) {
-      setFeedback(paymentError instanceof Error ? paymentError.message : "Unable to start payment right now. Please try again.");
+      notifyError(paymentError, "Unable to start payment right now. Please try again.");
     } finally {
       setIsRegeneratingPayment(false);
     }
@@ -212,7 +215,11 @@ export default function OrderDetailPage() {
         </nav>
 
         {isLoading ? <p className="text-sm font-medium text-foreground/60">Loading order...</p> : null}
-        {!isLoading && error ? <div className="rounded-[28px] border border-rose-200 bg-rose-50 px-6 py-8 text-sm text-rose-700">{error}</div> : null}
+        {!isLoading && hasLoadError ? (
+          <div className="rounded-[28px] border border-rose-200 bg-rose-50 px-6 py-8 text-sm text-rose-700">
+            We couldn&apos;t load this order. Please try again.
+          </div>
+        ) : null}
 
         {!isLoading && order ? (
           <div className="grid gap-8 xl:grid-cols-[1fr_380px]">

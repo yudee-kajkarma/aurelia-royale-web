@@ -10,6 +10,7 @@ import {
   Ticket,
 } from "lucide-react";
 import { AuthGuard } from "@/components/auth/AuthGuard";
+import { notifyError } from "@/utils/notify";
 import { adminTicketService } from "@/services/tickets/admin-ticket.service";
 import type { AdminTicketDetail, AdminTicketPriority, AdminTicketStatus, AdminTicketSummary } from "@/services/tickets/admin-ticket.types";
 import type { ProductsPagination } from "@/services/products/product.types";
@@ -104,14 +105,14 @@ export default function AdminSupportPage() {
   const [detailLoading, setDetailLoading] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [loadFailed, setLoadFailed] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
 
     async function loadData() {
       setListLoading(true);
-      setErrorMessage(null);
+      setLoadFailed(false);
 
       try {
         const result = await adminTicketService.getAdminTickets({
@@ -150,7 +151,8 @@ export default function AdminSupportPage() {
           setPagination(null);
           setSelectedTicket(null);
           setSelectedTicketId("");
-          setErrorMessage(error instanceof Error ? error.message : "Unable to load support queue.");
+          setLoadFailed(true);
+          notifyError(error);
         }
       } finally {
         if (!cancelled) {
@@ -205,7 +207,7 @@ export default function AdminSupportPage() {
       setSelectedTicket(ticket);
     } catch (error) {
       setSelectedTicket(null);
-      setErrorMessage(error instanceof Error ? error.message : "Unable to load ticket details.");
+      notifyError(error);
     } finally {
       setDetailLoading(false);
     }
@@ -227,7 +229,7 @@ export default function AdminSupportPage() {
       await adminTicketService.updateAdminTicketStatus(selectedTicket.ticketId, nextStatus);
       await refreshCurrentState();
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "Unable to update ticket status.");
+      notifyError(error);
     } finally {
       setActionLoading(null);
     }
@@ -244,7 +246,7 @@ export default function AdminSupportPage() {
       await adminTicketService.updateAdminTicketPriority(selectedTicket.ticketId, nextPriority);
       await refreshCurrentState();
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "Unable to update ticket priority.");
+      notifyError(error);
     } finally {
       setActionLoading(null);
     }
@@ -261,7 +263,7 @@ export default function AdminSupportPage() {
       await adminTicketService.escalateAdminTicket(selectedTicket.ticketId);
       await refreshCurrentState();
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "Unable to escalate ticket.");
+      notifyError(error);
     } finally {
       setActionLoading(null);
     }
@@ -281,7 +283,7 @@ export default function AdminSupportPage() {
       setReplyMessage("");
       await refreshCurrentState();
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "Unable to send reply.");
+      notifyError(error);
     } finally {
       setActionLoading(null);
     }
@@ -353,9 +355,9 @@ export default function AdminSupportPage() {
             ))}
           </div>
 
-          {errorMessage ? (
+          {loadFailed ? (
             <div className="mt-5 rounded-[22px] border border-red-200 bg-red-50 px-5 py-4 text-sm font-medium text-red-700">
-              {errorMessage}
+              Unable to load the support queue. Please refresh to try again.
             </div>
           ) : null}
         </section>

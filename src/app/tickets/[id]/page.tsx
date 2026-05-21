@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { MessageSquareText, SendHorizonal } from "lucide-react";
+import { toast } from "sonner";
 import { AuthGuard } from "@/components/auth/AuthGuard";
 import { ticketService } from "@/services/tickets/ticket.service";
 import type { Ticket } from "@/services/tickets/ticket.types";
+import { notifyError } from "@/utils/notify";
 
 function formatTicketDate(value: string) {
   return new Intl.DateTimeFormat("en-IN", {
@@ -34,7 +36,7 @@ export default function TicketDetailPage() {
   const ticketId = typeof params.id === "string" ? params.id : "";
   const [ticket, setTicket] = useState<Ticket | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [loadFailed, setLoadFailed] = useState(false);
   const [reply, setReply] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [feedback, setFeedback] = useState("");
@@ -45,10 +47,11 @@ export default function TicketDetailPage() {
     try {
       const response = await ticketService.getTicketById(ticketId);
       setTicket(response);
-      setError("");
+      setLoadFailed(false);
     } catch (loadError) {
       setTicket(null);
-      setError(loadError instanceof Error ? loadError.message : "Unable to load this support ticket right now.");
+      setLoadFailed(true);
+      notifyError(loadError);
     } finally {
       setIsLoading(false);
     }
@@ -66,7 +69,7 @@ export default function TicketDetailPage() {
     event.preventDefault();
 
     if (!reply.trim()) {
-      setFeedback("Reply message is required.");
+      toast.error("Reply message is required.");
       return;
     }
 
@@ -79,7 +82,7 @@ export default function TicketDetailPage() {
       setFeedback("Reply sent successfully.");
       await loadTicket();
     } catch (submitError) {
-      setFeedback(submitError instanceof Error ? submitError.message : "Unable to send reply right now.");
+      notifyError(submitError);
     } finally {
       setIsSending(false);
     }
@@ -95,7 +98,11 @@ export default function TicketDetailPage() {
         </nav>
 
         {isLoading ? <p className="text-sm font-medium text-foreground/60">Loading ticket...</p> : null}
-        {!isLoading && error ? <div className="rounded-[32px] border border-rose-200 bg-rose-50 px-6 py-8 text-rose-700">{error}</div> : null}
+        {!isLoading && loadFailed ? (
+          <div className="rounded-[32px] border border-rose-200 bg-rose-50 px-6 py-8 text-rose-700">
+            Unable to load this support ticket right now.
+          </div>
+        ) : null}
 
         {!isLoading && ticket ? (
           <div className="grid gap-8 xl:grid-cols-[1fr_380px]">

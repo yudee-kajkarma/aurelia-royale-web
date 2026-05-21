@@ -1,10 +1,12 @@
 ﻿"use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { toast } from "sonner";
 import { LockKeyhole, MapPinHouse, Plus, UserRound, X } from "lucide-react";
 import { AuthGuard } from "@/components/auth/AuthGuard";
 import { FamilySection } from "@/components/profile/family/FamilySection";
 import { useAuth } from "@/providers/AuthProvider";
+import { notifyError } from "@/utils/notify";
 import { profileService } from "@/services/profile/profile.service";
 import type { UserAddress, UserProfile, UserProfileAddressPayload } from "@/services/profile/profile.types";
 
@@ -56,7 +58,6 @@ export default function ProfilePage() {
   const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
   const [isChangePasswordOpen, setIsChangePasswordOpen] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -127,7 +128,6 @@ export default function ProfilePage() {
 
     async function loadProfile() {
       setIsProfileLoading(true);
-      setErrorMessage("");
 
       try {
         const [nextProfile, addressList] = await Promise.all([
@@ -141,12 +141,12 @@ export default function ProfilePage() {
 
         applyProfile(nextProfile);
         applyAddresses(addressList);
-      } catch {
+      } catch (error) {
         if (!isMounted) {
           return;
         }
 
-        setErrorMessage("Unable to load profile right now. You can still edit and save manually.");
+        notifyError(error, "Unable to load profile right now. You can still edit and save manually.");
       } finally {
         if (isMounted) {
           setIsProfileLoading(false);
@@ -231,7 +231,6 @@ export default function ProfilePage() {
     event.preventDefault();
     setIsSavingProfileDetails(true);
     setSuccessMessage("");
-    setErrorMessage("");
 
     try {
       const result = await profileService.updateUserProfile({
@@ -255,7 +254,7 @@ export default function ProfilePage() {
         // Preserve local state if a refresh fails.
       }
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "Unable to update profile details right now. Please try again.");
+      notifyError(error, "Unable to update profile details right now. Please try again.");
     } finally {
       setIsSavingProfileDetails(false);
     }
@@ -265,7 +264,6 @@ export default function ProfilePage() {
     event.preventDefault();
     setIsSavingAddresses(true);
     setSuccessMessage("");
-    setErrorMessage("");
 
     try {
       if (removedAddressIds.length > 0) {
@@ -323,7 +321,7 @@ export default function ProfilePage() {
         // Keep current form values if refresh fails.
       }
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "Unable to update profile right now. Please try again.");
+      notifyError(error, "Unable to update profile right now. Please try again.");
     } finally {
       setIsSavingAddresses(false);
     }
@@ -332,15 +330,14 @@ export default function ProfilePage() {
   async function handleChangePassword(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setSuccessMessage("");
-    setErrorMessage("");
 
     if (!oldPassword || !newPassword || !confirmPassword) {
-      setErrorMessage("Please fill old password, new password, and confirm password.");
+      toast.error("Please fill old password, new password, and confirm password.");
       return;
     }
 
     if (newPassword !== confirmPassword) {
-      setErrorMessage("New password and confirm password do not match.");
+      toast.error("New password and confirm password do not match.");
       return;
     }
 
@@ -362,7 +359,7 @@ export default function ProfilePage() {
       setSuccessMessage(result.message || "Password changed successfully.");
       setIsChangePasswordOpen(false);
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "Unable to change password right now. Please try again.");
+      notifyError(error, "Unable to change password right now. Please try again.");
     } finally {
       setIsChangingPassword(false);
     }
@@ -527,7 +524,6 @@ export default function ProfilePage() {
             </div>
 
             {successMessage ? <SectionMessage message={successMessage} tone="success" /> : null}
-            {errorMessage ? <SectionMessage message={errorMessage} tone="error" /> : null}
 
             <div className="flex justify-end">
               <button

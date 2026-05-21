@@ -6,6 +6,7 @@ import { LoaderCircle, Trash2 } from "lucide-react";
 import { AuthGuard } from "@/components/auth/AuthGuard";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { useWishlist } from "@/providers/WishlistProvider";
+import { notifyError } from "@/utils/notify";
 import { ProductImage } from "../../components/shared/ProductImage";
 
 export default function WishlistPage() {
@@ -19,6 +20,8 @@ export default function WishlistPage() {
 
     try {
       await clearAll();
+    } catch (error) {
+      notifyError(error, "Unable to clear your wishlist.");
     } finally {
       setIsClearing(false);
     }
@@ -29,6 +32,8 @@ export default function WishlistPage() {
 
     try {
       await removeItem(productId);
+    } catch (error) {
+      notifyError(error, "Unable to remove this item.");
     } finally {
       setRemovingProductId(null);
     }

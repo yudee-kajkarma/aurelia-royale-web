@@ -2,8 +2,10 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
+import { toast } from "sonner";
 import { CheckCheck, Clock3, LayoutGrid, List, LoaderCircle, PackageSearch, Search, ShieldCheck, Truck } from "lucide-react";
 import { AuthGuard } from "@/components/auth/AuthGuard";
+import { notifyError } from "@/utils/notify";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { ProductImage } from "@/components/shared/ProductImage";
 import { adminOrderService } from "@/services/orders/admin-order.service";
@@ -178,7 +180,7 @@ export default function AdminOrdersPage() {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [submittingAction, setSubmittingAction] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [loadFailed, setLoadFailed] = useState(false);
   const [pendingAction, setPendingAction] = useState<PendingAction | null>(null);
   const [deliveryOtp, setDeliveryOtp] = useState("");
 
@@ -187,7 +189,7 @@ export default function AdminOrdersPage() {
 
     async function loadOrders() {
       setLoading(true);
-      setErrorMessage(null);
+      setLoadFailed(false);
 
       try {
         const result = await adminOrderService.getAdminOrders({
@@ -205,7 +207,8 @@ export default function AdminOrdersPage() {
         if (!cancelled) {
           setOrders([]);
           setPagination(null);
-          setErrorMessage(error instanceof Error ? error.message : "Unable to load admin orders.");
+          setLoadFailed(true);
+          notifyError(error);
         }
       } finally {
         if (!cancelled) {
@@ -314,12 +317,11 @@ export default function AdminOrdersPage() {
     }
 
     if (pendingAction.type === "verify" && !deliveryOtp.trim()) {
-      setErrorMessage("Delivery OTP is required to verify the order.");
+      toast.error("Delivery OTP is required to verify the order.");
       return;
     }
 
     setSubmittingAction(true);
-    setErrorMessage(null);
 
     try {
       if (pendingAction.type === "confirm") {
@@ -339,7 +341,7 @@ export default function AdminOrdersPage() {
       setRefreshing(true);
       setRefreshKey((value) => value + 1);
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "Unable to update the order.");
+      notifyError(error);
     } finally {
       setSubmittingAction(false);
     }
@@ -496,9 +498,9 @@ export default function AdminOrdersPage() {
             ))}
           </div>
 
-          {errorMessage ? (
+          {loadFailed ? (
             <div className="mt-5 rounded-[22px] border border-red-200 bg-red-50 px-5 py-4 text-sm font-medium text-red-700">
-              {errorMessage}
+              Unable to load admin orders. Please refresh to try again.
             </div>
           ) : null}
 

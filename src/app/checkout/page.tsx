@@ -12,6 +12,7 @@ import { clearPendingOrderStatus, setPendingOrderStatus } from "@/services/order
 import { orderService } from "@/services/orders/order.service";
 import type { CreateOrderPayload, PaymentMethod } from "@/services/orders/order.types";
 import { useDiscount } from "@/services/family/useDiscount";
+import { notifyError } from "@/utils/notify";
 import { ProductImage } from "../../components/shared/ProductImage";
 
 export default function CheckoutPage() {
@@ -22,7 +23,6 @@ export default function CheckoutPage() {
   const payableTotal = totalValue * (1 - discountPercent / 100);
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("ONLINE");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState("");
 
   function buildReturnUrl(result: "success" | "cancel") {
     const url = new URL(`/checkout/status?payment=${result}`, window.location.origin);
@@ -48,7 +48,6 @@ export default function CheckoutPage() {
     }
 
     setIsSubmitting(true);
-    setError("");
     clearPendingOrderStatus();
 
     try {
@@ -85,7 +84,7 @@ export default function CheckoutPage() {
 
       router.push("/checkout/status?payment=success");
     } catch (checkoutError) {
-      setError(checkoutError instanceof Error ? checkoutError.message : "Unable to place this order right now.");
+      notifyError(checkoutError, "Unable to place this order right now.");
     } finally {
       setIsSubmitting(false);
     }
@@ -212,8 +211,6 @@ export default function CheckoutPage() {
                     </div>
                   </div>
                 </div>
-
-                {error ? <div className="rounded-[24px] border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-700">{error}</div> : null}
               </>
             ) : null}
           </section>

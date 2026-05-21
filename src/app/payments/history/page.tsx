@@ -7,6 +7,7 @@ import { AuthGuard } from "@/components/auth/AuthGuard";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { orderService } from "@/services/orders/order.service";
 import type { OrdersPagination, PaymentHistoryItem } from "@/services/orders/order.types";
+import { notifyError } from "@/utils/notify";
 
 function formatPaymentDate(value: string) {
   return new Intl.DateTimeFormat("en-IN", {
@@ -46,7 +47,7 @@ export default function PaymentHistoryPage() {
   const [payments, setPayments] = useState<PaymentHistoryItem[]>([]);
   const [pagination, setPagination] = useState<OrdersPagination | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [loadFailed, setLoadFailed] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -63,15 +64,16 @@ export default function PaymentHistoryPage() {
 
         setPayments(response.data);
         setPagination(response.pagination);
-        setError("");
-      } catch {
+        setLoadFailed(false);
+      } catch (loadError) {
         if (!isMounted) {
           return;
         }
 
         setPayments([]);
         setPagination(null);
-        setError("Unable to load payment history right now.");
+        setLoadFailed(true);
+        notifyError(loadError);
       } finally {
         if (isMounted) {
           setIsLoading(false);
@@ -108,9 +110,13 @@ export default function PaymentHistoryPage() {
 
         <section className="mt-8 rounded-[34px] border border-foreground/10 bg-white/90 p-6 shadow-[0_20px_60px_rgba(55,31,10,0.06)] backdrop-blur-sm sm:p-8">
           {isLoading ? <p className="text-sm font-medium text-foreground/60">Loading payment history...</p> : null}
-          {!isLoading && error ? <div className="rounded-[28px] border border-rose-200 bg-rose-50 px-6 py-8 text-sm text-rose-700">{error}</div> : null}
+          {!isLoading && loadFailed ? (
+            <div className="rounded-[28px] border border-rose-200 bg-rose-50 px-6 py-8 text-sm text-rose-700">
+              Unable to load payment history right now.
+            </div>
+          ) : null}
 
-          {!isLoading && !error && payments.length === 0 ? (
+          {!isLoading && !loadFailed && payments.length === 0 ? (
             <div className="rounded-[28px] border border-dashed border-gold/35 bg-surface px-6 py-12 text-center">
               <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-gold/35 text-deep">
                 <ReceiptText className="h-6 w-6" />

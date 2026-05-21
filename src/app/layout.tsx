@@ -6,6 +6,7 @@ import {
     Jost,
 } from "next/font/google";
 import { ArrowUp } from "lucide-react";
+import { Toaster } from "sonner";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { PageTransition } from "@/components/layout/PageTransition";
@@ -69,6 +70,14 @@ export default function RootLayout({
                 id="top"
                 className="min-h-full flex flex-col  bg-background text-foreground"
             >
+                <Toaster
+                    position="bottom-right"
+                    theme="dark"
+                    closeButton
+                    expand
+                    gap={10}
+                    offset={20}
+                />
                 <AuthProvider>
                     <WishlistProvider>
                         <CartProvider>

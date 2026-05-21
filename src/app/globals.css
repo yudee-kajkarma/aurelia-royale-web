@@ -47,6 +47,12 @@ input[type="reset"]:disabled {
     font-family: var(--font-playfair), Georgia, serif;
 }
 
+/* Custom 15px size that sits between Tailwind's text-sm (14px) and text-base (16px). */
+.text-md {
+    font-size: 0.9375rem;
+    line-height: 1.4rem;
+}
+
 .hero-glow {
     background: radial-gradient(
         circle at 70% 20%,
@@ -102,4 +108,122 @@ input[type="reset"]:disabled {
     .marquee-track {
         animation: none;
     }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Sonner toast — Aurelia theme
+   Dark-green gradient + gold accents, matching the brand palette
+   used in verify-otp aside, header CTAs, and admin surfaces.
+   ───────────────────────────────────────────────────────────── */
+[data-sonner-toaster] {
+    --aurelia-cream: #f5f3ec;
+    --aurelia-gold: #c7a63d;
+    --aurelia-gold-soft: rgba(199, 166, 61, 0.28);
+    font-family: var(--font-manrope), "Segoe UI", sans-serif;
+}
+
+[data-sonner-toaster] [data-sonner-toast] {
+    background: linear-gradient(
+        135deg,
+        #0a2e24 0%,
+        #08231b 55%,
+        #051912 100%
+    ) !important;
+    color: var(--aurelia-cream) !important;
+    border: 1px solid var(--aurelia-gold-soft) !important;
+    border-radius: 14px !important;
+    box-shadow:
+        0 18px 50px rgba(3, 27, 22, 0.4),
+        inset 0 1px 0 rgba(199, 166, 61, 0.12) !important;
+    padding: 14px 16px !important;
+    gap: 12px;
+}
+
+[data-sonner-toaster] [data-sonner-toast] [data-title] {
+    font-family: var(--font-jost), "Segoe UI", sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
+    color: var(--aurelia-cream);
+    line-height: 1.4;
+}
+
+[data-sonner-toaster] [data-sonner-toast] [data-description] {
+    color: rgba(245, 243, 236, 0.78);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    margin-top: 2px;
+}
+
+[data-sonner-toaster] [data-sonner-toast] [data-icon] {
+    color: var(--aurelia-gold);
+}
+
+/* Error — red accent rail + warm red icon, gradient stays */
+[data-sonner-toaster] [data-sonner-toast][data-type="error"] {
+    border-color: rgba(220, 86, 86, 0.45) !important;
+    box-shadow:
+        0 18px 50px rgba(60, 12, 12, 0.42),
+        inset 3px 0 0 rgba(220, 86, 86, 0.9) !important;
+}
+[data-sonner-toaster] [data-sonner-toast][data-type="error"] [data-icon] {
+    color: #ef8b8b;
+}
+
+/* Success — gold accent rail */
+[data-sonner-toaster] [data-sonner-toast][data-type="success"] {
+    box-shadow:
+        0 18px 50px rgba(3, 27, 22, 0.4),
+        inset 3px 0 0 rgba(199, 166, 61, 0.95) !important;
+}
+[data-sonner-toaster] [data-sonner-toast][data-type="success"] [data-icon] {
+    color: #d8b853;
+}
+
+/* Warning — softer gold rail */
+[data-sonner-toaster] [data-sonner-toast][data-type="warning"] {
+    box-shadow:
+        0 18px 50px rgba(3, 27, 22, 0.4),
+        inset 3px 0 0 rgba(232, 196, 106, 0.88) !important;
+}
+[data-sonner-toaster] [data-sonner-toast][data-type="warning"] [data-icon] {
+    color: #e8c46a;
+}
+
+/* Info — muted mint icon */
+[data-sonner-toaster] [data-sonner-toast][data-type="info"] [data-icon] {
+    color: #a9d4c1;
+}
+
+/* Close button — gold hover */
+[data-sonner-toaster] [data-sonner-toast] [data-close-button] {
+    background: rgba(245, 243, 236, 0.08) !important;
+    border: 1px solid rgba(199, 166, 61, 0.28) !important;
+    color: rgba(245, 243, 236, 0.78) !important;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+[data-sonner-toaster] [data-sonner-toast] [data-close-button]:hover {
+    background: rgba(199, 166, 61, 0.2) !important;
+    border-color: rgba(199, 166, 61, 0.6) !important;
+    color: #f5e3a8 !important;
+}
+
+/* Action button — gold pill, mirrors the brand CTA styling */
+[data-sonner-toaster] [data-sonner-toast] [data-button] {
+    background: linear-gradient(180deg, #c7a63d 0%, #a8893a 100%) !important;
+    color: #051912 !important;
+    border: 0 !important;
+    font-family: var(--font-jost), sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    font-size: 0.7rem;
+    padding: 6px 14px !important;
+    border-radius: 999px !important;
+}
+[data-sonner-toaster] [data-sonner-toast] [data-button]:hover {
+    background: linear-gradient(180deg, #d3b34a 0%, #b69544 100%) !important;
 }

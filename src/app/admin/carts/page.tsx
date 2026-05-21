@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useMemo, useState } from "react";
 import { RefreshCw, Search, ShoppingBag, Users } from "lucide-react";
 import { AuthGuard } from "@/components/auth/AuthGuard";
 import { ProductImage } from "@/components/shared/ProductImage";
+import { notifyError } from "@/utils/notify";
 import { adminCartService } from "@/services/cart/admin-cart.service";
 import type { AdminCartUserSummary, AdminUserCart } from "@/services/cart/admin-cart.types";
 import type { ProductsPagination } from "@/services/products/product.types";
@@ -43,14 +44,14 @@ export default function AdminCartsPage() {
   const [loadingUsers, setLoadingUsers] = useState(true);
   const [loadingCart, setLoadingCart] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [loadFailed, setLoadFailed] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
 
     async function loadInitialData() {
       setLoadingUsers(true);
-      setErrorMessage(null);
+      setLoadFailed(false);
 
       try {
         const result = await adminCartService.getAdminCartUsers({
@@ -89,7 +90,8 @@ export default function AdminCartsPage() {
           setPagination(null);
           setSelectedUserId("");
           setSelectedCart(null);
-          setErrorMessage(error instanceof Error ? error.message : "Unable to load cart workspace.");
+          setLoadFailed(true);
+          notifyError(error);
         }
       } finally {
         if (!cancelled) {
@@ -139,7 +141,7 @@ export default function AdminCartsPage() {
       setSelectedCart(cart);
     } catch (error) {
       setSelectedCart(null);
-      setErrorMessage(error instanceof Error ? error.message : "Unable to load the selected cart.");
+      notifyError(error);
     } finally {
       setLoadingCart(false);
     }
@@ -241,9 +243,9 @@ export default function AdminCartsPage() {
             </button>
           </div>
 
-          {errorMessage ? (
+          {loadFailed ? (
             <div className="mt-5 rounded-[22px] border border-red-200 bg-red-50 px-5 py-4 text-sm font-medium text-red-700">
-              {errorMessage}
+              Unable to load the cart workspace. Please refresh to try again.
             </div>
           ) : null}
         </section>

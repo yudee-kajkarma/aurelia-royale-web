@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { AuthGuard } from "@/components/auth/AuthGuard";
 import { ProductImage } from "@/components/shared/ProductImage";
+import { notifyError } from "@/utils/notify";
 import { adminProductService } from "@/services/products/admin-product.service";
 import { getAllProductFilters } from "@/services/products/product.service";
 import type { AdminProductDetail } from "@/services/products/admin-product.types";
@@ -289,7 +290,7 @@ export default function AdminProductsPage() {
   const [searchValue, setSearchValue] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [loading, setLoading] = useState(true);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [loadFailed, setLoadFailed] = useState(false);
   const [editorOpen, setEditorOpen] = useState(false);
   const [editorMode, setEditorMode] = useState<ProductEditorMode>("create");
   const [saving, setSaving] = useState(false);
@@ -299,7 +300,6 @@ export default function AdminProductsPage() {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [originalImages, setOriginalImages] = useState<ExistingImageState[]>([]);
   const [existingImages, setExistingImages] = useState<ExistingImageState[]>([]);
-  const [formError, setFormError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [pendingDeleteProduct, setPendingDeleteProduct] = useState<PendingDeleteProduct | null>(null);
   const [deletingId, setDeletingId] = useState<string | null>(null);
@@ -309,7 +309,7 @@ export default function AdminProductsPage() {
 
     async function loadPageData() {
       setLoading(true);
-      setErrorMessage(null);
+      setLoadFailed(false);
 
       try {
         const [listResult, filterResult] = await Promise.all([
@@ -334,7 +334,8 @@ export default function AdminProductsPage() {
           return;
         }
 
-        setErrorMessage(error instanceof Error ? error.message : "Unable to load products.");
+        setLoadFailed(true);
+        notifyError(error);
       } finally {
         if (!cancelled) {
           setLoading(false);
@@ -377,7 +378,6 @@ export default function AdminProductsPage() {
     setSelectedFiles([]);
     setOriginalImages([]);
     setExistingImages([]);
-    setFormError(null);
   }
 
   function openCreateEditor() {
@@ -441,7 +441,7 @@ export default function AdminProductsPage() {
       const product = await adminProductService.getAdminProduct(productId);
       populateForm(product);
     } catch (error) {
-      setFormError(error instanceof Error ? error.message : "Unable to load product.");
+      notifyError(error);
     } finally {
       setLoadingEditor(false);
     }
@@ -528,7 +528,6 @@ export default function AdminProductsPage() {
   async function handleSave(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setSaving(true);
-    setFormError(null);
     setSuccessMessage(null);
 
     try {
@@ -544,7 +543,7 @@ export default function AdminProductsPage() {
       setEditorOpen(false);
       resetEditor();
     } catch (error) {
-      setFormError(error instanceof Error ? error.message : "Unable to save product.");
+      notifyError(error);
     } finally {
       setSaving(false);
     }
@@ -557,7 +556,6 @@ export default function AdminProductsPage() {
 
     setDeletingId(pendingDeleteProduct.id);
     setSuccessMessage(null);
-    setErrorMessage(null);
 
     try {
       await adminProductService.deleteAdminProduct(pendingDeleteProduct.id);
@@ -568,7 +566,7 @@ export default function AdminProductsPage() {
       setSuccessMessage("Product deleted successfully.");
       await refreshProducts(nextPage);
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "Unable to delete product.");
+      notifyError(error);
     } finally {
       setDeletingId(null);
     }
@@ -694,10 +692,10 @@ export default function AdminProductsPage() {
                 <p className="mt-4 text-sm font-medium">Loading product workspace</p>
               </div>
             </div>
-          ) : errorMessage ? (
+          ) : loadFailed ? (
             <div className="px-6 py-12">
               <div className="rounded-[24px] border border-red-200 bg-red-50 px-5 py-4 text-sm font-medium text-red-700">
-                {errorMessage}
+                Unable to load products. Please refresh to try again.
               </div>
             </div>
           ) : products.length === 0 ? (
@@ -851,12 +849,6 @@ export default function AdminProductsPage() {
             </div>
           ) : (
             <form onSubmit={handleSave} className="space-y-6">
-              {formError ? (
-                <div className="rounded-[22px] border border-red-200 bg-red-50 px-5 py-4 text-sm font-medium text-red-700">
-                  {formError}
-                </div>
-              ) : null}
-
               <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                 <label className="grid gap-2">
                   <span className="text-sm font-medium text-foreground">Title</span>

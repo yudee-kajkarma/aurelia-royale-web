@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useAuth } from "@/providers/AuthProvider";
 import { useWishlist } from "@/providers/WishlistProvider";
 import { setPendingWishlistProduct } from "@/services/wishlist/wishlist.pending";
+import { notifyError } from "@/utils/notify";
 
 type WishlistToggleButtonProps = {
   productId: string;
@@ -44,6 +45,8 @@ export function WishlistToggleButton({ productId, className = "", iconOnly = fal
       } else {
         await addItem(productId);
       }
+    } catch (error) {
+      notifyError(error, "Unable to update your wishlist.");
     } finally {
       setIsSubmitting(false);
     }

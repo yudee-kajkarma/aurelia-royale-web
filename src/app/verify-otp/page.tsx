@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { BrandWordmark } from "@/components/brand/BrandWordmark";
 import { authService } from "@/services/auth/auth.service";
+import { notifyError } from "@/utils/notify";
 
 export default function VerifyOtpPage() {
   return (
@@ -20,7 +21,6 @@ function VerifyOtpPageContent() {
   const [email, setEmail] = useState(searchParams.get("email") ?? "");
   const [otp, setOtp] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
     setEmail(searchParams.get("email") ?? "");
@@ -29,13 +29,12 @@ function VerifyOtpPageContent() {
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setIsSubmitting(true);
-    setErrorMessage(null);
 
     try {
       await authService.verifyOtp({ email, otp });
       router.replace("/login");
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "OTP verification failed. Check the email and OTP, then try again.");
+      notifyError(error);
     } finally {
       setIsSubmitting(false);
     }
@@ -46,7 +45,6 @@ function VerifyOtpPageContent() {
       email={email}
       otp={otp}
       isSubmitting={isSubmitting}
-      errorMessage={errorMessage}
       onEmailChange={setEmail}
       onOtpChange={setOtp}
       onSubmit={handleSubmit}
@@ -58,7 +56,6 @@ type VerifyOtpPageShellProps = {
   email?: string;
   otp?: string;
   isSubmitting?: boolean;
-  errorMessage?: string | null;
   onEmailChange?: (value: string) => void;
   onOtpChange?: (value: string) => void;
   onSubmit?: (event: FormEvent<HTMLFormElement>) => void;
@@ -68,7 +65,6 @@ function VerifyOtpPageShell({
   email = "",
   otp = "",
   isSubmitting = false,
-  errorMessage = null,
   onEmailChange,
   onOtpChange,
   onSubmit,
@@ -124,11 +120,6 @@ function VerifyOtpPageShell({
                   maxLength={6}
                   className="h-14 rounded-xl border border-black/12 bg-white px-4 text-base font-semibold text-[#1f242b] outline-none placeholder:text-[#9ea3ad] sm:text-lg"
                 />
-                {errorMessage && (
-                  <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
-                    {errorMessage}
-                  </p>
-                )}
                 <button
                   type="submit"
                   disabled={isSubmitting}

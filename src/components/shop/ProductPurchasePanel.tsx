@@ -53,13 +53,13 @@ export function ProductPurchasePanel({ productId }: ProductPurchasePanelProps) {
                 />
             </div>
 
-            <AddToCartButton
+            {/* <AddToCartButton
                 productId={productId}
                 quantity={quantity}
                 className="font-jost inline-flex h-14 w-full items-center justify-center border-2 border-gold bg-transparent text-xs font-semibold uppercase tracking-[0.32em] text-deep transition hover:bg-gold/10"
                 label="Buy Now"
                 redirectToCart
-            />
+            /> */}
         </div>
     );
 }

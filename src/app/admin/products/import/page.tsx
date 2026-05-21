@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { ChangeEvent, useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import * as XLSX from "xlsx";
 import {
-  CircleAlert,
   CircleCheck,
   Database,
   Download,
@@ -15,6 +15,7 @@ import {
   Upload,
 } from "lucide-react";
 import { AuthGuard } from "@/components/auth/AuthGuard";
+import { notifyError } from "@/utils/notify";
 import { adminProductService } from "@/services/products/admin-product.service";
 
 type BulkImportProduct = {
@@ -312,7 +313,7 @@ export default function AdminProductsImportPage() {
   const [fileName, setFileName] = useState("");
   const [products, setProducts] = useState<BulkImportProduct[]>([]);
   const [errors, setErrors] = useState<string[]>([]);
-  const [feedback, setFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const totals = useMemo(() => {
     const totalStock = products.reduce((sum, product) => sum + product.stock, 0);
@@ -390,7 +391,7 @@ export default function AdminProductsImportPage() {
     }
 
     setIsParsing(true);
-    setFeedback(null);
+    setSuccessMessage(null);
     setErrors([]);
     setProducts([]);
     setFileName(file.name);
@@ -416,8 +417,7 @@ export default function AdminProductsImportPage() {
 
       setProducts(result.products);
     } catch (error) {
-      const message = error instanceof Error ? error.message : "Unable to read the spreadsheet.";
-      setErrors([message]);
+      notifyError(error, "Unable to read the spreadsheet.");
     } finally {
       event.target.value = "";
       setIsParsing(false);
@@ -426,22 +426,21 @@ export default function AdminProductsImportPage() {
 
   async function handleImport() {
     if (products.length === 0) {
-      setFeedback({ type: "error", message: "Upload a valid spreadsheet before importing." });
+      toast.error("Upload a valid spreadsheet before importing.");
       return;
     }
 
     setIsSubmitting(true);
-    setFeedback(null);
+    setSuccessMessage(null);
 
     try {
       await adminProductService.bulkCreateAdminProducts({
         products: products as Array<Record<string, unknown>>,
       });
 
-      setFeedback({
-        type: "success",
-        message: `Imported ${products.length} product${products.length === 1 ? "" : "s"} successfully.`,
-      });
+      setSuccessMessage(
+        `Imported ${products.length} product${products.length === 1 ? "" : "s"} successfully.`,
+      );
       setProducts([]);
       setErrors([]);
       setFileName("");
@@ -450,8 +449,7 @@ export default function AdminProductsImportPage() {
         router.push("/admin/products");
       });
     } catch (error) {
-      const message = error instanceof Error ? error.message : "Unable to import products.";
-      setFeedback({ type: "error", message });
+      notifyError(error, "Unable to import products.");
     } finally {
       setIsSubmitting(false);
     }
@@ -520,19 +518,10 @@ export default function AdminProductsImportPage() {
               </div>
             ) : null}
 
-            {feedback ? (
-              <div
-                className={feedback.type === "success"
-                  ? "mt-4 flex items-start gap-2 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700"
-                  : "mt-4 flex items-start gap-2 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
-                }
-              >
-                {feedback.type === "success" ? (
-                  <CircleCheck className="mt-0.5 h-4 w-4 shrink-0" />
-                ) : (
-                  <CircleAlert className="mt-0.5 h-4 w-4 shrink-0" />
-                )}
-                <span>{feedback.message}</span>
+            {successMessage ? (
+              <div className="mt-4 flex items-start gap-2 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700">
+                <CircleCheck className="mt-0.5 h-4 w-4 shrink-0" />
+                <span>{successMessage}</span>
               </div>
             ) : null}
 

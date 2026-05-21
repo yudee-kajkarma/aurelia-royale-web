@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useMemo, useState } from "react";
 import { Heart, RefreshCw, Search, Users } from "lucide-react";
 import { AuthGuard } from "@/components/auth/AuthGuard";
 import { ProductImage } from "@/components/shared/ProductImage";
+import { notifyError } from "@/utils/notify";
 import { adminWishlistService } from "@/services/wishlist/admin-wishlist.service";
 import type { AdminUserWishlist, AdminWishlistUserSummary } from "@/services/wishlist/admin-wishlist.types";
 import type { ProductsPagination } from "@/services/products/product.types";
@@ -43,14 +44,14 @@ export default function AdminWishlistsPage() {
   const [loadingUsers, setLoadingUsers] = useState(true);
   const [loadingWishlist, setLoadingWishlist] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [loadFailed, setLoadFailed] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
 
     async function loadInitialData() {
       setLoadingUsers(true);
-      setErrorMessage(null);
+      setLoadFailed(false);
 
       try {
         const result = await adminWishlistService.getAdminWishlistUsers({
@@ -89,7 +90,8 @@ export default function AdminWishlistsPage() {
           setPagination(null);
           setSelectedUserId("");
           setSelectedWishlist(null);
-          setErrorMessage(error instanceof Error ? error.message : "Unable to load wishlist workspace.");
+          setLoadFailed(true);
+          notifyError(error);
         }
       } finally {
         if (!cancelled) {
@@ -131,7 +133,7 @@ export default function AdminWishlistsPage() {
       setSelectedWishlist(wishlist);
     } catch (error) {
       setSelectedWishlist(null);
-      setErrorMessage(error instanceof Error ? error.message : "Unable to load the selected wishlist.");
+      notifyError(error);
     } finally {
       setLoadingWishlist(false);
     }
@@ -233,9 +235,9 @@ export default function AdminWishlistsPage() {
             </button>
           </div>
 
-          {errorMessage ? (
+          {loadFailed ? (
             <div className="mt-5 rounded-[22px] border border-red-200 bg-red-50 px-5 py-4 text-sm font-medium text-red-700">
-              {errorMessage}
+              Unable to load the wishlist workspace. Please refresh to try again.
             </div>
           ) : null}
         </section>

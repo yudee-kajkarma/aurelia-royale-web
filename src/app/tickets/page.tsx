@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { LifeBuoy, MessageSquareText, Ticket as TicketIcon } from "lucide-react";
+import { LifeBuoy, Ticket as TicketIcon } from "lucide-react";
+import { toast } from "sonner";
 import { AuthGuard } from "@/components/auth/AuthGuard";
 import { ticketService } from "@/services/tickets/ticket.service";
 import type { CreateTicketPayload, Ticket, TicketsPagination } from "@/services/tickets/ticket.types";
+import { notifyError } from "@/utils/notify";
 
 const initialForm: CreateTicketPayload = {
   subject: "",
@@ -40,7 +42,7 @@ export default function TicketsPage() {
   const [pagination, setPagination] = useState<TicketsPagination | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState("");
+  const [loadFailed, setLoadFailed] = useState(false);
   const [submitFeedback, setSubmitFeedback] = useState("");
   const [form, setForm] = useState<CreateTicketPayload>(initialForm);
 
@@ -51,11 +53,12 @@ export default function TicketsPage() {
       const response = await ticketService.getTickets();
       setTickets(response.tickets);
       setPagination(response.pagination);
-      setError("");
+      setLoadFailed(false);
     } catch (loadError) {
       setTickets([]);
       setPagination(null);
-      setError(loadError instanceof Error ? loadError.message : "Unable to load support tickets right now.");
+      setLoadFailed(true);
+      notifyError(loadError);
     } finally {
       setIsLoading(false);
     }
@@ -69,7 +72,7 @@ export default function TicketsPage() {
     event.preventDefault();
 
     if (!form.subject.trim() || !form.message.trim()) {
-      setSubmitFeedback("Subject and message are required.");
+      toast.error("Subject and message are required.");
       return;
     }
 
@@ -92,7 +95,7 @@ export default function TicketsPage() {
         window.location.href = `/tickets/${createdTicket.ticketId}`;
       }
     } catch (submitError) {
-      setSubmitFeedback(submitError instanceof Error ? submitError.message : "Unable to create ticket right now.");
+      notifyError(submitError);
     } finally {
       setIsSubmitting(false);
     }
@@ -121,9 +124,13 @@ export default function TicketsPage() {
         <div className="mt-8 grid gap-8 xl:grid-cols-[1fr_420px]">
           <section className="rounded-[34px] border border-foreground/10 bg-white/90 p-6 shadow-[0_20px_60px_rgba(55,31,10,0.06)] backdrop-blur-sm sm:p-8">
             {isLoading ? <p className="text-sm font-medium text-foreground/60">Loading tickets...</p> : null}
-            {!isLoading && error ? <div className="rounded-[28px] border border-rose-200 bg-rose-50 px-6 py-8 text-sm text-rose-700">{error}</div> : null}
+            {!isLoading && loadFailed ? (
+              <div className="rounded-[28px] border border-rose-200 bg-rose-50 px-6 py-8 text-sm text-rose-700">
+                Unable to load support tickets right now.
+              </div>
+            ) : null}
 
-            {!isLoading && !error && tickets.length === 0 ? (
+            {!isLoading && !loadFailed && tickets.length === 0 ? (
               <div className="rounded-[28px] border border-dashed border-gold/35 bg-surface px-6 py-12 text-center">
                 <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-gold/35 text-deep">
                   <TicketIcon className="h-6 w-6" />

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Star } from "lucide-react";
-import { DiscountedPrice } from "@/components/shared/DiscountedPrice";
+// import { DiscountedPrice } from "@/components/shared/DiscountedPrice";
 import { ProductImage } from "@/components/shared/ProductImage";
 import { ProductPurchasePanel } from "../../../components/shop/ProductPurchasePanel";
 import { WishlistToggleButton } from "@/components/wishlist/WishlistToggleButton";
@@ -114,9 +114,7 @@ export default async function ShopDetailsBySlugPage({
                                             key={i}
                                             size={16}
                                             fill={
-                                                filled
-                                                    ? "currentColor"
-                                                    : "none"
+                                                filled ? "currentColor" : "none"
                                             }
                                             strokeWidth={1.5}
                                         />
@@ -132,7 +130,7 @@ export default async function ShopDetailsBySlugPage({
                         </div>
                     ) : (
                         <p className="font-jost text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold">
-                            New Arrival
+                            {/* New Arrival */}
                         </p>
                     )}
 
@@ -141,7 +139,7 @@ export default async function ShopDetailsBySlugPage({
                         {product.vendor ? (
                             <>
                                 <span className="mx-2 text-deep/30">·</span>
-                                {product.vendor}
+                                {/* {product.vendor} */}
                             </>
                         ) : null}
                     </p>
@@ -150,13 +148,14 @@ export default async function ShopDetailsBySlugPage({
                         {product.title}
                     </h2>
 
-                    <div className="mt-6 flex flex-wrap items-baseline gap-x-6 gap-y-3">
+                    {/* <div className="mt-6 flex flex-wrap items-baseline gap-x-6 gap-y-3">
                         <DiscountedPrice
                             value={product.price}
                             className="font-cormorant text-3xl font-medium text-deep"
                             originalClassName="text-2xl font-medium text-deep/45 line-through"
                             discountedClassName="text-deep"
                         />
+
                         <span
                             className={`font-jost inline-flex items-center gap-2 text-[0.7rem] font-semibold uppercase tracking-[0.28em] ${
                                 product.available
@@ -174,7 +173,7 @@ export default async function ShopDetailsBySlugPage({
                             />
                             {product.available ? "In Stock" : "Out of Stock"}
                         </span>
-                    </div>
+                    </div> */}
 
                     <p className="font-jost mt-8 max-w-xl text-[0.95rem] leading-7 text-deep/75">
                         {product.description}
@@ -187,7 +186,8 @@ export default async function ShopDetailsBySlugPage({
                                     {spec.label}
                                 </dt>
                                 <dd className="font-jost mt-2 text-sm font-semibold text-deep">
-                                    {spec.value || "—"}
+                                    {/* {spec.value || "—"} */}
+                                    N/A
                                 </dd>
                             </div>
                         ))}
@@ -202,12 +202,12 @@ export default async function ShopDetailsBySlugPage({
                 </div>
             </section>
 
-            <section className="mx-auto max-w-7xl px-6 pb-16 sm:px-8 sm:pb-20">
+            {/* <section className="mx-auto max-w-7xl px-6 pb-16 sm:px-8 sm:pb-20">
                 <ProductDetailsTabs
                     product={product}
                     initialReviews={reviewsData.reviews}
                 />
-            </section>
+            </section> */}
 
             {relatedProducts.length > 0 ? (
                 <section className="mx-auto max-w-7xl px-4 pb-24 sm:px-6 sm:pb-28">
@@ -256,14 +256,14 @@ export default async function ShopDetailsBySlugPage({
                                             {item.category}
                                         </p>
                                     ) : null}
-                                    <p className="font-jost mt-2 text-lg font-semibold uppercase tracking-[0.04em] text-[#111]">
+                                    <p className="font-jost mt-2 text-md font-semibold uppercase tracking-[0.04em] text-[#111]">
                                         {item.title}
                                     </p>
-                                    <DiscountedPrice
+                                    {/* <DiscountedPrice
                                         value={item.price}
                                         className="font-jost mt-2 flex text-sm text-[#3b3b3b]"
                                         discountedClassName="text-[#3b3b3b]"
-                                    />
+                                    /> */}
                                 </div>
                             </Link>
                         ))}

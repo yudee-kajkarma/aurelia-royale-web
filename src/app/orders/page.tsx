@@ -8,6 +8,7 @@ import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { ProductImage } from "@/components/shared/ProductImage";
 import { orderService } from "@/services/orders/order.service";
 import type { Order, OrdersPagination } from "@/services/orders/order.types";
+import { notifyError } from "@/utils/notify";
 
 function formatOrderDate(value: string) {
   return new Intl.DateTimeFormat("en-IN", {
@@ -47,7 +48,7 @@ export default function OrdersPage() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [pagination, setPagination] = useState<OrdersPagination | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [hasLoadError, setHasLoadError] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -64,15 +65,16 @@ export default function OrdersPage() {
 
         setOrders(response.data);
         setPagination(response.pagination);
-        setError("");
-      } catch {
+        setHasLoadError(false);
+      } catch (error) {
         if (!isMounted) {
           return;
         }
 
         setOrders([]);
         setPagination(null);
-        setError("Unable to load orders right now.");
+        setHasLoadError(true);
+        notifyError(error, "Unable to load orders right now.");
       } finally {
         if (isMounted) {
           setIsLoading(false);
@@ -109,9 +111,13 @@ export default function OrdersPage() {
 
         <section className="mt-8 rounded-[34px] border border-foreground/10 bg-white/90 p-6 shadow-[0_20px_60px_rgba(55,31,10,0.06)] backdrop-blur-sm sm:p-8">
           {isLoading ? <p className="text-sm font-medium text-foreground/60">Loading orders...</p> : null}
-          {!isLoading && error ? <div className="rounded-[28px] border border-rose-200 bg-rose-50 px-6 py-8 text-sm text-rose-700">{error}</div> : null}
+          {!isLoading && hasLoadError ? (
+            <div className="rounded-[28px] border border-rose-200 bg-rose-50 px-6 py-8 text-sm text-rose-700">
+              We couldn&apos;t load your orders. Please try again.
+            </div>
+          ) : null}
 
-          {!isLoading && !error && orders.length === 0 ? (
+          {!isLoading && !hasLoadError && orders.length === 0 ? (
             <div className="rounded-[28px] border border-dashed border-gold/35 bg-surface px-6 py-12 text-center">
               <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-gold/35 text-deep">
                 <ReceiptText className="h-6 w-6" />

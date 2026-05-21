@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, X } from "lucide-react";
 import { ProductImage } from "@/components/shared/ProductImage";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
-import { DiscountedPrice } from "@/components/shared/DiscountedPrice";
+// import { DiscountedPrice } from "@/components/shared/DiscountedPrice";
 import { ShopPagination } from "@/components/shop/ShopPagination";
 import { getCategoryDisplayLabel } from "@/services/products/product-category";
 import type {
@@ -163,14 +163,14 @@ export function ShopCatalog({
                                     {product.category}
                                 </p>
                             ) : null}
-                            <p className="font-jost mt-2 text-lg font-semibold uppercase tracking-[0.04em] text-[#111]">
+                            <p className="font-jost mt-2 text-md font-semibold uppercase tracking-[0.04em] text-[#111]">
                                 {product.title}
                             </p>
-                            <DiscountedPrice
+                            {/* <DiscountedPrice
                                 value={product.price}
                                 className="font-jost mt-2 flex text-sm text-[#3b3b3b]"
                                 discountedClassName="text-[#3b3b3b]"
-                            />
+                            /> */}
                         </div>
                     </Link>
                 ))}
@@ -193,9 +193,6 @@ export function ShopCatalog({
                                 pagination.totalPages,
                             ),
                         ),
-                        category:
-                            categoryDraft === "All" ? null : categoryDraft,
-                        sort: sortBy === "top-rating" ? null : sortBy,
                     })
                 }
             />

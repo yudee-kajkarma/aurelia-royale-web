@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, type ReactNode } from "react";
 import { useAuth } from "@/providers/AuthProvider";
+import { notifyError } from "@/utils/notify";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import {
   addCartItem,
@@ -26,7 +27,9 @@ function CartSync() {
       return;
     }
 
-    void dispatch(fetchCart());
+    void dispatch(fetchCart())
+      .unwrap()
+      .catch((error) => notifyError(error, "Unable to load your cart."));
   }, [dispatch, isAuthenticated, isReady]);
 
   return null;

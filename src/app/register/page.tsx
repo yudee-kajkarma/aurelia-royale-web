@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowLeft, ChevronDown, Eye, EyeOff } from "lucide-react";
 import { useRouter } from "next/navigation";
 import RegisterImg from "@/assets/Register-img.png";
+import { toast } from "sonner";
 import { authService } from "@/services/auth/auth.service";
 import type { RegisterRequest } from "@/services/auth/auth.types";
 import {
@@ -13,6 +14,7 @@ import {
     getCountryOptions,
     getStateOptions,
 } from "@/utils/location";
+import { notifyError } from "@/utils/notify";
 
 const COUNTRY_CODE_OPTIONS: ReadonlyArray<{ code: string; label: string }> = [
     { code: "+1", label: "United States (+1)" },
@@ -109,7 +111,6 @@ export default function RegisterPage() {
     const router = useRouter();
     const [form, setForm] = useState<RegisterRequest>(initialForm);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [isCityListOpen, setIsCityListOpen] = useState(false);
@@ -180,12 +181,11 @@ export default function RegisterPage() {
         event.preventDefault();
 
         if (form.password !== form.confirmPassword) {
-            setErrorMessage("Password and confirm password must match.");
+            toast.error("Password and confirm password must match.");
             return;
         }
 
         setIsSubmitting(true);
-        setErrorMessage(null);
 
         try {
             const countryName =
@@ -210,11 +210,7 @@ export default function RegisterPage() {
                 `/verify-otp?email=${encodeURIComponent(response.email)}`,
             );
         } catch (error) {
-            setErrorMessage(
-                error instanceof Error
-                    ? error.message
-                    : "Registration failed. Check the details and try again.",
-            );
+            notifyError(error);
         } finally {
             setIsSubmitting(false);
         }
@@ -784,12 +780,6 @@ export default function RegisterPage() {
                                     />
                                 </div>
                             </div>
-
-                            {errorMessage && (
-                                <p className="mt-7 border border-red-200 bg-red-50 px-4 py-3 font-[family-name:var(--font-jost)] text-sm font-medium text-red-700">
-                                    {errorMessage}
-                                </p>
-                            )}
 
                             <button
                                 type="submit"

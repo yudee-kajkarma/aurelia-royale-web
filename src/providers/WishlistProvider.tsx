@@ -7,6 +7,7 @@ import {
 } from "react";
 import { Provider } from "react-redux";
 import { useAuth } from "@/providers/AuthProvider";
+import { notifyError } from "@/utils/notify";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { store } from "@/store/store";
 import {
@@ -31,7 +32,9 @@ function WishlistSync() {
       return;
     }
 
-    void dispatch(fetchWishlist());
+    void dispatch(fetchWishlist())
+      .unwrap()
+      .catch((error) => notifyError(error, "Unable to load your wishlist."));
   }, [dispatch, isAuthenticated, isReady]);
 
   return null;

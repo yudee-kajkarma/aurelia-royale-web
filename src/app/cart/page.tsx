@@ -7,6 +7,7 @@ import { AuthGuard } from "@/components/auth/AuthGuard";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { useCart } from "@/providers/CartProvider";
 import { useDiscount } from "@/services/family/useDiscount";
+import { notifyError } from "@/utils/notify";
 import { ProductImage } from "../../components/shared/ProductImage";
 
 export default function CartPage() {
@@ -23,6 +24,8 @@ export default function CartPage() {
 
     try {
       await clearAll();
+    } catch (error) {
+      notifyError(error, "Unable to clear your cart.");
     } finally {
       setIsClearing(false);
     }
@@ -33,6 +36,8 @@ export default function CartPage() {
 
     try {
       await removeItem(productId);
+    } catch (error) {
+      notifyError(error, "Unable to remove this item.");
     } finally {
       setRemovingProductId(null);
     }
@@ -43,6 +48,8 @@ export default function CartPage() {
 
     try {
       await updateItemQuantity(productId, quantity);
+    } catch (error) {
+      notifyError(error, "Unable to update the quantity.");
     } finally {
       setUpdatingProductId(null);
     }

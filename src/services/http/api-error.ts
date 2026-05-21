@@ -23,5 +23,10 @@ export function getApiErrorMessage(error: unknown): string {
     return error.message;
   }
 
+  // Redux thunks reject with a plain string via rejectWithValue.
+  if (typeof error === "string" && error.trim()) {
+    return error;
+  }
+
   return "Something went wrong.";
 }

@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useAuth } from "@/providers/AuthProvider";
 import { useCart } from "@/providers/CartProvider";
 import { setPendingCartItem } from "@/services/cart/cart.pending";
+import { notifyError } from "@/utils/notify";
 
 type AddToCartButtonProps = {
   productId: string;
@@ -53,6 +54,8 @@ export function AddToCartButton({
       if (redirectToCart) {
         router.push("/cart");
       }
+    } catch (error) {
+      notifyError(error, "Unable to add this item to your cart.");
     } finally {
       setIsSubmitting(false);
     }
