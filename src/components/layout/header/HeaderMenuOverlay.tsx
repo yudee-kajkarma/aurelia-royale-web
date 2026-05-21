@@ -12,6 +12,7 @@ import {
     type HeaderVisualLinkItem,
 } from "@/components/layout/header/header.data";
 import type { AuthUser } from "@/services/auth/auth.types";
+import { isAdminRole } from "@/services/auth/auth.types";
 
 type HeaderMenuOverlayProps = {
     open: boolean;
@@ -176,7 +177,7 @@ export function HeaderMenuOverlay({
     onLogout,
     onActivatePanel,
 }: HeaderMenuOverlayProps) {
-    const isAdmin = user?.role === "ADMIN";
+    const isAdmin = isAdminRole(user?.role);
     const listVariants = reduceMotion ? undefined : desktopListVariants;
     const mobileVariants = reduceMotion ? undefined : mobileListVariants;
     const itemVariants = reduceMotion ? undefined : linkItemVariants;

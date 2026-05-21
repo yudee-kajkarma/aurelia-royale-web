@@ -19,7 +19,7 @@ import {
     shopEditionItems,
 } from "@/components/layout/header/header.data";
 import { useAuth } from "@/providers/AuthProvider";
-import { getDefaultRouteForRole } from "@/services/auth/auth.types";
+import { isAdminRole } from "@/services/auth/auth.types";
 import { useCart } from "@/providers/CartProvider";
 import { useWishlist } from "@/providers/WishlistProvider";
 
@@ -81,7 +81,14 @@ export function Header() {
 
     const activeShopItems =
         activePanel === "category" ? shopCategoryItems : shopEditionItems;
-    const profileHref = user ? getDefaultRouteForRole(user.role) : "/login";
+    // Profile button destination — admins land on the admin dashboard,
+    // normal users on their profile page. (Distinct from the post-login
+    // default route, which sends normal users to "/".)
+    const profileHref = user
+        ? isAdminRole(user.role)
+            ? "/admin/products"
+            : "/profile"
+        : "/login";
 
     function closeAllOverlays() {
         setOpenMenu(false);

@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { LogOut, Shield, UserRound } from "lucide-react";
 import type { AuthUser } from "@/services/auth/auth.types";
+import { isAdminRole } from "@/services/auth/auth.types";
 
 type HeaderProfileMenuProps = {
   user: AuthUser;
@@ -22,7 +23,7 @@ export function HeaderProfileMenu({
 }: HeaderProfileMenuProps) {
   const isDesktop = variant === "desktop";
   const isPanel = variant === "panel";
-  const isAdmin = user.role === "ADMIN";
+  const isAdmin = isAdminRole(user.role);
 
   return (
     <motion.div

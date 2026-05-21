@@ -13,6 +13,21 @@ type AuthGuardProps = {
   allowedRoles?: UserRole[];
 };
 
+/**
+ * Returns true if `actual` satisfies the `allowed` list. SUPER_ADMIN is a
+ * superset of ADMIN — a page that lists `["ADMIN"]` is also accessible to
+ * a SUPER_ADMIN without every caller having to spell that out.
+ */
+function isRoleAllowed(allowed: UserRole[], actual: UserRole): boolean {
+  if (allowed.includes(actual)) {
+    return true;
+  }
+  if (actual === "SUPER_ADMIN" && allowed.includes("ADMIN")) {
+    return true;
+  }
+  return false;
+}
+
 export function AuthGuard({ children, allowedRoles }: AuthGuardProps) {
   const pathname = usePathname();
   const router = useRouter();
@@ -29,7 +44,7 @@ export function AuthGuard({ children, allowedRoles }: AuthGuardProps) {
       return;
     }
 
-    if (allowedRoles && user && !allowedRoles.includes(user.role)) {
+    if (allowedRoles && user && !isRoleAllowed(allowedRoles, user.role)) {
       router.replace(getDefaultRouteForRole(user.role));
     }
   }, [allowedRoles, isAuthenticated, isReady, pathname, router, user]);
@@ -47,7 +62,7 @@ export function AuthGuard({ children, allowedRoles }: AuthGuardProps) {
     );
   }
 
-  if (allowedRoles && user && !allowedRoles.includes(user.role)) {
+  if (allowedRoles && user && !isRoleAllowed(allowedRoles, user.role)) {
     return null;
   }
 

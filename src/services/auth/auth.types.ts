@@ -1,4 +1,11 @@
-export type UserRole = "USER" | "ADMIN";
+export type UserRole = "USER" | "ADMIN" | "SUPER_ADMIN";
+
+/** Roles with admin-area access. SUPER_ADMIN is a strict superset of ADMIN. */
+export const ADMIN_ROLES: ReadonlyArray<UserRole> = ["ADMIN", "SUPER_ADMIN"];
+
+export function isAdminRole(role: UserRole | null | undefined): boolean {
+  return role === "ADMIN" || role === "SUPER_ADMIN";
+}
 
 export type AuthUser = {
   id: string;
@@ -69,7 +76,7 @@ export const AUTH_STORAGE_KEY = "dalila.auth.session";
 export const AUTH_STATE_CHANGE_EVENT = "dalila:auth-state-change";
 
 export function getDefaultRouteForRole(role: UserRole) {
-  return role === "ADMIN" ? "/admin/products" : "/";
+  return isAdminRole(role) ? "/admin/products" : "/";
 }
 
 export function getSafeAuthRedirect(role: UserRole, requestedPath: string | null) {
@@ -77,7 +84,7 @@ export function getSafeAuthRedirect(role: UserRole, requestedPath: string | null
     return getDefaultRouteForRole(role);
   }
 
-  if (role !== "ADMIN" && requestedPath.startsWith("/admin")) {
+  if (!isAdminRole(role) && requestedPath.startsWith("/admin")) {
     return getDefaultRouteForRole(role);
   }
 
