@@ -2,6 +2,7 @@
 import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/home/Hero";
 import { BestSellingTabs } from "@/components/home/BestSellingTabs";
+import { ShopByEdition } from "@/components/home/ShopByEdition";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import { ShopByCategory } from "@/components/home/ShopByCategory";
 import { TestimonialSlider } from "@/components/home/TestimonialSlider";
@@ -115,6 +116,8 @@ export default async function HomePage() {
                 </section>
 
                 <ShopByCategory categories={categoryTiles} />
+
+                <ShopByEdition products={products} />
 
                 <BestSellingTabs
                     products={products}

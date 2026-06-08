@@ -2,38 +2,42 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { Play } from "lucide-react";
+
+type GalleryItem =
+    | { id: string; kind: "image"; src: string }
+    | { id: string; kind: "video"; src: string; poster?: string };
 
 type ProductMediaGalleryProps = {
     title: string;
-    images: Array<{
-        id: string;
-        src: string;
-        position: number;
-    }>;
+    items: GalleryItem[];
 };
 
 export function ProductMediaGallery({
     title,
-    images,
+    items,
 }: ProductMediaGalleryProps) {
-    const sortedImages = [...images].sort(
-        (left, right) => left.position - right.position,
-    );
-    const [activeImageId, setActiveImageId] = useState(
-        sortedImages[0]?.id ?? "",
-    );
+    const [activeId, setActiveId] = useState(items[0]?.id ?? "");
 
-    const activeImage =
-        sortedImages.find((image) => image.id === activeImageId) ??
-        sortedImages[0];
+    const activeItem =
+        items.find((item) => item.id === activeId) ?? items[0];
 
     return (
         <div className="space-y-5">
             <div className="flex aspect-square items-center justify-center overflow-hidden bg-[#f3eee5] p-6">
-                {activeImage ? (
+                {activeItem?.kind === "video" ? (
+                    <iframe
+                        key={activeItem.id}
+                        src={activeItem.src}
+                        title={`${title} 360° view`}
+                        className="h-full w-full border-0"
+                        allow="accelerometer; autoplay; fullscreen; gyroscope; xr-spatial-tracking"
+                        allowFullScreen
+                    />
+                ) : activeItem ? (
                     <Image
-                        src={activeImage.src}
-                        alt={`${title} image ${activeImage.position}`}
+                        src={activeItem.src}
+                        alt={title}
                         width={900}
                         height={900}
                         unoptimized
@@ -42,31 +46,60 @@ export function ProductMediaGallery({
                 ) : null}
             </div>
 
-            {sortedImages.length > 1 ? (
-                <div className="grid grid-cols-4 gap-3 sm:grid-cols-5">
-                    {sortedImages.map((image) => {
-                        const isActive = image.id === activeImage?.id;
+            {items.length > 1 ? (
+                <div className="grid grid-cols-4 gap-3">
+                    {items.map((item) => {
+                        const isActive = item.id === activeItem?.id;
+                        const thumbSrc =
+                            item.kind === "video" ? item.poster : item.src;
 
                         return (
                             <button
-                                key={image.id}
+                                key={item.id}
                                 type="button"
-                                aria-label={`Show ${title} image ${image.position}`}
-                                onClick={() => setActiveImageId(image.id)}
-                                className={`flex aspect-square items-center justify-center overflow-hidden bg-[#f3eee5] p-2 transition ${
+                                aria-label={
+                                    item.kind === "video"
+                                        ? `Show ${title} 360° view`
+                                        : `Show ${title} image`
+                                }
+                                onClick={() => setActiveId(item.id)}
+                                className={`relative flex aspect-square items-center justify-center overflow-hidden bg-[#f3eee5] p-2 transition ${
                                     isActive
                                         ? "border-2 border-gold"
                                         : "border border-deep/10 hover:border-gold/60"
                                 }`}
                             >
-                                <Image
-                                    src={image.src}
-                                    alt={`${title} thumbnail ${image.position}`}
-                                    width={220}
-                                    height={220}
-                                    unoptimized
-                                    className="h-full w-full object-contain"
-                                />
+                                {thumbSrc ? (
+                                    <Image
+                                        src={thumbSrc}
+                                        alt={
+                                            item.kind === "video"
+                                                ? `${title} 360° view`
+                                                : title
+                                        }
+                                        width={220}
+                                        height={220}
+                                        unoptimized
+                                        className="h-full w-full object-contain"
+                                    />
+                                ) : (
+                                    <span className="h-full w-full bg-deep/5" />
+                                )}
+
+                                {item.kind === "video" ? (
+                                    <span
+                                        className="absolute inset-0 flex items-center justify-center bg-deep/25"
+                                        aria-hidden="true"
+                                    >
+                                        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-deep shadow-sm">
+                                            <Play
+                                                size={16}
+                                                fill="currentColor"
+                                                className="translate-x-px"
+                                            />
+                                        </span>
+                                    </span>
+                                ) : null}
                             </button>
                         );
                     })}

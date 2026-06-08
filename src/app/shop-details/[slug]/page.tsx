@@ -40,12 +40,47 @@ export default async function ShopDetailsBySlugPage({
                 totalReviews: product.reviews_count,
             },
         }));
-    const galleryImages =
+    const sortedImages =
         product.images.length > 0
             ? [...product.images].sort(
                   (left, right) => left.position - right.position,
               )
-            : [{ _id: product.id, src: product.thumbnail, position: 1 }];
+            : [];
+    const videoUrl = product.videoUrls?.find(
+        (url) => typeof url === "string" && url.trim().length > 0,
+    );
+
+    // Gallery order: thumbnail first, then the next 2 images, then the video.
+    const galleryItems: Array<
+        | { id: string; kind: "image"; src: string }
+        | { id: string; kind: "video"; src: string; poster?: string }
+    > = [];
+    if (product.thumbnail) {
+        galleryItems.push({
+            id: "thumbnail",
+            kind: "image",
+            src: product.thumbnail,
+        });
+    }
+    for (const image of sortedImages.slice(0, 2)) {
+        galleryItems.push({ id: image._id, kind: "image", src: image.src });
+    }
+    if (videoUrl) {
+        galleryItems.push({
+            id: "video",
+            kind: "video",
+            src: videoUrl,
+            poster: product.thumbnail,
+        });
+    }
+    // Fallback so the viewer is never empty (e.g. no thumbnail saved yet).
+    if (galleryItems.length === 0 && sortedImages[0]) {
+        galleryItems.push({
+            id: sortedImages[0]._id,
+            kind: "image",
+            src: sortedImages[0].src,
+        });
+    }
     const relatedProducts = recommendedProducts
         .map(toProductCardModel)
         .slice(0, 4);
@@ -90,14 +125,7 @@ export default async function ShopDetailsBySlugPage({
             </section>
 
             <section className="mx-auto grid max-w-7xl gap-12 px-6 py-16 sm:px-8 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:py-24">
-                <ProductMediaGallery
-                    title={product.title}
-                    images={galleryImages.map((image) => ({
-                        id: image._id,
-                        src: image.src,
-                        position: image.position,
-                    }))}
-                />
+                <ProductMediaGallery title={product.title} items={galleryItems} />
 
                 <div>
                     {reviewCount > 0 || averageRating > 0 ? (
