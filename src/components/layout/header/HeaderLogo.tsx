@@ -1,4 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
+
+import logo from "../../../../public/logo.png";
 
 type HeaderLogoProps = {
     onClick?: () => void;
@@ -8,16 +11,17 @@ export function HeaderLogo({ onClick }: HeaderLogoProps) {
     return (
         <Link
             href="/"
-            className="flex flex-col items-center justify-center leading-none select-none"
+            className="flex items-center justify-center select-none"
             aria-label="Aurelia Royale"
             onClick={onClick}
         >
-            <span className="display-font text-[1.65rem] font-semibold uppercase tracking-[0.06em] text-white sm:text-[2.25rem]">
-                Aurelia
-            </span>
-            <span className="mt-1 text-[0.55rem] font-semibold uppercase tracking-[0.5em] text-white/90 sm:text-[0.7rem] sm:tracking-[0.62em]">
-                Royale
-            </span>
+            <Image
+                src={logo}
+                alt="Aurelia Royale"
+                priority
+                sizes="(max-width: 640px) 180px, 240px"
+                className="h-auto w-28 sm:w-44 lg:w-52.5"
+            />
         </Link>
     );
 }

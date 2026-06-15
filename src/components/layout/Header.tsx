@@ -186,7 +186,7 @@ export function Header() {
     return (
         <>
             <header className="sticky top-0 z-20 border-b border-white/10 bg-[linear-gradient(90deg,#020202,#0a372f)] text-white">
-                <div className="mx-auto grid h-24 max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 sm:h-28 sm:px-8 lg:grid-cols-3 lg:px-12">
+                <div className="mx-auto grid h-24 max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-2 px-4 sm:h-28 sm:gap-4 sm:px-8 lg:grid-cols-3 lg:px-12">
                     <nav className="hidden lg:flex items-center gap-9 text-[0.78rem] font-semibold uppercase tracking-[0.22em] text-gold">
                         {primaryNavLinks.map((link) => {
                             const isShop = link.label === "Shop";
@@ -216,29 +216,29 @@ export function Header() {
                     <button
                         type="button"
                         onClick={() => setOpenMenu(true)}
-                        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white transition hover:border-gold hover:text-gold lg:hidden"
+                        className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white transition hover:border-gold hover:text-gold sm:h-10 sm:w-10 lg:hidden"
                         aria-label="Open menu"
                     >
-                        <Menu size={20} />
+                        <Menu size={18} className="sm:size-5" />
                     </button>
 
                     <div className="flex justify-center">
                         <HeaderLogo />
                     </div>
 
-                    <div className="flex items-center justify-end gap-3 sm:gap-4">
+                    <div className="flex items-center justify-end gap-1.5 sm:gap-4">
                         <div className="relative">
                             <button
                                 type="button"
                                 onClick={handleProfileTrigger}
-                                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gold/40 text-gold transition hover:border-gold hover:bg-gold/10"
+                                className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-gold/40 text-gold transition hover:border-gold hover:bg-gold/10 sm:h-11 sm:w-11"
                                 aria-label={
                                     isAuthenticated
                                         ? "Open profile menu"
                                         : "Open account menu"
                                 }
                             >
-                                <UserRound size={18} strokeWidth={1.5} />
+                                <UserRound size={16} strokeWidth={1.5} className="sm:size-4.5" />
                             </button>
 
                             <AnimatePresence>
@@ -321,10 +321,10 @@ export function Header() {
                         <button
                             type="button"
                             onClick={handleWishlistOpen}
-                            className="relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-gold/40 text-gold transition hover:border-gold hover:bg-gold/10"
+                            className="relative inline-flex h-8 w-8 items-center justify-center rounded-full border border-gold/40 text-gold transition hover:border-gold hover:bg-gold/10 sm:h-11 sm:w-11"
                             aria-label="Wishlist"
                         >
-                            <Heart size={18} strokeWidth={1.5} />
+                            <Heart size={16} strokeWidth={1.5} className="sm:size-4.5" />
                             {count > 0 ? (
                                 <span className="absolute -right-1 -top-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-gold px-1 text-[10px] font-extrabold text-[#15110a]">
                                     {count}
@@ -334,10 +334,10 @@ export function Header() {
                         <button
                             type="button"
                             onClick={handleCartOpen}
-                            className="relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-gold/40 text-gold transition hover:border-gold hover:bg-gold/10"
+                            className="relative inline-flex h-8 w-8 items-center justify-center rounded-full border border-gold/40 text-gold transition hover:border-gold hover:bg-gold/10 sm:h-11 sm:w-11"
                             aria-label="Shopping bag"
                         >
-                            <ShoppingBag size={18} strokeWidth={1.5} />
+                            <ShoppingBag size={16} strokeWidth={1.5} className="sm:size-4.5" />
                             {cartCount > 0 ? (
                                 <span className="absolute -right-1 -top-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-gold px-1 text-[10px] font-extrabold text-[#15110a]">
                                     {cartCount}
