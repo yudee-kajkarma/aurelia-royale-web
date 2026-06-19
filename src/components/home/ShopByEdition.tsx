@@ -36,26 +36,53 @@ const EDITIONS: Edition[] = [
     },
 ];
 
+const ALL_CATEGORY = "ALL";
+
+// Canonical sub-categories shown in the filter row. Matched against each
+// product's free-form `category` string with a case-insensitive substring
+// test, so "SET" still catches values like "NECKLACE + EARRING (SET)".
+const CATEGORIES = [
+    ALL_CATEGORY,
+    "BRACELET",
+    "EARRING",
+    "NECKLACE",
+    "PENDANT",
+    "RING",
+    "SET",
+] as const;
+
 type ShopByEditionProps = {
     products: ProductCardModel[];
 };
 
 export function ShopByEdition({ products }: ShopByEditionProps) {
     const [activeId, setActiveId] = useState(EDITIONS[0].id);
+    const [activeCategory, setActiveCategory] = useState<string>(ALL_CATEGORY);
 
     const activeIndex = Math.max(
         0,
         EDITIONS.findIndex((edition) => edition.id === activeId),
     );
 
+    const categoryProducts = useMemo(() => {
+        if (activeCategory === ALL_CATEGORY) return products;
+        const needle = activeCategory.toLowerCase();
+        return products.filter((product) =>
+            product.category?.toLowerCase().includes(needle),
+        );
+    }, [products, activeCategory]);
+
     // TODO: replace with edition-specific products once the backend API exists.
     // For now we rotate the existing catalogue so each edition shows a distinct set.
     const visibleProducts = useMemo(() => {
-        if (products.length === 0) return [];
-        const start = (activeIndex * 4) % products.length;
-        const rotated = [...products.slice(start), ...products.slice(0, start)];
+        if (categoryProducts.length === 0) return [];
+        const start = (activeIndex * 4) % categoryProducts.length;
+        const rotated = [
+            ...categoryProducts.slice(start),
+            ...categoryProducts.slice(0, start),
+        ];
         return rotated.slice(0, 4);
-    }, [products, activeIndex]);
+    }, [categoryProducts, activeIndex]);
 
     return (
         <section className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-10">
@@ -86,10 +113,10 @@ export function ShopByEdition({ products }: ShopByEditionProps) {
                             role="tab"
                             aria-selected={active}
                             onClick={() => setActiveId(edition.id)}
-                            className={`group flex flex-col items-start border p-6 text-left transition duration-300 sm:p-7 ${
+                            className={`group flex flex-col items-start border-[1.5px] p-6 text-left transition duration-300 sm:p-7 ${
                                 active
-                                    ? "border-deep bg-deep"
-                                    : "border-deep/15 bg-transparent hover:border-gold"
+                                    ? "border-gold bg-deep"
+                                    : "border-deep bg-transparent hover:bg-gold/10 hover:border-gold"
                             }`}
                         >
                             <span
@@ -103,14 +130,14 @@ export function ShopByEdition({ products }: ShopByEditionProps) {
                             </span>
                             <h3
                                 className={`font-cormorant mt-5 text-3xl font-medium transition duration-300 sm:text-4xl ${
-                                    active ? "text-white" : "text-deep/40"
+                                    active ? "text-white" : "text-deep"
                                 }`}
                             >
                                 {edition.title}
                             </h3>
                             <p
                                 className={`font-jost mt-3 text-sm leading-relaxed transition duration-300 ${
-                                    active ? "text-white/75" : "text-[#6b6b6b]"
+                                    active ? "text-[#fdce77]" : "text-[#6b6b6b]"
                                 }`}
                             >
                                 {edition.description}
@@ -119,6 +146,38 @@ export function ShopByEdition({ products }: ShopByEditionProps) {
                     );
                 })}
             </div>
+
+            <div
+                role="tablist"
+                aria-label="Filter by category"
+                className="mt-8 flex flex-wrap gap-2.5 sm:gap-3"
+            >
+                {CATEGORIES.map((category) => {
+                    const active = category === activeCategory;
+                    return (
+                        <button
+                            key={category}
+                            type="button"
+                            role="tab"
+                            aria-selected={active}
+                            onClick={() => setActiveCategory(category)}
+                            className={`font-jost border px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.18em] transition duration-300 ${
+                                active
+                                    ? "border-deep bg-deep text-white"
+                                    : "border-deep/15 bg-transparent text-deep/70 hover:border-gold hover:text-deep"
+                            }`}
+                        >
+                            {category}
+                        </button>
+                    );
+                })}
+            </div>
+
+            {visibleProducts.length === 0 ? (
+                <p className="font-jost mt-12 text-center text-sm text-[#6b6b6b]">
+                    No pieces available in this category yet.
+                </p>
+            ) : null}
 
             <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4 lg:gap-6">
                 {visibleProducts.map((product) => (
