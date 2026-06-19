@@ -32,6 +32,10 @@ export type ProductDetail = ProductListItem & {
   carat: number;
   origin: string;
   treatment: string;
+  // Optional jewellery attributes — populated by the backend when available.
+  // Rendered on the details page only when present (see shop-details page).
+  typeOfGold?: string;
+  goldWeight?: string;
   certificate: string;
   measurement: string;
   details: string;

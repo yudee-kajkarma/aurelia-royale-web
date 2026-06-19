@@ -93,12 +93,49 @@ export default async function ShopDetailsBySlugPage({
               ) / reviewCount
             : product.rating;
 
-    const specs = [
-        { label: "SKU", value: product.sku },
-        { label: "Certificate", value: product.certificate },
-        { label: "Origin", value: product.origin },
-        { label: "Measurement", value: product.measurement },
-    ];
+    // Each row maps an image label/icon to a product field. Rows whose value is
+    // missing/blank are filtered out so they never render (per design).
+    const productDetails: Array<{
+        label: string;
+        value: string;
+        icon: string;
+    }> = [
+        {
+            label: "Carat",
+            value: product.carat ? `${product.carat.toFixed(2)} CT` : "",
+            icon: "/icons/diamond-icon.svg",
+        },
+        {
+            label: "Type of Gold",
+            value: product.typeOfGold ?? "",
+            icon: "/icons/gold-bars-icon.svg",
+        },
+        {
+            label: "Gold Weight",
+            value: product.goldWeight ?? "",
+            icon: "/icons/gold-weight-icon.svg",
+        },
+        {
+            label: "No. of Diamonds",
+            value: product.diamondPcs ? String(product.diamondPcs) : "",
+            icon: "/icons/diamonds-count-icon.svg",
+        },
+        {
+            label: "Certificate",
+            value: product.certificate ?? "",
+            icon: "/icons/cert-icon.svg",
+        },
+        {
+            label: "Measurement",
+            value: product.measurement ?? "",
+            icon: "/icons/measurement-icon.svg",
+        },
+        {
+            label: "Stock No.",
+            value: product.sku ?? "",
+            icon: "/icons/stock-tag-icon.svg",
+        },
+    ].filter((detail) => detail.value.trim().length > 0);
 
     return (
         <main className="min-h-screen overflow-x-clip bg-background">
@@ -125,7 +162,10 @@ export default async function ShopDetailsBySlugPage({
             </section>
 
             <section className="mx-auto grid max-w-7xl gap-12 px-6 py-16 sm:px-8 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:py-24">
-                <ProductMediaGallery title={product.title} items={galleryItems} />
+                <ProductMediaGallery
+                    title={product.title}
+                    items={galleryItems}
+                />
 
                 <div>
                     {reviewCount > 0 || averageRating > 0 ? (
@@ -162,14 +202,12 @@ export default async function ShopDetailsBySlugPage({
                         </p>
                     )}
 
-                    <p className="font-jost mt-6 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-[#6b6b6b]">
+                    <p className="font-jost mt-6 flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-gold">
+                        <span
+                            className="inline-block h-px w-8 bg-gold"
+                            aria-hidden="true"
+                        />
                         {getProductCategory(product)}
-                        {product.vendor ? (
-                            <>
-                                <span className="mx-2 text-deep/30">·</span>
-                                {/* {product.vendor} */}
-                            </>
-                        ) : null}
                     </p>
 
                     <h2 className="font-cormorant mt-3 text-4xl font-medium uppercase tracking-[0.02em] text-deep sm:text-5xl">
@@ -207,19 +245,40 @@ export default async function ShopDetailsBySlugPage({
                         {product.description}
                     </p>
 
-                    <dl className="mt-10 grid gap-6 border-t border-deep/10 pt-8 sm:grid-cols-2">
-                        {specs.map((spec) => (
-                            <div key={spec.label}>
-                                <dt className="font-jost text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-deep/55">
-                                    {spec.label}
-                                </dt>
-                                <dd className="font-jost mt-2 text-sm font-semibold text-deep">
-                                    {/* {spec.value || "—"} */}
-                                    N/A
-                                </dd>
-                            </div>
-                        ))}
-                    </dl>
+                    {productDetails.length > 0 ? (
+                        <div className="mt-12">
+                            <h3 className="font-jost text-lg font-medium uppercase tracking-[0.2em] text-deep">
+                                Product Details
+                            </h3>
+                            <div className="mt-3 h-px w-full bg-gold/60 to-transparent" />
+
+                            <dl className="mt-2">
+                                {productDetails.map((detail, index) => (
+                                    <div key={detail.label}>
+                                        {index > 0 ? (
+                                            <div className="h-px w-full bg-linear-to-r from-transparent via-deep/15 to-transparent" />
+                                        ) : null}
+                                        <div className="flex items-center justify-between gap-6 py-3">
+                                            <dt className="flex items-center gap-4">
+                                                <img
+                                                    src={detail.icon}
+                                                    alt=""
+                                                    aria-hidden="true"
+                                                    className="h-6 w-6 shrink-0 object-contain"
+                                                />
+                                                <span className="font-jost text-[0.95rem] leading-6 text-deep">
+                                                    {detail.label}
+                                                </span>
+                                            </dt>
+                                            <dd className="font-jost text-right text-[0.95rem] leading-6 text-deep">
+                                                {detail.value}
+                                            </dd>
+                                        </div>
+                                    </div>
+                                ))}
+                            </dl>
+                        </div>
+                    ) : null}
 
                     <ProductPurchasePanel productId={product.id} />
 
