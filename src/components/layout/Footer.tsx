@@ -1,4 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
+
+import logo from "../../../public/logo/Aurelia-Royale-Embossed-Logo.png";
 
 const footerLinks = [
     { href: "/", label: "Home" },
@@ -14,14 +17,14 @@ export function Footer() {
                 <Link
                     href="/"
                     aria-label="Aurelia Royale"
-                    className="flex flex-col leading-none md:items-center"
+                    className="flex items-center md:justify-center"
                 >
-                    <span className="font-cormorant text-4xl font-medium uppercase tracking-[0.04em] text-white sm:text-5xl md:text-6xl">
-                        Aurelia
-                    </span>
-                    <span className="font-jost mt-2 text-[0.7rem] font-semibold uppercase tracking-[0.5em] text-white/90 sm:text-xs sm:tracking-[0.62em]">
-                        Royale
-                    </span>
+                    <Image
+                        src={logo}
+                        alt="Aurelia Royale"
+                        sizes="(max-width: 640px) 180px, 240px"
+                        className="h-auto w-28 sm:w-44 lg:w-52.5"
+                    />
                 </Link>
 
                 <p className="font-jost max-w-2xl text-[0.78rem] italic text-gold/90 sm:text-sm md:text-center">
