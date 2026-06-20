@@ -368,7 +368,7 @@ export function Header() {
                                     </h3>
 
                                     <motion.div
-                                        className="mt-8 grid grid-cols-7 gap-4"
+                                        className="mt-8 grid grid-cols-6 gap-4"
                                         variants={
                                             reduceMotion
                                                 ? undefined

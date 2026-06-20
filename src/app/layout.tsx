@@ -38,14 +38,12 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-    title: "dalila",
-    description: "dalila - luxury jewelry storefront",
-    keywords: ["dalila", "jewelry", "rings", "earrings", "bracelet", "watches"],
-    authors: [{ name: "vecuro" }],
-    // icons: {
-    //   icon: "/icon.png",
-    //   apple: "/icon.png",
-    // },
+    title: "Aurelia Royale - Luxury Jewelry Store",
+    description:
+        "Aurelia Royale is a luxury jewelry store that offers a wide range of exquisite jewelry pieces, including rings, earrings, bracelets, and more. Discover our collection of fine jewelry crafted with precision and elegance.",
+    keywords: ["aurelia", "royale", "jewelry", "rings", "earrings", "bracelet"],
+    authors: [{ name: "yudee.dev" }],
+
     robots: {
         index: true,
         follow: true,

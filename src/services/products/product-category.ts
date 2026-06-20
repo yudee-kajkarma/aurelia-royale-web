@@ -7,7 +7,11 @@ type ShopCategoryTile = {
   aliases: string[];
 };
 
-export const SHOP_CATEGORY_LIMIT = 7;
+export const SHOP_CATEGORY_LIMIT = 6;
+
+// Categories intentionally removed from the storefront. Backend data may still
+// return these, so they are filtered out everywhere categories surface.
+const EXCLUDED_CATEGORY_ALIASES = ["watches", "watch"];
 
 export const SHOP_CATEGORY_TILES: ShopCategoryTile[] = [
   {
@@ -46,12 +50,6 @@ export const SHOP_CATEGORY_TILES: ShopCategoryTile[] = [
     imageUrl: "/category/SET.png",
     aliases: ["sets", "set", "necklace + earring", "necklace+earring", "matching sets"],
   },
-  {
-    label: "Watches",
-    queryValue: "watches",
-    imageUrl: "/category/Watch.png",
-    aliases: ["watches", "watch"],
-  },
 ];
 
 function normalizeCategory(value: string) {
@@ -66,6 +64,12 @@ function titleCase(value: string) {
     .join(" ");
 }
 
+function isExcludedCategory(value: string) {
+  const normalizedValue = normalizeCategory(value);
+
+  return EXCLUDED_CATEGORY_ALIASES.some((alias) => normalizeCategory(alias) === normalizedValue);
+}
+
 function getTileByCategory(value: string) {
   const normalizedValue = normalizeCategory(value);
 
@@ -73,7 +77,7 @@ function getTileByCategory(value: string) {
 }
 
 export function resolveCategoryValue(value: string | undefined, availableCategories: string[]) {
-  if (!value) {
+  if (!value || isExcludedCategory(value)) {
     return null;
   }
 
@@ -93,18 +97,25 @@ export function resolveCategoryValue(value: string | undefined, availableCategor
   return availableCategories.find((category) => matchingTile.aliases.some((alias) => normalizeCategory(alias) === normalizeCategory(category))) ?? null;
 }
 
+// Drops storefront-excluded categories (e.g. watches) while preserving order.
+// Use for any UI that lists the full set of categories rather than the curated tiles.
+export function getStorefrontCategories(availableCategories: string[]) {
+  return availableCategories.filter((category) => !isExcludedCategory(category));
+}
+
 export function getPrimaryShopCategories(availableCategories: string[]) {
+  const allowedCategories = availableCategories.filter((category) => !isExcludedCategory(category));
   const selected: string[] = [];
 
   SHOP_CATEGORY_TILES.forEach((tile) => {
-    const match = availableCategories.find((category) => tile.aliases.some((alias) => normalizeCategory(alias) === normalizeCategory(category)));
+    const match = allowedCategories.find((category) => tile.aliases.some((alias) => normalizeCategory(alias) === normalizeCategory(category)));
 
     if (match && !selected.some((item) => normalizeCategory(item) === normalizeCategory(match))) {
       selected.push(match);
     }
   });
 
-  availableCategories.forEach((category) => {
+  allowedCategories.forEach((category) => {
     if (selected.length >= SHOP_CATEGORY_LIMIT) {
       return;
     }

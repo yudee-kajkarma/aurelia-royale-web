@@ -100,41 +100,43 @@ export default async function ShopDetailsBySlugPage({
         value: string;
         icon: string;
     }> = [
+        // Temporarily showing only Stock No. and Certificate. The rest stay
+        // hidden until fresh product data is entered — restore by uncommenting.
         {
-            label: "Carat",
-            value: product.carat ? `${product.carat.toFixed(2)} CT` : "",
-            icon: "/icons/diamond-icon.svg",
-        },
-        {
-            label: "Type of Gold",
-            value: product.typeOfGold ?? "",
-            icon: "/icons/gold-bars-icon.svg",
-        },
-        {
-            label: "Gold Weight",
-            value: product.goldWeight ?? "",
-            icon: "/icons/gold-weight-icon.svg",
-        },
-        {
-            label: "No. of Diamonds",
-            value: product.diamondPcs ? String(product.diamondPcs) : "",
-            icon: "/icons/diamonds-count-icon.svg",
+            label: "Stock No.",
+            value: product.sku ?? "",
+            icon: "/icons/stock-tag-icon.svg",
         },
         {
             label: "Certificate",
             value: product.certificate ?? "",
             icon: "/icons/cert-icon.svg",
         },
-        {
-            label: "Measurement",
-            value: product.measurement ?? "",
-            icon: "/icons/measurement-icon.svg",
-        },
-        {
-            label: "Stock No.",
-            value: product.sku ?? "",
-            icon: "/icons/stock-tag-icon.svg",
-        },
+        // {
+        //     label: "Carat",
+        //     value: product.carat ? `${product.carat.toFixed(2)} CT` : "",
+        //     icon: "/icons/diamond-icon.svg",
+        // },
+        // {
+        //     label: "Type of Gold",
+        //     value: product.typeOfGold ?? "",
+        //     icon: "/icons/gold-bars-icon.svg",
+        // },
+        // {
+        //     label: "Gold Weight",
+        //     value: product.goldWeight ?? "",
+        //     icon: "/icons/gold-weight-icon.svg",
+        // },
+        // {
+        //     label: "No. of Diamonds",
+        //     value: product.diamondPcs ? String(product.diamondPcs) : "",
+        //     icon: "/icons/diamonds-count-icon.svg",
+        // },
+        // {
+        //     label: "Measurement",
+        //     value: product.measurement ?? "",
+        //     icon: "/icons/measurement-icon.svg",
+        // },
     ].filter((detail) => detail.value.trim().length > 0);
 
     return (

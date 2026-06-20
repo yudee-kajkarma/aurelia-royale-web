@@ -17,6 +17,7 @@ import {
     getCategoryDisplayLabel,
     getCategoryImage,
     getPrimaryShopCategories,
+    getStorefrontCategories,
 } from "@/services/products/product-category";
 
 export default async function HomePage() {
@@ -121,7 +122,7 @@ export default async function HomePage() {
 
                 <BestSellingTabs
                     products={products}
-                    categories={filterOptions.categories}
+                    categories={getStorefrontCategories(filterOptions.categories)}
                 />
             </div>
 
