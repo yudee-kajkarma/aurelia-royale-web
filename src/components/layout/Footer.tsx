@@ -12,7 +12,7 @@ const footerLinks = [
 
 export function Footer() {
     return (
-        <footer className="bg-[linear-gradient(180deg,#0d3a2d,#06241b)] px-6 py-14 text-white sm:px-10 md:py-20">
+        <footer className="bg-[#0A362E] px-6 py-14 text-white sm:px-10 md:py-20">
             <div className="mx-auto flex max-w-6xl flex-col items-start gap-10 md:items-center md:text-center">
                 <Link
                     href="/"

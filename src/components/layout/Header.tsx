@@ -185,7 +185,7 @@ export function Header() {
 
     return (
         <>
-            <header className="sticky top-0 z-20 border-b border-white/10 bg-[linear-gradient(90deg,#020202,#0a372f)] text-white">
+            <header className="sticky top-0 z-20 border-b border-white/10 bg-[#0A362E] text-white">
                 <div className="mx-auto grid h-24 max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-2 px-4 sm:h-28 sm:gap-4 sm:px-8 lg:grid-cols-3 lg:px-12">
                     <nav className="hidden lg:flex items-center gap-9 text-[0.78rem] font-semibold uppercase tracking-[0.22em] text-gold">
                         {primaryNavLinks.map((link) => {
