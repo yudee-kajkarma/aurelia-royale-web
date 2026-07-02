@@ -199,7 +199,7 @@ export function ShopByEdition({ products }: ShopByEditionProps) {
                                     {product.category}
                                 </p>
                             ) : null}
-                            <p className="font-jost mt-2 text-md font-semibold uppercase tracking-[0.04em] text-[#111]">
+                            <p className="font-jost mt-2 text-md font-semibold tracking-[0.04em] text-[#111]">
                                 {product.title}
                             </p>
                             <p className="font-jost mt-2 text-sm text-[#3b3b3b]">

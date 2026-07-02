@@ -345,7 +345,7 @@ export default async function ShopDetailsBySlugPage({
                                             {item.category}
                                         </p>
                                     ) : null}
-                                    <p className="font-jost mt-2 text-md font-semibold uppercase tracking-[0.04em] text-[#111]">
+                                    <p className="font-jost mt-2 text-md font-semibold tracking-[0.04em] text-[#111]">
                                         {item.title}
                                     </p>
                                     {/* <DiscountedPrice
