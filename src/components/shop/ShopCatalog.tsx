@@ -293,6 +293,7 @@ export function ShopCatalog({
                                     })}
                                 </ul>
 
+                                {/* Prices hidden for now — price filter disabled.
                                 <h3 className="font-jost mt-10 text-base font-semibold uppercase tracking-[0.28em] text-deep">
                                     Price
                                 </h3>
@@ -337,6 +338,7 @@ export function ShopCatalog({
                                         />
                                     </label>
                                 </div>
+                                */}
 
                                 <div className="mt-10 flex justify-center">
                                     <button

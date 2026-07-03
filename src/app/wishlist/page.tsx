@@ -98,7 +98,7 @@ export default function WishlistPage() {
                       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground/45">Saved Collection</p>
                       <p className="mt-2 text-xl font-semibold text-deep">{item.title}</p>
                       <p className="mt-2 text-sm text-foreground/55">Saved {new Date(item.addedAt).toLocaleDateString()}</p>
-                      <PriceDisplay value={item.price} className="mt-3 block text-2xl font-bold text-gold" />
+                      {/* <PriceDisplay value={item.price} className="mt-3 block text-2xl font-bold text-gold" /> */}
                     </div>
 
                     <div className="flex flex-col items-start gap-3 sm:items-end">
@@ -131,10 +131,10 @@ export default function WishlistPage() {
                 <span>Saved items</span>
                 <span className="font-semibold text-deep">{count}</span>
               </div>
-              <div className="flex items-center justify-between">
+              {/* <div className="flex items-center justify-between">
                 <span>Total value</span>
                 <PriceDisplay value={totalValue} className="font-semibold text-deep" />
-              </div>
+              </div> */}
               <div className="flex items-center justify-between">
                 <span>Ready to shop</span>
                 <span className="font-semibold text-deep">{count > 0 ? "Yes" : "No"}</span>

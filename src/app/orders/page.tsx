@@ -180,9 +180,9 @@ export default function OrdersPage() {
                   </div>
 
                   <div className="mt-5 flex flex-col gap-3 border-t border-foreground/10 pt-4 text-sm text-foreground/58 sm:flex-row sm:items-center sm:justify-between">
-                    <span>
+                    {/* <span>
                       Total <PriceDisplay value={order.totalAmount} className="font-semibold text-deep" />
-                    </span>
+                    </span> */}
                     <Link href={`/orders/${order.id}`} className="font-bold text-deep transition hover:text-gold">
                       View Details
                     </Link>

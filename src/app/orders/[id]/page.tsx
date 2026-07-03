@@ -253,7 +253,7 @@ export default function OrderDetailPage() {
                       <p className="mt-1 text-sm text-foreground/55">SKU: {item.sku || "N/A"}</p>
                       <p className="mt-1 text-sm text-foreground/55">Quantity: {item.quantity}</p>
                     </div>
-                    <PriceDisplay value={item.price * item.quantity} className="text-lg font-bold text-deep" />
+                    {/* <PriceDisplay value={item.price * item.quantity} className="text-lg font-bold text-deep" /> */}
                   </article>
                 ))}
               </div>
@@ -269,7 +269,7 @@ export default function OrderDetailPage() {
                   <div className="mt-4 space-y-2 text-sm text-foreground/62">
                     <p>Method: <span className="font-semibold text-deep">{order.paymentMethod}</span></p>
                     <p>Status: <span className="font-semibold text-deep">{order.paymentStatus}</span></p>
-                    <p>Total: <PriceDisplay value={order.totalAmount} className="font-semibold text-deep" /></p>
+                    {/* <p>Total: <PriceDisplay value={order.totalAmount} className="font-semibold text-deep" /></p> */}
                   </div>
                 </div>
 

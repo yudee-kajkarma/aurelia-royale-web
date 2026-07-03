@@ -153,7 +153,7 @@ export default function CheckoutPage() {
                           <p className="mt-1 text-sm text-foreground/55">Quantity: {item.quantity}</p>
                         </div>
 
-                        <PriceDisplay value={item.price * item.quantity} className="text-lg font-bold text-deep" />
+                        {/* <PriceDisplay value={item.price * item.quantity} className="text-lg font-bold text-deep" /> */}
                       </article>
                     ))}
                   </div>
@@ -222,10 +222,10 @@ export default function CheckoutPage() {
                 <span>Items</span>
                 <span className="font-semibold text-deep">{count}</span>
               </div>
-              <div className="flex items-center justify-between">
+              {/* <div className="flex items-center justify-between">
                 <span>Subtotal</span>
                 <PriceDisplay value={payableTotal} className="font-semibold text-deep" />
-              </div>
+              </div> */}
               <div className="flex items-center justify-between">
                 <span>Shipping</span>
                 <span className="font-semibold text-deep">Free</span>
@@ -242,10 +242,10 @@ export default function CheckoutPage() {
             </div>
 
             <div className="mt-6 border-t border-foreground/10 pt-6">
-              <div className="flex items-center justify-between text-lg font-bold text-deep">
+              {/* <div className="flex items-center justify-between text-lg font-bold text-deep">
                 <span>Total</span>
                 <PriceDisplay value={payableTotal} />
-              </div>
+              </div> */}
 
               <button
                 type="button"

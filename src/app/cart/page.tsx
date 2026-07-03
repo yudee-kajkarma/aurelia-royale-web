@@ -115,7 +115,7 @@ export default function CartPage() {
                       <p className="mt-1 text-sm text-foreground/55">SKU {item.sku}</p>
                       <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-foreground/62">
                         <span>Quantity: {item.quantity}</span>
-                        <PriceDisplay value={item.price} className="text-lg font-bold text-gold" />
+                        {/* <PriceDisplay value={item.price} className="text-lg font-bold text-gold" /> */}
                       </div>
                     </div>
 
@@ -167,10 +167,10 @@ export default function CartPage() {
                 <span>Total items</span>
                 <span className="font-semibold text-deep">{count}</span>
               </div>
-              <div className="flex items-center justify-between">
+              {/* <div className="flex items-center justify-between">
                 <span>Subtotal</span>
                 <PriceDisplay value={payableTotal} className="font-semibold text-deep" />
-              </div>
+              </div> */}
               <div className="flex items-center justify-between">
                 <span>Shipping</span>
                 <span className="font-semibold text-deep">Free</span>
@@ -182,10 +182,10 @@ export default function CartPage() {
             </div>
 
             <div className="mt-6 border-t border-foreground/10 pt-6">
-              <div className="flex items-center justify-between text-lg font-bold text-deep">
+              {/* <div className="flex items-center justify-between text-lg font-bold text-deep">
                 <span>Total</span>
                 <PriceDisplay value={payableTotal} />
-              </div>
+              </div> */}
 
               <Link
                 href="/checkout"

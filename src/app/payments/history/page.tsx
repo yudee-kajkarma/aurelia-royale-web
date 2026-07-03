@@ -178,9 +178,9 @@ export default function PaymentHistoryPage() {
                   </div>
 
                   <div className="mt-5 flex flex-col gap-3 border-t border-foreground/10 pt-4 text-sm text-foreground/58 sm:flex-row sm:items-center sm:justify-between">
-                    <span>
+                    {/* <span>
                       Amount <PriceDisplay value={payment.amount} className="font-semibold text-deep" />
-                    </span>
+                    </span> */}
                     <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
                       <span>Updated {formatPaymentDate(payment.updatedAt)}</span>
                       <Link href={`/orders/${payment.orderId}`} className="font-bold text-deep transition hover:text-gold">
