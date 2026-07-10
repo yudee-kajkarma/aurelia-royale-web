@@ -6,6 +6,7 @@ import { ProductImage } from "@/components/shared/ProductImage";
 import { ProductPurchasePanel } from "../../../components/shop/ProductPurchasePanel";
 import { WishlistToggleButton } from "@/components/wishlist/WishlistToggleButton";
 import { ProductDetailsTabs } from "@/components/shop/ProductDetailsTabs";
+import { ComingSoonSignup } from "@/components/shop/ComingSoonSignup";
 import { ProductMediaGallery } from "@/components/shop/ProductMediaGallery";
 import {
     getProductBySlug,
@@ -164,10 +165,12 @@ export default async function ShopDetailsBySlugPage({
             </section>
 
             <section className="mx-auto grid max-w-7xl gap-12 px-6 py-16 sm:px-8 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:py-24">
-                <ProductMediaGallery
-                    title={product.title}
-                    items={galleryItems}
-                />
+                <div className="lg:sticky lg:top-28 lg:self-start">
+                    <ProductMediaGallery
+                        title={product.title}
+                        items={galleryItems}
+                    />
+                </div>
 
                 <div>
                     {reviewCount > 0 || averageRating > 0 ? (
@@ -281,6 +284,8 @@ export default async function ShopDetailsBySlugPage({
                             </dl>
                         </div>
                     ) : null}
+
+                    <ComingSoonSignup />
 
                     <ProductPurchasePanel productId={product.id} />
 

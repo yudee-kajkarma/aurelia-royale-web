@@ -18,21 +18,27 @@ const EDITIONS: Edition[] = [
         tag: "Timeless",
         title: "Classic Edition",
         description:
-            "Essential Diamond Jewelry Designed For Daily Brilliance. Timeless Elegance Meets Modern Sustainability.",
-    },
-    {
-        id: "rare",
-        tag: "Exclusive",
-        title: "Rare Edition",
-        description:
-            "Masterpieces Featuring Our Most Unique, Individually Grown Stones. Distinctly Rare, Uniquely Yours.",
+            "Timeless Diamond Jewelry Crafted For Effortless elegance.",
+        // description:
+        //     "Essential Diamond Jewelry Designed For Daily Brilliance. Timeless Elegance Meets Modern Sustainability.",
     },
     {
         id: "limited",
-        tag: "Signature",
+        tag: "Exclusive",
         title: "Limited Edition",
         description:
-            "Curated High-Jewelry Concepts, Strictly Numbered. Once Sold Out, These Diamond Designs Will Never Return.",
+            "Individually numbered creations. Once sold, never reproduced",
+        // description:
+        //     "Curated High-Jewelry Concepts, Strictly Numbered. Once Sold Out, These Diamond Designs Will Never Return.",
+    },
+    {
+        id: "rare",
+        tag: "Signature",
+        title: "Rare Edition",
+        description:
+            "One-of-a-Kind masterpieces Featuring Our finest Lab-Grown Diamonds.",
+        // description:
+        //     "Masterpieces Featuring Our Most Unique, Individually Grown Stones. Distinctly Rare, Uniquely Yours.",
     },
 ];
 
