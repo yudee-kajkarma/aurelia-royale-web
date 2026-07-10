@@ -78,11 +78,11 @@ export function ComingSoonSignup() {
                         onChange={(event) => setEmail(event.target.value)}
                         placeholder="Your E-Mail Address"
                         aria-label="Email address"
-                        className="font-jost h-14 flex-1 bg-transparent px-5 text-sm text-deep placeholder:text-deep/45 focus:outline-none"
+                        className="font-jost h-11 min-w-0 flex-1 bg-transparent px-3 text-xs text-deep placeholder:text-deep/45 focus:outline-none sm:h-14 sm:px-5 sm:text-sm"
                     />
                     <button
                         type="submit"
-                        className="font-jost inline-flex h-14 shrink-0 items-center justify-center bg-deep px-6 text-xs font-semibold uppercase tracking-[0.24em] text-white transition hover:bg-[#0a2e28] sm:px-8"
+                        className="font-jost inline-flex h-11 shrink-0 items-center justify-center whitespace-nowrap bg-deep px-4 text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#0a2e28] sm:h-14 sm:px-8 sm:text-xs sm:tracking-[0.24em]"
                     >
                         Notify Me
                     </button>
