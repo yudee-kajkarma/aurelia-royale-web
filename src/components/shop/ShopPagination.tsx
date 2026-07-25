@@ -1,9 +1,12 @@
+import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type ShopPaginationProps = {
     currentPage: number;
     totalPages: number;
-    onPageChange: (page: number) => void;
+    // Builds a crawlable href for a given page number so pagination uses real
+    // <a href> links (Google does not click JS pagination buttons).
+    hrefForPage: (page: number) => string;
     className?: string;
 };
 
@@ -29,7 +32,7 @@ function getPageItems(
 export function ShopPagination({
     currentPage,
     totalPages,
-    onPageChange,
+    hrefForPage,
     className = "",
 }: ShopPaginationProps) {
     if (totalPages <= 1) {
@@ -48,15 +51,23 @@ export function ShopPagination({
             aria-label="Pagination"
             className={`mt-14 flex flex-wrap items-center justify-center gap-2 ${className}`}
         >
-            <button
-                type="button"
-                onClick={() => canGoPrev && onPageChange(currentPage - 1)}
-                disabled={!canGoPrev}
-                className={`${baseTile} w-11 border border-deep/30 text-deep transition hover:border-gold hover:text-gold disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-deep/30 disabled:hover:text-deep`}
-                aria-label="Previous page"
-            >
-                <ChevronLeft size={16} strokeWidth={1.75} />
-            </button>
+            {canGoPrev ? (
+                <Link
+                    href={hrefForPage(currentPage - 1)}
+                    rel="prev"
+                    className={`${baseTile} w-11 border border-deep/30 text-deep hover:border-gold hover:text-gold`}
+                    aria-label="Previous page"
+                >
+                    <ChevronLeft size={16} strokeWidth={1.75} />
+                </Link>
+            ) : (
+                <span
+                    className={`${baseTile} w-11 border border-deep/30 text-deep opacity-40`}
+                    aria-hidden="true"
+                >
+                    <ChevronLeft size={16} strokeWidth={1.75} />
+                </span>
+            )}
 
             {pageItems.map((item, index) => {
                 if (item === "ellipsis") {
@@ -74,10 +85,9 @@ export function ShopPagination({
                 const active = item === currentPage;
 
                 return (
-                    <button
+                    <Link
                         key={item}
-                        type="button"
-                        onClick={() => onPageChange(item)}
+                        href={hrefForPage(item)}
                         className={
                             active
                                 ? `${baseTile} bg-deep text-gold`
@@ -87,19 +97,27 @@ export function ShopPagination({
                         aria-current={active ? "page" : undefined}
                     >
                         {String(item).padStart(2, "0")}
-                    </button>
+                    </Link>
                 );
             })}
 
-            <button
-                type="button"
-                onClick={() => canGoNext && onPageChange(currentPage + 1)}
-                disabled={!canGoNext}
-                className={`${baseTile} w-11 border border-deep/30 text-deep transition hover:border-gold hover:text-gold disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-deep/30 disabled:hover:text-deep`}
-                aria-label="Next page"
-            >
-                <ChevronRight size={16} strokeWidth={1.75} />
-            </button>
+            {canGoNext ? (
+                <Link
+                    href={hrefForPage(currentPage + 1)}
+                    rel="next"
+                    className={`${baseTile} w-11 border border-deep/30 text-deep hover:border-gold hover:text-gold`}
+                    aria-label="Next page"
+                >
+                    <ChevronRight size={16} strokeWidth={1.75} />
+                </Link>
+            ) : (
+                <span
+                    className={`${baseTile} w-11 border border-deep/30 text-deep opacity-40`}
+                    aria-hidden="true"
+                >
+                    <ChevronRight size={16} strokeWidth={1.75} />
+                </span>
+            )}
         </nav>
     );
 }

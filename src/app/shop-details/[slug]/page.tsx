@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Star } from "lucide-react";
@@ -8,6 +9,9 @@ import { WishlistToggleButton } from "@/components/wishlist/WishlistToggleButton
 import { ProductDetailsTabs } from "@/components/shop/ProductDetailsTabs";
 import { ComingSoonSignup } from "@/components/shop/ComingSoonSignup";
 import { ProductMediaGallery } from "@/components/shop/ProductMediaGallery";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { SITE_URL } from "@/config/site";
+import { breadcrumbSchema } from "@/lib/structured-data";
 import {
     getProductBySlug,
     getProductCategory,
@@ -18,6 +22,31 @@ import { reviewService } from "@/services/reviews/review.service";
 type ShopDetailsPageProps = {
     params: Promise<{ slug: string }>;
 };
+
+export async function generateMetadata({
+    params,
+}: ShopDetailsPageProps): Promise<Metadata> {
+    const { slug } = await params;
+    const response = await getProductBySlug(slug);
+
+    if (!response) {
+        return { title: "Product Not Found" };
+    }
+
+    const { product } = response;
+    const description = (product.description ?? "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .slice(0, 155);
+
+    return {
+        title: product.title,
+        description:
+            description ||
+            `Discover ${product.title} — fine lab-grown diamond jewelry by Aurelia Royale.`,
+        alternates: { canonical: `/shop-details/${product.slug}/` },
+    };
+}
 
 export default async function ShopDetailsBySlugPage({
     params,
@@ -142,6 +171,16 @@ export default async function ShopDetailsBySlugPage({
 
     return (
         <main className="min-h-screen overflow-x-clip bg-background">
+            <JsonLd
+                data={breadcrumbSchema([
+                    { name: "Home", url: `${SITE_URL}/` },
+                    { name: "Shop", url: `${SITE_URL}/shop/` },
+                    {
+                        name: product.title,
+                        url: `${SITE_URL}/shop-details/${product.slug}/`,
+                    },
+                ])}
+            />
             <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#EDE8DF]">
                 <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-3 px-6 py-20 sm:py-24 md:py-28">
                     <h1 className="font-cormorant text-5xl font-medium text-deep sm:text-6xl md:text-7xl">
@@ -173,7 +212,7 @@ export default async function ShopDetailsBySlugPage({
                 </div>
 
                 <div>
-                    {reviewCount > 0 || averageRating > 0 ? (
+                    {reviewCount > 0 ? (
                         <div className="flex items-center gap-3">
                             <div
                                 className="flex items-center gap-0.5 text-gold"

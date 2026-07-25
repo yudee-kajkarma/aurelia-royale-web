@@ -154,7 +154,7 @@ export default function WishlistPage() {
               </Link>
 
               <p className="mt-4 text-center text-xs uppercase tracking-[0.14em] text-foreground/42">
-                Curate your next Dalia order from your saved favorites
+                Curate your next Aurelia Royale order from your saved favorites
               </p>
             </div>
           </aside>

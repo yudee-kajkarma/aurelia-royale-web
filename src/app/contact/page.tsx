@@ -1,4 +1,13 @@
-﻿export default function ContactPage() {
+﻿import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Contact Us",
+    description:
+        "Get in touch with Aurelia Royale for enquiries about our fine lab-grown diamond jewelry, bespoke pieces, and client care.",
+    alternates: { canonical: "/contact/" },
+};
+
+export default function ContactPage() {
   return (
     <main className="min-h-screen overflow-x-clip bg-background">
       <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden">
@@ -72,7 +81,7 @@
 
         <div className="mt-8 overflow-hidden border border-black/15 bg-white">
           <iframe
-            title="Dalila Location Map"
+            title="Aurelia Royale Location Map"
             src="https://maps.google.com/maps?q=Dubai&t=&z=12&ie=UTF8&iwloc=&output=embed"
             className="h-[380px] w-full"
             loading="lazy"

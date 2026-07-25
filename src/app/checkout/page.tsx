@@ -98,7 +98,7 @@ export default function CheckoutPage() {
             <p className="text-sm font-bold uppercase tracking-[0.22em] text-foreground/45">Checkout</p>
             <h1 className="display-font mt-3 text-4xl text-deep sm:text-5xl">Review and Place Your Order</h1>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-foreground/65">
-              Confirm your bag contents and review delivery details before finalizing your Dalia order.
+              Confirm your bag contents and review delivery details before finalizing your Aurelia Royale order.
             </p>
           </div>
 
@@ -167,7 +167,7 @@ export default function CheckoutPage() {
                     </div>
 
                     <div className="mt-5 rounded-[22px] border border-foreground/10 bg-white p-4 text-sm leading-7 text-foreground/68">
-                      <p className="font-semibold text-deep">{user?.username ?? "Dalia Customer"}</p>
+                      <p className="font-semibold text-deep">{user?.username ?? "Aurelia Royale Customer"}</p>
                       <p>{user?.email ?? "No email available"}</p>
                       <p className="mt-3">`addressId` is supported in the order payload interface, but it is optional and is not sent until address selection is added.</p>
                     </div>

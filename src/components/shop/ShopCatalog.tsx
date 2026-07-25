@@ -185,16 +185,18 @@ export function ShopCatalog({
             <ShopPagination
                 currentPage={pagination.currentPage}
                 totalPages={pagination.totalPages}
-                onPageChange={(page) =>
-                    updateParams({
-                        page: String(
-                            Math.min(
-                                Math.max(1, page),
-                                pagination.totalPages,
-                            ),
-                        ),
-                    })
-                }
+                hrefForPage={(page) => {
+                    const clamped = Math.min(
+                        Math.max(1, page),
+                        pagination.totalPages,
+                    );
+                    const nextParams = new URLSearchParams(
+                        searchParams.toString(),
+                    );
+                    nextParams.set("page", String(clamped));
+                    const query = nextParams.toString();
+                    return query ? `${pathname}?${query}` : pathname;
+                }}
             />
 
             <AnimatePresence>

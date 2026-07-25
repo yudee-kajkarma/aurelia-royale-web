@@ -63,7 +63,7 @@ export default function CartPage() {
             <p className="text-sm font-bold uppercase tracking-[0.22em] text-foreground/45">Cart</p>
             <h1 className="display-font mt-3 text-4xl text-deep sm:text-5xl">Your Shopping Bag</h1>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-foreground/65">
-              Review your selected products, adjust quantities, and continue shopping with the Dalia collection.
+              Review your selected products, adjust quantities, and continue shopping with the Aurelia Royale collection.
             </p>
           </div>
 

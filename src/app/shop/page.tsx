@@ -1,5 +1,7 @@
+import type { Metadata } from "next";
 import { ShopCatalog } from "@/components/shop/ShopCatalog";
 import {
+    getCategoryDisplayLabel,
     getPrimaryShopCategories,
     resolveCategoryValue,
 } from "@/services/products/product-category";
@@ -18,6 +20,31 @@ type ShopPageProps = {
         sort?: string;
     }>;
 };
+
+export async function generateMetadata({
+    searchParams,
+}: ShopPageProps): Promise<Metadata> {
+    const params = await searchParams;
+    const category = params.category;
+
+    if (category) {
+        const label = getCategoryDisplayLabel(category);
+        return {
+            title: `${label} Jewelry`,
+            description: `Shop Aurelia Royale ${label.toLowerCase()} — fine lab-grown diamond ${label.toLowerCase()} crafted for timeless, sustainable elegance.`,
+            alternates: {
+                canonical: `/shop/?category=${encodeURIComponent(category)}`,
+            },
+        };
+    }
+
+    return {
+        title: "Shop Fine Jewelry",
+        description:
+            "Browse the full Aurelia Royale collection of lab-grown diamond rings, earrings, necklaces, bracelets, pendants and sets.",
+        alternates: { canonical: "/shop/" },
+    };
+}
 
 export default async function ShopPage({ searchParams }: ShopPageProps) {
     const params = await searchParams;

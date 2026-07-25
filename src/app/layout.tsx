@@ -13,6 +13,9 @@ import { PageTransition } from "@/components/layout/PageTransition";
 import { AuthProvider } from "@/providers/AuthProvider";
 import { CartProvider } from "@/providers/CartProvider";
 import { WishlistProvider } from "@/providers/WishlistProvider";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { SITE_URL } from "@/config/site";
+import { organizationSchema, websiteSchema } from "@/lib/structured-data";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -38,11 +41,16 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-    title: "Aurelia Royale - Luxury Jewelry Store",
+    metadataBase: new URL(SITE_URL),
+    title: {
+        default: "Aurelia Royale | Luxury Lab-Grown Diamond Jewelry",
+        template: "%s | Aurelia Royale",
+    },
     description:
-        "Aurelia Royale is a luxury jewelry store that offers a wide range of exquisite jewelry pieces, including rings, earrings, bracelets, and more. Discover our collection of fine jewelry crafted with precision and elegance.",
-    keywords: ["aurelia", "royale", "jewelry", "rings", "earrings", "bracelet"],
-    authors: [{ name: "yudee.dev" }],
+        "Aurelia Royale crafts fine lab-grown diamond jewelry — rings, earrings, necklaces, bracelets and more, designed for timeless elegance and sustainable luxury.",
+    alternates: {
+        canonical: "/",
+    },
 
     robots: {
         index: true,
@@ -68,6 +76,7 @@ export default function RootLayout({
                 id="top"
                 className="min-h-full flex flex-col  bg-background text-foreground"
             >
+                <JsonLd data={[organizationSchema(), websiteSchema()]} />
                 <Toaster
                     position="bottom-right"
                     theme="dark"

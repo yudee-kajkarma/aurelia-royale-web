@@ -5,6 +5,14 @@ import Vector2 from "@/assets/vector-2.png";
 import Vector3 from "@/assets/vector-3.png";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import { TestimonialSlider } from "@/components/home/TestimonialSlider";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "About Us",
+    description:
+        "Discover the Aurelia Royale story — our craftsmanship, heritage, and commitment to sustainable lab-grown diamond jewelry.",
+    alternates: { canonical: "/about/" },
+};
 
 export default function AboutPage() {
     return (
@@ -34,7 +42,7 @@ export default function AboutPage() {
 
                     <div className="mt-8 space-y-6 font-[family-name:var(--font-jost)] text-[1.05rem] font-light  text-[#3b3b3b]">
                         <p>
-                            At Aurelia Royal, elegance is more than a style — it
+                            At Aurelia Royale, elegance is more than a style — it
                             is a statement of timeless sophistication. Our
                             collection is crafted to celebrate modern luxury
                             through finely designed jewellery pieces that blend
@@ -46,7 +54,7 @@ export default function AboutPage() {
                             We believe jewellery should feel personal,
                             memorable, and effortlessly luxurious. From dazzling
                             statement rings to delicate necklaces and radiant
-                            earrings, Aurelia Royal brings together
+                            earrings, Aurelia Royale brings together
                             craftsmanship and premium aesthetics to create
                             pieces that elevate every occasion. Designed for the
                             modern muse, our creations embody luxury with a
@@ -75,7 +83,7 @@ export default function AboutPage() {
                 <div className="relative h-140 w-full">
                     <Image
                         src={AboutHero}
-                        alt="Model wearing Aurelia Royal jewellery"
+                        alt="Model wearing Aurelia Royale jewellery"
                         fill
                         sizes="(min-width: 1024px) 50vw, 100vw"
                         className="object-cover object-center"
