@@ -1,9 +1,7 @@
 import React from "react";
-import Image from "next/image";
 import { Metadata } from "next";
-import Link from "next/link";
-import { Check } from "lucide-react";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -210,6 +208,269 @@ const schemaMarkup = {
   ]
 };
 
+const articleSections: ArticleSection[] = [
+  {
+    content: [
+      {
+        type: "image",
+        src: "/images/blog/lab-grown-diamond-colour-grades-explained/28 (1).png",
+        alt: "Lab-grown diamond colour grades explained",
+        title: "Diamond Colour Grades",
+        caption: "Laboratory colour assessments compare loose diamonds face-down against calibrated master stones.",
+        priority: true,
+      },
+      {
+        type: "paragraph",
+        parts: [
+          { text: "Colour is one of the " },
+          { text: "4Cs used to describe diamond quality", href: "/blog/4cs-of-lab-grown-diamonds/" },
+          { text: ". In a colourless or near-colourless lab-grown diamond, the grade describes the absence or presence of a yellow, brown or grey body colour under controlled grading conditions. It does not describe coloured flashes of light, sparkle or fire." }
+        ]
+      },
+      {
+        type: "paragraph",
+        text: "Lab-grown and natural diamonds use the same basic D–Z colour scale when a laboratory assigns an individual letter grade. D represents the least observable body colour on that scale, while colour becomes progressively more apparent towards Z. However, the difference between neighbouring grades is subtle, and the highest letter grade is not automatically the best choice for every piece of jewellery."
+      },
+      {
+        type: "paragraph",
+        text: "The way a diamond appears once worn also depends on its cut, shape, size, setting and surrounding metal. That is why a useful buying decision considers both the laboratory information and the complete jewel."
+      },
+      {
+        type: "callout",
+        title: "Quick Answer",
+        text: "For diamonds in the normal colour range, the scale runs from D to Z: D–F (colourless), G–J (near-colourless), K–M (faint colour), N–R (very light colour), S–Z (light colour). A higher colour grade means less visible body colour—not more sparkle. Cut quality has a major influence on brightness and light return, so colour should never be assessed in isolation."
+      },
+      {
+        type: "table",
+        headers: ["Grade range", "Laboratory category", "What a buyer may notice"],
+        rows: [
+          ["D–F", "Colourless", "Very little body colour. Differences between adjacent grades are usually subtle and are easiest to identify in controlled comparison."],
+          ["G–J", "Near-colourless", "G and H often appear white face-up. I and J may show gentle warmth, particularly in larger stones, certain shapes or white-metal settings."],
+          ["K–M", "Faint colour", "Warmth is more readily noticeable and may be chosen deliberately for a softer appearance or to complement yellow or rose-toned metal."],
+          ["N–R", "Very light colour", "A distinct tint is usually apparent, although its appearance still changes with the setting and lighting."],
+          ["S–Z", "Light colour", "Yellow, brown or grey body colour is clearly present, but the diamond remains within the normal colour scale."]
+        ]
+      }
+    ]
+  },
+  {
+    heading: "1. How is a Lab-Grown Diamond’s Colour Graded?",
+    content: [
+      {
+        type: "paragraph",
+        text: "For a loose diamond receiving a D–Z grade, trained graders examine it in a standardised viewing environment and compare it with calibrated master stones. The diamond is normally positioned face-down and viewed through its side. This reduces the visual influence of its shape and face-up light performance, helping the grader focus on body colour."
+      },
+      {
+        type: "paragraph",
+        text: "Not every laboratory report currently presents lab-grown diamond colour in the same way. GIA’s current service for eligible colourless-to-near-colourless loose laboratory-grown diamonds classifies overall quality as Premium or Standard, rather than always presenting the traditional individual colour and clarity grades. IGI reports commonly provide a letter colour grade for eligible stones."
+      },
+      {
+        type: "paragraph",
+        parts: [
+          { text: "Our guides explain " },
+          { text: "how to read a lab-grown diamond certificate", href: "/blog/how-to-read-lab-grown-diamond-certificate/" },
+          { text: " and " },
+          { text: "what an IGI certificate means", href: "/blog/igi-certificate-for-lab-grown-diamond/" },
+          { text: "." }
+        ]
+      },
+      {
+        type: "image",
+        src: "/images/blog/lab-grown-diamond-colour-grades-explained/28 (2).png",
+        alt: "Inspecting loose diamond side profile under grading lamp",
+        title: "Loose Diamond Grading Environment",
+        caption: "Loose diamonds are viewed from the side under daylight-equivalent lighting to isolate body colour."
+      }
+    ]
+  },
+  {
+    heading: "2. Are D-Colour Lab-Grown Diamonds the Best?",
+    content: [
+      {
+        type: "paragraph",
+        text: "D is the highest grade on the normal colour scale, but \"best\" depends on what the wearer values. A buyer who wants the most colourless specification may prefer D–F. Another may see little practical difference between an F and a G once the diamond is set and choose to place more of the budget into cut, size or craftsmanship."
+      },
+      {
+        type: "bullet-list",
+        items: [
+          "D vs E vs F: All belong to the colourless group. Differences are highly subtle and require direct side-by-side loose comparison to distinguish.",
+          "G vs H colour: Sitting at the upper near-colourless tier, they look bright white face-up and represent a popular balance of value and appearance.",
+          "I vs J colour: Display a soft, warm tone that harmonises beautifully with yellow or rose gold setting mounts, avoiding white metal contrasts."
+        ],
+        itemsParts: [
+          [{ text: "D vs E vs F: ", bold: true }, { text: "All belong to the colourless group. Differences are highly subtle and require direct side-by-side loose comparison to distinguish." }],
+          [{ text: "G vs H colour: ", bold: true }, { text: "Sitting at the upper near-colourless tier, they look bright white face-up and represent a popular balance of value and appearance." }],
+          [{ text: "I vs J colour: ", bold: true }, { text: "Display a soft, warm tone that harmonises beautifully with yellow or rose gold setting mounts, avoiding white metal contrasts." }]
+        ]
+      },
+      {
+        type: "image",
+        src: "/images/blog/lab-grown-diamond-colour-grades-explained/28 (3).png",
+        alt: "Comparing colourless brilliant diamonds side by side",
+        title: "Colourless Diamond Comparison",
+        caption: "Colourless D, E, and F diamonds appear bright white face-up, with differences indistinguishable once set."
+      }
+    ]
+  },
+  {
+    heading: "3. What Affects Apparent Colour in Jewellery?",
+    content: [
+      {
+        type: "paragraph",
+        text: "Perceived colour in real-world wear conditions is shaped by multiple physical variables:"
+      },
+      {
+        type: "bullet-list",
+        items: [
+          "Diamond cut and light return: Excellent cutting produces bright reflections that help mask slight body color.",
+          "Diamond shape: Step cuts (emerald, Asscher) hold less light reflection, revealing color more than brilliant cuts. Elongated ovals can concentrate color tips.",
+          "Carat weight and size: Body color is easier to see across larger stones than in small accents.",
+          "Metal colour: White gold and platinum emphasize warmth, whereas yellow and rose golds harmonize with warmer grades.",
+          "Side stone matching: Harmony across rings is critical. Center stones can look warmer if paired with much whiter side diamonds."
+        ],
+        itemsParts: [
+          [{ text: "Diamond cut and light return: ", bold: true }, { text: "Excellent cutting produces bright reflections that help mask slight body color." }],
+          [{ text: "Diamond shape: ", bold: true }, { text: "Step cuts (emerald, Asscher) hold less light reflection, revealing color more than brilliant cuts. Elongated ovals can concentrate color tips." }],
+          [{ text: "Carat weight and size: ", bold: true }, { text: "Body color is easier to see across larger stones than in small accents." }],
+          [{ text: "Metal colour: ", bold: true }, { text: "White gold and platinum emphasize warmth, whereas yellow and rose golds harmonize with warmer grades." }],
+          [{ text: "Side stone matching: ", bold: true }, { text: "Harmony across rings is critical. Center stones can look warmer if paired with much whiter side diamonds." }]
+        ]
+      },
+      {
+        type: "image",
+        src: "/images/blog/lab-grown-diamond-colour-grades-explained/28 (4).png",
+        alt: "Warm near-colourless diamond in yellow gold shank setting",
+        title: "Warm Diamonds in Yellow Gold Settings",
+        caption: "Yellow or rose gold settings complement warmer, near-colourless diamonds beautifully."
+      }
+    ]
+  },
+  {
+    heading: "4. Fluorescence, CVD/HPHT, and Fancy Colours",
+    content: [
+      {
+        type: "paragraph",
+        parts: [
+          { text: "Fluorescence: ", bold: true },
+          { text: "Fluorescence describes a diamond’s reaction to UV radiation. It is noted separately on reports and does not automatically reduce beauty or quality." }
+        ]
+      },
+      {
+        type: "paragraph",
+        parts: [
+          { text: "CVD vs HPHT: ", bold: true },
+          { text: "Growth method does not determine colour. Diamonds grown by either CVD or HPHT can achieve the full D-to-Z color scale. Review " },
+          { text: "CVD vs HPHT comparison", href: "/blog/cvd-vs-hpht-lab-grown-diamonds/" },
+          { text: " for details." }
+        ]
+      },
+      {
+        type: "paragraph",
+        parts: [
+          { text: "Fancy Colours: ", bold: true },
+          { text: "Blue, pink, or yellow lab diamonds use a separate scale evaluating hue, tone, and saturation rather than colourlessness." }
+        ]
+      }
+    ]
+  },
+  {
+    heading: "How to Choose and Verify Colour",
+    content: [
+      {
+        type: "table",
+        headers: ["Step", "Action Plan"],
+        rows: [
+          ["1. Desired appearance", "Decide if you want icy-white reflection, soft warmth, or fancy colour tints."],
+          ["2. Setting metal selection", "Select setting metal (white gold, platinum, rose, or yellow gold) first."],
+          ["3. Shape and dimensions", "Inspect step cuts and elongated shapes more closely, since they display colour tints more easily."],
+          ["4. Prioritise cut quality", "Do not compromise cut proportions just to pay for an invisible paper color grade."],
+          ["5. Verify side-stone harmony", "Ensure side accents or halo borders are matched to within one colour group of the center stone."]
+        ]
+      },
+      {
+        type: "table",
+        headers: ["Colour Grade Verification Checklist"],
+        rows: [
+          ["Laboratory-grown origin is explicitly disclosed in the listing copy."],
+          ["Grading document is issued by a reputable laboratory like IGI or GIA."],
+          ["Individual center-stone grades are separate from accent ranges."],
+          ["Cut performance remains high to ensure optimal light reflection."],
+          ["The tone matches settings (white gold vs yellow/rose gold mounts)."],
+          ["Any post-growth treatment comments are reviewed on the certificate."],
+          ["Photographs and videos are recorded under neutral lighting."]
+        ]
+      },
+      {
+        type: "callout",
+        title: "Final Verdict",
+        theme: "gold-border",
+        text: "Lab-grown diamond colour grades provide a consistent way to describe body colour, but the grade is only one part of the finished jewel. D–F diamonds carry a colourless specification, G–J are near-colourless, and warmer colour becomes progressively more visible further down the scale. Aurelia Royale lists complete diamond parameters, matching premium center-stone grades, gold hallmarks, and detailed accent specifications."
+      },
+      {
+        type: "faq",
+        title: "Frequently Asked Questions",
+        items: [
+          {
+            question: "Are lab-grown diamonds graded for colour in the same way as natural diamonds?",
+            answer: "When an individual D–Z grade is assigned, the same colour scale and grading principles apply. Report formats and current services vary by laboratory, so buyers should read the specific report."
+          },
+          {
+            question: "What is the best colour for a lab-grown diamond?",
+            answer: "There is no single best grade. The right choice depends on the desired appearance, cut, shape, size, metal, setting and the buyer’s preferences."
+          },
+          {
+            question: "Is G colour good for a lab-grown diamond?",
+            answer: "G is at the upper end of the near-colourless category and often appears white face-up, especially with good cutting. Its appearance should still be checked in the intended shape, size and setting."
+          },
+          {
+            question: "Can you see the difference between D and F colour?",
+            answer: "The difference is usually subtle for an untrained viewer and is most readily assessed with loose stones placed side by side under controlled lighting."
+          },
+          {
+            question: "Does a higher colour grade sparkle more?",
+            answer: "No. Colour describes body colour, while cut quality and lighting strongly influence brightness, fire and scintillation."
+          },
+          {
+            question: "Does yellow gold make a diamond look yellow?",
+            answer: "Yellow metal can reflect warmth into a diamond, although the result depends on the design and prong colour. It can also make a warmer diamond look visually harmonious."
+          },
+          {
+            question: "Which diamond shapes show more colour?",
+            answer: "Colour perception varies by stone. Step-cut shapes and some elongated shapes may make warmth easier to notice than certain brilliant-cut designs, so the actual diamond should be evaluated."
+          },
+          {
+            question: "Do larger diamonds show more colour?",
+            answer: "Colour may be easier to observe across a larger visible area, so buyers choosing larger centre stones may compare grades more carefully."
+          },
+          {
+            question: "Is fluorescence the same as colour?",
+            answer: "No. Colour grades describe body colour under controlled conditions. Fluorescence describes a reaction to ultraviolet radiation and is reported separately."
+          },
+          {
+            question: "Are fancy-coloured lab-grown diamonds graded D to Z?",
+            answer: "Distinct fancy colours are evaluated using descriptions that consider hue, tone, saturation and distribution rather than being treated as simply lower D–Z grades."
+          },
+          {
+            question: "Can jewellery be colour graded after the diamond is set?",
+            answer: "It may be assessed if the setting permits, but metal and mounting can limit examination. A laboratory may give a range or qualified result rather than the precision possible for a loose diamond."
+          },
+          {
+            question: "Can CVD and HPHT diamonds have the same colour grade?",
+            answer: "Yes. CVD and HPHT describe growth processes, not predetermined colour levels. Diamonds produced by either method can receive a range of colour grades."
+          }
+        ]
+      },
+      {
+        type: "cta-banner",
+        title: "Find Your Ideal Diamond Tone",
+        subtitle: "Harmonious gold mounts, matched side accents, and verified laboratory D-to-Z color gradings. Shop now.",
+        shopHref: "/shop/",
+        contactHref: "/contact/"
+      }
+    ]
+  }
+];
+
 export default function Blog28Page() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
@@ -235,386 +496,7 @@ export default function Blog28Page() {
       </section>
 
       {/* Content Layout */}
-      <section className="mx-auto max-w-4xl px-6 py-16 md:py-24">
-        
-        {/* IMAGE 1: Featured Image */}
-        <div className="relative w-full h-[300px] md:h-[500px] mb-4 overflow-hidden rounded-lg shadow-xl">
-          <Image
-            src="/images/blog/lab-grown-diamond-colour-grades-explained/28 (1).png"
-            alt="Lab-grown diamond colour grades explained"
-            title="Diamond Colour Grades"
-            fill
-            priority
-            className="object-cover"
-          />
-        </div>
-        <p className="mt-2 text-xs font-jost italic text-[#5a5a5a] text-center mb-12 border-b border-[#e2dfd5] pb-6">
-          Laboratory colour assessments compare loose diamonds face-down against calibrated master stones.
-        </p>
-        
-        {/* Intro */}
-        <div className="font-jost text-lg font-light leading-relaxed text-[#3b3b3b] space-y-6 mb-12">
-          <p>
-            Colour is one of the <Link href="/blog/4cs-of-lab-grown-diamonds/" className="text-gold hover:underline">4Cs used to describe diamond quality</Link>. In a colourless or near-colourless lab-grown diamond, the grade describes the absence or presence of a yellow, brown or grey body colour under controlled grading conditions. It does not describe coloured flashes of light, sparkle or fire.
-          </p>
-          <p>
-            Lab-grown and natural diamonds use the same basic D–Z colour scale when a laboratory assigns an individual letter grade. D represents the least observable body colour on that scale, while colour becomes progressively more apparent towards Z. However, the difference between neighbouring grades is often subtle, and the highest letter grade is not automatically the best choice for every piece of jewellery.
-          </p>
-          <p>
-            The way a diamond appears once worn also depends on its cut, shape, size, setting and surrounding metal. That is why a useful buying decision considers both the laboratory information and the complete jewel.
-          </p>
-        </div>
-
-        {/* Quick Answer */}
-        <div className="bg-[#e8e5dc]/40 border-l-4 border-gold p-6 rounded-r-lg mb-12">
-          <h2 className="font-cormorant text-2xl font-semibold uppercase tracking-wider text-foreground mb-3">
-            Quick Answer
-          </h2>
-          <p className="font-jost text-base font-light text-[#3b3b3b] leading-relaxed">
-            For diamonds in the normal colour range, the scale runs from D to Z:
-          </p>
-          <ul className="mt-2 space-y-1 font-jost text-base font-medium text-[#153f35] list-disc pl-5">
-            <li><strong>D–F:</strong> colourless</li>
-            <li><strong>G–J:</strong> near-colourless</li>
-            <li><strong>K–M:</strong> faint colour</li>
-            <li><strong>N–R:</strong> very light colour</li>
-            <li><strong>S–Z:</strong> light colour</li>
-          </ul>
-          <p className="mt-4 font-jost text-sm font-light text-[#5a5a5a] leading-relaxed">
-            A higher colour grade means less visible body colour—not more sparkle. Cut quality has a major influence on brightness and light return, so colour should never be assessed in isolation. Read our guide to <Link href="/blog/lab-grown-diamond-cut-explained/" className="text-gold hover:underline">lab-grown diamond cut</Link> to understand the distinction.
-          </p>
-        </div>
-
-        {/* Section 1: The D-Z Scale Table */}
-        <div className="my-12">
-          <h2 className="font-cormorant text-3xl font-semibold uppercase tracking-wider mb-6">
-            The D–Z Diamond Colour Scale
-          </h2>
-          <div className="overflow-x-auto border border-[#e2dfd5] rounded-lg">
-            <table className="w-full text-left font-jost text-sm border-collapse">
-              <thead>
-                <tr className="bg-[#153f35] text-[#efefe8] font-semibold">
-                  <th className="p-4 border-b border-[#e2dfd5] uppercase tracking-wider">Grade range</th>
-                  <th className="p-4 border-b border-[#e2dfd5] uppercase tracking-wider">Laboratory category</th>
-                  <th className="p-4 border-b border-[#e2dfd5] uppercase tracking-wider">What a buyer may notice</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#e2dfd5] bg-surface text-[#3b3b3b]">
-                {[
-                  { r: "D–F", c: "Colourless", n: "Very little body colour. Differences between adjacent grades are usually subtle and are easiest to identify in controlled comparison." },
-                  { r: "G–J", c: "Near-colourless", n: "G and H often appear white face-up. I and J may show gentle warmth, particularly in larger stones, certain shapes or white-metal settings." },
-                  { r: "K–M", c: "Faint colour", n: "Warmth is more readily noticeable and may be chosen deliberately for a softer appearance or to complement yellow or rose-toned metal." },
-                  { r: "N–R", c: "Very light colour", n: "A distinct tint is usually apparent, although its appearance still changes with the setting and lighting." },
-                  { r: "S–Z", c: "Light colour", n: "Yellow, brown or grey body colour is clearly present, but the diamond remains within the normal colour scale." }
-                ].map((row, idx) => (
-                  <tr key={idx}>
-                    <td className="p-4 font-semibold text-foreground">{row.r}</td>
-                    <td className="p-4">{row.c}</td>
-                    <td className="p-4">{row.n}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-4 font-jost text-xs font-light text-[#5a5a5a] italic text-center">
-            These descriptions are guidance rather than a substitute for seeing the actual jewel. Screens, photography and ambient light can all alter colour perception.
-          </p>
-        </div>
-
-        {/* Section 2: How Colour is Graded */}
-        <h2 className="mt-16 mb-6 font-cormorant text-3xl md:text-4xl font-semibold leading-tight text-foreground uppercase tracking-wide border-t border-[#e2dfd5] pt-12">
-          1. How is a Lab-Grown Diamond’s Colour Graded?
-        </h2>
-
-        <div className="space-y-6 font-jost text-lg font-light leading-relaxed text-[#3b3b3b]">
-          <p>
-            For a loose diamond receiving a D–Z grade, trained graders examine it in a standardised viewing environment and compare it with calibrated master stones. The diamond is normally positioned face-down and viewed through its side. This reduces the visual influence of its shape and face-up light performance, helping the grader focus on body colour.
-          </p>
-          <p>
-            Not every laboratory report currently presents lab-grown diamond colour in the same way. GIA’s current service for eligible colourless-to-near-colourless loose laboratory-grown diamonds classifies overall quality as Premium or Standard, rather than always presenting the traditional individual colour and clarity grades. IGI reports commonly provide a letter colour grade for eligible stones.
-          </p>
-          <p>
-            Our guides explain <Link href="/blog/how-to-read-lab-grown-diamond-certificate/" className="text-gold hover:underline">how to read a lab-grown diamond certificate</Link> and <Link href="/blog/igi-certificate-for-lab-grown-diamond/" className="text-gold hover:underline">what an IGI certificate means</Link>.
-          </p>
-
-          {/* IMAGE 2: Grading lamp */}
-          <div className="relative w-full h-[280px] md:h-[450px] my-6 overflow-hidden rounded-lg shadow-lg border border-[#e2dfd5]">
-            <Image
-              src="/images/blog/lab-grown-diamond-colour-grades-explained/28 (2).png"
-              alt="Inspecting loose diamond side profile under grading lamp"
-              title="Loose Diamond Grading Environment"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <p className="mt-2 text-xs font-jost italic text-[#5a5a5a] text-center mb-8">
-            Loose diamonds are viewed from the side under daylight-equivalent lighting to isolate body colour.
-          </p>
-        </div>
-
-        {/* Section 3: Are D-colour diamonds the best? */}
-        <h2 className="mt-16 mb-6 font-cormorant text-3xl md:text-4xl font-semibold leading-tight text-[#153f35] uppercase tracking-wide border-t border-[#e2dfd5] pt-12">
-          2. Are D-Colour Lab-Grown Diamonds the Best?
-        </h2>
-
-        <div className="space-y-6 font-jost text-lg font-light leading-relaxed text-[#3b3b3b]">
-          <p>
-            D is the highest grade on the normal colour scale, but &quot;best&quot; depends on what the wearer values. A buyer who wants the most colourless specification may prefer D–F. Another may see little practical difference between an F and a G once the diamond is set and choose to place more of the budget into cut, size or craftsmanship.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-            <div className="bg-[#e8e5dc]/30 p-5 rounded-lg border border-[#e2dfd5]">
-              <h4 className="font-cormorant text-xl font-bold uppercase tracking-wider text-foreground mb-2">D vs E vs F</h4>
-              <p className="text-sm font-light text-[#5a5a5a]">All belong to the colourless group. Differences are highly subtle and require direct side-by-side loose comparison to distinguish.</p>
-            </div>
-            <div className="bg-[#e8e5dc]/30 p-5 rounded-lg border border-[#e2dfd5]">
-              <h4 className="font-cormorant text-xl font-bold uppercase tracking-wider text-foreground mb-2">G vs H colour</h4>
-              <p className="text-sm font-light text-[#5a5a5a]">Sitting at the upper near-colourless tier, they look bright white face-up and represent a popular balance of value and appearance.</p>
-            </div>
-            <div className="bg-[#e8e5dc]/30 p-5 rounded-lg border border-[#e2dfd5]">
-              <h4 className="font-cormorant text-xl font-bold uppercase tracking-wider text-foreground mb-2">I vs J colour</h4>
-              <p className="text-sm font-light text-[#5a5a5a]">Display a soft, warm tone that harmonises beautifully with yellow or rose gold setting mounts, avoiding white metal contrasts.</p>
-            </div>
-          </div>
-
-          {/* IMAGE 3: Colourless comparison */}
-          <div className="relative w-full h-[280px] md:h-[450px] my-6 overflow-hidden rounded-lg shadow-lg border border-[#e2dfd5]">
-            <Image
-              src="/images/blog/lab-grown-diamond-colour-grades-explained/28 (3).png"
-              alt="Comparing colourless brilliant diamonds side by side"
-              title="Colourless Diamond Comparison"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <p className="mt-2 text-xs font-jost italic text-[#5a5a5a] text-center mb-8">
-            Colourless D, E, and F diamonds appear bright white face-up, with differences indistinguishable once set.
-          </p>
-        </div>
-
-        {/* Section 4: What affects how diamond colour looks */}
-        <h2 className="mt-16 mb-6 font-cormorant text-3xl md:text-4xl font-semibold leading-tight text-foreground uppercase tracking-wide border-t border-[#e2dfd5] pt-12">
-          3. What Affects Apparent Colour in Jewellery?
-        </h2>
-
-        <div className="space-y-6 font-jost text-lg font-light leading-relaxed text-[#3b3b3b]">
-          <p>
-            Perceived colour in real-world wear conditions is shaped by multiple physical variables:
-          </p>
-          <ul className="space-y-4 text-sm font-light text-[#5a5a5a] pl-5 list-disc">
-            <li><strong>Diamond cut and light return:</strong> Excellent cutting produces bright reflections that help mask slight body color.</li>
-            <li><strong>Diamond shape:</strong> Step cuts (emerald, Asscher) hold less light reflection, revealing color more than brilliant cuts. Elongated ovals can concentrate color tips.</li>
-            <li><strong>Carat weight and size:</strong> Body color is easier to see across larger stones than in small accents.</li>
-            <li><strong>Metal colour:</strong> White gold and platinum emphasize warmth, whereas yellow and rose golds harmonize with warmer grades.</li>
-            <li><strong>Side stone matching:</strong> Harmony across rings is critical. Center stones can look warmer if paired with much whiter side diamonds.</li>
-          </ul>
-
-          {/* IMAGE 4: Gold shanks settings */}
-          <div className="relative w-full h-[280px] md:h-[450px] my-6 overflow-hidden rounded-lg shadow-lg border border-[#e2dfd5]">
-            <Image
-              src="/images/blog/lab-grown-diamond-colour-grades-explained/28 (4).png"
-              alt="Warm near-colourless diamond in yellow gold shank setting"
-              title="Warm Diamonds in Yellow Gold Settings"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <p className="mt-2 text-xs font-jost italic text-[#5a5a5a] text-center mb-8">
-            Yellow or rose gold settings complement warmer, near-colourless diamonds beautifully.
-          </p>
-        </div>
-
-        {/* Section 5: Fluorescence, CVD/HPHT & fancy colours */}
-        <h2 className="mt-16 mb-6 font-cormorant text-3xl md:text-4xl font-semibold leading-tight text-foreground uppercase tracking-wide border-t border-[#e2dfd5] pt-12">
-          4. Fluorescence, CVD/HPHT, and Fancy Colours
-        </h2>
-
-        <div className="space-y-6 font-jost text-lg font-light leading-relaxed text-[#3b3b3b]">
-          <p>
-            <strong>Fluorescence:</strong> Fluorescence describes a diamond’s reaction to UV radiation. It is noted separately on reports and does not automatically reduce beauty or quality.
-          </p>
-          <p>
-            <strong>CVD vs HPHT:</strong> Growth method does not determine colour. Diamonds grown by either CVD or HPHT can achieve the full D-to-Z color scale. Review <Link href="/blog/cvd-vs-hpht-lab-grown-diamonds/" className="text-gold hover:underline">CVD vs HPHT comparison</Link> for details.
-          </p>
-          <p>
-            <strong>Fancy Colours:</strong> Blue, pink, or yellow lab diamonds use a separate scale evaluating hue, tone, and saturation rather than colourlessness.
-          </p>
-        </div>
-
-        {/* Buyer Selection Guide */}
-        <div className="my-16">
-          <h2 className="font-cormorant text-3xl font-semibold uppercase tracking-wider mb-6">
-            How to Choose the Right Colour Grade
-          </h2>
-          <div className="overflow-x-auto border border-[#e2dfd5] rounded-lg">
-            <table className="w-full text-left font-jost text-sm border-collapse">
-              <thead>
-                <tr className="bg-[#153f35] text-[#efefe8] font-semibold">
-                  <th className="p-4 border-b border-[#e2dfd5] uppercase tracking-wider">Step</th>
-                  <th className="p-4 border-b border-[#e2dfd5] uppercase tracking-wider">Action Plan</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#e2dfd5] bg-surface text-[#3b3b3b]">
-                {[
-                  { s: "1. Desired appearance", a: "Decide if you want icy-white reflection, soft warmth, or fancy colour tints." },
-                  { s: "2. Setting metal selection", a: "Select setting metal (white gold, platinum, rose, or yellow gold) first." },
-                  { s: "3. Shape and dimensions", a: "Inspect step cuts and elongated shapes more closely, since they display colour tints more easily." },
-                  { s: "4. Prioritise cut quality", a: "Do not compromise cut proportions just to pay for an invisible paper color grade." },
-                  { s: "5. Verify side-stone harmony", a: "Ensure side accents or halo borders are matched to within one colour group of the center stone." }
-                ].map((row, idx) => (
-                  <tr key={idx}>
-                    <td className="p-4 font-semibold text-foreground">{row.s}</td>
-                    <td className="p-4">{row.a}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* Buyer Checklist */}
-        <div className="my-16">
-          <h2 className="font-cormorant text-3xl font-semibold uppercase tracking-wider mb-6">
-            Colour Grade Verification Checklist
-          </h2>
-          <div className="overflow-x-auto border border-[#e2dfd5] rounded-lg">
-            <table className="w-full text-left font-jost text-sm border-collapse">
-              <thead>
-                <tr className="bg-[#153f35] text-[#efefe8] font-semibold">
-                  <th className="p-4 border-b border-[#e2dfd5] uppercase tracking-wider">Before ordering, verify:</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#e2dfd5] bg-surface text-[#3b3b3b]">
-                {[
-                  "Laboratory-grown origin is explicitly disclosed in the listing copy.",
-                  "Grading document is issued by a reputable laboratory like IGI or GIA.",
-                  "Individual center-stone grades are separate from accent ranges.",
-                  "Cut performance remains high to ensure optimal light reflection.",
-                  "The tone matches settings (white gold vs yellow/rose gold mounts).",
-                  "Any post-growth treatment comments are reviewed on the certificate.",
-                  "Photographs and videos are recorded under neutral lighting."
-                ].map((item, idx) => (
-                  <tr key={idx}>
-                    <td className="p-4 flex items-center gap-3">
-                      <Check className="w-4 h-4 text-gold shrink-0" />
-                      <span>{item}</span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* Final Verdict Callout */}
-        <div className="bg-[#e8e5dc]/40 p-8 rounded-lg border border-[#e2dfd5] mb-20 font-jost text-lg font-light leading-relaxed text-[#3b3b3b]">
-          <h4 className="font-cormorant text-2xl font-medium text-foreground uppercase tracking-wide mb-3">
-            Final Verdict
-          </h4>
-          <p>
-            Lab-grown diamond colour grades provide a consistent way to describe body colour, but the grade is only one part of the finished jewel. D–F diamonds carry a colourless specification, G–J are near-colourless, and warmer colour becomes progressively more visible further down the scale.
-          </p>
-          <p className="mt-4">
-            Aurelia Royale lists complete diamond parameters, matching premium center-stone grades, gold hallmarks, and detailed accent specifications.
-          </p>
-        </div>
-
-        {/* FAQ Section using HTML5 <details> */}
-        <h2 className="mb-8 font-cormorant text-3xl md:text-4xl font-semibold leading-tight text-[#153f35] uppercase tracking-wide border-t border-[#e2dfd5] pt-12">
-          Frequently Asked Questions
-        </h2>
-        
-        <div className="space-y-4 mb-20">
-          {[
-            {
-              q: "Are lab-grown diamonds graded for colour in the same way as natural diamonds?",
-              a: "When an individual D–Z grade is assigned, the same colour scale and grading principles apply. Report formats and current services vary by laboratory, so buyers should read the specific report."
-            },
-            {
-              q: "What is the best colour for a lab-grown diamond?",
-              a: "There is no single best grade. The right choice depends on the desired appearance, cut, shape, size, metal, setting and the buyer’s preferences."
-            },
-            {
-              q: "Is G colour good for a lab-grown diamond?",
-              a: "G is at the upper end of the near-colourless category and often appears white face-up, especially with good cutting. Its appearance should still be checked in the intended shape, size and setting."
-            },
-            {
-              q: "Can you see the difference between D and F colour?",
-              a: "The difference is usually subtle for an untrained viewer and is most readily assessed with loose stones placed side by side under controlled lighting."
-            },
-            {
-              q: "Does a higher colour grade sparkle more?",
-              a: "No. Colour describes body colour, while cut quality and lighting strongly influence brightness, fire and scintillation."
-            },
-            {
-              q: "Does yellow gold make a diamond look yellow?",
-              a: "Yellow metal can reflect warmth into a diamond, although the result depends on the design and prong colour. It can also make a warmer diamond look visually harmonious."
-            },
-            {
-              q: "Which diamond shapes show more colour?",
-              a: "Colour perception varies by stone. Step-cut shapes and some elongated shapes may make warmth easier to notice than certain brilliant-cut designs, so the actual diamond should be evaluated."
-            },
-            {
-              q: "Do larger diamonds show more colour?",
-              a: "Colour may be easier to observe across a larger visible area, so buyers choosing larger centre stones may compare grades more carefully."
-            },
-            {
-              q: "Is fluorescence the same as colour?",
-              a: "No. Colour grades describe body colour under controlled conditions. Fluorescence describes a reaction to ultraviolet radiation and is reported separately."
-            },
-            {
-              q: "Are fancy-coloured lab-grown diamonds graded D to Z?",
-              a: "Distinct fancy colours are evaluated using descriptions that consider hue, tone, saturation and distribution rather than being treated as simply lower D–Z grades."
-            },
-            {
-              q: "Can jewellery be colour graded after the diamond is set?",
-              a: "It may be assessed if the setting permits, but metal and mounting can limit examination. A laboratory may give a range or qualified result rather than the precision possible for a loose diamond."
-            },
-            {
-              q: "Can CVD and HPHT diamonds have the same colour grade?",
-              a: "Yes. CVD and HPHT describe growth processes, not predetermined colour levels. Diamonds produced by either method can receive a range of colour grades."
-            }
-          ].map((faq, index) => (
-            <details
-              key={index}
-              className="group border border-[#e2dfd5] rounded-lg p-5 bg-surface open:bg-[#e8e5dc]/40 transition-all duration-300 [&_summary::-webkit-details-marker]:hidden"
-            >
-              <summary className="flex items-center justify-between font-cormorant text-xl md:text-2xl font-medium text-foreground cursor-pointer outline-none">
-                <span>{faq.q}</span>
-                <span className="ml-4 transition-transform duration-300 group-open:rotate-180 text-gold text-lg">▼</span>
-              </summary>
-              <p className="mt-4 font-jost text-sm font-light text-[#5a5a5a] leading-relaxed">
-                {faq.a}
-              </p>
-            </details>
-          ))}
-        </div>
-
-        {/* CTA Conversion Banner */}
-        <div className="mt-20 bg-[#153f35] text-[#efefe8] p-10 rounded-lg text-center shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full blur-2xl"></div>
-          <h3 className="font-cormorant text-3xl md:text-4xl font-medium tracking-wide mb-4">
-            Find Your Ideal Diamond Tone
-          </h3>
-          <p className="font-jost text-sm font-light text-[#efefe8]/80 max-w-xl mx-auto mb-8 leading-relaxed">
-            Harmonious gold mounts, matched side accents, and verified laboratory D-to-Z color gradings. Shop now.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link
-              href="/shop/"
-              className="inline-block bg-gold text-[#031b16] font-jost text-xs font-semibold uppercase tracking-[0.2em] px-8 py-4 rounded hover:bg-gold/90 transition-colors duration-300"
-            >
-              Explore Collection
-            </Link>
-            <Link
-              href="/contact/"
-              className="inline-block border border-[#efefe8]/30 text-[#efefe8] font-jost text-xs font-semibold uppercase tracking-[0.2em] px-8 py-4 rounded hover:bg-[#efefe8] hover:text-[#031b16] transition-all duration-300"
-            >
-              Consult an Expert
-            </Link>
-          </div>
-        </div>
-
-      </section>
+      <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

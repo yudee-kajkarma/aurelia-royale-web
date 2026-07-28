@@ -1,9 +1,7 @@
 import React from "react";
-import Image from "next/image";
 import { Metadata } from "next";
-import Link from "next/link";
-import { Check } from "lucide-react";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -224,6 +222,221 @@ const schemaMarkup = {
   ]
 };
 
+const articleSections: ArticleSection[] = [
+  {
+    content: [
+      {
+        type: "image",
+        src: "/images/blog/do-lab-grown-diamonds-have-resale-value/19 (1).png",
+        alt: "Resale value of lab-grown diamonds guide",
+        title: "Understanding Resale Value",
+        caption: "While lab-grown diamonds can be resold, offers are heavily influenced by shifting manufacturing supplies.",
+        priority: true,
+      },
+      {
+        type: "paragraph",
+        text: "A lab-grown diamond does not become worthless immediately after it is purchased. It is genuine diamond material and can be offered for resale, trade-in or private purchase."
+      },
+      {
+        type: "paragraph",
+        text: "However, having resale value is not the same as retaining the original retail price."
+      },
+      {
+        type: "paragraph",
+        text: "Second-hand offers for lab-grown diamonds may be considerably below the amount originally paid. In some cases, the precious metal, craftsmanship or complete jewellery design may contribute more to an offer than the loose diamond itself."
+      },
+      {
+        type: "callout",
+        title: "Quick Answer",
+        text: "Lab-grown diamonds can have resale value, but they generally do not retain a high proportion of their original retail purchase price. Increasing production, falling prices for newly manufactured lab-grown diamonds and a less-developed second-hand market can reduce what professional buyers are willing to offer. Resale value depends on the current replacement cost, diamond size and quality, independent report, precious-metal content, brand, condition, design and selling method. A trade-in credit, insurance valuation and cash resale offer are different figures and should not be treated as interchangeable."
+      },
+      {
+        type: "table",
+        headers: ["Term", "What it usually means"],
+        rows: [
+          ["Retail price", "The amount paid when the jewellery was new"],
+          ["Replacement value", "Estimated cost of replacing the item through a comparable retailer"],
+          ["Insurance valuation", "A figure used for insurance purposes, not a guaranteed selling price"],
+          ["Cash resale offer", "Amount a buyer will pay immediately"],
+          ["Trade-in value", "Credit offered towards another purchase"],
+          ["Buyback value", "Amount offered under a seller’s stated repurchase programme"],
+          ["Private-sale price", "Amount another consumer may agree to pay"],
+          ["Scrap-metal value", "Value of recoverable precious metal, excluding design and retail costs"],
+          ["Auction estimate", "Expected selling range before fees, not a guaranteed result"]
+        ]
+      }
+    ]
+  },
+  {
+    heading: "1. Can You Resell a Lab-Grown Diamond?",
+    content: [
+      {
+        type: "paragraph",
+        text: "Yes. There is no physical or gemmological reason preventing a properly disclosed lab-grown diamond from being resold. You can sell through specialist diamond buyers, online resale platforms, private consumer transactions, or store upgrade credits."
+      },
+      {
+        type: "paragraph",
+        text: "The main challenge is finding a buyer actively trading lab diamonds. Some dealers do not buy second-hand lab diamonds because new stones are highly abundant, wholesale rates have fallen, and identification requires specialized equipment."
+      },
+      {
+        type: "paragraph",
+        parts: [
+          { text: "Retail vs Resale Margins: ", bold: true },
+          { text: "The original retail price pays for gold alloy, setting labor, hallmarking, store overheads, VAT, and marketing. A resale buyer does not refund these markup margins. They calculate current wholesale costs and deduct testing and listing risks." }
+        ]
+      },
+      {
+        type: "image",
+        src: "/images/blog/do-lab-grown-diamonds-have-resale-value/19 (2).png",
+        alt: "A professional jeweller assessing loose diamonds with tweezers",
+        title: "Dealer Assessment and Trade Valuation",
+        caption: "Professional second-hand dealers evaluate clarity, cut, and weight before proposing cash or trade-in rates."
+      }
+    ]
+  },
+  {
+    heading: "2. Why Are Lab-Grown Diamond Resale Offers Often Low?",
+    content: [
+      {
+        type: "paragraph",
+        parts: [
+          { text: "Declining Replacement Costs: ", bold: true },
+          { text: "Technology improvements and expanding manufacturing yields have lowered the wholesale cost of newly grown diamonds. Second-hand buyers match your diamond with today's trade replacement cost—not what you paid years ago." }
+        ]
+      },
+      {
+        type: "paragraph",
+        parts: [
+          { text: "Less Developed Secondary Markets: ", bold: true },
+          { text: "While natural diamond resale loops have existed for centuries, lab-grown secondary channels are young. Dealer margins are heavily influenced by shifting manufacturer outputs." }
+        ]
+      },
+      {
+        type: "image",
+        src: "/images/blog/do-lab-grown-diamonds-have-resale-value/19 (3).png",
+        alt: "Comparing loose round brilliant diamonds under diffused lighting",
+        title: "Comparing Replacement and Resale Prices",
+        caption: "Falling wholesale costs mean that dealers can source new inventory cheaply, affecting second-hand bids."
+      }
+    ]
+  },
+  {
+    heading: "3. Setting Value, Grading Reports, and Storage",
+    content: [
+      {
+        type: "paragraph",
+        parts: [
+          { text: "Value of Precious Metal: ", bold: true },
+          { text: "Often, the solid gold or platinum setting contributes the most predictable share of a second-hand offer. If a buyer values a piece only for scrap, they calculate melt value and exclude design markup." }
+        ]
+      },
+      {
+        type: "paragraph",
+        parts: [
+          { text: "Grading Certificates: ", bold: true },
+          { text: "Independent certificates (like GIA or IGI) help verify parameters, but they are description logs, not cash guarantees." }
+        ]
+      },
+      {
+        type: "table",
+        headers: ["Setting Resale Components", "Detail"],
+        rows: [
+          ["Precious Metal Content", "Solid hallmarked gold or platinum has intrinsic melt value."],
+          ["Centre Diamond Size", "Larger, well-cut reported stones attract more remarket interest."],
+          ["Design Wearability", "Classic designs (solitaires, tennis bracelets) resell faster than highly niche styles."]
+        ]
+      },
+      {
+        type: "image",
+        src: "/images/blog/do-lab-grown-diamonds-have-resale-value/19 (4).png",
+        alt: "Measuring gold alloy weight on a digital laboratory scale",
+        title: "Intrinsic Metal Value Calculation",
+        caption: "Solid precious metals like 18ct gold or platinum contribute recoverable melt value to finished designs."
+      },
+      {
+        type: "table",
+        headers: ["Resale Checklist for Buyers"],
+        rows: [
+          ["Buy lab-grown diamonds for visual enjoyment and use, not as investments."],
+          ["Collect all invoice slips, laboratory reports, and hallmark cards together."],
+          ["Verify gold and platinum purity marks (hallmarks) are stamped on the metal."],
+          ["Differentiate cash offers from trade-in credits or insurance replacement values."],
+          ["Obtain multiple quotes before allowing a dealer to unset your diamond."]
+        ]
+      },
+      {
+        type: "callout",
+        title: "Final Verdict",
+        theme: "gold-border",
+        parts: [
+          { text: "Lab-grown diamonds can be resold, but they should not be purchased with the assumption that they will retain their original retail price. Shifting trade supplies mean resale offers are often far below original costs. Treat lab-grown diamond jewellery as a beautiful, durable accessory to wear and enjoy, rather than a financial asset.\n\nContact Aurelia Royale for clear product specifications, independent reports, and straightforward purchase terms." }
+        ]
+      },
+      {
+        type: "faq",
+        title: "Frequently Asked Questions",
+        items: [
+          {
+            question: "Do lab-grown diamonds have any resale value?",
+            answer: "They can have resale value, but offers may be substantially below the original retail price."
+          },
+          {
+            question: "Can I sell a lab-grown diamond to a jeweller?",
+            answer: "Some jewellers purchase lab-grown diamonds, while others do not. Ask whether the business actively handles them before arranging an assessment."
+          },
+          {
+            question: "Why is lab-grown diamond resale value low?",
+            answer: "New production is readily available, wholesale prices have declined and the second-hand market is less developed than the market for mined diamonds."
+          },
+          {
+            question: "Does a grading report improve resale value?",
+            answer: "A verifiable report may improve identification and buyer confidence, but it does not guarantee a particular offer."
+          },
+          {
+            question: "Does the gold or platinum setting have value?",
+            answer: "Yes. Solid precious metal can contribute recoverable metal value, while design, craftsmanship and brand may add value if the piece is resold intact."
+          },
+          {
+            question: "Is an insurance valuation the same as resale value?",
+            answer: "No. Insurance valuations usually estimate replacement cost, while resale value reflects what a buyer will pay for a second-hand item."
+          },
+          {
+            question: "Is trade-in value the same as cash value?",
+            answer: "No. Trade-in value is usually store credit linked to another purchase and may be higher than an immediate cash offer."
+          },
+          {
+            question: "Can a lab-grown diamond retain its original price?",
+            answer: "It is possible but should not be expected. Changing replacement prices and growing supply can substantially reduce resale offers."
+          },
+          {
+            question: "Are larger lab-grown diamonds easier to resell?",
+            answer: "Not always. Demand, cut, colour, clarity, shape, transparency, documentation and current replacement price all matter."
+          },
+          {
+            question: "Can I sell lab-grown diamond earrings or a bracelet?",
+            answer: "Yes, although the offer may consider the entire piece, including metal, total diamond weight, construction, condition and demand."
+          },
+          {
+            question: "Where is the best place to sell a lab-grown diamond?",
+            answer: "Compare the original retailer, specialist buyers, independent jewellers, consignment and private-sale options. The best route depends on risk, speed and expected return."
+          },
+          {
+            question: "Should I buy a lab-grown diamond as an investment?",
+            answer: "Lab-grown diamonds are generally better viewed as jewellery for wear and enjoyment rather than assets guaranteed to appreciate."
+          }
+        ]
+      },
+      {
+        type: "cta-banner",
+        title: "Discover Quality with Integrity at Aurelia Royale",
+        subtitle: "Every piece is made with solid hallmarked metals and fully disclosed diamonds. Enjoy premium design built to last.",
+        shopHref: "/shop/",
+        contactHref: "/contact/"
+      }
+    ]
+  }
+];
+
 export default function Blog19Page() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
@@ -249,337 +462,11 @@ export default function Blog19Page() {
       </section>
 
       {/* Content Layout */}
-      <section className="mx-auto max-w-4xl px-6 py-16 md:py-24">
-        
-        {/* IMAGE 1: Featured Image */}
-        <div className="relative w-full h-[300px] md:h-[500px] mb-4 overflow-hidden rounded-lg shadow-xl">
-          <Image
-            src="/images/blog/do-lab-grown-diamonds-have-resale-value/19 (1).png"
-            alt="Resale value of lab-grown diamonds guide"
-            title="Understanding Resale Value"
-            fill
-            priority
-            className="object-cover"
-          />
-        </div>
-        <p className="mt-2 text-xs font-jost italic text-[#5a5a5a] text-center mb-12 border-b border-[#e2dfd5] pb-6">
-          While lab-grown diamonds can be resold, offers are heavily influenced by shifting manufacturing supplies.
-        </p>
-        
-        {/* Intro */}
-        <div className="font-jost text-lg font-light leading-relaxed text-[#3b3b3b] space-y-6 mb-12">
-          <p>
-            A lab-grown diamond does not become worthless immediately after it is purchased. It is genuine diamond material and can be offered for resale, trade-in or private purchase.
-          </p>
-          <p>
-            However, having resale value is not the same as retaining the original retail price.
-          </p>
-          <p>
-            Second-hand offers for lab-grown diamonds may be considerably below the amount originally paid. In some cases, the precious metal, craftsmanship or complete jewellery design may contribute more to an offer than the loose diamond itself.
-          </p>
-        </div>
-
-        {/* Quick Answer */}
-        <div className="bg-[#e8e5dc]/40 border-l-4 border-gold p-6 rounded-r-lg mb-12">
-          <h2 className="font-cormorant text-2xl font-semibold uppercase tracking-wider text-foreground mb-3">
-            Quick Answer
-          </h2>
-          <p className="font-jost text-base font-light text-[#3b3b3b] leading-relaxed">
-            Lab-grown diamonds can have resale value, but they generally do not retain a high proportion of their original retail purchase price.
-            Increasing production, falling prices for newly manufactured lab-grown diamonds and a less-developed second-hand market can reduce what professional buyers are willing to offer.
-            Resale value depends on the current replacement cost, diamond size and quality, independent report, precious-metal content, brand, condition, design and selling method. A trade-in credit, insurance valuation and cash resale offer are different figures and should not be treated as interchangeable.
-          </p>
-        </div>
-
-        {/* Resale terms buyers should understand table */}
-        <div className="my-16">
-          <h2 className="font-cormorant text-3xl font-semibold uppercase tracking-wider mb-6">
-            Resale Terms Buyers Should Understand
-          </h2>
-          <div className="overflow-x-auto border border-[#e2dfd5] rounded-lg">
-            <table className="w-full text-left font-jost text-sm border-collapse">
-              <thead>
-                <tr className="bg-[#153f35] text-[#efefe8] font-semibold">
-                  <th className="p-4 border-b border-[#e2dfd5] uppercase tracking-wider">Term</th>
-                  <th className="p-4 border-b border-[#e2dfd5] uppercase tracking-wider">What it usually means</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#e2dfd5] bg-surface text-[#3b3b3b]">
-                {[
-                  { t: "Retail price", m: "The amount paid when the jewellery was new" },
-                  { t: "Replacement value", m: "Estimated cost of replacing the item through a comparable retailer" },
-                  { t: "Insurance valuation", m: "A figure used for insurance purposes, not a guaranteed selling price" },
-                  { t: "Cash resale offer", m: "Amount a buyer will pay immediately" },
-                  { t: "Trade-in value", m: "Credit offered towards another purchase" },
-                  { t: "Buyback value", m: "Amount offered under a seller’s stated repurchase programme" },
-                  { t: "Private-sale price", m: "Amount another consumer may agree to pay" },
-                  { t: "Scrap-metal value", m: "Value of recoverable precious metal, excluding design and retail costs" },
-                  { t: "Auction estimate", m: "Expected selling range before fees, not a guaranteed result" }
-                ].map((row, idx) => (
-                  <tr key={idx}>
-                    <td className="p-4 font-semibold text-foreground">{row.t}</td>
-                    <td className="p-4">{row.m}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* Section 1: Can you resell? */}
-        <h2 className="mt-16 mb-6 font-cormorant text-3xl md:text-4xl font-semibold leading-tight text-foreground uppercase tracking-wide border-t border-[#e2dfd5] pt-12">
-          1. Can You Resell a Lab-Grown Diamond?
-        </h2>
-
-        <div className="space-y-6 font-jost text-lg font-light leading-relaxed text-[#3b3b3b]">
-          <p>
-            Yes. There is no physical or gemmological reason preventing a properly disclosed lab-grown diamond from being resold. You can sell through specialist diamond buyers, online resale platforms, private consumer transactions, or store upgrade credits.
-          </p>
-          <p>
-            The main challenge is finding a buyer actively trading lab diamonds. Some dealers do not buy second-hand lab diamonds because new stones are highly abundant, wholesale rates have fallen, and identification requires specialized equipment.
-          </p>
-          <p>
-            <strong>Retail vs Resale Margins:</strong> The original retail price pays for gold alloy, setting labor, hallmarking, store overheads, VAT, and marketing. A resale buyer does not refund these markup margins. They calculate current wholesale costs and deduct testing and listing risks.
-          </p>
-
-          {/* IMAGE 2: Tweezer assessments */}
-          <div className="relative w-full h-[280px] md:h-[450px] my-6 overflow-hidden rounded-lg shadow-lg border border-[#e2dfd5]">
-            <Image
-              src="/images/blog/do-lab-grown-diamonds-have-resale-value/19 (2).png"
-              alt="A professional jeweller assessing loose diamonds with tweezers"
-              title="Dealer Assessment and Trade Valuation"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <p className="mt-2 text-xs font-jost italic text-[#5a5a5a] text-center mb-8">
-            Professional second-hand dealers evaluate clarity, cut, and weight before proposing cash or trade-in rates.
-          </p>
-        </div>
-
-        {/* Section 2: Why are offers low? */}
-        <h2 className="mt-16 mb-6 font-cormorant text-3xl md:text-4xl font-semibold leading-tight text-foreground uppercase tracking-wide border-t border-[#e2dfd5] pt-12">
-          2. Why Are Lab-Grown Diamond Resale Offers Often Low?
-        </h2>
-
-        <div className="space-y-6 font-jost text-lg font-light leading-relaxed text-[#3b3b3b]">
-          <p>
-            <strong>Declining Replacement Costs:</strong> Technology improvements and expanding manufacturing yields have lowered the wholesale cost of newly grown diamonds. Second-hand buyers match your diamond with today&apos;s trade replacement cost—not what you paid years ago.
-          </p>
-          <p>
-            <strong>Less Developed Secondary Markets:</strong> While natural diamond resale loops have existed for centuries, lab-grown secondary channels are young. Dealer margins are heavily influenced by shifting manufacturer outputs.
-          </p>
-
-          {/* IMAGE 3: Diffused lighting comparison */}
-          <div className="relative w-full h-[280px] md:h-[450px] my-6 overflow-hidden rounded-lg shadow-lg border border-[#e2dfd5]">
-            <Image
-              src="/images/blog/do-lab-grown-diamonds-have-resale-value/19 (3).png"
-              alt="Comparing loose round brilliant diamonds under diffused lighting"
-              title="Comparing Replacement and Resale Prices"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <p className="mt-2 text-xs font-jost italic text-[#5a5a5a] text-center mb-8">
-            Falling wholesale costs mean that dealers can source new inventory cheaply, affecting second-hand bids.
-          </p>
-        </div>
-
-        {/* Section 3: Setting and components */}
-        <h2 className="mt-16 mb-6 font-cormorant text-3xl md:text-4xl font-semibold leading-tight text-foreground uppercase tracking-wide border-t border-[#e2dfd5] pt-12">
-          3. Setting Value, Grading Reports, and Storage
-        </h2>
-
-        <div className="space-y-6 font-jost text-lg font-light leading-relaxed text-[#3b3b3b]">
-          <p>
-            <strong>Value of Precious Metal:</strong> Often, the solid gold or platinum setting contributes the most predictable share of a second-hand offer. If a buyer values a piece only for scrap, they calculate melt value and exclude design markup.
-          </p>
-          <p>
-            <strong>Grading Certificates:</strong> Independent certificates (like GIA or IGI) help verify parameters, but they are description logs, not cash guarantees.
-          </p>
-          <div className="overflow-x-auto border border-[#e2dfd5] rounded-lg my-6">
-            <table className="w-full text-left font-jost text-sm border-collapse">
-              <thead>
-                <tr className="bg-[#153f35] text-[#efefe8] font-semibold">
-                  <th className="p-4 border-b border-[#e2dfd5] uppercase tracking-wider">Setting Resale Components</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#e2dfd5] bg-surface text-[#3b3b3b]">
-                {[
-                  { c: "Precious Metal Content", d: "Solid hallmarked gold or platinum has intrinsic melt value." },
-                  { c: "Centre Diamond Size", d: "Larger, well-cut reported stones attract more remarket interest." },
-                  { c: "Design Wearability", d: "Classic designs (solitaires, tennis bracelets) resell faster than highly niche styles." }
-                ].map((row, idx) => (
-                  <tr key={idx}>
-                    <td className="p-4">
-                      <strong className="text-foreground">{row.c}:</strong> <span className="font-light text-[#5a5a5a]">{row.d}</span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          {/* IMAGE 4: Scale weighting */}
-          <div className="relative w-full h-[280px] md:h-[450px] my-6 overflow-hidden rounded-lg shadow-lg border border-[#e2dfd5]">
-            <Image
-              src="/images/blog/do-lab-grown-diamonds-have-resale-value/19 (4).png"
-              alt="Measuring gold alloy weight on a digital laboratory scale"
-              title="Intrinsic Metal Value Calculation"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <p className="mt-2 text-xs font-jost italic text-[#5a5a5a] text-center mb-8">
-            Solid precious metals like 18ct gold or platinum contribute recoverable melt value to finished designs.
-          </p>
-        </div>
-
-        {/* Buyer Checklist */}
-        <div className="my-16">
-          <h2 className="font-cormorant text-3xl font-semibold uppercase tracking-wider mb-6">
-            Resale Checklist for Buyers
-          </h2>
-          <div className="overflow-x-auto border border-[#e2dfd5] rounded-lg">
-            <table className="w-full text-left font-jost text-sm border-collapse">
-              <thead>
-                <tr className="bg-[#153f35] text-[#efefe8] font-semibold">
-                  <th className="p-4 border-b border-[#e2dfd5] uppercase tracking-wider">When evaluating future value, remember:</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#e2dfd5] bg-surface text-[#3b3b3b]">
-                {[
-                  "Buy lab-grown diamonds for visual enjoyment and use, not as investments.",
-                  "Collect all invoice slips, laboratory reports, and hallmark cards together.",
-                  "Verify gold and platinum purity marks (hallmarks) are stamped on the metal.",
-                  "Differentiate cash offers from trade-in credits or insurance replacement values.",
-                  "Obtain multiple quotes before allowing a dealer to unset your diamond."
-                ].map((item, idx) => (
-                  <tr key={idx}>
-                    <td className="p-4 flex items-center gap-3">
-                      <Check className="w-4 h-4 text-gold shrink-0" />
-                      <span>{item}</span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* Final Verdict Callout */}
-        <div className="bg-[#e8e5dc]/40 p-8 rounded-lg border border-[#e2dfd5] mb-20 font-jost text-lg font-light leading-relaxed text-[#3b3b3b]">
-          <h4 className="font-cormorant text-2xl font-medium text-foreground uppercase tracking-wide mb-3">
-            Final Verdict
-          </h4>
-          <p>
-            Lab-grown diamonds can be resold, but they should not be purchased with the assumption that they will retain their original retail price. Shifting trade supplies mean resale offers are often far below original costs. Treat lab-grown diamond jewellery as a beautiful, durable accessory to wear and enjoy, rather than a financial asset.
-          </p>
-          <p className="mt-4">
-            Contact Aurelia Royale for clear product specifications, independent reports, and straightforward purchase terms.
-          </p>
-        </div>
-
-        {/* FAQ Section using HTML5 <details> */}
-        <h2 className="mb-8 font-cormorant text-3xl md:text-4xl font-semibold leading-tight text-[#153f35] uppercase tracking-wide border-t border-[#e2dfd5] pt-12">
-          Frequently Asked Questions
-        </h2>
-        
-        <div className="space-y-4 mb-20">
-          {[
-            {
-              q: "Do lab-grown diamonds have any resale value?",
-              a: "They can have resale value, but offers may be substantially below the original retail price."
-            },
-            {
-              q: "Can I sell a lab-grown diamond to a jeweller?",
-              a: "Some jewellers purchase lab-grown diamonds, while others do not. Ask whether the business actively handles them before arranging an assessment."
-            },
-            {
-              q: "Why is lab-grown diamond resale value low?",
-              a: "New production is readily available, wholesale prices have declined and the second-hand market is less developed than the market for mined diamonds."
-            },
-            {
-              q: "Does a grading report improve resale value?",
-              a: "A verifiable report may improve identification and buyer confidence, but it does not guarantee a particular offer."
-            },
-            {
-              q: "Does the gold or platinum setting have value?",
-              a: "Yes. Solid precious metal can contribute recoverable metal value, while design, craftsmanship and brand may add value if the piece is resold intact."
-            },
-            {
-              q: "Is an insurance valuation the same as resale value?",
-              a: "No. Insurance valuations usually estimate replacement cost, while resale value reflects what a buyer will pay for a second-hand item."
-            },
-            {
-              q: "Is trade-in value the same as cash value?",
-              a: "No. Trade-in value is usually store credit linked to another purchase and may be higher than an immediate cash offer."
-            },
-            {
-              q: "Can a lab-grown diamond retain its original price?",
-              a: "It is possible but should not be expected. Changing replacement prices and growing supply can substantially reduce resale offers."
-            },
-            {
-              q: "Are larger lab-grown diamonds easier to resell?",
-              a: "Not always. Demand, cut, colour, clarity, shape, transparency, documentation and current replacement price all matter."
-            },
-            {
-              q: "Can I sell lab-grown diamond earrings or a bracelet?",
-              a: "Yes, although the offer may consider the entire piece, including metal, total diamond weight, construction, condition and demand."
-            },
-            {
-              q: "Where is the best place to sell a lab-grown diamond?",
-              a: "Compare the original retailer, specialist buyers, independent jewellers, consignment and private-sale options. The best route depends on risk, speed and expected return."
-            },
-            {
-              q: "Should I buy a lab-grown diamond as an investment?",
-              a: "Lab-grown diamonds are generally better viewed as jewellery for wear and enjoyment rather than assets guaranteed to appreciate."
-            }
-          ].map((faq, index) => (
-            <details
-              key={index}
-              className="group border border-[#e2dfd5] rounded-lg p-5 bg-surface open:bg-[#e8e5dc]/40 transition-all duration-300 [&_summary::-webkit-details-marker]:hidden"
-            >
-              <summary className="flex items-center justify-between font-cormorant text-xl md:text-2xl font-medium text-foreground cursor-pointer outline-none">
-                <span>{faq.q}</span>
-                <span className="ml-4 transition-transform duration-300 group-open:rotate-180 text-gold text-lg">▼</span>
-              </summary>
-              <p className="mt-4 font-jost text-sm font-light text-[#5a5a5a] leading-relaxed">
-                {faq.a}
-              </p>
-            </details>
-          ))}
-        </div>
-
-        {/* CTA Conversion Banner */}
-        <div className="mt-20 bg-[#153f35] text-[#efefe8] p-10 rounded-lg text-center shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full blur-2xl"></div>
-          <h3 className="font-cormorant text-3xl md:text-4xl font-medium tracking-wide mb-4">
-            Discover Quality with Integrity at Aurelia Royale
-          </h3>
-          <p className="font-jost text-sm font-light text-[#efefe8]/80 max-w-xl mx-auto mb-8 leading-relaxed">
-            Every piece is made with solid hallmarked metals and fully disclosed diamonds. Enjoy premium design built to last.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link
-              href="/shop/"
-              className="inline-block bg-gold text-[#031b16] font-jost text-xs font-semibold uppercase tracking-[0.2em] px-8 py-4 rounded hover:bg-gold/90 transition-colors duration-300"
-            >
-              Explore Collection
-            </Link>
-            <Link
-              href="/contact/"
-              className="inline-block border border-[#efefe8]/30 text-[#efefe8] font-jost text-xs font-semibold uppercase tracking-[0.2em] px-8 py-4 rounded hover:bg-[#efefe8] hover:text-[#031b16] transition-all duration-300"
-            >
-              Consult an Expert
-            </Link>
-          </div>
-        </div>
-
-      </section>
+      <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />
     </main>
   );
 }
+
