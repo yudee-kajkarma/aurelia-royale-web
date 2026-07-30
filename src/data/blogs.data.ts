@@ -600,4 +600,204 @@ export const BLOGS_DATA: BlogPost[] = [
     excerpt: "Use this practical checklist to verify diamond origin, 4Cs, certification, carat weight, metal, setting, dimensions and workmanship before buying.",
     image: "/images/blog/what-to-check-before-buying-lab-grown-diamond-jewellery/1.jpg"
   },
+  {
+    slug: "how-to-choose-lab-grown-diamond-jewellery-set",
+    title: "How to Choose a Lab-Grown Diamond Jewellery Set",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "A coordinated diamond set should work together and separately. Learn how to verify every component, diamond total, dimension, metal and document before buying.",
+    image: "/images/blog/how-to-choose-lab-grown-diamond-jewellery-set/1.jpg"
+  },
+  {
+    slug: "buying-necklace-earring-set",
+    title: "Buying a Necklace and Earring Set: What to Check",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "A necklace and earring set should coordinate in scale, spacing and quality while remaining practical as two separate purchases. Use this complete buying checklist.",
+    image: "/images/blog/buying-necklace-earring-set/1.jpg"
+  },
+  {
+    slug: "compare-diamond-earring-designs",
+    title: "How to Compare Diamond Earring Designs",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Compare diamond studs, drops, hoops, huggies, clusters and climbers by scale, movement, weight, fastening, carat allocation and everyday wear.",
+    image: "/images/blog/compare-diamond-earring-designs/1.jpg"
+  },
+  {
+    slug: "compare-diamond-bracelet-designs",
+    title: "How to Compare Diamond Bracelet Designs",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Compare tennis, station, chain, bangle and cuff diamond bracelets by fit, movement, coverage, carat allocation, clasp security and certification.",
+    image: "/images/blog/compare-diamond-bracelet-designs/1.jpg"
+  },
+  {
+    slug: "compare-diamond-necklace-designs",
+    title: "How to Compare Diamond Necklace Designs",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Compare pendant, station, line, cluster and collar diamond necklaces by focal placement, coverage, movement, length, carat allocation and certification.",
+    image: "/images/blog/compare-diamond-necklace-designs/1.jpg"
+  },
+  {
+    slug: "coloured-stones-lab-grown-diamonds",
+    title: "Coloured Stones and Lab-Grown Diamonds Together",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Learn how coloured centre stones and lab-grown diamond accents work together through contrast, proportion, setting, disclosure, durability and care.",
+    image: "/images/blog/coloured-stones-lab-grown-diamonds/1.jpg"
+  },
+  {
+    slug: "buying-coloured-stone-diamond-jewellery",
+    title: "Buying Coloured-Stone Diamond Jewellery: Checklist",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Check gemstone identity, natural or laboratory-created status, treatments, colour, dimensions, diamond accents, metal, reports and care before buying.",
+    image: "/images/blog/buying-coloured-stone-diamond-jewellery/1.jpg"
+  },
+  {
+    slug: "care-coloured-stones-diamonds",
+    title: "How to Care for Coloured Stones and Diamonds",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Learn how to clean, wear and store coloured-stone and diamond jewellery safely by following the needs of its most sensitive component.",
+    image: "/images/blog/care-coloured-stones-diamonds/1.jpg"
+  },
+  {
+    slug: "coloured-centre-stones-vs-colourless-diamonds",
+    title: "Coloured Centre Stone vs Colourless Diamond",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Compare coloured centre stones and colourless diamond designs by colour, light, scale, metal, versatility, care and product transparency.",
+    image: "/images/blog/coloured-centre-stones-vs-colourless-diamonds/1.jpg"
+  },
+  {
+    slug: "diamond-accents-meaning",
+    title: "What Are Diamond Accents in Jewellery?",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Learn what diamond accents are, how they differ from centre and side stones, and which origin, carat-weight and quality details to check.",
+    image: "/images/blog/diamond-accents-meaning/1.jpg"
+  },
+  {
+    slug: "diamond-accents-jewellery-design",
+    title: "How Diamond Accents Affect Jewellery Design",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "See how halos, side accents, pavé and diamond lines change brightness, contrast, outline, movement and the apparent scale of jewellery.",
+    image: "/images/blog/diamond-accents-jewellery-design/1.jpg"
+  },
+  {
+    slug: "check-coloured-stone-natural-treated-lab-created",
+    title: "Is a Gemstone Natural, Treated or Lab-Created?",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Learn how to verify whether a coloured stone is natural, treated, laboratory-created or an imitation using disclosures and laboratory reports.",
+    image: "/images/blog/check-coloured-stone-natural-treated-lab-created/1.jpg"
+  },
+  {
+    slug: "coloured-stone-information-disclosure",
+    title: "Why Coloured-Stone Information Must Be Clear",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Learn why gemstone identity, natural or laboratory-created status, treatments, dimensions, care and report scope should be disclosed clearly.",
+    image: "/images/blog/coloured-stone-information-disclosure/1.jpg"
+  },
+  {
+    slug: "evaluate-coloured-stone-diamond-jewellery-online",
+    title: "How to Evaluate Coloured-Stone and Diamond Jewellery Online",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Learn how to assess coloured-stone and diamond jewellery online using specifications, accurate images, reports, scale, returns and seller checks.",
+    image: "/images/blog/evaluate-coloured-stone-diamond-jewellery-online/1.jpg"
+  },
+  {
+    slug: "questions-coloured-stone-diamond-jewellery",
+    title: "25 Questions Before Buying Gemstone Jewellery",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Ask these 25 questions about gemstone identity, treatments, diamonds, dimensions, reports, images, care, delivery, returns and warranty.",
+    image: "/images/blog/questions-coloured-stone-diamond-jewellery/1.jpg"
+  },
+  {
+    slug: "clean-lab-grown-diamond-jewellery",
+    title: "How to Clean Lab-Grown Diamond Jewellery",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Clean compatible lab-grown diamond jewellery safely using lukewarm water, mild soap, a soft brush and proper inspection—plus know when to stop.",
+    image: "/images/blog/clean-lab-grown-diamond-jewellery/1.jpg"
+  },
+  {
+    slug: "how-often-clean-diamond-jewellery",
+    title: "How Often Should Diamond Jewellery Be Cleaned?",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Daily-worn diamond jewellery may need gentle cleaning weekly or every few weeks, while occasional pieces can be cleaned when residue appears—if the complete item permits it.",
+    image: "/images/blog/how-often-clean-diamond-jewellery/1.jpg"
+  },
+  {
+    slug: "keep-lab-grown-diamond-jewellery-sparkling",
+    title: "How to Keep Lab-Grown Diamonds Sparkling",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Keep lab-grown diamond jewellery sparkling by preventing oil and product build-up, handling it correctly, cleaning safely and checking the setting.",
+    image: "/images/blog/keep-lab-grown-diamond-jewellery-sparkling/1.jpg"
+  },
+  {
+    slug: "store-diamond-jewellery",
+    title: "How to Store Diamond Jewellery Properly",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Learn how to store diamond rings, earrings, necklaces and bracelets safely using separate, padded spaces that prevent scratches and tangles.",
+    image: "/images/blog/store-diamond-jewellery/1.jpg"
+  },
+  {
+    slug: "prevent-jewellery-scratches",
+    title: "How to Prevent Jewellery from Scratching",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Prevent scratches on diamond, gold and coloured-stone jewellery with safer wearing, cleaning and storage habits—and learn when to seek repair.",
+    image: "/images/blog/prevent-jewellery-scratches/1.jpg"
+  },
+  {
+    slug: "wear-diamond-jewellery-in-shower",
+    title: "Can You Wear Diamond Jewellery in the Shower?",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "It is safer to remove diamond jewellery before showering. Learn how soap, products, slippery handling and mixed materials can affect the complete piece.",
+    image: "/images/blog/wear-diamond-jewellery-in-shower/1.jpg"
+  },
+  {
+    slug: "swim-wearing-diamond-jewellery",
+    title: "Can You Swim with Diamond Jewellery?",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Remove diamond jewellery before swimming. Learn how chlorine, salt water, sand, cold water, sunscreen and loss can affect rings, settings and stones.",
+    image: "/images/blog/swim-wearing-diamond-jewellery/1.jpg"
+  },
+  {
+    slug: "perfume-skincare-diamond-jewellery",
+    title: "Can Perfume or Skincare Damage Diamond Jewellery?",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Perfume, lotion, sunscreen and hairspray can dull diamonds or affect sensitive jewellery materials. Learn the correct order for products and jewellery.",
+    image: "/images/blog/perfume-skincare-diamond-jewellery/1.jpg"
+  },
+  {
+    slug: "check-diamond-jewellery-loose-stones",
+    title: "How to Check If a Diamond Is Loose",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Learn the safe warning signs of a loose diamond—movement, rattling, gaps and damaged prongs—and what to do before the stone is lost.",
+    image: "/images/blog/check-diamond-jewellery-loose-stones/1.jpg"
+  },
+  {
+    slug: "professional-diamond-jewellery-inspection",
+    title: "When Should Diamond Jewellery Be Professionally Inspected?",
+    date: "July 16, 2026",
+    author: "Aurelia Royale",
+    excerpt: "Frequently worn diamond jewellery commonly benefits from inspection every six to twelve months, but impact, movement, snagging or structural change requires immediate assessment.",
+    image: "/images/blog/professional-diamond-jewellery-inspection/1.jpg"
+  },
 ];
