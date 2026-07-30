@@ -211,7 +211,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/advantages-of-lab-grown-diamonds/17 (1).png",
+        src: "/images/blog/advantages-of-lab-grown-diamonds/17 (1).jpg",
         alt: "Advantages of choosing lab-grown diamond jewellery",
         title: "Buyer Advantages of Lab-Grown Diamonds",
         caption: "Laboratory-grown diamonds offer accessible pricing and design freedom without compromising diamond properties.",
@@ -280,7 +280,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/advantages-of-lab-grown-diamonds/17 (2).png",
+        src: "/images/blog/advantages-of-lab-grown-diamonds/17 (2).jpg",
         alt: "A selection of highly refractive loose round diamonds",
         title: "Refractive Brilliance and Hardness",
         caption: "Optically identical to natural diamonds, lab-grown diamonds rank 10 on the Mohs scale for superior scratch resistance."
@@ -313,7 +313,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/advantages-of-lab-grown-diamonds/17 (3).png",
+        src: "/images/blog/advantages-of-lab-grown-diamonds/17 (3).jpg",
         alt: "Stunning yellow and rose gold diamond pendant settings",
         title: "Precious Gold and Platinum Settings",
         caption: "Lower stone pricing lets buyers choose larger sizes, custom shapes, and sturdier gold or platinum settings."
@@ -346,7 +346,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/advantages-of-lab-grown-diamonds/17 (4).png",
+        src: "/images/blog/advantages-of-lab-grown-diamonds/17 (4).jpg",
         alt: "Inspecting diamond laser registration number on a certificate report",
         title: "Laser Registration and Grading Verification",
         caption: "GIA and IGI reports offer complete assessment data for loose lab-grown diamonds."

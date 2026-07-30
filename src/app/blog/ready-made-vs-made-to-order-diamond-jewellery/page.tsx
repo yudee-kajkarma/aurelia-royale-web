@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/ready-made-vs-made-to-order-diamond-jewellery/53 (1).png",
+        src: "/images/blog/ready-made-vs-made-to-order-diamond-jewellery/53 (1).jpg",
         alt: "Ready-made vs made-to-order diamond jewellery comparison",
         title: "Ready-Made vs Made-to-Order",
         caption: "Understanding the difference between ready-made and made-to-order helps you choose the right option.",
@@ -181,7 +181,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/ready-made-vs-made-to-order-diamond-jewellery/53 (2).png",
+        src: "/images/blog/ready-made-vs-made-to-order-diamond-jewellery/53 (2).jpg",
         alt: "Comparison of ready-made, made-to-order, custom and bespoke jewellery",
         title: "Jewellery Production Models",
         caption: "Understanding the differences between ready-made, made-to-order, custom and bespoke helps set realistic expectations.",
@@ -335,7 +335,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/ready-made-vs-made-to-order-diamond-jewellery/53 (3).png",
+        src: "/images/blog/ready-made-vs-made-to-order-diamond-jewellery/53 (3).jpg",
         alt: "Timeline comparison between ready-made and made-to-order jewellery production",
         title: "Production Timeline Comparison",
         caption: "Ready-made generally offers faster dispatch, while made-to-order requires production time.",
@@ -520,7 +520,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/ready-made-vs-made-to-order-diamond-jewellery/53 (4).png",
+        src: "/images/blog/ready-made-vs-made-to-order-diamond-jewellery/53 (4).jpg",
         alt: "Comparison worksheet for ready-made vs made-to-order jewellery",
         title: "Decision Worksheet",
         caption: "Use this worksheet to compare ready-made and made-to-order options before deciding.",

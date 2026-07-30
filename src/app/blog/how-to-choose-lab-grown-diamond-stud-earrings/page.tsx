@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-stud-earrings/61 (1).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-stud-earrings/61 (1).jpg",
         alt: "How to choose lab-grown diamond stud earrings - complete buying guide",
         title: "How to Choose Lab-Grown Diamond Stud Earrings",
         caption: "Lab-grown diamond studs require careful comparison of visible size, pair matching, setting, fastening and documentation.",
@@ -124,7 +124,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-stud-earrings/61 (2).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-stud-earrings/61 (2).jpg",
         alt: "Lab-grown diamond stud earring look guide by desired visibility",
         title: "Stud Earring Look Guide",
         caption: "Define the visual role before choosing a carat weight - subtle, balanced or prominent.",
@@ -407,7 +407,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-stud-earrings/61 (3).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-stud-earrings/61 (3).jpg",
         alt: "Lab-grown diamond stud earring setting types - prong, bezel, martini and halo",
         title: "Stud Earring Settings Compared",
         caption: "Different settings change the appearance, height, security and comfort of diamond studs.",
@@ -597,7 +597,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-stud-earrings/61 (4).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-stud-earrings/61 (4).jpg",
         alt: "Lab-grown diamond stud earring buying checklist",
         title: "Stud Earring Buying Checklist",
         caption: "Use this checklist to verify every aspect of lab-grown diamond stud earrings before ordering.",

@@ -217,7 +217,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/how-are-lab-grown-diamonds-made/31.png",
+        src: "/images/blog/how-are-lab-grown-diamonds-made/31.jpg",
         alt: "Laboratory-grown diamond seed preparation and growth apparatus",
         title: "How Lab-Grown Diamonds Are Made",
         caption: "Laboratory-grown diamonds are created from carbon through controlled technological processes starting with a seed.",
@@ -341,7 +341,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-are-lab-grown-diamonds-made/32.png",
+        src: "/images/blog/how-are-lab-grown-diamonds-made/32.jpg",
         alt: "HPHT diamond growth process diagram and equipment",
         title: "The HPHT Growth Process",
         caption: "High Pressure High Temperature (HPHT) reproduces the extreme heat and pressure of the earth to grow crystals."
@@ -375,7 +375,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-are-lab-grown-diamonds-made/33.png",
+        src: "/images/blog/how-are-lab-grown-diamonds-made/33.jpg",
         alt: "CVD diamond vacuum chamber layer-by-layer growth",
         title: "The CVD Growth Process",
         caption: "Chemical Vapour Deposition (CVD) grows diamonds layer by layer from carbon-rich plasma gas."
@@ -446,7 +446,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-are-lab-grown-diamonds-made/34.png",
+        src: "/images/blog/how-are-lab-grown-diamonds-made/34.jpg",
         alt: "Rough diamond crystal laser cutting and faceting process",
         title: "Cutting and Polishing Lab-Grown Diamonds",
         caption: "Laser technology and skilled craftsmanship transform the rough diamond crystal into a faceted gemstone."
@@ -503,7 +503,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/how-are-lab-grown-diamonds-made/35.png",
+        src: "/images/blog/how-are-lab-grown-diamonds-made/35.jpg",
         alt: "Buyer checklist for certified laboratory-grown diamond jewellery",
         title: "Buyer Checklist",
         caption: "Always verify the growth method, certifications and report numbers before choosing your diamond."

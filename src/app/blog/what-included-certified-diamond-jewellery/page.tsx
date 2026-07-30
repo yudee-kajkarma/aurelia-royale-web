@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/what-included-certified-diamond-jewellery/58 (1).png",
+        src: "/images/blog/what-included-certified-diamond-jewellery/58 (1).jpg",
         alt: "Certified diamond jewellery package with report, invoice and documentation",
         title: "What Comes with Certified Diamond Jewellery?",
         caption: "Certified diamond jewellery should arrive with a laboratory report, specification sheet, invoice, warranty and care guidance.",
@@ -134,7 +134,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/what-included-certified-diamond-jewellery/58 (2).png",
+        src: "/images/blog/what-included-certified-diamond-jewellery/58 (2).jpg",
         alt: "Comparison of different diamond jewellery report types and their coverage",
         title: "Diamond Jewellery Report Types Compared",
         caption: "Different report types cover different aspects of certified diamond jewellery.",
@@ -309,7 +309,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/what-included-certified-diamond-jewellery/58 (3).png",
+        src: "/images/blog/what-included-certified-diamond-jewellery/58 (3).jpg",
         alt: "Hallmark and precious-metal information for certified diamond jewellery",
         title: "Hallmark and Precious-Metal Details",
         caption: "Hallmark information should be included with certified diamond jewellery to verify metal fineness.",
@@ -511,7 +511,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/what-included-certified-diamond-jewellery/58 (4).png",
+        src: "/images/blog/what-included-certified-diamond-jewellery/58 (4).jpg",
         alt: "Certified diamond jewellery delivery checklist",
         title: "Certified Jewellery Delivery Checklist",
         caption: "Use this checklist to verify every document and component when certified diamond jewellery arrives.",

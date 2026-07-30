@@ -211,7 +211,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/are-lab-grown-diamonds-suitable-for-fine-jewellery/13 (1).png",
+        src: "/images/blog/are-lab-grown-diamonds-suitable-for-fine-jewellery/13 (1).jpg",
         alt: "Lab-grown diamond earrings, necklace and bracelet as fine jewellery",
         title: "Are Lab-Grown Diamonds Suitable for Fine Jewellery?",
         caption: "Laboratory-grown diamonds possess the physical properties and visual brilliance suitable for premium fine jewellery designs.",
@@ -286,7 +286,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/are-lab-grown-diamonds-suitable-for-fine-jewellery/13 (2).png",
+        src: "/images/blog/are-lab-grown-diamonds-suitable-for-fine-jewellery/13 (2).jpg",
         alt: "Cut and polished loose lab-grown diamonds in various shapes",
         title: "Faceted Diamond Cuts",
         caption: "Faceted and polished lab diamond crystals perform identically to mined diamonds under optical assessment."
@@ -317,7 +317,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/are-lab-grown-diamonds-suitable-for-fine-jewellery/13 (3).png",
+        src: "/images/blog/are-lab-grown-diamonds-suitable-for-fine-jewellery/13 (3).jpg",
         alt: "Securing lab-grown diamonds in premium solid gold and platinum settings",
         title: "Craftsmanship and Setting Security",
         caption: "Fine jewellery requires secure stone-setting, thick prongs, and legal hallmarks for precious metal verification."
@@ -356,7 +356,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/are-lab-grown-diamonds-suitable-for-fine-jewellery/13 (4).png",
+        src: "/images/blog/are-lab-grown-diamonds-suitable-for-fine-jewellery/13 (4).jpg",
         alt: "Matching lab-grown diamond line bracelets and anniversary rings",
         title: "Anniversary Rings and Tennis Bracelets",
         caption: "Careful diamond matching in colour, cut, and size ensures a cohesive, high-quality finished design."

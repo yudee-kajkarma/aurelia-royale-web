@@ -158,7 +158,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/carat-weight-vs-visible-diamond-size/31 (1).png",
+        src: "/images/blog/carat-weight-vs-visible-diamond-size/31 (1).jpg",
         alt: "Carat weight compared with visible diamond size",
         title: "Carat Weight and Size",
         caption: "Two diamonds carrying identical carat weights can display different visual sizes.",
@@ -278,7 +278,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/carat-weight-vs-visible-diamond-size/31 (2).png",
+        src: "/images/blog/carat-weight-vs-visible-diamond-size/31 (2).jpg",
         alt: "Comparing loose diamond depth profiles and facet cuts",
         title: "Diamond Depth and Silhouette Profiles",
         caption: "Total depth, girdle thickness, and crowns govern how much weight is distributed to the visible face-up outline."
@@ -309,7 +309,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/carat-weight-vs-visible-diamond-size/31 (3).png",
+        src: "/images/blog/carat-weight-vs-visible-diamond-size/31 (3).jpg",
         alt: "Stunning halo diamond ring on model finger",
         title: "Halo Setting Ring Coverage",
         caption: "Settings like halos or slim shank bands change the perceived scale and finger coverage."
@@ -335,7 +335,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/carat-weight-vs-visible-diamond-size/31 (4).png",
+        src: "/images/blog/carat-weight-vs-visible-diamond-size/31 (4).jpg",
         alt: "Measuring round brilliant diameter spread using millimeter caliper",
         title: "Caliper Spread Measurement",
         caption: "Verify the actual length, width, and diameter measurements on the grading report before buying."

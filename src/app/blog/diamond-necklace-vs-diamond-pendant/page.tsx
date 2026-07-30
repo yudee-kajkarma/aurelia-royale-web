@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/diamond-necklace-vs-diamond-pendant/70 (1).png",
+        src: "/images/blog/diamond-necklace-vs-diamond-pendant/70 (1).jpg",
         alt: "Diamond necklace vs diamond pendant comparison guide",
         title: "Diamond Necklace vs Diamond Pendant",
         caption: "Understand the difference between a complete diamond necklace and a suspended diamond pendant.",
@@ -142,7 +142,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/diamond-necklace-vs-diamond-pendant/70 (2).png",
+        src: "/images/blog/diamond-necklace-vs-diamond-pendant/70 (2).jpg",
         alt: "Diamond pendant types - removable, sliding and fixed",
         title: "Pendant Construction Types",
         caption: "Pendants can be removable, sliding or fixed into the necklace.",
@@ -381,7 +381,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/diamond-necklace-vs-diamond-pendant/70 (3).png",
+        src: "/images/blog/diamond-necklace-vs-diamond-pendant/70 (3).jpg",
         alt: "Necklace vs pendant comparison for layering",
         title: "Layering with Necklaces and Pendants",
         caption: "Consider complete length, pendant drop, chain gauge and movement when layering.",
@@ -471,9 +471,9 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/diamond-necklace-vs-diamond-pendant/70 (4).png",
+        src: "/images/blog/diamond-necklace-vs-diamond-pendant/70 (4).jpg",
         alt: "Necklace vs pendant product page checklist",
-        title: "Product Page Checklist",
+        title: "Necklace vs Pendant Checklist",
         caption: "Use this checklist to verify necklace and pendant product details before ordering.",
         priority: false
       },

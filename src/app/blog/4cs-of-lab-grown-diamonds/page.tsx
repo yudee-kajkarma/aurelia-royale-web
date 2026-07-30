@@ -208,7 +208,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/4cs-of-lab-grown-diamonds/26 (1).png",
+        src: "/images/blog/4cs-of-lab-grown-diamonds/26 (1).jpg",
         alt: "Cut, colour, clarity and carat characteristics of lab-grown diamonds",
         title: "The 4Cs of Lab-Grown Diamonds",
         caption: "Cut, colour, clarity, and carat weight define the standard quality framework for lab-grown diamonds.",
@@ -256,7 +256,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/4cs-of-lab-grown-diamonds/26 (2).png",
+        src: "/images/blog/4cs-of-lab-grown-diamonds/26 (2).jpg",
         alt: "Grading diamond facets reflection under light machinery",
         title: "Proportion and Facet Cut Assessment",
         caption: "A diamond's cut regulates fire, brightness, and scintillation, making it the most critical C."
@@ -276,7 +276,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/4cs-of-lab-grown-diamonds/26 (3).png",
+        src: "/images/blog/4cs-of-lab-grown-diamonds/26 (3).jpg",
         alt: "Comparing yellow gold claws with white platinum settings",
         title: "Apparent Colour and Setting Selection",
         caption: "Warmer near-colourless diamonds are complemented beautifully by yellow or rose gold settings."
@@ -296,7 +296,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/4cs-of-lab-grown-diamonds/26 (4).png",
+        src: "/images/blog/4cs-of-lab-grown-diamonds/26 (4).jpg",
         alt: "Mapping inclusions under micro zoom magnification",
         title: "Clarity Inclusion Mapping under Magnification",
         caption: "Visual checks help verify whether clarity inclusions are eye-clean to the unaided eye."

@@ -208,7 +208,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-cut-explained/27 (1).png",
+        src: "/images/blog/lab-grown-diamond-cut-explained/27 (1).jpg",
         alt: "Precision-cut lab-grown diamond showing balanced light return",
         title: "Precision Cut Lab Diamond",
         caption: "A precision-cut lab-grown diamond balances brightness, fire, and contrast to return light effectively.",
@@ -249,7 +249,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-cut-explained/27 (2).png",
+        src: "/images/blog/lab-grown-diamond-cut-explained/27 (2).jpg",
         alt: "Comparing diverse diamond outlines like round cushion and marquise",
         title: "Comparing Various Diamond Shapes",
         caption: "Diamond shape refers to outline silhouette; cut quality describes facet craftsmanship."
@@ -278,7 +278,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-cut-explained/27 (3).png",
+        src: "/images/blog/lab-grown-diamond-cut-explained/27 (3).jpg",
         alt: "Bright fire and light return dispersion through facets",
         title: "Light Fire and Dispersion",
         caption: "Fire separates white light into spectral colors, creating visible flashes as the stone moves."
@@ -331,7 +331,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-cut-explained/27 (4).png",
+        src: "/images/blog/lab-grown-diamond-cut-explained/27 (4).jpg",
         alt: "Checking oval diamond bow-tie pattern with magnification",
         title: "Oval Diamond Bow Tie Check",
         caption: "Elongated ovals or marquise stones must be inspected to ensure bow ties are not dark or distracting."

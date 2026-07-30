@@ -218,7 +218,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/lab-grown-vs-natural-diamonds/51.png",
+        src: "/images/blog/lab-grown-vs-natural-diamonds/51.jpg",
         alt: "Lab-grown and natural diamonds compared by origin and appearance",
         title: "Lab-Grown vs Natural Diamonds",
         caption: "Lab-grown and natural diamonds share the defining crystal structure but originate from different sources.",
@@ -323,7 +323,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/lab-grown-vs-natural-diamonds/52.png",
+        src: "/images/blog/lab-grown-vs-natural-diamonds/52.jpg",
         alt: "Comparing geological natural formation with advanced laboratory diamond reactors",
         title: "Origin and Formation Environments",
         caption: "Natural diamonds form over billions of years geologically, while lab diamonds grow in weeks technologically."
@@ -366,7 +366,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/lab-grown-vs-natural-diamonds/53.png",
+        src: "/images/blog/lab-grown-vs-natural-diamonds/53.jpg",
         alt: "Trained gemmologist comparing the fire and brilliance of natural and lab diamonds",
         title: "Comparing Polish and Sparkle",
         caption: "Both diamond types sparkle identically when cut to excellent proportions."
@@ -427,7 +427,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/lab-grown-vs-natural-diamonds/54.png",
+        src: "/images/blog/lab-grown-vs-natural-diamonds/54.jpg",
         alt: "Buyer checklist for selecting natural and laboratory-grown diamond jewellery",
         title: "Buyer Checklist",
         caption: "Verify the independent grading report, diamond measurements and metal settings before purchasing."

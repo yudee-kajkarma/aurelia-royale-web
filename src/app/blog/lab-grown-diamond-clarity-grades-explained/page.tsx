@@ -177,7 +177,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-clarity-grades-explained/29 (1).png",
+        src: "/images/blog/lab-grown-diamond-clarity-grades-explained/29 (1).jpg",
         alt: "Lab-grown diamond clarity grades explained",
         title: "Diamond Clarity Grades",
         caption: "Clarity grading checks loose diamonds under 10× magnification for internal inclusions and surface blemishes.",
@@ -250,7 +250,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-clarity-grades-explained/29 (2).png",
+        src: "/images/blog/lab-grown-diamond-clarity-grades-explained/29 (2).jpg",
         alt: "Inspecting inclusions under microscopes and magnification lenses",
         title: "Magnified Inclusions Check",
         caption: "Trained graders evaluate the size, number, position, and relief of inclusions using microscopes."
@@ -281,7 +281,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-clarity-grades-explained/29 (3).png",
+        src: "/images/blog/lab-grown-diamond-clarity-grades-explained/29 (3).jpg",
         alt: "HPHT diamond metallic remnants showing flux structures",
         title: "Metallic Flux remnants",
         caption: "Growth traits like metallic flux remnants can occur in controlled growth chambers."
@@ -311,7 +311,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-clarity-grades-explained/29 (4).png",
+        src: "/images/blog/lab-grown-diamond-clarity-grades-explained/29 (4).jpg",
         alt: "Looking at a clean diamond face-up at close distance",
         title: "Eye-Clean Solitaire Diamond",
         caption: "A carefully selected VS grade diamond looks completely eye-clean without magnification."

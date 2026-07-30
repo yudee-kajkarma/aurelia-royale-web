@@ -209,7 +209,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/igi-certificate-for-lab-grown-diamond/21 (1).png",
+        src: "/images/blog/igi-certificate-for-lab-grown-diamond/21 (1).jpg",
         alt: "Laboratory-grown diamond displayed beside an independent grading report",
         title: "What Is an IGI Certificate",
         caption: "An International Gemological Institute grading report provides independent assessment log data for lab-grown diamonds.",
@@ -284,7 +284,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/igi-certificate-for-lab-grown-diamond/21 (2).png",
+        src: "/images/blog/igi-certificate-for-lab-grown-diamond/21 (2).jpg",
         alt: "Comparing colour hue cards in controlled laboratory light",
         title: "Origin Verification and Screening",
         caption: "IGI uses professional screening machinery to distinguish diamond materials from simulants."
@@ -310,7 +310,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/igi-certificate-for-lab-grown-diamond/21 (3).png",
+        src: "/images/blog/igi-certificate-for-lab-grown-diamond/21 (3).jpg",
         alt: "Checking clarity inclusions map diagram on grading report",
         title: "Clarity Plots and Growth Comments",
         caption: "A report highlights clarity characteristics (inclusions) under 10x magnification alongside growth method comments."
@@ -343,7 +343,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/igi-certificate-for-lab-grown-diamond/21 (4).png",
+        src: "/images/blog/igi-certificate-for-lab-grown-diamond/21 (4).jpg",
         alt: "Reading microscopic inscription number on the girdle of a set ring",
         title: "Girdle Laser Inscription Verification",
         caption: "Verifying the microscopic laser inscription confirms that the physical diamond matches the grading report."

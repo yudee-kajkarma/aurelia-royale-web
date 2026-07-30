@@ -232,7 +232,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/are-lab-grown-diamonds-real/blog21.png",
+        src: "/images/blog/are-lab-grown-diamonds-real/blog21.jpg",
         alt: "Laboratory-grown diamond and finished fine jewellery",
         title: "Are Lab-Grown Diamonds Real?",
         caption: "Laboratory-grown diamonds have the essential properties associated with diamond but are created through a controlled technological process.",
@@ -314,7 +314,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/are-lab-grown-diamonds-real/blog22.png",
+        src: "/images/blog/are-lab-grown-diamonds-real/blog22.jpg",
         alt: "Crystal structure and composition of laboratory-grown diamonds",
         title: "What Makes Lab-Grown Diamonds Real",
         caption: "Pure carbon arranged in a tightly bonded diamond crystal structure determines its diamond nature."
@@ -370,7 +370,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/are-lab-grown-diamonds-real/blog23.png",
+        src: "/images/blog/are-lab-grown-diamonds-real/blog23.jpg",
         alt: "Lab-grown and natural diamond growth histories compared",
         title: "Lab-Grown vs Natural Diamonds",
         caption: "Lab-grown and natural diamonds share identical material properties but grow in different timescales and settings."
@@ -507,7 +507,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/are-lab-grown-diamonds-real/blog24.png",
+        src: "/images/blog/are-lab-grown-diamonds-real/blog24.jpg",
         alt: "Diamond tester device and laboratory verification of origin",
         title: "Lab-Grown Diamond Testing",
         caption: "Handheld testers check material properties, while advanced laboratory instruments verify geological origin."
@@ -545,7 +545,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/are-lab-grown-diamonds-real/blog25.png",
+        src: "/images/blog/are-lab-grown-diamonds-real/blog25.jpg",
         alt: "Buyer checklist for certified laboratory-grown diamond jewellery",
         title: "Lab-Grown Diamond Buying Checklist",
         caption: "Check certifications, cut grade, metal settings and seller documentation before buying."

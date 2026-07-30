@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/360-degree-jewellery-product-views/57 (1).png",
+        src: "/images/blog/360-degree-jewellery-product-views/57 (1).jpg",
         alt: "360-degree jewellery product view showing diamond ring rotation",
         title: "How 360-Degree Product Views Help Jewellery Buyers",
         caption: "A 360-degree view lets buyers inspect jewellery from every angle, revealing details hidden in still hero images.",
@@ -124,7 +124,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/360-degree-jewellery-product-views/57 (2).png",
+        src: "/images/blog/360-degree-jewellery-product-views/57 (2).jpg",
         alt: "Comparison of photographic 360 spin, rotation video and interactive 3D model formats",
         title: "360-Degree View Formats Compared",
         caption: "Different 360-degree technologies offer different strengths and limitations for jewellery inspection.",
@@ -257,7 +257,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/360-degree-jewellery-product-views/57 (3).png",
+        src: "/images/blog/360-degree-jewellery-product-views/57 (3).jpg",
         alt: "360-degree view of pendant showing bail, chain attachment and reverse details",
         title: "Inspecting Pendants with 360-Degree Views",
         caption: "A pendant rotation reveals bail shape, depth, reverse construction and chain attachment details.",
@@ -509,7 +509,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/360-degree-jewellery-product-views/57 (4).png",
+        src: "/images/blog/360-degree-jewellery-product-views/57 (4).jpg",
         alt: "360-degree jewellery view checklist for buyers",
         title: "360-View Checklist",
         caption: "Use this checklist to verify what a 360-degree jewellery view can and cannot show before buying online.",

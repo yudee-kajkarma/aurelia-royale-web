@@ -212,7 +212,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/questions-to-ask-before-buying-lab-grown-diamond/16 (1).png",
+        src: "/images/blog/questions-to-ask-before-buying-lab-grown-diamond/16 (1).jpg",
         alt: "Questions to ask before buying a lab-grown diamond",
         title: "Buying Checklist and Questions",
         caption: "Asking the right questions about loose diamonds and settings ensures a transparent, high-quality purchase.",
@@ -314,7 +314,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/questions-to-ask-before-buying-lab-grown-diamond/16 (2).png",
+        src: "/images/blog/questions-to-ask-before-buying-lab-grown-diamond/16 (2).jpg",
         alt: "Verifying laser inscription number on a diamond girdle under microscope",
         title: "Report and Laser Inscription Verification",
         caption: "Matching the microscopic girdle inscription to the independent laboratory report confirms the diamond's pedigree."
@@ -382,7 +382,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/questions-to-ask-before-buying-lab-grown-diamond/16 (3).png",
+        src: "/images/blog/questions-to-ask-before-buying-lab-grown-diamond/16 (3).jpg",
         alt: "Measuring the length and width of an oval lab-grown diamond",
         title: "Diamond Measurements and Ratios",
         caption: "Faceted dimensions differ from carat weight; check diameter, depth, and length-to-width ratios directly."
@@ -422,7 +422,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/questions-to-ask-before-buying-lab-grown-diamond/16 (4).png",
+        src: "/images/blog/questions-to-ask-before-buying-lab-grown-diamond/16 (4).jpg",
         alt: "Solid 18ct white gold ring mount showing hallmark details",
         title: "Prong Settings and Hallmarking",
         caption: "Confirm precious metal purity marks and choose lower-profile settings for a secure, regular-wear design."

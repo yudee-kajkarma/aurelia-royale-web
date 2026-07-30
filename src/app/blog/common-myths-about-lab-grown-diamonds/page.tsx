@@ -220,7 +220,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/common-myths-about-lab-grown-diamonds/15 (1).png",
+        src: "/images/blog/common-myths-about-lab-grown-diamonds/15 (1).jpg",
         alt: "Common lab-grown diamond myths and facts",
         title: "15 Lab-Grown Diamond Myths",
         caption: "Uncovering common misconceptions about lab-grown diamond authenticity, durability, and markets.",
@@ -315,7 +315,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/common-myths-about-lab-grown-diamonds/15 (2).png",
+        src: "/images/blog/common-myths-about-lab-grown-diamonds/15 (2).jpg",
         alt: "Examining loose diamonds under professional loupe magnification",
         title: "Visual inspection and authenticity",
         caption: "Laboratory-grown diamonds contain identical optical properties to natural diamonds; sight alone cannot differentiate their origins."
@@ -362,7 +362,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/common-myths-about-lab-grown-diamonds/15 (3).png",
+        src: "/images/blog/common-myths-about-lab-grown-diamonds/15 (3).jpg",
         alt: "CVD and HPHT growth seeds and technical chambers",
         title: "CVD and HPHT Technological Growth",
         caption: "Both chemical vapour deposition and high-pressure heating grow genuine diamond crystal from carbon seeds."
@@ -430,7 +430,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/common-myths-about-lab-grown-diamonds/15 (4).png",
+        src: "/images/blog/common-myths-about-lab-grown-diamonds/15 (4).jpg",
         alt: "Certified loose diamonds and grading reports details",
         title: "Grading Reports and Quality Disclosures",
         caption: "Independent grading reports verify critical measurements and quality nuances for larger diamonds."

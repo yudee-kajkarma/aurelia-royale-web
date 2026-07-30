@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-bracelet/65 (1).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-bracelet/65 (1).jpg",
         alt: "How to choose a lab-grown diamond bracelet - complete buying guide",
         title: "How to Choose a Lab-Grown Diamond Bracelet",
         caption: "Choose a lab-grown diamond bracelet by style, wrist fit, carat distribution, diamond quality, flexibility, clasp and metal.",
@@ -120,7 +120,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-bracelet/65 (2).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-bracelet/65 (2).jpg",
         alt: "Lab-grown diamond bracelet styles - tennis, station, bangle, cuff and motif",
         title: "Diamond Bracelet Styles Compared",
         caption: "Different bracelet styles offer different fit, flexibility and visual presence.",
@@ -301,7 +301,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-bracelet/65 (3).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-bracelet/65 (3).jpg",
         alt: "Diamond bracelet settings and flexibility guide",
         title: "Bracelet Settings and Flexibility",
         caption: "Inspect how bracelet links flex, settings are constructed and the bracelet forms a natural curve.",
@@ -433,7 +433,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-bracelet/65 (4).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-bracelet/65 (4).jpg",
         alt: "Lab-grown diamond bracelet buying checklist",
         title: "Diamond Bracelet Buying Checklist",
         caption: "Use this checklist to verify every aspect of a lab-grown diamond bracelet before ordering.",

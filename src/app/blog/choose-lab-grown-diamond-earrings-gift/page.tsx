@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/choose-lab-grown-diamond-earrings-gift/64 (1).png",
+        src: "/images/blog/choose-lab-grown-diamond-earrings-gift/64 (1).jpg",
         alt: "How to choose lab-grown diamond earrings as a gift - complete gift buying guide",
         title: "How to Choose Lab-Grown Diamond Earrings as a Gift",
         caption: "Choose lab-grown diamond earrings as a gift using the recipient's style, piercing, size, metal and fastening preferences.",
@@ -120,7 +120,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/choose-lab-grown-diamond-earrings-gift/64 (2).png",
+        src: "/images/blog/choose-lab-grown-diamond-earrings-gift/64 (2).jpg",
         alt: "Jewellery audit guide for choosing diamond earrings as a gift",
         title: "Five-Minute Jewellery Audit",
         caption: "Observe what the recipient already wears to make a confident earring gift choice.",
@@ -460,7 +460,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/choose-lab-grown-diamond-earrings-gift/64 (4).png",
+        src: "/images/blog/choose-lab-grown-diamond-earrings-gift/64 (4).jpg",
         alt: "Low-information gift strategy for choosing diamond earrings",
         title: "Low-Information Gift Strategy",
         caption: "When you have limited information, prioritize versatility and exchangeability over guessing a bold style.",
@@ -491,7 +491,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/choose-lab-grown-diamond-earrings-gift/64 (3).png",
+        src: "/images/blog/choose-lab-grown-diamond-earrings-gift/64 (3).jpg",
         alt: "Diamond earring gift buying checklist",
         title: "Gift-Buying Checklist",
         caption: "Use this checklist to choose lab-grown diamond earrings as a gift with confidence.",

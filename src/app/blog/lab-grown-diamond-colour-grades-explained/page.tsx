@@ -213,7 +213,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-colour-grades-explained/28 (1).png",
+        src: "/images/blog/lab-grown-diamond-colour-grades-explained/28 (1).jpg",
         alt: "Lab-grown diamond colour grades explained",
         title: "Diamond Colour Grades",
         caption: "Laboratory colour assessments compare loose diamonds face-down against calibrated master stones.",
@@ -276,7 +276,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-colour-grades-explained/28 (2).png",
+        src: "/images/blog/lab-grown-diamond-colour-grades-explained/28 (2).jpg",
         alt: "Inspecting loose diamond side profile under grading lamp",
         title: "Loose Diamond Grading Environment",
         caption: "Loose diamonds are viewed from the side under daylight-equivalent lighting to isolate body colour."
@@ -305,7 +305,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-colour-grades-explained/28 (3).png",
+        src: "/images/blog/lab-grown-diamond-colour-grades-explained/28 (3).jpg",
         alt: "Comparing colourless brilliant diamonds side by side",
         title: "Colourless Diamond Comparison",
         caption: "Colourless D, E, and F diamonds appear bright white face-up, with differences indistinguishable once set."
@@ -338,7 +338,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-colour-grades-explained/28 (4).png",
+        src: "/images/blog/lab-grown-diamond-colour-grades-explained/28 (4).jpg",
         alt: "Warm near-colourless diamond in yellow gold shank setting",
         title: "Warm Diamonds in Yellow Gold Settings",
         caption: "Yellow or rose gold settings complement warmer, near-colourless diamonds beautifully."

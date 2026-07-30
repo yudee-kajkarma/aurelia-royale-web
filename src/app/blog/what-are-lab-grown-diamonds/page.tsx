@@ -217,7 +217,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/what-are-lab-grown-diamonds/featured.png",
+        src: "/images/blog/what-are-lab-grown-diamonds/featured.jpg",
         alt: "Laboratory-grown diamond and finished fine jewellery",
         title: "What Are Lab-Grown Diamonds?",
         caption: "Laboratory-grown diamonds have the essential properties associated with diamond but are created through a controlled technological process.",
@@ -252,7 +252,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/what-are-lab-grown-diamonds/cvd-hpht-process.png",
+        src: "/images/blog/what-are-lab-grown-diamonds/cvd-hpht-process.jpg",
         alt: "CVD and HPHT lab-grown diamond creation methods compared",
         title: "How Lab-Grown Diamonds Are Made",
         caption: "CVD and HPHT use different controlled environments to grow a diamond crystal from a seed."
@@ -272,7 +272,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/what-are-lab-grown-diamonds/lab-vs-natural.png",
+        src: "/images/blog/what-are-lab-grown-diamonds/lab-vs-natural.jpg",
         alt: "Lab-grown and natural diamond origins compared",
         title: "Lab-Grown vs Natural Diamonds",
         caption: "Lab-grown and natural diamonds share essential diamond properties but have different origins."
@@ -303,7 +303,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/what-are-lab-grown-diamonds/certification.png",
+        src: "/images/blog/what-are-lab-grown-diamonds/certification.jpg",
         alt: "Laboratory-grown diamond grading and certificate verification",
         title: "Lab-Grown Diamond Certification",
         caption: "Certification can confirm laboratory-grown origin and document relevant quality characteristics."
@@ -329,7 +329,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/what-are-lab-grown-diamonds/buyer-checklist.png",
+        src: "/images/blog/what-are-lab-grown-diamonds/buyer-checklist.jpg",
         alt: "Lab-grown diamond jewellery buying checklist",
         title: "What to Check Before Buying Lab-Grown Diamond Jewellery",
         caption: "Origin, quality, metal, certification, availability and delivery information should be reviewed before ordering."

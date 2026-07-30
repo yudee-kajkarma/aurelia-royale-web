@@ -258,7 +258,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-vs-cubic-zirconia/7 (1).png",
+        src: "/images/blog/lab-grown-diamond-vs-cubic-zirconia/7 (1).jpg",
         alt: "Lab-grown diamond and cubic zirconia compared side by side",
         title: "Diamond vs CZ",
         caption: "A lab-grown diamond and cubic zirconia can both be transparent, colourless-looking and highly polished, but they are fundamentally different materials.",
@@ -458,7 +458,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-vs-cubic-zirconia/7 (2).png",
+        src: "/images/blog/lab-grown-diamond-vs-cubic-zirconia/7 (2).jpg",
         alt: "Faceted loose diamonds and cubic zirconia under magnification lens",
         title: "Visual Optics Comparison",
         caption: "Side-by-side checks reveal that diamond facets remain sharper and crisper compared to the glassier outline of cubic zirconia."
@@ -547,7 +547,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-vs-cubic-zirconia/7 (3).png",
+        src: "/images/blog/lab-grown-diamond-vs-cubic-zirconia/7 (3).jpg",
         alt: "A cloudy cubic zirconia ring next to a clean white gold diamond ring",
         title: "Cloudiness and Surface Wear",
         caption: "Microscopic scratches and hard-water film accumulate on CZ over time, causing it to lose its initial brilliance."
@@ -666,7 +666,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-vs-cubic-zirconia/7 (4).png",
+        src: "/images/blog/lab-grown-diamond-vs-cubic-zirconia/7 (4).jpg",
         alt: "A gold ring mount showing cubic zirconia set inside white gold prongs",
         title: "Mounting and Settings",
         caption: "While CZ can be set in precious gold mounts, it should never be represented as actual diamond jewellery."

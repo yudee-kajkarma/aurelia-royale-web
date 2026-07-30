@@ -218,7 +218,7 @@ const articleSections: ArticleSection[] = [
     "content": [
       {
         "type": "image",
-        "src": "/images/blog/are-lab-grown-diamonds-worth-buying/9 (1).png",
+        "src": "/images/blog/are-lab-grown-diamonds-worth-buying/9 (1).jpg",
         "alt": "Certified laboratory-grown diamond jewellery evaluated before purchase",
         "title": "Are Lab-Grown Diamonds Worth Buying?",
         "caption": "Laboratory-grown diamonds offer genuine diamond material with budget-friendly pricing.",
@@ -374,7 +374,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         "type": "image",
-        "src": "/images/blog/are-lab-grown-diamonds-worth-buying/9 (2).png",
+        "src": "/images/blog/are-lab-grown-diamonds-worth-buying/9 (2).jpg",
         "alt": "Inspecting the cut, clarity and symmetry of laboratory-grown diamond jewellery",
         "title": "Evaluating Diamond Quality",
         "caption": "Visual performance is determined by cut proportions and facet symmetry rather than stone origin."
@@ -394,7 +394,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         "type": "image",
-        "src": "/images/blog/are-lab-grown-diamonds-worth-buying/9 (3).png",
+        "src": "/images/blog/are-lab-grown-diamonds-worth-buying/9 (3).jpg",
         "alt": "Selecting precious metals and setting styles for laboratory diamonds",
         "title": "Design and Setting Flexibility",
         "caption": "Budget flexibility allows buyers to prioritize premium gold/platinum settings and larger stone accents."
@@ -435,7 +435,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         "type": "image",
-        "src": "/images/blog/are-lab-grown-diamonds-worth-buying/9 (4).png",
+        "src": "/images/blog/are-lab-grown-diamonds-worth-buying/9 (4).jpg",
         "alt": "Appraising lab diamond jewellery and checking grading reports",
         "title": "Resale and Financial Considerations",
         "caption": "Buyers should select diamond jewellery for its aesthetic appeal and wearability rather than financial investment returns."

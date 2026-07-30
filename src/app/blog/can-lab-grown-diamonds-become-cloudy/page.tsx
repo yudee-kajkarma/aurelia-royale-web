@@ -212,7 +212,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/can-lab-grown-diamonds-become-cloudy/12 (1).png",
+        src: "/images/blog/can-lab-grown-diamonds-become-cloudy/12 (1).jpg",
         alt: "Clear and cloudy-looking lab-grown diamonds compared",
         title: "Can Lab-Grown Diamonds Become Cloudy?",
         caption: "A lab-grown diamond should remain highly transparent; haziness is typically caused by surface deposits.",
@@ -298,7 +298,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/can-lab-grown-diamonds-become-cloudy/12 (2).png",
+        src: "/images/blog/can-lab-grown-diamonds-become-cloudy/12 (2).jpg",
         alt: "Removing skin creams and oil film from diamond jewellery surface",
         title: "Surface Contamination and Oils",
         caption: "Daily products like hand creams and soaps form a film that gathers dust, making the stone look milky."
@@ -332,7 +332,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/can-lab-grown-diamonds-become-cloudy/12 (3).png",
+        src: "/images/blog/can-lab-grown-diamonds-become-cloudy/12 (3).jpg",
         alt: "Examining microscopic pinpoint cloud inclusions inside a lab diamond",
         title: "Cloud Inclusions and Graining",
         caption: "Microscopic clouds and internal graining are growth-related features present from the beginning."
@@ -384,7 +384,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/can-lab-grown-diamonds-become-cloudy/12 (4).png",
+        src: "/images/blog/can-lab-grown-diamonds-become-cloudy/12 (4).jpg",
         alt: "Using soft toothbrush and mild soapy water to clean the diamond pavilion",
         title: "Cleaning the pavilion underside",
         caption: "Brushing the pavilion underside thoroughly removes hidden debris to restore transparency."

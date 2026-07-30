@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-ring/72 (1).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-ring/72 (1).jpg",
         alt: "How to choose a lab-grown diamond ring - complete buying guide",
         title: "How to Choose a Lab-Grown Diamond Ring",
         caption: "Choose a lab-grown diamond ring by balancing design, daily wear, fit and craftsmanship with the diamond's visible dimensions and quality.",
@@ -143,7 +143,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-ring/72 (2).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-ring/72 (2).jpg",
         alt: "Lab-grown diamond ring styles - solitaire, halo, three-stone, cluster, pavé band and eternity",
         title: "Ring Styles Compared",
         caption: "Different ring styles offer different visual effects and wearing experiences.",
@@ -237,7 +237,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-ring/72 (3).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-ring/72 (3).jpg",
         alt: "Diamond ring setting height and band proportions guide",
         title: "Ring Setting Height and Proportions",
         caption: "Setting height and band proportions affect wearability, comfort and pairing with other rings.",
@@ -476,7 +476,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-ring/72 (4).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-ring/72 (4).jpg",
         alt: "Lab-grown diamond ring buying checklist",
         title: "Ring Buying Checklist",
         caption: "Use this checklist to verify every aspect of a lab-grown diamond ring before ordering.",

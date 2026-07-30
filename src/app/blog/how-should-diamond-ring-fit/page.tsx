@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/how-should-diamond-ring-fit/74 (1).png",
+        src: "/images/blog/how-should-diamond-ring-fit/74 (1).jpg",
         alt: "How should a diamond ring fit - complete fit guide",
         title: "How Should a Diamond Ring Fit?",
         caption: "A well-fitted diamond ring sits securely and comfortably, passing the knuckle with gentle resistance.",
@@ -117,7 +117,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-should-diamond-ring-fit/74 (2).png",
+        src: "/images/blog/how-should-diamond-ring-fit/74 (2).jpg",
         alt: "Ring fit vs ring size - how they differ",
         title: "Fit vs Size",
         caption: "Ring size is a measurement; fit describes how the finished ring interacts with your finger.",
@@ -238,7 +238,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-should-diamond-ring-fit/74 (3).png",
+        src: "/images/blog/how-should-diamond-ring-fit/74 (3).jpg",
         alt: "Why top-heavy diamond rings tilt and solutions",
         title: "Top-Heavy Ring Solutions",
         caption: "Top-heavy rings may need sizing beads, wider bands or professional assessment to stay upright.",
@@ -499,7 +499,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-should-diamond-ring-fit/74 (4).png",
+        src: "/images/blog/how-should-diamond-ring-fit/74 (4).jpg",
         alt: "Diamond ring fit checklist",
         title: "Ring Fit Checklist",
         caption: "Use this checklist to test your diamond ring fit before the return window closes.",

@@ -218,7 +218,7 @@ const articleSections: ArticleSection[] = [
     "content": [
       {
         "type": "image",
-        "src": "/images/blog/lab-grown-diamond-vs-moissanite/61 (1).png",
+        "src": "/images/blog/lab-grown-diamond-vs-moissanite/61 (1).jpg",
         "alt": "Lab-grown diamond and moissanite compared side by side",
         "title": "Lab-Grown Diamond vs Moissanite",
         "caption": "Lab-grown diamonds and moissanite are two distinct gemstones with different compositions and optical properties.",
@@ -407,7 +407,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         "type": "image",
-        "src": "/images/blog/lab-grown-diamond-vs-moissanite/61 (2).png",
+        "src": "/images/blog/lab-grown-diamond-vs-moissanite/61 (2).jpg",
         "alt": "Silicon carbide moissanite gemstone alongside crystallised carbon lab diamond",
         "title": "Distinct Gemstone Compositions",
         "caption": "Diamond consists of pure carbon, while moissanite is composed of silicon carbide."
@@ -456,7 +456,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         "type": "image",
-        "src": "/images/blog/lab-grown-diamond-vs-moissanite/61 (3).png",
+        "src": "/images/blog/lab-grown-diamond-vs-moissanite/61 (3).jpg",
         "alt": "Demonstrating the double refraction of moissanite and single refraction of diamond",
         "title": "Comparing Refraction and Sparkle",
         "caption": "Moissanite's high dispersion creates colorful rainbow flashes, whereas diamond offers balanced brilliance."
@@ -549,7 +549,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         "type": "image",
-        "src": "/images/blog/lab-grown-diamond-vs-moissanite/61 (4).png",
+        "src": "/images/blog/lab-grown-diamond-vs-moissanite/61 (4).jpg",
         "alt": "Buyer verification checklist for lab-grown diamond and moissanite jewellery",
         "title": "Buyer Checklist",
         "caption": "Verify the physical dimensions, gemstone type, and independent certification details before buying."

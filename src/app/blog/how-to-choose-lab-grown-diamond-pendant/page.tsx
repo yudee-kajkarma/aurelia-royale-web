@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-pendant/71 (1).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-pendant/71 (1).jpg",
         alt: "How to choose a lab-grown diamond pendant - complete buying guide",
         title: "How to Choose a Lab-Grown Diamond Pendant",
         caption: "Choose a lab-grown diamond pendant by design, size, setting, chain compatibility, diamond quality, metal and certification.",
@@ -114,7 +114,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-pendant/71 (2).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-pendant/71 (2).jpg",
         alt: "Lab-grown diamond pendant styles - solitaire, halo, cluster, drop, motif and coloured stone",
         title: "Pendant Styles Compared",
         caption: "Different pendant styles offer different visual effects and wearing experiences.",
@@ -296,7 +296,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-pendant/71 (3).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-pendant/71 (3).jpg",
         alt: "Diamond pendant setting and construction guide",
         title: "Pendant Setting and Construction",
         caption: "Examine prongs, bezels, pavé and galleries to ensure secure construction.",
@@ -469,7 +469,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-pendant/71 (4).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-pendant/71 (4).jpg",
         alt: "Lab-grown diamond pendant buying checklist",
         title: "Pendant Buying Checklist",
         caption: "Use this checklist to verify every aspect of a lab-grown diamond pendant before ordering.",

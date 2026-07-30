@@ -209,7 +209,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/do-lab-grown-diamonds-need-certification/24 (1).png",
+        src: "/images/blog/do-lab-grown-diamonds-need-certification/24 (1).jpg",
         alt: "Large lab-grown diamond with a grading report beside smaller accent diamonds",
         title: "Need for Lab-Grown Diamond Certification",
         caption: "Independent grading reports document the quality parameters of large principal centre diamonds.",
@@ -258,7 +258,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/do-lab-grown-diamonds-need-certification/24 (2).png",
+        src: "/images/blog/do-lab-grown-diamonds-need-certification/24 (2).jpg",
         alt: "A consultant explaining product tags and disclosures to a buyer",
         title: "Compliance and Disclosure Guidelines",
         caption: "Disclosing laboratory origin remains a legal necessity even for uncertified accent gems."
@@ -282,7 +282,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/do-lab-grown-diamonds-need-certification/24 (3).png",
+        src: "/images/blog/do-lab-grown-diamonds-need-certification/24 (3).jpg",
         alt: "Comparing loose diamonds for custom ring setting design",
         title: "Comparing Loose Graded Diamonds",
         caption: "Reports are crucial for solitaire center stones to verify color, clarity, and cut parameters."
@@ -302,7 +302,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/do-lab-grown-diamonds-need-certification/24 (4).png",
+        src: "/images/blog/do-lab-grown-diamonds-need-certification/24 (4).jpg",
         alt: "A sparkling pavé diamond halo setting in a workshop mount",
         title: "Accent Diamond Settings",
         caption: "Melee accent diamonds used in pavé bands or halos are sorted and matched in groups."
@@ -385,7 +385,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/do-lab-grown-diamonds-need-certification/24 (5).png",
+        src: "/images/blog/do-lab-grown-diamonds-need-certification/24 (5).jpg",
         alt: "Checking gold fineness hallmark stamps with magnifier",
         title: "Precious Metal Hallmark Check",
         caption: "Verify official metal alloy purity hallmarks when buying uncertified accent jewelry."

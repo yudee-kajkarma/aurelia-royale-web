@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/how-should-diamond-bracelet-fit/66 (1).png",
+        src: "/images/blog/how-should-diamond-bracelet-fit/66 (1).jpg",
         alt: "How should a diamond bracelet fit - complete fit guide",
         title: "How Should a Diamond Bracelet Fit?",
         caption: "A diamond bracelet should move comfortably without sliding, twisting or pressing excessively.",
@@ -121,7 +121,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-should-diamond-bracelet-fit/66 (2).png",
+        src: "/images/blog/how-should-diamond-bracelet-fit/66 (2).jpg",
         alt: "Diamond bracelet fit guide by construction type - tennis, chain, bangle and cuff",
         title: "Bracelet Fit by Construction",
         caption: "Different bracelet constructions require different fit considerations and sizing methods.",
@@ -296,7 +296,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-should-diamond-bracelet-fit/66 (3).png",
+        src: "/images/blog/how-should-diamond-bracelet-fit/66 (3).jpg",
         alt: "Diamond bracelet clasp fit and safety mechanism guide",
         title: "Bracelet Clasp Fit",
         caption: "The clasp should close without tension and the safety mechanism should engage naturally.",
@@ -389,7 +389,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-should-diamond-bracelet-fit/66 (4).png",
+        src: "/images/blog/how-should-diamond-bracelet-fit/66 (4).jpg",
         alt: "Diamond bracelet fit testing checklist",
         title: "Bracelet Fit Testing Checklist",
         caption: "Use this checklist to test diamond bracelet fit safely at home.",

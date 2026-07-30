@@ -211,7 +211,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/are-lab-grown-diamonds-more-affordable/18 (1).png",
+        src: "/images/blog/are-lab-grown-diamonds-more-affordable/18 (1).jpg",
         alt: "Lab-grown and natural diamond affordability compared",
         title: "Affordability of Lab-Grown Diamonds",
         caption: "Laboratory-grown diamonds offer a highly accessible entry point to fine jewellery design.",
@@ -277,7 +277,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/are-lab-grown-diamonds-more-affordable/18 (2).png",
+        src: "/images/blog/are-lab-grown-diamonds-more-affordable/18 (2).jpg",
         alt: "A technician adjusting high pressure HPHT growth machinery",
         title: "HPHT Growth Machinery",
         caption: "Modern scalable growth technology helps reduce lab-grown production costs."
@@ -317,7 +317,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/are-lab-grown-diamonds-more-affordable/18 (3).png",
+        src: "/images/blog/are-lab-grown-diamonds-more-affordable/18 (3).jpg",
         alt: "Measuring loose brilliant round diamond dimensions",
         title: "Comparing Carat Weight and Proportions",
         caption: "Physical dimensions and cut quality must be aligned to make an accurate price comparison."
@@ -346,7 +346,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/are-lab-grown-diamonds-more-affordable/18 (4).png",
+        src: "/images/blog/are-lab-grown-diamonds-more-affordable/18 (4).jpg",
         alt: "Delicate gold tennis bracelet showing custom linked sections",
         title: "Finished Diamond Jewellery Construction",
         caption: "Final jewellery tags reflect gold mass, clasp construction, and setting craftsmanship."

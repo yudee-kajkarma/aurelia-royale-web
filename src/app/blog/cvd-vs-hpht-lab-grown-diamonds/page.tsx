@@ -218,7 +218,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/cvd-vs-hpht-lab-grown-diamonds/41.png",
+        src: "/images/blog/cvd-vs-hpht-lab-grown-diamonds/41.jpg",
         alt: "CVD and HPHT lab-grown diamond production methods compared",
         title: "CVD and HPHT Growth",
         caption: "CVD and HPHT are the two primary technical processes used to grow genuine diamond crystal inside laboratories.",
@@ -428,7 +428,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/cvd-vs-hpht-lab-grown-diamonds/42.png",
+        src: "/images/blog/cvd-vs-hpht-lab-grown-diamonds/42.jpg",
         alt: "Inspecting diamond crystal growth features under laboratory instruments",
         title: "Spectroscopic Inclusions Inspection",
         caption: "Trained laboratory gemmologists use professional tools to identify CVD or HPHT growth characteristics."
@@ -524,7 +524,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/cvd-vs-hpht-lab-grown-diamonds/43.png",
+        src: "/images/blog/cvd-vs-hpht-lab-grown-diamonds/43.jpg",
         alt: "Sparkling CVD and HPHT diamond rings placed together under soft light",
         title: "Sparkle and Brilliance Comparison",
         caption: "A diamond's brilliance is governed by its cut and symmetry, regardless of CVD or HPHT growth origins."
@@ -704,7 +704,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/cvd-vs-hpht-lab-grown-diamonds/44.png",
+        src: "/images/blog/cvd-vs-hpht-lab-grown-diamonds/44.jpg",
         alt: "Verified grading report next to CVD and HPHT lab-grown diamond collection",
         title: "Certificate Verification",
         caption: "Verify the independent report and check legal white gold white or platinum stamps before ordering."

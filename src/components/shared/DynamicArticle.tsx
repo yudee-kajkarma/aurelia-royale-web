@@ -163,23 +163,14 @@ const DynamicArticle: React.FC<DynamicArticleProps> = ({ sections }) => {
               }
 
               if (block.type === "image") {
-                const isFeatured = block.priority;
                 return (
                   <div key={bIdx} className="my-8">
-                    <div
-                      className={`relative w-full overflow-hidden rounded-lg shadow-lg border border-[#e2dfd5] ${
-                        isFeatured ? "h-[300px] md:h-[500px]" : "h-[280px] md:h-[450px]"
-                      }`}
-                    >
-                      <Image
-                        src={block.src}
-                        alt={block.alt}
-                        title={block.title || block.alt}
-                        fill
-                        priority={!!isFeatured}
-                        className="object-cover"
-                      />
-                    </div>
+                    <img
+                      src={block.src}
+                      alt={block.alt}
+                      title={block.title || block.alt}
+                      className="w-full h-auto rounded-lg shadow-lg border border-[#e2dfd5]"
+                    />
                     {block.caption && (
                       <p className="mt-2 text-xs font-jost italic text-[#5a5a5a] text-center">
                         {block.caption}

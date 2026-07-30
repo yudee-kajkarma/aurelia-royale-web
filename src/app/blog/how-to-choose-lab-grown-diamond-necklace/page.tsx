@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-necklace/68 (1).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-necklace/68 (1).jpg",
         alt: "How to choose a lab-grown diamond necklace - complete buying guide",
         title: "How to Choose a Lab-Grown Diamond Necklace",
         caption: "The right diamond necklace balances the stones with its chain, length, clasp and scale.",
@@ -120,7 +120,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-necklace/68 (2).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-necklace/68 (2).jpg",
         alt: "Lab-grown diamond necklace styles - pendant, solitaire, station, line, cluster and coloured-stone",
         title: "Diamond Necklace Styles Compared",
         caption: "Different necklace constructions offer different diamond distribution, visibility and wearing experiences.",
@@ -297,7 +297,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-necklace/68 (3).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-necklace/68 (3).jpg",
         alt: "Diamond necklace setting types - prong, bezel, halo and cluster",
         title: "Necklace Setting Types",
         caption: "Different settings affect diamond visibility, protection and the overall necklace appearance.",
@@ -450,7 +450,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-necklace/68 (4).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-necklace/68 (4).jpg",
         alt: "Lab-grown diamond necklace buying checklist",
         title: "Diamond Necklace Buying Checklist",
         caption: "Use this checklist to verify every component of a lab-grown diamond necklace before ordering.",

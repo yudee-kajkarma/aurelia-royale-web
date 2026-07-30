@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/select-right-size-diamond-earrings/63 (1).png",
+        src: "/images/blog/select-right-size-diamond-earrings/63 (1).jpg",
         alt: "How to select the right size diamond earrings - complete size guide",
         title: "How to Select the Right Size Diamond Earrings",
         caption: "Choose the right diamond earring size by comparing millimetres, carat weight, setting footprint and on-ear scale.",
@@ -150,7 +150,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/select-right-size-diamond-earrings/63 (2).png",
+        src: "/images/blog/select-right-size-diamond-earrings/63 (2).jpg",
         alt: "Diamond earring size guide - understanding pair-total carat weight",
         title: "Understanding Pair-Total Carat Weight",
         caption: "Earring carat weight is often stated as the combined total for both earrings - verify the per-ear distribution.",
@@ -281,7 +281,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/select-right-size-diamond-earrings/63 (3).png",
+        src: "/images/blog/select-right-size-diamond-earrings/63 (3).jpg",
         alt: "How different earring settings affect apparent size - prong, bezel, halo and cluster",
         title: "Setting Style and Apparent Size",
         caption: "Different settings create different finished footprints and can change how large an earring looks.",
@@ -449,7 +449,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/select-right-size-diamond-earrings/63 (4).png",
+        src: "/images/blog/select-right-size-diamond-earrings/63 (4).jpg",
         alt: "Diamond earring size selection checklist",
         title: "Diamond Earring Size Checklist",
         caption: "Use this checklist to verify diamond measurements, finished dimensions and on-ear scale before ordering.",

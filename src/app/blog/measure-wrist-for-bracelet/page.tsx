@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/measure-wrist-for-bracelet/67 (1).png",
+        src: "/images/blog/measure-wrist-for-bracelet/67 (1).jpg",
         alt: "Measuring wrist circumference for a diamond bracelet",
         title: "How to Measure Wrist Size",
         caption: "Wrap a flexible tape flat against your skin at the exact wearing position to find your wrist circumference.",
@@ -149,7 +149,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/measure-wrist-for-bracelet/67 (2).png",
+        src: "/images/blog/measure-wrist-for-bracelet/67 (2).jpg",
         alt: "Wrapping a flexible measuring tape flat against the wrist sitting position",
         title: "Snug Tape Measurement Check",
         caption: "Keep the measuring tape flat against the skin at the exact wearing position without pinching.",
@@ -220,7 +220,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/measure-wrist-for-bracelet/67 (3).png",
+        src: "/images/blog/measure-wrist-for-bracelet/67 (3).jpg",
         alt: "Measuring hand width for slip-on bangle sizing",
         title: "Bangle Knuckle Sizing",
         caption: "For a slip-on bangle, bring the thumb towards the little finger and measure around the widest knuckle area.",
@@ -360,7 +360,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/measure-wrist-for-bracelet/67 (4).png",
+        src: "/images/blog/measure-wrist-for-bracelet/67 (4).jpg",
         alt: "Keeping a record of wrist and hand dimensions for sizing",
         title: "Wrist Measurement Record Template",
         caption: "Keep a written template of your wrist, knuckle, and stack options to assist with custom orders.",

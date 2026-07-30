@@ -209,7 +209,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/how-lab-grown-diamonds-should-be-disclosed/20 (1).png",
+        src: "/images/blog/how-lab-grown-diamonds-should-be-disclosed/20 (1).jpg",
         alt: "A guide to clear laboratory-grown diamond descriptions and disclosures",
         title: "Disclosures and Nomenclature Guide",
         caption: "Clear descriptions should accompany lab-grown diamond products from adverts to checkout pages.",
@@ -277,7 +277,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-lab-grown-diamonds-should-be-disclosed/20 (2).png",
+        src: "/images/blog/how-lab-grown-diamonds-should-be-disclosed/20 (2).jpg",
         alt: "Checking CIBJO Blue Books rules and guidelines",
         title: "Compliance and Standards Nomenclature",
         caption: "CIBJO standards require transparent terminology to distinguish lab-grown diamonds from natural ones."
@@ -306,7 +306,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-lab-grown-diamonds-should-be-disclosed/20 (3).png",
+        src: "/images/blog/how-lab-grown-diamonds-should-be-disclosed/20 (3).jpg",
         alt: "Product title showing 1.00ct lab-grown diamond detail",
         title: "Transparent Product Title and Listing",
         caption: "Titles and descriptions must consistently state origin across catalogs, baskets, and receipts."
@@ -339,7 +339,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-lab-grown-diamonds-should-be-disclosed/20 (4).png",
+        src: "/images/blog/how-lab-grown-diamonds-should-be-disclosed/20 (4).jpg",
         alt: "Stating renewable energy and certificate terms clearly",
         title: "Grading Reports and Environmental Scope",
         caption: "A loose-stone grading report should match the girdle laser registration code exactly."

@@ -235,7 +235,7 @@ export default function Blog25Page() {
         {/* IMAGE 1: Featured Image */}
         <div className="relative w-full h-[300px] md:h-[500px] mb-4 overflow-hidden rounded-lg shadow-xl">
           <Image
-            src="/images/blog/diamond-certification-vs-jewellery-certification/25 (1).png"
+            src="/images/blog/diamond-certification-vs-jewellery-certification/25 (1).jpg"
             alt="Diamond grading report compared with a finished-jewellery report"
             title="Diamond vs Jewellery Reports"
             fill
@@ -315,7 +315,7 @@ export default function Blog25Page() {
           {/* IMAGE 2: Loose certificate plot */}
           <div className="relative w-full h-[280px] md:h-[450px] my-6 overflow-hidden rounded-lg shadow-lg border border-[#e2dfd5]">
             <Image
-              src="/images/blog/diamond-certification-vs-jewellery-certification/25 (2).png"
+              src="/images/blog/diamond-certification-vs-jewellery-certification/25 (2).jpg"
               alt="Checking clarity plot graph mapping details on loose-stone certificate"
               title="Loose Diamond Certificate Mapping"
               fill
@@ -343,7 +343,7 @@ export default function Blog25Page() {
           {/* IMAGE 3: Mounted check */}
           <div className="relative w-full h-[280px] md:h-[450px] my-6 overflow-hidden rounded-lg shadow-lg border border-[#e2dfd5]">
             <Image
-              src="/images/blog/diamond-certification-vs-jewellery-certification/25 (3).png"
+              src="/images/blog/diamond-certification-vs-jewellery-certification/25 (3).jpg"
               alt="Stating finished-jewellery report details with mounted diamonds"
               title="Finished Jewellery Mount Evaluation"
               fill
@@ -410,7 +410,7 @@ export default function Blog25Page() {
           {/* IMAGE 4: Hallmark card */}
           <div className="relative w-full h-[280px] md:h-[450px] my-6 overflow-hidden rounded-lg shadow-lg border border-[#e2dfd5]">
             <Image
-              src="/images/blog/diamond-certification-vs-jewellery-certification/25 (4).png"
+              src="/images/blog/diamond-certification-vs-jewellery-certification/25 (4).jpg"
               alt="Official precious-metal hallmark stamping card"
               title="Metal Purity and Assay Hallmark"
               fill

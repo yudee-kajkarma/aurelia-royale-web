@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-earrings/60 (1).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-earrings/60 (1).jpg",
         alt: "How to choose lab-grown diamond earrings - complete buying guide",
         title: "How to Choose Lab-Grown Diamond Earrings",
         caption: "The best lab-grown diamond earrings balance diamond quality with scale, movement, comfort and security.",
@@ -124,7 +124,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-earrings/60 (2).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-earrings/60 (2).jpg",
         alt: "Lab-grown diamond earring style guide by wearing occasion",
         title: "Earring Style Guide by Occasion",
         caption: "Choose earring design based on how and where they will be worn.",
@@ -384,7 +384,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-earrings/60 (3).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-earrings/60 (3).jpg",
         alt: "Diamond earring setting types comparison - prong, bezel, halo and articulated",
         title: "Earring Setting Options Compared",
         caption: "Different settings affect appearance, protection, light access and maintenance.",
@@ -575,7 +575,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-earrings/60 (4).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-earrings/60 (4).jpg",
         alt: "Lab-grown diamond earring buying checklist",
         title: "Earring Buying Checklist",
         caption: "Use this checklist to verify every aspect of lab-grown diamond earrings before ordering.",

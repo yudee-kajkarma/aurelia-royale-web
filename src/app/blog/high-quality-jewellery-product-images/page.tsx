@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/high-quality-jewellery-product-images/56 (1).png",
+        src: "/images/blog/high-quality-jewellery-product-images/56 (1).jpg",
         alt: "High-quality jewellery product images showing diamond ring from multiple angles",
         title: "Why High-Quality Product Images Matter",
         caption: "Product images should show the complete item, correct variant, scale, setting and included components.",
@@ -126,7 +126,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/high-quality-jewellery-product-images/56 (2).png",
+        src: "/images/blog/high-quality-jewellery-product-images/56 (2).jpg",
         alt: "Comparison of buyer questions and corresponding jewellery product images",
         title: "Product Photography as Evidence",
         caption: "Each jewellery product image should answer a specific buyer question about the item.",
@@ -350,7 +350,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/high-quality-jewellery-product-images/56 (3).png",
+        src: "/images/blog/high-quality-jewellery-product-images/56 (3).jpg",
         alt: "Jewellery scale reference showing actual size measurements",
         title: "Scale Images Prevent Size Surprises",
         caption: "Use labelled millimetre dimensions or a reliable scale reference to understand actual jewellery size.",
@@ -493,7 +493,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/high-quality-jewellery-product-images/56 (4).png",
+        src: "/images/blog/high-quality-jewellery-product-images/56 (4).jpg",
         alt: "Jewellery product image checklist for buyers",
         title: "Product Image Checklist",
         caption: "Use this checklist to verify every jewellery product image angle and detail before buying online.",

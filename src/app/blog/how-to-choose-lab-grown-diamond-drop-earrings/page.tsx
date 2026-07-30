@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-drop-earrings/62 (1).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-drop-earrings/62 (1).jpg",
         alt: "How to choose lab-grown diamond drop earrings - complete buying guide",
         title: "How to Choose Lab-Grown Diamond Drop Earrings",
         caption: "Lab-grown diamond drop earrings balance length, movement and sparkle without sacrificing comfort or security.",
@@ -120,7 +120,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-drop-earrings/62 (2).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-drop-earrings/62 (2).jpg",
         alt: "Lab-grown diamond drop earring styles - fixed drop, articulated drop, linear dangle and cluster drop",
         title: "Drop Earring Styles Compared",
         caption: "Different drop styles offer different movement, length and visual presence.",
@@ -310,7 +310,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-drop-earrings/62 (3).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-drop-earrings/62 (3).jpg",
         alt: "Articulated diamond drop earring movement and construction guide",
         title: "Drop Earring Movement and Articulation",
         caption: "Check how drop earrings move, hang and return to rest using video before purchasing.",
@@ -494,7 +494,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-drop-earrings/62 (4).png",
+        src: "/images/blog/how-to-choose-lab-grown-diamond-drop-earrings/62 (4).jpg",
         alt: "Lab-grown diamond drop earring buying checklist",
         title: "Drop Earring Buying Checklist",
         caption: "Use this checklist to verify every aspect of lab-grown diamond drop earrings before ordering.",

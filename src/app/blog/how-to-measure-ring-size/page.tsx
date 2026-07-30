@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/how-to-measure-ring-size/73 (1).png",
+        src: "/images/blog/how-to-measure-ring-size/73 (1).jpg",
         alt: "How to measure your ring size accurately - complete guide",
         title: "How to Measure Your Ring Size Accurately",
         caption: "Measure ring size with an existing well-fitting ring or a correctly fitted finger sizer.",
@@ -162,7 +162,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-measure-ring-size/73 (2).png",
+        src: "/images/blog/how-to-measure-ring-size/73 (2).jpg",
         alt: "Ring size measurement - inner diameter and inner circumference explained",
         title: "Ring Diameter vs Circumference",
         caption: "Understanding the difference between inner diameter and inner circumference is essential for accurate ring sizing.",
@@ -324,7 +324,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-measure-ring-size/73 (3).png",
+        src: "/images/blog/how-to-measure-ring-size/73 (3).jpg",
         alt: "How band width affects ring size - wide vs narrow bands",
         title: "Band Width and Ring Size",
         caption: "Wider bands feel tighter than narrow bands of the same nominal size.",
@@ -399,7 +399,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/how-to-measure-ring-size/73 (4).png",
+        src: "/images/blog/how-to-measure-ring-size/73 (4).jpg",
         alt: "Ring size recording template",
         title: "Ring Size Recording Template",
         caption: "Use this template to record your ring measurements accurately.",

@@ -218,7 +218,7 @@ const articleSections: ArticleSection[] = [
     "content": [
       {
         "type": "image",
-        "src": "/images/blog/do-lab-grown-diamonds-last-forever/10 (1).png",
+        "src": "/images/blog/do-lab-grown-diamonds-last-forever/10 (1).jpg",
         "alt": "Laboratory-grown diamond jewellery designed for long-term wear",
         "title": "Do Lab-Grown Diamonds Last Forever?",
         "caption": "Laboratory-grown diamonds offer exceptional hardness and stability, allowing them to last for generations.",
@@ -358,7 +358,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         "type": "image",
-        "src": "/images/blog/do-lab-grown-diamonds-last-forever/10 (2).png",
+        "src": "/images/blog/do-lab-grown-diamonds-last-forever/10 (2).jpg",
         "alt": "Comparing hardness, toughness and chemical stability of lab diamonds",
         "title": "Understanding Diamond Durability",
         "caption": "Diamond's structure yields Mohs 10 hardness, which is resistant to everyday surface scratching."
@@ -424,7 +424,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         "type": "image",
-        "src": "/images/blog/do-lab-grown-diamonds-last-forever/10 (3).png",
+        "src": "/images/blog/do-lab-grown-diamonds-last-forever/10 (3).jpg",
         "alt": "Faceted diamond shapes in protective prong and bezel settings",
         "title": "Shapes and Settings Protection",
         "caption": "Protective settings help buffer vulnerable corners and edges on princess, pear, and marquise cuts."
@@ -470,7 +470,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         "type": "image",
-        "src": "/images/blog/do-lab-grown-diamonds-last-forever/10 (4).png",
+        "src": "/images/blog/do-lab-grown-diamonds-last-forever/10 (4).jpg",
         "alt": "Cleaning and storing laboratory-grown diamond jewellery separately",
         "title": "Jewellery Care and Storage",
         "caption": "Storing diamonds separately prevents them from scratching other gemstones or precious metals."

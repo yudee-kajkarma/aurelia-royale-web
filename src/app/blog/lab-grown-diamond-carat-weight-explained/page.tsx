@@ -157,7 +157,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-carat-weight-explained/30 (1).png",
+        src: "/images/blog/lab-grown-diamond-carat-weight-explained/30 (1).jpg",
         alt: "Lab-grown diamond carat weight explained",
         title: "Diamond Carat Weight",
         caption: "Carat weight measures physical mass; visible size is determined by face-up dimensions.",
@@ -240,7 +240,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-carat-weight-explained/30 (2).png",
+        src: "/images/blog/lab-grown-diamond-carat-weight-explained/30 (2).jpg",
         alt: "Weighing loose diamonds on a precision scale balance",
         title: "Weighing loose diamonds",
         caption: "Loose diamonds are weighed on calibrated gemological scales to determine carat weight."
@@ -268,7 +268,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-carat-weight-explained/30 (3).png",
+        src: "/images/blog/lab-grown-diamond-carat-weight-explained/30 (3).jpg",
         alt: "Comparing diameter widths of round brilliant cuts side by side",
         title: "Spread and Depth Comparison",
         caption: "Two diamonds sharing identical carat weights can look different due to depth and facet proportions."
@@ -298,7 +298,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/lab-grown-diamond-carat-weight-explained/30 (4).png",
+        src: "/images/blog/lab-grown-diamond-carat-weight-explained/30 (4).jpg",
         alt: "Multi-stone diamond tennis bracelet layout",
         title: "Tennis Bracelet Total Carat Weight",
         caption: "Total carat weight represents the combined weight of all stones in multi-stone jewelry designs."

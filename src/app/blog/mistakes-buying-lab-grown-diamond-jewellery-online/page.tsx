@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/mistakes-buying-lab-grown-diamond-jewellery-online/59 (1).png",
+        src: "/images/blog/mistakes-buying-lab-grown-diamond-jewellery-online/59 (1).jpg",
         alt: "15 lab-grown diamond jewellery buying mistakes to avoid online",
         title: "15 Mistakes to Avoid When Buying Lab-Grown Diamond Jewellery Online",
         caption: "Avoid costly mistakes by verifying reports, specifications, dimensions, policies and delivery details before purchasing.",
@@ -121,7 +121,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/mistakes-buying-lab-grown-diamond-jewellery-online/59 (2).png",
+        src: "/images/blog/mistakes-buying-lab-grown-diamond-jewellery-online/59 (2).jpg",
         alt: "15 mistakes to avoid when buying lab-grown diamond jewellery online",
         title: "15 Lab-Grown Diamond Jewellery Buying Mistakes",
         caption: "A quick reference guide to the most common mistakes when buying lab-grown diamond jewellery online.",
@@ -282,7 +282,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/mistakes-buying-lab-grown-diamond-jewellery-online/59 (3).png",
+        src: "/images/blog/mistakes-buying-lab-grown-diamond-jewellery-online/59 (3).jpg",
         alt: "Jewellery dimensions and scale comparison guide",
         title: "Check Jewellery Physical Dimensions",
         caption: "Always verify the actual millimetre dimensions, chain length and ring size to understand real-world scale.",
@@ -540,7 +540,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/mistakes-buying-lab-grown-diamond-jewellery-online/59 (4).png",
+        src: "/images/blog/mistakes-buying-lab-grown-diamond-jewellery-online/59 (4).jpg",
         alt: "Cross-border costs when buying diamond jewellery online",
         title: "Understanding Cross-Border Costs",
         caption: "Always verify the total landed cost including VAT, customs duty, currency conversion and delivery charges before purchasing.",

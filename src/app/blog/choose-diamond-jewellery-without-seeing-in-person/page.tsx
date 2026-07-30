@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/choose-diamond-jewellery-without-seeing-in-person/55 (1).png",
+        src: "/images/blog/choose-diamond-jewellery-without-seeing-in-person/55 (1).jpg",
         alt: "How to choose diamond jewellery without seeing it in person - remote inspection guide",
         title: "Choose Diamond Jewellery Without Seeing It",
         caption: "Remote jewellery buying requires replacing physical inspection with complete, consistent evidence.",
@@ -139,7 +139,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/choose-diamond-jewellery-without-seeing-in-person/55 (2).png",
+        src: "/images/blog/choose-diamond-jewellery-without-seeing-in-person/55 (2).jpg",
         alt: "Comparison of in-person vs online jewellery inspection methods",
         title: "Remote Buying Evidence Comparison",
         caption: "Replace physical observations with measurable specifications and useful media.",
@@ -228,7 +228,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/choose-diamond-jewellery-without-seeing-in-person/55 (3).png",
+        src: "/images/blog/choose-diamond-jewellery-without-seeing-in-person/55 (3).jpg",
         alt: "Complete image set for remote jewellery inspection",
         title: "Jewellery Image Inspection Checklist",
         caption: "Request multiple angles including front, profile, reverse, hallmark and fastening views.",
@@ -401,7 +401,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/choose-diamond-jewellery-without-seeing-in-person/55 (4).png",
+        src: "/images/blog/choose-diamond-jewellery-without-seeing-in-person/55 (4).jpg",
         alt: "How to recreate jewellery scale at home using measurements",
         title: "Recreating Jewellery Scale at Home",
         caption: "Use millimetre dimensions to draw actual-size outlines and compare with jewellery you own.",

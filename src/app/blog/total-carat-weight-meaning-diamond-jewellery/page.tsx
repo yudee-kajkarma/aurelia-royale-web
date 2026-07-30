@@ -158,7 +158,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/total-carat-weight-meaning-diamond-jewellery/32 (1).png",
+        src: "/images/blog/total-carat-weight-meaning-diamond-jewellery/32 (1).jpg",
         alt: "Total carat weight in diamond jewellery explained",
         title: "Total Carat Weight",
         caption: "Total carat weight adds together all diamonds in a piece, which differs from single center-stone weights.",
@@ -256,7 +256,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/total-carat-weight-meaning-diamond-jewellery/32 (2).png",
+        src: "/images/blog/total-carat-weight-meaning-diamond-jewellery/32 (2).jpg",
         alt: "Stunning diamond engagement ring styles showing settings",
         title: "Engagement Ring Setting Styles",
         caption: "Halo, pavé, and three-stone rings distribute their total carat weights across multiple diamonds."

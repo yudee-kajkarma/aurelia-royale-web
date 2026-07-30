@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/select-right-necklace-length/69 (1).png",
+        src: "/images/blog/select-right-necklace-length/69 (1).jpg",
         alt: "How to select the right necklace length - complete guide",
         title: "How to Select the Right Necklace Length",
         caption: "The right necklace length places the design where you want it to sit - test exact centimetres and pendant drop.",
@@ -141,7 +141,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/select-right-necklace-length/69 (2).png",
+        src: "/images/blog/select-right-necklace-length/69 (2).jpg",
         alt: "Necklace length guide - standard lengths compared",
         title: "Standard Necklace Lengths Compared",
         caption: "Standard length names vary between sellers - always verify exact centimetres.",
@@ -287,7 +287,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/select-right-necklace-length/69 (3).png",
+        src: "/images/blog/select-right-necklace-length/69 (3).jpg",
         alt: "How neck circumference affects necklace placement",
         title: "Neck Circumference and Placement",
         caption: "The same chain length creates different drops on different neck circumferences.",
@@ -443,7 +443,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/select-right-necklace-length/69 (4).png",
+        src: "/images/blog/select-right-necklace-length/69 (4).jpg",
         alt: "Necklace length selection checklist",
         title: "Necklace Length Checklist",
         caption: "Use this checklist to verify necklace length before ordering.",

@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/check-jewellery-product-dimensions-weight/51 (1).png",
+        src: "/images/blog/check-jewellery-product-dimensions-weight/51 (1).jpg",
         alt: "Measuring diamond jewellery dimensions using a digital gauge",
         title: "Measuring Jewellery Scale",
         caption: "Online photos can make jewellery appear larger than it is; check physical dimensions and weight to determine accurate scale.",
@@ -253,7 +253,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/check-jewellery-product-dimensions-weight/51 (2).png",
+        src: "/images/blog/check-jewellery-product-dimensions-weight/51 (2).jpg",
         alt: "Measuring ring shank width, setting height, and band thickness",
         title: "Measuring Ring Head & Setting Height",
         caption: "Check shank width, thickness, and setting height separately from the ring size to understand the scale."
@@ -310,7 +310,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/check-jewellery-product-dimensions-weight/51 (3).png",
+        src: "/images/blog/check-jewellery-product-dimensions-weight/51 (3).jpg",
         alt: "Measuring necklace chain length and pendant drop size",
         title: "Pendant and Chain Scale Check",
         caption: "Confirm the chain length and pendant body specs separately from the bail opening size."
@@ -338,7 +338,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/check-jewellery-product-dimensions-weight/51 (4).png",
+        src: "/images/blog/check-jewellery-product-dimensions-weight/51 (4).jpg",
         alt: "Measuring bracelet inner circumference and tennis link size",
         title: "Bracelet Wearable Length Verification",
         caption: "Confirm the usable inner circumference when fastened, as thick links can reduce fit compared to laying flat."

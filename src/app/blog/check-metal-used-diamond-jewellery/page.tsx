@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/check-metal-used-diamond-jewellery/50 (1).png",
+        src: "/images/blog/check-metal-used-diamond-jewellery/50 (1).jpg",
         alt: "Checking metal hallmark stamps inside a diamond ring shank",
         title: "Checking Jewellery Metal",
         caption: "To identify the metal in diamond jewellery, check the product details and look for hallmark and fineness stamps.",
@@ -174,7 +174,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/check-metal-used-diamond-jewellery/50 (2).png",
+        src: "/images/blog/check-metal-used-diamond-jewellery/50 (2).jpg",
         alt: "Close-up of a UK hallmark showing sponsor, assay office, and fineness marks",
         title: "UK Hallmark Stamps",
         caption: "A legal UK hallmark contains a sponsor's mark, a fineness mark, and the assay office logo."
@@ -327,7 +327,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/check-metal-used-diamond-jewellery/50 (3).png",
+        src: "/images/blog/check-metal-used-diamond-jewellery/50 (3).jpg",
         alt: "Comparing white gold, platinum, and sterling silver metal bands side by side",
         title: "Comparing White Metals",
         caption: "Visual checks are unreliable for distinguishing white gold, platinum, and silver; check the hallmarks instead."
@@ -372,7 +372,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/check-metal-used-diamond-jewellery/50 (4).png",
+        src: "/images/blog/check-metal-used-diamond-jewellery/50 (4).jpg",
         alt: "Cross-section showing layers of gold plating over a base metal",
         title: "Plating and Solid Construction",
         caption: "Plated and vermeil jewellery apply a surface layer of gold over silver or base metals, which is different from solid gold."

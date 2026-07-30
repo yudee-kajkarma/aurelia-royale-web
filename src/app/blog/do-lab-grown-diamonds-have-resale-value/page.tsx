@@ -227,7 +227,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/do-lab-grown-diamonds-have-resale-value/19 (1).png",
+        src: "/images/blog/do-lab-grown-diamonds-have-resale-value/19 (1).jpg",
         alt: "Resale value of lab-grown diamonds guide",
         title: "Understanding Resale Value",
         caption: "While lab-grown diamonds can be resold, offers are heavily influenced by shifting manufacturing supplies.",
@@ -287,7 +287,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/do-lab-grown-diamonds-have-resale-value/19 (2).png",
+        src: "/images/blog/do-lab-grown-diamonds-have-resale-value/19 (2).jpg",
         alt: "A professional jeweller assessing loose diamonds with tweezers",
         title: "Dealer Assessment and Trade Valuation",
         caption: "Professional second-hand dealers evaluate clarity, cut, and weight before proposing cash or trade-in rates."
@@ -313,7 +313,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/do-lab-grown-diamonds-have-resale-value/19 (3).png",
+        src: "/images/blog/do-lab-grown-diamonds-have-resale-value/19 (3).jpg",
         alt: "Comparing loose round brilliant diamonds under diffused lighting",
         title: "Comparing Replacement and Resale Prices",
         caption: "Falling wholesale costs mean that dealers can source new inventory cheaply, affecting second-hand bids."
@@ -348,7 +348,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/do-lab-grown-diamonds-have-resale-value/19 (4).png",
+        src: "/images/blog/do-lab-grown-diamonds-have-resale-value/19 (4).jpg",
         alt: "Measuring gold alloy weight on a digital laboratory scale",
         title: "Intrinsic Metal Value Calculation",
         caption: "Solid precious metals like 18ct gold or platinum contribute recoverable melt value to finished designs."

@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/buying-fine-jewellery-as-gift/54 (1).png",
+        src: "/images/blog/buying-fine-jewellery-as-gift/54 (1).jpg",
         alt: "Fine jewellery gift selection and presentation",
         title: "Buying Fine Jewellery as a Gift",
         caption: "Fine jewellery can be a meaningful gift when chosen with the recipient's style and preferences in mind.",
@@ -145,7 +145,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/buying-fine-jewellery-as-gift/54 (2).png",
+        src: "/images/blog/buying-fine-jewellery-as-gift/54 (2).jpg",
         alt: "Comparison of lower-risk and higher-risk fine jewellery gifts",
         title: "Choosing the Right Jewellery Gift",
         caption: "Different jewellery categories carry different levels of sizing and gifting risk.",
@@ -378,7 +378,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/buying-fine-jewellery-as-gift/54 (3).png",
+        src: "/images/blog/buying-fine-jewellery-as-gift/54 (3).jpg",
         alt: "Timeline for ordering fine jewellery before a special occasion",
         title: "Gift Planning Timeline",
         caption: "Order early enough to allow for production, inspection and any necessary adjustments.",
@@ -578,7 +578,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/buying-fine-jewellery-as-gift/54 (4).png",
+        src: "/images/blog/buying-fine-jewellery-as-gift/54 (4).jpg",
         alt: "Fine jewellery gift buying checklist",
         title: "Fine Jewellery Gift Checklist",
         caption: "Use this checklist to confirm every important detail before placing your order.",

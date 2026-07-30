@@ -67,7 +67,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/jewellery-availability-production-time/52 (1).png",
+        src: "/images/blog/jewellery-availability-production-time/52 (1).jpg",
         alt: "Jewellery production timeline and availability stages",
         title: "Jewellery Production Timeline",
         caption: "Understanding the full journey from order to delivery helps set realistic expectations.",
@@ -174,7 +174,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/jewellery-availability-production-time/52 (2).png",
+        src: "/images/blog/jewellery-availability-production-time/52 (2).jpg",
         alt: "Step-by-step jewellery production stages from order to dispatch",
         title: "Production Stages Breakdown",
         caption: "Made-to-order jewellery passes through multiple stages before reaching your doorstep.",
@@ -349,7 +349,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/jewellery-availability-production-time/52 (3).png",
+        src: "/images/blog/jewellery-availability-production-time/52 (3).jpg",
         alt: "International jewellery delivery and customs processing",
         title: "Cross-Border Delivery Considerations",
         caption: "International orders involve additional steps like customs clearance and VAT handling.",
@@ -390,7 +390,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/jewellery-availability-production-time/52 (4).png",
+        src: "/images/blog/jewellery-availability-production-time/52 (4).jpg",
         alt: "Delivery date planning worksheet for jewellery orders",
         title: "Arrival Date Planning Worksheet",
         caption: "Use this worksheet to track each stage and calculate a realistic delivery date.",

@@ -209,7 +209,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/how-to-read-lab-grown-diamond-certificate/22 (1).png",
+        src: "/images/blog/how-to-read-lab-grown-diamond-certificate/22 (1).jpg",
         alt: "Laboratory-grown diamond beside an independent grading report",
         title: "How to Read a Diamond Certificate",
         caption: "Understanding all sections of an independent grading report ensures a transparent buying experience.",
@@ -265,7 +265,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-read-lab-grown-diamond-certificate/22 (2).png",
+        src: "/images/blog/how-to-read-lab-grown-diamond-certificate/22 (2).jpg",
         alt: "Entering grading report number on official laboratory database",
         title: "Report Registry Verification",
         caption: "Verify the unique report code through the official laboratory website database to confirm origin details."
@@ -312,7 +312,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-read-lab-grown-diamond-certificate/22 (3).png",
+        src: "/images/blog/how-to-read-lab-grown-diamond-certificate/22 (3).jpg",
         alt: "Inspecting round brilliant cut diamond facets with a loupe",
         title: "The 4Cs and Proportion Mapping",
         caption: "Carat weight evaluates mass, while millimeter measurements define visual face-up size."
@@ -345,7 +345,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/how-to-read-lab-grown-diamond-certificate/22 (4).png",
+        src: "/images/blog/how-to-read-lab-grown-diamond-certificate/22 (4).jpg",
         alt: "Using micro zoom lens to check girdle laser inscription number",
         title: "Girdle Laser Code Registration",
         caption: "A matching laser inscription code on the diamond's girdle links the physical gem with its report."

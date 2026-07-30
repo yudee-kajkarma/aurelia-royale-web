@@ -126,7 +126,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/are-lab-grown-diamonds-suitable-for-regular-wear/14 (1).png",
+        src: "/images/blog/are-lab-grown-diamonds-suitable-for-regular-wear/14 (1).jpg",
         alt: "Lab-grown diamond jewellery suitable for regular wear",
         title: "Are Lab-Grown Diamonds Suitable for Regular Wear?",
         caption: "Laboratory-grown diamonds are highly resilient, making them well-suited for everyday styles when properly cared for.",
@@ -177,7 +177,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/are-lab-grown-diamonds-suitable-for-regular-wear/14 (2).png",
+        src: "/images/blog/are-lab-grown-diamonds-suitable-for-regular-wear/14 (2).jpg",
         alt: "Stunning round brilliant lab-grown diamond ring in clean daylight",
         title: "Everyday Diamond Rings",
         caption: "Diamonds resist scratching from daily activities but remain vulnerable to sharp corner impacts."
@@ -246,7 +246,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/are-lab-grown-diamonds-suitable-for-regular-wear/14 (3).png",
+        src: "/images/blog/are-lab-grown-diamonds-suitable-for-regular-wear/14 (3).jpg",
         alt: "Checking gold bezel and prong settings for stability",
         title: "Bezel and Prong Setting Styles",
         caption: "Prongs should be checked regularly for catching, while bezel mounts provide protective metal walls."
@@ -314,7 +314,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/are-lab-grown-diamonds-suitable-for-regular-wear/14 (4).png",
+        src: "/images/blog/are-lab-grown-diamonds-suitable-for-regular-wear/14 (4).jpg",
         alt: "Applying hand lotions away from precious diamond settings",
         title: "Avoiding residues and impact damage",
         caption: "Remove jewellery before chores or workouts to prevent build-ups, scratches, or clasp loss."

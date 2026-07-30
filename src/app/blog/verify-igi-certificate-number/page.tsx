@@ -209,7 +209,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/verify-igi-certificate-number/23 (1).png",
+        src: "/images/blog/verify-igi-certificate-number/23 (1).jpg",
         alt: "Lab-grown diamond report number being verified online",
         title: "How to Verify IGI Certificate Number",
         caption: "Entering the grading report code directly into the lab registry confirms authenticity details.",
@@ -247,7 +247,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/verify-igi-certificate-number/23 (2).png",
+        src: "/images/blog/verify-igi-certificate-number/23 (2).jpg",
         alt: "Unique certificate barcode scanner display on laptop screen",
         title: "Report Code Intake Log",
         caption: "Unique registry codes identify loose or set stones in the laboratory database."
@@ -271,7 +271,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/verify-igi-certificate-number/23 (3).png",
+        src: "/images/blog/verify-igi-certificate-number/23 (3).jpg",
         alt: "A professional matching the report details with the diamond",
         title: "Verify Online Registry Entries",
         caption: "Ensure that online description parameters align exactly with the physical diamond."
@@ -330,7 +330,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/verify-igi-certificate-number/23 (4).png",
+        src: "/images/blog/verify-igi-certificate-number/23 (4).jpg",
         alt: "Inspecting girdle laser serial with a microscope viewer tool",
         title: "Laser Inscription Microscope Assessment",
         caption: "A matching laser inscription code printed on the girdle connects the diamond to its online report."

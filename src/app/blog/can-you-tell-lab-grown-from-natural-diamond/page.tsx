@@ -218,7 +218,7 @@ const articleSections: ArticleSection[] = [
     "content": [
       {
         "type": "image",
-        "src": "/images/blog/can-you-tell-lab-grown-from-natural-diamond/8 (1).png",
+        "src": "/images/blog/can-you-tell-lab-grown-from-natural-diamond/8 (1).jpg",
         "alt": "Lab-grown and natural diamonds that appear identical without testing",
         "title": "Can You Tell a Lab Diamond from Natural?",
         "caption": "Natural and laboratory-grown diamonds share identical visual qualities, making visual detection impossible.",
@@ -352,7 +352,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         "type": "image",
-        "src": "/images/blog/can-you-tell-lab-grown-from-natural-diamond/8 (2).png",
+        "src": "/images/blog/can-you-tell-lab-grown-from-natural-diamond/8 (2).jpg",
         "alt": "Examining diamond girdle under a microscope to find laser inscription",
         "title": "Inspecting Diamond Girdle",
         "caption": "A jeweller using a loupe or microscope can check the diamond's girdle for grading inscriptions."
@@ -405,7 +405,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         "type": "image",
-        "src": "/images/blog/can-you-tell-lab-grown-from-natural-diamond/8 (3).png",
+        "src": "/images/blog/can-you-tell-lab-grown-from-natural-diamond/8 (3).jpg",
         "alt": "Handheld diamond tester and UV fluorescence examination",
         "title": "Handheld Testers and UV Light",
         "caption": "Thermal conductivity testers show diamond results for both types, while UV reaction provides growth sector clues."
@@ -431,7 +431,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         "type": "image",
-        "src": "/images/blog/can-you-tell-lab-grown-from-natural-diamond/8 (4).png",
+        "src": "/images/blog/can-you-tell-lab-grown-from-natural-diamond/8 (4).jpg",
         "alt": "Advanced spectroscopic testing instruments in a gemmological laboratory",
         "title": "Advanced Gemmological Screening",
         "caption": "Gemmological laboratories employ spectrometers and photoluminescence detectors to verify origin conclusively."

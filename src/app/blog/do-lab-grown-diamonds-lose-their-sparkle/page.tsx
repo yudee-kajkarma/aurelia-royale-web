@@ -218,7 +218,7 @@ const articleSections: ArticleSection[] = [
     content: [
       {
         type: "image",
-        src: "/images/blog/do-lab-grown-diamonds-lose-their-sparkle/11 (1).png",
+        src: "/images/blog/do-lab-grown-diamonds-lose-their-sparkle/11 (1).jpg",
         alt: "Clean and dull-looking laboratory-grown diamonds compared",
         title: "Do Lab-Grown Diamonds Lose Their Sparkle?",
         caption: "A lab-grown diamond does not permanently lose brilliance; surface build-up is the most common cause of dullness.",
@@ -309,7 +309,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/do-lab-grown-diamonds-lose-their-sparkle/11 (2).png",
+        src: "/images/blog/do-lab-grown-diamonds-lose-their-sparkle/11 (2).jpg",
         alt: "Light paths reflecting through pavilion facets of a round brilliant diamond",
         title: "Understanding Diamond Light Performance",
         caption: "Optically precise cuts ensure white brilliance, spectral fire, and lively scintillation."
@@ -329,7 +329,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/do-lab-grown-diamonds-lose-their-sparkle/11 (3).png",
+        src: "/images/blog/do-lab-grown-diamonds-lose-their-sparkle/11 (3).jpg",
         alt: "Cleaning the undersides and basket mounts of diamond rings",
         title: "Cleaning the Underside",
         caption: "Oils and makeup collect behind the setting, blocking light from reflecting back through the table."
@@ -402,7 +402,7 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "image",
-        src: "/images/blog/do-lab-grown-diamonds-lose-their-sparkle/11 (4).png",
+        src: "/images/blog/do-lab-grown-diamonds-lose-their-sparkle/11 (4).jpg",
         alt: "Brushing diamond jewellery gently with warm soapy water solution",
         title: "Safe Cleaning Routine",
         caption: "Brushing with a soft-bristled brush loosens dirt from prongs and links without scratching the precious metals."
