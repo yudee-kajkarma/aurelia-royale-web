@@ -14,9 +14,23 @@ export default function BlogIndexPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  // 1. Sort posts by date (newest first)
+  // 1. Sort posts by date, keeping blogs 92-99 (without images) at the end
   const sortedPosts = useMemo(() => {
-    return [...BLOGS_DATA].reverse();
+    const noImageSlugs = [
+      "keep-lab-grown-diamond-jewellery-sparkling",
+      "store-diamond-jewellery",
+      "prevent-jewellery-scratches",
+      "wear-diamond-jewellery-in-shower",
+      "swim-wearing-diamond-jewellery",
+      "perfume-skincare-diamond-jewellery",
+      "check-diamond-jewellery-loose-stones",
+      "professional-diamond-jewellery-inspection"
+    ];
+
+    const withImages = [...BLOGS_DATA].filter(post => !noImageSlugs.includes(post.slug)).reverse();
+    const withoutImages = [...BLOGS_DATA].filter(post => noImageSlugs.includes(post.slug)).reverse();
+
+    return [...withImages, ...withoutImages];
   }, []);
 
   // 2. Extract unique categories (optional, parsed from titles/excerpts or custom lists)
@@ -126,7 +140,7 @@ export default function BlogIndexPage() {
                   className="flex flex-col h-full bg-white border border-[#e2dfd5] overflow-hidden hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-[#153f35]/25 transition-all duration-300 group rounded-md"
                 >
                   {/* Blog Image */}
-                  <div className="relative w-full aspect-[1169/835] overflow-hidden bg-[#e8e5dc]/50">
+                  <div className="relative w-full aspect-[16/7] overflow-hidden bg-[#e8e5dc]/50">
                     {post.image ? (
                       <Image
                         src={post.image}
@@ -137,31 +151,31 @@ export default function BlogIndexPage() {
                       />
                     ) : (
                       <div className="w-full h-full flex flex-col items-center justify-center text-[#153f35]/30">
-                        <BookOpen className="w-12 h-12 mb-2" strokeWidth={1.5} />
-                        <span className="text-xs uppercase tracking-widest font-semibold">Aurelia Journal</span>
+                        <BookOpen className="w-8 h-8 mb-1" strokeWidth={1.5} />
+                        <span className="text-[10px] uppercase tracking-widest font-semibold">Aurelia Journal</span>
                       </div>
                     )}
-                    <span className="absolute top-4 left-4 bg-[#153f35] text-gold text-[0.65rem] font-semibold uppercase tracking-wider px-2.5 py-1 rounded shadow-sm">
+                    <span className="absolute top-3 left-3 bg-[#153f35] text-gold text-[0.6rem] font-semibold uppercase tracking-wider px-2 py-0.5 rounded shadow-sm">
                       {category}
                     </span>
                   </div>
 
                   {/* Card Body */}
-                  <div className="flex flex-col flex-1 p-6 md:p-8">
-                    <span className="text-xs font-light text-[#5a5a5a] mb-2">
-                      {post.date}
+                  <div className="flex flex-col flex-1 p-5 md:p-6">
+                    <span className="text-[11px] font-light text-[#8a8a8a] mb-1.5">
+                      Aurelia Royale • {post.date}
                     </span>
-                    <h2 className="font-cormorant text-2xl md:text-3xl font-medium leading-snug text-[#153f35] mb-4 group-hover:text-gold transition-colors duration-300">
+                    <h2 className="font-cormorant text-xl md:text-2xl font-medium leading-snug text-[#153f35] mb-2.5 group-hover:text-gold transition-colors duration-300">
                       <Link href={`/blog/${post.slug}`}>
                         {post.title}
                       </Link>
                     </h2>
-                    <p className="text-sm font-light leading-relaxed text-[#3b3b3b] mb-6 grow line-clamp-3">
+                    <p className="text-xs font-light leading-relaxed text-[#5a5a5a] mb-5 grow line-clamp-2">
                       {post.excerpt}
                     </p>
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="inline-block border border-[#153f35]/30 text-[#153f35] hover:text-[#031b16] hover:bg-gold hover:border-gold px-6 py-3 text-xs font-semibold uppercase tracking-widest transition-all duration-300 w-fit rounded"
+                      className="inline-block border border-[#153f35]/30 text-[#153f35] hover:text-[#031b16] hover:bg-gold hover:border-gold px-4 py-2 text-[10px] font-semibold uppercase tracking-widest transition-all duration-300 w-fit rounded"
                     >
                       Read Article
                     </Link>
