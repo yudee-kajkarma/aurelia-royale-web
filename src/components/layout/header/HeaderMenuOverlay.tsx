@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { ShoppingBag, UserRound, X } from "lucide-react";
@@ -190,6 +190,7 @@ export function HeaderMenuOverlay({
         { href: "/about", label: "ABOUT" },
         { href: "/shop", label: "SHOP" },
         { href: "/contact", label: "CONTACT" },
+        { href: "/blog", label: "BLOG" },
     ];
     const mobileAdminItems = isAdmin
         ? ADMIN_NAV_ITEMS.map((item) => ({

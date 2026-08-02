@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import {
     AnimatePresence,
@@ -163,6 +163,7 @@ export function Header() {
         { href: "/about", label: "About" },
         { href: "/shop", label: "Shop" },
         { href: "/contact", label: "Contact" },
+        { href: "/blog", label: "Blog" },
     ];
 
     function openShopDropdownNow() {
