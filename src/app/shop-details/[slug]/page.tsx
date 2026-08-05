@@ -139,7 +139,8 @@ export default async function ShopDetailsBySlugPage({
         },
         {
             label: "Certificate",
-            value: product.certificate ?? "",
+            // value: product.certificate ?? "",
+            value: "IGI Certified",
             icon: "/icons/cert-icon.svg",
         },
         // {
