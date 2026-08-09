@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { useTranslation } from "@/utils/i18n";
+
 import logo from "../../../../public/logo/Aurelia-Royale-Embossed-Logo.png";
 
 type HeaderLogoProps = {
@@ -8,9 +10,10 @@ type HeaderLogoProps = {
 };
 
 export function HeaderLogo({ onClick }: HeaderLogoProps) {
+    const { localizeHref } = useTranslation();
     return (
         <Link
-            href="/"
+            href={localizeHref("/")}
             className="flex items-center justify-center select-none"
             aria-label="Aurelia Royale"
             onClick={onClick}

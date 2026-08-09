@@ -1,3 +1,4 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import Image from "next/image";
 import { Metadata } from "next";
@@ -205,26 +206,31 @@ const schemaMarkup = {
   ]
 };
 
-export default function Blog25Page() {
+export default async function Blog25Page({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const localeData = getBlogDataByLocale("diamond-certification-vs-jewellery-certification", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : [];
+
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Lab-Grown Diamond Education
-          </span>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">{locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Éducation sur les diamants de laboratoire" : locale === "es" ? "Educación sobre diamantes cultivados en laboratorio" : "Lab-Grown Diamond Education"}</span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
             Diamond vs Jewellery Certification
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Registry Guide • Published July 15, 2026
+            {locale === "fr" ? "Guide de Registre • Publié le 16. Juli 2026" : locale === "es" ? "Guía de Registro • Publicado el 16 de julio de 2026" : "Registry Guide • Published July 16, 2026"}
           </p>
         </div>
       </section>

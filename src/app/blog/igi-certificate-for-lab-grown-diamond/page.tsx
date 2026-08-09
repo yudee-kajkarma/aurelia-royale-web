@@ -1,16 +1,77 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
-export const metadata: Metadata = {
-  title: "What Is an IGI Certificate for a Lab-Grown Diamond?",
-  description: "Learn what an IGI lab-grown diamond certificate contains, what it proves, what it does not guarantee and how to check an IGI report number.",
+export const metadataEn: Metadata = {
+  title: "Igi Certificate For Lab Grown Diamond",
+  description: "Igi Certificate For Lab Grown Diamond",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/igi-certificate-for-lab-grown-diamond/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "Certificado Igi para diamantes cultivados en laboratorio",
+  description: "Certificado Igi para diamantes cultivados en laboratorio - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/igi-certificate-for-lab-grown-diamond/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Certificat Igi pour les diamants cultivés en laboratoire",
+  description: "Certificat Igi pour les diamants cultivés en laboratoire - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/igi-certificate-for-lab-grown-diamond/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Igi-certificaat voor in het laboratorium gekweekte diamant",
+  description: "Igi-certificaat voor in het laboratorium gekweekte diamant - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/igi-certificate-for-lab-grown-diamond/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "Igi-Zertifikat für im Labor gezüchtete Diamanten",
+  description: "Igi-Zertifikat für im Labor gezüchtete Diamanten - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/igi-certificate-for-lab-grown-diamond/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Certificati IGI per diamanti creati in laboratorio: cosa sapere",
+  description: "Scopri perché l'Istituto Gemmologico Internazionale (IGI) è il laboratorio più popolare per la certificazione dei diamanti coltivati ​​in laboratorio. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/igi-certificate-for-lab-grown-diamond/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+  const localeData = getBlogDataByLocale("igi-certificate-for-lab-grown-diamond", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. The exact JSON-LD Schema you provided
 const schemaMarkup = {
@@ -434,23 +495,30 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function Blog21Page() {
+export default async function Blog21Page({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const localeData = getBlogDataByLocale("igi-certificate-for-lab-grown-diamond", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Lab-Grown Diamond Education
+            {locale === "it" ? "Certificazione e Qualità" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Éducation sur les diamants" : locale === "es" ? "Educación sobre diamantes cultivados en laboratorio" : "Lab-Grown Diamond Education"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            What Is an IGI Diamond Certificate?
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
             Certificate Guide • Published July 15, 2026
@@ -459,7 +527,7 @@ export default function Blog21Page() {
       </section>
 
       {/* Render Dynamic Article */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

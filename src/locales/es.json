@@ -1,0 +1,238 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre Nosotros",
+    "shop": "Tienda",
+    "contact": "Contacto",
+    "blog": "Blog"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "about": "Sobre Nosotros",
+    "shop": "Tienda",
+    "contact": "Contacto",
+    "blog": "Blog"
+  },
+  "hero": {
+    "titleLine1": "LLEVADO CON ",
+    "titleLine2": "INTENCIÓN.",
+    "description": "Cada pieza es un susurro de legado, esculpida por artesanos que han dedicado décadas a perfeccionar el lenguaje del metal y la piedra preciosa.",
+    "cta": "Comprar ahora"
+  },
+  "marquee": {
+    "shipping": "Envío a todo el mundo",
+    "diamond": "Diamante creado en laboratorio",
+    "jewelry": "Alta joyería",
+    "crafted": "Hecho a mano",
+    "certified": "Certificado"
+  },
+  "home": {
+    "findNewIn": "Novedades",
+    "topTrending": "Tendencias principales",
+    "viewAllPieces": "Ver todas las piezas",
+    "curatedForYou": "Selección para ti",
+    "shopByEdition": "Comprar por edición",
+    "ourCategories": "Nuestras Categorías",
+    "shopByCategory": "Comprar por categoría",
+    "noPiecesAvailable": "No hay piezas disponibles en esta categoría todavía."
+  },
+  "editions": {
+    "classic": {
+      "tag": "Atemporal",
+      "title": "Edición Clásica",
+      "description": "Joyería de diamantes atemporal creada para una elegancia sin esfuerzo."
+    },
+    "limited": {
+      "tag": "Exclusiva",
+      "title": "Edición Limitada",
+      "description": "Creaciones numeradas individualmente. Una vez vendidas, nunca se reproducen."
+    },
+    "rare": {
+      "tag": "Firma",
+      "title": "Edición Rara",
+      "description": "Obras maestras únicas con nuestros mejores diamantes de laboratorio."
+    }
+  },
+  "editionsList": {
+    "classic": "Clásica",
+    "limited": "Edición Limitada",
+    "rare": "Rara",
+    "timeless": "Atemporal"
+  },
+  "categories": {
+    "all": "Todo",
+    "bracelet": "Pulseras",
+    "bracelets": "Pulseras",
+    "earring": "Pendientes",
+    "earrings": "Pendientes",
+    "necklace": "Collares",
+    "necklaces": "Collares",
+    "pendant": "Colgantes",
+    "pendants": "Colgantes",
+    "ring": "Anillos",
+    "rings": "Anillos",
+    "set": "Juegos",
+    "sets": "Juegos"
+  },
+  "testimonial": {
+    "label": "Testimonios de Clientes",
+    "title": "Nuestros Clientes Felices"
+  },
+  "testimonials": {
+    "isabelle": {
+      "location": "París, Francia",
+      "quote": "Los pendientes que recibí superaron todo lo que había imaginado: una creación impecable, presentados como un sueño. Aurelia Royale se siente genuinamente alta costura."
+    },
+    "alexander": {
+      "location": "Londres, Reino Unido",
+      "quote": "El servicio de primera calidad y los acabados elegantes hicieron que cada pedido fuera memorable. Su lenguaje de diseño se siente atemporal pero a la vez moderno y usable."
+    }
+  },
+  "newsletter": {
+    "label": "Mantente conectado",
+    "title": "Recibe nuestras últimas novedades",
+    "description": "Sé el primero en descubrir nuevas colecciones, eventos exclusivos y los privilegios reservados para nuestro círculo íntimo.",
+    "placeholder": "Tu dirección de correo electrónico",
+    "subscribe": "Suscribirse",
+    "successMessage": "¡Gracias por suscribirte a nuestro boletín!",
+    "requiredEmail": "Por favor, completa este campo.",
+    "invalidEmail": "Por favor, introduce una dirección de correo electrónico válida."
+  },
+  "footer": {
+    "slogan": "Alta joyería creada para quienes valoran la belleza, el legado y la permanencia por encima de todo.",
+    "copyright": "Copyright 2026 Aurelia Royale. All rights reserved by Aurelia Royale."
+  },
+  "about": {
+    "heroTitle": "Nosotros",
+    "tag": "Nosotros",
+    "heading": "Un legado de artesanía fina.",
+    "p1": "En Aurelia Royal, la elegancia es más que un estilo: es una declaración de sofisticación atemporal. Nuestra colección está diseñada para celebrar el lujo moderno a través de piezas de joyería finamente creadas que combinan el arte contemporáneo con el encanto clásico. Cada detalle refleja gracia, confianza y belleza refinada para quienes aprecian la exclusividad.",
+    "p2": "Creemos que la joyería debe sentirse personal, memorable y lujosa sin esfuerzo. Desde deslumbrantes anillos de declaración hasta delicados collares y radiantes pendientes, Aurelia Royal une la artesanía y la estética de primera calidad para crear piezas que elevan cada ocasión. Diseñadas para la musa moderna, nuestras creaciones encarnan el lujo con un toque minimalista.",
+    "stat1Label": "Años de experiencia",
+    "stat2Label": "Diseños exclusivos",
+    "stat3Label": "Amantes de la joyería",
+    "philosophyTag": "Nuestra Filosofía",
+    "philosophyHeading1": "Creemos que la joyería no es decoración",
+    "philosophyHeading2": "Es memoria hecha permanente.",
+    "philo1Title": "Calidad sin concesiones",
+    "philo1Body": "Cada gema es seleccionada a mano por nuestro maestro gemólogo. Cada metal es probado y contrastado. Aceptamos únicamente lo que es genuinamente extraordinario.",
+    "philo2Title": "Procedencia ética",
+    "philo2Body": "Nuestra cadena de suministro es auditada de forma independiente para garantizar que ningún mineral de conflicto o práctica de explotación forme parte de su pieza.",
+    "philo3Title": "Diseño atemporal",
+    "philo3Body": "Nos resistimos a las modas. Nuestras piezas están diseñadas para ser llevadas por su hija y la hija de esta: formas que se sientan tan relevantes en cincuenta años como hoy."
+  },
+  "contact": {
+    "heroTitle": "Contacto",
+    "home": "Inicio",
+    "infoTag": "Información de Contacto",
+    "getInTouch": "Ponte en Contacto",
+    "firstNamePlaceholder": "Nombre *",
+    "lastNamePlaceholder": "Apellido *",
+    "emailPlaceholder": "Dirección de Correo Electrónico",
+    "phonePlaceholder": "Teléfono *",
+    "messagePlaceholder": "Escribe tu Mensaje",
+    "submit": "Enviar Ahora",
+    "findUsTag": "Encuéntranos",
+    "locationMap": "Mapa de Ubicación"
+  },
+  "profile": {
+    "welcome": "Bienvenido",
+    "welcomeText": "Inicia sesión para acceder a tu perfil, pedidos, lista de deseos e historial de compras.",
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "signedIn": "Sesión iniciada",
+    "myProfile": "Mi perfil",
+    "role": "Rol",
+    "adminDashboard": "Panel de administración",
+    "userProfile": "Perfil",
+    "logout": "Cerrar sesión"
+  },
+  "auth": {
+    "backToHome": "Volver al Inicio",
+    "signInTab": "Iniciar Sesión",
+    "registerTab": "Registrarse",
+    "welcomeBack": "Bienvenido de Nuevo",
+    "loginHeading": "Inicia Sesión en tu Cuenta.",
+    "loginDescription": "Accede a tu colección, realiza el seguimiento de pedidos y gestiona tus encargos personalizados en un solo lugar.",
+    "emailLabel": "Dirección de Correo Electrónico",
+    "passwordLabel": "Contraseña",
+    "passwordPlaceholder": "Tu contraseña",
+    "forgotPassword": "¿Olvidaste la contraseña?",
+    "signingIn": "Iniciando sesión...",
+    "signInButton": "Iniciar Sesión",
+    "dontHaveAccount": "¿No tienes una cuenta?",
+    "createOne": "Crea una",
+    "joinCircle": "Únete al Círculo",
+    "registerHeading": "Crea tu Cuenta.",
+    "registerDescription": "Crea tu cuenta de joyería, añade tu dirección predeterminada y luego verifica el código OTP enviado a tu correo.",
+    "usernameLabel": "Nombre de usuario",
+    "usernamePlaceholder": "Tu nombre de usuario",
+    "firstNameLabel": "Nombre",
+    "firstNamePlaceholder": "Nombre",
+    "lastNameLabel": "Apellido",
+    "lastNamePlaceholder": "Apellido",
+    "confirmPasswordLabel": "Confirmar Contraseña",
+    "confirmPasswordPlaceholder": "Vuelve a introducir la contraseña",
+    "countryCodeLabel": "Código de País",
+    "selectCountryCode": "Selecciona el código de país",
+    "phoneNumberLabel": "Número de Teléfono",
+    "phoneNumberPlaceholder": "Número de teléfono",
+    "defaultAddressHeading": "Dirección Predeterminada",
+    "countryLabel": "País",
+    "selectCountry": "Selecciona el país",
+    "stateLabel": "Estado / Provincia",
+    "selectState": "Selecciona el estado",
+    "streetLabel": "Calle",
+    "streetPlaceholder": "Dirección de la calle",
+    "cityLabel": "Ciudad",
+    "cityPlaceholder": "Selecciona o escribe una ciudad",
+    "postalCodeLabel": "Código Postal",
+    "postalCodePlaceholder": "Código postal",
+    "creatingAccount": "Creando cuenta...",
+    "registerButton": "Registrarse",
+    "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+    "recoverAccountHeading": "Recuperar tu Cuenta",
+    "recoverAccountDescription": "Envía un código OTP a tu correo, verifícalo aquí y establece una nueva contraseña de forma segura.",
+    "backToLogin": "Volver al Inicio de Sesión",
+    "resetPasswordHeading": "Restablecer Contraseña",
+    "resetPasswordDescription": "Envía un código OTP a tu correo y luego úsalo aquí con tu nueva contraseña para recuperar el acceso.",
+    "enterEmailPlaceholder": "Introduce tu correo",
+    "sendOtpButton": "Enviar OTP",
+    "sendingOtp": "Enviando...",
+    "otpCodeLabel": "Código OTP",
+    "enterOtpPlaceholder": "Introduce el OTP",
+    "newPasswordLabel": "Nueva Contraseña",
+    "enterNewPasswordPlaceholder": "Introduce la nueva contraseña",
+    "resetting": "Restableciendo...",
+    "resetPasswordButton": "Restablecer Contraseña",
+    "backToSignIn": "¿Volver a iniciar sesión?",
+    "loginHere": "Inicia sesión aquí",
+    "enterEmailFirst": "Introduce tu correo primero.",
+    "otpSent": "Se ha enviado el código OTP a tu correo electrónico.",
+    "requiredFields": "Se requieren el correo, el OTP y la nueva contraseña.",
+    "resetSuccess": "Restablecimiento de contraseña exitoso. Ya puedes iniciar sesión."
+  },
+  "validation": {
+    "required": "Por favor, rellena este campo.",
+    "emailMismatch": "Por favor, introduce una dirección de correo electrónico válida."
+  },
+  "blog": {
+    "journal": "Aurelia Journal",
+    "title": "Guías y Perspectivas",
+    "description": "Explore nuestra colección de artículos, guías de expertos y consejos de tallas para ayudarle a elegir y cuidar sus joyas de diamantes creados en laboratorio.",
+    "searchPlaceholder": "Buscar artículos...",
+    "readArticle": "Leer artículo",
+    "noArticles": "No se encontraron artículos",
+    "noArticlesDesc": "Intente ajustar sus términos de búsqueda o seleccione una categoría diferente.",
+    "exploreCollection": "Explorar Colección",
+    "consultExpert": "Consultar a un Experto",
+    "faqTitle": "Preguntas frecuentes",
+    "categories": {
+      "All": "Todos",
+      "Diamond Education": "Educación sobre Diamantes",
+      "Sizing & Fit": "Tallas y Ajuste",
+      "Certification & Quality": "Certificación y Calidad",
+      "Buying Guides": "Guías de Compra"
+    }
+  }
+}

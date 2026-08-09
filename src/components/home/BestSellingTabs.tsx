@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { ProductImage } from "@/components/shared/ProductImage";
-// import { DiscountedPrice } from "@/components/shared/DiscountedPrice";
+import { useTranslation } from "@/utils/i18n";
 import type { ProductCardModel } from "@/services/products/product.types";
 
 type BestSellingTabsProps = {
@@ -16,6 +16,7 @@ export function BestSellingTabs({
     products,
     categories,
 }: BestSellingTabsProps) {
+    const { t, localizeHref } = useTranslation();
     const tabNames = useMemo(() => {
         const availableCategories = categories.filter((category) =>
             products.some((item) => item.category === category),
@@ -39,17 +40,17 @@ export function BestSellingTabs({
                             className="inline-block h-px w-8 bg-gold"
                             aria-hidden="true"
                         />
-                        Best Selling
+                        {t("home.findNewIn")}
                     </p>
                     <h2 className="font-cormorant mt-4 text-5xl font-medium text-deep sm:text-6xl">
-                        Signature Collection
+                        {t("home.topTrending")}
                     </h2>
                 </div>
                 <Link
-                    href="/shop"
+                    href={localizeHref("/shop")}
                     className="group inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.28em] text-gold underline decoration-[1px] underline-offset-[6px] transition hover:text-[#a8862c]"
                 >
-                    View All
+                    {t("home.viewAllPieces")}
                     <ArrowRight
                         size={18}
                         className="transition group-hover:translate-x-1"
@@ -60,25 +61,28 @@ export function BestSellingTabs({
             <div
                 role="tablist"
                 aria-label="Filter products by category"
-                className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3 border-b border-deep/15 pb-3 sm:gap-x-12"
+                className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-3 border-b border-deep/15 pb-3 sm:gap-x-6"
             >
-                {tabNames.map((tab) => {
+                {tabNames.map((tab, idx) => {
                     const active = tab === activeTab;
+                    const displayName = tab === "All" ? t("categories.all") : (t(`categories.${tab.toLowerCase()}`) || tab);
                     return (
-                        <button
-                            key={tab}
-                            type="button"
-                            role="tab"
-                            aria-selected={active}
-                            onClick={() => setActiveTab(tab)}
-                            className={`font-jost relative -mb-3 pb-3 text-[0.78rem] font-semibold uppercase tracking-[0.22em] transition ${
-                                active
-                                    ? "text-gold after:absolute after:inset-x-0 after:-bottom-px after:h-[2px] after:bg-gold"
-                                    : "text-deep/70 hover:text-deep"
-                            }`}
-                        >
-                            {tab}
-                        </button>
+                        <div key={tab} className="flex items-center gap-x-4 sm:gap-x-6">
+                            {idx > 0 && <span className="text-deep/25 font-light" aria-hidden="true">•</span>}
+                            <button
+                                type="button"
+                                role="tab"
+                                aria-selected={active}
+                                onClick={() => setActiveTab(tab)}
+                                className={`font-jost relative -mb-3 pb-3 text-[0.78rem] font-semibold uppercase tracking-[0.22em] transition ${
+                                    active
+                                        ? "text-gold after:absolute after:inset-x-0 after:-bottom-px after:h-[2px] after:bg-gold"
+                                        : "text-deep/70 hover:text-deep"
+                                }`}
+                            >
+                                {displayName}
+                            </button>
+                        </div>
                     );
                 })}
             </div>
@@ -87,7 +91,7 @@ export function BestSellingTabs({
                 {visibleProducts.slice(0, 8).map((product) => (
                     <Link
                         key={product.id}
-                        href={`/shop-details/${product.slug}`}
+                        href={localizeHref(`/shop-details/${product.slug}`)}
                         className="group block"
                     >
                         <div className="aspect-square overflow-hidden bg-[#f3eee5]">
@@ -100,17 +104,12 @@ export function BestSellingTabs({
                         <div className="mt-5">
                             {product.category ? (
                                 <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-[#6b6b6b]">
-                                    {product.category}
+                                    {t(`categories.${product.category.toLowerCase()}`) || product.category}
                                 </p>
                             ) : null}
                             <p className="font-jost mt-2 text-md font-semibold tracking-[0.04em] text-[#111]">
                                 {product.title}
                             </p>
-                            {/* <DiscountedPrice
-                                value={product.price}
-                                className="font-jost mt-2 flex text-sm text-[#3b3b3b]"
-                                discountedClassName="text-[#3b3b3b]"
-                            /> */}
                         </div>
                     </Link>
                 ))}
@@ -118,10 +117,10 @@ export function BestSellingTabs({
 
             <div className="mt-12 flex justify-center">
                 <Link
-                    href="/shop"
+                    href={localizeHref("/shop")}
                     className="font-jost inline-flex items-center justify-center border border-deep/40 px-12 py-4 text-sm font-semibold uppercase tracking-[0.28em] text-deep transition hover:border-deep hover:bg-deep hover:text-white"
                 >
-                    View All Pieces
+                    {t("home.viewAllPieces")}
                 </Link>
             </div>
         </section>

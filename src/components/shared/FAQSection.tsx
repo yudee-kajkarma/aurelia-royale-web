@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useTranslation } from "@/utils/i18n";
 
 export type FaqItem = {
   question: string;
@@ -9,12 +10,18 @@ export type FaqItem = {
 
 export const FAQSection: React.FC<{ items: FaqItem[]; title?: string }> = ({
   items,
-  title = "Frequently Asked Questions",
+  title,
 }) => {
+  const { t } = useTranslation();
+  const displayTitle =
+    title && title !== "Frequently Asked Questions" && title !== "Preguntas frecuentes" && title !== "Foire aux questions"
+      ? title
+      : t("blog.faqTitle");
+
   return (
     <div className="mt-16">
       <h2 className="mb-8 font-cormorant text-3xl md:text-4xl font-semibold leading-tight text-[#153f35] uppercase tracking-wide border-t border-[#e2dfd5] pt-12">
-        {title}
+        {displayTitle}
       </h2>
       <div className="space-y-4 mb-20">
         {items.map((faq, index) => (

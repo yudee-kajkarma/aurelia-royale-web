@@ -1,0 +1,737 @@
+[
+  {
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/check-diamond-information-is-complete/1.jpg",
+        "alt": "So überprüfen Sie, ob die Diamanteninformationen vollständig und gründlich sind",
+        "title": "Überprüfen Sie die Informationen zu Diamanten",
+        "caption": "Der Vergleich von Produktspezifikationsblättern mit unabhängigen Prüfberichten stellt sicher, dass Sie genau das kaufen, was beschrieben wird.",
+        "priority": true
+      },
+      {
+        "type": "paragraph",
+        "text": "Diamantinformationen sind vollständig, wenn ein Käufer den genauen Artikel identifizieren, seine wichtigen Merkmale verstehen, wesentliche Ansprüche mit geeigneten Beweisen verknüpfen und die wesentlichen Kaufbedingungen kennen kann. Eine Seite mit vielen Fachbegriffen kann dennoch unvollständig sein, wenn der Umfang des Karatgewichts unklar ist, der Bericht zu einem anderen Diamanten gehört oder sich die ausgewählte Variante ändert, ohne deren Details zu aktualisieren."
+      },
+      {
+        "type": "paragraph",
+        "text": "Das richtige Audit stellt drei Fragen: Präsenz (ist es verfügbar?), Konsistenz (ist es überein?) und Unterstützung (ist es verifiziert?)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Diese Methode vermeidet zwei gegensätzliche Fehler. Dadurch wird vermieden, dass ein Produkt abgelehnt wird, weil ein irrelevantes Feld fehlt, und es wird vermieden, vages Marketing zu akzeptieren, nur weil die Seite detailliert aussieht."
+      }
+    ]
+  },
+  {
+    "heading": "Kurze Antwort: Wie überprüfen Sie, ob die Diamanteninformationen vollständig sind?",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Verwenden Sie diese Reihenfolge:"
+      },
+      {
+        "type": "numbered-list",
+        "items": [
+          "Korrigieren Sie genau die Produktvariante, die Sie bewerten.",
+          "Geben Sie die für diese Art von Schmuck erforderlichen Informationen an.",
+          "Markieren Sie jedes Feld als bestätigt, offengelegt, nicht anwendbar oder unbestätigt.",
+          "Bitte stellen Sie sicher, dass die Produktseite gegebenenfalls mit dem Bewertungsbericht übereinstimmt.",
+          "Stimmen Sie das mittlere Steingewicht, das Akzentgewicht und das Gesamtgewicht ab.",
+          "Vergleichen Sie Metall, Abmessungen und Bilder mit der ausgewählten Variante.",
+          "Bestätigen Sie Preis, Verfügbarkeit, Produktionszeit, Lieferung und Retouren.",
+          "Bitte lösen Sie eventuelle Konflikte schriftlich.",
+          "Trennen Sie kleine Lücken von Auslassungen, die den Kauf behindern.",
+          "Speichern Sie die endgültigen Spezifikationen und die Auftragsbestätigung."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Die Informationen sind nicht vollständig, da der Verkäufer möglicherweise später antwortet. Materialdetails sollten vor der Zahlung klar erfasst werden, damit beide Parteien wissen, was bestellt wurde."
+      }
+    ]
+  },
+  {
+    "heading": "Definieren Sie zunächst „völlig“ richtig",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Vollständig bedeutet nicht, dass jedes mögliche Edelsteinfeld in jeder Schmuckliste erscheint. Die erforderlichen Informationen sind abhängig vom Produkt und Dokument."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Feldtyp",
+          "Bedeutung",
+          "Beispiel"
+        ],
+        "rows": [
+          [
+            "Erforderlich",
+            "Notwendig, um dieses Produkt zu identifizieren oder zu bewerten",
+            "Herkunft aus Laboranbau und Gesamtkaratgewicht"
+          ],
+          [
+            "Bedingt",
+            "Nur erforderlich, wenn ein Anspruch, ein Attribut oder ein Dokument zutrifft",
+            "Berichtsnummer bei Ausschreibung eines Einzelgutachtens"
+          ],
+          [
+            "Nicht anwendbar",
+            "Gilt nicht für dieses Element oder diesen Berichtstyp",
+            "Hochwertiger Mittelsteinschliff bei einem Design ohne Mittelstein"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Ein leeres Feld sollte niemals stillschweigend „nicht zutreffend“ ersetzen. Der Einzelhändler sollte irrelevante Felder höflich weglassen oder kennzeichnen, wenn deren Fehlen einen Käufer verwirren könnte."
+      }
+    ]
+  },
+  {
+    "heading": "Verwenden Sie vier Proof-Status",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Jeder wesentliche Sachverhalt sollte einen der folgenden vier Status haben:"
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Verifiziert:",
+            "bold": true
+          },
+          {
+            "text": "Unterstützt durch ein geeignetes unabhängiges Dokument, beispielsweise ein gemmologisches Gutachten oder ein anerkanntes Qualitätszeichen."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Offengelegt:",
+            "bold": true
+          },
+          {
+            "text": "Wird vom Händler, Hersteller oder Lieferanten angegeben, aber nicht unbedingt unabhängig getestet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Nicht zutreffend:",
+            "bold": true
+          },
+          {
+            "text": "Wirklich irrelevant für das Produkt, die ausgewählte Option oder den Bericht. Dies ist ein gültiges Ergebnis."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Nicht bestätigt:",
+            "bold": true
+          },
+          {
+            "text": "Fehlend, widersprüchlich, unklar oder nicht unterstützt."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Aktualisieren Sie „Offengelegt“ nicht auf „Verifiziert“, nur weil der Verkäufer zuversichtlich klingt. Ziel ist es, Beweise fair zu kennzeichnen."
+      }
+    ]
+  },
+  {
+    "heading": "Schritt 1: Sperren Sie die genaue Produktvariante",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Die Informationen sind möglicherweise nicht vollständig, wenn sich das Produkt selbst während der Überprüfung weiterhin ändert. Bitte beachten Sie den ausgewählten Produktnamen, das Metall, die Ringgröße, das Karatgewicht, die Mittelform, den Ohrringtyp, den Bereitschaftsstatus und die Gravur."
+      },
+      {
+        "type": "paragraph",
+        "text": "Ein häufiger Informationsfehler tritt auf, wenn das Bild einen 2,00-ct-Ring zeigt, die ausgewählte Option 1,00 ct ist und in der Beschreibung nie angegeben wird, welche Version abgebildet ist."
+      }
+    ]
+  },
+  {
+    "heading": "Schritt 2: Überprüfen Sie die Identität und Herkunft des Diamanten",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Der Käufer sollte in der Lage sein, festzustellen, ob die Steine ​​im Labor gezüchtet oder natürlich sind, ob farbige Steine ​​oder Simulanten vorhanden sind, welche Formen/Schliffstile es gibt und ob die Herkunftsbezeichnung für jeden Diamanten gilt."
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "„Diamantschmuck“ ist unvollständig, wenn die Herkunft unklar ist. Lesen"
+          },
+          {
+            "text": "wie man im Labor gezüchtete Diamanten beschreibt und enthüllt",
+            "href": "/de/blog/how-lab-grown-diamonds-should-be-disclosed/"
+          },
+          {
+            "text": "für den Terminologiestandard."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Schritt 3: Vergleichen Sie die einzelnen Karatzahlen",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Das Karatgewicht ist erst vollständig, wenn seine Größe eindeutig ist. Passen Sie das mittlere Karatgewicht, die Paarverteilung, die Akzentgesamtgewichte und die Toleranzen an."
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Bei aus mehreren Steinen bestehenden oder handgefertigten Stücken können enge Toleranzen angemessen sein. Lesen"
+          },
+          {
+            "text": "was das Gesamtkaratgewicht für Diamantschmuck bedeutet",
+            "href": "/de/blog/total-carat-weight-diamond-jewellery/"
+          },
+          {
+            "text": "In"
+          },
+          {
+            "text": "Karatgewicht im Vergleich zur sichtbaren Diamantgröße",
+            "href": "/de/blog/carat-weight-vs-visible-diamond-size/"
+          },
+          {
+            "text": "."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Schritt 4: Prüfen Sie den Umfang der Qualitätserklärung",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Farb-, Reinheits- und Schliffinformationen können vorhanden und dennoch irreführend sein, weil sie der falschen Steingruppe zugeordnet sind. Stellen Sie sicher, dass die Zahlen angeben, welche Diamanten sie abdecken."
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Verwenden"
+          },
+          {
+            "text": "die 4Cs von im Labor gezüchteten Diamanten",
+            "href": "/de/blog/4cs-of-lab-grown-diamonds/"
+          },
+          {
+            "text": "um die Felder zu interpretieren, aber die genaue Terminologie des jeweiligen Berichts beizubehalten."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Schritt 5: Vergleichen Sie den Bewertungsbericht mit dem Produkt",
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/check-diamond-information-is-complete/2.jpg",
+        "alt": "Abgleich der Diamantenberichtsnummern und -spezifikationen mit der Zertifikatsdatenbank",
+        "title": "Überprüfung der Berichtsdatenbank",
+        "caption": "Durch die Eingabe der eindeutigen Berichtsnummer in die Labordatenbank werden die registrierten Spezifikationen überprüft."
+      },
+      {
+        "type": "paragraph",
+        "text": "Wenn ein Bericht bereitgestellt wird, vergleichen Sie ihn Feld für Feld, anstatt nur das Laborlogo zu überprüfen."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Rechnung",
+          "Produktseite",
+          "Laborbericht",
+          "Ergebnis"
+        ],
+        "rows": [
+          [
+            "Herausgeber und Nummer melden",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Beschreibung aus dem Labor",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Form und Schnittstil",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Karatgewicht",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Abmessungen",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Farb- oder Qualitätsergebnis",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Klarheit oder Qualitätsergebnis",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Informationen ausschneiden",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Inschrift",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Kommentare zum Wachstum oder zur Behandlung",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Verwenden"
+          },
+          {
+            "text": "So überprüfen Sie eine IGI-Zertifikatsnummer",
+            "href": "/de/blog/how-to-verify-an-igi-certificate-number/"
+          },
+          {
+            "text": "In"
+          },
+          {
+            "text": "Was zertifizierter, im Labor gezüchteter Diamantschmuck bedeutet",
+            "href": "/de/blog/certified-lab-grown-diamond-jewellery-meaning/"
+          },
+          {
+            "text": "um sicherzustellen, dass Datenbankeinträge und Berichte übereinstimmen."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Schritt 6: Überprüfen Sie die Abmessungen und den physikalischen Maßstab",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Vergleichen Sie bei einem Hauptdiamanten die Millimetermaße mit dem Karatgewicht. Bestätigen Sie für fertigen Schmuck die Kategorien: Ohrringe (Tropfenlänge/Verschluss), Halsketten (Kettenlänge/Tropfenlänge), Armbänder (Tragelänge) und Ringe (Breite/Einstellhöhe)."
+      }
+    ]
+  },
+  {
+    "heading": "Schritt 7: Überprüfen Sie die Metall- und Konstruktionsinformationen",
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/check-diamond-information-is-complete/3.jpg",
+        "alt": "Überprüfung der Punze auf feinem Platinschmuck",
+        "title": "Qualitätszeichen für die Feingehaltsprüfung",
+        "caption": "Der Gehalt und die Feinheit des Edelmetalls werden durch ein Gütesiegel des Edelmetallamts bestätigt, unabhängig vom Diamantzertifikat."
+      },
+      {
+        "type": "paragraph",
+        "text": "Ein Diamantgutachten vervollständigt die Beschreibung des Schmuckstücks nicht. Überprüfen Sie Metallart, Feinheit, Farbe, Beschichtung, charakteristische Details, Endgewicht, Fassungsstruktur, Kette und Verschlüsse."
+      }
+    ]
+  },
+  {
+    "heading": "Schritt 8: Testen Sie das Filmmaterial anhand der schriftlichen Spezifikation",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Stellen Sie sicher, dass die ausgewählte Metallvariante mit dem Bild übereinstimmt, überprüfen Sie die Anzahl der Steine ​​und überprüfen Sie die Einstellungen. Wenn Archiv- oder repräsentative Fotografie verwendet wird, muss dies auf der Seite angegeben werden."
+      }
+    ]
+  },
+  {
+    "heading": "Schritt 9: Überprüfen Sie Preis, Zeitplan und Richtlinienkonsistenz",
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/check-diamond-information-is-complete/4.jpg",
+        "alt": "Überprüfen Sie die Lieferbedingungen, Steuern und Rückgaberichtlinien an der Kasse",
+        "title": "Transaktions- und Richtlinienprüfung",
+        "caption": "Durch die Prüfung der Preise, voraussichtlichen Liefertermine und Rückgabezeiten können Überraschungen nach dem Bezahlvorgang vermieden werden."
+      },
+      {
+        "type": "paragraph",
+        "text": "Bitte bestätigen Sie vor der Zahlung Preise, Mehrwertsteuer oder Steuern, Versandbedingungen, Lagerbestand, Produktionsschätzungen, Rückgabefristen, Personalisierungsausschlüsse und die mitgelieferte Dokumentation."
+      }
+    ]
+  },
+  {
+    "heading": "Schritt 10: Unterscheiden Sie Auslassungen von Widersprüchen",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Eine Auslassung ist ein Feld, das fehlt. Ein Widerspruch ist schwerwiegender, weil zwei Quellen unterschiedliche Angaben machen (zum Beispiel: Auf der Seite steht 1,00 ct, im Bericht steht 0,90 ct; auf der Seite steht „konfektioniert“, an der Kasse steht „auf Bestellung gefertigt“). Halten Sie die korrigierten Informationen schriftlich fest."
+      }
+    ]
+  },
+  {
+    "heading": "Bewerten Sie jede Lücke anhand des Kaufrisikos",
+    "content": [
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Rot: Anhalten bis zur Lösung –",
+            "bold": true
+          },
+          {
+            "text": "unklare Herkunft, unbestätigte Berichte, Konflikte über die Feinheit des Metalls, versteckte Transaktionspreise oder Rückgaberichtlinien."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Bernstein: Klarstellung dringend empfohlen –",
+            "bold": true
+          },
+          {
+            "text": "unbeschriftete repräsentative Bilder, vage Maßangaben, unklarer Umfang der Qualitätsklasse."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Grün: kleine oder unwesentliche Lücke –",
+            "bold": true
+          },
+          {
+            "text": "Unwesentliche Stylingmaße, ungefähre handgefertigte Toleranzen."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Vollständiges Informationsarbeitsblatt",
+    "content": [
+      {
+        "type": "table",
+        "headers": [
+          "Bereich",
+          "Veld",
+          "Status",
+          "Bron",
+          "Handlungsbedarf"
+        ],
+        "rows": [
+          [
+            "Identität",
+            "Produktreferenz und ausgewählte Variante",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Diamant",
+            "Ursprungs- und Komponentenzuordnung",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Gewicht",
+            "Zentrums-, Akzent- und Gesamtkaratgewichte",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Qualität",
+            "Farbe, Helligkeit und Schnittbereich",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Rapport",
+            "Herausgeber, Typ, Anzahl und Reichweite",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Vereinbarung",
+            "Form, Gewicht, Maße und Aufschrift",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Schmuck",
+            "Metall, Feinheit, Abmessungen und Konstruktion",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Bilder",
+            "Tatsächlich oder repräsentativ; Variante dargestellt",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Preis",
+            "Währung, Steuern und zusätzliche Gebühren",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Erfüllung",
+            "Lager, Produktion und Lieferung",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Politik",
+            "Rückgabe, Garantie und Nachbetreuung",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Lieferset",
+            "Berichte, Rechnungen, Verpackungs- und Wartungsinformationen",
+            "",
+            "",
+            ""
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Fragen an den Händler",
+    "content": [
+      {
+        "type": "numbered-list",
+        "items": [
+          "Bestätigen Sie die genaue Produktreferenz und die ausgewählte Variante.",
+          "Gilt der Karatgrad für den Mittelstein, für jeden einzelnen Artikel oder für alle Diamanten zusammen?",
+          "Sind die angegebenen Grade genau, minimal oder bereichsweise, und welche Steine ​​decken sie ab?",
+          "Welchen Bericht erhalte ich und um welchen Diamanten bzw. welches Objekt handelt es sich?",
+          "Entspricht der gelieferte Diamant der gemeldeten Berichtsnummer?",
+          "Sind die Bilder aktuell oder repräsentativ und welche Option wird angezeigt?",
+          "Was sind die Endabmessungen und die Metallfeinheit?",
+          "Ist der Artikel versandfertig oder auf Bestellung gefertigt?",
+          "Wie hoch ist der volle Preis für den Versand in mein Land?",
+          "Beeinflussen Abmessungen, Gravuren oder andere Auswahlmöglichkeiten die Rückgabeberechtigung?"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Nutzen Sie es für eine umfassendere Prüfung vor dem Kauf"
+          },
+          {
+            "text": "die Checkliste mit Details auf der Diamant-Produktseite",
+            "href": "/de/blog/diamond-details-product-page/"
+          },
+          {
+            "text": "und dann bestätigen"
+          },
+          {
+            "text": "wie im Labor gezüchtete Diamanten bewertet werden",
+            "href": "/de/blog/how-lab-grown-diamonds-are-graded/"
+          },
+          {
+            "text": ". Die nächsten Prüfungen bestehen darin, ob der Verkäufer dies nachweist"
+          },
+          {
+            "text": "Transparenz beim Kauf von Diamantschmuck",
+            "href": "/de/blog/transparency-buying-diamond-jewellery/"
+          },
+          {
+            "text": "und lesen Sie die vollständige Anleitung vor"
+          },
+          {
+            "text": "Kaufen Sie zertifizierten, im Labor gezüchteten Diamantschmuck online",
+            "href": "/de/blog/buy-certified-lab-grown-diamond-jewellery-online/"
+          },
+          {
+            "text": "."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Aurelia Royales Vollständigkeitsstandard",
+    "content": [
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Aurelia Royale muss die Vollständigkeit auf Datenebene gewährleisten, nicht nur in der Produktprosa. Käufer können bewerten"
+          },
+          {
+            "text": "der Schmuck von Aurelia Royale",
+            "href": "/shop/"
+          },
+          {
+            "text": "von"
+          },
+          {
+            "text": "Kontaktieren Sie Aurelia Royale",
+            "href": "/contact/"
+          },
+          {
+            "text": "um eine produktspezifische Informationslücke zu schließen."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Abschließende Checkliste vor dem Kauf",
+    "content": [
+      {
+        "type": "bullet-list",
+        "items": [
+          "Welche genaue Variante kaufe ich?",
+          "Ist die Herkunft des Diamanten für jede Steingruppe klar?",
+          "Können Zentrums-, Akzent- und Gesamtkarat-Angaben in Einklang gebracht werden?",
+          "Sind den richtigen Steinen Qualitätserklärungen beigefügt?",
+          "Sind Art und Umfang des Berichts klar?",
+          "Passt der verifizierte Bericht zum Produkt?",
+          "Sind Metall, Abmessungen und Konstruktion vollständig?",
+          "Sind die Bilder eine angemessene Darstellung der ausgewählten Option?",
+          "Ist der Gesamtpreis nachvollziehbar?",
+          "Sind Produktion, Lieferung und Retouren am gesamten Standort konsistent?",
+          "Wurden alle Red-Risk-Lücken schriftlich gelöst?",
+          "Werden in der endgültigen Auftragsbestätigung die vereinbarten Spezifikationen beibehalten?"
+        ]
+      }
+    ]
+  },
+  {
+    "content": [
+      {
+        "type": "callout",
+        "title": "Endgültiges Urteil",
+        "theme": "gold-border",
+        "parts": [
+          {
+            "text": "Vollständige Diamantinformationen werden nicht anhand der Wortzahl gemessen. Es wird daran gemessen, ob das genaue Produkt identifiziert werden kann, wesentliche Ansprüche ordnungsgemäß gekennzeichnet sind, die Nachweise mit dem Artikel übereinstimmen und die Kaufbedingungen während des Bezahlvorgangs konsistent bleiben."
+          },
+          {
+            "text": "Verwenden Sie Pflichtfelder, bedingte und nicht anwendbare Felder, um zu entscheiden, was dazugehört. Kennzeichnen Sie dann jede Antwort als bestätigt, offengelegt, nicht zutreffend oder unbestätigt. Beheben Sie Unstimmigkeiten, bevor geringfügige Auslassungen gemacht werden, und hören Sie auf, wenn Herkunft, Identität, Gewicht, Metall oder Preis nicht sicher bestimmt werden können."
+          }
+        ]
+      },
+      {
+        "type": "faq",
+        "items": [
+          {
+            "question": "Welche Diamantinformationen müssen immer angegeben werden?",
+            "answer": "Käufer sollten mindestens die Herkunft, die Form, das Karatgewicht, die relevante Qualitätsbeschreibung, den beanspruchten Zertifizierungsbereich, das Metall, die Größe, den Preis und die Erfüllungsanforderungen des Diamanten kennen."
+          },
+          {
+            "question": "Bedeutet vollständige Information, dass jeder Diamant ein Zertifikat benötigt?",
+            "answer": "Nein. Diamanten mit geringem Akzent können durch geprüfte Herkunft, Gesamtgewicht und Qualitätsbereiche beschrieben werden. Auf der Seite sollte klar erkennbar sein, welche Steine ​​über individuelle Berichte verfügen."
+          },
+          {
+            "question": "Woher weiß ich, ob ein Karatgewicht vollständig ist?",
+            "answer": "Es sollte angegeben werden, ob sich die Bewertung auf einen Mittelstein, jeden Diamanten, jeden Ohrring, Akzentsteine ​​oder das gesamte Stück bezieht und ob sie genau oder ungefähr ist."
+          },
+          {
+            "question": "Was soll ich tun, wenn die Produktseite und der Bewertungsbericht nicht übereinstimmen?",
+            "answer": "Unterbrechen Sie den Kauf und bitten Sie den Händler, die korrekten Informationen schriftlich bereitzustellen. Gehen Sie nicht davon aus, dass die günstigere Spezifikation korrekt ist."
+          },
+          {
+            "question": "Ist eine verifizierte Meldenummer ausreichend?",
+            "answer": "Nein. Es wird bestätigt, dass ein Berichtsdatensatz vorhanden ist. Sie müssen gegebenenfalls auch Form, Gewicht, Abmessungen und Beschriftung des Berichts mit dem physischen Diamanten in Einklang bringen."
+          },
+          {
+            "question": "Sind fehlende Diamantverhältnisse immer ein Warnzeichen?",
+            "answer": "Nein. Detaillierte Proportionen können für einen wählbaren losen Diamanten wichtig sein, sind aber nicht für jeden kleinen gefassten Akzentstein notwendig. Die Relevanz hängt vom Artikel und Bericht ab."
+          },
+          {
+            "question": "Sind Farb- und Helligkeitsbereiche unvollständige Informationen?",
+            "answer": "Nicht, wenn die Sortimente passend, genau definiert und der richtigen Steingruppe zugeordnet sind. Sie sollten nicht als exakte Einzelzahlen dargestellt werden."
+          },
+          {
+            "question": "Was bedeutet „nicht zutreffend“ in einer Diamant-Checkliste?",
+            "answer": "Das bedeutet, dass ein Feld wirklich nicht auf das Produkt oder den Bericht zutrifft, wie z. B. ein Mittelsteintyp für Schmuck ohne Mittelstein. Es unterscheidet sich von fehlenden Informationen."
+          },
+          {
+            "question": "Soll das Bild zur gewählten Diamantgröße passen?",
+            "answer": "Im Idealfall ja. Wenn repräsentative Bilder eine andere Größe oder Variante zeigen, muss die Seite identifizieren, was angezeigt wird, und genaue Abmessungen für die Auswahl anzeigen."
+          },
+          {
+            "question": "Sollte die Produktionszeit in den Diamanteninformationen enthalten sein?",
+            "answer": "Ja, wenn es Auswirkungen auf den Kauf hat. Dabei ist zwischen der Produktionszeit von Einzelanfertigungen und der Lieferzeit des Spediteurs zu unterscheiden."
+          },
+          {
+            "question": "Was sind die gravierendsten fehlenden Details?",
+            "answer": "Unklare Diamantenherkunft, nicht überprüfbare Berichtsidentität, unklarer Karatumfang, widersprüchliche Metallinformationen, ungeklärte Produktänderungen und versteckte Gesamtpreise oder Rückgabebedingungen stellen ein hohes Risiko dar."
+          },
+          {
+            "question": "Muss ich die Produktspezifikationen nach der Bestellung beibehalten?",
+            "answer": "Ja. Bitte bewahren Sie die Produktseite bzw. das Angebot, die Berichtsdetails, die Versicherungsbedingungen und die Auftragsbestätigung auf, damit die vereinbarten Spezifikationen anhand der Lieferung überprüft werden können."
+          }
+        ]
+      },
+      {
+        "type": "cta-banner",
+        "title": "Entdecken Sie völlig offene Qualität",
+        "subtitle": "Aurelia Royale überprüft jeden Diamantparameter und präsentiert offen unabhängige Überprüfungsdetails. Entdecken Sie unsere Kollektion.",
+        "shopHref": "/shop/",
+        "contactHref": "/contact/"
+      }
+    ]
+  }
+]

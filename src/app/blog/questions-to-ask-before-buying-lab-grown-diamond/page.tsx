@@ -1,16 +1,77 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
-export const metadata: Metadata = {
-  title: "25 Questions to Ask Before Buying a Lab-Grown Diamond",
-  description: "Use these 25 questions to check a lab-grown diamond’s quality, report, treatment, carat weight, metal, hallmark, returns, warranty and total price.",
+export const metadataEn: Metadata = {
+  title: "Questions To Ask Before Buying Lab Grown Diamond",
+  description: "Questions To Ask Before Buying Lab Grown Diamond",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/questions-to-ask-before-buying-lab-grown-diamond/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "Preguntas que debe hacerse antes de comprar diamantes cultivados en laboratorio",
+  description: "Preguntas que debe hacerse antes de comprar diamantes cultivados en laboratorio - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/questions-to-ask-before-buying-lab-grown-diamond/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Questions à poser avant d’acheter un diamant cultivé en laboratoire",
+  description: "Questions à poser avant d’acheter un diamant cultivé en laboratoire - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/questions-to-ask-before-buying-lab-grown-diamond/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Vragen die u moet stellen voordat u Lab Grown Diamond koopt",
+  description: "Vragen die u moet stellen voordat u Lab Grown Diamond koopt - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/questions-to-ask-before-buying-lab-grown-diamond/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "Fragen, die Sie vor dem Kauf von im Labor gezüchteten Diamanten stellen sollten",
+  description: "Fragen, die Sie vor dem Kauf von im Labor gezüchteten Diamanten stellen sollten - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/questions-to-ask-before-buying-lab-grown-diamond/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Domande da porre prima di acquistare un diamante coltivato in laboratorio",
+  description: "Prepara la tua domanda. Scopri quali domande chiave porre al gioielliere in merito al certificato del diamante, alla politica di aggiornamento e all'origine. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/questions-to-ask-before-buying-lab-grown-diamond/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+  const localeData = getBlogDataByLocale("questions-to-ask-before-buying-lab-grown-diamond", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. The exact JSON-LD Schema
 const schemaMarkup = {
@@ -571,23 +632,30 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function Blog16Page() {
+export default async function Blog16Page({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const localeData = getBlogDataByLocale("questions-to-ask-before-buying-lab-grown-diamond", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Lab-Grown Diamond Education
+            {locale === "it" ? "Guide all'Acquisto" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Éducation sur les diamants" : locale === "es" ? "Educación sobre diamantes cultivados en laboratorio" : "Lab-Grown Diamond Education"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            25 Questions to Ask Before Buying a Lab Diamond
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
             Buying Guide • Published July 15, 2026
@@ -596,7 +664,7 @@ export default function Blog16Page() {
       </section>
 
       {/* Content Layout */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

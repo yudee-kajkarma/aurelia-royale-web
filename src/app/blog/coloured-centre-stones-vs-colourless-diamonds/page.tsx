@@ -1,16 +1,75 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
-export const metadata: Metadata = {
-  title: "Coloured Centre Stone vs Colourless Diamond",
-  description: "Compare coloured centre stones and colourless diamond designs by colour, light, scale, metal, versatility, care and product transparency.",
+export const metadataEn: Metadata = {
+  title: "Coloured Centre Stones Vs Colourless Diamonds",
+  description: "Coloured Centre Stones Vs Colourless Diamonds",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/coloured-centre-stones-vs-colourless-diamonds/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "Piedras centrales de colores versus diamantes incoloros",
+  description: "Piedras centrales de colores versus diamantes incoloros - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/coloured-centre-stones-vs-colourless-diamonds/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Pierres centrales colorées vs diamants incolores",
+  description: "Pierres centrales colorées vs diamants incolores - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/coloured-centre-stones-vs-colourless-diamonds/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Gekleurde middenstenen versus kleurloze diamanten",
+  description: "Gekleurde middenstenen versus kleurloze diamanten - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/coloured-centre-stones-vs-colourless-diamonds/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "Farbige Mittelsteine ​​im Vergleich zu farblosen Diamanten",
+  description: "Farbige Mittelsteine ​​im Vergleich zu farblosen Diamanten - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/coloured-centre-stones-vs-colourless-diamonds/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Pietre centrali colorate contro diamanti incolori",
+  description: "Confronta gli stili per il tuo anello di fidanzamento o la tua gioielleria. Scopri i vantaggi estetici, di prezzo e di durabilità delle pietre preziose colorate e dei diamanti incolori. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/coloured-centre-stones-vs-colourless-diamonds/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. The exact JSON-LD Schema
 const schemaMarkup = {
@@ -417,32 +476,39 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function Page() {
+export default async function Page({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
+  const localeData = getBlogDataByLocale("coloured-centre-stones-vs-colourless-diamonds", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Coloured Stones and Diamonds
+            {locale === "it" ? "Guida ai Diamanti" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Pierres de couleur et diamants" : locale === "es" ? "Piedras de colores y diamantes" : "Coloured Stones and Diamonds"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            Coloured Centre Stones vs Colourless Diamond Designs
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
+            {locale === "it" ? "Journal • Pubblicato il 16 luglio 2026" : locale === "de" ? "Journal • Veröffentlicht am 16. Juli 2026" : locale === "nl" ? "Journaal • Gepubliceerd op 16 juli 2026" : locale === "fr" ? "Journal • Publié le 16. Juli 2026" : locale === "es" ? "Diario • Publicado el 16 de julio de 2026" : "Journal • Published July 16, 2026"}
           </p>
         </div>
       </section>
 
       {/* Content Layout */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

@@ -41,12 +41,19 @@ export type RegisterRequest = {
   username: string;
   email: string;
   password: string;
-  confirmPassword: string;
+  confirmPassword?: string;
   firstName: string;
   lastName: string;
-  phoneNumber: string;
-  countryCode: string;
-  address: AddressPayload;
+  phoneNumber?: string;
+  countryCode?: string;
+  address?: AddressPayload;
+  defaultAddress?: {
+    street: string;
+    city: string;
+    state: string;
+    postalCode: string;
+    country: string;
+  };
 };
 
 export type VerifyOtpRequest = {

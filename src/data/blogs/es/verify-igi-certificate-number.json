@@ -1,0 +1,305 @@
+[
+  {
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/verify-igi-certificate-number/23 (1).jpg",
+        "alt": "El número del informe de diamantes cultivados en laboratorio se está verificando en línea",
+        "title": "Cómo verificar el número de certificado IGI",
+        "caption": "Ingresar el código del informe de calificación directamente en el registro del laboratorio confirma los detalles de autenticidad.",
+        "priority": true
+      },
+      {
+        "type": "paragraph",
+        "text": "Para verificar un número de certificado IGI, ingrese el número en el servicio oficial “Verificar Informe” de IGI y abra el informe de calificación digital correspondiente."
+      },
+      {
+        "type": "paragraph",
+        "text": "Luego debe comparar ese registro digital con el informe proporcionado por el minorista, las especificaciones de la página del producto, el diamante físico y la inscripción láser en el cinturón del diamante."
+      },
+      {
+        "type": "paragraph",
+        "text": "Encontrar un número de informe válido en línea es sólo el primer paso. Un número copiado puede corresponder a un informe auténtico y al mismo tiempo utilizarse para anunciar un diamante diferente. Verificación completa significa confirmar que el informe en línea, el documento proporcionado y el diamante real coinciden."
+      },
+      {
+        "type": "callout",
+        "title": "Respuesta rápida",
+        "text": "Siga estos pasos: Obtenga el número de informe IGI completo. Visite usted mismo el sitio web oficial de IGI. Abra el servicio \"Verificar informe\". Ingrese el número exactamente como se proporciona. Abra el informe digital. Confirmar el origen cultivado en laboratorio. Compare la forma, el peso en quilates, las medidas y los grados. Lea los comentarios de crecimiento y tratamiento. Consulte los detalles de la inscripción láser. Haga inspeccionar la inscripción física con lupa. Si algún detalle importante difiere, suspenda la compra y solicite una aclaración al minorista."
+      }
+    ]
+  },
+  {
+    "heading": "1. Comprender el número de informe IGI",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Un número de informe IGI es el código de identificación único asignado a una piedra clasificada. Vincula el diamante físico con los archivos digitales del laboratorio. El código puede ubicarse en la parte superior de las copias impresas, junto a los códigos QR de verificación, o grabarse microscópicamente en el cinturón del diamante."
+      },
+      {
+        "type": "paragraph",
+        "text": "Si un minorista ofrece un diamante central certificado pero se niega a compartir el número de certificado antes de realizar su pedido, trátelo como una señal de advertencia y suspenda la transacción."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/verify-igi-certificate-number/23 (2).jpg",
+        "alt": "Visualización única del escáner de código de barras de certificado en la pantalla del portátil",
+        "title": "Registro de admisión de códigos de informe",
+        "caption": "Los códigos de registro únicos identifican piedras sueltas o engastadas en la base de datos del laboratorio."
+      }
+    ]
+  },
+  {
+    "heading": "2. Instrucciones de verificación paso a paso",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Siga estos pasos esenciales para ejecutar comprobaciones de registro en línea de forma segura:"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "Solicitar informes completos: nunca acepte pantallas recortadas o resúmenes. Solicite copias completas que muestren registros de fechas, notas a pie de página de comentarios y medidas.",
+          "Visite portales oficiales: ingrese la URL usted mismo en lugar de hacer clic en enlaces en anuncios o correos electrónicos para evitar acceder a páginas de phishing.",
+          "Ingrese códigos exactamente: evite confundir letras y números (por ejemplo, cero '0' con la letra 'O', uno '1' con la letra 'I')."
+        ]
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/verify-igi-certificate-number/23 (3).jpg",
+        "alt": "Un profesional que haga coincidir los detalles del informe con el diamante.",
+        "title": "Verificar las entradas del registro en línea",
+        "caption": "Asegúrese de que los parámetros de descripción en línea se alineen exactamente con el diamante físico."
+      }
+    ]
+  },
+  {
+    "heading": "Campos de registro que deben coincidir",
+    "content": [
+      {
+        "type": "table",
+        "headers": [
+          "Detalle",
+          "que debe coincidir"
+        ],
+        "rows": [
+          [
+            "Número de informe",
+            "Número exacto proporcionado por el minorista."
+          ],
+          [
+            "Descripción",
+            "Diamante cultivado en laboratorio"
+          ],
+          [
+            "Fecha del informe",
+            "Misma fecha que se muestra en el informe suministrado."
+          ],
+          [
+            "Forma",
+            "Redonda, ovalada, esmeralda, pera u otra forma anunciada"
+          ],
+          [
+            "estilo de corte",
+            "La descripción del corte que se muestra en el informe."
+          ],
+          [
+            "Medidas",
+            "Mismas dimensiones milimétricas"
+          ],
+          [
+            "peso en quilates",
+            "Peso exacto del diamante clasificado"
+          ],
+          [
+            "Color",
+            "Mismo grado que el listado de productos."
+          ],
+          [
+            "claridad",
+            "Mismo grado que el listado de productos."
+          ],
+          [
+            "cortar",
+            "Mismo grado cuando corresponda"
+          ],
+          [
+            "polaco",
+            "Mismo resultado del informe"
+          ],
+          [
+            "simetria",
+            "Mismo resultado del informe"
+          ],
+          [
+            "Fluorescencia",
+            "Misma fuerza y color."
+          ],
+          [
+            "Comentarios",
+            "Misma información de crecimiento y tratamiento."
+          ],
+          [
+            "Inscripción",
+            "Misma información de inscripción."
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "3. Controles físicos y discrepancias de documentos",
+    "content": [
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Grabados Láser de Faja:",
+            "bold": true
+          },
+          {
+            "text": "Las inscripciones láser son códigos microscópicos que los joyeros leen con lupas o lentes de zoom. Los ajustes de la faja pueden cubrir partes de los códigos, por lo tanto, verifique las posiciones de los códigos antes de colocar las piedras."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Alteraciones de documentos:",
+            "bold": true
+          },
+          {
+            "text": "Copiar números de informes para enmascarar piedras de menor calidad es una táctica común de los minoristas fraudulentos. Esté atento a fuentes desiguales, zonas de comentarios recortadas, etiquetas de origen faltantes o páginas de registro borrosas."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Escaneo seguro de códigos QR:",
+            "bold": true
+          },
+          {
+            "text": "Trate los enlaces de códigos QR con cuidado. Siempre verifique que los dominios escaneados se dirijan al `.org` oficial o a direcciones de registro seguras antes de ingresar los detalles."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/verify-igi-certificate-number/23 (4).jpg",
+        "alt": "Inspección de serie de láser de faja con una herramienta de visualización de microscopio",
+        "title": "Evaluación del microscopio de inscripción láser",
+        "caption": "Un código de inscripción láser correspondiente impreso en la faja conecta el diamante con su informe en línea."
+      }
+    ]
+  },
+  {
+    "heading": "Lista de verificación de verificación del informe IGI",
+    "content": [
+      {
+        "type": "table",
+        "headers": [
+          "Antes de comprar, verifique:"
+        ],
+        "rows": [
+          [
+            "Obtenga el número de informe completo y busque de forma independiente."
+          ],
+          [
+            "Haga coincidir exactamente la forma, el peso en quilates, las medidas y los comentarios."
+          ],
+          [
+            "Lea los registros del método de crecimiento CVD/HPHT y los comentarios sobre el tratamiento."
+          ],
+          [
+            "Verifique que el certificado digital no esté marcado como reemplazado o vencido."
+          ],
+          [
+            "Solicite videos de alta resolución que muestren códigos físicos de fajas bajo aumento."
+          ],
+          [
+            "Revise las políticas de devolución para asegurarse de que puede verificar los parámetros después de la entrega."
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "content": [
+      {
+        "type": "callout",
+        "title": "Veredicto final",
+        "theme": "gold-border",
+        "parts": [
+          {
+            "text": "Para verificar un número de certificado IGI es necesario comparar el informe digital oficial, la descripción del producto y la faja de diamantes física. Si algún detalle no coincide o el número no se puede ubicar en el sitio web oficial del laboratorio, suspenda la compra hasta que obtenga una explicación clara."
+          },
+          {
+            "text": "En Aurelia Royale, brindamos acceso completo y transparente a los registros de verificación de informes GIA/IGI para cada pieza de nuestras colecciones."
+          }
+        ]
+      },
+      {
+        "type": "faq",
+        "items": [
+          {
+            "question": "¿Dónde puedo verificar un número de certificado IGI?",
+            "answer": "Utilice el servicio Verificar informe en el sitio web oficial de IGI. Ingrese el número de informe completo y compare el informe digital resultante con el documento y el diamante suministrados."
+          },
+          {
+            "question": "¿Es único el número de certificado IGI?",
+            "answer": "IGI asigna un número de informe único a cada informe de calificación. El número identifica un informe, pero los compradores aún deben confirmar que el informe corresponde con el diamante físico."
+          },
+          {
+            "question": "¿Puedo verificar un certificado IGI gratis?",
+            "answer": "La función de verificación de informes en línea de IGI permite a los consumidores buscar el informe digital utilizando su número sin comprar un servicio de calificación por separado."
+          },
+          {
+            "question": "¿Por qué no funciona mi número de informe IGI?",
+            "answer": "Las posibles causas incluyen un error tipográfico, un número incompleto, un informe emitido recientemente, un problema temporal en el sitio web o un documento que no fue emitido por IGI."
+          },
+          {
+            "question": "¿Encontrar un informe IGI en línea prueba que el diamante es genuino?",
+            "answer": "Acredita que existe un informe con ese número. Aún debes comparar la inscripción, medidas y características del diamante físico con el informe."
+          },
+          {
+            "question": "¿Dónde está escrito el número IGI en el diamante?",
+            "answer": "Puede estar grabado con láser en el cinturón del diamante. El informe debe indicar la información de la inscripción."
+          },
+          {
+            "question": "¿Puedo ver la inscripción IGI con mis ojos?",
+            "answer": "Generalmente no. Normalmente se requiere una lupa de joyero o un microscopio para localizar y leer la inscripción."
+          },
+          {
+            "question": "¿Alguien puede copiar un número de certificado IGI genuino?",
+            "answer": "Sí. Un número copiado podría usarse en un listado para una piedra diferente. Es por esto que también se deben verificar las medidas, calificaciones y la inscripción física."
+          },
+          {
+            "question": "¿Qué debo hacer si el certificado y la página del producto muestran grados diferentes?",
+            "answer": "Solicite al minorista el informe correcto y una aclaración por escrito. No compre un diamante anunciado con mejores calidades que las que registra su informe."
+          },
+          {
+            "question": "¿Un número de informe del IGI confirma el valor de reventa del diamante?",
+            "answer": "No. Identifica el informe de calificaciones y las características documentadas. No garantiza el valor de reventa presente o futuro."
+          },
+          {
+            "question": "¿Debería aparecer el número IGI en mi factura?",
+            "answer": "Para un producto vendido con un diamante clasificado individualmente, colocar el número de informe en la factura o en la documentación del pedido mejora la trazabilidad."
+          },
+          {
+            "question": "¿Se puede verificar un informe IGI después de engastar el diamante?",
+            "answer": "Sí. El número de informe se puede consultar online, aunque inspeccionar la inscripción de la faja puede resultar más difícil si el entorno la cubre."
+          }
+        ]
+      },
+      {
+        "type": "cta-banner",
+        "title": "Compre colecciones de diamantes verificadas",
+        "subtitle": "Bellamente contrastado, calificado de forma independiente y totalmente verificable. Experimente el estándar de registro de Aurelia Royale.",
+        "shopHref": "/shop/",
+        "contactHref": "/contact/"
+      }
+    ]
+  }
+]

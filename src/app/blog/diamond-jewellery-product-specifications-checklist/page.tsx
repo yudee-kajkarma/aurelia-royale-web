@@ -1,16 +1,75 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
-export const metadata: Metadata = {
+export const metadataEn: Metadata = {
   title: "Diamond Jewellery Product Specifications Checklist",
-  description: "Check the essential diamond, metal, size, construction, certification and order details every jewellery product page should provide before checkout.",
+  description: "Diamond Jewellery Product Specifications Checklist",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/diamond-jewellery-product-specifications-checklist/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "Lista de verificación de especificaciones de productos de joyería de diamantes",
+  description: "Lista de verificación de especificaciones de productos de joyería de diamantes - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/diamond-jewellery-product-specifications-checklist/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Liste de contrôle des spécifications des produits pour les bijoux en diamant",
+  description: "Liste de contrôle des spécifications des produits pour les bijoux en diamant - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/diamond-jewellery-product-specifications-checklist/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Checklist voor productspecificaties van diamanten sieraden",
+  description: "Checklist voor productspecificaties van diamanten sieraden - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/diamond-jewellery-product-specifications-checklist/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "Checkliste für Diamantschmuck-Produktspezifikationen",
+  description: "Checkliste für Diamantschmuck-Produktspezifikationen - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/diamond-jewellery-product-specifications-checklist/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Elenco di controllo delle specifiche dei gioielli con diamanti",
+  description: "Acquista in sicurezza. Si prega di utilizzare questo elenco di controllo completo di dettagli su metallo, pietra, certificato e garanzia prima dell'acquisto. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/diamond-jewellery-product-specifications-checklist/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. The exact JSON-LD Schema
 const schemaMarkup = {
@@ -676,32 +735,39 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function Page() {
+export default async function Page({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
+  const localeData = getBlogDataByLocale("diamond-jewellery-product-specifications-checklist", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Buying Lab-Grown Diamond Jewellery
+            {locale === "it" ? "Guide all'Acquisto" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Buying Lab-Grown Diamond Jewellery" : locale === "es" ? "Comprar joyas de diamantes cultivados en laboratorio" : "Buying Lab-Grown Diamond Jewellery"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            What Product Specifications Should You Check Before Ordering Diamond Jewellery?
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
+            {locale === "it" ? "Journal • Pubblicato il 16 luglio 2026" : locale === "de" ? "Journal • Veröffentlicht am 16. Juli 2026" : locale === "nl" ? "Journaal • Gepubliceerd op 16 juli 2026" : locale === "fr" ? "Journal • Publié le 16. Juli 2026" : locale === "es" ? "Diario • Publicado el 16 de julio de 2026" : "Journal • Published July 16, 2026"}
           </p>
         </div>
       </section>
 
       {/* Content Layout */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

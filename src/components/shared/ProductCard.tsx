@@ -1,8 +1,10 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { AddToCartButton } from "@/components/cart/AddToCartButton";
 import { ProductImage } from "./ProductImage";
 // import { DiscountedPrice } from "@/components/shared/DiscountedPrice";
 import { WishlistToggleButton } from "@/components/wishlist/WishlistToggleButton";
+
+import { useTranslation } from "@/utils/i18n";
 
 type ProductCardProps = {
     name: string;
@@ -27,6 +29,8 @@ export function ProductCard({
     showAddToCart = true,
     compact = false,
 }: ProductCardProps) {
+    const { localizeHref } = useTranslation();
+    const localizedHref = href ? localizeHref(href) : undefined;
     return (
         <article
             className={
@@ -35,9 +39,9 @@ export function ProductCard({
                     : "group relative rounded-2xl border border-black/5 bg-surface p-5 transition hover:-translate-y-1 hover:shadow-lg"
             }
         >
-            {href ? (
+            {localizedHref ? (
                 <Link
-                    href={href}
+                    href={localizedHref}
                     className="absolute inset-0 z-10"
                     aria-label={`Open ${name}`}
                 />

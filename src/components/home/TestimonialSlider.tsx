@@ -3,9 +3,11 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Star } from "lucide-react";
+import { useTranslation } from "@/utils/i18n";
 import TestimonialImg from "@/assets/Testimonial-Img.png";
 
 type Testimonial = {
+    id: string;
     name: string;
     location: string;
     rating: number;
@@ -15,6 +17,7 @@ type Testimonial = {
 
 const testimonials: Testimonial[] = [
     {
+        id: "isabelle",
         name: "Isabelle Laurent",
         location: "Paris, France",
         rating: 5,
@@ -23,6 +26,7 @@ const testimonials: Testimonial[] = [
             "https://jewellery-bay-two.vercel.app/assets/our_image/tstimonal/1.jpg",
     },
     {
+        id: "alexander",
         name: "Alexander Lee",
         location: "London, UK",
         rating: 5,
@@ -33,6 +37,7 @@ const testimonials: Testimonial[] = [
 ];
 
 export function TestimonialSlider() {
+    const { t } = useTranslation();
     const [index, setIndex] = useState(0);
     const current = testimonials[index];
 
@@ -66,10 +71,10 @@ export function TestimonialSlider() {
                             className="inline-block h-px w-8 bg-gold"
                             aria-hidden="true"
                         />
-                        Client Testimonial
+                        {t("testimonial.label")}
                     </p>
                     <h2 className="font-cormorant mt-4 text-5xl font-medium text-deep sm:text-6xl">
-                        Our Happy Clients
+                        {t("testimonial.title")}
                     </h2>
 
                     <div className="mt-10 flex items-center">
@@ -106,14 +111,14 @@ export function TestimonialSlider() {
                             {current.name}
                         </p>
                         <p className="font-jost mt-1 text-[0.72rem] uppercase tracking-[0.22em] text-deep/55 sm:text-[0.78rem]">
-                            {current.location}
+                            {t(`testimonials.${current.id}.location`)}
                         </p>
                     </div>
 
                     <div className="mt-1 h-px w-full max-w-md bg-gold/70" />
 
                     <p className="font-jost mt-1 max-w-md text-[0.95rem] italic  text-deep sm:text-base ">
-                        &quot;{current.quote}&quot;
+                        &quot;{t(`testimonials.${current.id}.quote`)}&quot;
                     </p>
 
                     {testimonials.length > 1 ? (

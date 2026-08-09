@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { ShopCatalog } from "@/components/shop/ShopCatalog";
 import {
     getPrimaryShopCategories,
@@ -16,8 +17,68 @@ type ShopPageProps = {
         minPrice?: string;
         maxPrice?: string;
         sort?: string;
+        locale?: string;
     }>;
 };
+
+export const metadataEn: Metadata = {
+  title: "Shop Luxury Jewellery - Aurelia Royale",
+  description: "Explore our collection of fine lab-grown diamond rings, earrings, necklaces, and bracelets.",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/shop/",
+  },
+};
+
+export const metadataEs: Metadata = {
+  title: "Tienda - Aurelia Royale",
+  description: "Explore nuestra colección de finos anillos, pendientes, collares y pulseras de diamantes cultivados en laboratorio.",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/es/shop/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Boutique - Aurelia Royale",
+  description: "Explorez notre collection de bagues, boucles d'oreilles, colliers et bracelets en diamants de laboratoire.",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/fr/shop/",
+  },
+};
+
+export const metadataDe: Metadata = {
+  title: "Luxusschmuck Kaufen - Aurelia Royale",
+  description: "Entdecken Sie unsere Kollektion feiner Ringe, Ohrringe, Halsketten und Armbänder mit im Labor gezüchteten Diamanten.",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/shop/",
+  },
+};
+
+export const metadataIt: Metadata = {
+  title: "Acquista Gioielli di Lusso - Aurelia Royale",
+  description: "Esplora la nostra collezione di raffinati anelli, orecchini, collane e bracciali con diamanti coltivati in laboratorio.",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/shop/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Luxe Juwelen Shoppen - Aurelia Royale",
+  description: "Ontdek onze collectie van fijne ringen, oorbellen, kettingen en armbanden met in het laboratorium gekweekte diamanten.",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/nl/shop/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: ShopPageProps): Promise<Metadata> {
+  const params = await searchParams;
+  const locale = params.locale;
+  if (locale === "it") return metadataIt;
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+}
 
 export default async function ShopPage({ searchParams }: ShopPageProps) {
     const params = await searchParams;

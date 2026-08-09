@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { FormEvent, Suspense, useEffect, useState } from "react";
 import Link from "next/link";
@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { BrandWordmark } from "@/components/brand/BrandWordmark";
 import { authService } from "@/services/auth/auth.service";
 import { notifyError } from "@/utils/notify";
+import { useTranslation } from "@/utils/i18n";
 
 export default function VerifyOtpPage() {
   return (
@@ -18,6 +19,7 @@ export default function VerifyOtpPage() {
 function VerifyOtpPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { localizeHref } = useTranslation();
   const [email, setEmail] = useState(searchParams.get("email") ?? "");
   const [otp, setOtp] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,7 +34,7 @@ function VerifyOtpPageContent() {
 
     try {
       await authService.verifyOtp({ email, otp });
-      router.replace("/login");
+      router.replace(localizeHref("/login"));
     } catch (error) {
       notifyError(error);
     } finally {
@@ -70,6 +72,7 @@ function VerifyOtpPageShell({
   onSubmit,
 }: VerifyOtpPageShellProps = {}) {
   const handleSubmit = onSubmit ?? ((event: FormEvent<HTMLFormElement>) => event.preventDefault());
+  const { localizeHref } = useTranslation();
 
   return (
     <main className="min-h-screen overflow-x-clip">
@@ -90,7 +93,7 @@ function VerifyOtpPageShell({
 
           <div className="relative min-h-[520px] bg-[#f6f6f8] px-8 py-8 sm:px-12 sm:py-10">
             <div className="flex justify-end">
-              <Link href="/register" className="inline-flex items-center rounded-full bg-deep px-5 py-2 text-sm font-bold text-white transition hover:bg-[#0a2e28]">
+              <Link href={localizeHref("/register")} className="inline-flex items-center rounded-full bg-deep px-5 py-2 text-sm font-bold text-white transition hover:bg-[#0a2e28]">
                 Register
               </Link>
             </div>
@@ -130,7 +133,7 @@ function VerifyOtpPageShell({
               </form>
 
               <p className="mt-6 text-base font-medium text-[#1f242b] sm:text-lg">
-                Need another account? <Link href="/register" className="font-bold text-[#0e5a47]">Register again</Link>
+                Need another account? <Link href={localizeHref("/register")} className="font-bold text-[#0e5a47]">Register again</Link>
               </p>
             </div>
           </div>

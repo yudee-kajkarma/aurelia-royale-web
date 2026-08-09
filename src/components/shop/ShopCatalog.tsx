@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useTranslation } from "@/utils/i18n";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, X } from "lucide-react";
 import { ProductImage } from "@/components/shared/ProductImage";
@@ -64,6 +65,7 @@ export function ShopCatalog({
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
+    const { localizeHref } = useTranslation();
 
     const [filterOpen, setFilterOpen] = useState(false);
     const [categoryDraft, setCategoryDraft] = useState(initialCategory);
@@ -147,7 +149,7 @@ export function ShopCatalog({
                 {visibleProducts.map((product) => (
                     <Link
                         key={product.id}
-                        href={`/shop-details/${product.slug}`}
+                        href={localizeHref(`/shop-details/${product.slug}`)}
                         className="group block"
                     >
                         <div className="aspect-square overflow-hidden bg-[#f3eee5]">

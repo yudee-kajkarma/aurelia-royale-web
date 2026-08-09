@@ -1,4 +1,21 @@
 import Link from "next/link";
+import en from "@/locales/en.json";
+import es from "@/locales/es.json";
+
+const translations: Record<string, any> = { en, es };
+
+function getTranslation(keyPath: string, locale: string): string {
+    const keys = keyPath.split(".");
+    let current: any = translations[locale];
+    for (const key of keys) {
+        if (current && typeof current === "object" && key in current) {
+            current = current[key];
+        } else {
+            return keyPath;
+        }
+    }
+    return typeof current === "string" ? current : keyPath;
+}
 
 type CategoryTile = {
     name: string;
@@ -8,9 +25,10 @@ type CategoryTile = {
 
 type ShopByCategoryProps = {
     categories: CategoryTile[];
+    locale: string;
 };
 
-export function ShopByCategory({ categories }: ShopByCategoryProps) {
+export function ShopByCategory({ categories, locale }: ShopByCategoryProps) {
     if (categories.length === 0) {
         return null;
     }
@@ -24,10 +42,10 @@ export function ShopByCategory({ categories }: ShopByCategoryProps) {
                             className="inline-block h-px w-8 bg-gold"
                             aria-hidden="true"
                         />
-                        Our Categories
+                        {getTranslation("home.ourCategories", locale)}
                     </p>
                     <h2 className="font-cormorant mt-4 text-5xl font-medium text-deep sm:text-6xl">
-                        Shop By Category
+                        {getTranslation("home.shopByCategory", locale)}
                     </h2>
                 </div>
 
@@ -35,7 +53,7 @@ export function ShopByCategory({ categories }: ShopByCategoryProps) {
                     {categories.map((category) => (
                         <Link
                             key={category.name}
-                            href={`/shop?category=${encodeURIComponent(category.name)}`}
+                            href={locale === "en" ? `/shop?category=${encodeURIComponent(category.name)}` : `/${locale}/shop?category=${encodeURIComponent(category.name)}`}
                             className="group relative block aspect-[3/5] overflow-hidden bg-[#e9e4d8]"
                             aria-label={`Shop ${category.label}`}
                         >

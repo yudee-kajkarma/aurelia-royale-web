@@ -1,0 +1,486 @@
+[
+  {
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/coloured-stone-information-disclosure/1.jpg",
+        "alt": "Documento de lista de verificación de información de divulgación de piedras preciosas",
+        "title": "Documentación de divulgación",
+        "caption": "Las revelaciones claras sobre piedras preciosas aclaran los conjuntos compuestos y los historiales de tratamiento.",
+        "priority": true
+      },
+      {
+        "type": "paragraph",
+        "text": "El color es visible. La identidad, la categoría de origen y el tratamiento a menudo no lo son."
+      },
+      {
+        "type": "paragraph",
+        "text": "Una piedra central azul puede ser un zafiro natural, un zafiro natural tratado, un zafiro creado en laboratorio, un compuesto o un material de imitación. Esas categorías pueden superponerse en apariencia y diferir en rareza, comparación de precios, cuidado, reparación y documentación. Una divulgación clara convierte una imagen hermosa en una compra informada."
+      }
+    ]
+  },
+  {
+    "heading": "respuesta rapida",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "La información sobre la piedra coloreada debe divulgarse porque los compradores no pueden establecer de manera confiable la identidad, el origen natural o creado en laboratorio, la construcción compuesta o el tratamiento basándose únicamente en la apariencia. Estos hechos pueden afectar materialmente el precio, la durabilidad, la limpieza, la reparación y la interpretación del informe. Una página de producto útil debe nombrar cada piedra, indicar su categoría de origen, revelar tratamientos conocidos, separar el peso de las piedras, identificar el alcance exacto del informe y proporcionar instrucciones de cuidado antes de pagar, no ocultar detalles esenciales en lenguaje vago o documentación posterior a la compra."
+      }
+    ]
+  },
+  {
+    "heading": "La divulgación no es una etiqueta de advertencia",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Los tratamientos y las creaciones de laboratorio son opciones legítimas de joyería. Las declaraciones destacadas y específicas permiten a los compradores seleccionar parámetros con confianza."
+      }
+    ]
+  },
+  {
+    "heading": "La jerarquía de información que los compradores necesitan",
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/coloured-stone-information-disclosure/2.jpg",
+        "alt": "Diagrama de pasos de la jerarquía de identificación de gemas",
+        "title": "Diseño de jerarquía de identidad",
+        "caption": "Verificar todos los niveles de la lista de verificación de información garantiza la seguridad del comprador."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "capa",
+          "Pregunta esencial",
+          "Ejemplo de información clara"
+        ],
+        "rows": [
+          [
+            "Identidad",
+            "¿De qué material es?",
+            "Zafiro; esmeralda; espinela"
+          ],
+          [
+            "Categoría de origen",
+            "¿Naturales o manufacturados?",
+            "Zafiro natural; zafiro creado en laboratorio"
+          ],
+          [
+            "Construcción",
+            "¿Un material o ensamblado?",
+            "Piedra compuesta; doblete; imitación de vidrio"
+          ],
+          [
+            "Tratamiento",
+            "¿Se ha alterado la apariencia?",
+            "Calentado; completado; saburral; tratamiento no detectado dentro del alcance del informe"
+          ],
+          [
+            "Especificaciones físicas",
+            "¿Cuál es su escala?",
+            "Dimensiones, peso y forma."
+          ],
+          [
+            "Documentación",
+            "¿Qué se probó?",
+            "Piedra central suelta o joyería terminada"
+          ],
+          [
+            "cuidado",
+            "¿Qué restricciones siguen?",
+            "Evite el calor, los productos químicos, la limpieza ultrasónica o la luz prolongada, según corresponda."
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "1. La identidad afecta toda la comparación.",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "No utilice indicadores de color solos. Las categorías de minerales deben etiquetarse explícitamente para evitar desajustes de precios."
+      }
+    ]
+  },
+  {
+    "heading": "2. Natural, tratado y creado en laboratorio son hechos separados.",
+    "content": [
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Separar el origen geológico del estado de tratamiento. Para obtener detalles sobre la calificación de laboratorio, consulte"
+          },
+          {
+            "text": "cómo se deben describir y divulgar los diamantes cultivados en laboratorio",
+            "href": "/es/blog/lab-grown-diamond-description-disclosure/"
+          },
+          {
+            "text": "."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "3. Los tratamientos pueden afectar el cuidado y la reparación.",
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/coloured-stone-information-disclosure/3.jpg",
+        "alt": "Control de tratamiento de gemas en un taller de estudio.",
+        "title": "Comprobaciones del tratamiento del taller",
+        "caption": "Declarar estados de mejora exactos evita daños por limpieza en los bancos de reparación locales."
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Identificar revestimientos porosos, empastes o tratamientos térmicos. Lea los detalles de atención en"
+          },
+          {
+            "text": "Cómo cuidar las piedras y diamantes de colores.",
+            "href": "/es/blog/care-coloured-stones-diamonds/"
+          },
+          {
+            "text": "."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "4. La divulgación permite una comparación justa de precios",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Compare especificaciones similares. Los listados transparentes garantizan que los rasgos de valor (claridad, origen) sean mensurables."
+      }
+    ]
+  },
+  {
+    "heading": "5. La divulgación preserva la confianza después de la compra",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Mantenga los documentos de compra coherentes con la página del producto para facilitar las actualizaciones del seguro y el servicio profesional."
+      }
+    ]
+  },
+  {
+    "heading": "6. La transparencia del consumidor en Europa y el Reino Unido es importante",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Cumpla con las directivas de protección del consumidor con respecto al tipo de fabricación, composición de componentes y detalles de prueba."
+      }
+    ]
+  },
+  {
+    "heading": "7. La ética de la industria refuerza el mismo principio.",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "El comercio ético exige informes precisos para proteger a los compradores contra sustituciones sintéticas vendidas con nombres naturales."
+      }
+    ]
+  },
+  {
+    "heading": "¿Qué debería aparecer en la página del producto?",
+    "content": [
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Para la piedra central de color:",
+            "bold": true
+          }
+        ]
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "especie o variedad exacta de piedras preciosas;",
+          "estado natural, creado en laboratorio, compuesto o imitación;",
+          "tratamientos conocidos o detectados;",
+          "forma y estilo de corte;",
+          "dimensiones en milímetros;",
+          "peso en quilates o estimación montada claramente explicada;",
+          "descripción del color sin implicaciones de origen no respaldadas;",
+          "si las imágenes muestran la piedra exacta; y",
+          "restricciones de atención."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Para detalles de diamantes cultivados en laboratorio:",
+            "bold": true
+          }
+        ]
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "origen cultivado en laboratorio;",
+          "contar y formas;",
+          "peso total combinado en quilates;",
+          "rango de color y claridad indicado y su alcance; y",
+          "informar la cobertura cuando corresponda."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Para la joya completa:",
+            "bold": true
+          }
+        ]
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "metal y finura;",
+          "dimensiones generales y peso cuando sea relevante;",
+          "información de instalación y fijación;",
+          "tipo de informe y número coincidente;",
+          "variación de la producción;",
+          "información sobre devoluciones, garantía y reparación; y",
+          "empresa y datos de contacto."
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Dónde debe aparecer la divulgación",
+    "content": [
+      {
+        "type": "numbered-list",
+        "items": [
+          "Título del producto: material central e identidad de diseño.",
+          "Cerca del botón de precio y compra: estado natural/creado en laboratorio y tratamiento del material donde la decisión es crítica.",
+          "Especificaciones: desglose completo de piedra, metal, dimensiones y peso.",
+          "Apartado del informe: emisor, número, alcance y vía de verificación.",
+          "Sección de cuidados: restricciones específicas del tratamiento.",
+          "Cesta y caja: ninguna descripción abreviada contradictoria.",
+          "Factura y tarjeta de atención: registro duradero de los hechos esenciales."
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Redacción que crea confusión.",
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/coloured-stone-information-disclosure/4.jpg",
+        "alt": "Una lista de descripciones comerciales vagas versus etiquetado transparente",
+        "title": "Descripción Límites de redacción",
+        "caption": "Evitar palabras engañosas como \"genuino\" mantiene claras las listas de productos."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Redacción poco clara",
+          "¿Por qué es insuficiente?",
+          "Mejor dirección"
+        ],
+        "rows": [
+          [
+            "Piedra preciosa genuina",
+            "No identifica el material ni el origen.",
+            "Nombra la gema y la categoría de origen."
+          ],
+          [
+            "Piedra creada",
+            "No dice lo que fue creado.",
+            "Zafiro creado en laboratorio"
+          ],
+          [
+            "Mejorado",
+            "No identifica el tratamiento.",
+            "Indique el tratamiento conocido."
+          ],
+          [
+            "mirada esmeralda",
+            "Puede describir el estilo en lugar del material.",
+            "Nombra el material real"
+          ],
+          [
+            "Joyas certificadas",
+            "No indica el tipo de documento ni el alcance.",
+            "Nombre del emisor, informe y artículo cubierto"
+          ],
+          [
+            "color natural",
+            "Puede confundirse con origen natural o estado no tratado.",
+            "Describir el color por separado del origen y tratamiento."
+          ],
+          [
+            "Diamante acentuado",
+            "No confirma origen, recuento ni peso total.",
+            "Detalles de diamantes cultivados en laboratorio con especificaciones"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Cómo se deben presentar los informes",
+    "content": [
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Confirmar si los certificados se refieren a elementos sueltos o a elementos montados completos. Consulta los detalles en"
+          },
+          {
+            "text": "Qué significan las joyas con diamantes cultivados en laboratorio certificados",
+            "href": "/es/blog/certified-lab-grown-diamond-jewellery-meaning/"
+          },
+          {
+            "text": "."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Cómo manejar información desconocida o variable",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Utilice estados claros: Divulgado (datos del fabricante), Verificado (informes independientes) o No confirmado (no probado: evite reclamos)."
+      }
+    ]
+  },
+  {
+    "heading": "Una auditoría de divulgación para minoristas",
+    "content": [
+      {
+        "type": "numbered-list",
+        "items": [
+          "¿Se nombra cada piedra por separado?",
+          "¿Es explícito el estatus natural o creado en laboratorio?",
+          "¿Se identifican los composites y las imitaciones?",
+          "¿Los tratamientos conocidos son específicos y destacados?",
+          "¿Están separados los pesos de piedras de colores y diamantes?",
+          "¿Las imágenes representan honestamente el producto exacto o esperado?",
+          "¿El informe coincide con el artículo y su descripción?",
+          "¿Se explican los límites de los informes?",
+          "¿Las instrucciones de cuidado reflejan el componente más sensible?",
+          "¿Coinciden título, especificaciones, cesta, factura y traducciones?",
+          "¿Puede el cliente guardar la información?",
+          "¿Se han aplicado los consejos de cumplimiento locales actuales?"
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "El estándar Aurelia Royale",
+    "content": [
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Aurelia Royale detalla todas las capas de piedras preciosas y ofrece opciones de verificación directa. Ver opciones en"
+          },
+          {
+            "text": "Joyas Aurelia Royale",
+            "href": "/shop/"
+          },
+          {
+            "text": "o"
+          },
+          {
+            "text": "contactar aurelia royale",
+            "href": "/contact/"
+          },
+          {
+            "text": "para solicitar especificaciones específicas."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "content": [
+      {
+        "type": "callout",
+        "title": "veredicto final",
+        "theme": "gold-border",
+        "parts": [
+          {
+            "text": "La divulgación clara de las piedras de colores permite a los compradores comprender lo que contiene una pieza, compararla de manera justa, cuidarla de forma segura y verificar los documentos suministrados."
+          },
+          {
+            "text": "Insista en definiciones específicas (por ejemplo, zafiro creado en laboratorio) en lugar de términos vagos como \"piedra preciosa genuina\". Asegúrese de que los registros de transacciones preserven estas especificaciones."
+          }
+        ]
+      },
+      {
+        "type": "faq",
+        "items": [
+          {
+            "question": "¿Por qué se deben divulgar los tratamientos con piedras preciosas?",
+            "answer": "Los tratamientos pueden afectar la apariencia, la comparación de precios, la durabilidad, la limpieza y la reparación. Los compradores no siempre pueden detectarlos visualmente."
+          },
+          {
+            "question": "¿Natural significa que una piedra coloreada no está tratada?",
+            "answer": "No. Natural describe la formación geológica; una piedra natural también puede haber sido tratada."
+          },
+          {
+            "question": "¿Es una piedra preciosa creada en laboratorio una imitación?",
+            "answer": "No necesariamente. Una piedra preciosa creada en laboratorio comparte las propiedades químicas y ópticas relevantes de un material natural, mientras que una imitación es un material diferente."
+          },
+          {
+            "question": "¿Qué detalles de piedra de colores deberían aparecer antes de realizar el pago?",
+            "answer": "La identidad, la categoría de origen, los tratamientos conocidos, las dimensiones, el peso, el estado de la imagen, el alcance del informe y las restricciones de atención deben quedar claros cuando corresponda."
+          },
+          {
+            "question": "¿Es la “piedra preciosa genuina” suficiente información?",
+            "answer": "No. No identifica el material, origen natural o manufacturado, tratamiento o construcción compuesta."
+          },
+          {
+            "question": "¿Debería aparecer la información de las piedras preciosas en la factura?",
+            "answer": "Sí. El registro de transacciones debe preservar la descripción esencial del producto para que permanezca disponible para su cuidado, reparación, obsequio y verificación posterior."
+          },
+          {
+            "question": "¿Toda piedra coloreada necesita un informe de laboratorio?",
+            "answer": "No necesariamente. Los informes deben ser proporcionales al valor, el riesgo y las reclamaciones, pero la divulgación del producto sigue siendo importante con o sin informe."
+          },
+          {
+            "question": "¿Un informe de joyería cubre cada piedra?",
+            "answer": "Sólo si su alcance así lo dice. Lea qué piedra suelta o elemento terminado se examinó y observe las limitaciones del montaje."
+          },
+          {
+            "question": "¿Se puede ocultar la información del tratamiento en una pregunta frecuente?",
+            "answer": "La información crítica para la toma de decisiones debe ser destacada y oportuna. Las preguntas frecuentes generales deberían respaldar, no reemplazar, la divulgación específica del producto."
+          },
+          {
+            "question": "¿Cómo se deben revelar las piedras naturalmente variables?",
+            "answer": "Indique que las imágenes pueden ser representativas y proporcionar rangos de color, dimensiones o peso realistas, cuando corresponda."
+          },
+          {
+            "question": "¿Las normas de divulgación son idénticas en Europa y el Reino Unido?",
+            "answer": "No. Los principios se superponen, pero las empresas deben obtener asesoramiento actualizado para cada mercado, idioma y canal de ventas."
+          },
+          {
+            "question": "¿Qué debe hacer Aurelia cuando la información no está confirmada?",
+            "answer": "Etiquételo como no confirmado, busque evidencia y evite hacer una afirmación positiva sobre el origen natural, el tratamiento o la certificación."
+          }
+        ]
+      },
+      {
+        "type": "cta-banner",
+        "title": "Experimente la transparencia pura",
+        "subtitle": "Aurelia Royale garantiza que todas las capas de piedras preciosas se declaren claramente antes de la compra. Consulte nuestra carta de divulgación.",
+        "shopHref": "/shop/",
+        "contactHref": "/contact/"
+      }
+    ]
+  }
+]

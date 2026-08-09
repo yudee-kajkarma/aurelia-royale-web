@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { useTranslation } from "@/utils/i18n";
 import { ProductImage } from "@/components/shared/ProductImage";
 import type { ProductCardModel } from "@/services/products/product.types";
 
@@ -62,6 +63,7 @@ type ShopByEditionProps = {
 };
 
 export function ShopByEdition({ products }: ShopByEditionProps) {
+    const { t, localizeHref } = useTranslation();
     const [activeId, setActiveId] = useState(EDITIONS[0].id);
     const [activeCategory, setActiveCategory] = useState<string>(ALL_CATEGORY);
 
@@ -98,10 +100,10 @@ export function ShopByEdition({ products }: ShopByEditionProps) {
                         className="inline-block h-px w-8 bg-gold"
                         aria-hidden="true"
                     />
-                    Curated For You
+                    {t("home.curatedForYou")}
                 </p>
                 <h2 className="font-cormorant mt-4 text-5xl font-medium text-deep sm:text-6xl">
-                    Shop By Edition
+                    {t("home.shopByEdition")}
                 </h2>
             </div>
 
@@ -125,28 +127,28 @@ export function ShopByEdition({ products }: ShopByEditionProps) {
                                     : "border-deep bg-transparent hover:bg-gold/10 hover:border-gold"
                             }`}
                         >
-                            <span
+                             <span
                                 className={`font-jost inline-block border px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.25em] transition duration-300 ${
                                     active
                                         ? "border-gold/70 text-gold"
                                         : "border-gold/50 text-gold"
                                 }`}
                             >
-                                {edition.tag}
+                                {t(`editions.${edition.id}.tag`)}
                             </span>
                             <h3
                                 className={`font-cormorant mt-5 text-3xl font-medium transition duration-300 sm:text-4xl ${
                                     active ? "text-white" : "text-deep"
                                 }`}
                             >
-                                {edition.title}
+                                {t(`editions.${edition.id}.title`)}
                             </h3>
                             <p
                                 className={`font-jost mt-3 text-sm leading-relaxed transition duration-300 ${
                                     active ? "text-[#fdce77]" : "text-[#6b6b6b]"
                                 }`}
                             >
-                                {edition.description}
+                                {t(`editions.${edition.id}.description`)}
                             </p>
                         </button>
                     );
@@ -173,7 +175,7 @@ export function ShopByEdition({ products }: ShopByEditionProps) {
                                     : "border-deep/15 bg-transparent text-deep/70 hover:border-gold hover:text-deep"
                             }`}
                         >
-                            {category}
+                            {t(`categories.${category.toLowerCase()}`)}
                         </button>
                     );
                 })}
@@ -181,7 +183,7 @@ export function ShopByEdition({ products }: ShopByEditionProps) {
 
             {visibleProducts.length === 0 ? (
                 <p className="font-jost mt-12 text-center text-sm text-[#6b6b6b]">
-                    No pieces available in this category yet.
+                    {t("home.noPiecesAvailable")}
                 </p>
             ) : null}
 
@@ -189,7 +191,7 @@ export function ShopByEdition({ products }: ShopByEditionProps) {
                 {visibleProducts.map((product) => (
                     <Link
                         key={product.id}
-                        href={`/shop-details/${product.slug}`}
+                        href={localizeHref(`/shop-details/${product.slug}`)}
                         className="group block"
                     >
                         <div className="aspect-square overflow-hidden bg-[#f3eee5]">
@@ -218,10 +220,10 @@ export function ShopByEdition({ products }: ShopByEditionProps) {
 
             <div className="mt-12 flex justify-center">
                 <Link
-                    href="/shop"
+                    href={localizeHref("/shop")}
                     className="font-jost inline-flex items-center justify-center bg-deep px-12 py-4 text-sm font-semibold uppercase tracking-[0.28em] text-white transition hover:bg-deep/90"
                 >
-                    View All Pieces
+                    {t("home.viewAllPieces")}
                 </Link>
             </div>
         </section>

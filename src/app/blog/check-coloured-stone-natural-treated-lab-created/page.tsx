@@ -1,16 +1,75 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
-export const metadata: Metadata = {
-  title: "Is a Gemstone Natural, Treated or Lab-Created?",
-  description: "Learn how to verify whether a coloured stone is natural, treated, laboratory-created or an imitation using disclosures and laboratory reports.",
+export const metadataEn: Metadata = {
+  title: "Check Coloured Stone Natural Treated Lab Created",
+  description: "Check Coloured Stone Natural Treated Lab Created",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/check-coloured-stone-natural-treated-lab-created/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "Piedra coloreada a cuadros con tratamiento natural creada en laboratorio",
+  description: "Piedra coloreada a cuadros con tratamiento natural creada en laboratorio - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/check-coloured-stone-natural-treated-lab-created/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Vérifiez le laboratoire de traitement naturel de pierre colorée créé",
+  description: "Vérifiez le laboratoire de traitement naturel de pierre colorée créé - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/check-coloured-stone-natural-treated-lab-created/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Controleer of er een natuurlijk behandeld laboratorium met gekleurde steen is gemaakt",
+  description: "Controleer of er een natuurlijk behandeld laboratorium met gekleurde steen is gemaakt - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/check-coloured-stone-natural-treated-lab-created/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "So prüfen Sie, ob ein Farbstein natürlich, behandelt oder im Labor hergestellt wurde",
+  description: "So prüfen Sie, ob ein Farbstein natürlich, behandelt oder im Labor hergestellt wurde - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/check-coloured-stone-natural-treated-lab-created/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Come verificare se una pietra colorata è naturale, trattata o creata in laboratorio",
+  description: "Impara come leggere descrizioni e rapporti per identificare se una pietra preziosa colorata è presente in natura, ha ricevuto trattamenti o è un cristallo sintetico creato in laboratorio. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/check-coloured-stone-natural-treated-lab-created/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. The exact JSON-LD Schema
 const schemaMarkup = {
@@ -391,32 +450,39 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function Page() {
+export default async function Page({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
+  const localeData = getBlogDataByLocale("check-coloured-stone-natural-treated-lab-created", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Coloured Stones and Diamonds
+            {locale === "it" ? "Guida ai Diamanti" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Pierres de couleur et diamants" : locale === "es" ? "Piedras de colores y diamantes" : "Coloured Stones and Diamonds"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How to Check Whether a Coloured Stone Is Natural, Treated or Laboratory-Created
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
+            {locale === "it" ? "Journal • Pubblicato il 16 luglio 2026" : locale === "de" ? "Journal • Veröffentlicht am 16. Juli 2026" : locale === "nl" ? "Journaal • Gepubliceerd op 16 juli 2026" : locale === "fr" ? "Journal • Publié le 16. Juli 2026" : locale === "es" ? "Diario • Publicado el 16 de julio de 2026" : "Journal • Published July 16, 2026"}
           </p>
         </div>
       </section>
 
       {/* Content Layout */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

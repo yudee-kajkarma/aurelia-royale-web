@@ -1,16 +1,75 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
-export const metadata: Metadata = {
-  title: "How to Clean Lab-Grown Diamond Jewellery",
-  description: "Clean compatible lab-grown diamond jewellery safely using lukewarm water, mild soap, a soft brush and proper inspection—plus know when to stop.",
+export const metadataEn: Metadata = {
+  title: "Clean Lab Grown Diamond Jewellery",
+  description: "Clean Lab Grown Diamond Jewellery",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/clean-lab-grown-diamond-jewellery/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "Joyería de diamantes cultivados en laboratorio limpio",
+  description: "Joyería de diamantes cultivados en laboratorio limpio - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/clean-lab-grown-diamond-jewellery/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Bijoux en diamants cultivés en laboratoire propre",
+  description: "Bijoux en diamants cultivés en laboratoire propre - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/clean-lab-grown-diamond-jewellery/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Clean Lab Grown-diamantenjuwelen",
+  description: "Clean Lab Grown-diamantenjuwelen - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/clean-lab-grown-diamond-jewellery/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "So reinigen Sie im Labor gezüchteten Diamantschmuck",
+  description: "So reinigen Sie im Labor gezüchteten Diamantschmuck - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/clean-lab-grown-diamond-jewellery/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Come pulire a casa i gioielli con diamanti creati in laboratorio",
+  description: "Mantieni i tuoi gioielli scintillanti con metodi di pulizia sicuri a casa. Scopri quali soluzioni evitare e quando è necessaria una pulizia professionale. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/clean-lab-grown-diamond-jewellery/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. The exact JSON-LD Schema
 const schemaMarkup = {
@@ -429,32 +488,39 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function Page() {
+export default async function Page({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
+  const localeData = getBlogDataByLocale("clean-lab-grown-diamond-jewellery", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Jewellery Care and Maintenance
+            {locale === "it" ? "Guide all'Acquisto" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Entretien & Soin des bijoux" : locale === "es" ? "Cuidado y mantenimiento de joyas" : "Jewellery Care and Maintenance"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How to Clean Lab-Grown Diamond Jewellery at Home
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
+            {locale === "it" ? "Journal • Pubblicato il 15 luglio 2026" : locale === "de" ? "Journal • Veröffentlicht am 16. Juli 2026" : locale === "nl" ? "Journaal • Gepubliceerd op 16 juli 2026" : locale === "fr" ? "Journal • Publié le 16. Juli 2026" : locale === "es" ? "Diario • Publicado el 16 de julio de 2026" : "Journal • Published July 16, 2026"}
           </p>
         </div>
       </section>
 
       {/* Content Layout */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

@@ -1,16 +1,77 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
-export const metadata: Metadata = {
-  title: "Lab-Grown Diamond Carat Weight Explained",
-  description: "Learn what lab-grown diamond carat weight means, how points and total carat weight work, and why two diamonds of equal weight can look different in size.",
+export const metadataEn: Metadata = {
+  title: "Lab Grown Diamond Carat Weight Explained",
+  description: "Lab Grown Diamond Carat Weight Explained",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/lab-grown-diamond-carat-weight-explained/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "Peso en quilates del diamante cultivado en laboratorio explicado",
+  description: "Peso en quilates del diamante cultivado en laboratorio explicado - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/lab-grown-diamond-carat-weight-explained/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Explication du poids en carats du diamant cultivé en laboratoire",
+  description: "Explication du poids en carats du diamant cultivé en laboratoire - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/lab-grown-diamond-carat-weight-explained/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "In het laboratorium gekweekte diamant karaatgewicht uitgelegd",
+  description: "In het laboratorium gekweekte diamant karaatgewicht uitgelegd - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/lab-grown-diamond-carat-weight-explained/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "Das Karatgewicht von im Labor gezüchteten Diamanten wird erklärt",
+  description: "Das Karatgewicht von im Labor gezüchteten Diamanten wird erklärt - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/lab-grown-diamond-carat-weight-explained/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Spiegazione del peso in carati del diamante creato in laboratorio",
+  description: "Scopri come viene misurata la caratura nei diamanti creati in laboratorio e come il peso influenza il prezzo in modo esponenziale. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/lab-grown-diamond-carat-weight-explained/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+  const localeData = getBlogDataByLocale("lab-grown-diamond-carat-weight-explained", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. The exact JSON-LD Schema you provided
 const schemaMarkup = {
@@ -422,32 +483,39 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function Blog30Page() {
+export default async function Blog30Page({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const localeData = getBlogDataByLocale("lab-grown-diamond-carat-weight-explained", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Lab-Grown Diamond Education
+            {locale === "it" ? "Guida ai Diamanti" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Éducation sur les diamants" : locale === "es" ? "Educación sobre diamantes cultivados en laboratorio" : "Lab-Grown Diamond Education"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            Carat Weight Explained
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Educational Guide • Published July 15, 2026
+            {locale === "it" ? "Journal • Pubblicato il 15 luglio 2026" : locale === "fr" ? "Guide Éducatif • Publié le 16. Juli 2026" : locale === "es" ? "Guía Educativa • Publicado el 16 de julio de 2026" : "Educational Guide • Published July 16, 2026"}
           </p>
         </div>
       </section>
 
       {/* Content Layout */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

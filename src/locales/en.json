@@ -1,0 +1,238 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "shop": "Shop",
+    "contact": "Contact",
+    "blog": "Blog"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "shop": "Shop",
+    "contact": "Contact",
+    "blog": "Blog"
+  },
+  "hero": {
+    "titleLine1": "WORN WITH ",
+    "titleLine2": "INTENTION.",
+    "description": "Each piece is a whisper of heritage, shaped by artisans who have spent decades perfecting the language of fine metal and stone.",
+    "cta": "Shop Now"
+  },
+  "marquee": {
+    "shipping": "Worldwide Shipping",
+    "diamond": "Lab-Grown Diamond",
+    "jewelry": "Fine Jewelry",
+    "crafted": "Hand Crafted",
+    "certified": "Certified"
+  },
+  "home": {
+    "findNewIn": "Find New In",
+    "topTrending": "Top Trending",
+    "viewAllPieces": "View All Pieces",
+    "curatedForYou": "Curated For You",
+    "shopByEdition": "Shop By Edition",
+    "ourCategories": "Our Categories",
+    "shopByCategory": "Shop By Category",
+    "noPiecesAvailable": "No pieces available in this category yet."
+  },
+  "editions": {
+    "classic": {
+      "tag": "Timeless",
+      "title": "Classic Edition",
+      "description": "Timeless Diamond Jewelry Crafted For Effortless elegance."
+    },
+    "limited": {
+      "tag": "Exclusive",
+      "title": "Limited Edition",
+      "description": "Individually numbered creations. Once sold, never reproduced"
+    },
+    "rare": {
+      "tag": "Signature",
+      "title": "Rare Edition",
+      "description": "One-of-a-Kind masterpieces Featuring Our finest Lab-Grown Diamonds."
+    }
+  },
+  "editionsList": {
+    "classic": "Classic",
+    "limited": "Limited Edition",
+    "rare": "Rare",
+    "timeless": "Timeless"
+  },
+  "categories": {
+    "all": "All",
+    "bracelet": "Bracelets",
+    "bracelets": "Bracelets",
+    "earring": "Earrings",
+    "earrings": "Earrings",
+    "necklace": "Necklaces",
+    "necklaces": "Necklaces",
+    "pendant": "Pendants",
+    "pendants": "Pendants",
+    "ring": "Rings",
+    "rings": "Rings",
+    "set": "Sets",
+    "sets": "Sets"
+  },
+  "testimonial": {
+    "label": "Client Testimonial",
+    "title": "Our Happy Clients"
+  },
+  "testimonials": {
+    "isabelle": {
+      "location": "Paris, France",
+      "quote": "The earrings I received were beyond anything I had imagined — flawlessly crafted, packaged like a dream. Aurelia Royale feels genuinely couture."
+    },
+    "alexander": {
+      "location": "London, UK",
+      "quote": "Premium service and elegant finishing made every order memorable. Their design language feels timeless while still modern and wearable."
+    }
+  },
+  "newsletter": {
+    "label": "Stay Connected",
+    "title": "Get Our Latest Updates",
+    "description": "Be first to discover new collections, exclusive events, and the quiet privileges reserved for our inner circle.",
+    "placeholder": "Your E-Mail Address",
+    "subscribe": "Subscribe",
+    "successMessage": "Thank you for subscribing to our newsletter!",
+    "requiredEmail": "Please fill out this field.",
+    "invalidEmail": "Please enter a valid email address."
+  },
+  "footer": {
+    "slogan": "Fine jewelry crafted for those who value beauty, heritage, and permanence above all.",
+    "copyright": "Copyright 2026 Aurelia Royale. All rights reserved by Aurelia Royale."
+  },
+  "about": {
+    "heroTitle": "About Us",
+    "tag": "About Us",
+    "heading": "A Legacy Of Fine Craft.",
+    "p1": "At Aurelia Royal, elegance is more than a style — it is a statement of timeless sophistication. Our collection is crafted to celebrate modern luxury through finely designed jewellery pieces that blend contemporary artistry with classic charm. Every detail reflects grace, confidence, and refined beauty for those who appreciate exclusivity.",
+    "p2": "We believe jewellery should feel personal, memorable, and effortlessly luxurious. From dazzling statement rings to delicate necklaces and radiant earrings, Aurelia Royal brings together craftsmanship and premium aesthetics to create pieces that elevate every occasion. Designed for the modern muse, our creations embody luxury with a minimalist touch.",
+    "stat1Label": "Year's Of Expertise",
+    "stat2Label": "Exclusive Designs",
+    "stat3Label": "Jewelry Lovers",
+    "philosophyTag": "Our Philosophy",
+    "philosophyHeading1": "We Believe Jewellery Is Not Decoration",
+    "philosophyHeading2": "It Is Memory Made Permanent.",
+    "philo1Title": "Uncompromising Quality",
+    "philo1Body": "Every gemstone is hand-selected by our master gemmologist. Every metal is tested and hallmarked. We accept only what is genuinely extraordinary.",
+    "philo2Title": "Ethical Provenance",
+    "philo2Body": "Our supply chain is independently audited to ensure no conflict minerals or exploitative practices are ever part of your piece.",
+    "philo3Title": "Timeless Design",
+    "philo3Body": "We resist trend. Our pieces are designed to be worn by your daughter and her daughter — forms that feel as relevant in fifty years as they do today."
+  },
+  "contact": {
+    "heroTitle": "Contact Us",
+    "home": "Home",
+    "infoTag": "Contact Info",
+    "getInTouch": "Get In Touch",
+    "firstNamePlaceholder": "Your Name *",
+    "lastNamePlaceholder": "Last Name *",
+    "emailPlaceholder": "Email Address",
+    "phonePlaceholder": "Phone *",
+    "messagePlaceholder": "Type Your Message",
+    "submit": "Submit Now",
+    "findUsTag": "Find Us",
+    "locationMap": "Location Map"
+  },
+  "profile": {
+    "welcome": "Welcome",
+    "welcomeText": "Sign in to access your profile, orders, wishlist, and checkout history.",
+    "login": "Login",
+    "register": "Register",
+    "signedIn": "Signed In",
+    "myProfile": "My Profile",
+    "role": "Role",
+    "adminDashboard": "Admin Dashboard",
+    "userProfile": "Profile",
+    "logout": "Logout"
+  },
+  "auth": {
+    "backToHome": "Back to Home",
+    "signInTab": "Sign In",
+    "registerTab": "Register",
+    "welcomeBack": "Welcome Back",
+    "loginHeading": "Sign Into Your Account.",
+    "loginDescription": "Access your collection, track orders, and manage your bespoke commissions in one place.",
+    "emailLabel": "Email Address",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Your Password",
+    "forgotPassword": "Forgot Password?",
+    "signingIn": "Signing In...",
+    "signInButton": "Sign In",
+    "dontHaveAccount": "Don't have an account?",
+    "createOne": "Create one",
+    "joinCircle": "Join The Circle",
+    "registerHeading": "Create Your Account.",
+    "registerDescription": "Create your jewellery account, add your default address, then verify the OTP sent to your email.",
+    "usernameLabel": "Username",
+    "usernamePlaceholder": "Your username",
+    "firstNameLabel": "First Name",
+    "firstNamePlaceholder": "First name",
+    "lastNameLabel": "Last Name",
+    "lastNamePlaceholder": "Last name",
+    "confirmPasswordLabel": "Confirm Password",
+    "confirmPasswordPlaceholder": "Re-enter password",
+    "countryCodeLabel": "Country Code",
+    "selectCountryCode": "Select country code",
+    "phoneNumberLabel": "Phone Number",
+    "phoneNumberPlaceholder": "Phone number",
+    "defaultAddressHeading": "Default Address",
+    "countryLabel": "Country",
+    "selectCountry": "Select country",
+    "stateLabel": "State",
+    "selectState": "Select state",
+    "streetLabel": "Street",
+    "streetPlaceholder": "Street address",
+    "cityLabel": "City",
+    "cityPlaceholder": "Select or type a city",
+    "postalCodeLabel": "Postal Code",
+    "postalCodePlaceholder": "Postal code",
+    "creatingAccount": "Creating Account...",
+    "registerButton": "Register",
+    "alreadyHaveAccount": "Already have an account?",
+    "recoverAccountHeading": "Recover Your Account",
+    "recoverAccountDescription": "Send an email OTP, verify it here, and set a new password securely.",
+    "backToLogin": "Back to Login",
+    "resetPasswordHeading": "Reset Password",
+    "resetPasswordDescription": "Send an OTP to your email, then use it here with your new password to restore account access.",
+    "enterEmailPlaceholder": "Enter your email",
+    "sendOtpButton": "Send OTP",
+    "sendingOtp": "Sending...",
+    "otpCodeLabel": "OTP Code",
+    "enterOtpPlaceholder": "Enter OTP",
+    "newPasswordLabel": "New Password",
+    "enterNewPasswordPlaceholder": "Enter new password",
+    "resetting": "Resetting...",
+    "resetPasswordButton": "Reset Password",
+    "backToSignIn": "Back to sign in?",
+    "loginHere": "Login here",
+    "enterEmailFirst": "Enter your email first.",
+    "otpSent": "OTP sent to your email.",
+    "requiredFields": "Email, OTP, and new password are required.",
+    "resetSuccess": "Password reset successful. You can sign in now."
+  },
+  "validation": {
+    "required": "Please fill out this field.",
+    "emailMismatch": "Please enter a valid email address."
+  },
+  "blog": {
+    "journal": "Aurelia Journal",
+    "title": "Guides & Insights",
+    "description": "Explore our collection of articles, expert guides, and sizing tips to help you select and care for your lab-grown diamond jewellery.",
+    "searchPlaceholder": "Search articles...",
+    "readArticle": "Read Article",
+    "noArticles": "No Articles Found",
+    "noArticlesDesc": "Try adjusting your search terms or selecting a different category.",
+    "exploreCollection": "Explore Collection",
+    "consultExpert": "Consult an Expert",
+    "faqTitle": "Frequently Asked Questions",
+    "categories": {
+      "All": "All",
+      "Diamond Education": "Diamond Education",
+      "Sizing & Fit": "Sizing & Fit",
+      "Certification & Quality": "Certification & Quality",
+      "Buying Guides": "Buying Guides"
+    }
+  }
+}

@@ -3,6 +3,7 @@
 import { FormEvent, useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { useTranslation } from "@/utils/i18n";
 import { useAuth } from "@/providers/AuthProvider";
 import { reviewService } from "@/services/reviews/review.service";
 import type { ProductReview } from "@/services/reviews/review.types";
@@ -77,6 +78,7 @@ export function ProductDetailsTabs({
     const pathname = usePathname();
     const router = useRouter();
     const { isAuthenticated, isReady } = useAuth();
+    const { localizeHref } = useTranslation();
     const [activeTab, setActiveTab] = useState<TabKey>("details");
     const [reviews, setReviews] = useState<ProductReview[]>(initialReviews);
     const [isLoadingReviews, setIsLoadingReviews] = useState(
@@ -130,7 +132,7 @@ export function ProductDetailsTabs({
     function handleRequireLogin() {
         const redirectPath =
             pathname ?? `/shop-details/${product.slug}`;
-        router.push(`/login?redirect=${encodeURIComponent(redirectPath)}`);
+        router.push(localizeHref(`/login?redirect=${encodeURIComponent(redirectPath)}`));
     }
 
     function startEditing(review: ProductReview) {
@@ -634,7 +636,7 @@ export function ProductDetailsTabs({
                                 <p className="font-jost mt-4 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-deep/55">
                                     Need an account?{" "}
                                     <Link
-                                        href="/login"
+                                        href={localizeHref("/login")}
                                         className="text-gold hover:underline"
                                     >
                                         Login

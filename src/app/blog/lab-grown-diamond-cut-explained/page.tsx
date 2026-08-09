@@ -1,16 +1,77 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
-export const metadata: Metadata = {
-  title: "Lab-Grown Diamond Cut Explained: Complete Guide",
-  description: "Learn how lab-grown diamond cut affects sparkle, brightness and size, including cut grades, proportions, polish, symmetry and fancy shapes.",
+export const metadataEn: Metadata = {
+  title: "Lab Grown Diamond Cut Explained",
+  description: "Lab Grown Diamond Cut Explained",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/lab-grown-diamond-cut-explained/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "Corte de diamante cultivado en laboratorio explicado",
+  description: "Corte de diamante cultivado en laboratorio explicado - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/lab-grown-diamond-cut-explained/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "La taille du diamant cultivé en laboratoire expliquée",
+  description: "La taille du diamant cultivé en laboratoire expliquée - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/lab-grown-diamond-cut-explained/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Lab Grown Diamond Cut uitgelegd",
+  description: "Lab Grown Diamond Cut uitgelegd - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/lab-grown-diamond-cut-explained/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "Im Labor gezüchteter Diamantschliff erklärt",
+  description: "Im Labor gezüchteter Diamantschliff erklärt - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/lab-grown-diamond-cut-explained/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Spiegazione del taglio del diamante creato in laboratorio",
+  description: "Scopri perché il taglio è la C più importante nel determinare la brillantezza, il fuoco e la brillantezza del tuo diamante coltivato in laboratorio. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/lab-grown-diamond-cut-explained/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+  const localeData = getBlogDataByLocale("lab-grown-diamond-cut-explained", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. The exact JSON-LD Schema you provided
 const schemaMarkup = {
@@ -436,32 +497,39 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function Blog27Page() {
+export default async function Blog27Page({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const localeData = getBlogDataByLocale("lab-grown-diamond-cut-explained", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Lab-Grown Diamond Education
+            {locale === "it" ? "Guida ai Diamanti" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Éducation sur les diamants" : locale === "es" ? "Educación sobre diamantes cultivados en laboratorio" : "Lab-Grown Diamond Education"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            Lab-Grown Diamond Cut Explained
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Educational Guide • Published July 15, 2026
+            {locale === "it" ? "Journal • Pubblicato il 15 luglio 2026" : locale === "fr" ? "Guide Éducatif • Publié le 16. Juli 2026" : locale === "es" ? "Guía Educativa • Publicado el 16 de julio de 2026" : "Educational Guide • Published July 16, 2026"}
           </p>
         </div>
       </section>
 
       {/* Content Layout */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

@@ -2,14 +2,18 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { toast } from "sonner";
+import { useTranslation } from "@/utils/i18n";
 import NewsletterImg from "@/assets/Newsletter-Img.png";
 
 export function NewsletterSection() {
+    const { t } = useTranslation();
     const [email, setEmail] = useState("");
 
     function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         setEmail("");
+        toast.success(t("newsletter.successMessage"));
     }
 
     return (
@@ -32,14 +36,13 @@ export function NewsletterSection() {
                             className="inline-block h-px w-8 bg-gold"
                             aria-hidden="true"
                         />
-                        Stay Connected
+                        {t("newsletter.label")}
                     </p>
                     <h2 className="font-cormorant mt-4 text-5xl font-medium leading-[1.05] text-deep sm:text-6xl">
-                        Get Our Latest Updates
+                        {t("newsletter.title")}
                     </h2>
                     <p className="font-jost mt-6 max-w-md text-[0.95rem] leading-7 text-deep/70 sm:text-base">
-                        Be first to discover new collections, exclusive events,
-                        and the quiet privileges reserved for our inner circle.
+                        {t("newsletter.description")}
                     </p>
 
                     <form
@@ -50,8 +53,19 @@ export function NewsletterSection() {
                             type="email"
                             required
                             value={email}
-                            onChange={(event) => setEmail(event.target.value)}
-                            placeholder="Your E-Mail Address"
+                            onChange={(event) => {
+                                setEmail(event.target.value);
+                                event.target.setCustomValidity("");
+                            }}
+                            onInvalid={(event) => {
+                                const target = event.target as HTMLInputElement;
+                                if (target.validity.valueMissing) {
+                                    target.setCustomValidity(t("newsletter.requiredEmail"));
+                                } else if (target.validity.typeMismatch) {
+                                    target.setCustomValidity(t("newsletter.invalidEmail"));
+                                }
+                            }}
+                            placeholder={t("newsletter.placeholder")}
                             aria-label="Email address"
                             className="font-jost h-14 flex-1 bg-transparent px-5 text-sm text-deep placeholder:text-deep/45 focus:outline-none"
                         />
@@ -59,7 +73,7 @@ export function NewsletterSection() {
                             type="submit"
                             className="font-jost inline-flex h-14 shrink-0 items-center justify-center bg-deep px-7 text-xs font-semibold uppercase tracking-[0.28em] text-white transition hover:bg-[#0a2e28] sm:px-10 sm:text-sm"
                         >
-                            Subscribe
+                            {t("newsletter.subscribe")}
                         </button>
                     </form>
                 </div>

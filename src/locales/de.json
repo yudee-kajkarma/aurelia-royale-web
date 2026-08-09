@@ -1,0 +1,238 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "shop": "Shop",
+    "contact": "Kontakt",
+    "blog": "Blog"
+  },
+  "navigation": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "shop": "Shop",
+    "contact": "Kontakt",
+    "blog": "Blog"
+  },
+  "hero": {
+    "titleLine1": "MITGETRAGEN",
+    "titleLine2": "ABSICHT.",
+    "description": "Erleben Sie die seltene Eleganz von laborgezüchteten Diamanten und feinem Schmuck.",
+    "cta": "Jetzt kaufen"
+  },
+  "marquee": {
+    "shipping": "Versand weltweit",
+    "diamond": "Im Labor hergestellter Diamant",
+    "jewelry": "Hoher Schmuck",
+    "crafted": "Handgefertigt",
+    "certified": "Zertifiziert"
+  },
+  "home": {
+    "findNewIn": "Nachricht",
+    "topTrending": "Haupttrends",
+    "viewAllPieces": "Alle Teile ansehen",
+    "curatedForYou": "Auswahl für Sie",
+    "shopByEdition": "Kaufen Sie nach Auflage",
+    "ourCategories": "Unsere Kategorien",
+    "shopByCategory": "Nach Kategorie einkaufen",
+    "noPiecesAvailable": "In dieser Kategorie sind noch keine Stücke verfügbar."
+  },
+  "editions": {
+    "classic": {
+      "tag": "Zeitlos",
+      "title": "Klassische Ausgabe",
+      "description": "Zeitloser Diamantschmuck für mühelose Eleganz."
+    },
+    "limited": {
+      "tag": "Exklusiv",
+      "title": "Limitierte Auflage, beschränkte Auflage",
+      "description": "Einzeln nummerierte Kreationen. Einmal verkauft, werden sie nie mehr reproduziert."
+    },
+    "rare": {
+      "tag": "Unterschrift",
+      "title": "Seltene Ausgabe",
+      "description": "Einzigartige Meisterwerke mit unseren besten Labordiamanten."
+    }
+  },
+  "editionsList": {
+    "classic": "Klassiker",
+    "limited": "Limitierte Auflage, beschränkte Auflage",
+    "rare": "Seltsam",
+    "timeless": "Zeitlos"
+  },
+  "categories": {
+    "all": "Alle",
+    "bracelet": "Armbänder",
+    "bracelets": "Armbänder",
+    "earring": "Ohrringe",
+    "earrings": "Ohrringe",
+    "necklace": "Halsketten",
+    "necklaces": "Halsketten",
+    "pendant": "Anhänger",
+    "pendants": "Anhänger",
+    "ring": "Ringe",
+    "rings": "Ringe",
+    "set": "Spiele",
+    "sets": "Spiele"
+  },
+  "testimonial": {
+    "label": "Kundenstimmen",
+    "title": "Unsere zufriedenen Kunden"
+  },
+  "testimonials": {
+    "isabelle": {
+      "location": "Paris, Frankreich",
+      "quote": "Die Ohrringe, die ich erhielt, übertrafen alles, was ich mir vorgestellt hatte: eine makellose Kreation, präsentiert wie ein Traum. Aurelia Royale hat ein echtes Couture-Feeling."
+    },
+    "alexander": {
+      "location": "London, Vereinigtes Königreich",
+      "quote": "Erstklassiger Service und elegante Oberflächen machten jede Bestellung unvergesslich. Seine Designsprache wirkt zeitlos und dennoch modern und tragbar."
+    }
+  },
+  "newsletter": {
+    "label": "Bleiben Sie in Verbindung",
+    "title": "Abonnieren Sie unseren Newsletter",
+    "description": "Entdecken Sie als Erster neue Kollektionen, exklusive Events und die Privilegien, die unserem engsten Kreis vorbehalten sind.",
+    "placeholder": "Ihre E-Mail-Adresse eingeben",
+    "subscribe": "Abonnieren",
+    "successMessage": "Vielen Dank für Ihr Abonnement unseres Newsletters!",
+    "requiredEmail": "Bitte füllen Sie dieses Feld aus.",
+    "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein."
+  },
+  "footer": {
+    "slogan": "Edler Schmuck für diejenigen, die vor allem Schönheit, Vermächtnis und Beständigkeit schätzen.",
+    "copyright": "Copyright 2026 Aurelia Royale. All rights reserved by Aurelia Royale."
+  },
+  "about": {
+    "heroTitle": "Über uns",
+    "tag": "Über uns",
+    "heading": "Ein Erbe feiner Handwerkskunst.",
+    "p1": "Bei Aurelia Royal ist Eleganz mehr als ein Stil: Sie ist ein Statement zeitloser Raffinesse. Unsere Kollektion soll modernen Luxus durch fein gestaltete Schmuckstücke zelebrieren, die zeitgenössische Kunstfertigkeit mit klassischem Charme verbinden. Jedes Detail spiegelt Anmut, Selbstvertrauen und raffinierte Schönheit für diejenigen wider, die Exklusivität schätzen.",
+    "p2": "Wir glauben, dass sich Schmuck persönlich, einprägsam und mühelos luxuriös anfühlen sollte. Von schillernden Statement-Ringen bis hin zu zarten Halsketten und strahlenden Ohrringen vereint Aurelia Royal erstklassige Handwerkskunst und Ästhetik, um Stücke zu schaffen, die jeden Anlass aufwerten. Unsere Kreationen wurden für die moderne Muse entworfen und verkörpern Luxus mit einem minimalistischen Touch.",
+    "stat1Label": "Jahrelange Erfahrung",
+    "stat2Label": "Exklusive Designs",
+    "stat3Label": "Schmuckliebhaber",
+    "philosophyTag": "Unsere Philosophie",
+    "philosophyHeading1": "Wir glauben, dass Schmuck keine Dekoration ist",
+    "philosophyHeading2": "Es ist eine dauerhafte Erinnerung.",
+    "philo1Title": "Kompromisslose Qualität",
+    "philo1Body": "Jeder Edelstein wird von unserem Gemmologenmeister von Hand ausgewählt. Jedes Metall ist getestet und bewährt. Wir akzeptieren nur das, was wirklich außergewöhnlich ist.",
+    "philo2Title": "Ethische Herkunft",
+    "philo2Body": "Unsere Lieferkette wird unabhängig geprüft, um sicherzustellen, dass Ihr Stück keine Konfliktmineralien oder Bergbaupraktiken enthält.",
+    "philo3Title": "Zeitloses Design",
+    "philo3Body": "Wir widersetzen uns Moden. Unsere Stücke sind so konzipiert, dass sie von Ihrer Tochter und ihrer Tochter getragen werden können: Formen, die sich in fünfzig Jahren noch genauso aktuell anfühlen wie heute."
+  },
+  "contact": {
+    "heroTitle": "Kontakt",
+    "home": "Start",
+    "infoTag": "Kontaktinformationen",
+    "getInTouch": "Nehmen Sie Kontakt auf",
+    "firstNamePlaceholder": "Name *",
+    "lastNamePlaceholder": "Nachname *",
+    "emailPlaceholder": "E-Mail-Adresse",
+    "phonePlaceholder": "Telefon *",
+    "messagePlaceholder": "Schreiben Sie Ihre Nachricht",
+    "submit": "Nachricht Senden",
+    "findUsTag": "Finden Sie uns",
+    "locationMap": "Standortkarte"
+  },
+  "profile": {
+    "welcome": "Willkommen zurück",
+    "welcomeText": "Melden Sie sich an, um auf Ihr Profil, Ihre Bestellungen, Ihre Wunschliste und Ihre Kaufhistorie zuzugreifen.",
+    "login": "Login",
+    "register": "Registrieren",
+    "signedIn": "Sitzung gestartet",
+    "myProfile": "mein Profil",
+    "role": "Rolle",
+    "adminDashboard": "Verwaltungsbereich",
+    "userProfile": "Profil",
+    "logout": "Abmelden"
+  },
+  "auth": {
+    "backToHome": "Zurück nach Hause",
+    "signInTab": "Login",
+    "registerTab": "Registrieren",
+    "welcomeBack": "Willkommen zurück",
+    "loginHeading": "Melden Sie sich bei Ihrem Konto an.",
+    "loginDescription": "Greifen Sie auf Ihre Sammlung zu, verfolgen Sie Bestellungen und verwalten Sie Ihre individuellen Bestellungen an einem Ort.",
+    "emailLabel": "E-Mail-Adresse",
+    "passwordLabel": "Passwort",
+    "passwordPlaceholder": "Ihr Passwort",
+    "forgotPassword": "Passwort vergessen?",
+    "signingIn": "Einloggen...",
+    "signInButton": "Login",
+    "dontHaveAccount": "Sie haben noch kein Konto?",
+    "createOne": "Erstellen Sie eine",
+    "joinCircle": "Treten Sie dem Kreis bei",
+    "registerHeading": "Erstellen Sie Ihr Konto.",
+    "registerDescription": "Erstellen Sie Ihr Schmuckkonto, fügen Sie Ihre Standardadresse hinzu und überprüfen Sie dann den an Ihre E-Mail gesendeten OTP-Code.",
+    "usernameLabel": "Benutzername",
+    "usernamePlaceholder": "Ihr Benutzername",
+    "firstNameLabel": "Name",
+    "firstNamePlaceholder": "Name",
+    "lastNameLabel": "Nachname",
+    "lastNamePlaceholder": "Nachname",
+    "confirmPasswordLabel": "Passwort bestätigen",
+    "confirmPasswordPlaceholder": "Geben Sie das Passwort erneut ein",
+    "countryCodeLabel": "Landesvorwahl",
+    "selectCountryCode": "Wählen Sie den Ländercode aus",
+    "phoneNumberLabel": "Telefonnummer",
+    "phoneNumberPlaceholder": "Telefonnummer",
+    "defaultAddressHeading": "Standardadresse",
+    "countryLabel": "Land",
+    "selectCountry": "Wählen Sie das Land aus",
+    "stateLabel": "Staat/Provinz",
+    "selectState": "Wählen Sie den Staat aus",
+    "streetLabel": "Straße",
+    "streetPlaceholder": "Straßenadresse",
+    "cityLabel": "Stadt",
+    "cityPlaceholder": "Wählen Sie eine Stadt aus oder geben Sie sie ein",
+    "postalCodeLabel": "PLZ",
+    "postalCodePlaceholder": "PLZ",
+    "creatingAccount": "Konto erstellen...",
+    "registerButton": "Registrieren",
+    "alreadyHaveAccount": "Haben Sie bereits ein Konto?",
+    "recoverAccountHeading": "Stellen Sie Ihr Konto wieder her",
+    "recoverAccountDescription": "Senden Sie einen OTP-Code an Ihre E-Mail-Adresse, überprüfen Sie ihn hier und legen Sie sicher ein neues Passwort fest.",
+    "backToLogin": "Zurück zur Anmeldung",
+    "resetPasswordHeading": "Passwort zurücksetzen",
+    "resetPasswordDescription": "Senden Sie einen OTP-Code an Ihre E-Mail-Adresse und verwenden Sie ihn dann hier mit Ihrem neuen Passwort, um wieder Zugriff zu erhalten.",
+    "enterEmailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+    "sendOtpButton": "OTP senden",
+    "sendingOtp": "Senden...",
+    "otpCodeLabel": "OTP-Code",
+    "enterOtpPlaceholder": "Geben Sie das OTP ein",
+    "newPasswordLabel": "Neues Passwort",
+    "enterNewPasswordPlaceholder": "Geben Sie das neue Passwort ein",
+    "resetting": "Wiederherstellung...",
+    "resetPasswordButton": "Passwort zurücksetzen",
+    "backToSignIn": "Zurück zur Anmeldung?",
+    "loginHere": "Hier anmelden",
+    "enterEmailFirst": "Geben Sie zuerst Ihre E-Mail ein.",
+    "otpSent": "OTP-Code wurde an Ihre E-Mail gesendet.",
+    "requiredFields": "Bitte füllen Sie alle erforderlichen Felder aus.",
+    "resetSuccess": "Passwort erfolgreich zurückgesetzt. Sie können sich jetzt anmelden."
+  },
+  "validation": {
+    "required": "Bitte füllen Sie dieses Feld aus.",
+    "emailMismatch": "Bitte geben Sie eine gültige E-Mail-Adresse ein."
+  },
+  "blog": {
+    "journal": "Aurelia Journal",
+    "title": "Ratgeber & Einblicke",
+    "description": "Entdecken Sie unsere Artikel, Experten-Ratgeber und Größentipps zur Auswahl und Pflege Ihrer laborgezüchteten Diamanten.",
+    "searchPlaceholder": "Artikel suchen...",
+    "readArticle": "Artikel Lesen",
+    "noArticles": "Keine Artikel Gefunden",
+    "noArticlesDesc": "Versuchen Sie, Ihre Suchbegriffe anzupassen oder eine andere Kategorie zu wählen.",
+    "exploreCollection": "Kollektion Entdecken",
+    "consultExpert": "Experten Konsultieren",
+    "faqTitle": "Häufig Gestellte Fragen",
+    "categories": {
+      "All": "Alle",
+      "Diamond Education": "Diamanten-Wissen",
+      "Sizing & Fit": "Größe & Passform",
+      "Certification & Quality": "Zertifizierung & Qualität",
+      "Buying Guides": "Kaufberater"
+    }
+  }
+}

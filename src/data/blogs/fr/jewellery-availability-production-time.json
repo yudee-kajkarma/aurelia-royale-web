@@ -1,0 +1,687 @@
+[
+  {
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/jewellery-availability-production-time/52 (1).jpg",
+        "alt": "Calendrier de production de bijoux et étapes de disponibilité",
+        "title": "Chronologie de la production de bijoux",
+        "caption": "Comprendre le parcours complet, de la commande à la livraison, permet de définir des attentes réalistes.",
+        "priority": true
+      },
+      {
+        "type": "paragraph",
+        "text": "Une page de bijoux en ligne peut indiquer « disponible » alors que la pièce doit encore être dimensionnée, assemblée, sertie, poinçonnée ou fabriquée. Un autre produit peut être physiquement prêt mais nécessiter plusieurs jours pour vérification et expédition assurée."
+      },
+      {
+        "type": "paragraph",
+        "text": "La question utile n’est donc pas seulement « Est-il disponible ? C'est \"Quel travail reste-t-il, quand sera-t-il expédié et quand doit-il arriver à mon adresse ?\""
+      },
+      {
+        "type": "paragraph",
+        "text": "Le temps de production, le délai d’expédition et le délai de livraison sont distincts. Comprendre chaque étape est essentiel lorsque les bijoux sont destinés à une demande en mariage, un anniversaire, un voyage ou une date de cadeau."
+      },
+      {
+        "type": "callout",
+        "title": "Réponse rapide : comment calculer la date de livraison d'un bijou ?",
+        "parts": [
+          {
+            "text": "Utilisez cette formule :"
+          },
+          {
+            "text": "Arrivée estimée = traitement des commandes + sourcing + production ou modification + contrôle qualité et documentation + traitement de l'expédition + transit du transporteur + contingence douanière"
+          },
+          {
+            "text": "Avant de commander, confirmez :",
+            "bold": true
+          },
+          {
+            "text": "1. L'état de disponibilité de votre variante exacte.\n2. Si le calendrier indiqué utilise le calendrier ou les jours ouvrables.\n3. Lorsque le chronomètre commence : commande, paiement autorisé ou conception approuvée.\n4. Que ce soit le dimensionnement, la gravure ou la sélection de la pierre, cela ajoute du temps.\n5. Si le contrôle qualité, les rapports ou le poinçonnage sont inclus.\n6. La date d'expédition estimée – pas seulement la mention « expédié dans ».\n7. Temps de transit du transporteur pour votre destination.\n8. Traitement des douanes ou des importations pour les commandes transfrontalières.\n9. Si la date est une estimation ou une garantie.\n10. Que se passe-t-il si le vendeur ne respecte pas un délai essentiel convenu ?\n\nPour un événement important, obtenez l’engagement de livraison par écrit et laissez un tampon raisonnable."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Les conditions de disponibilité ne sont pas interchangeables",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Les détaillants utilisent les étiquettes de disponibilité différemment. Lisez la définition sur la page du produit ou sur la politique."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Étiquette",
+          "Ce que cela devrait signifier",
+          "Que confirmer"
+        ],
+        "rows": [
+          [
+            "En stock",
+            "Un article ou un composant pertinent est physiquement détenu",
+            "Mon option taille exacte, métal et diamant est-elle complète ?"
+          ],
+          [
+            "Prêt à expédier",
+            "L'article fini sélectionné ne nécessite aucune production",
+            "Que reste-t-il à vérifier et à gérer l'expédition ?"
+          ],
+          [
+            "Prêt à l'emploi",
+            "Le design existe déjà en tant qu'inventaire fini",
+            "Un redimensionnement ou une modification est-il nécessaire ?"
+          ],
+          [
+            "Fabriqué sur commande",
+            "La production démarre ou est terminée pour la commande",
+            "Quelles étapes et quels délais s’appliquent ?"
+          ],
+          [
+            "Commande en souffrance",
+            "L'article est temporairement indisponible mais est à nouveau attendu",
+            "La date de réapprovisionnement est-elle confirmée ?"
+          ],
+          [
+            "Précommande",
+            "La commande est acceptée avant la libération ou la fourniture terminée",
+            "La date est-elle fixe, estimée ou dépendante de la demande ?"
+          ],
+          [
+            "Sur mesure",
+            "La conception ou les spécifications sont créées pour le client",
+            "Quand commence le calendrier et combien d’approbations sont nécessaires ?"
+          ],
+          [
+            "Disponible sur demande",
+            "Le vendeur doit vérifier la disponibilité du fournisseur ou de l'atelier",
+            "Quand la disponibilité et le prix seront-ils confirmés ?"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "« Disponible » peut signifier achetable et non physiquement fini. « En stock » peut faire référence à une monture sans son diamant central sélectionné. Vérifiez toujours la variante exacte."
+      }
+    ]
+  },
+  {
+    "heading": "Vérifiez la variante sélectionnée, pas le produit par défaut",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Une page de bague peut afficher « prêt à expédier », alors qu'une seule combinaison de taille et de métal est prête. Le passage à une autre taille de bague, couleur d'or, longueur de chaîne ou spécification de diamant peut modifier le délai de livraison."
+      },
+      {
+        "type": "paragraph",
+        "text": "Avant d'ajouter au panier, enregistrez :"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "code produit ;",
+          "métal et finesse choisis;",
+          "taille de bague ou longueur portable ;",
+          "spécification du diamant sélectionné ;",
+          "gravure ou personnalisation ;",
+          "les exigences en matière de rapport ; et",
+          "le message de disponibilité une fois toutes les sélections effectuées."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Le panier et l'e-mail de confirmation doivent répéter à la fois la variante et la fenêtre d'expédition prévue."
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Utilisez le"
+          },
+          {
+            "text": "liste de contrôle des spécifications des produits pour les bijoux en diamant",
+            "href": "/fr/blog/diamond-jewellery-product-specifications-checklist/"
+          },
+          {
+            "text": "pour conserver le dossier complet de la commande."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Si un vendeur ne définit pas la disponibilité ou ne fournit pas de calendrier écrit, revisitez"
+          },
+          {
+            "text": "comment choisir un bijoutier diamantaire en ligne digne de confiance",
+            "href": "/fr/blog/choose-trustworthy-online-diamond-jeweller/"
+          },
+          {
+            "text": "avant de payer."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Les étapes du temps de production des bijoux",
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/jewellery-availability-production-time/52 (2).jpg",
+        "alt": "Étapes de production de bijoux étape par étape, de la commande à l'expédition",
+        "title": "Répartition des étapes de production",
+        "caption": "Les bijoux fabriqués sur commande passent par plusieurs étapes avant d’arriver à votre porte.",
+        "priority": false
+      },
+      {
+        "type": "paragraph",
+        "text": "Les bijoux fabriqués sur commande ne passent pas tout le temps de préparation sur un établi. Un planning réaliste peut contenir plusieurs dépendances."
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "Examen de la commande et autorisation du paiement — Le vendeur confirme les spécifications, les contrôles de fraude, les informations de paiement et de livraison.",
+          "Allocation de diamants et de matériaux — Le diamant, les pierres d'accent, le métal précieux et les composants sélectionnés doivent être disponibles.",
+          "Confirmation ou adaptation de la conception — Le travail sur mesure nécessite des dessins, des rendus et une approbation écrite.",
+          "Fabrication et assemblage — Moulage, fabrication, nettoyage, production de composants et finition préliminaire.",
+          "Sertissage des pierres — Les diamants sont appariés, placés et sécurisés.",
+          "Finition et placage — Polissage, texturation, gravure ou placage.",
+          "Contrôle qualité — L'atelier inspecte la sécurité, l'alignement, le polissage, les dimensions et les fermoirs des pierres.",
+          "Poinçonnage et documentation — Poinçonnage et rapports de laboratoires indépendants.",
+          "Emballage et expédition assurée — Photographie finale, emballage et réservation par coursier."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Cette séquence explique pourquoi « fabriqué » et « expédié » ne sont pas le même jalon."
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Ces étapes de production et de contrôle font également partie"
+          },
+          {
+            "text": "ce qui rend les bijoux en diamants synthétiques de haute qualité",
+            "href": "/fr/blog/high-quality-lab-grown-diamond-jewellery/"
+          },
+          {
+            "text": "; la vitesse ne doit pas effacer l’inspection nécessaire."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Délai de production, délai d'expédition et délai de livraison",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Ces trois phrases ne doivent jamais être fusionnées :"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "Temps de réalisation : temps nécessaire à la préparation ou à la réalisation du bijou.",
+          "Délai d'expédition : délai jusqu'à ce que le colis complété quitte le vendeur.",
+          "Délai de livraison ou d'acheminement : délai mis par le transporteur après l'enlèvement."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Si la production est estimée à 10 jours ouvrables et la livraison à 2 à 4 jours ouvrables, l'estimation d'arrivée n'est pas de 10 jours. Il s’agit de la production plus de toute gestion d’expédition plus le transit."
+      },
+      {
+        "type": "paragraph",
+        "text": "Pour une livraison internationale, ajouter un éventuel dédouanement. Payer le transport express n’accélère pas nécessairement la production."
+      }
+    ]
+  },
+  {
+    "heading": "Jours calendaires versus jours ouvrables",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Dix jours ouvrables peuvent s'étaler sur deux semaines complètes de travail et plus en cas de jours fériés. Confirmer:"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "quels jours l'atelier est considéré comme ouvré ;",
+          "le pays et le calendrier des jours fériés du vendeur ;",
+          "heure limite de commande et fuseau horaire ;",
+          "si le jour de la commande compte comme le premier jour ;",
+          "fermetures saisonnières; et",
+          "si les week-ends des transporteurs sont inclus."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Par exemple, une commande passée après la date limite du vendredi peut être traitée lundi. Si le lundi est un jour férié local, le décompte peut commencer le mardi. Évitez de calculer à partir de la seule bannière marketing."
+      }
+    ]
+  },
+  {
+    "heading": "Date estimée, fenêtre d'expédition et date garantie",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Un devis est une prévision, pas nécessairement une garantie contractuelle. Une fourchette telle que « expéditions sous 10 à 15 jours ouvrables » reconnaît l'incertitude mais doit néanmoins avoir un point de départ défini."
+      },
+      {
+        "type": "paragraph",
+        "text": "Demandez lesquels de ces produits le vendeur propose :"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "achèvement prévu de la production ;",
+          "fenêtre d'expédition estimée ;",
+          "livraison estimée par le transporteur ;",
+          "dernière date de livraison convenue ; ou",
+          "livraison garantie de l'événement."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Si le timing est essentiel, informez le vendeur de la date de l'événement avant de commander et demandez-lui de confirmer par écrit la dernière date de livraison. Ne vous fiez pas à une expression du service client telle que « ça devrait aller »."
+      }
+    ]
+  },
+  {
+    "heading": "Pourquoi les commandes personnalisées et sur mesure nécessitent une attention particulière",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Une gravure, une taille inhabituelle, des modifications de conception ou un diamant sélectionné par le client peuvent affecter à la fois les conditions de production et d'annulation."
+      },
+      {
+        "type": "paragraph",
+        "text": "Avant d'approuver les travaux, confirmez :"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "spécification finale et orthographe ;",
+          "date limite de dessin ou d’approbation du rendu ;",
+          "nombre de révisions incluses ;",
+          "lorsque la commande devient non annulable ;",
+          "si les retours sont restreints ;",
+          "que se passe-t-il si les matériaux deviennent indisponibles ?",
+          "conséquences des changements sur les prix ; et",
+          "date de livraison révisée après toute modification."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Les droits d'annulation et les exceptions des consommateurs varient selon la juridiction et le degré réel de personnalisation. Une étiquette « sur commande » n'explique pas à elle seule la situation juridique."
+      }
+    ]
+  },
+  {
+    "heading": "Prêt à expédier ne signifie pas arrivée le jour même",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Même les bijoux terminés peuvent nécessiter :"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "examen des paiements et des fraudes ;",
+          "correspondance des numéros de rapport ;",
+          "inspection de sécurité des pierres ;",
+          "polissage final;",
+          "gravure demandée à la caisse ;",
+          "validation d'adresse ;",
+          "planification de la collecte par courrier ; et",
+          "signature ou modalités de livraison sécurisée."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Vérifiez la date limite d'expédition quotidienne et si les commandes de grande valeur sont expédiées le vendredi ou avant les jours fériés. Certains vendeurs évitent que les colis ne restent dans les réseaux de messagerie pendant le week-end."
+      }
+    ]
+  },
+  {
+    "heading": "Commandes transfrontalières en Europe et au Royaume-Uni",
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/jewellery-availability-production-time/52 (3).jpg",
+        "alt": "Livraison internationale de bijoux et traitement douanier",
+        "title": "Considérations relatives à la livraison transfrontalière",
+        "caption": "Les commandes internationales impliquent des étapes supplémentaires telles que le dédouanement et la gestion de la TVA.",
+        "priority": false
+      },
+      {
+        "type": "paragraph",
+        "text": "Pour une commande transfrontalière, établissez :"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "d'où les bijoux sont expédiés ;",
+          "s'il traverse une frontière douanière ;",
+          "quelle partie est l'importateur officiel ;",
+          "si la TVA et les droits sont payés d'avance ;",
+          "les documents requis par le transporteur ;",
+          "si les retards douaniers se situent en dehors du temps de transit indiqué ; et",
+          "qui contacte le transporteur si le dédouanement échoue."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Les directives européennes destinées aux consommateurs stipulent que, sauf accord spécifique sur un délai différent, les commerçants doivent généralement livrer dans les 30 jours. Les règles britanniques en matière de vente à distance ont leur propre cadre."
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Lire"
+          },
+          {
+            "text": "comment acheter des bijoux en diamants synthétiques en ligne en Europe",
+            "href": "/fr/blog/buy-lab-grown-diamond-jewellery-online-europe/"
+          },
+          {
+            "text": "pour la liste de contrôle transfrontalière plus large."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Une feuille de calcul réaliste sur la date d'arrivée",
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/jewellery-availability-production-time/52 (4).jpg",
+        "alt": "Feuille de travail de planification de la date de livraison pour les commandes de bijoux",
+        "title": "Feuille de travail de planification de la date d'arrivée",
+        "caption": "Utilisez cette feuille de calcul pour suivre chaque étape et calculer une date de livraison réaliste.",
+        "priority": false
+      },
+      {
+        "type": "paragraph",
+        "text": "Complétez ceci avant le paiement :"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Scène",
+          "Estimation du vendeur",
+          "Date la plus ancienne",
+          "Dernière date"
+        ],
+        "rows": [
+          [
+            "Apurement de la commande/paiement",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Allocation diamant/matériau",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Production ou modification",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Gravure/personnalisation",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Contrôle de qualité",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Documentation sur le poinçon/le rapport",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Gestion des expéditions",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Transport par transporteur",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Contingence douanière",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Arrivée prévue",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Tampon d'événement",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Utilisez la date la plus récente, et non la première, pour décider si la commande convient à un événement. Ajoutez un tampon pour les corrections de dimensionnement, les tentatives de livraison manquées ou l'inspection après arrivée."
+      }
+    ]
+  },
+  {
+    "heading": "Questions à poser avant de passer une commande urgente",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Envoyez au vendeur ces questions dans un seul message :"
+      },
+      {
+        "type": "numbered-list",
+        "items": [
+          "Ma variante exacte sélectionnée est-elle physiquement terminée ?",
+          "Quelles étapes restent-elles avant l'expédition ?",
+          "Quand commence le délai de livraison indiqué ?",
+          "Les jours sont-ils calendaires ou ouvrés ?",
+          "Le dimensionnement ou la gravure modifie-t-il le devis ?",
+          "Le poinçonnage et les rapports sont-ils déjà terminés ?",
+          "Quelle est la date d'expédition au plus tôt et au plus tard ?",
+          "Quel service de transporteur sera utilisé ?",
+          "Le dédouanement est-il inclus dans le devis ?",
+          "Pouvez-vous vous engager par écrit à arriver à ma date essentielle ?",
+          "Que se passe-t-il si cette date est manquée ?",
+          "Puis-je annuler avant le début de la production ?"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Conservez la réponse avec la confirmation de commande."
+      }
+    ]
+  },
+  {
+    "heading": "Que faire lorsqu'une commande est retardée",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Identifiez d’abord l’étape qui a bougé : sourcing, production, documentation externe, expédition, transit transporteur ou douane."
+      },
+      {
+        "type": "paragraph",
+        "text": "Alors:"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "demander la date et le motif révisés par écrit ;",
+          "demander si les travaux ont commencé et si l'annulation est possible ;",
+          "conserver la date initialement promise ;",
+          "préciser si la date limite de l'événement a été acceptée comme essentielle ;",
+          "éviter d'approuver les modifications sans un calendrier révisé ; et",
+          "utilisez la voie de réclamation formelle du vendeur si nécessaire."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Les orientations de l’UE demandent généralement aux consommateurs de prévoir un délai de livraison supplémentaire raisonnable lorsque la date convenue n’est pas respectée. Les droits du Royaume-Uni dépendent du contrat et des circonstances."
+      }
+    ]
+  },
+  {
+    "heading": "Disponibilité et timing des signaux d’alarme",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Faites une pause lorsqu'une page de produit affiche :"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "« disponible » sans statut défini ;",
+          "un délai de livraison pour chaque taille et option personnalisée ;",
+          "« expédié dans 10 jours » sans mention commerciale/calendrier ;",
+          "temps de production présenté comme heure d'arrivée ;",
+          "aucun événement déclencheur pour le chronomètre ;",
+          "« expédition express » était utilisé pour impliquer une fabrication plus rapide ;",
+          "une date d'événement garantie uniquement donnée verbalement ;",
+          "stock en précommande sans base de sortie ;",
+          "les dates de rupture de stock changent à plusieurs reprises sans préavis ;",
+          "personnalisation ajoutée sans calendrier ni conditions de retour révisés ; ou",
+          "aucun processus pour les retards."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Une fourchette réaliste est plus utile qu’une promesse incroyablement précise sans fondement opérationnel."
+      }
+    ]
+  },
+  {
+    "heading": "Ce que devrait montrer Aurélia Royale",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Chaque variante d'Aurelia Royale doit afficher une étiquette de disponibilité contrôlée avec une définition. La page et le panier doivent afficher :"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "statut exact des variantes ;",
+          "étapes de production restantes ;",
+          "plage de délais ;",
+          "jours ouvrables ou calendaires ;",
+          "le point de départ du timing et la date limite de la commande ;",
+          "date d'expédition estimée par destination ;",
+          "gamme de transit de transporteur séparée ;",
+          "impact de la personnalisation ;",
+          "note douanière transfrontalière ; et",
+          "retard, annulation et itinéraire de retour."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Les e-mails sur l'état des commandes doivent identifier les étapes telles que confirmées, en production, contrôle qualité, prêtes à être expédiées et expédiées."
+      }
+    ]
+  },
+  {
+    "content": [
+      {
+        "type": "callout",
+        "title": "Verdict final",
+        "theme": "gold-border",
+        "parts": [
+          {
+            "text": "La disponibilité des bijoux n'a de sens que lorsqu'elle s'applique à votre variante exacte. Le temps de production vous indique combien de temps la préparation ou la fabrication peut prendre ; le délai d'expédition vous indique le moment où le vendeur prévoit de libérer le colis ; le délai de livraison commence avec le transporteur."
+          },
+          {
+            "text": "Séparez ces périodes, confirmez les règles des jours ouvrables et calculez une dernière date d'arrivée réaliste. Pour les propositions, mariages et cadeaux, communiquez la date indispensable avant de commander et obtenez un engagement écrit ou choisissez une pièce déjà finie avec suffisamment de tampon."
+          }
+        ]
+      },
+      {
+        "type": "faq",
+        "items": [
+          {
+            "question": "Que signifie « en stock » pour les bijoux ?",
+            "answer": "Cela devrait signifier que l'inventaire pertinent est physiquement détenu, mais que votre taille exacte ou le diamant sélectionné peut ne pas être terminé. Confirmez la variante sélectionnée et le travail restant."
+          },
+          {
+            "question": "Que signifie « prêt à expédier » ?",
+            "answer": "Cela signifie généralement que la production est terminée, même si la vérification des paiements, la vérification, la gravure, l'emballage et la planification du courrier peuvent rester. Demandez la date d'expédition."
+          },
+          {
+            "question": "Combien de temps prend la fabrication d'un bijou sur commande ?",
+            "answer": "Il n’y a pas de période universelle. La conception, les matériaux, la complexité du réglage, le dimensionnement, le poinçonnage, le contrôle qualité et la capacité de l'atelier déterminent la gamme indiquée."
+          },
+          {
+            "question": "Le délai de production inclut-il la livraison ?",
+            "answer": "Généralement pas, sauf indication contraire. Ajoutez la gestion des expéditions, le transit du transporteur et tout dédouanement à la période de production."
+          },
+          {
+            "question": "Quelle est la différence entre l'expédition et la livraison ?",
+            "answer": "L'expédition a lieu lorsque le vendeur remet le colis au transporteur. La livraison a lieu lorsque le colis parvient au destinataire selon le processus du transporteur."
+          },
+          {
+            "question": "Les week-ends comptent-ils dans un délai de livraison de bijoux ?",
+            "answer": "Uniquement si le vendeur utilise des jours calendaires. Les estimations en jours ouvrables excluent normalement les week-ends et peuvent exclure les jours fériés locaux."
+          },
+          {
+            "question": "L’expédition express peut-elle accélérer la production de bijoux ?",
+            "answer": "Pas automatiquement. L'expédition express raccourcit le transit du transporteur. La production ne change que si l'atelier propose et confirme séparément une fabrication prioritaire."
+          },
+          {
+            "question": "Le dimensionnement des bagues ajoute-t-il du temps de production ?",
+            "answer": "Ça peut. Une bague prête à l'emploi peut nécessiter des modifications, tandis que certains modèles doivent être produits directement dans la taille sélectionnée. Demandez la fenêtre d’expédition révisée."
+          },
+          {
+            "question": "Le poinçonnage des bijoux ajoute-t-il du temps ?",
+            "answer": "C'est possible lorsque l'article fini doit être envoyé à un bureau d'analyse externe. Confirmez si le poinçonnage est complet ou inclus dans le délai de livraison indiqué."
+          },
+          {
+            "question": "Que dois-je faire si j'ai besoin de bijoux pour un mariage ?",
+            "answer": "Indiquez la date essentielle avant de commander, demandez par écrit la dernière livraison garantie et prévoyez du temps pour inspecter, redimensionner ou résoudre les problèmes de livraison."
+          },
+          {
+            "question": "Les bijoux fabriqués sur commande peuvent-ils être retournés ?",
+            "answer": "Les droits de retour et d'annulation dépendent du produit, du degré de personnalisation, des conditions du vendeur et de la loi applicable. Lisez la politique spécifique avant d’approuver la production."
+          },
+          {
+            "question": "Quels enregistrements dois-je conserver pour une commande retardée ?",
+            "answer": "Conservez la page du produit sélectionné, le message de disponibilité, les dates promises, la divulgation de la date de l'événement, la confirmation de commande, la correspondance du vendeur et le suivi du transporteur."
+          }
+        ]
+      },
+      {
+        "type": "cta-banner",
+        "title": "Achetez en toute confiance chez Aurelia",
+        "subtitle": "Explorez notre collection avec des délais de disponibilité transparents et un suivi de livraison fiable.",
+        "shopHref": "/shop/",
+        "contactHref": "/contact/"
+      }
+    ]
+  }
+]

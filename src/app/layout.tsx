@@ -1,4 +1,5 @@
-﻿import type { Metadata, Viewport } from "next";
+import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import {
     Manrope,
     Playfair_Display,
@@ -13,6 +14,8 @@ import { PageTransition } from "@/components/layout/PageTransition";
 import { AuthProvider } from "@/providers/AuthProvider";
 import { CartProvider } from "@/providers/CartProvider";
 import { WishlistProvider } from "@/providers/WishlistProvider";
+import { headers } from "next/headers";
+import { LocaleProvider } from "@/utils/i18n";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -54,20 +57,41 @@ export const viewport: Viewport = {
     themeColor: "#ffffff",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const headersList = await headers();
+    const locale = headersList.get("x-locale") || "en";
+
     return (
         <html
-            lang="en"
+            lang={locale}
             className={`${manrope.variable} ${playfair.variable} ${cormorant.variable} ${jost.variable} h-full antialiased`}
         >
             <body
                 id="top"
                 className="min-h-full flex flex-col  bg-background text-foreground"
             >
+                <Script
+                    id="suppress-extension-errors"
+                    strategy="afterInteractive"
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            window.addEventListener('error', (event) => {
+                                if (event.filename && (event.filename.includes('chrome-extension://') || event.filename.includes('moz-extension://'))) {
+                                    event.stopImmediatePropagation();
+                                }
+                            });
+                            window.addEventListener('unhandledrejection', (event) => {
+                                if (event.reason && event.reason.stack && (event.reason.stack.includes('chrome-extension://') || event.reason.stack.includes('moz-extension://'))) {
+                                    event.stopImmediatePropagation();
+                                }
+                            });
+                        `
+                    }}
+                />
                 <Toaster
                     position="bottom-right"
                     theme="dark"
@@ -79,11 +103,13 @@ export default function RootLayout({
                 <AuthProvider>
                     <WishlistProvider>
                         <CartProvider>
-                            <Header />
-                            <main className="flex-1">
-                                <PageTransition>{children}</PageTransition>
-                            </main>
-                            <Footer />
+                            <LocaleProvider locale={locale}>
+                                <Header />
+                                <main className="flex-1">
+                                    <PageTransition>{children}</PageTransition>
+                                </main>
+                                <Footer />
+                            </LocaleProvider>
                             <a
                                 href="#top"
                                 className="fixed bottom-5 right-5 inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-dashed border-gold bg-[#d3b442] text-white shadow-xl transition hover:scale-105"

@@ -1,16 +1,77 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
-export const metadata: Metadata = {
-  title: "What Are Lab-Grown Diamonds? Complete Buyer’s Guide",
-  description: "Discover what lab-grown diamonds are, how CVD and HPHT create them, whether they are real, how they are graded and what buyers should check.",
+export const metadataEn: Metadata = {
+  title: "What Are Lab Grown Diamonds",
+  description: "What Are Lab Grown Diamonds",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/what-are-lab-grown-diamonds/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "¿Qué son los diamantes cultivados en laboratorio?",
+  description: "¿Qué son los diamantes cultivados en laboratorio? - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/what-are-lab-grown-diamonds/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Que sont les diamants cultivés en laboratoire",
+  description: "Que sont les diamants cultivés en laboratoire - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/what-are-lab-grown-diamonds/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Wat zijn in het laboratorium gekweekte diamanten",
+  description: "Wat zijn in het laboratorium gekweekte diamanten - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/what-are-lab-grown-diamonds/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "Was sind im Labor gezüchtete Diamanten?",
+  description: "Was sind im Labor gezüchtete Diamanten? - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/what-are-lab-grown-diamonds/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Cosa sono i diamanti creati in laboratorio? Guida introduttiva",
+  description: "Scopri le proprietà fisiche, chimiche e ottiche dei diamanti coltivati ​​in laboratorio e come si confrontano con i diamanti estratti. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/what-are-lab-grown-diamonds/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+  const localeData = getBlogDataByLocale("what-are-lab-grown-diamonds", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. The exact SEO Schema you shared
 const schemaMarkup = {
@@ -398,23 +459,30 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function Blog1Page() {
+export default async function Blog1Page({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const localeData = getBlogDataByLocale("what-are-lab-grown-diamonds", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Injecting the JSON-LD Script into the page for Google Search */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header Banner */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Lab-Grown Diamond Education
+            {locale === "it" ? "Guide all'Acquisto" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Éducation sur les diamants" : locale === "es" ? "Educación sobre diamantes cultivados en laboratorio" : "Lab-Grown Diamond Education"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            What Are Lab-Grown Diamonds?
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
             Published July 14, 2026 • 8 Min Read
@@ -423,7 +491,7 @@ export default function Blog1Page() {
       </section>
 
       {/* Render Dynamic Article */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

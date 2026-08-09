@@ -1,16 +1,77 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata
-export const metadata: Metadata = {
-  title: "How to Choose a Lab-Grown Diamond Bracelet",
-  description: "Choose a lab-grown diamond bracelet by style, wrist fit, carat distribution, diamond quality, flexibility, clasp, metal and certification.",
+export const metadataEn: Metadata = {
+  title: "How To Choose Lab Grown Diamond Bracelet",
+  description: "How To Choose Lab Grown Diamond Bracelet",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-bracelet/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "Cómo elegir una pulsera de diamantes cultivados en laboratorio",
+  description: "Cómo elegir una pulsera de diamantes cultivados en laboratorio - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/how-to-choose-lab-grown-diamond-bracelet/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Comment choisir un bracelet en diamants cultivés en laboratoire",
+  description: "Comment choisir un bracelet en diamants cultivés en laboratoire - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/how-to-choose-lab-grown-diamond-bracelet/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Hoe u een Lab Grown diamanten armband kiest",
+  description: "Hoe u een Lab Grown diamanten armband kiest - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/how-to-choose-lab-grown-diamond-bracelet/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "So wählen Sie ein im Labor gezüchtetes Diamantarmband aus",
+  description: "So wählen Sie ein im Labor gezüchtetes Diamantarmband aus - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/how-to-choose-lab-grown-diamond-bracelet/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Come scegliere un braccialetto di diamanti creato in laboratorio",
+  description: "Confronta stili e chiusure. Trova il braccialetto giusto per eventi quotidiani o speciali valutando flessibilità e caratura totale. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/how-to-choose-lab-grown-diamond-bracelet/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+  const localeData = getBlogDataByLocale("how-to-choose-lab-grown-diamond-bracelet", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. JSON-LD Schema
 const schemaMarkup = {
@@ -613,32 +674,39 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function HowToChooseLabGrownDiamondBraceletPage() {
+export default async function HowToChooseLabGrownDiamondBraceletPage({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const localeData = getBlogDataByLocale("how-to-choose-lab-grown-diamond-bracelet", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Product-Category Guides
+            {locale === "it" ? "Guide all'Acquisto" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Product-Category Guides" : locale === "es" ? "Guías de categorías de productos" : "Product-Category Guides"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How to Choose a Lab-Grown Diamond Bracelet
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
+            {locale === "it" ? "Journal • Pubblicato il 15 luglio 2026" : locale === "de" ? "Journal • Veröffentlicht am 16. Juli 2026" : locale === "nl" ? "Journaal • Gepubliceerd op 16 juli 2026" : locale === "fr" ? "Journal • Publié le 16. Juli 2026" : locale === "es" ? "Diario • Publicado el 16 de julio de 2026" : "Journal • Published July 16, 2026"}
           </p>
         </div>
       </section>
 
       {/* Content Layout */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

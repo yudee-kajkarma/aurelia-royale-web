@@ -1,16 +1,77 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
-export const metadata: Metadata = {
-  title: "Carat Weight vs Diamond Size: What Buyers See",
-  description: "Learn why equal-carat diamonds can look different in size and how shape, depth, dimensions, spread, setting and finger coverage affect appearance.",
+export const metadataEn: Metadata = {
+  title: "Carat Weight Vs Visible Diamond Size",
+  description: "Carat Weight Vs Visible Diamond Size",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/carat-weight-vs-visible-diamond-size/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "Peso en quilates versus tamaño de diamante visible",
+  description: "Peso en quilates versus tamaño de diamante visible - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/carat-weight-vs-visible-diamond-size/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Poids en carats par rapport à la taille visible du diamant",
+  description: "Poids en carats par rapport à la taille visible du diamant - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/carat-weight-vs-visible-diamond-size/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Karaatgewicht versus zichtbare diamantgrootte",
+  description: "Karaatgewicht versus zichtbare diamantgrootte - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/carat-weight-vs-visible-diamond-size/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "Karatgewicht vs. sichtbare Diamantgröße",
+  description: "Karatgewicht vs. sichtbare Diamantgröße - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/carat-weight-vs-visible-diamond-size/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Peso in carati rispetto alla dimensione visibile del diamante",
+  description: "Scopri la differenza tra peso in carati e dimensioni visibili in millimetri e scopri come il taglio e la forma del diamante influiscono sulla sua dimensione apparente. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/carat-weight-vs-visible-diamond-size/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+  const localeData = getBlogDataByLocale("carat-weight-vs-visible-diamond-size", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. The exact JSON-LD Schema
 const schemaMarkup = {
@@ -435,32 +496,39 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function Blog31Page() {
+export default async function Blog31Page({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const localeData = getBlogDataByLocale("carat-weight-vs-visible-diamond-size", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Lab-Grown Diamond Education
+            {locale === "it" ? "Guida ai Diamanti" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Éducation sur les diamants" : locale === "es" ? "Educación sobre diamantes cultivados en laboratorio" : "Lab-Grown Diamond Education"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            Carat Weight vs Diamond Size
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Educational Guide • Published July 15, 2026
+            {locale === "it" ? "Journal • Pubblicato il 15 luglio 2026" : locale === "fr" ? "Guide Éducatif • Publié le 16. Juli 2026" : locale === "es" ? "Guía Educativa • Publicado el 16 de julio de 2026" : "Educational Guide • Published July 16, 2026"}
           </p>
         </div>
       </section>
 
       {/* Content Layout */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

@@ -39,4 +39,3 @@ https://github.com/yudee-kajkarma/aurelia-royale-web.git -> kajkarma repo
 
 https://github.com/caratlogic/aurelia-royale-frontend.git -> caratlogic repo
 
-trigger deployement

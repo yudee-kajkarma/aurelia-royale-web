@@ -1,0 +1,486 @@
+[
+  {
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/coloured-stone-information-disclosure/1.jpg",
+        "alt": "Dokument mit der Checkliste zur Offenlegung von Informationen zu Edelsteinen",
+        "title": "Offenlegungsdokumentation",
+        "caption": "Einzigartige Edelstein-Offenbarungen verdeutlichen zusammengesetzte Zusammenstellungen und Behandlungsgeschichten.",
+        "priority": true
+      },
+      {
+        "type": "paragraph",
+        "text": "Farbe ist sichtbar. Identität, Herkunftskategorie und Behandlung sind oft nicht gegeben."
+      },
+      {
+        "type": "paragraph",
+        "text": "Ein blauer Mittelstein kann ein natürlicher Saphir, ein behandelter natürlicher Saphir, ein im Labor hergestellter Saphir, ein Verbundwerkstoff oder ein Imitationsmaterial sein. Diese Kategorien können sich im Aussehen überschneiden, unterscheiden sich jedoch in Seltenheit, Preisvergleich, Wartung, Reparatur und Dokumentation. Eine klare Offenlegung macht aus einem schönen Bild einen informierten Kauf."
+      }
+    ]
+  },
+  {
+    "heading": "Schnelle Antwort",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Informationen über farbige Steine ​​müssen veröffentlicht werden, da Käufer die Identität, den natürlichen oder im Labor hergestellten Ursprung, die Verbundkonstruktion oder die Behandlung allein anhand des Aussehens nicht zuverlässig bestimmen können. Diese Tatsachen können den Preis, die Haltbarkeit, die Reinigung, die Reparatur und die Interpretation des Berichts erheblich beeinflussen. Eine nützliche Produktseite sollte jeden Stein benennen, seine Herkunftskategorie auflisten, bekannte Behandlungen offenlegen, Steingewichte unterscheiden, den genauen Umfang des Berichts angeben und vor dem Bezahlen Pflegehinweise geben – und wichtige Details nicht in vagen Formulierungen oder Papierkram nach dem Kauf verbergen."
+      }
+    ]
+  },
+  {
+    "heading": "Offenlegung ist kein Warnhinweis",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Behandlungen und Laborkreationen sind legitime Schmuckoptionen. Durch prominente und konkrete Aussagen können Käufer die Parameter sicher auswählen."
+      }
+    ]
+  },
+  {
+    "heading": "Die Informationshierarchie, die Käufer benötigen",
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/coloured-stone-information-disclosure/2.jpg",
+        "alt": "Diagramm der Schritte zur Hierarchie der Edelsteinidentifizierung",
+        "title": "Format der Identitätshierarchie",
+        "caption": "Die Überprüfung aller Ebenen der Informationscheckliste gewährleistet die Sicherheit des Käufers."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Niedrig",
+          "Wesentliche Frage",
+          "Beispiel für klare Informationen"
+        ],
+        "rows": [
+          [
+            "Identität",
+            "Um welches Material handelt es sich?",
+            "Sicherer; Smaragd; Spinell"
+          ],
+          [
+            "Herkunft der Kategorie",
+            "Natürlich oder hergestellt?",
+            "Natürlicher Saphir; im Labor hergestellter Saphir"
+          ],
+          [
+            "Bauen",
+            "Ein Material oder Verbundwerkstoff?",
+            "Verbundstein; Wams; Glasimitat"
+          ],
+          [
+            "Behandlung",
+            "Hat sich das Erscheinungsbild verändert?",
+            "Erhitzt; gefüllt; beschichtet; Behandlung nicht im Rahmen des Berichts erfasst"
+          ],
+          [
+            "Physikalische Spezifikation",
+            "Wie groß ist es?",
+            "Abmessungen, Gewicht und Form"
+          ],
+          [
+            "Dokumentation",
+            "Was wurde getestet?",
+            "Lose Mittelstein oder fertiger Schmuck"
+          ],
+          [
+            "Sorge",
+            "Welche Einschränkungen folgen?",
+            "Vermeiden Sie ggf. Hitze, Chemikalien, Ultraschallreinigung oder längeres Licht"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "1. Identität beeinflusst die gesamte Gleichung",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Verwenden Sie Farbindikatoren nicht allein. Mineralstoffkategorien müssen explizit gekennzeichnet werden, um Preisinkongruenzen zu vermeiden."
+      }
+    ]
+  },
+  {
+    "heading": "2. Natürlich, behandelt und im Labor hergestellt sind unterschiedliche Tatsachen",
+    "content": [
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Trennen Sie den geologischen Ursprung vom Behandlungsstatus. Einzelheiten zur Laborbeurteilung finden Sie unter"
+          },
+          {
+            "text": "wie man im Labor gezüchtete Diamanten beschreibt und enthüllt",
+            "href": "/de/blog/lab-grown-diamond-description-disclosure/"
+          },
+          {
+            "text": "."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "3. Behandlungen können sich auf Pflege und Reparatur auswirken",
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/coloured-stone-information-disclosure/3.jpg",
+        "alt": "Kontrolle der Edelsteinbehandlung in einer Atelierwerkstatt",
+        "title": "Workshop zur Behandlungskontrolle",
+        "caption": "Indem Sie den genauen Status der Verbesserungen angeben, vermeiden Sie Reinigungsschäden in örtlichen Reparaturwerkstätten."
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Identifizieren Sie poröse Beschichtungen, Füllungen oder thermische Behandlungen. Lesen Sie die Pflegedetails"
+          },
+          {
+            "text": "wie man farbige Steine ​​und Diamanten pflegt",
+            "href": "/de/blog/care-coloured-stones-diamonds/"
+          },
+          {
+            "text": "."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "4. Die Offenlegung ermöglicht einen fairen Preisvergleich",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Vergleichen Sie die Spezifikationen wie folgt. Transparente Aussagen sorgen dafür, dass Wertmerkmale (Klarheit, Herkunft) messbar sind."
+      }
+    ]
+  },
+  {
+    "heading": "5. Offenlegung schützt das Vertrauen nach dem Kauf",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Sorgen Sie dafür, dass die Kaufdokumente mit der Produktseite übereinstimmen, um Versicherungsaktualisierungen und professionelle Wartung zu unterstützen."
+      }
+    ]
+  },
+  {
+    "heading": "6. Europäische und britische Verbrauchertransparenz ist wichtig",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Beachten Sie die Verbraucherschutzrichtlinien hinsichtlich Herstellungsart, Komponentenzusammensetzung und Prüfdetails."
+      }
+    ]
+  },
+  {
+    "heading": "7. Die Ethik der Branche bekräftigt dasselbe Prinzip",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Ethischer Handel erfordert eine genaue Berichterstattung, um Käufer vor synthetischen Ersatzstoffen zu schützen, die unter natürlichen Namen verkauft werden."
+      }
+    ]
+  },
+  {
+    "heading": "Was soll auf der Produktseite erscheinen?",
+    "content": [
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Für den farbigen Mittelstein:",
+            "bold": true
+          }
+        ]
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "genaue Edelsteinart oder -sorte;",
+          "natürlicher, im Labor hergestellter, zusammengesetzter oder nachgeahmter Status;",
+          "bekannte oder erkannte Behandlungen;",
+          "Form und Schnittstil;",
+          "Maße in Millimetern;",
+          "Karatgewicht oder klar erläuterte Schätzung;",
+          "Farbbeschreibung ohne unbegründete Rückschlüsse auf die Herkunft;",
+          "ob Bilder den genauen Stein zeigen; Und",
+          "Pflege- und Handhabungshinweise."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Für im Labor gezüchtete Diamantakzente:",
+            "bold": true
+          }
+        ]
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "Herkunft aus Laboranbau;",
+          "Zählen und Formen;",
+          "kombiniertes Gesamtkaratgewicht;",
+          "angegebener Farb- und Helligkeitsbereich und dessen Umfang; Und",
+          "Melden Sie ggf. den Versicherungsschutz."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Für das komplette Schmuckstück:",
+            "bold": true
+          }
+        ]
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "Metall und Feinheit;",
+          "allgemeine Abmessungen und Gewicht, falls relevant;",
+          "Einrichtungs- und Bestätigungsinformationen;",
+          "Berichtstyp eine passende Nummer;",
+          "Produktionsvariation;",
+          "Informationen zu Rücksendungen, Garantie und Reparaturen; Und",
+          "Firmen- und Kontaktdaten."
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Wo die Offenlegung erfolgen sollte",
+    "content": [
+      {
+        "type": "numbered-list",
+        "items": [
+          "Produkttitel: Kernmaterial und Designidentität.",
+          "In der Nähe der Preis- und Kaufschaltfläche: natürlicher/im Labor hergestellter Status und Materialhandhabung, wo entscheidungskritisch.",
+          "Spezifikationen: massiver Stein, Metall, Größe und Gewichtsverteilung.",
+          "Berichtsabschnitt: Herausgeber, Nummer, Umfang und Verifizierungsroute.",
+          "Abschnitt Pflege: Behandlungsspezifische Einschränkungen.",
+          "Warenkorb und Kasse: keine widersprüchliche Kurzbeschreibung.",
+          "Rechnung und Pflegekarte: Nachhaltige Erfassung der wesentlichen Fakten."
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Eine Formulierung, die Verwirrung stiftet",
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/coloured-stone-information-disclosure/4.jpg",
+        "alt": "Eine Liste vager Handelsbeschreibungen versus transparente Kennzeichnung",
+        "title": "Beschreibung Formulierungsgrenzen",
+        "caption": "Durch die Vermeidung irreführender Wörter wie „echt“ bleiben Produktlisten klar."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Unklare Formulierung",
+          "Warum es nicht ausreicht",
+          "Bessere Richtung"
+        ],
+        "rows": [
+          [
+            "Echter Edelstein",
+            "Gibt weder Material noch Herkunft an",
+            "Benennen Sie den Edelstein und die Herkunftskategorie"
+          ],
+          [
+            "Stein gemacht",
+            "Sagt nicht, was gemacht wurde",
+            "Im Labor hergestellter Saphir"
+          ],
+          [
+            "Verstärkt",
+            "Identifiziert die Behandlung nicht",
+            "Geben Sie die bekannte Behandlung an"
+          ],
+          [
+            "Smaragdgrünes Aussehen",
+            "Kann eher Stil als Material beschreiben",
+            "Benennen Sie das eigentliche Material"
+          ],
+          [
+            "Zertifizierter Schmuck",
+            "Gibt weder den Typ noch den Umfang des Dokuments an",
+            "Name des Emittenten, Bericht und abgedeckter Gegenstand"
+          ],
+          [
+            "Natürliche Farbe",
+            "Kann mit natürlichem Ursprung oder unbehandeltem Zustand verwechselt werden",
+            "Beschreiben Sie die Farbe getrennt von Herkunft und Behandlung"
+          ],
+          [
+            "Diamantbetont",
+            "Herkunft, Menge oder Gesamtgewicht werden nicht bestätigt",
+            "Im Labor gezüchtete Diamantakzente mit Spezifikationen"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Wie Berichte präsentiert werden sollten",
+    "content": [
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Bestätigen Sie, ob sich Zertifikate auf einzelne Elemente oder vollständig montierte Artikel beziehen. Einzelheiten finden Sie unter"
+          },
+          {
+            "text": "Was zertifizierter, im Labor gezüchteter Diamantschmuck bedeutet",
+            "href": "/de/blog/certified-lab-grown-diamond-jewellery-meaning/"
+          },
+          {
+            "text": "."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Umgang mit unbekannten oder variablen Informationen",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Verwenden Sie eindeutige Status: Öffentlich (Herstellerdaten), Verifiziert (unabhängige Berichte) oder Unbestätigt (nicht getestet: Behauptungen vermeiden)."
+      }
+    ]
+  },
+  {
+    "heading": "Ein Offenlegungsaudit für Einzelhändler",
+    "content": [
+      {
+        "type": "numbered-list",
+        "items": [
+          "Hat jeder Stein einen eigenen Namen?",
+          "Ist der natürliche oder im Labor erstellte Status explizit?",
+          "Werden Komposite und Imitationen identifiziert?",
+          "Sind bekannte Behandlungen spezifisch und prominent?",
+          "Sind die Gewichte von Farbsteinen und Diamanten getrennt?",
+          "Stellen die Bilder ehrlich das genaue oder erwartete Produkt dar?",
+          "Stimmt der Bericht mit dem Artikel und seiner Beschreibung überein?",
+          "Werden die Meldegrenzen erklärt?",
+          "Spiegeln die Wartungsanweisungen den empfindlichsten Teil wider?",
+          "Stimmen Titel, Spezifikationen, Warenkorb, Rechnung und Übersetzungen überein?",
+          "Kann der Kunde die Daten speichern?",
+          "Wurden die aktuellen lokalen Compliance-Ratschläge angewendet?"
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Der Aurelia Royale-Standard",
+    "content": [
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Aurelia Royale spezifiziert alle Edelsteinschichten und bietet sofortige Überprüfungsoptionen. Sehen Sie sich die Optionen an"
+          },
+          {
+            "text": "der Schmuck von Aurelia Royale",
+            "href": "/shop/"
+          },
+          {
+            "text": "von"
+          },
+          {
+            "text": "Kontaktieren Sie Aurelia Royale",
+            "href": "/contact/"
+          },
+          {
+            "text": "fordern Sie spezifische Spezifikationen an."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "content": [
+      {
+        "type": "callout",
+        "title": "Endgültiges Urteil",
+        "theme": "gold-border",
+        "parts": [
+          {
+            "text": "Die klar gefärbten Steine ​​ermöglichen es Käufern, den Inhalt eines Stücks zu verstehen, es fair zu vergleichen, sicher damit umzugehen und die mitgelieferten Dokumente zu überprüfen."
+          },
+          {
+            "text": "Bestehen Sie auf spezifischen Definitionen (z. B. im Labor hergestellter Saphir) und nicht auf vagen Begriffen wie „echter Edelstein“. Stellen Sie sicher, dass die Transaktionsdaten diese Spezifikationen einhalten."
+          }
+        ]
+      },
+      {
+        "type": "faq",
+        "items": [
+          {
+            "question": "Warum müssen Edelsteinbehandlungen öffentlich gemacht werden?",
+            "answer": "Behandlungen können sich auf Aussehen, Preisvergleich, Haltbarkeit, Reinigung und Reparatur auswirken. Käufer können sie nicht immer visuell erkennen."
+          },
+          {
+            "question": "Bedeutet „natürlich“, dass ein farbiger Stein unbehandelt ist?",
+            "answer": "Nein. Natürlich beschreibt die geologische Formation; Möglicherweise wurde auch ein Naturstein einer Behandlung unterzogen."
+          },
+          {
+            "question": "Ist ein im Labor hergestellter Edelstein eine Nachahmung?",
+            "answer": "Nicht unbedingt. Ein im Labor hergestellter Edelstein weist die relevanten chemischen und optischen Eigenschaften eines natürlichen Materials auf, während es sich bei einer Imitation um ein anderes Material handelt."
+          },
+          {
+            "question": "Welche farbigen Steindetails sollten vor dem Bezahlen erscheinen?",
+            "answer": "Identität, Herkunftskategorie, bekannte Behandlungen, Abmessungen, Gewicht, Bildstatus, Berichtsgröße und Pflegebeschränkungen sollten gegebenenfalls klar sein."
+          },
+          {
+            "question": "Reichen die Informationen zum Thema „echter Edelstein“ aus?",
+            "answer": "Nein. Das Material, die natürliche oder hergestellte Herkunft, die Behandlung oder die Verbundkonstruktion werden nicht identifiziert."
+          },
+          {
+            "question": "Sollten Edelsteininformationen auf der Rechnung erscheinen?",
+            "answer": "Ja. Das Transaktionsdokument muss die wesentliche Produktbeschreibung enthalten, damit es für Wartung, Reparatur, Schenkung und anschließende Überprüfung verfügbar bleibt."
+          },
+          {
+            "question": "Benötigt jeder Farbstein einen Laborbericht?",
+            "answer": "Nicht unbedingt. Die Berichterstattung muss in einem angemessenen Verhältnis zum Wert, zum Risiko und zu den Ansprüchen stehen, die Offenlegung von Produkten bleibt jedoch mit oder ohne Berichterstattung wichtig."
+          },
+          {
+            "question": "Deckt ein Schmuckbericht jeden Stein ab?",
+            "answer": "Nur wenn der Umfang dies vorgibt. Lesen Sie, welche losen Steine ​​oder fertigen Objekte untersucht wurden und beachten Sie die angebrachten Einschränkungen."
+          },
+          {
+            "question": "Können Behandlungsinformationen in einer FAQ ausgeblendet werden?",
+            "answer": "Entscheidungskritische Informationen müssen prominent und aktuell sein. Eine allgemeine FAQ sollte die produktspezifische Offenlegung unterstützen und nicht ersetzen."
+          },
+          {
+            "question": "Wie sollen natürlich variable Steine ​​sichtbar gemacht werden?",
+            "answer": "Bitte beachten Sie, dass die Bilder repräsentativ sein können und gegebenenfalls realistische Farben, Abmessungen oder Gewichte darstellen."
+          },
+          {
+            "question": "Sind die Offenlegungsregeln in Europa und Großbritannien identisch?",
+            "answer": "Nein. Die Grundsätze überschneiden sich, Unternehmen sollten sich jedoch für jeden Markt, jede Sprache und jeden Vertriebskanal aktuell beraten lassen."
+          },
+          {
+            "question": "Was sollte Aurelia tun, wenn die Informationen unbestätigt sind?",
+            "answer": "Kennzeichnen Sie es als unbestätigt, suchen Sie nach Beweisen und vermeiden Sie positive Behauptungen über natürlichen Ursprung, Behandlung oder Zertifizierung."
+          }
+        ]
+      },
+      {
+        "type": "cta-banner",
+        "title": "Erleben Sie pure Transparenz",
+        "subtitle": "Aurelia Royale stellt sicher, dass alle Edelsteinschichten vor dem Kauf klar angegeben sind. Sehen Sie sich unsere Offenlegungscharta an.",
+        "shopHref": "/shop/",
+        "contactHref": "/contact/"
+      }
+    ]
+  }
+]

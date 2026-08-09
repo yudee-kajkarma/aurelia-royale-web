@@ -1,16 +1,75 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
-export const metadata: Metadata = {
-  title: "How Often Should Diamond Jewellery Be Cleaned?",
-  description: "Build the right diamond-jewellery cleaning schedule based on wear, residue, setting and materials, with guidance for home and professional care.",
+export const metadataEn: Metadata = {
+  title: "How Often Clean Diamond Jewellery",
+  description: "How Often Clean Diamond Jewellery",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/how-often-clean-diamond-jewellery/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "¿Con qué frecuencia se limpian las joyas de diamantes?",
+  description: "¿Con qué frecuencia se limpian las joyas de diamantes? - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/how-often-clean-diamond-jewellery/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "À quelle fréquence nettoyer les bijoux en diamant",
+  description: "À quelle fréquence nettoyer les bijoux en diamant - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/how-often-clean-diamond-jewellery/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Hoe vaak maak je diamanten sieraden schoon?",
+  description: "Hoe vaak maak je diamanten sieraden schoon? - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/how-often-clean-diamond-jewellery/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "Wie oft Diamantschmuck reinigen?",
+  description: "Wie oft Diamantschmuck reinigen? - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/how-often-clean-diamond-jewellery/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Quanto spesso dovresti pulire i tuoi gioielli con diamanti?",
+  description: "Stabilisci una routine di cura adeguata. Scopri quanto spesso eseguire pulizie rapide a casa e quando portare i tuoi pezzi per un'ispezione professionale. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/how-often-clean-diamond-jewellery/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. The exact JSON-LD Schema (Fixed syntax)
 const schemaMarkup = {
@@ -407,32 +466,39 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function Page() {
+export default async function Page({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
+  const localeData = getBlogDataByLocale("how-often-clean-diamond-jewellery", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Jewellery Care and Maintenance
+            {locale === "it" ? "Guide all'Acquisto" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Entretien & Soin des bijoux" : locale === "es" ? "Cuidado y mantenimiento de joyas" : "Jewellery Care and Maintenance"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How Often Should Diamond Jewellery Be Cleaned?
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
+            {locale === "it" ? "Journal • Pubblicato il 15 luglio 2026" : locale === "de" ? "Journal • Veröffentlicht am 16. Juli 2026" : locale === "nl" ? "Journaal • Gepubliceerd op 16 juli 2026" : locale === "fr" ? "Journal • Publié le 16. Juli 2026" : locale === "es" ? "Diario • Publicado el 16 de julio de 2026" : "Journal • Published July 16, 2026"}
           </p>
         </div>
       </section>
 
       {/* Content Layout */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

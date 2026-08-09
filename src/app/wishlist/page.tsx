@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -8,9 +8,11 @@ import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { useWishlist } from "@/providers/WishlistProvider";
 import { notifyError } from "@/utils/notify";
 import { ProductImage } from "../../components/shared/ProductImage";
+import { useTranslation } from "@/utils/i18n";
 
 export default function WishlistPage() {
   const { items, count, totalValue, clearAll, isLoading, removeItem } = useWishlist();
+  const { localizeHref } = useTranslation();
   const [isClearing, setIsClearing] = useState(false);
   const [removingProductId, setRemovingProductId] = useState<string | null>(null);
   const isMutating = isClearing || removingProductId !== null;
@@ -75,7 +77,7 @@ export default function WishlistPage() {
                   Save products from the shop or product details page and they will appear here.
                 </p>
                 <Link
-                  href="/shop"
+                  href={localizeHref("/shop")}
                   className="cta-sweep mt-6 inline-flex items-center justify-center border border-deep bg-deep px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:border-gold hover:text-deep focus-visible:border-gold focus-visible:text-deep"
                 >
                   <span className="relative z-10">Explore Shop</span>
@@ -90,7 +92,7 @@ export default function WishlistPage() {
                     key={item.productId}
                     className="grid gap-5 rounded-[28px] border border-foreground/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.94)_0%,rgba(248,248,245,0.94)_100%)] p-4 sm:grid-cols-[120px_minmax(0,1fr)_auto] sm:items-center"
                   >
-                    <Link href="/shop" className="overflow-hidden rounded-[20px] border border-gold/15 bg-[linear-gradient(180deg,#f7efe3_0%,#ffffff_100%)] p-3">
+                    <Link href={localizeHref("/shop")} className="overflow-hidden rounded-[20px] border border-gold/15 bg-[linear-gradient(180deg,#f7efe3_0%,#ffffff_100%)] p-3">
                       <ProductImage src={item.thumbnail} alt={item.title} className="h-28 w-full object-contain" />
                     </Link>
 
@@ -103,7 +105,7 @@ export default function WishlistPage() {
 
                     <div className="flex flex-col items-start gap-3 sm:items-end">
                       <Link
-                        href="/shop"
+                        href={localizeHref("/shop")}
                         className="cta-sweep inline-flex items-center justify-center border border-deep bg-deep px-5 py-3 text-xs font-bold uppercase tracking-[0.1em] text-white transition hover:border-gold hover:text-deep focus-visible:border-gold focus-visible:text-deep hover:!text-white"
                       >
                         <span className="relative z-10">View Shop</span>
@@ -147,7 +149,7 @@ export default function WishlistPage() {
 
             <div className="mt-6 border-t border-foreground/10 pt-6">
               <Link
-                href="/shop"
+                href={localizeHref("/shop")}
                 className="cta-sweep inline-flex w-full items-center justify-center border border-deep bg-deep px-6 py-4 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:border-gold hover:text-deep focus-visible:border-gold focus-visible:text-deep hover:!text-white"
               >
                 <span className="relative z-10">Continue Shopping</span>

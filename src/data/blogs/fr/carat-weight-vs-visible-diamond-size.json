@@ -1,0 +1,483 @@
+[
+  {
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/carat-weight-vs-visible-diamond-size/31 (1).jpg",
+        "alt": "Poids en carats par rapport à la taille visible du diamant",
+        "title": "Poids et taille en carats",
+        "caption": "Deux diamants portant des poids en carats identiques peuvent afficher des tailles visuelles différentes.",
+        "priority": true
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Deux diamants peuvent avoir le même poids en carats tout en ayant un aspect sensiblement différent vu de dessus. La raison est simple :"
+          },
+          {
+            "text": "le carat mesure le poids, tandis que la taille visible décrit les dimensions et la couverture visuelle",
+            "bold": true
+          },
+          {
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Un diamant d'un carat pèse toujours 200 milligrammes. Il ne mesure pas toujours le même nombre de millimètres. La forme, la profondeur, l'épaisseur du rondiste, la disposition des facettes et les décisions de coupe déterminent la manière dont ce poids est réparti dans la pierre. Un certain poids contribue au contour visible ; certains peuvent être tenus sous la ceinture, là où le porteur la voit moins."
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Le poids en carats est l'un des"
+          },
+          {
+            "text": "4C d'un diamant de laboratoire",
+            "href": "/fr/blog/4cs-of-lab-grown-diamonds/"
+          },
+          {
+            "text": ", mais aucun des 4C ne décrit indépendamment la taille face visible."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Pour les bases de la mesure, lisez"
+          },
+          {
+            "text": "Explication du poids en carats d'un diamant cultivé en laboratoire",
+            "href": "/fr/blog/lab-grown-diamond-carat-weight-explained/"
+          },
+          {
+            "text": ". Ce guide se concentre sur ce que voit le porteur."
+          }
+        ]
+      },
+      {
+        "type": "callout",
+        "title": "Réponse rapide",
+        "parts": [
+          {
+            "text": "Non."
+          },
+          {
+            "text": "Le carat est le poids ; la taille est une dimension physique.",
+            "bold": true
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "• Les mesures des diamants ronds sont généralement répertoriées comme suit : diamètre minimum – diamètre maximum × profondeur.\n• Les mesures de forme fantaisie sont généralement répertoriées sous la forme longueur × largeur × profondeur.\n• La diffusion face vers le haut fait référence à la zone ou au contour visible lorsque le diamant est vu du dessus.\n• Deux diamants de poids égal peuvent avoir des écarts différents car leurs proportions et leurs formes diffèrent.\n\nUn diamant plus large n’est pas automatiquement meilleur. Si l'étalement supplémentaire provient de proportions trop superficielles, la pierre peut perdre de sa luminosité ou présenter des effets visuels indésirables. La taille visible doit être équilibrée avec la qualité de coupe, l’apparence et la durabilité."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Poids vs dimensions millimétriques",
+    "content": [
+      {
+        "type": "table",
+        "headers": [
+          "Diamant",
+          "Poids",
+          "Mesures",
+          "Impression face vers le haut"
+        ],
+        "rows": [
+          [
+            "Diamant A",
+            "1,00 ct",
+            "6,45-6,48 × 3,92 mm",
+            "Diamètre équilibré pour son poids"
+          ],
+          [
+            "Diamant B",
+            "1,00 ct",
+            "6,15-6,19 × 4,10 mm",
+            "Plus de poids maintenu en profondeur ; diamètre visible plus petit"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Dimensions indicatives du diamant de 1,00 ct par forme",
+    "content": [
+      {
+        "type": "table",
+        "headers": [
+          "Forme",
+          "Mesures indicatives proches de 1,00 ct",
+          "Tendance visuelle"
+        ],
+        "rows": [
+          [
+            "Rond",
+            "Environ 6,3 à 6,5 mm de diamètre",
+            "Couverture équilibrée et symétrique"
+          ],
+          [
+            "Ovale",
+            "Environ 7,7 à 8,3 × 5,5 à 6,0 mm",
+            "Aspect allongé"
+          ],
+          [
+            "Poire",
+            "Environ 8,0 à 8,7 × 5,2 à 5,8 mm",
+            "Longueur avec une pointe effilée"
+          ],
+          [
+            "Marquise",
+            "Environ 9,5 à 10,5 × 4,8 à 5,3 mm",
+            "Forte longueur et couverture des doigts"
+          ],
+          [
+            "Émeraude",
+            "Environ 6,7 à 7,2 × 4,7 à 5,1 mm",
+            "Contour rectangulaire et ouvert"
+          ],
+          [
+            "Radiant",
+            "Environ 6,2 à 6,8 × 5,2 à 5,8 mm",
+            "Contour brillant rectangulaire ou carré"
+          ],
+          [
+            "Coussin",
+            "Environ 5,8 à 6,3 × 5,8 à 6,3 mm",
+            "Contour compact et carré"
+          ],
+          [
+            "Princesse",
+            "Environ 5,4 à 5,7 × 5,4 à 5,7 mm",
+            "Contour carré compact"
+          ],
+          [
+            "Asscher",
+            "Environ 5,4 à 5,7 × 5,4 à 5,7 mm",
+            "Contour carré compact à coupe graduée"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Diamètre approximatif des diamants ronds en poids en carats",
+    "content": [
+      {
+        "type": "table",
+        "headers": [
+          "Poids en carats",
+          "Diamètre indicatif"
+        ],
+        "rows": [
+          [
+            "0,25 ct",
+            "Environ 4,0 mm"
+          ],
+          [
+            "0,50 ct",
+            "Environ 5,0 à 5,2 mm"
+          ],
+          [
+            "0,75 ct",
+            "Environ 5,7 à 5,9 mm"
+          ],
+          [
+            "1,00 ct",
+            "Environ 6,3 à 6,5 mm"
+          ],
+          [
+            "1,50 ct",
+            "Environ 7,2 à 7,4 mm"
+          ],
+          [
+            "2,00 cts",
+            "Environ 8,0 à 8,2 mm"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "1. Pourquoi les diamants de même carat peuvent avoir des dimensions différentes",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Plusieurs variables physiques régissent la répartition face visible d'une pierre :"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "Silhouette de forme : les formes allongées attirent le regard vers l’extérieur ; les contours compacts concentrent le poids dans un encombrement plus petit.",
+          "Profondeur totale : une coupe profonde cache le poids sous les ceintures, ce qui rend les pierres plus petites. La coupe peu profonde s’étend largement mais laisse échapper de la lumière.",
+          "Épaisseur de la ceinture : les ceintures épaisses retiennent le poids autour des bordures sans ajouter de diamètre visible.",
+          "Proportions et hauteurs de couronne : les couronnes, les tables et les angles des pavillons régulent le comportement du poids."
+        ],
+        "itemsParts": [
+          [
+            {
+              "text": "Forme de la silhouette :",
+              "bold": true
+            },
+            {
+              "text": "Les formes allongées attirent le regard vers l'extérieur ; les contours compacts concentrent le poids dans un encombrement plus petit."
+            }
+          ],
+          [
+            {
+              "text": "Profondeur totale :",
+              "bold": true
+            },
+            {
+              "text": "Une coupe profonde cache le poids sous les ceintures, ce qui rend les pierres plus petites. La coupe peu profonde s’étend largement mais laisse échapper de la lumière."
+            }
+          ],
+          [
+            {
+              "text": "Épaisseur de la ceinture :",
+              "bold": true
+            },
+            {
+              "text": "Les ceintures épaisses maintiennent le poids autour des bordures sans ajouter de diamètre visible."
+            }
+          ],
+          [
+            {
+              "text": "Proportions et hauteurs de couronne :",
+              "bold": true
+            },
+            {
+              "text": "Les couronnes, les tables et les angles des pavillons régulent le comportement du poids."
+            }
+          ]
+        ]
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/carat-weight-vs-visible-diamond-size/31 (2).jpg",
+        "alt": "Comparaison des profils de profondeur de diamant libre et des coupes à facettes",
+        "title": "Profils de profondeur et de silhouette des diamants",
+        "caption": "La profondeur totale, l'épaisseur de la ceinture et les couronnes déterminent le poids réparti sur le contour visible face vers le haut."
+      }
+    ]
+  },
+  {
+    "heading": "2. Comment les paramètres et la couverture des doigts affectent la taille perçue",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "La taille perçue est également contextuelle :"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "Bordures de halo : Entourez la pierre centrale de diamants accentués pour créer un plus grand champ de brillance.",
+          "Bordures du cadre : encadrez visuellement la silhouette du contour, lui donnant un aspect plus large.",
+          "Bandes fines : les bandes étroites augmentent le contraste du design pour souligner la proéminence du solitaire.",
+          "Proportions de la taille des doigts : Un rond de 6,4 mm semble proéminent sur les doigts fins mais restreint sur les tiges plus larges."
+        ],
+        "itemsParts": [
+          [
+            {
+              "text": "Bordures de halo :",
+              "bold": true
+            },
+            {
+              "text": "Entourez la pierre centrale de diamants d’accent pour créer un plus grand champ de brillance."
+            }
+          ],
+          [
+            {
+              "text": "Bordures de lunette :",
+              "bold": true
+            },
+            {
+              "text": "Encadrez visuellement la silhouette du contour, la rendant plus large."
+            }
+          ],
+          [
+            {
+              "text": "Bandes fines :",
+              "bold": true
+            },
+            {
+              "text": "Les bandes étroites augmentent le contraste du design pour souligner la proéminence du solitaire."
+            }
+          ],
+          [
+            {
+              "text": "Proportions de la taille des doigts :",
+              "bold": true
+            },
+            {
+              "text": "Un rond de 6,4 mm semble proéminent sur les doigts fins mais retenu sur les tiges plus larges."
+            }
+          ]
+        ]
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/carat-weight-vs-visible-diamond-size/31 (3).jpg",
+        "alt": "Superbe bague halo en diamant sur le doigt du modèle",
+        "title": "Couverture de l'anneau de réglage Halo",
+        "caption": "Des paramètres tels que des halos ou des bandes de tige fines modifient l'échelle perçue et la couverture des doigts."
+      }
+    ]
+  },
+  {
+    "heading": "3. Comment comparer la taille visible en ligne",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Lorsque vous magasinez en ligne, recherchez : des mesures de rapports physiques, des modèles d'échelle imprimables et des photographies réalistes non agrandies."
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Nos guides connexes décrivent"
+          },
+          {
+            "text": "comment lire un certificat de diamant de laboratoire",
+            "href": "/fr/blog/how-to-read-lab-grown-diamond-certificate/"
+          },
+          {
+            "text": "et"
+          },
+          {
+            "text": "comment vérifier un numéro de certificat IGI en ligne",
+            "href": "/fr/blog/verify-igi-certificate-number/"
+          },
+          {
+            "text": "pour des instructions de registre étape par étape."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/carat-weight-vs-visible-diamond-size/31 (4).jpg",
+        "alt": "Mesure du diamètre rond brillant à l'aide d'un pied à coulisse millimétrique",
+        "title": "Mesure de l'écartement de l'étrier",
+        "caption": "Vérifiez les mesures réelles de longueur, de largeur et de diamètre sur le rapport de classement avant d'acheter."
+      }
+    ]
+  },
+  {
+    "heading": "Liste de contrôle d'achat de taille visible",
+    "content": [
+      {
+        "type": "table",
+        "headers": [
+          "Avant d'acheter, vérifiez :"
+        ],
+        "rows": [
+          [
+            "Les poids en carats sont comparés aux dimensions millimétriques réelles."
+          ],
+          [
+            "Les rapports longueur/largeur des formes sophistiquées correspondent aux préférences visuelles des contours."
+          ],
+          [
+            "Le pourcentage de profondeur totale se situe dans les paramètres appropriés pour la forme."
+          ],
+          [
+            "La description de la ceinture ne mentionne pas la rétention de poids « extrêmement épaisse »."
+          ],
+          [
+            "Les qualités de coupe sont vérifiées pour garantir que le retour de lumière est brillant à travers les frontières."
+          ],
+          [
+            "Les photographies des mains des modèles révèlent à la fois la taille de la bague et les millimètres du diamant."
+          ],
+          [
+            "Les politiques de retour du vendeur permettent de visualiser les créations à échelle réelle."
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "content": [
+      {
+        "type": "callout",
+        "title": "Verdict final",
+        "theme": "gold-border",
+        "parts": [
+          {
+            "text": "Le poids en carats et la taille visible du diamant sont liés, mais ils ne sont pas identiques. Le carat mesure la masse ; la longueur, la largeur, le diamètre et la profondeur décrivent les dimensions physiques. La forme, les proportions de coupe et le réglage déterminent l'apparence de ce poids lorsqu'il est porté."
+          },
+          {
+            "text": "Aurelia Royale répertorie tous les paramètres des diamants, correspondant aux qualités de pierre centrale haut de gamme, aux poinçons en or et aux spécifications d'accent détaillées."
+          }
+        ]
+      },
+      {
+        "type": "faq",
+        "items": [
+          {
+            "question": "Le poids en carats est-il le même que la taille du diamant ?",
+            "answer": "Non, le carat mesure le poids. La taille du diamant est décrite par des mesures physiques telles que le diamètre, la longueur, la largeur et la profondeur."
+          },
+          {
+            "question": "Pourquoi deux diamants d’un carat peuvent-ils avoir une taille différente ?",
+            "answer": "Leurs formes, profondeurs, épaisseurs de ceinture et proportions peuvent répartir le poids différemment. L’un peut montrer plus de surface face vers le haut tandis que l’autre porte plus de poids verticalement."
+          },
+          {
+            "question": "Que signifie la propagation du diamant ?",
+            "answer": "Spread est un terme informel désignant la zone ou les dimensions visibles de la face visible du diamant. Ce n'est pas une note officielle 4C."
+          },
+          {
+            "question": "Quelle est la largeur d'un diamant rond d'un carat ?",
+            "answer": "Un brillant rond d'un carat bien proportionné mesure souvent environ 6,3 à 6,5 mm de diamètre, bien que les mesures réelles varient."
+          },
+          {
+            "question": "Quelle forme de diamant semble la plus grande ?",
+            "answer": "Les formes allongées en marquise, ovale et poire créent souvent une impression visuelle plus grande pour leur poids. La profondeur, la largeur, le contour et la taille de chaque pierre comptent toujours."
+          },
+          {
+            "question": "Un diamant peu profond paraît-il plus gros ?",
+            "answer": "Il peut avoir une diffusion face vers le haut plus large, mais des proportions trop superficielles peuvent réduire les performances lumineuses ou créer des effets visuels indésirables."
+          },
+          {
+            "question": "Quel est le rapport longueur/largeur ?",
+            "answer": "C’est la longueur du diamant divisée par sa largeur. La figure décrit si une forme fantaisie semble compacte, large ou allongée."
+          },
+          {
+            "question": "Un rondiste épais fait-il paraître un diamant plus petit ?",
+            "answer": "Une ceinture très épaisse peut retenir du poids sans ajouter une quantité équivalente de diamètre visible, ce qui fait que certains diamants sont plus petits pour leur poids en carats."
+          },
+          {
+            "question": "Une monture peut-elle faire paraître un diamant plus gros ?",
+            "answer": "Oui. Les halos, les lunettes, les bandes fines et les pierres latérales peuvent augmenter la taille perçue ou la couverture globale des doigts sans modifier les dimensions du diamant central."
+          },
+          {
+            "question": "Un diamant a-t-il un aspect différent selon les tailles de bague ?",
+            "answer": "Ses dimensions restent les mêmes, mais la couverture proportionnelle change. La même pierre peut apparaître plus proéminente sur un doigt plus étroit."
+          },
+          {
+            "question": "Dois-je acheter le diamant avec les plus grandes mesures en millimètres ?",
+            "answer": "Pas automatiquement. Confirmez que la diffusion supplémentaire ne se fait pas au détriment de la luminosité, de la symétrie, de la durabilité ou d’un contour attrayant."
+          },
+          {
+            "question": "Les tableaux de tailles de diamants en ligne sont-ils précis ?",
+            "answer": "Ils sont utiles comme références approximatives, mais le rapport de classement fournit les mesures réelles de chaque diamant individuel."
+          }
+        ]
+      },
+      {
+        "type": "cta-banner",
+        "title": "Équilibre, spread et performance chez Aurelia Royale",
+        "subtitle": "Angles méticuleusement planifiés, contours symétriques et certificats vérifiés. Magasinez notre collection.",
+        "shopHref": "/shop/",
+        "contactHref": "/contact/"
+      }
+    ]
+  }
+]

@@ -1,16 +1,77 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
-export const metadata: Metadata = {
-  title: "Can Lab-Grown Diamonds Become Cloudy? Causes & Fixes",
-  description: "Learn why a lab-grown diamond may look cloudy, how to distinguish surface residue from internal haze or damage, and whether cleaning can restore it.",
+export const metadataEn: Metadata = {
+  title: "Can Lab Grown Diamonds Become Cloudy",
+  description: "Can Lab Grown Diamonds Become Cloudy",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/can-lab-grown-diamonds-become-cloudy/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "¿Pueden los diamantes cultivados en laboratorio volverse turbios?",
+  description: "¿Pueden los diamantes cultivados en laboratorio volverse turbios? - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/can-lab-grown-diamonds-become-cloudy/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Les diamants cultivés en laboratoire peuvent-ils devenir troubles",
+  description: "Les diamants cultivés en laboratoire peuvent-ils devenir troubles - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/can-lab-grown-diamonds-become-cloudy/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Kunnen in het laboratorium gekweekte diamanten troebel worden?",
+  description: "Kunnen in het laboratorium gekweekte diamanten troebel worden? - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/can-lab-grown-diamonds-become-cloudy/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "Können im Labor gezüchtete Diamanten trüb werden?",
+  description: "Können im Labor gezüchtete Diamanten trüb werden? - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/can-lab-grown-diamonds-become-cloudy/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "I diamanti creati in laboratorio possono diventare opachi? Cause e soluzioni",
+  description: "Scopri perché un diamante creato in laboratorio può apparire opaco, come distinguere i detriti superficiali dalla foschia o dai danni interni e se la pulizia può ripristinarlo. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/can-lab-grown-diamonds-become-cloudy/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+  const localeData = getBlogDataByLocale("can-lab-grown-diamonds-become-cloudy", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. The exact JSON-LD Schema you provided
 const schemaMarkup = {
@@ -475,23 +536,30 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function Blog12Page() {
+export default async function Blog12Page({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const localeData = getBlogDataByLocale("can-lab-grown-diamonds-become-cloudy", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Lab-Grown Diamond Education
+            {locale === "it" ? "Guide all'Acquisto" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Éducation sur les diamants" : locale === "es" ? "Educación sobre diamantes cultivados en laboratorio" : "Lab-Grown Diamond Education"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            Can Lab-Grown Diamonds Become Cloudy?
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
             Causes &amp; Fixes • Published July 15, 2026
@@ -500,7 +568,7 @@ export default function Blog12Page() {
       </section>
 
       {/* Render Dynamic Article */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

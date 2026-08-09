@@ -1,16 +1,75 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
-export const metadata: Metadata = {
-  title: "How to Choose a Trustworthy Online Diamond Jeweller",
-  description: "Learn how to verify an online diamond jeweller’s identity, expertise, reports, checkout, reviews, returns, shipping, warranty and accountability.",
+export const metadataEn: Metadata = {
+  title: "Choose Trustworthy Online Diamond Jeweller",
+  description: "Choose Trustworthy Online Diamond Jeweller",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/choose-trustworthy-online-diamond-jeweller/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "Elija un joyero de diamantes en línea confiable",
+  description: "Elija un joyero de diamantes en línea confiable - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/choose-trustworthy-online-diamond-jeweller/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Choisissez un bijoutier en diamant en ligne digne de confiance",
+  description: "Choisissez un bijoutier en diamant en ligne digne de confiance - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/choose-trustworthy-online-diamond-jeweller/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Kies voor een betrouwbare online diamantjuwelier",
+  description: "Kies voor een betrouwbare online diamantjuwelier - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/choose-trustworthy-online-diamond-jeweller/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "Wählen Sie einen vertrauenswürdigen Online-Diamantjuwelier",
+  description: "Wählen Sie einen vertrauenswürdigen Online-Diamantjuwelier - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/choose-trustworthy-online-diamond-jeweller/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Come scegliere un gioielliere di diamanti online di fiducia",
+  description: "Individua i venditori affidabili. Cerca politiche di restituzione chiare, opzioni di pagamento sicure, certificazioni indipendenti e informazioni trasparenti sui prodotti. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/choose-trustworthy-online-diamond-jeweller/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. The exact JSON-LD Schema
 const schemaMarkup = {
@@ -621,32 +680,39 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function Page() {
+export default async function Page({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
+  const localeData = getBlogDataByLocale("choose-trustworthy-online-diamond-jeweller", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Buying Lab-Grown Diamond Jewellery
+            {locale === "it" ? "Guide all'Acquisto" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Buying Lab-Grown Diamond Jewellery" : locale === "es" ? "Comprar joyas de diamantes cultivados en laboratorio" : "Buying Lab-Grown Diamond Jewellery"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How to Choose a Trustworthy Online Diamond Jeweller
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
+            {locale === "it" ? "Journal • Pubblicato il 16 luglio 2026" : locale === "de" ? "Journal • Veröffentlicht am 16. Juli 2026" : locale === "nl" ? "Journaal • Gepubliceerd op 16 juli 2026" : locale === "fr" ? "Journal • Publié le 16. Juli 2026" : locale === "es" ? "Diario • Publicado el 16 de julio de 2026" : "Journal • Published July 16, 2026"}
           </p>
         </div>
       </section>
 
       {/* Content Layout */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

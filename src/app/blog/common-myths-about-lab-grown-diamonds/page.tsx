@@ -1,16 +1,77 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
-export const metadata: Metadata = {
-  title: "15 Lab-Grown Diamond Myths Buyers Should Stop Believing",
-  description: "Separate fact from fiction with 15 common lab-grown diamond myths covering authenticity, durability, sparkle, certification, sustainability and value.",
+export const metadataEn: Metadata = {
+  title: "Common Myths About Lab Grown Diamonds",
+  description: "Common Myths About Lab Grown Diamonds",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/common-myths-about-lab-grown-diamonds/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "Mitos comunes sobre los diamantes cultivados en laboratorio",
+  description: "Mitos comunes sobre los diamantes cultivados en laboratorio - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/common-myths-about-lab-grown-diamonds/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Mythes courants sur les diamants cultivés en laboratoire",
+  description: "Mythes courants sur les diamants cultivés en laboratoire - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/common-myths-about-lab-grown-diamonds/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Veelvoorkomende mythen over in het laboratorium gekweekte diamanten",
+  description: "Veelvoorkomende mythen over in het laboratorium gekweekte diamanten - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/common-myths-about-lab-grown-diamonds/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "Häufige Mythen über im Labor gezüchtete Diamanten",
+  description: "Häufige Mythen über im Labor gezüchtete Diamanten - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/common-myths-about-lab-grown-diamonds/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Miti comuni sui diamanti creati in laboratorio sfatati",
+  description: "Chiarisci i tuoi dubbi. Sfatiamo i miti sulla brillantezza, la durezza, la composizione chimica e la certificazione dei diamanti coltivati ​​in laboratorio. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/common-myths-about-lab-grown-diamonds/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+  const localeData = getBlogDataByLocale("common-myths-about-lab-grown-diamonds", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. The exact JSON-LD Schema
 const schemaMarkup = {
@@ -551,23 +612,30 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function Blog15Page() {
+export default async function Blog15Page({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const localeData = getBlogDataByLocale("common-myths-about-lab-grown-diamonds", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Lab-Grown Diamond Education
+            {locale === "it" ? "Guide all'Acquisto" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Éducation sur les diamants" : locale === "es" ? "Educación sobre diamantes cultivados en laboratorio" : "Lab-Grown Diamond Education"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            Common Myths About Lab-Grown Diamonds
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
             Myth-Busting Guide • Published July 15, 2026
@@ -576,7 +644,7 @@ export default function Blog15Page() {
       </section>
 
       {/* Content Layout */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

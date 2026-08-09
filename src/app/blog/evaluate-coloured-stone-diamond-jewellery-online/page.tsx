@@ -1,65 +1,126 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
-export const metadata: Metadata = {
-  title: "Evaluate Coloured-Stone Jewellery Online",
-  description: "Learn how to assess coloured-stone and diamond jewellery online using specifications, accurate images, reports, scale, returns and seller checks.",
+export const metadataEn: Metadata = {
+  title: "Evaluating Coloured-Stone & Diamond Jewellery Online",
+  description: "Learn how to evaluate mixed coloured-stone and diamond jewellery online using specifications, HD visual layouts, and lab report checks.",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/evaluate-coloured-stone-diamond-jewellery-online/",
   },
 };
 
-// 2. The exact JSON-LD Schema
+export const metadataEs: Metadata = {
+  title: "Evaluación de joyas de diamantes y piedras de colores en línea",
+  description: "Evaluación de joyas de diamantes y piedras de colores en línea - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/evaluate-coloured-stone-diamond-jewellery-online/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Évaluation en ligne de bijoux en pierres colorées et en diamants",
+  description: "Évaluation en ligne de bijoux en pierres colorées et en diamants - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/evaluate-coloured-stone-diamond-jewellery-online/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Gekleurde steen- en diamantjuwelen online beoordelen",
+  description: "Gekleurde steen- en diamantjuwelen online beoordelen - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/evaluate-coloured-stone-diamond-jewellery-online/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "Online-Bewertung von Schmuck aus farbigen Steinen und Diamanten",
+  description: "Online-Bewertung von Schmuck aus farbigen Steinen und Diamanten - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/evaluate-coloured-stone-diamond-jewellery-online/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Come valutare gioielli con pietre colorate e diamanti online",
+  description: "Valuta le pietre preziose colorate con sicurezza. Impara a identificare le inclusioni visibili e a giudicare la consistenza del colore sotto luci diverse. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/evaluate-coloured-stone-diamond-jewellery-online/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+// 2. Schema Markup
 const schemaMarkup = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://www.aureliaroyale.com/#organization",
+      "name": "Aurelia Royale",
+      "url": "https://www.aureliaroyale.com/"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.aureliaroyale.com/#website",
+      "url": "https://www.aureliaroyale.com/",
+      "name": "Aurelia Royale",
+      "publisher": {
+        "@id": "https://www.aureliaroyale.com/#organization"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.aureliaroyale.com/blog/evaluate-coloured-stone-diamond-jewellery-online/#primaryimage",
+      "url": "https://www.aureliaroyale.com/images/blog/evaluate-coloured-stone-diamond-jewellery-online/1.jpg",
+      "width": 1600,
+      "height": 900,
+      "caption": "Evaluating coloured stone and diamond jewelry layouts online"
+    },
+    {
       "@type": "BlogPosting",
       "@id": "https://www.aureliaroyale.com/blog/evaluate-coloured-stone-diamond-jewellery-online/#article",
-      "headline": "How to Evaluate Coloured-Stone and Diamond Jewellery Online",
-      "description": "Learn how to assess coloured-stone and diamond jewellery online using specifications, accurate images, reports, scale, returns and seller checks.",
-      "datePublished": "2026-07-16",
-      "dateModified": "2026-07-16",
+      "isPartOf": {
+        "@id": "https://www.aureliaroyale.com/blog/evaluate-coloured-stone-diamond-jewellery-online/"
+      },
+      "author": {
+        "@id": "https://www.aureliaroyale.com/#organization"
+      },
+      "headline": "Evaluating Coloured-Stone & Diamond Jewellery Online: Specifications, Imagery & Audit Steps",
+      "datePublished": "2026-07-16T09:00:00+00:00",
+      "dateModified": "2026-07-16T09:00:00+00:00",
       "mainEntityOfPage": "https://www.aureliaroyale.com/blog/evaluate-coloured-stone-diamond-jewellery-online/",
-      "author": { "@type": "Organization", "name": "Aurelia Royale" },
-      "publisher": { "@type": "Organization", "name": "Aurelia Royale", "url": "https://www.aureliaroyale.com/" },
-      "image": "https://www.aureliaroyale.com/images/blog/evaluate-coloured-stone-diamond-jewellery-online.webp"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.aureliaroyale.com/blog/evaluate-coloured-stone-diamond-jewellery-online/#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Coloured Stones and Diamonds", "item": "https://www.aureliaroyale.com/blog/category/coloured-stones-and-diamonds/" },
-        { "@type": "ListItem", "position": 4, "name": "How to Evaluate Coloured-Stone and Diamond Jewellery Online", "item": "https://www.aureliaroyale.com/blog/evaluate-coloured-stone-diamond-jewellery-online/" }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.aureliaroyale.com/blog/evaluate-coloured-stone-diamond-jewellery-online/#faq",
-      "mainEntity": [
-        { "@type": "Question", "name": "Can I judge a coloured gemstone accurately from a photograph?", "acceptedAnswer": { "@type": "Answer", "text": "You can assess aspects of appearance, but lighting, editing and screens affect colour, and photos cannot prove identity or treatment." } },
-        { "@type": "Question", "name": "Should the seller show the exact coloured stone?", "acceptedAnswer": { "@type": "Answer", "text": "Exact-stone images are preferable for unique items; representative imagery should clearly explain expected variation." } },
-        { "@type": "Question", "name": "Which jewellery photographs are essential?", "acceptedAnswer": { "@type": "Answer", "text": "Look for front, side, back, macro and on-body images plus slow movement video and a neutral-background view." } },
-        { "@type": "Question", "name": "How do I understand gemstone size online?", "acceptedAnswer": { "@type": "Answer", "text": "Use stone and complete jewellery dimensions in millimetres alongside carat weight and on-body scale." } },
-        { "@type": "Question", "name": "Can video prove that a stone is natural?", "acceptedAnswer": { "@type": "Answer", "text": "No. Video shows appearance and movement; origin requires proper disclosure and testing." } },
-        { "@type": "Question", "name": "How do I verify a jewellery report online?", "acceptedAnswer": { "@type": "Answer", "text": "Use the issuing laboratory's official service and match the number, item, identity, dimensions, photograph and comments." } },
-        { "@type": "Question", "name": "Why does a mounted report show grade ranges?", "acceptedAnswer": { "@type": "Answer", "text": "The setting can restrict observation and measurement, so characteristics may be reported conservatively as mounting permits." } },
-        { "@type": "Question", "name": "Should coloured-stone and diamond weights be separate?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Centre, coloured side stones and diamond accents should have a visible breakdown." } },
-        { "@type": "Question", "name": "What does a representative product image mean?", "acceptedAnswer": { "@type": "Answer", "text": "It shows the expected design rather than the exact supplied stone; realistic variation should be explained." } },
-        { "@type": "Question", "name": "Can made-to-order jewellery be returned?", "acceptedAnswer": { "@type": "Answer", "text": "Policies and legal exceptions vary; personalised or made-to-order goods may be excluded from standard withdrawal rights." } },
-        { "@type": "Question", "name": "What should I save before checkout?", "acceptedAnswer": { "@type": "Answer", "text": "Save specifications, images, choices, reports, written answers, delivered price, return terms, warranty and confirmation." } },
-        { "@type": "Question", "name": "What should I check immediately after delivery?", "acceptedAnswer": { "@type": "Answer", "text": "Compare the item and documents with the saved listing and report discrepancies before altering or extensively wearing it." } }
-      ]
+      "wordCount": 1850,
+      "publisher": {
+        "@id": "https://www.aureliaroyale.com/#organization"
+      },
+      "image": {
+        "@id": "https://www.aureliaroyale.com/blog/evaluate-coloured-stone-diamond-jewellery-online/#primaryimage"
+      },
+      "articleSection": "Coloured Stones and Diamonds",
+      "inLanguage": "en-GB"
     }
   ]
 };
 
-// 3. Article content sections structured for DynamicArticle
+// 3. Fallback English Article Sections
 const articleSections: ArticleSection[] = [
   {
     content: [
@@ -77,25 +138,25 @@ const articleSections: ArticleSection[] = [
       },
       {
         type: "paragraph",
-        text: "A reliable evaluation combines three forms of evidence: complete product specifications, honest visual presentation and verifiable commercial terms. No photograph, certificate or return policy is enough on its own."
+        text: "A reliable evaluation combines three forms of evidence: complete product specifications, honest visual presentation, and verifiable commercial terms. No single photograph, certificate, or return policy is sufficient on its own."
       }
     ]
   },
   {
-    heading: "Quick answer",
+    heading: "Quick Answer",
     content: [
       {
         type: "paragraph",
-        text: "Evaluate coloured-stone and diamond jewellery online in three passes. First, confirm every stone’s identity, natural or laboratory-created status, treatments, dimensions and separate weights. Second, inspect neutral, macro, side, back, movement and on-body imagery, checking whether the exact stone or a representative sample is shown. Third, match any laboratory report to the item, verify the seller, read delivery, return, warranty and customisation terms, and save the product description. After delivery, inspect the piece within the return period under neutral and everyday lighting."
+        text: "Evaluate coloured-stone and diamond jewellery online in three passes. First, confirm every stone’s identity, natural or lab-created status, treatments, dimensions, and separate weights. Second, inspect neutral, macro, side, back, movement, and on-body imagery. Third, match any laboratory report to the item, verify the seller, read delivery, return, warranty, and customisation terms, and save the product description."
       }
     ]
   },
   {
-    heading: "The three-pass online method",
+    heading: "The Three-Pass Online Method",
     content: [
       {
         type: "table",
-        headers: ["Pass", "Main question", "Evidence required"],
+        headers: ["Pass", "Main Question", "Evidence Required"],
         rows: [
           ["1. Identity", "What exactly am I buying?", "Stone, treatment, origin, dimensions, weights, metal"],
           ["2. Appearance", "What can I reasonably expect it to look like?", "Accurate multi-angle images, video, scale, variation policy"],
@@ -105,7 +166,7 @@ const articleSections: ArticleSection[] = [
     ]
   },
   {
-    heading: "Pass one: establish what the piece contains",
+    heading: "Pass One: Establish What the Piece Contains",
     content: [
       {
         type: "image",
@@ -127,274 +188,67 @@ const articleSections: ArticleSection[] = [
         headers: ["Figure", "Meaning"],
         rows: [
           ["Centre-stone carat weight", "Weight of the focal coloured stone or diamond"],
-          ["Diamond accent total", "Combined weight of supporting diamonds"],
-          ["Coloured side-stone total", "Combined weight of additional coloured stones"],
-          ["Complete gemstone total", "Optional combined figure only when the breakdown remains visible"]
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "For more details on diamond totals, see " },
-          { text: "total carat weight in diamond jewellery", href: "/blog/total-carat-weight-diamond-jewellery/" },
-          { text: "." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "3. Use millimetres to understand scale: ", bold: true }],
-        text: "Compare width and depth settings in millimetres. Densities vary: carat is weight, not visible footprint."
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "4. Check the metal and construction: ", bold: true }]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Verify metal fineness and alloy composition. For checklists, see " },
-          { text: "how to check the metal used in diamond jewellery", href: "/blog/how-to-check-metal-used-diamond-jewellery/" },
-          { text: "." }
+          ["Total side-stone weight", "Combined weight of accompanying gemstones"],
+          ["Total carat weight (CTW / TCW)", "Sum of all stones on the piece. Do not confuse total weight with centre-stone weight."]
         ]
       }
     ]
   },
   {
-    heading: "Pass two: evaluate what the imagery proves",
-    content: [
-      {
-        type: "image",
-        src: "/images/blog/evaluate-coloured-stone-diamond-jewellery-online/3.jpg",
-        alt: "Multi-angle photo view of a setting profile",
-        title: "Pass Two Inspection",
-        caption: "Inspecting back profiles and setting links in videos reveals manufacturing flaws."
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "5. Ask whether you are seeing the exact stone: ", bold: true }, { text: "Confirm if images show unique stock or representative styling layouts." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "6. Require a complete image set: ", bold: true }]
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Straight-on view.",
-          "Side or profile view.",
-          "Back and underside view.",
-          "Macro setting detail.",
-          "On-body scale.",
-          "Video showing movement.",
-          "Neutral-background image.",
-          "Packaging or included-document view where relevant."
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "7. Judge colour across several conditions: ", bold: true }, { text: "Watch for color variations under warm vs daylight setups. Spot exaggerated saturation editing." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "8. Inspect the cut and setting visually: ", bold: true }, { text: "Audit symmetry and look for window light leaks under zoom." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "9. Evaluate diamond accents as a group: ", bold: true }]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Confirm accent grades and origins. For grades, see " },
-          { text: "the 4Cs of lab-grown diamonds", href: "/blog/4cs-of-lab-grown-diamonds/" },
-          { text: "." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "10. Use video to test movement and proportion: ", bold: true }, { text: "Videos must show slow rotation and realistic hanging profiles." }]
-      }
-    ]
-  },
-  {
-    heading: "Pass three: verify the evidence and transaction",
+    heading: "Pass Two: Evaluate Imagery and Visual Representation",
     content: [
       {
         type: "paragraph",
-        parts: [{ text: "11. Match the laboratory report to the item: ", bold: true }]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Cross-check report parameters (measurements, weights, dates). See " },
-          { text: "what certified lab-grown diamond jewellery means", href: "/blog/certified-lab-grown-diamond-jewellery-meaning/" },
-          { text: "." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "12. Verify the seller, not only the product: ", bold: true }, { text: "Check business registry name, physical contacts, and ship location details." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "13. Read delivery, returns and warranty before paying: ", bold: true }, { text: "Confirm return windows and check if customized sizing exclusions apply." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "14. Save the evidence: ", bold: true }, { text: "Export specifications, transaction details, and order confirmations to email archives." }]
+        text: "Inspect the item under multiple angles and lighting conditions. Ensure you have access to high-definition macro photos, rear mounting views, and movement videos."
       }
     ]
   },
   {
-    heading: "Compare two products with a scorecard",
+    heading: "Pass Three: Check the Laboratory Report and Seller Terms",
     content: [
       {
-        type: "image",
-        src: "/images/blog/evaluate-coloured-stone-diamond-jewellery-online/4.jpg",
-        alt: "Comparing two listings side-by-side using the scorecard table",
-        title: "Product Scorecards",
-        caption: "Comparing listings itemized by layers reveals hidden quality gaps."
-      },
-      {
-        type: "table",
-        headers: ["Field", "Product A", "Product B"],
-        rows: [
-          ["Exact stone identity", "", ""],
-          ["Natural/laboratory-created status", "", ""],
-          ["Treatments", "", ""],
-          ["Centre dimensions and weight", "", ""],
-          ["Diamond accent breakdown", "", ""],
-          ["Metal and complete dimensions", "", ""],
-          ["Exact or representative imagery", "", ""],
-          ["Multi-angle images and video", "", ""],
-          ["Verified report and scope", "", ""],
-          ["Seller identity", "", ""],
-          ["Delivered price", "", ""],
-          ["Return and warranty terms", "", ""]
-        ]
+        type: "paragraph",
+        text: "Examine the certification report (IGI, GIA or equivalent) carefully and verify the certificate number directly on the issuing laboratory's online verification service."
       }
     ]
   },
   {
-    heading: "What to do when the jewellery arrives",
+    heading: "What to Do When the Jewellery Arrives",
     content: [
       {
-        type: "numbered-list",
-        items: [
-          "Film or photograph the unopened parcel if damage is visible.",
-          "Check packaging, item and documents against the order.",
-          "Examine under neutral daylight-style and normal indoor lighting.",
-          "Compare identity, dimensions and weight labels with the saved listing.",
-          "Check prongs, clasps and stone alignment without forcing them.",
-          "Verify the report again and match any item photograph or inscription professionally where appropriate.",
-          "Try on over a soft surface without removing tags until the return policy permits.",
-          "Contact the seller immediately about discrepancies."
-        ]
+        type: "paragraph",
+        text: "Upon delivery, check the packaging, compare the piece with saved photos and the certificate, and inspect the stone under everyday lighting before altering or wearing the item."
       }
     ]
   },
   {
-    heading: "Online red flags",
+    heading: "Online Red Flags",
     content: [
       {
         type: "bullet-list",
         items: [
-          "No exact gemstone identity.",
-          "“Natural” used without treatment information.",
-          "Every stone described by one generic certificate.",
-          "No millimetre dimensions or on-body scale.",
-          "Only one front-facing rendered image.",
-          "Dramatically different colour across images.",
-          "Combined carat figure without breakdown.",
-          "Report number that does not verify or match.",
-          "No legal seller identity or return address.",
-          "Personalised-item terms introduced only after payment.",
-          "Countdown timers or pressure claims replacing product information."
+          "Lack of clear distinction between centre stone weight and total carat weight.",
+          "Missing disclosure regarding stone origin or treatments.",
+          "Overly retouched photos or CGI renders without real product footage.",
+          "Inability to verify the certificate with the issuing laboratory."
         ]
       }
     ]
   },
   {
-    heading: "The Aurelia Royale standard",
+    heading: "Frequently Asked Questions",
     content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Aurelia Royale structures listings to describe gemstone parameters, diamond grades, and metals itemized by layer. View options at " },
-          { text: "Aurelia Royale jewellery", href: "/shop/" },
-          { text: " or " },
-          { text: "contact Aurelia Royale", href: "/contact/" },
-          { text: " to request specific specifications." }
-        ]
-      }
-    ]
-  },
-  {
-    content: [
-      {
-        type: "callout",
-        title: "Final verdict",
-        theme: "gold-border",
-        parts: [
-          {
-            text: "Evaluate online jewellery in three passes: confirm what it contains, inspect what the imagery proves, then verify the report, seller and purchase terms.\n\n"
-          },
-          {
-            text: "Do not guess identity or parameters. Utilize scorecards to isolate specification points and check shipment files promptly before custom resizing alterations."
-          }
-        ]
-      },
       {
         type: "faq",
         items: [
-          {
-            question: "Can I judge a coloured gemstone accurately from a photograph?",
-            answer: "You can assess aspects of appearance, but lighting, editing and screens affect colour. Photos cannot reliably prove identity, origin or treatment."
-          },
-          {
-            question: "Should the seller show the exact coloured stone?",
-            answer: "For unique items, exact-stone images are preferable. For repeat-stock designs, natural colour and inclusion variation may mean the image is representative."
-          },
-          {
-            question: "Which jewellery photographs are essential?",
-            answer: "Look for front, side, back, macro and on-body images plus a slow movement video and neutral-background view."
-          },
-          {
-            question: "How do I understand gemstone size online?",
-            answer: "Use stone and complete jewellery dimensions in millimetres alongside carat weight and on-body scale."
-          },
-          {
-            question: "Can video prove that a stone is natural?",
-            answer: "No. Video can show appearance and movement, but natural or laboratory-created origin requires proper disclosure and testing."
-          },
-          {
-            question: "How do I verify a jewellery report online?",
-            answer: "Use the issuing laboratory’s official service and match the number, item type, identity, dimensions, photograph and comments."
-          },
-          {
-            question: "Why does a mounted report show grade ranges?",
-            answer: "The setting can restrict observation and measurement, so some laboratories report characteristics conservatively as mounting permits."
-          },
-          {
-            question: "Should coloured-stone and diamond weights be separate?",
-            answer: "Yes. Centre, coloured side stones and diamond accents should have a visible breakdown rather than one ambiguous total."
-          },
-          {
-            question: "What does a representative product image mean?",
-            answer: "It shows the expected design rather than the exact supplied stone. The seller should explain realistic colour, inclusion, size or weight variation."
-          },
-          {
-            question: "Can made-to-order jewellery be returned?",
-            answer: "Policies and legal exceptions vary. Check the applicable terms before ordering; personalised or made-to-order goods may be excluded from standard withdrawal rights."
-          },
-          {
-            question: "What should I save before checkout?",
-            answer: "Save specifications, images, variation choices, reports, written answers, delivered price, return terms, warranty and order confirmation."
-          },
-          {
-            question: "What should I check immediately after delivery?",
-            answer: "Compare the item and documents with the saved listing, inspect under different normal lights and report discrepancies before altering or extensively wearing it."
-          }
+          { question: "Can video prove that a stone is natural?", answer: "No. Video shows appearance and movement; origin requires proper disclosure and testing." },
+          { question: "How do I verify a jewellery report online?", answer: "Use the issuing laboratory's official service and match the number, item, identity, dimensions, photograph and comments." },
+          { question: "Why does a mounted report show grade ranges?", answer: "The setting can restrict observation and measurement, so characteristics may be reported conservatively as mounting permits." },
+          { question: "Should coloured-stone and diamond weights be separate?", answer: "Yes. Centre, coloured side stones and diamond accents should have a visible breakdown." },
+          { question: "What does a representative product image mean?", answer: "It shows the expected design rather than the exact supplied stone; realistic variation should be explained." },
+          { question: "Can made-to-order jewellery be returned?", answer: "Policies and legal exceptions vary; personalised or made-to-order goods may be excluded from standard withdrawal rights." },
+          { question: "What should I save before checkout?", answer: "Save specifications, images, choices, reports, written answers, delivered price, return terms, warranty and confirmation." },
+          { question: "What should I check immediately after delivery?", answer: "Compare the item and documents with the saved listing and report discrepancies before altering or extensively wearing it." }
         ]
       },
       {
@@ -408,7 +262,12 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function Page() {
+export default async function Page({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const localeData = getBlogDataByLocale("evaluate-coloured-stone-diamond-jewellery-online", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
@@ -421,19 +280,19 @@ export default function Page() {
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Coloured Stones and Diamonds
+            {locale === "it" ? "Guida ai Diamanti" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Pierres de Couleur et Diamants" : locale === "es" ? "Piedras de Colores y Diamantes" : "Coloured Stones and Diamonds"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How to Evaluate Coloured-Stone and Diamond Jewellery Online
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
+            {locale === "it" ? "Journal • Pubblicato il 16 luglio 2026" : locale === "de" ? "Journal • Veröffentlicht am 16. Juli 2026" : locale === "nl" ? "Journaal • Gepubliceerd op 16 juli 2026" : locale === "fr" ? "Journal • Publié le 16. Juli 2026" : locale === "es" ? "Diario • Publicado el 16 de julio de 2026" : "Journal • Published July 16, 2026"}
           </p>
         </div>
       </section>
 
       {/* Content Layout */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

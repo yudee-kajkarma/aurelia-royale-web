@@ -1,16 +1,77 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata
-export const metadata: Metadata = {
-  title: "Buying Fine Jewellery as a Gift: Complete Checklist",
-  description: "Choose fine jewellery as a gift with confidence. Check the recipient's style, size, metal, returns, personalisation, delivery, documents and aftercare.",
+export const metadataEn: Metadata = {
+  title: "Buying Fine Jewellery As Gift",
+  description: "Buying Fine Jewellery As Gift",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/buying-fine-jewellery-as-gift/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "Comprar joyería fina como regalo",
+  description: "Comprar joyería fina como regalo - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/buying-fine-jewellery-as-gift/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Acheter des bijoux raffinés en cadeau",
+  description: "Acheter des bijoux raffinés en cadeau - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/buying-fine-jewellery-as-gift/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Fijne sieraden kopen als cadeau",
+  description: "Fijne sieraden kopen als cadeau - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/buying-fine-jewellery-as-gift/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "Feinen Schmuck als Geschenk kaufen",
+  description: "Feinen Schmuck als Geschenk kaufen - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/buying-fine-jewellery-as-gift/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Acquistare gioielli pregiati come regalo: elenco di controllo completo",
+  description: "Scegli gioielli pregiati come regalo con fiducia. Controlla le preferenze, le dimensioni, il metallo, lo stile e le politiche del negozio del destinatario. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/buying-fine-jewellery-as-gift/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+  const localeData = getBlogDataByLocale("buying-fine-jewellery-as-gift", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. JSON-LD Schema
 const schemaMarkup = {
@@ -735,32 +796,39 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function BuyingFineJewelleryAsGiftPage() {
+export default async function BuyingFineJewelleryAsGiftPage({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const localeData = getBlogDataByLocale("buying-fine-jewellery-as-gift", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Buying Lab-Grown Diamond Jewellery
+            {locale === "it" ? "Guide all'Acquisto" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Buying Lab-Grown Diamond Jewellery" : locale === "es" ? "Comprar joyas de diamantes cultivados en laboratorio" : "Buying Lab-Grown Diamond Jewellery"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            What to Know Before Purchasing Fine Jewellery as a Gift
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
+            {locale === "it" ? "Journal • Pubblicato il 16 luglio 2026" : locale === "de" ? "Journal • Veröffentlicht am 16. Juli 2026" : locale === "nl" ? "Journaal • Gepubliceerd op 16 juli 2026" : locale === "fr" ? "Journal • Publié le 16. Juli 2026" : locale === "es" ? "Diario • Publicado el 16 de julio de 2026" : "Journal • Published July 16, 2026"}
           </p>
         </div>
       </section>
 
       {/* Content Layout */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

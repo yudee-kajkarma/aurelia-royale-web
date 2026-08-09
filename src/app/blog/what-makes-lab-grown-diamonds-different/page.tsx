@@ -1,16 +1,75 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
-export const metadata: Metadata = {
-  title: "What Makes Lab-Grown Diamonds Different?",
-  description: "Discover why lab-grown diamonds can differ in cut, colour, clarity, size, growth method, treatment, fluorescence, certification and appearance.",
+export const metadataEn: Metadata = {
+  title: "What Makes Lab Grown Diamonds Different",
+  description: "What Makes Lab Grown Diamonds Different",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/what-makes-lab-grown-diamonds-different/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "¿Qué hace que los diamantes cultivados en laboratorio sean diferentes?",
+  description: "¿Qué hace que los diamantes cultivados en laboratorio sean diferentes? - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/what-makes-lab-grown-diamonds-different/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Ce qui différencie les diamants cultivés en laboratoire",
+  description: "Ce qui différencie les diamants cultivés en laboratoire - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/what-makes-lab-grown-diamonds-different/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Wat maakt laboratoriumgekweekte diamanten anders?",
+  description: "Wat maakt laboratoriumgekweekte diamanten anders? - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/what-makes-lab-grown-diamonds-different/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "Was macht im Labor gezüchtete Diamanten anders?",
+  description: "Was macht im Labor gezüchtete Diamanten anders? - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/what-makes-lab-grown-diamonds-different/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Cosa rende diversi i diamanti creati in laboratorio?",
+  description: "Scopri l'origine tecnologica unica dei diamanti coltivati ​​in laboratorio e perché sono considerati un'alternativa moderna e preziosa. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/what-makes-lab-grown-diamonds-different/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. The exact JSON-LD Schema
 const schemaMarkup = {
@@ -978,32 +1037,39 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function Page() {
+export default async function Page({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
+  const localeData = getBlogDataByLocale("what-makes-lab-grown-diamonds-different", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Certification and Diamond Quality
+            {locale === "it" ? "Guide all'Acquisto" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Certification & Qualité" : locale === "es" ? "Certificación y Calidad del Diamante" : "Certification and Diamond Quality"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            What Makes One Lab-Grown Diamond Different from Another?
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
+            {locale === "it" ? "Journal • Pubblicato il 15 luglio 2026" : locale === "de" ? "Journal • Veröffentlicht am 16. Juli 2026" : locale === "nl" ? "Journaal • Gepubliceerd op 16 juli 2026" : locale === "fr" ? "Journal • Publié le 16. Juli 2026" : locale === "es" ? "Diario • Publicado el 16 de julio de 2026" : "Journal • Published July 16, 2026"}
           </p>
         </div>
       </section>
 
       {/* Content Layout */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

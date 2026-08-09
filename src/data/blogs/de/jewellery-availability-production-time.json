@@ -1,0 +1,687 @@
+[
+  {
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/jewellery-availability-production-time/52 (1).jpg",
+        "alt": "Zeitplan und Verfügbarkeitsphasen für die Schmuckproduktion",
+        "title": "Zeitleiste der Schmuckproduktion",
+        "caption": "Wenn Sie den gesamten Prozess von der Bestellung bis zur Lieferung verstehen, können Sie realistische Erwartungen setzen.",
+        "priority": true
+      },
+      {
+        "type": "paragraph",
+        "text": "Auf einer Online-Schmuckseite steht möglicherweise „verfügbar“, auch wenn der Schmuck noch individuell angefertigt, zusammengesetzt, gefasst, gestempelt oder angefertigt werden muss. Ein anderes Produkt ist möglicherweise physisch fertig, erfordert jedoch mehrere Tage für die Überprüfung und den versicherten Versand."
+      },
+      {
+        "type": "paragraph",
+        "text": "Die sinnvolle Frage lautet daher nicht nur: „Ist es verfügbar?“ Es lautet: „Welche Arbeit bleibt übrig, wann wird sie verschickt und wann sollte sie an meiner Adresse eintreffen?“"
+      },
+      {
+        "type": "paragraph",
+        "text": "Produktionszeit, Versandzeit und Lieferzeit sind getrennt. Wenn Schmuck für einen Heiratsantrag, eine Hochzeit, einen Jahrestag, eine Reise oder als Geschenk gedacht ist, ist es wichtig, jeden Schritt zu verstehen."
+      },
+      {
+        "type": "callout",
+        "title": "Kurze Antwort: Wie berechnet man den Liefertermin eines Schmuckstücks?",
+        "parts": [
+          {
+            "text": "Verwenden Sie diese Formel:"
+          },
+          {
+            "text": "Voraussichtliche Ankunft = Auftragsabwicklung + Einkauf + Produktion oder Änderung + Qualitätskontrolle und Dokumentation + Versandabwicklung + Speditionstransport + Zollrisiken"
+          },
+          {
+            "text": "Bitte bestätigen Sie vor der Bestellung:",
+            "bold": true
+          },
+          {
+            "text": "1. Der Verfügbarkeitsstatus Ihrer genauen Variante.\n2. Ob die angegebene Zeitleiste Kalender- oder Arbeitstage verwendet.\n3. Wenn die Uhr läuft: Bestellung, Zahlung oder genehmigtes Design.\n4. Ob Größe, Gravur oder Steinauswahl, es braucht Zeit.\n5. Ob Qualitätskontrolle, Berichterstattung oder Zertifizierung enthalten sind.\n6. Das voraussichtliche Versanddatum – nicht nur der Text „Versand“.\n7. Transportzeit des Spediteurs für Ihr Ziel.\n8. Zoll- oder Einfuhrabfertigung bei grenzüberschreitenden Bestellungen.\n9. Ob es sich bei dem Datum um eine Schätzung oder eine Garantie handelt.\n10. Was passiert, wenn der Verkäufer eine vereinbarte wesentliche Frist versäumt?\n\nFür ein wichtiges Ereignis müssen Sie die Lieferzusage schriftlich festhalten und einen angemessenen Puffer einplanen."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Die Verfügbarkeitsbedingungen sind nicht austauschbar",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Einzelhändler nutzen Verfügbarkeitsetiketten auf unterschiedliche Weise. Lesen Sie die Definition auf der Produktseite oder in der Richtlinie."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Etikett",
+          "Was es bedeuten sollte",
+          "Was zu bestätigen ist"
+        ],
+        "rows": [
+          [
+            "Auf Lager",
+            "Ein relevanter Gegenstand oder Teil wird physisch aufbewahrt",
+            "Ist meine genaue Auswahl an Größe, Metall und Diamant vollständig?"
+          ],
+          [
+            "Bereit zum Versand",
+            "Der fertige ausgewählte Artikel erfordert keine Produktion",
+            "Welche Verifizierung und Versandabwicklung bleibt bestehen?"
+          ],
+          [
+            "Fertig",
+            "Der Entwurf liegt bereits als fertiges Inventar vor",
+            "Ist das Format oder die Änderung erforderlich?"
+          ],
+          [
+            "Auf Bestellung gefertigt",
+            "Die Produktion für den Auftrag beginnt oder wird abgeschlossen",
+            "Welche Phasen und Vorlaufzeiten gelten?"
+          ],
+          [
+            "Nachbestellung",
+            "Der Artikel ist vorübergehend nicht verfügbar, wird aber voraussichtlich wieder verfügbar sein",
+            "Wurde der Nachschubtermin bestätigt?"
+          ],
+          [
+            "Vorbestellung",
+            "Die Bestellung wird vor der Freigabe oder abgeschlossenen Lieferung angenommen",
+            "Ist der Termin festgelegt, geschätzt oder von der Nachfrage abhängig?"
+          ],
+          [
+            "Mass angefertigt",
+            "Design oder Spezifikationen werden für den Kunden erstellt",
+            "Wann beginnt die Frist und wie viele Genehmigungen sind erforderlich?"
+          ],
+          [
+            "Auf Anfrage erhältlich",
+            "Der Verkäufer muss die Verfügbarkeit des Lieferanten bzw. der Werkstatt prüfen",
+            "Wann werden Verfügbarkeit und Preis bestätigt?"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "„Verfügbar“ kann „verkaufbar“, also nicht physisch fertiggestellt, bedeuten. „Auf Lager“ kann sich auf einen Rahmen ohne die ausgewählte Mittelraute beziehen. Überprüfen Sie immer die genaue Variante."
+      }
+    ]
+  },
+  {
+    "heading": "Überprüfen Sie die ausgewählte Variante, nicht das Standardprodukt",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Auf einer Ringseite wird möglicherweise „Versandbereit“ angezeigt und nur eine Kombination aus Größe und Metall ist bereit. Bei einem Wechsel auf eine andere Ringgröße, Goldfarbe, Kettenlänge oder Diamantenspezifikation kann sich die Lieferzeit ändern."
+      },
+      {
+        "type": "paragraph",
+        "text": "Bevor Sie etwas in den Warenkorb legen, beachten Sie bitte Folgendes:"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "Produktcode;",
+          "ausgewähltes Metall und Feinheit;",
+          "Ringgröße oder tragbare Länge;",
+          "ausgewählte Diamantspezifikation;",
+          "gravieren oder personalisieren;",
+          "Berichtsanforderungen; Und",
+          "die Verfügbarkeitsmeldung, nachdem alle Auswahlen getroffen wurden."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Der Warenkorb und die Bestätigungs-E-Mail sollten sowohl die Variante als auch das voraussichtliche Versandfenster enthalten."
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Benutzen Sie die"
+          },
+          {
+            "text": "Checkliste für Produktspezifikationen für Diamantschmuck",
+            "href": "/de/blog/diamond-jewellery-product-specifications-checklist/"
+          },
+          {
+            "text": "die vollständige Auftragsaufzeichnung zu führen."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Wenn ein Verkäufer nicht bereit ist, die Verfügbarkeit zu definieren oder einen schriftlichen Zeitplan bereitzustellen, besuchen Sie ihn bitte erneut"
+          },
+          {
+            "text": "So wählen Sie einen zuverlässigen Online-Diamantjuwelier aus",
+            "href": "/de/blog/choose-trustworthy-online-diamond-jeweller/"
+          },
+          {
+            "text": "bevor Sie bezahlen."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Die Phasen innerhalb der Herstellungszeit von Schmuck",
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/jewellery-availability-production-time/52 (2).jpg",
+        "alt": "Schritt-für-Schritt-Schritte bei der Herstellung von Schmuck, von der Bestellung bis zum Versand",
+        "title": "Aufschlüsselung der Produktionsphasen",
+        "caption": "Auf Bestellung gefertigter Schmuck durchläuft mehrere Phasen, bevor er bei Ihnen ankommt.",
+        "priority": false
+      },
+      {
+        "type": "paragraph",
+        "text": "Maßgefertigter Schmuck bleibt nicht die gesamte Vorlaufzeit auf der Werkbank. Ein realistisches Schema kann mehrere Abhängigkeiten enthalten."
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "Bestellung überprüfen und Zahlung genehmigen – Der Verkäufer bestätigt die Spezifikation, Betrugsprüfungen, Zahlungs- und Lieferinformationen.",
+          "Diamant- und Materialzuteilung – Die ausgewählten Diamanten, Akzentsteine, Edelmetalle und Komponenten müssen verfügbar sein.",
+          "Bestätigung oder Änderung des Entwurfs – Für die Anpassung sind Zeichnungen, Renderings und eine schriftliche Genehmigung erforderlich.",
+          "Produktion und Montage – Gießen, Konfektionierung, Reinigung, Bauteilfertigung und Vorbearbeitung.",
+          "Steinfassung – Diamanten werden aufeinander abgestimmt, gefasst und gesichert.",
+          "Endbearbeitung und Plattieren – Polieren, Strukturieren, Gravieren oder Plattieren.",
+          "Qualitätskontrolle – Die Werkstatt prüft die Sicherheit, Ausrichtung, Politur, Größe und den Verschluss der Steine.",
+          "Gütezeichen und Dokumentation – Gütezeichen und unabhängige Laborberichte.",
+          "Verpackung und versicherter Versand – Abschlussfotografie, Verpackung und Kurierbuchung."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Diese Reihenfolge erklärt, warum „hergestellt“ und „versendet“ nicht derselbe Meilenstein sind."
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Dazu gehören auch diese Produktions- und Kontrollphasen"
+          },
+          {
+            "text": "Was zeichnet hochwertigen Diamantschmuck in Laborqualität aus?",
+            "href": "/de/blog/high-quality-lab-grown-diamond-jewellery/"
+          },
+          {
+            "text": "; Geschwindigkeit sollte die notwendige Inspektion nicht überflüssig machen."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Produktionszeit, Versandzeit und Lieferzeit",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Diese drei Sätze sollten niemals kombiniert werden:"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "Produktionszeit: Zeit, die zur Vorbereitung oder Herstellung des Schmucks benötigt wird.",
+          "Lieferzeit: Zeit, bis das fertige Paket den Verkäufer verlässt.",
+          "Liefer- oder Transitzeit: vom Spediteur benötigte Zeit nach der Abholung."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Wenn die Produktionszeit 10 Werktage und die Lieferung 2 bis 4 Werktage beträgt, beträgt das voraussichtliche Ankunftsdatum nicht 10 Tage. Es handelt sich um Produktion plus eventuelle Versandabwicklung plus Transport."
+      },
+      {
+        "type": "paragraph",
+        "text": "Für den internationalen Versand berechnen Sie bitte etwaige Zollabfertigungsgebühren. Die Bezahlung des Expressversands beschleunigt nicht unbedingt die Produktion."
+      }
+    ]
+  },
+  {
+    "heading": "Kalendertage vs. Arbeitstage",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Zehn Arbeitstage können zwei volle Arbeitswochen abdecken, bei dazwischen liegenden Feiertagen auch länger. Zur Bestätigung:"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "welche Tage der Workshop als Arbeitstage betrachtet;",
+          "das Land und den Feiertagskalender des Verkäufers;",
+          "Annahmeschluss und Zeitzone für Bestellungen;",
+          "ob der Bestelltag als erster Tag zählt;",
+          "saisonale Schließungen; Und",
+          "ob Transportwochenenden enthalten sind."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Beispielsweise kann eine Bestellung, die nach dem Schlusstermin am Freitag aufgegeben wird, am Montag bearbeitet werden. Wenn der Montag ein lokaler Feiertag ist, kann die Zählung am Dienstag beginnen. Vermeiden Sie es, allein auf der Grundlage des Marketingbanners zu rechnen."
+      }
+    ]
+  },
+  {
+    "heading": "Voraussichtliches Datum, Versandfenster und garantiertes Datum",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Eine Schätzung ist eine Prognose und nicht unbedingt eine vertragliche Garantie. Eine Spanne wie „Versand innerhalb von 10 bis 15 Werktagen“ berücksichtigt die Unsicherheit, sollte aber dennoch eine definierte Basislinie haben."
+      },
+      {
+        "type": "paragraph",
+        "text": "Fragen Sie, was der Verkäufer davon anbietet:"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "erwarteter Abschluss der Produktion;",
+          "geschätzte Versanddauer;",
+          "voraussichtliche Lieferung per Spediteur;",
+          "letzter vereinbarter Liefertermin; oder",
+          "garantierte Veranstaltungsdurchführung."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Wenn es auf den richtigen Zeitpunkt ankommt, teilen Sie dem Verkäufer vor der Bestellung das Datum des Ereignisses mit und bitten Sie ihn, den endgültigen Liefertermin schriftlich zu bestätigen. Verlassen Sie sich nicht auf eine Kundendienstformel wie „sollte in Ordnung sein“."
+      }
+    ]
+  },
+  {
+    "heading": "Warum personalisierte und individuelle Bestellungen besondere Sorgfalt erfordern",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Gravuren, ungewöhnliche Abmessungen, Designänderungen oder ein vom Kunden ausgewählter Diamant können sich sowohl auf die Produktions- als auch auf die Stornierungsbedingungen auswirken."
+      },
+      {
+        "type": "paragraph",
+        "text": "Bestätigen Sie vor der Genehmigung der Arbeit Folgendes:"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "endgültige Spezifikation und Rechtschreibung;",
+          "Genehmigungsfrist für Zeichnung oder Wiedergabe;",
+          "Anzahl der enthaltenen Revisionen;",
+          "wenn die Bestellung nicht mehr stornierbar ist;",
+          "ob die Rückgabe begrenzt ist;",
+          "Was passiert, wenn Materialien nicht mehr verfügbar sind?",
+          "Preisfolgen von Änderungen; Und",
+          "überarbeiteter Liefertermin nach etwaiger Änderung."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Die Widerrufsrechte und Ausschlüsse der Verbraucher variieren je nach Gerichtsbarkeit und tatsächlichem Grad der Personalisierung. Ein „made to order“-Label allein erklärt die Rechtslage nicht."
+      }
+    ]
+  },
+  {
+    "heading": "Versandbereit bedeutet nicht, dass die Ware noch am selben Tag ankommt",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Sogar fertiger Schmuck kann Folgendes erfordern:"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "Untersuchung von Zahlungen und Betrug;",
+          "Übereinstimmung der Berichtsnummer;",
+          "Steinsicherheitsinspektion;",
+          "abschließendes Polieren;",
+          "Gravur an der Kasse erbeten;",
+          "Adressvalidierung;",
+          "Planung von Kurierabholungen; Und",
+          "Unterschrift oder sichere Liefervereinbarungen."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Überprüfen Sie das tägliche Versandfenster und ob Bestellungen mit hohem Bestellwert freitags oder vor Feiertagen versendet werden. Einige Verkäufer vermeiden es, Pakete über das Wochenende bei Kurierdiensten abzugeben."
+      }
+    ]
+  },
+  {
+    "heading": "Grenzüberschreitende Bestellungen in Europa und Großbritannien",
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/jewellery-availability-production-time/52 (3).jpg",
+        "alt": "Internationale Schmucklieferung und Zollabfertigung",
+        "title": "Überlegungen zur grenzüberschreitenden Lieferung",
+        "caption": "Internationale Bestellungen erfordern zusätzliche Schritte wie die Zollabfertigung und die Mehrwertsteuerabwicklung.",
+        "priority": false
+      },
+      {
+        "type": "paragraph",
+        "text": "Bitte beachten Sie bei einer grenzüberschreitenden Bestellung Folgendes:"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "woher der Schmuck kommt;",
+          "ob es eine Zollgrenze überschreitet;",
+          "Welche Partei ist der registrierte Importeur?",
+          "ob die Mehrwertsteuer und Abgaben im Voraus bezahlt wurden;",
+          "vom Beförderer geforderte Dokumente;",
+          "ob Zollverzögerungen außerhalb der angegebenen Transitzeit liegen; Und",
+          "Wer kontaktiert den Spediteur, wenn die Freigabe stecken bleibt?"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Gemäß den EU-Verbraucherrichtlinien müssen Händler grundsätzlich innerhalb von 30 Tagen liefern, sofern nicht ausdrücklich ein anderer Zeitpunkt vereinbart wurde. Die britischen Vorschriften zum Fernabsatz haben ihren eigenen Rahmen."
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Lesen"
+          },
+          {
+            "text": "So kaufen Sie Diamantschmuck aus europäischem Anbau online",
+            "href": "/de/blog/buy-lab-grown-diamond-jewellery-online-europe/"
+          },
+          {
+            "text": "für die umfassendere grenzüberschreitende Checkliste."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "Ein realistisches Arbeitsblatt mit Ankunftsdatum",
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/jewellery-availability-production-time/52 (4).jpg",
+        "alt": "Arbeitsblatt zur Lieferterminplanung für Schmuckbestellungen",
+        "title": "Arbeitsblatt zur Planung des Ankunftstermins",
+        "caption": "Verwenden Sie dieses Arbeitsblatt, um jede Phase zu verfolgen und einen realistischen Liefertermin zu berechnen.",
+        "priority": false
+      },
+      {
+        "type": "paragraph",
+        "text": "Füllen Sie es vor der Zahlung aus:"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Phase",
+          "Schätzung des Verkäufers",
+          "Frühestes Datum",
+          "Letzter Termin"
+        ],
+        "rows": [
+          [
+            "Bestellung/Zahlung genehmigt",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Diamant-/Materialzuordnung",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Produktion oder Modifikation",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Gravur/Personalisierung",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Qualitätskontrolle",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Qualitätszeichen-/Berichtsdokumentation",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Versandabwicklung",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Trägertransit",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Zollnotstand",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Voraussichtliche Ankunft",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Ereignispuffer",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Verwenden Sie das späteste Datum und nicht das früheste, wenn Sie feststellen, ob die Bestellung für eine Veranstaltung geeignet ist. Fügen Sie einen Puffer für Größenkorrekturen, verpasste Zustellversuche oder Kontrollen nach der Ankunft hinzu."
+      }
+    ]
+  },
+  {
+    "heading": "Fragen, die Sie stellen sollten, bevor Sie eine zeitkritische Bestellung aufgeben",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Senden Sie dem Verkäufer diese Fragen in einer Nachricht:"
+      },
+      {
+        "type": "numbered-list",
+        "items": [
+          "Ist meine genau ausgewählte Variante physisch fertig?",
+          "Welche Phasen verbleiben bis zum Versand?",
+          "Wann beginnt die angegebene Vorlaufzeit?",
+          "Sind die Tage Kalender- oder Arbeitstage?",
+          "Ändert die Größe oder Gravur den Kostenvoranschlag?",
+          "Sind die Gütezeichen und Berichte bereits vollständig?",
+          "Was ist das früheste und späteste Versanddatum?",
+          "Welcher Träger wird verwendet?",
+          "Ist die Zollabfertigung im Kostenvoranschlag enthalten?",
+          "Können Sie sich schriftlich dazu verpflichten, zu meinem wichtigen Termin zu erscheinen?",
+          "Was passiert, wenn dieser Termin verpasst wird?",
+          "Kann ich vor Produktionsbeginn stornieren?"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Speichern Sie die Antwort mit der Bestellbestätigung."
+      }
+    ]
+  },
+  {
+    "heading": "Was tun, wenn sich eine Bestellung verzögert?",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Identifizieren Sie zunächst den laufenden Meilenstein: Einkauf, Produktion, externe Dokumentation, Versand, Transport durch den Spediteur oder Zoll."
+      },
+      {
+        "type": "paragraph",
+        "text": "Und:"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "das geänderte Datum und den geänderten Grund schriftlich anfordern;",
+          "fragen Sie, ob die Arbeiten begonnen haben und ob eine Stornierung möglich ist;",
+          "Einhaltung des ursprünglich zugesagten Termins;",
+          "klären, ob die Frist für die Veranstaltung als wesentlich akzeptiert wurde;",
+          "Vermeiden Sie es, Änderungen ohne einen überarbeiteten Zeitplan zu genehmigen. Und",
+          "nutzen Sie ggf. den formellen Beschwerdeweg des Verkäufers."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "EU-Richtlinien fordern Verbraucher im Allgemeinen auf, eine zusätzliche angemessene Lieferzeit einzuräumen, wenn der vereinbarte Termin versäumt wird. Britische Rechte hängen vom Vertrag und den Umständen ab."
+      }
+    ]
+  },
+  {
+    "heading": "Rote Fahnen für Verfügbarkeit und Timing",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "So pausieren Sie, wenn eine Produktseite angezeigt wird:"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "„verfügbar“ ohne definierten Status;",
+          "eine Lieferzeit für jede Größe und Individualisierungsoption;",
+          "„Versand innerhalb von 10 Tagen“ ohne Geschäfts-/Kalendertext;",
+          "Produktionszeit wird als Ankunftszeit angezeigt;",
+          "kein Startereignis für die Vorlaufzeit;",
+          "„Expressversand“ bedeutete früher eine schnellere Produktion;",
+          "ein garantierter Veranstaltungstermin, der nur mündlich angegeben wird;",
+          "Vorbestellungsbestand ohne Freigabebasis;",
+          "Rückstandstermine, die wiederholt ohne Vorankündigung verschoben werden;",
+          "zusätzliche Personalisierung ohne überarbeitete Zeit- oder Rückgaberichtlinien; oder",
+          "Kein Prozess für Verzögerungen."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Ein realistischer Umfang ist nützlicher als ein unmöglich präzises Versprechen ohne operative Grundlage."
+      }
+    ]
+  },
+  {
+    "heading": "Was Aurelia Royale zeigen sollte",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Jede Aurelia Royale-Variante muss ein geprüftes Verfügbarkeitsetikett mit einer Definition aufweisen. Auf der Seite und im Warenkorb sollte Folgendes angezeigt werden:"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "genauer Variantenstatus;",
+          "verbleibende Produktionsphasen;",
+          "Vorlaufzeitbereich;",
+          "Geschäfts- oder Kalendertage;",
+          "Zeitpunkt des Startpunkts und Bestelllimits;",
+          "voraussichtliches Versanddatum pro Bestimmungsort;",
+          "separater Transportbereich für Speditionen;",
+          "Auswirkungen der Personalisierung;",
+          "grenzüberschreitender Zollbeleg; Und",
+          "Verspätung, Annullierung und Rückreise."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "In Bestellstatus-E-Mails sollten Meilensteine ​​wie „bestätigt“, „in Produktion“, „Qualitätskontrolle“, „bereit zum Versand“ und „ausgeliefert“ angegeben werden."
+      }
+    ]
+  },
+  {
+    "content": [
+      {
+        "type": "callout",
+        "title": "Endgültiges Urteil",
+        "theme": "gold-border",
+        "parts": [
+          {
+            "text": "Die Verfügbarkeit von Schmuck ist nur dann aussagekräftig, wenn sie genau auf Ihre Variante zutrifft. Die Produktionszeit gibt an, wie lange die Vorbereitung bzw. Produktion dauern kann; Die Versandzeit gibt an, wann der Verkäufer das Paket voraussichtlich freigeben wird. Die Lieferzeit beginnt beim Spediteur."
+          },
+          {
+            "text": "Trennen Sie diese Zeiträume, bestätigen Sie die Regeln für Arbeitstage und berechnen Sie ein möglichst realistisches Ankunftsdatum. Bei Heiratsanträgen, Hochzeiten und Geschenken geben Sie bitte vor der Bestellung Ihren Wunschtermin bekannt und geben Sie eine schriftliche Zusage ab oder wählen Sie ein bereits fertiges Stück mit ausreichend Puffer."
+          }
+        ]
+      },
+      {
+        "type": "faq",
+        "items": [
+          {
+            "question": "Was bedeutet „auf Lager“ für Schmuck?",
+            "answer": "Dies sollte bedeuten, dass der entsprechende Bestand physisch vorhanden ist, Ihre genaue Größe oder Ihr ausgewählter Diamant jedoch möglicherweise noch nicht fertig ist. Bestätigen Sie die ausgewählte Variante und die verbleibende Arbeit."
+          },
+          {
+            "question": "Was bedeutet „versandbereit“?",
+            "answer": "Dies bedeutet im Allgemeinen, dass die Produktion abgeschlossen ist, obwohl möglicherweise noch Zahlungsprüfung, Verifizierung, Gravur, Verpackung und Kurierplanung stattfinden. Fragen Sie nach dem Versanddatum."
+          },
+          {
+            "question": "Wie lange dauert die Herstellung von Schmuck auf Bestellung?",
+            "answer": "Es gibt keine universelle Periode. Design, Materialien, Komplexität der Umgebung, Abmessungen, Gütezeichen, Qualitätskontrolle und Werkstattkapazität bestimmen das angegebene Sortiment."
+          },
+          {
+            "question": "Beinhaltet die Produktionszeit auch die Lieferung?",
+            "answer": "Normalerweise nicht, sofern nicht ausdrücklich angegeben. Fügen Sie Versandabwicklung, Speditionstransport und etwaige Zollabfertigung zum Produktionszeitraum hinzu."
+          },
+          {
+            "question": "Was ist der Unterschied zwischen Versand und Lieferung?",
+            "answer": "Der Versand erfolgt, wenn der Verkäufer das Paket dem Spediteur übergibt. Die Lieferung erfolgt, wenn das Paket im Rahmen des Prozesses des Spediteurs beim Empfänger eintrifft."
+          },
+          {
+            "question": "Zählen Wochenenden zur Bearbeitungszeit eines Schmuckstücks?",
+            "answer": "Nur wenn der Verkäufer Kalendertage verwendet. Schätzungen für Geschäftstage schließen normalerweise Wochenenden aus und können örtliche Feiertage einschließen."
+          },
+          {
+            "question": "Kann der Expressversand die Schmuckproduktion beschleunigen?",
+            "answer": "Nicht automatisch. Der Expressversand verkürzt die Laufzeit des Spediteurs. Eine Änderung der Produktion erfolgt nur, wenn die Werkstatt gesondert eine vorrangige Fertigung anbietet und bestätigt."
+          },
+          {
+            "question": "Verlängert die Ringgröße die Produktionszeit?",
+            "answer": "Es ist möglich. Bei einem fertigen Ring können Anpassungen erforderlich sein, während einige Designs direkt in der gewählten Größe angefertigt werden müssen. Fragen Sie nach dem überarbeiteten Versandfenster."
+          },
+          {
+            "question": "Verlängert die Inspektion von Schmuck den Zeitaufwand?",
+            "answer": "Dies ist möglich, wenn das Endprodukt an eine externe Analyseagentur gesendet werden muss. Bestätigen Sie, ob die Qualitätszeichen vollständig sind oder in der angegebenen Vorlaufzeit enthalten sind."
+          },
+          {
+            "question": "Was soll ich tun, wenn ich Schmuck für eine Hochzeit benötige?",
+            "answer": "Bitte geben Sie vor der Bestellung das wesentliche Datum an, fordern Sie schriftlich die späteste garantierte Ankunft an und geben Sie die Zeit für die Prüfung, Anpassung oder Lösung von Lieferproblemen an."
+          },
+          {
+            "question": "Kann auf Bestellung gefertigter Schmuck zurückgegeben werden?",
+            "answer": "Rückgabe- und Widerrufsrechte hängen vom Produkt, dem Grad der Personalisierung, den Allgemeinen Geschäftsbedingungen des Verkäufers und dem geltenden Recht ab. Bitte lesen Sie die spezifischen Richtlinien, bevor Sie die Produktion genehmigen."
+          },
+          {
+            "question": "Welche Informationen muss ich für eine verspätete Bestellung aufbewahren?",
+            "answer": "Speichern Sie die ausgewählte Produktseite, die Verfügbarkeitsbenachrichtigung, die versprochenen Termine, die Offenlegung des Veranstaltungsdatums, die Bestellbestätigung, die Verkäuferkorrespondenz und die Spediteurverfolgung."
+          }
+        ]
+      },
+      {
+        "type": "cta-banner",
+        "title": "Kaufen Sie mit Vertrauen bei Aurelia ein",
+        "subtitle": "Entdecken Sie unsere Kollektion mit transparenten Verfügbarkeitsfristen und zuverlässiger Lieferverfolgung.",
+        "shopHref": "/shop/",
+        "contactHref": "/contact/"
+      }
+    ]
+  }
+]

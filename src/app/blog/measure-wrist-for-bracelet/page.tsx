@@ -1,16 +1,77 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata
-export const metadata: Metadata = {
-  title: "How to Measure Your Wrist for a Bracelet",
-  description: "Measure your wrist accurately for a flexible bracelet, tennis bracelet, bangle or cuff using tape, paper or string—and avoid sizing mistakes.",
+export const metadataEn: Metadata = {
+  title: "Measure Wrist For Bracelet",
+  description: "Measure Wrist For Bracelet",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/measure-wrist-for-bracelet/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "Medida De Muñeca Para Pulsera",
+  description: "Medida De Muñeca Para Pulsera - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/measure-wrist-for-bracelet/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Mesurer le poignet pour le bracelet",
+  description: "Mesurer le poignet pour le bracelet - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/measure-wrist-for-bracelet/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Meet pols voor armband",
+  description: "Meet pols voor armband - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/measure-wrist-for-bracelet/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "Handgelenk für Armband messen",
+  description: "Handgelenk für Armband messen - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/measure-wrist-for-bracelet/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Come misurare il polso per un braccialetto: guida semplice",
+  description: "Trova la misura esatta del tuo braccialetto. Scopri come misurare con un metro a nastro o uno spago e quanti pollici aggiungere per una vestibilità ampia. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/measure-wrist-for-bracelet/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+  const localeData = getBlogDataByLocale("measure-wrist-for-bracelet", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. JSON-LD Schema
 const schemaMarkup = {
@@ -467,32 +528,39 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function MeasureWristForBraceletPage() {
+export default async function MeasureWristForBraceletPage({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const localeData = getBlogDataByLocale("measure-wrist-for-bracelet", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Product-Category Guides
+            {locale === "it" ? "Misura e Vestibilità" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Product-Category Guides" : locale === "es" ? "Guías de categorías de productos" : "Product-Category Guides"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How to Measure Your Wrist for a Bracelet
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
+            {locale === "it" ? "Journal • Pubblicato il 15 luglio 2026" : locale === "de" ? "Journal • Veröffentlicht am 16. Juli 2026" : locale === "nl" ? "Journaal • Gepubliceerd op 16 juli 2026" : locale === "fr" ? "Journal • Publié le 16. Juli 2026" : locale === "es" ? "Diario • Publicado el 16 de julio de 2026" : "Journal • Published July 16, 2026"}
           </p>
         </div>
       </section>
 
       {/* Content Layout */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

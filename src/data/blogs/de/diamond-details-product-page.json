@@ -1,0 +1,972 @@
+[
+  {
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/diamond-details-product-page/1.jpg",
+        "alt": "Wichtige Details, auf die Sie auf einer Schmuckproduktseite achten sollten",
+        "title": "Welche Diamantdaten müssen angegeben werden?",
+        "caption": "Auf einer zuverlässigen Produktseite werden die Edelsteinspezifikationen, Details zur Metallpunze und die Transaktionsbedingungen klar beschrieben.",
+        "priority": true
+      },
+      {
+        "type": "paragraph",
+        "text": "Eine Produktseite für Diamantschmuck soll mehr als nur Begehren wecken. Es sollte identifizieren, was verkauft wird, die Materialien und Steine ​​erklären, zeigen, wie das Stück passt, offenlegen, ob eine Zertifizierung gilt, und die allgemeinen Kaufbedingungen vor dem Bezahlen verständlich machen."
+      },
+      {
+        "type": "paragraph",
+        "text": "Dieser Standard ist online noch wichtiger. Ein Kunde kann das Stück nicht persönlich halten, seine Fassung inspizieren oder seinen Maßstab vergleichen. Die Produktseite muss daher drei Aufgaben erfüllen: den Diamanten beschreiben, das fertige Schmuckstück beschreiben und die Transaktion erklären."
+      },
+      {
+        "type": "paragraph",
+        "text": "Eine Seite kann elegante Prosa enthalten und dennoch unvollständig sein. Formulierungen wie „Premium-Diamanten aus Laboranbau“, „Feingold“ oder „zertifizierter Schmuck“ sind kein Ersatz für Herkunft, Gewicht, Qualitätsbereich, Metallfeinheit, Abmessungen und den genauen Umfang der Zertifizierung."
+      }
+    ]
+  },
+  {
+    "heading": "Kurze Antwort: Welche Diamantdetails sollte eine Produktseite enthalten?",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "In einem aussagekräftigen Angebot für Diamantschmuck sollte mindestens Folgendes erwähnt werden:"
+      },
+      {
+        "type": "numbered-list",
+        "items": [
+          "ob die Diamanten im Labor gezüchtet oder natürlich sind;",
+          "Diamantform und Schliffstil;",
+          "Einzel- oder Gesamtkaratgewicht, deutlich gekennzeichnet;",
+          "Farb- und Helligkeitsstufen oder angemessene Qualitätsbereiche;",
+          "Steinanzahl und die Rolle von Mittel- und Akzentsteinen;",
+          "Zertifizierungsdetails und genau, welcher Stein abgedeckt ist;",
+          "Art, Farbe und Feinheit des Edelmetalls;",
+          "Abmessungen, Abmessungen, Passform und geschätztes Endgewicht des Artikels, falls nützlich;",
+          "Einstellungs-, Befestigungs- oder Konstruktionsdetails;",
+          "genaue Fotos, maßstabsgetreue Darstellungen und Variantenidentifizierung;",
+          "Gesamtpreis, ggf. Steuern und unvermeidbare Kosten; Und",
+          "Verfügbarkeit, Produktionszeit, Lieferung, Retouren, Garantie und Begleitdokumente."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Nicht jedes Stück benötigt einen individuellen Beurteilungsbericht. Allerdings sollte jede Produktseite das Fehlen, Vorhandensein und den Umfang der Zertifizierung verständlich machen und diese nicht dem Käufer überlassen."
+      }
+    ]
+  },
+  {
+    "heading": "Produktseiteninformationen bestehen aus drei Ebenen",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Der einfachste Weg, einen Eintrag zu überprüfen, besteht darin, die Informationen in drei Ebenen zu unterteilen."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Niedrig",
+          "Was es erklären sollte",
+          "Warum es wichtig ist"
+        ],
+        "rows": [
+          [
+            "Die Diamanten",
+            "Herkunft, Form, Gewicht, Qualität und Zertifizierung",
+            "Bestimmt, welche Steine ​​der Kunde kauft"
+          ],
+          [
+            "Der Schmuck",
+            "Metall, Abmessungen, Fassung, Größe und Konstruktion",
+            "Erklärt das gesamte physische Produkt"
+          ],
+          [
+            "Der Kauf",
+            "Preis, Verfügbarkeit, Lieferung, Rückgabe und Garantie",
+            "Erklärt, was vor und nach der Zahlung passiert"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Wenn eine Ebene schwach ist, unterstützt die Seite möglicherweise keinen fundierten Vergleich. Ein vollständiger Beurteilungsbericht kann einem Kunden keine Auskunft über die Länge des Armbands geben. Ebenso kann eine detaillierte Größentabelle eine nicht offengelegte Diamantenherkunft nicht ausgleichen."
+      }
+    ]
+  },
+  {
+    "heading": "1. Die Herkunft von Diamanten muss eindeutig sein",
+    "content": [
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Die Seite sollte ein eindeutiges Qualifikationsmerkmal verwenden, z"
+          },
+          {
+            "text": "Im Labor gezüchteter Diamant",
+            "bold": true
+          },
+          {
+            "text": "von"
+          },
+          {
+            "text": "Im Labor gezüchteter Diamant",
+            "bold": true
+          },
+          {
+            "text": "überall dort, wo die Ursprünge sonst missverstanden werden könnten. Die Offenlegung sollte gut sichtbar im Produkttitel, in der Hauptbeschreibung oder im Spezifikationsbereich angezeigt werden und nicht nur auf einer FAQ- oder Richtlinienseite versteckt werden."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Verlassen Sie sich nicht auf Markenkollektionsnamen, die das Material nicht erklären. Ein Erstbesucher muss nicht wissen, was ein geschützter Begriff bedeutet, um zu verstehen, ob der Diamant im Labor gezüchtet oder natürlich geformt wurde."
+      },
+      {
+        "type": "paragraph",
+        "text": "Wenn ein Stück verschiedene Materialien kombiniert, listen Sie diese separat auf. Lassen Sie zum Beispiel nicht zu, dass „im Labor gezüchtete Diamantohrringe“ den Eindruck erwecken, dass ein farbiger Mittelstein auch ein Diamant ist. Identifizieren Sie den Mittelstein, die Diamantakzente und andere Edelsteinmaterialien genau."
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Lesen"
+          },
+          {
+            "text": "wie man im Labor gezüchtete Diamanten beschreibt und enthüllt",
+            "href": "/de/blog/how-lab-grown-diamonds-should-be-disclosed/"
+          },
+          {
+            "text": "für die terminologischen Prinzipien hinter dieser Anforderung."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "2. Form und Umriss müssen benannt werden",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "„Diamant-Ohrringe“ verraten dem Käufer nicht, ob es sich um runde Brillanten, ovale Brillanten, Smaragd-Schliffe oder einen Formenmix handelt. Die Form beeinflusst Aussehen, Deckkraft, Lichtmuster und Design."
+      },
+      {
+        "type": "paragraph",
+        "text": "Die Produktseite sollte Folgendes identifizieren:"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "die Hauptrautenform;",
+          "die Formen bedeutungsvoller Akzentsteine;",
+          "ob sich die dargestellte Form mit einer ausgewählten Variante ändert; Und",
+          "den Schnittstil, wenn er nützliche Informationen hinzufügt."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Bei Stücken, die aus mehreren Steinen bestehen, kann eine prägnante Zeile wie „runde brillante, im Labor gezüchtete Diamanten“ ausreichend sein. Für einen Ring mit Mittelstein können detailliertere Abmessungen und Proportionen angebracht sein."
+      }
+    ]
+  },
+  {
+    "heading": "3. Das Karatgewicht muss genau angegeben werden",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Karat misst das Gewicht des Diamanten, nicht das physische Gewicht des Schmucks. Auf einer Produktseite sollte der Käufer niemals rätseln, ob sich eine Zahl auf einen Diamanten oder auf alle Diamanten zusammen bezieht."
+      },
+      {
+        "type": "paragraph",
+        "text": "Verwenden Sie klare Etiketten:"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "Karatgewicht des mittleren Diamanten: das Gewicht des Hauptdiamanten.",
+          "Gesamtgewicht der Akzentdiamanten: Das Gesamtgewicht der kleineren Diamanten.",
+          "Gesamtkaratgewicht des Diamanten: Das Gesamtgewicht aller Diamanten im Stück.",
+          "JeOhrringe: wobei ein Paar zwei Hauptsteine ​​enthält.",
+          "Paar-Gesamtgewicht: Das kombinierte Diamantgewicht beider Ohrringe."
+        ],
+        "itemsParts": [
+          [
+            {
+              "text": "Karatgewicht des Diamanten in der Mitte:",
+              "bold": true
+            },
+            {
+              "text": "das Gewicht des Hauptdiamanten."
+            }
+          ],
+          [
+            {
+              "text": "Gesamtgewicht des Akzentdiamanten:",
+              "bold": true
+            },
+            {
+              "text": "das Gesamtgewicht der kleineren Diamanten."
+            }
+          ],
+          [
+            {
+              "text": "Gesamtkaratgewicht des Diamanten:",
+              "bold": true
+            },
+            {
+              "text": "das Gesamtgewicht aller Diamanten im Stück."
+            }
+          ],
+          [
+            {
+              "text": "JeOhrringe:",
+              "bold": true
+            },
+            {
+              "text": "wobei ein Paar zwei Hauptsteine ​​enthält."
+            }
+          ],
+          [
+            {
+              "text": "Paar insgesamt:",
+              "bold": true
+            },
+            {
+              "text": "das kombinierte Diamantgewicht beider Ohrringe."
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Wenn das Endgewicht leicht variieren kann, weil ein Stück auf Bestellung gefertigt wird oder viele kleine Steine ​​enthält, geben Sie bitte die Toleranz an oder verwenden Sie „ungefähr“. Geben Sie kein Nenngewicht an, als ob jedes fertige Stück identisch wäre. Die Unterscheidung wird ausführlich in erklärt"
+          },
+          {
+            "text": "was das Gesamtkaratgewicht für Diamantschmuck bedeutet",
+            "href": "/de/blog/total-carat-weight-diamond-jewellery/"
+          },
+          {
+            "text": "In"
+          },
+          {
+            "text": "Karatgewicht im Vergleich zur sichtbaren Diamantgröße",
+            "href": "/de/blog/carat-weight-vs-visible-diamond-size/"
+          },
+          {
+            "text": "."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "4. Farbe und Helligkeit brauchen Raum, nicht nur beeindruckende Zahlen",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Wenn Farbe und Reinheit aufgeführt sind, sollte auf der Seite erläutert werden, welche Diamanten diese Eigenschaften abdecken. Ein Mittelstein kann eine individuelle Qualität haben, während kleine Akzentsteine ​​innerhalb einer angegebenen Qualitätsspanne geliefert werden."
+      },
+      {
+        "type": "paragraph",
+        "text": "Eine klare Spezifikation könnte lauten:"
+      },
+      {
+        "type": "paragraph",
+        "text": "„Hauptdiamant: Farbe F, Reinheit VS1, laut Begleitbericht. Akzentdiamanten: Farbe ungefähr G-H und Reinheit VS-SI.“"
+      },
+      {
+        "type": "paragraph",
+        "text": "Dies ist aussagekräftiger als die Platzierung von „F/VS1“ neben dem gesamten Stück, wenn nur der Mittelstein einzeln bewertet wurde."
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Bei Archivfotos, auf Bestellung angefertigten Stücken oder Produkten, die mit einem gleichwertigen Diamanten versehen sind, muss auf der Seite erläutert werden, ob die angegebenen Qualitäten genau sind oder ob es sich um Mindestspezifikationen oder -bereiche handelt. Der Käufer sollte auch wissen, ob das Foto den tatsächlichen Stein oder ein repräsentatives Muster zeigt. Zum Kontext siehe"
+          },
+          {
+            "text": "Diamant-Farbgrade erklärt",
+            "href": "/de/blog/lab-grown-diamond-colour-grades-explained/"
+          },
+          {
+            "text": "In"
+          },
+          {
+            "text": "Reinheitsgrade von Diamanten erklärt",
+            "href": "/de/blog/lab-grown-diamond-clarity-grades-explained/"
+          },
+          {
+            "text": "."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "5. Die Schliffinformationen müssen mit dem Diamanten und dem Bericht übereinstimmen",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Das Wort „Schneiden“ wird oft lose verwendet und bezieht sich auf Form, Handwerkskunst und Laborqualität. Eine Produktseite sollte diese Bedeutungen nicht verwechseln."
+      },
+      {
+        "type": "paragraph",
+        "text": "Wenn ein akkreditiertes Labor ein allgemeines Schneidergebnis liefert, reproduzieren Sie es genau und identifizieren Sie den Bericht. Für Diamanten oder Formen, die nicht die allgemeine Schliffqualität dieses Labors aufweisen, sollten Sie kein Äquivalent entwickeln. Geben Sie relevante Informationen wie Glanz, Symmetrie, Abmessungen und tatsächliche Bilder an, sofern verfügbar."
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Für einen individuell wählbaren Mitteldiamanten können nützliche Felder Tafel-, Tiefen-, Rundist-, Kalette- und andere Proportionen umfassen. Um zu sehen"
+          },
+          {
+            "text": "Diamantschliff erklärt",
+            "href": "/de/blog/lab-grown-diamond-cut-explained/"
+          },
+          {
+            "text": "für die Unterscheidung zwischen Form, Proportionen und sichtbarer Leistung."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "6. Die Rollen des Steinezählens und Entwerfens sollten verständlich sein",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Das Zählen von Steinen hilft Käufern, das Gesamtkaratgewicht zu interpretieren und Designs zu vergleichen. Besonders wertvoll ist es für Tennisarmbänder, Memoire-Ringe, Cluster-Ohrringe, Heiligenscheine und Schmucksets."
+      },
+      {
+        "type": "paragraph",
+        "text": "Die Seite muss Folgendes trennen:"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "Haupt- oder Mitteldiamanten;",
+          "Diamanten an der Seite;",
+          "der Halo- oder Pavé-Diamant;",
+          "Diamantakzente; Und",
+          "farbige Mittel- oder Akzentsteine."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Sollte die genaue Anzahl der Steine ​​je nach Ringgröße, Armbandlänge oder Produktionsanforderungen variieren, erläutern Sie bitte diese Abweichung. Für einen größeren Eternity-Ring sind möglicherweise mehr Steine ​​erforderlich, ohne dass sich der beworbene Stil ändert."
+      }
+    ]
+  },
+  {
+    "heading": "7. Die Zertifizierung muss detailliert erläutert werden",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "„Zertifiziert“ ist unvollständig, es sei denn, die Seite beantwortet vier Fragen: Welches Labor hat das Dokument ausgestellt? Was ist der genaue Dokumenttyp? Welcher Diamant bedeckt es? Kann der Käufer die Berichtsnummer überprüfen?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Ein individueller Diamantbewertungsbericht bezieht sich in der Regel auf den eingereichten losen Diamanten, nicht auf die Handwerkskunst, das Edelmetall oder den Wert des gesamten fertigen Stücks. Ein Schmuckdokument, ein Wertgutachten, eine Echtheitskarte und ein Prüfbericht sind nicht austauschbar."
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Unterstellen Sie niemals, dass der gesamte Artikel im Labor bewertet wurde, wenn nur ein Diamant untersucht wurde. Verwendung"
+          },
+          {
+            "text": "Dabei handelt es sich um ein IGI-Zertifikat für einen im Labor gezüchteten Diamanten",
+            "href": "/de/blog/igi-certificate-for-lab-grown-diamond/"
+          },
+          {
+            "text": ","
+          },
+          {
+            "text": "Diamantzertifizierung versus Schmuckzertifizierung",
+            "href": "/de/blog/diamond-certification-vs-jewellery-certification/"
+          },
+          {
+            "text": "In"
+          },
+          {
+            "text": "So überprüfen Sie eine IGI-Zertifikatsnummer",
+            "href": "/de/blog/how-to-verify-an-igi-certificate-number/"
+          },
+          {
+            "text": "um die Reichweite zu überprüfen."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "8. Wachstumsmethode und Behandlung sollten nicht erraten werden",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Wenn das Bewertungsdokument CVD- oder HPHT-Wachstum identifiziert und angibt, ob eine Postwachstumsbehandlung festgestellt wurde, kann die Produktseite diese Informationen genau wiedergeben. Wenn der Berichtstyp dies nicht vorsieht, sollte der Händler dies nicht aus dem Anschein schließen oder die Lücke mit Annahmen füllen."
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Der kommerziell nützliche Standard ist eine genaue Offenlegung und nicht die Behauptung, dass eine Wachstumsmethode automatisch überlegen ist. Sowohl CVD- als auch HPHT-Diamanten können in der Qualität variieren. Lesen"
+          },
+          {
+            "text": "CVD versus HPHT-Diamanten im Labor",
+            "href": "/de/blog/cvd-vs-hpht-lab-grown-diamonds/"
+          },
+          {
+            "text": "."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "heading": "9. Edelmetallspezifikationen gehören neben Diamantdetails",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Ein Käufer kauft Schmuck, nicht nur Steine. Auf der Produktseite müssen das Metall (Gold/Platin), der Feingehalt (18-karätiges Gold/950-Platin), die Metallfarbe, die Beschichtung oder Beschichtung sowie identifizierende Details angegeben sein."
+      },
+      {
+        "type": "paragraph",
+        "text": "„Weißmetall“, „Goldfinish“ oder „Premiummetall“ sind für edlen Schmuck nicht genau genug. Wenn eine Rhodinierung verwendet wird, kann in den Informationen zur Nachsorge darauf hingewiesen werden, dass das Erscheinungsbild im Laufe der Zeit möglicherweise gewartet werden muss."
+      },
+      {
+        "type": "paragraph",
+        "text": "Die Seite sollte außerdem verhindern, dass ein Bewertungsbericht mit einem Merkmal verwechselt wird. Man beschreibt bestimmte Edelsteineigenschaften; der andere bezieht sich auf den Feingehalt von Edelmetallen gemäß dem jeweiligen Punzierungssystem."
+      }
+    ]
+  },
+  {
+    "heading": "10. Maße und Passform machen das Angebot nutzbar",
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/diamond-details-product-page/2.jpg",
+        "alt": "Visualisieren Sie die Abmessungen von Ohrringen und Ringen hinsichtlich Größe und Maßstab",
+        "title": "Maß- und Passformanleitung",
+        "caption": "Die Angabe genauer physischer Abmessungen in Millimetern hilft dem Käufer, Maßstab, Falllänge und Tragbarkeit zu verstehen."
+      },
+      {
+        "type": "paragraph",
+        "text": "Das Karatgewicht kann einem Käufer nicht sagen, wie ein Ohrring sitzt, wie weit ein Anhänger fällt oder ob ein Armband bequem sitzt. Listen Sie die Messungen auf, die sich auf die Nutzung auswirken."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Produkt",
+          "Nützliche Messungen"
+        ],
+        "rows": [
+          [
+            "Ohrringe",
+            "Breite und Höhe zeigen nach oben, Falllänge, Stange oder Montageart, Paargewicht, falls sinnvoll"
+          ],
+          [
+            "Halskette",
+            "Kettenlänge, Verlängerungsbereich, Breite und Höhe des Anhängers, Verschlussart"
+          ],
+          [
+            "Armbinde",
+            "Tragbare Länge, Breite, Verschlussart und verfügbare Größen"
+          ],
+          [
+            "Ring",
+            "Verfügbare Größen, Bandbreite, Einstellhöhe und Einschränkungen bei der Größenänderung"
+          ],
+          [
+            "Schmuckset",
+            "Separate Abmessungen für jeden enthaltenen Artikel"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Verwenden Sie für das europäische Publikum Millimeter und Zentimeter, Zoll nur als sekundäre Umrechnung, wenn dies sinnvoll ist. Auch das Gewicht des fertigen Schmuckstücks kann Käufern helfen, dessen Inhalt und Komfort zu verstehen, es sollte jedoch getrennt vom Karatgewicht des Diamanten angegeben werden."
+      }
+    ]
+  },
+  {
+    "heading": "11. Einstellungs- und Montagedetails wirken sich auf den täglichen Gebrauch aus",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Der Designname allein erklärt die Konstruktion nicht. Geben Sie Informationen zu Krappen-/Lünettenstilen, Anzahl der Krappen, Ohrringverschlüsse, Kettenverschlüsse, Kettentypen, verstellbaren Komponenten und ob die Einstellungen geändert werden können."
+      },
+      {
+        "type": "paragraph",
+        "text": "Mithilfe dieser Daten können Käufer Sicherheit, Komfort, Wartung und Kompatibilität mit ihrem Lebensstil beurteilen. Sie reduzieren auch vermeidbare Renditen, die durch Annahmen verursacht werden."
+      }
+    ]
+  },
+  {
+    "heading": "12. Die Bilder müssen das ausgewählte Produkt angemessen darstellen",
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/diamond-details-product-page/3.jpg",
+        "alt": "Verwendung ehrlicher, hochwertiger Schmuckfotografie und Variantendarstellungen",
+        "title": "Wahrhaftige Produktbilder",
+        "caption": "Eine ehrliche Galerie zeigt mehrere Blickwinkel, Variantenoptionen und Maßstabsansichten ohne irreführende Bearbeitungen."
+      },
+      {
+        "type": "paragraph",
+        "text": "Starke Bilder sind Produktinformationen, keine Dekoration. Eine nützliche Galerie sollte Vorder-/Seiten-/Rückansichten, Nahaufnahmen von Einstellungen, Maßstabs- oder Körperansichten, 360-Grad-Videos und Bilder exakter Metallvarianten enthalten."
+      },
+      {
+        "type": "paragraph",
+        "text": "Die Vergrößerung sollte keinen falschen Eindruck von der tatsächlichen Größe vermitteln. Wenn Diamanten in einem technischen Bild vergrößert sind, geben Sie bitte Abmessungen oder einen Maßstabshinweis an. Vermeiden Sie Bearbeitungen, die Einschlüsse aus einem echten Steinvideo entfernen oder die scheinbare Farbe von Metall und Edelsteinen verändern."
+      }
+    ]
+  },
+  {
+    "heading": "13. Preis und Verfügbarkeit müssen vor dem Bezahlen klar sein",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Der angezeigte Preis muss mit der ausgewählten Größe, dem Metall, der Diamantoption und der Währung übereinstimmen. Bitte erläutern Sie, ob Mehrwertsteuer oder andere anfallende Steuern enthalten sind, und geben Sie vor dem Bezahlen alle unvermeidbaren Liefer- oder Produktionskosten an."
+      },
+      {
+        "type": "paragraph",
+        "text": "Zur Verfügbarkeit sollte eine präzise Formulierung verwendet werden: auf Lager und versandbereit, auf Bestellung gefertigt, zur Vorbestellung verfügbar, geschätzte Produktionszeit oder einzigartig. Kombinieren Sie Produktion und Versand nicht zu einem unerklärlichen Versprechen."
+      }
+    ]
+  },
+  {
+    "heading": "14. Liefer-, Rückgabe- und Garantieinformationen müssen leicht zugänglich sein",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Die Seite kann diese Bedingungen zusammenfassen und einen Link zur vollständigen Richtlinie enthalten. Vor der Zahlung sollte ein Käufer in der Lage sein, Versandkostenschätzungen, Lieferregionen, Details zum versicherten Versand, Zollverantwortung, Stornierungs- und Rückgabefristen, Verpackungsanforderungen, Ausschlüsse und Garantiewege zu erfahren."
+      },
+      {
+        "type": "paragraph",
+        "text": "Nach den Fernabsatzvorschriften der EU und des Vereinigten Königreichs müssen Händler vor Vertragsabschluss spezifische Informationen bereitstellen. Die genauen Rechte und Ausnahmen hängen vom Standort des Käufers und der Art der Bestellung ab. Daher sollten die Produktseite und die Richtlinien von einem qualifizierten Berater überprüft werden, anstatt sich auf eine generische Vorlage zu verlassen."
+      }
+    ]
+  },
+  {
+    "heading": "Genaue Spezifikation, Bereich oder repräsentatives Beispiel?",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Eines der wichtigsten Labels auf einer Schmuckseite wird oft übersehen. Jede Spezifikation muss in eine dieser Kategorien fallen:"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Informationstyp",
+          "Richtige Verwendung",
+          "Beispiel"
+        ],
+        "rows": [
+          [
+            "Genau",
+            "Ein einzigartiger, individuell identifizierter Artikel",
+            "„1,02 ct, F-Farbe, VS1-Reinheit“"
+          ],
+          [
+            "Minimum",
+            "Die Erfüllung garantiert mindestens dieses Niveau",
+            "„Klarheit: USA oder besser“"
+          ],
+          [
+            "Erreichen",
+            "Kleine Steine ​​oder Produktionsvarianten",
+            "„Akzentdiamanten: G-H-Farbe“"
+          ],
+          [
+            "Etwa",
+            "Handgefertigte Maße oder Gesamtgewichte",
+            "„Gesamtgewicht des Diamanten etwa 0,50 ct“"
+          ],
+          [
+            "Vertreter",
+            "Fotos oder Spezifikationen zeigen ein Modellbeispiel",
+            "„Bild zeigt die 1,00 ct-Option“"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Mischen Sie diese Kategorien nicht stillschweigend miteinander. Wenn ein Angebot einen genauen Bewertungsbericht enthält, bei der Ausführung jedoch möglicherweise ein anderer gleichwertiger Diamant verwendet wird, teilen Sie dies bitte vor dem Kauf mit und reichen Sie den Abschlussbericht zur Genehmigung ein."
+      }
+    ]
+  },
+  {
+    "heading": "Was sollte oberhalb der Falte erscheinen?",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Nicht jedes technische Feld muss neben dem Produkttitel stehen, aber der erste Bildschirm sollte die Fragen beantworten, die am wahrscheinlichsten eine Kaufentscheidung beeinflussen: Produktname, im Labor gezüchtete Herkunft, ausgewähltes Metall, Preis, Hauptkaratgewicht, Größe, Verfügbarkeit und klare Links zu Spezifikationen, Lieferung und Rücksendungen."
+      },
+      {
+        "type": "paragraph",
+        "text": "Die restlichen Details können in gut beschrifteten Akkordeons oder Tabs erfolgen. Wichtige Informationen sollten nicht in einer unabhängigen Fußzeilenrichtlinie ausgeblendet werden oder erst zugänglich sein, nachdem der Artikel in den Warenkorb gelegt wurde."
+      }
+    ]
+  },
+  {
+    "heading": "Spezifikationsvorlage für Produktseiten",
+    "content": [
+      {
+        "type": "image",
+        "src": "/images/blog/diamond-details-product-page/4.jpg",
+        "alt": "Saubere Spezifikationsvorlage für die Schmuckproduktseite",
+        "title": "Strukturvorlage für Spezifikationen",
+        "caption": "Ein strukturiertes Rasterlayout stellt gemmologische Parameter, Zertifizierungsdetails und Metallspezifikationen übersichtlich dar."
+      },
+      {
+        "type": "paragraph",
+        "text": "Einzelhändler können diese Struktur als praktischen Ausgangspunkt nutzen:"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Abschnitt",
+          "Felder"
+        ],
+        "rows": [
+          [
+            "Diamant",
+            "Herkunft, Form, Anzahl der Steine, Mittelgewicht, Akzentgewicht, Gesamtgewicht, Farbe, Reinheit, Schliffinformationen"
+          ],
+          [
+            "Zertifizierung",
+            "Labor, Dokumententyp, Berichtsnummer, Abdeckung, Registrierung, Verifizierungsweg"
+          ],
+          [
+            "Edelsteine",
+            "Identität, Herkunft, sofern bekannt, Offenlegung der Behandlung, Abmessungen oder Gewicht, Rolle bei der Gestaltung"
+          ],
+          [
+            "Metall",
+            "Art, Feinheit, Farbe, Beschichtung oder Beschichtung, Angaben zur Eigenschaft"
+          ],
+          [
+            "Abmessungen",
+            "Artikelspezifische Abmessungen, verfügbare Größen, Fertiggewicht, Toleranzen"
+          ],
+          [
+            "Bauen",
+            "Fassung, Verschluss, Rücken, Kette, verstellbare oder abnehmbare Teile"
+          ],
+          [
+            "Visuell",
+            "Tatsächlich oder repräsentativ, gezeigte Variante, maßstabsgetreue Darstellung, Video"
+          ],
+          [
+            "Erfüllung",
+            "Auf Lager oder auf Bestellung gefertigt, Produktionszeit, voraussichtlicher Versand, einschließlich Verpackung und Dokumenten"
+          ],
+          [
+            "Einkaufsbedingungen",
+            "Gesamtpreis, Steuern, Lieferung, Rückgabe, Garantie und Nachsorge"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Dies ist ein Rahmenwerk und kein Grund, Daten zu veröffentlichen, die der Verkäufer nicht überprüft hat. Unbekannte Informationen müssen ehrlich recherchiert oder beschrieben werden und dürfen nicht durch generische Kopien ergänzt werden."
+      }
+    ]
+  },
+  {
+    "heading": "Rote Fahnen auf einer Produktseite für Diamantschmuck",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Vor dem Kauf pausieren, wenn ein Angebot:"
+      },
+      {
+        "type": "bullet-list",
+        "items": [
+          "verwendet „Diamanten“, ohne seinen im Labor gezüchteten oder natürlichen Ursprung klar anzugeben;",
+          "gibt eine Karatzahl an, ohne zu sagen, ob es sich um einen Stein oder einen Gesamtkarat handelt;",
+          "sagt „zertifiziert“, gibt aber weder das Dokument noch seinen Geltungsbereich an;",
+          "wendet ohne Erklärung einen Mittelsteintyp auf jeden Diamanten an;",
+          "nennt vergoldetes Material massives Gold;",
+          "lässt Metallfeinheit aus;",
+          "verwendet nur stark vergrößerte Bilder ohne Skalierung;",
+          "zeigt eine Variation, während er stillschweigend eine andere vorträgt;",
+          "verbirgt die Produktionszeit bis nach der Bezahlung;",
+          "stellt keine zugänglichen Rückgaben oder Unternehmensinformationen bereit; oder",
+          "ohne Unterstützung technische, ethische oder wertbezogene Ansprüche geltend macht."
+        ],
+        "itemsParts": [
+          [
+            {
+              "text": "verwendet „Diamant“, ohne klar zu verraten:",
+              "bold": true
+            },
+            {
+              "text": "im Labor gezüchtet oder natürlichen Ursprungs."
+            }
+          ],
+          [
+            {
+              "text": "gibt eine Karatzahl an, ohne zu sagen:",
+              "bold": true
+            },
+            {
+              "text": "ob pro Stein oder insgesamt."
+            }
+          ],
+          [
+            {
+              "text": "sagt „zertifiziert“, aber:",
+              "bold": true
+            },
+            {
+              "text": "identifiziert weder das Dokument noch seinen Umfang."
+            }
+          ],
+          [
+            {
+              "text": "verwendet eine Art Mittelstein:",
+              "bold": true
+            },
+            {
+              "text": "für jeden Diamanten ohne Erklärung."
+            }
+          ],
+          [
+            {
+              "text": "erwähnt vergoldetes Material:",
+              "bold": true
+            },
+            {
+              "text": "massives Gold."
+            }
+          ],
+          [
+            {
+              "text": "auslassen:",
+              "bold": true
+            },
+            {
+              "text": "Metallfeinheit."
+            }
+          ],
+          [
+            {
+              "text": "verwendet nur stark vergrößerte Bilder:",
+              "bold": true
+            },
+            {
+              "text": "ohne Skalenanzeige."
+            }
+          ],
+          [
+            {
+              "text": "zeigt eine Variante:",
+              "bold": true
+            },
+            {
+              "text": "während du stillschweigend einen anderen überbringst."
+            }
+          ],
+          [
+            {
+              "text": "versteckt:",
+              "bold": true
+            },
+            {
+              "text": "Produktionszeit bis nach Zahlungseingang."
+            }
+          ],
+          [
+            {
+              "text": "Angebote:",
+              "bold": true
+            },
+            {
+              "text": "keine zugänglichen Retouren oder Unternehmensinformationen; oder"
+            }
+          ],
+          [
+            {
+              "text": "macht:",
+              "bold": true
+            },
+            {
+              "text": "technische, ethische oder wertmäßige Ansprüche ohne Unterstützung."
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Ein fehlendes kleines Maß macht einen Verkäufer nicht automatisch unzuverlässig. Viel besorgniserregender ist ein Muster aus unklarer Herkunft, Gewicht, Zertifizierung, Preis und Ertrag."
+      }
+    ]
+  },
+  {
+    "heading": "Fragen, die Sie stellen sollten, wenn Informationen fehlen",
+    "content": [
+      {
+        "type": "numbered-list",
+        "items": [
+          "Gilt das angegebene Karatgewicht für den mittleren Diamanten, jedes Exemplar oder das gesamte Stück?",
+          "Sind Farbe und Helligkeit exakte Zahlen, Mindestwerte oder Bereiche?",
+          "Bezieht sich der Beurteilungsbericht auf einen einzelnen Diamanten oder auf das gesamte Schmuckstück?",
+          "Erhalte ich den genauen Diamanten und den angezeigten Bericht?",
+          "Welche Abmessungen und welches Endgewicht hat der Artikel?",
+          "Wie hoch ist der Feingehalt und der Punzierungsstatus des Edelmetalls?",
+          "Ist der Artikel auf Lager oder wird auf Bestellung gefertigt?",
+          "Welches Bild zeigt meine ausgewählte Größe und Metallfarbe?",
+          "Was gehört zum Schmuck?",
+          "Beeinflussen benutzerdefinierte Abmessungen oder Gravuroptionen die Stornierung und Rückgabe?"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Halten Sie wesentliche Antworten schriftlich fest und vergleichen Sie sie mit der endgültigen Auftragsbestätigung."
+      }
+    ]
+  },
+  {
+    "heading": "Der Aurelia Royale-Produktinformationsstandard",
+    "content": [
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Für Aurelia Royale müssen die stärksten Produktseiten eine dezente, luxuriöse Präsentation mit präziser Offenlegung kombinieren. Die emotionale Beschreibung kann die Designinspiration und Tragbarkeit erläutern, während ein strukturierter Spezifikationsbereich die Fakten konsistent festhält."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          {
+            "text": "Die ideale Seite sollte es einem europäischen oder britischen Käufer ermöglichen, das Produkt zu verstehen, ohne den Support für grundlegende Informationen kontaktieren zu müssen. Der Support sollte persönliche Beratung bieten und keine Details bereitstellen, die bereits hätten veröffentlicht werden sollen. Käufer können dann erkunden"
+          },
+          {
+            "text": "der Schmuck von Aurelia Royale",
+            "href": "/shop/"
+          },
+          {
+            "text": "von"
+          },
+          {
+            "text": "Kontaktieren Sie Aurelia Royale",
+            "href": "/contact/"
+          },
+          {
+            "text": "für produktspezifische Hinweise."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Vor der Veröffentlichung muss jede Spezifikation auf einen Lieferantendatensatz, ein Produktionsblatt, einen verifizierten Bewertungsbericht oder ein gemessenes fertiges Muster zurückgeführt werden können. Konsistente Feldnamen für Ohrringe, Halsketten, Armbänder, Ringe und Sets verbessern den Vergleich, die Website-Suche, strukturierte Daten und das Kundenvertrauen."
+      }
+    ]
+  },
+  {
+    "heading": "Abschließende Checkliste für Käufer",
+    "content": [
+      {
+        "type": "bullet-list",
+        "items": [
+          "Ist die Herkunft des Diamanten eindeutig?",
+          "Sind Form, Anzahl der Steine ​​und Karatgewicht klar?",
+          "Werden Farbe und Helligkeit ehrlich beschrieben?",
+          "Wird die Zertifizierung erklärt, ohne ihren Umfang zu übertreiben?",
+          "Sind Metall und Feinheit identifiziert?",
+          "Kann ich die tatsächlichen Abmessungen und die Passform des Artikels nachvollziehen?",
+          "Entsprechen die Bilder der gewählten Variante und zeigen den Maßstab?",
+          "Ist der angezeigte Preis verständlich?",
+          "Sind Produktions- und Lieferzeiten getrennt und klar?",
+          "Kann ich die Rückgabe-, Garantie- und Kontaktdaten finden?",
+          "Weiß ich, welche Dokumente und Verpackungen ankommen?"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Sollten mehrere Antworten „Nein“ lauten, fordern Sie bitte die fehlenden Informationen vor der Zahlung an."
+      }
+    ]
+  },
+  {
+    "content": [
+      {
+        "type": "callout",
+        "title": "Endgültiges Urteil",
+        "theme": "gold-border",
+        "parts": [
+          {
+            "text": "Eine zuverlässige Produktseite für Diamantschmuck ersetzt Annahmen durch überprüfbare Details. Es identifiziert die Diamanten eindeutig, beschreibt das fertige Stück genau und erklärt die Kaufbedingungen. Die 4Cs sind nur ein Teil dieses Standards."
+          },
+          {
+            "text": "Der beste Eintrag ist nicht unbedingt der längste. Er ist derjenige, der die richtigen Informationen bereitstellt, genaue Zahlen und Bereiche richtig beschriftet, die Zertifizierung mit dem richtigen Diamanten verknüpft und dem Käufer ermöglicht, zu verstehen, was ankommt."
+          }
+        ]
+      },
+      {
+        "type": "faq",
+        "items": [
+          {
+            "question": "Was ist das wichtigste Diamantdetail auf einer Produktseite?",
+            "answer": "Herkunft ist grundsätzlich wichtig. Auf der Seite sollte deutlich angegeben werden, ob es sich bei dem Diamanten um einen im Labor gezüchteten oder natürlichen Diamanten handelt. Außerdem sollten Angaben zu Gewicht, Form, Qualität und Zertifizierung enthalten sein, die für den Artikel angemessen sind."
+          },
+          {
+            "question": "Soll die Nummer des Diamantzertifikats auf einer Produktseite angezeigt werden?",
+            "answer": "Für einen individuell zertifizierten Diamanten ist eine Berichtsnummer oder ein sicherer Verifizierungsprozess wertvoll. Der Verkäufer muss außerdem angeben, auf welchen physischen Diamanten sich die Meldung bezieht."
+          },
+          {
+            "question": "Benötigt jeder im Labor gezüchtete Diamantschmuck ein Zertifikat?",
+            "answer": "Nein. Diamanten mit kleinen Akzenten und Schmuck mit mehreren Steinen werden nicht immer einzeln bewertet. Auf der Seite sollte aufgeführt sein, was zertifiziert ist und was nicht und welche Dokumentation enthalten ist."
+          },
+          {
+            "question": "Soll das Karatgewicht pro Diamant oder als Gesamtgewicht angegeben werden?",
+            "answer": "Es kann beides sein, aber die Bezeichnung muss explizit sein. Bei Ohrringen sollten die Zahlen pro Stein, pro Ohrring und pro Paar angegeben werden, sofern Verwechslungen möglich sind."
+          },
+          {
+            "question": "Sind Farb- und Helligkeitsbereiche akzeptabel?",
+            "answer": "Ja, insbesondere für kleine Akzentdiamanten oder maßgeschneiderten Schmuck, vorausgesetzt, die Auswahl ist genau und klar von einer genauen Qualität für einen einzelnen Stein unterscheidbar."
+          },
+          {
+            "question": "Sollte auf einer Schmuckproduktseite das Metallgewicht aufgeführt sein?",
+            "answer": "Es ist hilfreich, den Inhalt und den Vergleich zu verstehen, aber die manuelle Nachbearbeitung und Größenanpassung kann zu Abweichungen führen. Falls angegeben, sollte das ungefähre Gewicht des fertigen Produkts angegeben werden."
+          },
+          {
+            "question": "Ist ein Gütesiegel dasselbe wie ein Diamantzertifikat?",
+            "answer": "Nein. Ein Qualitätszeichen bezieht sich auf den Feingehalt von Edelmetallen im Rahmen des geltenden Systems. In einem Diamantbewertungsbericht werden spezifische Merkmale des untersuchten Diamanten erfasst."
+          },
+          {
+            "question": "Sollten Produktfotos den genauen Diamanten zeigen?",
+            "answer": "Für einzigartige, wählbare Diamanten werden Bilder von echten Steinen bevorzugt. Bei der Verwendung von Standard- oder repräsentativen Bildern muss dies auf der Seite angegeben und die dargestellte Variante kenntlich gemacht werden."
+          },
+          {
+            "question": "Welche Maße sollten bei Diamantohrringen angegeben werden?",
+            "answer": "Zu den nützlichen Details gehören die Breite und Höhe bis zur Oberseite, die Tropfenlänge, die Befestigungsart und ob die Maße oder das Gewicht für jeden Ohrring oder für das Paar gelten."
+          },
+          {
+            "question": "Was bedeutet „zertifizierter Diamantschmuck“?",
+            "answer": "Der Satz selbst ist unvollständig. Die Seite sollte das Dokument und den Herausgeber identifizieren und angeben, ob es sich um einen Diamanten, mehrere Steine ​​oder einen anderen Aspekt des Endprodukts handelt."
+          },
+          {
+            "question": "Sollten Mehrwertsteuer und Versandkosten auf der Produktseite erscheinen?",
+            "answer": "Der Kunde muss den Gesamtpreis, die anfallenden Steuern und die unvermeidbaren Zusatzkosten vor Abgabe der Bestellung nachvollziehen können. Die Präsentationsanforderungen hängen vom Markt ab."
+          },
+          {
+            "question": "Was soll ich tun, wenn wichtige Produktdetails fehlen?",
+            "answer": "Bitten Sie den Händler vor dem Kauf um eine schriftliche Erklärung. Wenn Herkunft, Gewicht, Metall, Zertifizierungsumfang, Gesamtpreis oder Rückgabebedingungen unklar bleiben, ziehen Sie ein anderes Produkt oder einen anderen Verkäufer in Betracht."
+          }
+        ]
+      },
+      {
+        "type": "cta-banner",
+        "title": "Entdecken Sie vollständig präsentierten edlen Schmuck",
+        "subtitle": "Vollständige Spezifikationen, unabhängige Zertifizierungsdetails und Informationen zu Premium-Metallen finden Sie auf jeder Produktseite bei Aurelia Royale.",
+        "shopHref": "/shop/",
+        "contactHref": "/contact/"
+      }
+    ]
+  }
+]

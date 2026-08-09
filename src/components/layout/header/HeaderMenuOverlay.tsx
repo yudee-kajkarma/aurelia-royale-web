@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTranslation } from "@/utils/i18n";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { ShoppingBag, UserRound, X } from "lucide-react";
 import { HeaderLogo } from "@/components/layout/header/HeaderLogo";
@@ -177,6 +178,7 @@ export function HeaderMenuOverlay({
     onLogout,
     onActivatePanel,
 }: HeaderMenuOverlayProps) {
+    const { t, localizeHref } = useTranslation();
     const isAdmin = isAdminRole(user?.role);
     const listVariants = reduceMotion ? undefined : desktopListVariants;
     const mobileVariants = reduceMotion ? undefined : mobileListVariants;
@@ -186,11 +188,11 @@ export function HeaderMenuOverlay({
     const tileVariants = reduceMotion ? undefined : cardItemVariants;
     const pathname = usePathname();
     const desktopSidebarItems = [
-        { href: "/", label: "HOME" },
-        { href: "/about", label: "ABOUT" },
-        { href: "/shop", label: "SHOP" },
-        { href: "/contact", label: "CONTACT" },
-        { href: "/blog", label: "BLOG" },
+        { href: "/", label: t("navigation.home").toUpperCase() },
+        { href: "/about", label: t("navigation.about").toUpperCase() },
+        { href: "/shop", label: t("navigation.shop").toUpperCase() },
+        { href: "/contact", label: t("navigation.contact").toUpperCase() },
+        { href: "/blog", label: t("navigation.blog").toUpperCase() },
     ];
     const mobileAdminItems = isAdmin
         ? ADMIN_NAV_ITEMS.map((item) => ({
@@ -317,7 +319,7 @@ export function HeaderMenuOverlay({
                                                     variants={itemVariants}
                                                 >
                                                     <Link
-                                                        href={item.href}
+                                                        href={localizeHref(item.href)}
                                                         className={`display-font inline-block border-b border-transparent px-1 transition ${isActive ? "text-[#0f5f49] border-[#0f5f49]" : "hover:text-[#0f5f49]"}`}
                                                         onClick={onCloseMenu}
                                                     >
@@ -388,7 +390,7 @@ export function HeaderMenuOverlay({
                                             variants={itemVariants}
                                         >
                                             <Link
-                                                href={item.href}
+                                                href={localizeHref(item.href)}
                                                 className="block border border-[#d6d6ca] bg-white/70 px-4 py-3 text-center transition hover:border-[#0e5b45] hover:text-[#0e5b45]"
                                                 onClick={onCloseMenu}
                                             >
@@ -408,8 +410,8 @@ export function HeaderMenuOverlay({
                                     exit={reduceMotion ? undefined : "exit"}
                                 >
                                     {activePanel === "category"
-                                        ? "Shop By Category"
-                                        : "Shop By Edition"}
+                                        ? t("home.shopByCategory")
+                                        : t("home.shopByEdition")}
                                 </motion.h2>
 
                                 <motion.div
@@ -472,7 +474,7 @@ export function HeaderMenuOverlay({
                                                 details here.
                                             </p>
                                             <Link
-                                                href="/login"
+                                                href={localizeHref("/login")}
                                                 className="mt-4 inline-flex rounded-full border border-white/25 px-5 py-2 text-sm font-semibold transition hover:border-gold hover:text-gold"
                                                 onClick={onCloseMenu}
                                             >

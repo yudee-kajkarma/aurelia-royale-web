@@ -1,16 +1,77 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
-export const metadata: Metadata = {
-  title: "Lab-Grown vs Natural Diamonds: Complete Comparison",
-  description: "Compare lab-grown and natural diamonds by origin, appearance, quality, price, durability, grading, value and environmental considerations.",
+export const metadataEn: Metadata = {
+  title: "Lab Grown Vs Natural Diamonds",
+  description: "Lab Grown Vs Natural Diamonds",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/lab-grown-vs-natural-diamonds/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "Diamantes cultivados en laboratorio versus diamantes naturales",
+  description: "Diamantes cultivados en laboratorio versus diamantes naturales - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/lab-grown-vs-natural-diamonds/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Diamants cultivés en laboratoire ou diamants naturels",
+  description: "Diamants cultivés en laboratoire ou diamants naturels - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/lab-grown-vs-natural-diamonds/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "In het laboratorium gekweekte versus natuurlijke diamanten",
+  description: "In het laboratorium gekweekte versus natuurlijke diamanten - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/lab-grown-vs-natural-diamonds/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "Im Labor gezüchtete Diamanten im Vergleich zu natürlichen Diamanten",
+  description: "Im Labor gezüchtete Diamanten im Vergleich zu natürlichen Diamanten - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/lab-grown-vs-natural-diamonds/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Diamanti creati in laboratorio contro diamanti naturali",
+  description: "Esplora il confronto definitivo. Scopri le identiche proprietà fisiche di entrambi, le differenze ecologiche e la differenza di prezzo. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/lab-grown-vs-natural-diamonds/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+  const localeData = getBlogDataByLocale("lab-grown-vs-natural-diamonds", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. The exact JSON-LD Schema you provided
 const schemaMarkup = {
@@ -524,23 +585,30 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function Blog5Page() {
+export default async function Blog5Page({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const localeData = getBlogDataByLocale("lab-grown-vs-natural-diamonds", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Lab-Grown Diamond Education
+            {locale === "it" ? "Guide all'Acquisto" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Éducation sur les diamants" : locale === "es" ? "Educación sobre diamantes cultivados en laboratorio" : "Lab-Grown Diamond Education"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            Lab-Grown vs Natural Diamonds
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
             Complete Comparison • Published July 14, 2026
@@ -549,7 +617,7 @@ export default function Blog5Page() {
       </section>
 
       {/* Render Dynamic Article */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

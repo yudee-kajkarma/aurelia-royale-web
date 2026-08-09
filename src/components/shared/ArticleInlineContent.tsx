@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { useTranslation } from "@/utils/i18n";
 
 export type InlinePart = {
   text: string;
@@ -14,6 +15,8 @@ export const ArticleInlineContent: React.FC<{ text?: string; parts?: InlinePart[
   text,
   parts,
 }) => {
+  const { localizeHref } = useTranslation();
+
   if (parts && parts.length > 0) {
     return (
       <>
@@ -28,9 +31,13 @@ export const ArticleInlineContent: React.FC<{ text?: string; parts?: InlinePart[
           }
           if (part.href) {
             element = (
-              <Link href={part.href} className="text-gold hover:underline transition-colors duration-300">
-                {element}
-              </Link>
+              <>
+                {" "}
+                <Link href={localizeHref(part.href)} className="text-gold hover:underline transition-colors duration-300">
+                  {element}
+                </Link>
+                {" "}
+              </>
             );
           }
 

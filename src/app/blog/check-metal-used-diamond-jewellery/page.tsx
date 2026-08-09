@@ -1,16 +1,77 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata
-export const metadata: Metadata = {
-  title: "How to Check the Metal Used in Diamond Jewellery",
-  description: "Learn how to identify gold, platinum, silver and plated jewellery using product details, fineness marks, hallmarks, weight and professional testing.",
+export const metadataEn: Metadata = {
+  title: "Check Metal Used Diamond Jewellery",
+  description: "Check Metal Used Diamond Jewellery",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/check-metal-used-diamond-jewellery/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "Verifique las joyas de diamantes usadas en metal",
+  description: "Verifique las joyas de diamantes usadas en metal - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/check-metal-used-diamond-jewellery/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Vérifier les bijoux en diamants d'occasion en métal",
+  description: "Vérifier les bijoux en diamants d'occasion en métal - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/check-metal-used-diamond-jewellery/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Controleer metaal gebruikte diamanten sieraden",
+  description: "Controleer metaal gebruikte diamanten sieraden - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/check-metal-used-diamond-jewellery/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "Überprüfen Sie gebrauchten Diamantschmuck aus Metall",
+  description: "Überprüfen Sie gebrauchten Diamantschmuck aus Metall - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/check-metal-used-diamond-jewellery/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Come controllare il metallo utilizzato nei tuoi gioielli con diamanti",
+  description: "Scopri le differenze tra platino e oro 18 carati, come verificare i segni distintivi di purezza e come scegliere il metallo giusto per il tono della tua pelle e il tuo stile di vita. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/check-metal-used-diamond-jewellery/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+  const localeData = getBlogDataByLocale("check-metal-used-diamond-jewellery", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. JSON-LD Schema
 const schemaMarkup = {
@@ -689,32 +750,39 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function CheckMetalUsedPage() {
+export default async function CheckMetalUsedPage({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const localeData = getBlogDataByLocale("check-metal-used-diamond-jewellery", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Buying Lab-Grown Diamond Jewellery
+            {locale === "it" ? "Guide all'Acquisto" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Buying Lab-Grown Diamond Jewellery" : locale === "es" ? "Comprar joyas de diamantes cultivados en laboratorio" : "Buying Lab-Grown Diamond Jewellery"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How to Check the Metal Used in Diamond Jewellery
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Educational Guide • Published July 16, 2026
+            {locale === "it" ? "Journal • Pubblicato il 16 luglio 2026" : locale === "fr" ? "Guide Éducatif • Publié le 16. Juli 2026" : locale === "es" ? "Guía Educativa • Publicado el 16 de julio de 2026" : "Educational Guide • Published July 16, 2026"}
           </p>
         </div>
       </section>
 
       {/* Content Layout */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

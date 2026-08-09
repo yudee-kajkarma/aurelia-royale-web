@@ -1,16 +1,75 @@
+import { getBlogDataByLocale } from "@/utils/getBlogData";
 import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
 // 1. SEO Metadata for Search Engines
-export const metadata: Metadata = {
-  title: "How Are Lab-Grown Diamonds Graded?",
-  description: "Follow the lab-grown diamond grading process from origin screening and the 4Cs to fluorescence, treatments, inscription and the final report.",
+export const metadataEn: Metadata = {
+  title: "How Lab Grown Diamonds Are Graded",
+  description: "How Lab Grown Diamonds Are Graded",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/",
   },
 };
+
+export const metadataEs: Metadata = {
+  title: "Cómo se clasifican los diamantes cultivados en laboratorio",
+  description: "Cómo se clasifican los diamantes cultivados en laboratorio - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/how-lab-grown-diamonds-are-graded/",
+  },
+};
+
+export const metadataFr: Metadata = {
+  title: "Comment les diamants cultivés en laboratoire sont classés",
+  description: "Comment les diamants cultivés en laboratoire sont classés - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/how-lab-grown-diamonds-are-graded/",
+  },
+};
+
+export const metadataNl: Metadata = {
+  title: "Hoe in het laboratorium gekweekte diamanten worden beoordeeld",
+  description: "Hoe in het laboratorium gekweekte diamanten worden beoordeeld - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/how-lab-grown-diamonds-are-graded/",
+  },
+};
+
+
+
+export const metadataDe: Metadata = {
+  title: "Wie im Labor gezüchtete Diamanten bewertet werden",
+  description: "Wie im Labor gezüchtete Diamanten bewertet werden - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/de/blog/how-lab-grown-diamonds-are-graded/",
+  },
+};
+
+
+export const metadataIt: Metadata = {
+  title: "Come vengono classificati i diamanti creati in laboratorio?",
+  description: "Scopri come le istituzioni gemmologiche internazionali applicano gli stessi standard di classificazione di taglio, colore e purezza delle pietre naturali. - Aurelia Royale",
+  alternates: {
+    canonical: "https://www.aureliaroyale.com/it/blog/how-lab-grown-diamonds-are-graded/",
+  },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ locale?: string }> }): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  if (locale === "it") return metadataIt;
+
+  if (locale === "de") return metadataDe;
+  if (locale === "nl") return metadataNl;
+  if (locale === "fr") return metadataFr;
+  if (locale === "es") return metadataEs;
+  return metadataEn;
+};
+
+
+
 
 // 2. The exact JSON-LD Schema
 const schemaMarkup = {
@@ -941,32 +1000,39 @@ const articleSections: ArticleSection[] = [
   }
 ];
 
-export default function Page() {
+export default async function Page({ searchParams }: { searchParams: Promise<{ locale?: string }> }) {
+  const resolvedSearchParams = await searchParams;
+  const locale = resolvedSearchParams.locale ?? "en";
+  const schema = locale === "es" ? schemaMarkup : schemaMarkup;
+
+  const localeData = getBlogDataByLocale("how-lab-grown-diamonds-are-graded", locale);
+  const sections = localeData && localeData.length > 0 ? localeData : articleSections;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
       {/* Script injection for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Certification and Diamond Quality
+            {locale === "it" ? "Guide all'Acquisto" : locale === "de" ? "Schmuckpflege und Wartung" : locale === "nl" ? "Sieradenonderhoud en Verzorging" : locale === "fr" ? "Certification & Qualité" : locale === "es" ? "Certificación y Calidad del Diamante" : "Certification and Diamond Quality"}
           </span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How Are Lab-Grown Diamonds Graded?
+            {locale === "it" ? (typeof metadataIt.title === "string" ? metadataIt.title : "") : locale === "de" ? (typeof metadataDe.title === "string" ? metadataDe.title : "") : locale === "nl" ? (typeof metadataNl.title === "string" ? metadataNl.title : "") : locale === "fr" ? (typeof metadataFr.title === "string" ? metadataFr.title : "") : locale === "es" ? (typeof metadataEs.title === "string" ? metadataEs.title : "") : (typeof metadataEn.title === "string" ? metadataEn.title : "")}
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 15, 2026
+            {locale === "it" ? "Journal • Pubblicato il 15 luglio 2026" : locale === "de" ? "Journal • Veröffentlicht am 16. Juli 2026" : locale === "nl" ? "Journaal • Gepubliceerd op 16 juli 2026" : locale === "fr" ? "Journal • Publié le 16. Juli 2026" : locale === "es" ? "Diario • Publicado el 16 de julio de 2026" : "Journal • Published July 16, 2026"}
           </p>
         </div>
       </section>
 
       {/* Content Layout */}
-      <DynamicArticle sections={articleSections} />
+      <DynamicArticle sections={sections} />
 
       {/* Footer Newsletter Section */}
       <NewsletterSection />

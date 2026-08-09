@@ -1,23 +1,24 @@
 import { City, Country, State } from "country-state-city";
 
 export type CountryOption = {
-    code: string;
-    name: string;
+    value: string;
+    label: string;
 };
 
 export type StateOption = {
-    code: string;
-    name: string;
+    value: string;
+    label: string;
 };
 
 export type CityOption = {
-    name: string;
+    value: string;
+    label: string;
 };
 
 export function getCountryOptions(): CountryOption[] {
     return Country.getAllCountries().map((country) => ({
-        code: country.isoCode,
-        name: country.name,
+        value: country.isoCode,
+        label: country.name,
     }));
 }
 
@@ -27,8 +28,8 @@ export function getStateOptions(countryCode: string): StateOption[] {
     }
 
     return State.getStatesOfCountry(countryCode).map((state) => ({
-        code: state.isoCode,
-        name: state.name,
+        value: state.isoCode,
+        label: state.name,
     }));
 }
 
@@ -41,6 +42,7 @@ export function getCityOptions(
     }
 
     return City.getCitiesOfState(countryCode, stateCode).map((city) => ({
-        name: city.name,
+        value: city.name,
+        label: city.name,
     }));
 }

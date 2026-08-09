@@ -1,0 +1,238 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Over Ons",
+    "shop": "Winkel",
+    "contact": "Contact",
+    "blog": "Blog"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "Over Ons",
+    "shop": "Winkel",
+    "contact": "Contact",
+    "blog": "Blog"
+  },
+  "hero": {
+    "titleLine1": "GEDRAGEN MET ",
+    "titleLine2": "INTENTIE.",
+    "description": "Elk stuk is een fluistering van erfgoed, gevormd door ambachtslieden die tientallen jaren hebben besteed aan het perfectioneren van de kunst van edelmetaal en edelstenen.",
+    "cta": "Nu Winkelen"
+  },
+  "marquee": {
+    "shipping": "Wereldwijde Verzending",
+    "diamond": "Laboratoriumdiamant",
+    "jewelry": "Fijne Juwelen",
+    "crafted": "Handgemaakt",
+    "certified": "Gecertificeerd"
+  },
+  "home": {
+    "findNewIn": "Ontdek Nieuwe Collecties",
+    "topTrending": "Populairste Trends",
+    "viewAllPieces": "Bekijk Alle Stukken",
+    "curatedForYou": "Speciaal voor Jou Geselecteerd",
+    "shopByEdition": "Winkel op Editie",
+    "ourCategories": "Onze Categorieën",
+    "shopByCategory": "Winkel op Categorie",
+    "noPiecesAvailable": "Er zijn nog geen stukken beschikbaar in deze categorie."
+  },
+  "editions": {
+    "classic": {
+      "tag": "Tijdloos",
+      "title": "Klassieke Editie",
+      "description": "Tijdloze diamantjuwelen ontworpen voor een moeiteloze elegantie."
+    },
+    "limited": {
+      "tag": "Exclusief",
+      "title": "Gelimiteerde Editie",
+      "description": "Individueel genummerde creaties. Eenmaal verkocht, nooit meer nagemaakt."
+    },
+    "rare": {
+      "tag": "Handtekening",
+      "title": "Zeldzame Editie",
+      "description": "Unieke meesterwerken met onze fijnste laboratoriumdiamanten."
+    }
+  },
+  "editionsList": {
+    "classic": "Klassiek",
+    "limited": "Gelimiteerde Editie",
+    "rare": "Zeldzaam",
+    "timeless": "Tijdloos"
+  },
+  "categories": {
+    "all": "Alles",
+    "bracelet": "Armbanden",
+    "bracelets": "Armbanden",
+    "earring": "Oorbellen",
+    "earrings": "Oorbellen",
+    "necklace": "Kettingen",
+    "necklaces": "Kettingen",
+    "pendant": "Hangers",
+    "pendants": "Hangers",
+    "ring": "Ringen",
+    "rings": "Ringen",
+    "set": "Sets",
+    "sets": "Sets"
+  },
+  "testimonial": {
+    "label": "Klantbeoordeling",
+    "title": "Wat Onze Klanten Zeggen"
+  },
+  "testimonials": {
+    "isabelle": {
+      "location": "Amsterdam, Nederland",
+      "quote": "De oorbellen die ik ontving overtroffen alles wat ik me had voorgesteld — tot in de perfectie gemaakt en prachtig verpakt. Aurelia Royale belichaamt echt pure klasse."
+    },
+    "alexander": {
+      "location": "Utrecht, Nederland",
+      "quote": "Uitstekende service en elegante afwerking maakten elke bestelling gedenkwaardig. Hun ontwerptaal voelt tijdloos aan en blijft modern en draagbaar."
+    }
+  },
+  "newsletter": {
+    "label": "Blijf op de Hoogte",
+    "title": "Ontvang Onze Nieuwste Updates",
+    "description": "Wees de eerste die onze nieuwe collecties, exclusieve evenementen en privileges voor onze besloten kring ontdekt.",
+    "placeholder": "Uw E-mailadres",
+    "subscribe": "Aanmelden",
+    "successMessage": "Bedankt voor uw inschrijving op onze nieuwsbrief!",
+    "requiredEmail": "Vul dit veld in.",
+    "invalidEmail": "Voer een geldig e-mailadres in."
+  },
+  "footer": {
+    "slogan": "Fijne juwelen ontworpen voor degenen die bovenal schoonheid, erfgoed en duurzaamheid waarderen.",
+    "copyright": "Copyright 2026 Aurelia Royale. All rights reserved by Aurelia Royale."
+  },
+  "about": {
+    "heroTitle": "Over Ons",
+    "tag": "Over Ons",
+    "heading": "Een Erfgoed van Fijn Ambacht.",
+    "p1": "Bij Aurelia Royale is elegantie meer dan een stijl — het is een statement van tijdloze verfijning. Onze collectie is ontworpen om moderne luxe te vieren met fijn afgewerkte sieraden die hedendaagse kunst combineren met klassieke charme. Elk detail weerspiegelt genade, zelfvertrouwen en geraffineerde schoonheid voor wie exclusiviteit waardeeert.",
+    "p2": "Wij geloven dat sieraden persoonlijk, gedenkwaardig en moeiteloos luxueus moeten voelen. Van opvallende ringen tot verfijnde kettingen en schitterende oorbellen brengt Aurelia Royale vakmanschap en hoogwaardige esthetiek samen om stukken te creëren die elke gelegenheid verheffen. Ontworpen voor de moderne muse, belichamen onze ontwerpen luxe met een minimalistische toets.",
+    "stat1Label": "Jaar Ervaring",
+    "stat2Label": "Exclusieve Ontwerpen",
+    "stat3Label": "Sieraden Liefhebbers",
+    "philosophyTag": "Onze Filosofie",
+    "philosophyHeading1": "Wij Geloven Dat Sieraden Geen Decoratie Zijn",
+    "philosophyHeading2": "Het Is Een Blijvende Herinnering.",
+    "philo1Title": "Oncompromisloze Kwaliteit",
+    "philo1Body": "Elke edelsteen wordt handmatig geselecteerd door onze meester-gemmoloog. Elk metaal wordt getest en gekeurd. Wij accepteren alleen het werkelijk buitengewone.",
+    "philo2Title": "Ethische Herkomst",
+    "philo2Body": "Onze toeleveringsketen wordt onafhankelijk gecontroleerd om te garanderen dat geen conflictmineralen of uitbuitingspraktijken deel uitmaken van uw sieraden.",
+    "philo3Title": "Tijdloos Ontwerp",
+    "philo3Body": "Wij weerstaan vluchtige trends. Onze stukken zijn ontworpen om gedragen te worden door uw dochter en die van haar — vormen die er over vijftig jaar net zo relevant uitzien als vandaag."
+  },
+  "contact": {
+    "heroTitle": "Neem Contact Op",
+    "home": "Home",
+    "infoTag": "Contactgegevens",
+    "getInTouch": "Neem Contact Met Ons Op",
+    "firstNamePlaceholder": "Uw Voornaam *",
+    "lastNamePlaceholder": "Achternaam *",
+    "emailPlaceholder": "E-mailadres",
+    "phonePlaceholder": "Telefoonnummer *",
+    "messagePlaceholder": "Schrijf Uw Bericht",
+    "submit": "Nu Verzenden",
+    "findUsTag": "Vind Ons",
+    "locationMap": "Locatiekaart"
+  },
+  "profile": {
+    "welcome": "Welkom",
+    "welcomeText": "Meld u aan om toegang te krijgen tot uw profiel, bestellingen, verlanglijst en aankoopgeschiedenis.",
+    "login": "Inloggen",
+    "register": "Registreren",
+    "signedIn": "Ingelogd",
+    "myProfile": "Mijn Profiel",
+    "role": "Rol",
+    "adminDashboard": "Admin Dashboard",
+    "userProfile": "Profiel",
+    "logout": "Uitloggen"
+  },
+  "auth": {
+    "backToHome": "Terug naar Home",
+    "signInTab": "Inloggen",
+    "registerTab": "Registreren",
+    "welcomeBack": "Welkom Terug",
+    "loginHeading": "Log In Op Uw Account.",
+    "loginDescription": "Bekijk uw collectie, volg uw bestellingen en beheer uw maatwerkverzoeken op één plek.",
+    "emailLabel": "E-mailadres",
+    "passwordLabel": "Wachtwoord",
+    "passwordPlaceholder": "Uw wachtwoord",
+    "forgotPassword": "Wachtwoord vergeten?",
+    "signingIn": "Inloggen...",
+    "signInButton": "Login",
+    "dontHaveAccount": "Heeft u geen account?",
+    "createOne": "Maak een",
+    "joinCircle": "Sluit je aan bij de Cirkel",
+    "registerHeading": "Maak uw account aan.",
+    "registerDescription": "Maak uw sieradenaccount aan, voeg uw standaardadres toe en verifieer vervolgens de OTP-code die naar uw e-mail is verzonden.",
+    "usernameLabel": "Gebruikersnaam",
+    "usernamePlaceholder": "Uw gebruikersnaam",
+    "firstNameLabel": "Naam",
+    "firstNamePlaceholder": "Naam",
+    "lastNameLabel": "Achternaam",
+    "lastNamePlaceholder": "Achternaam",
+    "confirmPasswordLabel": "Bevestig Wachtwoord",
+    "confirmPasswordPlaceholder": "Voer het wachtwoord opnieuw in",
+    "countryCodeLabel": "Landcode",
+    "selectCountryCode": "Selecteer de landcode",
+    "phoneNumberLabel": "Telefoonnummer",
+    "phoneNumberPlaceholder": "Telefoonnummer",
+    "defaultAddressHeading": "Standaardadres",
+    "countryLabel": "Land",
+    "selectCountry": "Selecteer het land",
+    "stateLabel": "Staat/Provincie",
+    "selectState": "Selecteer de staat",
+    "streetLabel": "Straat",
+    "streetPlaceholder": "straatadres",
+    "cityLabel": "Stad",
+    "cityPlaceholder": "Selecteer of typ een stad",
+    "postalCodeLabel": "Postcode",
+    "postalCodePlaceholder": "Postcode",
+    "creatingAccount": "Account aanmaken...",
+    "registerButton": "Register",
+    "alreadyHaveAccount": "Heeft u al een account?",
+    "recoverAccountHeading": "Herstel uw account",
+    "recoverAccountDescription": "Stuur een OTP-code naar uw e-mailadres, verifieer deze hier en stel veilig een nieuw wachtwoord in.",
+    "backToLogin": "Keer terug naar Inloggen",
+    "resetPasswordHeading": "Wachtwoord opnieuw instellen",
+    "resetPasswordDescription": "Stuur een OTP-code naar uw e-mailadres en gebruik deze hier met uw nieuwe wachtwoord om weer toegang te krijgen.",
+    "enterEmailPlaceholder": "Voer uw e-mailadres in",
+    "sendOtpButton": "OTP verzenden",
+    "sendingOtp": "Verzenden...",
+    "otpCodeLabel": "OTP-code",
+    "enterOtpPlaceholder": "Voer het OTP in",
+    "newPasswordLabel": "Nieuw wachtwoord",
+    "enterNewPasswordPlaceholder": "Voer het nieuwe wachtwoord in",
+    "resetting": "Herstellen...",
+    "resetPasswordButton": "Wachtwoord opnieuw instellen",
+    "backToSignIn": "Opnieuw inloggen?",
+    "loginHere": "Log hier in",
+    "enterEmailFirst": "Voer eerst uw e-mailadres in.",
+    "otpSent": "De OTP-code is naar uw e-mailadres verzonden.",
+    "requiredFields": "Vul alle verplichte velden in.",
+    "resetSuccess": "Wachtwoord opnieuw instellen gelukt. U kunt nu inloggen."
+  },
+  "validation": {
+    "required": "Vul dit veld in.",
+    "emailMismatch": "Voer een geldig e-mailadres in."
+  },
+  "blog": {
+    "journal": "Aurelia Journaal",
+    "title": "Gidsen & Inzichten",
+    "description": "Verken onze collectie artikelen, gidsen van experts en maattips om uw laboratoriumdiamanten te kiezen en te onderhouden.",
+    "searchPlaceholder": "Zoek artikelen...",
+    "readArticle": "Lees Artikel",
+    "noArticles": "Geen Artikelen Gevonden",
+    "noArticlesDesc": "Probeer uw zoekopdracht of geselecteerde categorie aan te passen.",
+    "exploreCollection": "Ontdek de Collectie",
+    "consultExpert": "Raadpleeg een Expert",
+    "faqTitle": "Veelgestelde Vragen",
+    "categories": {
+      "All": "Alles",
+      "Diamond Education": "Diamant Educatie",
+      "Sizing & Fit": "Maat & Pasvorm",
+      "Certification & Quality": "Certificering & Kwaliteit",
+      "Buying Guides": "Koopgidsen"
+    }
+  }
+}
