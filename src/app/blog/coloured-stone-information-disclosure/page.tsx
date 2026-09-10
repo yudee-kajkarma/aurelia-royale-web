@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -34,8 +35,7 @@ const schemaMarkup = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
         { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Coloured Stones and Diamonds", "item": "https://www.aureliaroyale.com/blog/category/coloured-stones-and-diamonds/" },
-        { "@type": "ListItem", "position": 4, "name": "Why Coloured-Stone Information Should Be Disclosed", "item": "https://www.aureliaroyale.com/blog/coloured-stone-information-disclosure/" }
+        { "@type": "ListItem", "position": 3, "name": "Why Coloured-Stone Information Should Be Disclosed", "item": "https://www.aureliaroyale.com/blog/coloured-stone-information-disclosure/" }
       ]
     },
     {
@@ -140,7 +140,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Separate geological origin from treatment status. For details on lab grading, see " },
-          { text: "how lab-grown diamonds should be described and disclosed", href: "/blog/lab-grown-diamond-description-disclosure/" },
+          { text: "how lab-grown diamonds should be described and disclosed", href: "/blog/how-lab-grown-diamonds-should-be-disclosed/" },
           { text: "." }
         ]
       }
@@ -463,6 +463,8 @@ export default function Page() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="coloured-stone-information-disclosure" />
       <NewsletterSection />
     </main>
   );

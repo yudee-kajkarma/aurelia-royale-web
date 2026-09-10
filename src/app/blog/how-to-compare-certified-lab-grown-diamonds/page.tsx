@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -79,8 +80,7 @@ const schemaMarkup = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
         { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Certification and Diamond Quality", "item": "https://www.aureliaroyale.com/blog/category/certification-and-diamond-quality/" },
-        { "@type": "ListItem", "position": 4, "name": "How to Compare Two Certified Lab-Grown Diamonds", "item": "https://www.aureliaroyale.com/blog/how-to-compare-certified-lab-grown-diamonds/" }
+        { "@type": "ListItem", "position": 3, "name": "How to Compare Two Certified Lab-Grown Diamonds", "item": "https://www.aureliaroyale.com/blog/how-to-compare-certified-lab-grown-diamonds/" }
       ]
     },
     {
@@ -282,7 +282,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "A report number appearing in a legitimate database proves that the record exists. It does not alone prove that a different physical stone has not been given a copied inscription. For higher-risk or secondary-market transactions, professional examination should match identifying characteristics as well. Use " },
-          { text: "how to verify an IGI certificate number", href: "/blog/how-to-verify-an-igi-certificate-number/" },
+          { text: "how to verify an IGI certificate number", href: "/blog/verify-igi-certificate-number/" },
           { text: " and " },
           { text: "what a diamond laser inscription is", href: "/blog/diamond-laser-inscription/" },
           { text: " for the complete process." }
@@ -956,6 +956,8 @@ export default function Page() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="how-to-compare-certified-lab-grown-diamonds" />
       <NewsletterSection />
     </main>
   );

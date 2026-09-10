@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -34,8 +35,7 @@ const schemaMarkup = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
         { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Coloured Stones and Diamonds", "item": "https://www.aureliaroyale.com/blog/category/coloured-stones-and-diamonds/" },
-        { "@type": "ListItem", "position": 4, "name": "What Does Diamond Accents Mean in Jewellery?", "item": "https://www.aureliaroyale.com/blog/diamond-accents-meaning/" }
+        { "@type": "ListItem", "position": 3, "name": "What Does Diamond Accents Mean in Jewellery?", "item": "https://www.aureliaroyale.com/blog/diamond-accents-meaning/" }
       ]
     },
     {
@@ -151,7 +151,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Confirm if accents are natural, lab-grown, or simulated. For disclosure terminology, see " },
-          { text: "how lab-grown diamonds should be described and disclosed", href: "/blog/lab-grown-diamond-description-disclosure/" },
+          { text: "how lab-grown diamonds should be described and disclosed", href: "/blog/how-lab-grown-diamonds-should-be-disclosed/" },
           { text: "." }
         ]
       }
@@ -190,7 +190,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Compare individual count sizes rather than the combined total carats. Review details at " },
-          { text: "total carat weight in diamond jewellery", href: "/blog/total-carat-weight-diamond-jewellery/" },
+          { text: "total carat weight in diamond jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" },
           { text: "." }
         ]
       }
@@ -427,6 +427,8 @@ export default function Page() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="diamond-accents-meaning" />
       <NewsletterSection />
     </main>
   );

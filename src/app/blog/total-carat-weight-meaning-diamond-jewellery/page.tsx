@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -79,8 +80,7 @@ const schemaMarkup = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
         { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Certification and Diamond Quality", "item": "https://www.aureliaroyale.com/blog/category/certification-and-diamond-quality/" },
-        { "@type": "ListItem", "position": 4, "name": "What Does Total Carat Weight Mean in Diamond Jewellery?", "item": "https://www.aureliaroyale.com/blog/total-carat-weight-meaning-diamond-jewellery/" }
+        { "@type": "ListItem", "position": 3, "name": "What Does Total Carat Weight Mean in Diamond Jewellery?", "item": "https://www.aureliaroyale.com/blog/total-carat-weight-meaning-diamond-jewellery/" }
       ]
     },
     {
@@ -471,6 +471,8 @@ export default function Blog32Page() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="total-carat-weight-meaning-diamond-jewellery" />
       <NewsletterSection />
     </main>
   );

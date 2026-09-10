@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -79,8 +80,7 @@ const schemaMarkup = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
         { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Certification and Diamond Quality", "item": "https://www.aureliaroyale.com/blog/category/certification-and-diamond-quality/" },
-        { "@type": "ListItem", "position": 4, "name": "How Are Lab-Grown Diamonds Graded?", "item": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/" }
+        { "@type": "ListItem", "position": 3, "name": "How Are Lab-Grown Diamonds Graded?", "item": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/" }
       ]
     },
     {
@@ -495,7 +495,7 @@ const articleSections: ArticleSection[] = [
           { text: "The final report becomes available in print, digital form or both, depending on the laboratory and service. Buyers should verify it through the issuing laboratory’s official database. Read " },
           { text: "what a diamond laser inscription is", href: "/blog/diamond-laser-inscription/" },
           { text: " and " },
-          { text: "how to verify an IGI certificate number", href: "/blog/how-to-verify-an-igi-certificate-number/" },
+          { text: "how to verify an IGI certificate number", href: "/blog/verify-igi-certificate-number/" },
           { text: "." }
         ]
       }
@@ -969,6 +969,8 @@ export default function Page() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="how-lab-grown-diamonds-are-graded" />
       <NewsletterSection />
     </main>
   );

@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -78,8 +79,7 @@ const schemaMarkup = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
         { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Buying Lab-Grown Diamond Jewellery", "item": "https://www.aureliaroyale.com/blog/category/buying-lab-grown-diamond-jewellery/" },
-        { "@type": "ListItem", "position": 4, "name": "How to Compare Lab-Grown Diamond Jewellery Online", "item": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/" }
+        { "@type": "ListItem", "position": 3, "name": "How to Compare Lab-Grown Diamond Jewellery Online", "item": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/" }
       ]
     },
     {
@@ -287,7 +287,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Ensure weight descriptions share identical baselines. Read " },
-          { text: "what total carat weight means in diamond jewellery", href: "/blog/total-carat-weight-diamond-jewellery/" },
+          { text: "what total carat weight means in diamond jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" },
           { text: " for full explanation." }
         ]
       },
@@ -362,7 +362,7 @@ const articleSections: ArticleSection[] = [
           { text: "Loose diamond reports, mounted reports, and seller cards are not equivalent. Refer to " },
           { text: "how to compare two certified lab-grown diamonds", href: "/blog/how-to-compare-certified-lab-grown-diamonds/" },
           { text: " and " },
-          { text: "how to verify an IGI report number", href: "/blog/how-to-verify-an-igi-certificate-number/" },
+          { text: "how to verify an IGI report number", href: "/blog/verify-igi-certificate-number/" },
           { text: " for verification steps." }
         ]
       }
@@ -375,7 +375,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Note metal type, gold fineness, coatings, hallmark status, and weights. For metal-specific guidance, review " },
-          { text: "checking the metal used in diamond jewellery", href: "/blog/how-to-check-metal-used-diamond-jewellery/" },
+          { text: "checking the metal used in diamond jewellery", href: "/blog/check-metal-used-diamond-jewellery/" },
           { text: "." }
         ]
       }
@@ -540,7 +540,7 @@ const articleSections: ArticleSection[] = [
     ]
   },
   {
-    heading: "How Blog 44 differs from the other buying guides",
+    heading: "How This Guide Differs from Related Buying Guides",
     content: [
       {
         type: "paragraph",
@@ -674,6 +674,8 @@ export default function Page() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="compare-lab-grown-diamond-jewellery-online" />
       <NewsletterSection />
     </main>
   );

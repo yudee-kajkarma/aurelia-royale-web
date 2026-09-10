@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata
 export const metadata: Metadata = {
@@ -235,7 +236,7 @@ const articleSections: ArticleSection[] = [
         text: "The largest number is not automatically the best-balanced purchase.",
         parts: [
           { text: "Use " },
-          { text: "carat weight versus visible diamond size", href: "/blog/carat-weight-vs-visible-size-diamond/" },
+          { text: "carat weight versus visible diamond size", href: "/blog/carat-weight-vs-visible-diamond-size/" },
           { text: " to understand why measurements matter." }
         ]
       }
@@ -267,7 +268,7 @@ const articleSections: ArticleSection[] = [
         text: "Never infer an individual stone's grade or weight from a total alone.",
         parts: [
           { text: "Review " },
-          { text: "what total carat weight means", href: "/blog/total-carat-weight-diamond-jewellery/" },
+          { text: "what total carat weight means", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" },
           { text: " before comparing earrings, bracelets or multi-stone designs." }
         ]
       }
@@ -806,6 +807,8 @@ export default function MistakesBuyingLabGrownDiamondJewelleryOnlinePage() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="mistakes-buying-lab-grown-diamond-jewellery-online" />
       <NewsletterSection />
     </main>
   );

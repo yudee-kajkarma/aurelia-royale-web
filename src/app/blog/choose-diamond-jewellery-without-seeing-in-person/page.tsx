@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata
 export const metadata: Metadata = {
@@ -304,7 +305,7 @@ const articleSections: ArticleSection[] = [
           { text: "Use " },
           { text: "the 4Cs of lab-grown diamonds", href: "/blog/4cs-of-lab-grown-diamonds/" },
           { text: " and " },
-          { text: "carat weight versus visible size", href: "/blog/carat-weight-vs-visible-size-diamond/" },
+          { text: "carat weight versus visible size", href: "/blog/carat-weight-vs-visible-diamond-size/" },
           { text: " to interpret the numbers." }
         ]
       }
@@ -343,7 +344,7 @@ const articleSections: ArticleSection[] = [
           { text: "Read " },
           { text: "how to verify an IGI certificate number", href: "/blog/verify-igi-certificate-number/" },
           { text: " and " },
-          { text: "how to read a lab-grown diamond certificate", href: "/blog/read-lab-grown-diamond-certificate/" },
+          { text: "how to read a lab-grown diamond certificate", href: "/blog/how-to-read-lab-grown-diamond-certificate/" },
           { text: "." }
         ]
       }
@@ -745,6 +746,8 @@ export default function ChooseDiamondJewelleryWithoutSeeingPage() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="choose-diamond-jewellery-without-seeing-in-person" />
       <NewsletterSection />
     </main>
   );

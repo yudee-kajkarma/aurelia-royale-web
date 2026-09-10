@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -78,8 +79,7 @@ const schemaMarkup = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
         { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Buying Lab-Grown Diamond Jewellery", "item": "https://www.aureliaroyale.com/blog/category/buying-lab-grown-diamond-jewellery/" },
-        { "@type": "ListItem", "position": 4, "name": "What Makes Lab-Grown Diamond Jewellery High Quality?", "item": "https://www.aureliaroyale.com/blog/what-makes-lab-grown-diamond-jewellery-high-quality/" }
+        { "@type": "ListItem", "position": 3, "name": "What Makes Lab-Grown Diamond Jewellery High Quality?", "item": "https://www.aureliaroyale.com/blog/what-makes-lab-grown-diamond-jewellery-high-quality/" }
       ]
     },
     {
@@ -291,7 +291,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Carat weight should separate centre-stone weights from accent weights. Read " },
-          { text: "what total carat weight means in diamond jewellery", href: "/blog/total-carat-weight-diamond-jewellery/" },
+          { text: "what total carat weight means in diamond jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" },
           { text: " for full explanation." }
         ]
       }
@@ -673,6 +673,8 @@ export default function Page() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="what-makes-lab-grown-diamond-jewellery-high-quality" />
       <NewsletterSection />
     </main>
   );

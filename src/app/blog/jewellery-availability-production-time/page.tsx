@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata
 export const metadata: Metadata = {
@@ -206,7 +207,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "These production and control stages are also part of " },
-          { text: "what makes lab-grown diamond jewellery high quality", href: "/blog/high-quality-lab-grown-diamond-jewellery/" },
+          { text: "what makes lab-grown diamond jewellery high quality", href: "/blog/what-makes-lab-grown-diamond-jewellery-high-quality/" },
           { text: "; speed should not erase necessary inspection." }
         ]
       }
@@ -379,7 +380,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Read " },
-          { text: "how to buy lab-grown diamond jewellery online in Europe", href: "/blog/buy-lab-grown-diamond-jewellery-online-europe/" },
+          { text: "how to buy lab-grown diamond jewellery online in Europe", href: "/blog/buy-certified-lab-grown-diamond-jewellery-online/" },
           { text: " for the wider cross-border checklist." }
         ]
       }
@@ -641,6 +642,8 @@ export default function JewelleryAvailabilityProductionTimePage() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="jewellery-availability-production-time" />
       <NewsletterSection />
     </main>
   );

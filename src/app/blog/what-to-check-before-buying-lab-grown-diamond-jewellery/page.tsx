@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -78,8 +79,7 @@ const schemaMarkup = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
         { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Buying Lab-Grown Diamond Jewellery", "item": "https://www.aureliaroyale.com/blog/category/buying-lab-grown-diamond-jewellery/" },
-        { "@type": "ListItem", "position": 4, "name": "What to Check Before Buying Lab-Grown Diamond Jewellery", "item": "https://www.aureliaroyale.com/blog/what-to-check-before-buying-lab-grown-diamond-jewellery/" }
+        { "@type": "ListItem", "position": 3, "name": "What to Check Before Buying Lab-Grown Diamond Jewellery", "item": "https://www.aureliaroyale.com/blog/what-to-check-before-buying-lab-grown-diamond-jewellery/" }
       ]
     },
     {
@@ -230,7 +230,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Ensure the page uses clear origin descriptions such as “laboratory-grown diamond” or “lab-grown diamond”. Read " },
-          { text: "lab-grown diamonds versus moissanite", href: "/blog/lab-grown-diamonds-vs-moissanite/" },
+          { text: "lab-grown diamonds versus moissanite", href: "/blog/lab-grown-diamond-vs-moissanite/" },
           { text: " if the terms are mixed." }
         ]
       }
@@ -265,7 +265,7 @@ const articleSections: ArticleSection[] = [
           { text: "Differentiate center carat weights from accent total weights. Compare face-up dimensions to avoid hidden weight depth. See " },
           { text: "carat weight versus visible size in diamonds", href: "/blog/carat-weight-vs-visible-diamond-size/" },
           { text: " and " },
-          { text: "what total carat weight means in diamond jewellery", href: "/blog/total-carat-weight-diamond-jewellery/" },
+          { text: "what total carat weight means in diamond jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" },
           { text: "." }
         ]
       }
@@ -338,7 +338,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Cross check details with laboratory databases. See " },
-          { text: "how to verify an IGI report number", href: "/blog/how-to-verify-an-igi-certificate-number/" },
+          { text: "how to verify an IGI report number", href: "/blog/verify-igi-certificate-number/" },
           { text: " and " },
           { text: "how to read a lab-grown diamond certificate", href: "/blog/how-to-read-lab-grown-diamond-certificate/" },
           { text: "." }
@@ -664,6 +664,8 @@ export default function Page() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="what-to-check-before-buying-lab-grown-diamond-jewellery" />
       <NewsletterSection />
     </main>
   );

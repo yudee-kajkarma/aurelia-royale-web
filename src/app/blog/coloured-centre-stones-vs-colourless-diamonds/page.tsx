@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -34,8 +35,7 @@ const schemaMarkup = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
         { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Coloured Stones and Diamonds", "item": "https://www.aureliaroyale.com/blog/category/coloured-stones-and-diamonds/" },
-        { "@type": "ListItem", "position": 4, "name": "Coloured Centre Stones vs Colourless Diamond Designs", "item": "https://www.aureliaroyale.com/blog/coloured-centre-stones-vs-colourless-diamonds/" }
+        { "@type": "ListItem", "position": 3, "name": "Coloured Centre Stones vs Colourless Diamond Designs", "item": "https://www.aureliaroyale.com/blog/coloured-centre-stones-vs-colourless-diamonds/" }
       ]
     },
     {
@@ -182,7 +182,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Verify center weight separate from accent counts. For totals, see " },
-          { text: "total carat weight in diamond jewellery", href: "/blog/total-carat-weight-diamond-jewellery/" },
+          { text: "total carat weight in diamond jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" },
           { text: "." }
         ]
       }
@@ -195,7 +195,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "White-coloured metal creates cooler boundaries; rose/yellow alloys generate warm contrast. For checklists, see " },
-          { text: "how to check the metal used in diamond jewellery", href: "/blog/how-to-check-metal-used-diamond-jewellery/" },
+          { text: "how to check the metal used in diamond jewellery", href: "/blog/check-metal-used-diamond-jewellery/" },
           { text: "." }
         ]
       }
@@ -445,6 +445,8 @@ export default function Page() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="coloured-centre-stones-vs-colourless-diamonds" />
       <NewsletterSection />
     </main>
   );

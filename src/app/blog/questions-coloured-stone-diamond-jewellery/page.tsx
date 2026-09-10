@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -34,8 +35,7 @@ const schemaMarkup = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
         { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Coloured Stones and Diamonds", "item": "https://www.aureliaroyale.com/blog/category/coloured-stones-and-diamonds/" },
-        { "@type": "ListItem", "position": 4, "name": "Questions to Ask Before Buying Coloured-Stone Diamond Jewellery", "item": "https://www.aureliaroyale.com/blog/questions-coloured-stone-diamond-jewellery/" }
+        { "@type": "ListItem", "position": 3, "name": "Questions to Ask Before Buying Coloured-Stone Diamond Jewellery", "item": "https://www.aureliaroyale.com/blog/questions-coloured-stone-diamond-jewellery/" }
       ]
     },
     {
@@ -131,7 +131,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Confirm the exact category. For lab-grown details, see " },
-          { text: "how lab-grown diamonds should be described and disclosed", href: "/blog/lab-grown-diamond-description-disclosure/" },
+          { text: "how lab-grown diamonds should be described and disclosed", href: "/blog/how-lab-grown-diamonds-should-be-disclosed/" },
           { text: "." }
         ]
       },
@@ -203,7 +203,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Separate accent totals from center weights. Review guides at " },
-          { text: "total carat weight in diamond jewellery", href: "/blog/total-carat-weight-diamond-jewellery/" },
+          { text: "total carat weight in diamond jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" },
           { text: "." }
         ]
       },
@@ -236,7 +236,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Check alloy percentages and hallmark stamps. Read metal guides at " },
-          { text: "how to check the metal used in diamond jewellery", href: "/blog/how-to-check-metal-used-diamond-jewellery/" },
+          { text: "how to check the metal used in diamond jewellery", href: "/blog/check-metal-used-diamond-jewellery/" },
           { text: "." }
         ]
       },
@@ -481,6 +481,8 @@ export default function Page() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="questions-coloured-stone-diamond-jewellery" />
       <NewsletterSection />
     </main>
   );

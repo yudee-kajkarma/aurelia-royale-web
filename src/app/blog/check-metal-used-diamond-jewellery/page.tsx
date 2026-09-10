@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata
 export const metadata: Metadata = {
@@ -316,7 +317,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Strong verification comes from agreement between these sources. This same principle applies across the listing: " },
-          { text: "check whether the diamond information is complete", href: "/blog/check-diamond-information-complete/" },
+          { text: "check whether the diamond information is complete", href: "/blog/check-diamond-information-is-complete/" },
           { text: " rather than allowing one document to stand in for the entire product." }
         ]
       }
@@ -425,7 +426,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "The description should not use the highest-value component to imply that the entire piece is made from it. Component-level differences are also one reason " },
-          { text: "similar diamond jewellery pieces can have different prices", href: "/blog/similar-diamond-jewellery-different-prices/" },
+          { text: "similar diamond jewellery pieces can have different prices", href: "/blog/what-determines-price-lab-grown-diamond-jewellery/" },
           { text: "." }
         ]
       }
@@ -608,7 +609,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Metal identity is necessary but not sufficient: " },
-          { text: "high-quality lab-grown diamond jewellery", href: "/blog/high-quality-lab-grown-diamond-jewellery/" },
+          { text: "high-quality lab-grown diamond jewellery", href: "/blog/what-makes-lab-grown-diamond-jewellery-high-quality/" },
           { text: " also depends on diamond selection, engineering, setting, finish and quality control." }
         ]
       }
@@ -717,6 +718,8 @@ export default function CheckMetalUsedPage() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="check-metal-used-diamond-jewellery" />
       <NewsletterSection />
     </main>
   );

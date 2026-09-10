@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -78,8 +79,7 @@ const schemaMarkup = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
         { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Buying Lab-Grown Diamond Jewellery", "item": "https://www.aureliaroyale.com/blog/category/buying-lab-grown-diamond-jewellery/" },
-        { "@type": "ListItem", "position": 4, "name": "Buy Certified Lab-Grown Diamond Jewellery Online", "item": "https://www.aureliaroyale.com/blog/buy-certified-lab-grown-diamond-jewellery-online/" }
+        { "@type": "ListItem", "position": 3, "name": "Buy Certified Lab-Grown Diamond Jewellery Online", "item": "https://www.aureliaroyale.com/blog/buy-certified-lab-grown-diamond-jewellery-online/" }
       ]
     },
     {
@@ -304,7 +304,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Read " },
-          { text: "how to verify an IGI certificate number", href: "/blog/how-to-verify-an-igi-certificate-number/" },
+          { text: "how to verify an IGI certificate number", href: "/blog/verify-igi-certificate-number/" },
           { text: " and " },
           { text: "how to read a lab-grown diamond certificate", href: "/blog/how-to-read-lab-grown-diamond-certificate/" },
           { text: "." }
@@ -672,6 +672,8 @@ export default function Page() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="buy-certified-lab-grown-diamond-jewellery-online" />
       <NewsletterSection />
     </main>
   );

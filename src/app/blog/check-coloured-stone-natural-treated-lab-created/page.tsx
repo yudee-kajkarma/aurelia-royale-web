@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -34,8 +35,7 @@ const schemaMarkup = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
         { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Coloured Stones and Diamonds", "item": "https://www.aureliaroyale.com/blog/category/coloured-stones-and-diamonds/" },
-        { "@type": "ListItem", "position": 4, "name": "How to Check Whether a Coloured Stone Is Natural, Treated or Laboratory-Created", "item": "https://www.aureliaroyale.com/blog/check-coloured-stone-natural-treated-lab-created/" }
+        { "@type": "ListItem", "position": 3, "name": "How to Check Whether a Coloured Stone Is Natural, Treated or Laboratory-Created", "item": "https://www.aureliaroyale.com/blog/check-coloured-stone-natural-treated-lab-created/" }
       ]
     },
     {
@@ -120,7 +120,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Confirm exact treatment and origin statuses. For details on lab designations, see " },
-          { text: "how lab-grown diamonds should be described and disclosed", href: "/blog/lab-grown-diamond-description-disclosure/" },
+          { text: "how lab-grown diamonds should be described and disclosed", href: "/blog/how-lab-grown-diamonds-should-be-disclosed/" },
           { text: "." }
         ]
       }
@@ -419,6 +419,8 @@ export default function Page() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="check-coloured-stone-natural-treated-lab-created" />
       <NewsletterSection />
     </main>
   );

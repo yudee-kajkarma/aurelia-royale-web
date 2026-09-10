@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -79,8 +80,7 @@ const schemaMarkup = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
         { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Certification and Diamond Quality", "item": "https://www.aureliaroyale.com/blog/category/certification-and-diamond-quality/" },
-        { "@type": "ListItem", "position": 4, "name": "Carat Weight vs the Visible Size of a Diamond", "item": "https://www.aureliaroyale.com/blog/carat-weight-vs-visible-diamond-size/" }
+        { "@type": "ListItem", "position": 3, "name": "Carat Weight vs the Visible Size of a Diamond", "item": "https://www.aureliaroyale.com/blog/carat-weight-vs-visible-diamond-size/" }
       ]
     },
     {
@@ -463,6 +463,8 @@ export default function Blog31Page() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="carat-weight-vs-visible-diamond-size" />
       <NewsletterSection />
     </main>
   );

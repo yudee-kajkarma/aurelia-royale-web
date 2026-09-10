@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -78,8 +79,7 @@ const schemaMarkup = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
         { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Certification and Diamond Quality", "item": "https://www.aureliaroyale.com/blog/category/certification-and-diamond-quality/" },
-        { "@type": "ListItem", "position": 4, "name": "Diamond Product Page Details", "item": "https://www.aureliaroyale.com/blog/diamond-details-product-page/" }
+        { "@type": "ListItem", "position": 3, "name": "Diamond Product Page Details", "item": "https://www.aureliaroyale.com/blog/diamond-details-product-page/" }
       ]
     },
     {
@@ -333,7 +333,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "If the final weight can vary slightly because a piece is made to order or contains many small stones, state the tolerance or use “approximately”. Do not present a nominal weight as if every finished piece is identical. The distinction is explained fully in " },
-          { text: "what total carat weight means in diamond jewellery", href: "/blog/total-carat-weight-diamond-jewellery/" },
+          { text: "what total carat weight means in diamond jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" },
           { text: " and " },
           { text: "carat weight versus visible diamond size", href: "/blog/carat-weight-vs-visible-diamond-size/" },
           { text: "." }
@@ -439,7 +439,7 @@ const articleSections: ArticleSection[] = [
           { text: ", " },
           { text: "diamond certification versus jewellery certification", href: "/blog/diamond-certification-vs-jewellery-certification/" },
           { text: " and " },
-          { text: "how to verify an IGI certificate number", href: "/blog/how-to-verify-an-igi-certificate-number/" },
+          { text: "how to verify an IGI certificate number", href: "/blog/verify-igi-certificate-number/" },
           { text: " to check the scope." }
         ]
       }
@@ -897,6 +897,8 @@ export default function Page() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="diamond-details-product-page" />
       <NewsletterSection />
     </main>
   );

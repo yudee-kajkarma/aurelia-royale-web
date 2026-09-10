@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -79,8 +80,7 @@ const schemaMarkup = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
         { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Certification and Diamond Quality", "item": "https://www.aureliaroyale.com/blog/category/certification-and-diamond-quality/" },
-        { "@type": "ListItem", "position": 4, "name": "What Is a Diamond Laser Inscription?", "item": "https://www.aureliaroyale.com/blog/diamond-laser-inscription/" }
+        { "@type": "ListItem", "position": 3, "name": "What Is a Diamond Laser Inscription?", "item": "https://www.aureliaroyale.com/blog/diamond-laser-inscription/" }
       ]
     },
     {
@@ -516,7 +516,7 @@ const articleSections: ArticleSection[] = [
         title: "Verifying Certificates",
         parts: [
           { text: "Our step-by-step guide explains " },
-          { text: "how to verify an IGI certificate number", href: "/blog/how-to-verify-an-igi-certificate-number/" },
+          { text: "how to verify an IGI certificate number", href: "/blog/verify-igi-certificate-number/" },
           { text: "." }
         ]
       }
@@ -640,7 +640,7 @@ const articleSections: ArticleSection[] = [
         title: "Diamond Certification Guide",
         parts: [
           { text: "Check the actual document and issuing laboratory. Our guide to " },
-          { text: "whether every lab-grown diamond needs certification", href: "/blog/does-every-lab-grown-diamond-need-certification/" },
+          { text: "whether every lab-grown diamond needs certification", href: "/blog/do-lab-grown-diamonds-need-certification/" },
           { text: " explains when individual reporting is most valuable." }
         ]
       }
@@ -937,6 +937,8 @@ export default function Page() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="diamond-laser-inscription" />
       <NewsletterSection />
     </main>
   );

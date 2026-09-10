@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -94,12 +95,6 @@ const schemaMarkup = {
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Lab-Grown Diamond Education",
-          "item": "https://www.aureliaroyale.com/blog/category/lab-grown-diamond-education/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
           "name": "Are Lab-Grown Diamonds Real Diamonds?",
           "item": "https://www.aureliaroyale.com/blog/are-lab-grown-diamonds-real/"
         }
@@ -693,6 +688,8 @@ export default function Blog2Page() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="are-lab-grown-diamonds-real" />
       <NewsletterSection />
     </main>
   );

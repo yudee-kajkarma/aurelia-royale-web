@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata
 export const metadata: Metadata = {
@@ -135,7 +136,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Read " },
-          { text: "carat weight versus visible diamond size", href: "/blog/carat-weight-vs-visible-size-diamond/" },
+          { text: "carat weight versus visible diamond size", href: "/blog/carat-weight-vs-visible-diamond-size/" },
           { text: " for the gem-level explanation." }
         ]
       }
@@ -610,6 +611,8 @@ export default function SelectRightSizeDiamondEarringsPage() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="select-right-size-diamond-earrings" />
       <NewsletterSection />
     </main>
   );

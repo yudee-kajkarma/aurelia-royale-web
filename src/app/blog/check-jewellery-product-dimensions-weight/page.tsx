@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata
 export const metadata: Metadata = {
@@ -191,9 +192,9 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Read " },
-          { text: "carat weight versus visible diamond size", href: "/blog/carat-weight-vs-visible-size-diamond/" },
+          { text: "carat weight versus visible diamond size", href: "/blog/carat-weight-vs-visible-diamond-size/" },
           { text: " for the diamond-specific comparison and " },
-          { text: "what total carat weight means", href: "/blog/total-carat-weight-diamond-jewellery/" },
+          { text: "what total carat weight means", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" },
           { text: " for multi-stone pieces." }
         ]
       }
@@ -469,7 +470,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Do not compare a ring weighed in size J with one weighed in size R, or one earring with an entire pair. If scopes differ, ask for aligned data. This is one of the hidden checks behind " },
-          { text: "why similar diamond jewellery can have different prices", href: "/blog/similar-diamond-jewellery-different-prices/" },
+          { text: "why similar diamond jewellery can have different prices", href: "/blog/what-determines-price-lab-grown-diamond-jewellery/" },
           { text: "." }
         ]
       }
@@ -615,6 +616,8 @@ export default function CheckJewelleryDimensionsWeightPage() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="check-jewellery-product-dimensions-weight" />
       <NewsletterSection />
     </main>
   );

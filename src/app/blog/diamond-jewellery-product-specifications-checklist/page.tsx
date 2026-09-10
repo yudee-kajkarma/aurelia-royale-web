@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -77,8 +78,7 @@ const schemaMarkup = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
         { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Buying Lab-Grown Diamond Jewellery", "item": "https://www.aureliaroyale.com/blog/category/buying-lab-grown-diamond-jewellery/" },
-        { "@type": "ListItem", "position": 4, "name": "Diamond Jewellery Product Specifications Checklist", "item": "https://www.aureliaroyale.com/blog/diamond-jewellery-product-specifications-checklist/" }
+        { "@type": "ListItem", "position": 3, "name": "Diamond Jewellery Product Specifications Checklist", "item": "https://www.aureliaroyale.com/blog/diamond-jewellery-product-specifications-checklist/" }
       ]
     },
     {
@@ -254,7 +254,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Confirm explicit laboratory-grown terminology. For terminology guidelines, refer to " },
-          { text: "how lab-grown diamonds should be described and disclosed", href: "/blog/lab-grown-diamond-description-disclosure/" },
+          { text: "how lab-grown diamonds should be described and disclosed", href: "/blog/how-lab-grown-diamonds-should-be-disclosed/" },
           { text: "." }
         ]
       }
@@ -276,7 +276,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Distinguish center stones, accents, and pair totals. Learn details at " },
-          { text: "total carat weight in diamond jewellery", href: "/blog/total-carat-weight-diamond-jewellery/" },
+          { text: "total carat weight in diamond jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" },
           { text: "." }
         ]
       }
@@ -368,7 +368,7 @@ const articleSections: ArticleSection[] = [
           { text: "Confirm issuer verification, matches, and inscriptions. Read " },
           { text: "how to read a lab-grown diamond certificate", href: "/blog/how-to-read-lab-grown-diamond-certificate/" },
           { text: " and " },
-          { text: "how to verify an IGI report number", href: "/blog/how-to-verify-an-igi-certificate-number/" },
+          { text: "how to verify an IGI report number", href: "/blog/verify-igi-certificate-number/" },
           { text: " for full instruction." }
         ]
       }
@@ -381,7 +381,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Note metal type, gold karat fineness, coatings, and hallmark details. For metal checklists, see " },
-          { text: "how to check the metal used in diamond jewellery", href: "/blog/how-to-check-metal-used-diamond-jewellery/" },
+          { text: "how to check the metal used in diamond jewellery", href: "/blog/check-metal-used-diamond-jewellery/" },
           { text: "." }
         ]
       }
@@ -460,7 +460,7 @@ const articleSections: ArticleSection[] = [
         parts: [
           { text: "Necklaces and pendants: ", bold: true },
           { text: "Verify chain style, pendant heights, and clasp limits. Refer to " },
-          { text: "guide to selecting necklace length", href: "/blog/how-to-select-necklace-length/" },
+          { text: "guide to selecting necklace length", href: "/blog/select-right-necklace-length/" },
           { text: " for placement." }
         ]
       },
@@ -469,7 +469,7 @@ const articleSections: ArticleSection[] = [
         parts: [
           { text: "Bracelets: ", bold: true },
           { text: "Confirm wearable inner length, link width, stone count, and clasp. Read " },
-          { text: "how to measure your wrist for a bracelet", href: "/blog/how-to-measure-wrist-for-bracelet/" },
+          { text: "how to measure your wrist for a bracelet", href: "/blog/measure-wrist-for-bracelet/" },
           { text: "." }
         ]
       },
@@ -568,7 +568,7 @@ const articleSections: ArticleSection[] = [
     ]
   },
   {
-    heading: "How Blog 49 differs from the other buying guides",
+    heading: "How This Guide Differs from Related Buying Guides",
     content: [
       {
         type: "paragraph",
@@ -704,6 +704,8 @@ export default function Page() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="diamond-jewellery-product-specifications-checklist" />
       <NewsletterSection />
     </main>
   );

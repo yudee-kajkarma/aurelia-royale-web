@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Image from "next/image";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -105,12 +105,6 @@ const schemaMarkup = {
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Certification and Diamond Quality",
-          "item": "https://www.aureliaroyale.com/blog/category/certification-and-diamond-quality/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
           "name": "Diamond Certification vs Jewellery Certification",
           "item": "https://www.aureliaroyale.com/blog/diamond-certification-vs-jewellery-certification/"
         }
@@ -598,6 +592,8 @@ export default function Blog25Page() {
       </section>
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="diamond-certification-vs-jewellery-certification" />
       <NewsletterSection />
     </main>
   );

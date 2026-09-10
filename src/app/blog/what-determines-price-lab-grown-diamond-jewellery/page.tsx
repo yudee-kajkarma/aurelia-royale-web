@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -78,8 +79,7 @@ const schemaMarkup = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
         { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Buying Lab-Grown Diamond Jewellery", "item": "https://www.aureliaroyale.com/blog/category/buying-lab-grown-diamond-jewellery/" },
-        { "@type": "ListItem", "position": 4, "name": "What Determines the Price of Lab-Grown Diamond Jewellery?", "item": "https://www.aureliaroyale.com/blog/what-determines-price-lab-grown-diamond-jewellery/" }
+        { "@type": "ListItem", "position": 3, "name": "What Determines the Price of Lab-Grown Diamond Jewellery?", "item": "https://www.aureliaroyale.com/blog/what-determines-price-lab-grown-diamond-jewellery/" }
       ]
     },
     {
@@ -239,7 +239,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Separate centre-stone weights from accent-diamond totals. For full details on weight parameters, see " },
-          { text: "what total carat weight means", href: "/blog/total-carat-weight-diamond-jewellery/" },
+          { text: "what total carat weight means", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" },
           { text: "." }
         ]
       }
@@ -561,14 +561,16 @@ const articleSections: ArticleSection[] = [
     ]
   },
   {
-    heading: "How Blog 48 differs from the neighbouring articles",
+    heading: "How This Guide Differs from Related Articles",
     content: [
       {
         type: "paragraph",
         parts: [
           { text: "This guide explains the inputs that shape prices. For personal budget planning, refer to " },
           { text: "How to set a budget for lab-grown diamond jewellery", href: "/blog/set-budget-lab-grown-diamond-jewellery/" },
-          { text: ". For product-specific comparison checklists, see Blog 49." }
+          { text: ". For product-specific comparison checklists, see " },
+          { text: "Diamond Jewellery Product Specifications Checklist", href: "/blog/diamond-jewellery-product-specifications-checklist/" },
+          { text: "." }
         ]
       }
     ]
@@ -695,6 +697,8 @@ export default function Page() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="what-determines-price-lab-grown-diamond-jewellery" />
       <NewsletterSection />
     </main>
   );

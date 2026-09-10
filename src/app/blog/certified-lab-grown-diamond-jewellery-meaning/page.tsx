@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -78,8 +79,7 @@ const schemaMarkup = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
         { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Certification and Diamond Quality", "item": "https://www.aureliaroyale.com/blog/category/certification-and-diamond-quality/" },
-        { "@type": "ListItem", "position": 4, "name": "Certified Lab-Grown Diamond Jewellery", "item": "https://www.aureliaroyale.com/blog/certified-lab-grown-diamond-jewellery-meaning/" }
+        { "@type": "ListItem", "position": 3, "name": "Certified Lab-Grown Diamond Jewellery", "item": "https://www.aureliaroyale.com/blog/certified-lab-grown-diamond-jewellery-meaning/" }
       ]
     },
     {
@@ -424,7 +424,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "The right question is whether the documentation is proportionate and the description is honest. Read " },
-          { text: "does every lab-grown diamond need certification", href: "/blog/does-every-lab-grown-diamond-need-certification/" },
+          { text: "does every lab-grown diamond need certification", href: "/blog/do-lab-grown-diamonds-need-certification/" },
           { text: " for a fuller size-and-product discussion." }
         ]
       },
@@ -465,7 +465,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "A laser inscription is helpful but is not a substitute for checking all available identifiers. Counterfeit inscriptions are possible, so higher-risk purchases may justify professional verification. Use " },
-          { text: "how to verify an IGI certificate number", href: "/blog/how-to-verify-an-igi-certificate-number/" },
+          { text: "how to verify an IGI certificate number", href: "/blog/verify-igi-certificate-number/" },
           { text: " and " },
           { text: "what a diamond laser inscription is", href: "/blog/diamond-laser-inscription/" },
           { text: " for the full process." }
@@ -733,6 +733,8 @@ export default function Page() {
       <DynamicArticle sections={articleSections} />
 
       {/* Footer Newsletter Section */}
+      {/* Related articles — crawlable plain links */}
+      <RelatedArticles currentSlug="certified-lab-grown-diamond-jewellery-meaning" />
       <NewsletterSection />
     </main>
   );
