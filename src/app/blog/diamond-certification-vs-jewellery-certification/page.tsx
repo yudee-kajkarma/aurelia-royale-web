@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Check } from "lucide-react";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {

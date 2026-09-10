@@ -43,9 +43,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ];
 
     // Individual blog articles — one entry per published post.
-    // BLOGS_DATA is the single source of truth. Any new post added to
-    // BLOGS_DATA is automatically included on the next build; removed posts
-    // automatically disappear. No manual URL list editing required.
+   
     const blogEntries: MetadataRoute.Sitemap = BLOGS_DATA.map((post) => ({
         url: url(`/blog/${post.slug}`),
         lastModified: parseBlogDate(post.date),
