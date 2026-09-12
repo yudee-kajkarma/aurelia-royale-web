@@ -1,726 +1,441 @@
-﻿import React from "react";
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 import RelatedArticles from "@/components/shared/RelatedArticles";
 
-// 1. SEO Metadata
 export const metadata: Metadata = {
   title: "How to Check the Metal Used in Diamond Jewellery",
-  description: "Learn how to identify gold, platinum, silver and plated jewellery using product details, fineness marks, hallmarks, weight and professional testing.",
-  alternates: {
-    canonical: "https://www.aureliaroyale.com/blog/check-metal-used-diamond-jewellery/",
-  },
+  description: "Learn how to identify gold, silver and platinum in diamond jewellery, read UK hallmarks and fineness marks, and distinguish solid, hollow and plated construction.",
+  alternates: { canonical: "https://www.aureliaroyale.com/blog/check-metal-used-diamond-jewellery/" },
 };
 
-// 2. JSON-LD Schema
 const schemaMarkup = {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "BlogPosting",
-      "@id": "https://www.aureliaroyale.com/blog/check-metal-used-diamond-jewellery/#article",
-      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.aureliaroyale.com/blog/check-metal-used-diamond-jewellery/"},
-      "headline": "How to Check the Metal Used in Diamond Jewellery",
-      "description": "Learn how to identify gold, platinum, silver and plated jewellery using product details, fineness marks, hallmarks, weight and professional testing.",
-      "image": "https://www.aureliaroyale.com/images/blog/check-metal-used-diamond-jewellery.webp",
-      "datePublished": "2026-07-16",
-      "dateModified": "2026-07-16",
-      "author": {"@type": "Organization", "name": "Aurelia Royale", "url": "https://www.aureliaroyale.com/"},
-      "publisher": {"@type": "Organization", "name": "Aurelia Royale", "url": "https://www.aureliaroyale.com/"},
-      "inLanguage": "en-GB",
-      "articleSection": "Buying Lab-Grown Diamond Jewellery",
-      "keywords": ["how to check the metal used in diamond jewellery", "identify jewellery metal", "jewellery hallmark guide UK", "white gold vs platinum identification"]
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.aureliaroyale.com/blog/check-metal-used-diamond-jewellery/#breadcrumb",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Journal", "item": "https://www.aureliaroyale.com/blog/"},
-        {"@type": "ListItem", "position": 3, "name": "How to Check the Metal Used in Diamond Jewellery", "item": "https://www.aureliaroyale.com/blog/check-metal-used-diamond-jewellery/"}
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.aureliaroyale.com/blog/check-metal-used-diamond-jewellery/#faq",
-      "mainEntity": [
-        {"@type": "Question", "name": "How can I tell what metal my diamond ring is made from?", "acceptedAnswer": {"@type": "Answer", "text": "Check product documents and the inner shank for grouped hallmark or fineness marks. If evidence is missing or conflicting, request professional non-destructive testing."}},
-        {"@type": "Question", "name": "What does 750 mean on jewellery?", "acceptedAnswer": {"@type": "Answer", "text": "750 commonly expresses 750 parts gold per thousand, equivalent to 18K gold. Interpret it with surrounding marks and legal context."}},
-        {"@type": "Question", "name": "What does 585 mean on jewellery?", "acceptedAnswer": {"@type": "Answer", "text": "585 commonly indicates 585 parts gold per thousand, generally associated with 14K gold. Confirm the complete hallmark or product documentation."}},
-        {"@type": "Question", "name": "Is a 925 stamp a hallmark?", "acceptedAnswer": {"@type": "Answer", "text": "925 commonly indicates sterling-silver fineness, but a lone number is not necessarily a complete recognised hallmark. Check the applicable country's rules."}},
-        {"@type": "Question", "name": "Can I identify white gold and platinum by colour?", "acceptedAnswer": {"@type": "Answer", "text": "No. White gold, platinum, silver and plated metals can look similar. Check fineness and hallmark information or obtain professional testing."}},
-        {"@type": "Question", "name": "Does a hallmark prove that the diamonds are real?", "acceptedAnswer": {"@type": "Answer", "text": "No. Hallmarks concern precious-metal content. Diamond identity and quality require separate disclosure, testing or a relevant laboratory report."}},
-        {"@type": "Question", "name": "Does a sponsor's mark identify the jewellery maker?", "acceptedAnswer": {"@type": "Answer", "text": "Not necessarily. In the UK, it identifies the registered party responsible for submitting the article for hallmarking; that party may not have manufactured it."}},
-        {"@type": "Question", "name": "Is unhallmarked gold jewellery always fake?", "acceptedAnswer": {"@type": "Answer", "text": "No. A lawful weight exemption may apply, or the item may come from a jurisdiction with different rules. Its description still needs appropriate evidence."}},
-        {"@type": "Question", "name": "What is the difference between solid gold and gold-plated jewellery?", "acceptedAnswer": {"@type": "Answer", "text": "Solid gold uses the stated gold alloy through the relevant structure. Gold-plated jewellery has a gold surface layer over another metal."}},
-        {"@type": "Question", "name": "Can a jeweller test metal without damaging the jewellery?", "acceptedAnswer": {"@type": "Answer", "text": "Often, yes. X-ray fluorescence and other screening methods may be non-destructive, though plating and mixed construction can limit results."}},
-        {"@type": "Question", "name": "Does heavier jewellery mean higher-purity gold?", "acceptedAnswer": {"@type": "Answer", "text": "No. Weight depends on dimensions, construction, stones and alloy density. Purity requires fineness evidence, hallmarking or testing."}},
-        {"@type": "Question", "name": "What metal details should an online jewellery page provide?", "acceptedAnswer": {"@type": "Answer", "text": "It should state metal type, fineness, colour, solid or plated construction, base metal, hallmark information, approximate finished weight and component-level differences."}}
-      ]
-    }
+    { "@type": "Organization", "@id": "https://www.aureliaroyale.com/#organization", "name": "Aurelia Royale", "url": "https://www.aureliaroyale.com/" },
+    { "@type": "WebSite", "@id": "https://www.aureliaroyale.com/#website", "url": "https://www.aureliaroyale.com/", "name": "Aurelia Royale", "publisher": { "@id": "https://www.aureliaroyale.com/#organization" } },
+    { "@type": "WebPage", "@id": "https://www.aureliaroyale.com/blog/check-metal-used-diamond-jewellery/#webpage", "url": "https://www.aureliaroyale.com/blog/check-metal-used-diamond-jewellery/", "name": "How to Check the Metal Used in Diamond Jewellery: Hallmarks, Fineness and Plating Explained", "isPartOf": { "@id": "https://www.aureliaroyale.com/#website" }, "breadcrumb": { "@id": "https://www.aureliaroyale.com/blog/check-metal-used-diamond-jewellery/#breadcrumb" }, "datePublished": "2026-09-10", "dateModified": "2026-09-10" },
+    { "@type": "BlogPosting", "@id": "https://www.aureliaroyale.com/blog/check-metal-used-diamond-jewellery/#article", "headline": "How to Check the Metal Used in Diamond Jewellery: Hallmarks, Fineness and Plating Explained", "description": "Learn how to identify gold, silver and platinum in diamond jewellery, read UK hallmarks and fineness marks, and distinguish solid, hollow and plated construction.", "datePublished": "2026-09-10", "dateModified": "2026-09-10", "author": { "@id": "https://www.aureliaroyale.com/#organization" }, "publisher": { "@id": "https://www.aureliaroyale.com/#organization" }, "mainEntityOfPage": { "@id": "https://www.aureliaroyale.com/blog/check-metal-used-diamond-jewellery/#webpage" }, "articleSection": "Lab-Grown Diamond Education", "keywords": ["diamond jewellery metal check", "UK hallmark gold silver platinum", "750 585 375 925 jewellery mark", "gold plated hollow solid jewellery"] },
+    { "@type": "BreadcrumbList", "@id": "https://www.aureliaroyale.com/blog/check-metal-used-diamond-jewellery/#breadcrumb", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" }, { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" }, { "@type": "ListItem", "position": 3, "name": "How to Check the Metal Used in Diamond Jewellery", "item": "https://www.aureliaroyale.com/blog/check-metal-used-diamond-jewellery/" }] },
+    { "@type": "FAQPage", "@id": "https://www.aureliaroyale.com/blog/check-metal-used-diamond-jewellery/#faq", "mainEntity": [{ "@type": "Question", "name": "What does 750 mean on jewellery?", "acceptedAnswer": { "@type": "Answer", "text": "750 indicates 18ct gold fineness—at least 750 parts gold per thousand." } }, { "@type": "Question", "name": "Is hollow gold fake gold?", "acceptedAnswer": { "@type": "Answer", "text": "No. Hollow describes construction. The metal can still genuinely be the stated gold alloy." } }, { "@type": "Question", "name": "Does a hallmark prove the diamond is genuine?", "acceptedAnswer": { "@type": "Answer", "text": "No. It verifies applicable precious-metal fineness, not diamond identity." } }] }
   ]
 };
 
-// 3. Article content sections
 const articleSections: ArticleSection[] = [
   {
     content: [
-      {
-        type: "image",
-        src: "/images/blog/check-metal-used-diamond-jewellery/50 (1).jpg",
-        alt: "Checking metal hallmark stamps inside a diamond ring shank",
-        title: "Checking Jewellery Metal",
-        caption: "To identify the metal in diamond jewellery, check the product details and look for hallmark and fineness stamps.",
-        priority: true
-      },
-      {
-        type: "paragraph",
-        text: "White diamond jewellery may be platinum, white gold, silver or a plated base metal. Yellow jewellery may be solid gold, gold vermeil or gold-plated metal. Rose colour can come from a gold alloy or a surface coating."
-      },
-      {
-        type: "paragraph",
-        text: "Appearance alone does not identify the material."
-      },
-      {
-        type: "paragraph",
-        text: "To check the metal used in diamond jewellery, begin with the written product specification. Then inspect any fineness and hallmark marks, confirm whether the construction is solid, hollow or plated, compare the information with the invoice and—when uncertainty matters—ask an assay office or qualified jewellery professional to test it."
-      },
-      {
-        type: "paragraph",
-        text: "No single shortcut works in every country or on every piece. This guide explains the evidence in the order you should use it."
-      },
-      {
-        type: "callout",
-        title: "Quick answer: how do you identify jewellery metal?",
-        parts: [
-          { text: "Use this seven-step check:\n\n", bold: true },
-          { text: "1. Read the complete metal description, not only the colour.\n2. Find the fineness value, such as 585 or 750 gold or 950 platinum.\n3. Inspect the complete hallmark where one is legally required.\n4. Distinguish a sponsor, maker or brand stamp from a hallmark.\n5. Confirm whether the piece is solid, hollow, plated, filled or vermeil.\n6. Match the marks to the product page, invoice and selected variant.\n7. Obtain non-destructive professional testing if the evidence conflicts or the piece is unmarked.\n\nA stamp by itself can be incomplete, counterfeit or misunderstood. Use the whole evidence chain." }
-        ]
-      }
+      { type: "paragraph", text: "When buying diamond jewellery, it is easy to focus almost entirely on the diamond and overlook the metal holding it. But the metal is a major part of the finished piece. It affects colour, weight, wear, maintenance, construction and how the jewellery is described. A diamond grading report may tell you a great deal about the gemstone while telling you little or nothing about the ring, pendant, earring or bracelet metal surrounding it." },
+      { type: "paragraph", text: "That is why metal should be checked independently. The first question is: What precious metal is this jewellery made from? The second is: What is its fineness? And there is a third question that buyers often miss: Is that metal used throughout the relevant component, is the component hollow, or is another metal merely plated with it?" },
+      { type: "paragraph", text: "Those questions are related, but they are not the same." }
     ]
   },
   {
-    heading: "Start with the product description",
+    heading: "Quick Answer: How Do You Check What Metal Jewellery Is Made From?",
     content: [
-      {
-        type: "paragraph",
-        text: "A complete metal specification should state:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "metal type: gold, platinum, silver, palladium or another material;",
-          "fineness: for example, 14K, 18K or a millesimal number;",
-          "colour: white, yellow or rose where relevant;",
-          "construction: solid, hollow, plated, filled or vermeil;",
-          "plating metal and underlying metal;",
-          "hallmark information where applicable;",
-          "approximate finished metal or product weight; and",
-          "mixed-metal components, if used."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "“Gold colour”, “white metal”, “gold finish” and “platinum tone” describe appearance. They do not promise precious-metal content. Likewise, “18K gold plated” does not mean the whole object is 18K gold: it describes the surface layer."
-      },
-      {
-        type: "paragraph",
-        text: "The selected variant matters. A product may be offered in 14K yellow gold, 18K white gold and platinum from one page. Ensure the basket and invoice repeat the variant you chose."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Use the broader " },
-          { text: "diamond jewellery product-specification checklist", href: "/blog/diamond-jewellery-product-specifications-checklist/" },
-          { text: " to record the diamond, measurements and order terms alongside the metal." }
-        ]
-      }
+      { type: "paragraph", text: "Start with the product description. Look for a specific metal and fineness such as 18ct gold, 14ct gold, sterling silver or platinum, rather than relying on colour alone." },
+      { type: "paragraph", text: "For qualifying precious-metal articles sold in the UK, check the hallmark. A full UK hallmark normally contains three compulsory elements: the sponsor's or maker's mark, the metal-and-fineness mark and the Assay Office mark. The date letter is optional." },
+      { type: "paragraph", text: "Then check construction separately. For example: 18ct gold describes metal fineness. hollow 18ct gold tells you something additional about construction. silver with 18ct gold plating describes a silver article carrying a surface layer of gold. Those descriptions should never be treated as interchangeable." }
     ]
   },
   {
-    heading: "Metal type and fineness are different facts",
+    heading: "Why You Cannot Identify Jewellery Metal From Colour Alone",
     content: [
-      {
-        type: "paragraph",
-        text: "The metal type identifies the precious metal. Fineness states the proportion of that precious metal within the alloy."
-      },
-      {
-        type: "paragraph",
-        text: "Pure gold is soft, so jewellery gold is commonly alloyed with other metals to alter strength, colour and working properties. Platinum, silver and palladium jewellery also use defined fineness standards."
-      },
-      {
-        type: "paragraph",
-        text: "Millesimal fineness expresses precious-metal content in parts per thousand. Common descriptions include:"
-      },
-      {
-        type: "table",
-        headers: ["Commercial description", "Common millesimal expression", "Meaning"],
-        rows: [
-          ["9K gold", "375", "375 parts gold per thousand"],
-          ["14K gold", "585", "585 parts gold per thousand"],
-          ["18K gold", "750", "750 parts gold per thousand"],
-          ["Sterling silver", "925", "925 parts silver per thousand"],
-          ["Platinum 950", "950", "950 parts platinum per thousand"]
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "These examples help interpret a specification; recognition rules and permitted standards vary by jurisdiction. A number outside its hallmark context should not be treated as conclusive proof."
-      }
+      { type: "paragraph", text: "Colour is not reliable proof of metal composition. Yellow-coloured jewellery could be solid gold alloy, gold-plated silver, gold-plated base metal or another alloy with a similar appearance. White-coloured jewellery could be platinum, white gold, silver or another material. Rose-coloured jewellery can also come from different metal combinations or surface finishes." },
+      { type: "paragraph", text: "Precious metals themselves are normally alloyed with other metals to achieve practical colour and strength. The British Hallmarking Council notes that gold, silver, platinum and palladium are rarely used in their purest form and that visual inspection alone cannot reliably establish their precious-metal content. That is precisely why metal descriptions and hallmarking matter." }
     ]
   },
   {
-    heading: "What a UK hallmark tells you",
+    heading: "Metal Type and Metal Fineness Are Different",
     content: [
-      {
-        type: "image",
-        src: "/images/blog/check-metal-used-diamond-jewellery/50 (2).jpg",
-        alt: "Close-up of a UK hallmark showing sponsor, assay office, and fineness marks",
-        title: "UK Hallmark Stamps",
-        caption: "A legal UK hallmark contains a sponsor's mark, a fineness mark, and the assay office logo."
-      },
-      {
-        type: "paragraph",
-        text: "In the UK, articles described as gold, silver, platinum or palladium generally require hallmarking when they exceed the applicable statutory exemption weight. Online sales remain within the hallmarking framework."
-      },
-      {
-        type: "paragraph",
-        text: "The minimum compulsory UK hallmark contains three components:"
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Sponsor’s mark: identifies the person or business registered with the assay office that accepts responsibility for submitting the article. It is not necessarily the manufacturer.",
-          "Millesimal fineness mark: identifies the precious metal and guaranteed fineness through its number and surrounding shield shape.",
-          "Assay office mark: identifies the UK assay office that tested and marked the article."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Optional elements can include a traditional fineness symbol and date letter. The date letter is not required for a valid minimum hallmark."
-      },
-      {
-        type: "paragraph",
-        text: "This matters because a single “750” stamp or brand initials are not the same as a complete UK hallmark. When buying online, look for hallmark information and the statutory Dealer’s Notice where required."
-      }
+      { type: "paragraph", text: "A description such as gold identifies a metal category. A description such as 18ct gold tells you more: it describes the proportion of gold within the alloy. UK hallmarking commonly expresses fineness in parts per thousand. For example: 375 = 9ct gold; 585 = 14ct gold; 750 = 18ct gold." },
+      { type: "paragraph", text: "The fineness mark tells you the minimum proportion of the stated precious metal in the alloy. Official British Hallmarking Council guidance gives 750 as the millesimal fineness corresponding to 18ct gold, 585 for 14ct and 375 for 9ct." },
+      { type: "paragraph", text: "So if you see: 750 that is a fineness reference. It does not, by itself, tell you whether the jewellery component is hollow or solid in construction." }
     ]
   },
   {
-    heading: "What a hallmark does—and does not—prove",
+    heading: "What Does 750 Mean on Jewellery?",
     content: [
-      {
-        type: "paragraph",
-        text: "A recognised hallmark supports precious-metal type and minimum fineness within its legal system. It does not establish:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "whether a diamond is natural or laboratory-grown;",
-          "diamond carat weight, colour, clarity or cut;",
-          "gemstone identity or treatment;",
-          "setting quality;",
-          "retail value;",
-          "country of jewellery manufacture; or",
-          "who physically made the piece."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "The sponsor’s mark establishes responsibility for hallmarking, not necessarily authorship. The assay office mark shows where the article was tested and marked, not where it was designed or manufactured."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "For diamond evidence, inspect the relevant grading or jewellery report separately. Our guide to " },
-          { text: "what certified lab-grown diamond jewellery means", href: "/blog/certified-lab-grown-diamond-jewellery-meaning/" },
-          { text: " explains the difference." }
-        ]
-      }
+      { type: "paragraph", text: "A 750 fineness mark means the gold alloy contains at least 750 parts gold per 1,000, corresponding to 18-carat gold. It does not mean the item is 75% of some vague \"gold colour\". It is a metal-content specification." },
+      { type: "paragraph", text: "However, a standalone 750 stamp should not automatically be described as a complete UK hallmark. A full UK hallmark has three compulsory components: the sponsor/maker mark, fineness mark and Assay Office mark. That distinction is important when checking jewellery online." }
     ]
   },
   {
-    heading: "Hallmarks across Europe",
+    heading: "What Does 585 Mean?",
     content: [
-      {
-        type: "paragraph",
-        text: "Europe does not use one identical domestic hallmarking system for every country. National requirements, accepted marks, compulsory rules and exemptions can differ."
-      },
-      {
-        type: "paragraph",
-        text: "The Convention on the Control and Marking of Articles of Precious Metals provides the Common Control Mark framework between contracting states. A qualifying Convention hallmark combines responsibility, fineness, assay-office and Common Control Mark information, supporting cross-border recognition among member states."
-      },
-      {
-        type: "paragraph",
-        text: "For a European purchase:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "identify the seller’s country;",
-          "ask which hallmarking system applies;",
-          "request a clear photograph or written description of the marks;",
-          "check whether the piece is below a legal exemption weight; and",
-          "use the relevant national assay or hallmarking authority to interpret unfamiliar symbols."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Do not apply UK rules automatically to every EU product or assume that the absence of a UK hallmark makes a lawful foreign item counterfeit."
-      }
+      { type: "paragraph", text: "585 corresponds to 14ct gold under recognised UK fineness descriptions. It means at least 585 parts per thousand of the alloy are gold." },
+      { type: "paragraph", text: "Again, the number concerns fineness. It does not tell you: whether the item is hollow; its total gram weight; its diamond quality; or whether it has been plated with another colour of metal." }
     ]
   },
   {
-    heading: "How to inspect a hallmark safely",
+    heading: "What Does 375 Mean?",
     content: [
-      {
-        type: "paragraph",
-        text: "Hallmarks are often small. Look in places that protect the mark without disrupting appearance:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "inside a ring shank;",
-          "near a bracelet or necklace clasp;",
-          "on a pendant bail;",
-          "on the back of an earring or its post; or",
-          "on a small hallmark tag attached to a chain."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Use bright diffuse light and a jeweller’s loupe or phone macro lens. Photograph the mark from several angles. Do not scratch, file or chemically test the jewellery yourself; these methods can damage plating, metal, settings or stones."
-      },
-      {
-        type: "paragraph",
-        text: "Read the group of symbols in context. Decorative engraving, serial numbers, model codes and diamond laser inscriptions may sit near metal marks but serve different purposes."
-      }
+      { type: "paragraph", text: "375 corresponds to 9ct gold, meaning at least 375 parts per thousand are gold. This is one reason the phrase simply \"gold jewellery\" is much less informative than a proper fineness description." }
     ]
   },
   {
-    heading: "Stamp, hallmark, maker’s mark and report: know the difference",
+    heading: "What Does 925 Mean on Jewellery?",
     content: [
-      {
-        type: "table",
-        headers: ["Evidence", "What it may show", "What it cannot prove alone"],
-        rows: [
-          ["Fineness stamp", "Claimed alloy fineness", "Independent testing or complete legal hallmark"],
-          ["Sponsor’s mark", "Registered party responsible for submission", "Physical manufacturer"],
-          ["Brand or maker’s mark", "Brand, workshop or ownership identifier", "Precious-metal fineness"],
-          ["Full recognised hallmark", "Tested metal and fineness within its system", "Diamond quality or jewellery value"],
-          ["Diamond laser inscription", "Link to a report-covered diamond when matched", "Metal identity"],
-          ["Jewellery or diamond report", "Characteristics within the report’s scope", "Every metal component unless stated"],
-          ["Invoice", "The seller’s contractual description", "Independent verification by itself"]
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Strong verification comes from agreement between these sources. This same principle applies across the listing: " },
-          { text: "check whether the diamond information is complete", href: "/blog/check-diamond-information-is-complete/" },
-          { text: " rather than allowing one document to stand in for the entire product." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "How to distinguish white gold, platinum and silver",
-    content: [
-      {
-        type: "image",
-        src: "/images/blog/check-metal-used-diamond-jewellery/50 (3).jpg",
-        alt: "Comparing white gold, platinum, and sterling silver metal bands side by side",
-        title: "Comparing White Metals",
-        caption: "Visual checks are unreliable for distinguishing white gold, platinum, and silver; check the hallmarks instead."
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "White gold: ", bold: true }, { text: "White gold is a gold alloy formulated for a pale appearance and frequently finished with rhodium plating. The product should state gold fineness and disclose plating where relevant. Over time, wear can reveal a warmer underlying tone, but that is not a reliable home test." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Platinum: ", bold: true }, { text: "Platinum jewellery should carry a platinum fineness description, such as 950 where applicable. Platinum often feels substantial relative to an identical-volume design, but weight varies with construction, so heft cannot authenticate it." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Silver: ", bold: true }, { text: "Sterling silver is commonly described by 925 fineness. It may be rhodium plated and can be visually similar to white gold. Tarnish can occur, but absence or presence of tarnish does not conclusively identify the metal." }]
-      },
-      {
-        type: "paragraph",
-        text: "The correct order is: read the mark, confirm the specification, then test professionally if needed."
-      }
-    ]
-  },
-  {
-    heading: "Yellow and rose gold: colour does not reveal karat",
-    content: [
-      {
-        type: "paragraph",
-        text: "Gold alloy colour depends on composition and surface finishing. Two 18K yellow-gold pieces can have different hues, while 14K and 18K pieces can look similar in photographs."
-      },
-      {
-        type: "paragraph",
-        text: "Rose gold contains alloying metals that create its pink-to-red tone. The exact colour can vary by formulation. You cannot determine gold fineness from how yellow, pale or pink a piece appears."
-      },
-      {
-        type: "paragraph",
-        text: "Lighting, white balance, reflections and screen settings further distort colour online. Use metal type and fineness as the specification; treat photography as an appearance guide."
-      }
-    ]
-  },
-  {
-    heading: "Solid, hollow, plated, filled and vermeil",
-    content: [
-      {
-        type: "image",
-        src: "/images/blog/check-metal-used-diamond-jewellery/50 (4).jpg",
-        alt: "Cross-section showing layers of gold plating over a base metal",
-        title: "Plating and Solid Construction",
-        caption: "Plated and vermeil jewellery apply a surface layer of gold over silver or base metals, which is different from solid gold."
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Solid precious metal: ", bold: true }, { text: "“Solid 18K gold” normally means the relevant structure is made from the stated gold alloy rather than merely coated with it. Solid does not mean pure, heavy or without internal space in every design; the product must still disclose hollow construction where relevant." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Hollow construction: ", bold: true }, { text: "Hollow precious-metal components can reduce weight while preserving visible scale. They are not automatically defective, but care, repairability and dent resistance may differ. The listing should not create the impression of solid construction when major components are hollow." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Plated jewellery: ", bold: true }, { text: "Plating applies a surface layer over another metal. Check coating metal, base metal, coating thickness, expected care, replating services, and whether posts, clasps and chains share the same construction." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Gold-filled and rolled gold: ", bold: true }, { text: "These terms refer to mechanically bonded gold layers under definitions that can vary by market. They are not equivalent to solid gold or ordinary flash plating. Ask for the legal or technical specification used by the seller." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Vermeil: ", bold: true }, { text: "Vermeil generally refers to gold plating over silver under jurisdiction-specific rules. It is not solid gold. Confirm silver fineness, gold fineness and coating specification rather than relying on the word alone." }]
-      }
-    ]
-  },
-  {
-    heading: "Mixed-metal diamond jewellery",
-    content: [
-      {
-        type: "paragraph",
-        text: "A piece may intentionally combine metals—for example, a platinum setting with a gold shank, or a gold pendant on a different-metal chain."
-      },
-      {
-        type: "paragraph",
-        text: "Ask the seller to identify:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "every structural metal;",
-          "which parts each metal forms;",
-          "the fineness of each precious metal;",
-          "plating applied to any component;",
-          "how mixed-metal hallmark rules are satisfied; and",
-          "whether solder, springs or functional components are excluded from the main description."
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "The description should not use the highest-value component to imply that the entire piece is made from it. Component-level differences are also one reason " },
-          { text: "similar diamond jewellery pieces can have different prices", href: "/blog/what-determines-price-lab-grown-diamond-jewellery/" },
-          { text: "." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Metal weight and product weight",
-    content: [
-      {
-        type: "paragraph",
-        text: "Approximate finished weight can help compare construction, but it is not a purity test. The figure may include diamonds, coloured stones, solder, clasps and all components. Ring size and chain length can change it."
-      },
-      {
-        type: "paragraph",
-        text: "Record:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "whether the figure is metal-only or total finished weight;",
-          "which size or length it represents;",
-          "whether it is exact or approximate; and",
-          "the stated tolerance."
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Never estimate gold purity by weighing a stone-set piece. For a fuller explanation of how metal input interacts with diamonds, setting and service, read " },
-          { text: "what determines the price of lab-grown diamond jewellery", href: "/blog/what-determines-price-lab-grown-diamond-jewellery/" },
-          { text: "." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "What about nickel and metal sensitivity?",
-    content: [
-      {
-        type: "paragraph",
-        text: "“Hypoallergenic” has no single meaning unless the seller defines the metal, testing standard and scope. If sensitivity matters, ask:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "complete alloy information where available;",
-          "whether nickel is intentionally present;",
-          "which regulatory testing standard applies;",
-          "whether earring posts and backs use the stated metal;",
-          "whether rhodium or another coating separates skin from the alloy; and",
-          "what happens as plating wears."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Do not use a blog or hallmark as medical advice. A hallmark concerns precious-metal fineness, not individual allergy suitability."
-      }
-    ]
-  },
-  {
-    heading: "Professional ways to test jewellery metal",
-    content: [
-      {
-        type: "paragraph",
-        text: "If documentation and marks are absent, unclear or inconsistent, use a qualified professional. Depending on the piece and purpose, they may use:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "X-ray fluorescence screening;",
-          "electronic testing;",
-          "density-based assessment on suitable unmounted objects;",
-          "controlled acid testing; or",
-          "formal assay methods."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Every method has limitations. For valuable, inherited or disputed jewellery, an assay office or appropriately qualified independent professional is more reliable than a home kit."
-      }
-    ]
-  },
-  {
-    heading: "Home tests that should not decide a purchase",
-    content: [
-      {
-        type: "paragraph",
-        text: "Common internet tests are weak or risky:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Magnet test: many genuine precious-metal alloys are non-magnetic, but non-magnetic does not mean precious metal; clasps can contain magnetic springs.",
-          "Skin-colour test: reactions depend on chemistry, coatings and wear, not simply purity.",
-          "Ceramic scratch test: can damage jewellery and produce ambiguous streaks.",
-          "Acid test: risks metal, plating, stones and the user.",
-          "Bite or bend test: destructive and meaningless for finished jewellery.",
-          "Weight in the hand: construction and gemstone mass make this unreliable."
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Metal checklist for each jewellery category",
-    content: [
-      {
-        type: "paragraph",
-        parts: [{ text: "Rings: ", bold: true }, { text: "Check the shank and setting metal, fineness, hallmark location, plating, finished weight for the selected size and whether resizing could disturb plating or mixed-metal construction." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Earrings: ", bold: true }, { text: "Check the decorative body, post, hinge and back separately. Confirm whether earrings are sold as a pair and whether the included backs use the same precious metal." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Necklaces and pendants: ", bold: true }, { text: "Check pendant, bail, chain, clasp and extension links. A pendant described as gold does not automatically make an included chain gold unless stated." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Bracelets: ", bold: true }, { text: "Check links, clasp, safety catches, hinges and springs. Confirm whether length changes affect approximate metal weight." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Jewellery sets: ", bold: true }, { text: "Ask for the metal specification and hallmark information for every piece. Do not assume that all components share the same alloy because they match visually." }]
-      }
-    ]
-  },
-  {
-    heading: "Pre-purchase metal verification worksheet",
-    content: [
-      {
-        type: "table",
-        headers: ["Question", "Product-page answer", "Evidence or seller confirmation"],
-        rows: [
-          ["What is the metal type?", "", ""],
-          ["What is the fineness?", "", ""],
-          ["Is the construction solid, hollow or plated?", "", ""],
-          ["What is the base metal beneath plating?", "", ""],
-          ["Are different components made from different metals?", "", ""],
-          ["What marks are present?", "", ""],
-          ["Which hallmarking system applies?", "", ""],
-          ["Is a legal weight exemption relevant?", "", ""],
-          ["What does the approximate weight include?", "", ""],
-          ["Is alloy or sensitivity information available?", "", ""],
-          ["Does the basket repeat the selected metal?", "", ""],
-          ["Does the invoice match the description?", "", ""]
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Save screenshots of the selected product, hallmark information and written answers with the invoice."
-      }
-    ]
-  },
-  {
-    heading: "Red flags in a jewellery metal description",
-    content: [
-      {
-        type: "paragraph",
-        text: "Pause when you see red flags such as gold with no fineness, gold colour instead of gold content, white metal or platinum finish without composition, a single stamp described as a full UK hallmark, or gold pendants without chain metal specs."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Clear metal evidence is part of " },
-          { text: "why transparency matters when buying diamond jewellery", href: "/blog/transparency-buying-diamond-jewellery/" },
-          { text: " and should be available before checkout." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "What Aurelia Royale should disclose",
-    content: [
-      {
-        type: "paragraph",
-        text: "Each Aurelia Royale product page states precious-metal type/colour, karat/millesimal fineness, solid/plated/mixed construction, base metal, approximate weight, hallmarking details, and sensitivity information."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Metal identity is necessary but not sufficient: " },
-          { text: "high-quality lab-grown diamond jewellery", href: "/blog/what-makes-lab-grown-diamond-jewellery-high-quality/" },
-          { text: " also depends on diamond selection, engineering, setting, finish and quality control." }
-        ]
-      }
+      { type: "paragraph", text: "925 is commonly associated with sterling silver and indicates 925 parts silver per 1,000. But, particularly in a UK buying context, do not automatically treat a solitary 925 number as equivalent to a complete statutory hallmark." },
+      { type: "paragraph", text: "Qualifying silver articles above the hallmarking exemption weight require an appropriate recognised hallmark. For underweight items, a 925 fineness stamp may appear without the full hallmark requirement applying. Official UK guidance specifically distinguishes a silver hallmark from a 925 stamp on underweight gold-plated silver articles." }
     ]
   },
   {
     content: [
-      {
-        type: "callout",
-        title: "Final verdict",
-        theme: "gold-border",
-        parts: [
-          { text: "To check the metal used in diamond jewellery, rely on an evidence chain: complete product description, fineness, recognised hallmark where applicable, component-level construction, invoice and professional testing when needed.\n\n" },
-          { text: "Colour, weight in the hand and a lone number cannot authenticate metal. A hallmark verifies precious-metal fineness within its scope; it says nothing about whether the diamond is laboratory-grown, its quality or the jewellery’s value." }
-        ]
-      },
+      { type: "image", src: "/images/blog/check-metal-used-diamond-jewellery/50 (2).jpg", alt: "UK hallmark gold silver platinum fineness marks 750 585 375 925 jewellery", title: "How UK Hallmarks Work", caption: "A full UK hallmark has three compulsory elements — the fineness number alone is not the complete hallmark.", priority: false }
+    ]
+  },
+  {
+    heading: "How UK Hallmarks Work",
+    content: [
+      { type: "paragraph", text: "UK hallmarking exists to independently verify the precious-metal fineness of qualifying articles. The current official guidance says precious-metal items described as gold, silver, platinum or palladium must be hallmarked when they exceed the applicable exemption weight." },
+      { type: "paragraph", text: "The current thresholds are:" },
+      { type: "table", headers: ["Metal", "UK hallmarking exemption weight"], rows: [["Gold", "1 gram"], ["Silver", "7.78 grams"], ["Platinum", "0.5 gram"], ["Palladium", "1 gram"]] },
+      { type: "paragraph", text: "An item below the relevant threshold can be exempt from the physical hallmarking requirement. That exemption does not give a seller permission to describe the metal inaccurately." }
+    ]
+  },
+  {
+    heading: "What Are the Three Compulsory UK Hallmark Marks?",
+    content: [
+      { type: "paragraph", text: "A complete UK hallmark normally contains three compulsory elements. The sponsor's or maker's mark identifies the registered person or company that submitted the article for hallmarking. The metal-and-fineness mark identifies the precious metal and its purity in parts per thousand. The Assay Office mark identifies which UK Assay Office tested and hallmarked the item. A date letter can also appear, but it is optional." },
+      { type: "paragraph", text: "This means a single number such as: 750 or: 925 should not automatically be described as \"the full hallmark\". It may be a fineness mark or stamp, but the full UK hallmark contains the complete compulsory set." }
+    ]
+  },
+  {
+    heading: "What Does a Hallmark Actually Prove?",
+    content: [
+      { type: "paragraph", text: "A recognised hallmark provides independent evidence about precious-metal fineness. That is valuable. But its scope should remain clear. A hallmark does not independently tell you: the diamond's carat weight; colour; clarity; cut; natural or laboratory-grown origin; report number; setting quality; future durability; or retail value." },
+      { type: "paragraph", text: "Those questions need different evidence. A hallmark is a metal verification system—not a diamond grading report." }
+    ]
+  },
+  {
+    heading: "Does a Hallmark Tell You the Jewellery Is Solid?",
+    content: [
+      { type: "paragraph", text: "Not necessarily in the sense of construction. This is a very important distinction. Hallmarking verifies the precious-metal fineness of the article according to the applicable rules. It does not mean every part of the article is necessarily a thick, solid block of metal." },
+      { type: "paragraph", text: "Jewellery can be made using hollow construction while still using an alloy of the stated precious-metal fineness. Therefore: 18ct gold and: solid-construction 18ct gold are not automatically synonymous. Likewise: hallmarked 18ct gold does not by itself tell you the physical thickness or internal construction of the piece." }
+    ]
+  },
+  {
+    heading: "Solid, Hollow and Plated: Three Different Questions",
+    content: [
+      { type: "paragraph", text: "This should be the central construction framework for this article." },
+      { type: "paragraph", text: "Solid-Throughout Precious Metal: When jewellery is made from a precious-metal alloy throughout the relevant component, the underlying body is that alloy rather than a base material carrying only a surface coating. However, \"solid\" can also be used in some markets specifically to distinguish a non-hollow construction. Because terminology can be misunderstood, a precise product description should state the metal fineness and, where construction is material, whether the article is hollow or non-hollow." },
+      { type: "paragraph", text: "Hollow Precious-Metal Construction: Hollow jewellery can still genuinely be made from the stated precious metal. The difference is that the component contains an internal void instead of being metal all the way through its entire cross-section. Hollow does not automatically mean plated. For example: hollow 18ct gold is fundamentally different from: gold-plated base metal. The first describes the construction of an 18ct gold article. The second describes a surface layer of gold over another metal." },
+      { type: "paragraph", text: "Plated Construction: Plated jewellery uses a layer of one metal over a different underlying metal. For example: 18ct gold-plated sterling silver means the underlying precious-metal article is silver and the gold is a surface layer. The British Hallmarking Council's UK guidance specifically says gold-plated silver is hallmarked as silver, not as a solid gold article." },
+      { type: "paragraph", text: "These three concepts must remain separate." }
+    ]
+  },
+  {
+    heading: "Solid Gold Does Not Mean Pure Gold",
+    content: [
+      { type: "paragraph", text: "Another common misconception is: solid gold = 24ct pure gold. That is incorrect. An item can be made throughout from 18ct gold alloy and therefore legitimately be an 18ct gold article. The 18ct tells you its fineness. The construction description tells you whether the relevant body is hollow or otherwise constructed. Those are separate characteristics." }
+    ]
+  },
+  {
+    heading: "What Is Gold-Plated Jewellery?",
+    content: [
+      { type: "paragraph", text: "Gold-plated jewellery has a layer of gold or gold alloy applied over another material. The underlying article might be sterling silver or base metal. The gold layer is therefore not the entire structural body of the piece." },
+      { type: "paragraph", text: "US FTC consumer guidance likewise distinguishes solid gold from plated jewellery and notes that plating can wear away over time depending on use and coating thickness. For UK-facing copy, the underlying metal should be identified accurately rather than allowing a gold-coloured surface to imply that the entire piece is gold." }
+    ]
+  },
+  {
+    heading: "How Should Gold-Plated Silver Be Described in the UK?",
+    content: [
+      { type: "paragraph", text: "This is one of the most useful official rules for Aurelia to follow. British Hallmarking Council guidance says a gold-plated silver article is hallmarked as silver. It also warns against descriptions that make consumers think they are buying gold when the actual article underneath is silver." },
+      { type: "paragraph", text: "A permitted form of description can state, for example: 925 & 18ct gold plated provided the article is accurately described as silver with gold plating. The gold fineness refers to the plating alloy. The silver fineness describes the underlying precious-metal article. Those should never be reversed." }
+    ]
+  },
+  {
+    heading: "Can Gold-Plated Silver Carry an 18ct Gold Hallmark?",
+    content: [
+      { type: "paragraph", text: "Not as though the article itself were 18ct gold. Official UK guidance says gold-plated silver articles are hallmarked as silver. It also says separate gold fineness marks such as 9k, 14k, 18k, 375, 585 or 750 should not be placed on the article in a way that could mislead buyers into believing the jewellery itself is gold." },
+      { type: "paragraph", text: "The description can explain the fineness of the plating when it makes the silver base clear. That distinction should be preserved on every product page." }
+    ]
+  },
+  {
+    heading: "Can Gold-Plated Base Metal Be Hallmarked as Gold?",
+    content: [
+      { type: "paragraph", text: "No. British Hallmarking Council guidance states that gold-plated base-metal articles cannot be hallmarked as gold. It specifically includes plated, bonded and rolled-gold constructions over base metal within that restriction. Again, a gold-coloured surface does not convert the underlying material into a solid gold article." }
+    ]
+  },
+  {
+    heading: "Is Gold Vermeil the Same as Solid Gold?",
+    content: [
+      { type: "paragraph", text: "No. Vermeil is a plated construction, not solid gold throughout. Terminology and minimum plating requirements can vary by market, so a buyer should look beyond the word vermeil and determine: the underlying metal; the plating metal and fineness; and where supplied, plating thickness." },
+      { type: "paragraph", text: "A retailer should not use vermeil as though it meant the jewellery body itself were solid gold." }
+    ]
+  },
+  {
+    heading: "Is Gold-Filled the Same as Solid Gold?",
+    content: [
+      { type: "paragraph", text: "No. Gold-filled, gold-overlay and rolled-gold constructions involve a gold-alloy layer applied over another underlying metal. They are different from a jewellery component made from gold alloy throughout. US FTC guidance expressly distinguishes gold-filled, gold overlay and rolled gold plate from solid gold jewellery. When shopping internationally, do not assume every market uses identical terminology or thresholds. Read the complete metal description." }
+    ]
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/check-metal-used-diamond-jewellery/50 (3).jpg", alt: "Gold plated hollow solid construction jewellery metal white gold rhodium platinum", title: "Plating, Hollow Construction and Common Misconceptions", caption: "Gold plating, hollow construction and solid precious-metal alloy are three different things — always identify the underlying metal first.", priority: false }
+    ]
+  },
+  {
+    heading: "Can You Tell Solid Gold From Plated Jewellery by Looking?",
+    content: [
+      { type: "paragraph", text: "Not reliably. Fresh plating can visually resemble a gold-alloy surface. Colour can also vary significantly between different gold alloys. Visual inspection can sometimes reveal worn plating, exposed base metal or colour differences at high-wear areas, but the absence of visible wear does not prove that a piece is solid-throughout gold." },
+      { type: "paragraph", text: "Use: the product description; applicable hallmarking; manufacturer information; and professional testing where necessary. Do not determine metal composition solely from a photograph." }
+    ]
+  },
+  {
+    heading: "Can a Magnet Tell You Whether Jewellery Is Gold?",
+    content: [
+      { type: "paragraph", text: "A simple magnet test is not conclusive. Some base metals may react to a magnet while many precious-metal alloys do not. But absence of magnetic attraction does not prove that an item is gold. Likewise, jewellery contains multiple components: clasps, springs, findings or internal mechanisms may use different materials. A magnet can occasionally provide a clue. It is not a substitute for hallmarking, reliable documentation or professional metal testing." }
+    ]
+  },
+  {
+    heading: "Can Colour Tell You Whether Jewellery Is 14ct or 18ct Gold?",
+    content: [
+      { type: "paragraph", text: "No. The colour of a gold alloy depends partly on the other metals used in the alloy. Different 18ct alloys can also have different colour tones. White gold may additionally use surface treatment such as rhodium plating. Therefore, you cannot reliably look at two yellow rings and conclude: this one is 18ct and that one is 14ct from colour alone. Use verified fineness information." }
+    ]
+  },
+  {
+    heading: "What Is White Gold?",
+    content: [
+      { type: "paragraph", text: "White gold is a gold alloy designed to have a pale or white appearance. It is not the same metal as platinum. A white-gold piece can also receive a surface plating such as rhodium to create a particular finish. That means a white appearance alone does not establish whether the piece is: white gold; platinum; silver; or another metal. Check the product description and relevant fineness evidence." }
+    ]
+  },
+  {
+    heading: "Is Rhodium-Plated White Gold Still Gold?",
+    content: [
+      { type: "paragraph", text: "Yes, if the underlying article genuinely consists of the stated gold alloy. The rhodium is a surface layer. This gives the piece two separate material characteristics: underlying precious metal: white gold; surface finish: rhodium plating." },
+      { type: "paragraph", text: "The existence of a surface plating does not necessarily mean the entire piece should be categorised in the same way as base-metal jewellery with gold plating. Always identify both the underlying article and the surface finish." }
+    ]
+  },
+  {
+    heading: "What Is Platinum Jewellery?",
+    content: [
+      { type: "paragraph", text: "Platinum is a distinct precious metal, not another form of white gold. UK hallmarking recognises platinum separately and provides its own fineness standards. British Hallmarking Council guidance includes recognised platinum finenesses such as 850, 900, 950 and 999. A common 950 platinum fineness therefore indicates at least 950 parts platinum per thousand in the relevant alloy. The hallmark shape and accompanying marks help distinguish platinum from other precious metals." }
+    ]
+  },
+  {
+    heading: "Is Platinum Automatically Better Than Gold?",
+    content: [
+      { type: "paragraph", text: "No. \"Better\" depends on what characteristic matters. Platinum and gold alloys differ in density, colour, composition, working characteristics, cost and maintenance. Metal preference should therefore be based on the particular jewellery design and wearer rather than a universal hierarchy. This page should explain identity and construction rather than declare one precious metal superior." }
+    ]
+  },
+  {
+    heading: "How Does Metal Affect Jewellery Weight?",
+    content: [
+      { type: "paragraph", text: "Metal contributes significantly to the finished item's gram weight. Different precious metals also have different densities, and construction can change weight dramatically. A hollow piece may weigh less than a physically similar non-hollow design. A substantial platinum ring can feel different from a visually similar gold ring." },
+      { type: "paragraph", text: "But jewellery weight should not be used by itself to determine metal identity. A heavy item is not automatically platinum. A lightweight item is not automatically plated. Use the metal documentation as the primary evidence." }
+    ]
+  },
+  {
+    heading: "Jewellery Weight Is Not Diamond Carat Weight",
+    content: [
+      { type: "paragraph", text: "This distinction is particularly important for diamond jewellery. Diamond carat is a gemstone weight measurement. Finished jewellery weight normally includes the metal and other components and is commonly expressed in grams. One metric diamond carat equals 0.20 grams. Therefore: 1 ct diamond and: 5 g ring are not competing descriptions of the same measurement." },
+      { type: "paragraph", parts: [{ text: "For finished dimensions and weight, read " }, { text: "How to Check Jewellery Dimensions and Weight Online", href: "/blog/check-jewellery-product-dimensions-weight/" }] },
+      { type: "paragraph", parts: [{ text: "For diamond carat specifically, use " }, { text: "Lab-Grown Diamond Carat Weight Explained", href: "/blog/lab-grown-diamond-carat-weight-explained/" }, { text: "." }] }
+    ]
+  },
+  {
+    heading: "Does Heavier Gold Mean Higher Fineness?",
+    content: [
+      { type: "paragraph", text: "No. Weight and fineness are independent. A heavy 9ct gold item may contain more total gold by mass than a very lightweight 18ct piece, even though the 18ct alloy has a greater proportion of gold. The hallmark communicates fineness. The gram weight communicates mass. You need both if total material quantity matters." }
+    ]
+  },
+  {
+    heading: "What Metal Information Should a Diamond-Jewellery Product Page Show?",
+    content: [
+      { type: "paragraph", text: "The product description should make the underlying material understandable without requiring the buyer to infer it from colour. For example: 18ct yellow gold is clearer than: gold-tone if the article truly is 18ct gold." },
+      { type: "paragraph", text: "If plated: sterling silver with 18ct gold plating is clearer than: 18ct gold jewellery if only the surface layer is gold. If a hollow construction materially affects buyer expectations, it should not be described in a way that suggests a non-hollow construction." },
+      { type: "paragraph", text: "The fundamental rule is: describe the underlying metal first, then its fineness, then any relevant plating or construction information." }
+    ]
+  },
+  {
+    heading: "A Practical Metal-Description Framework",
+    content: [
+      { type: "paragraph", text: "Use this order when reading jewellery specifications:" },
+      { type: "table", headers: ["Question", "Example", "What It Tells You"], rows: [["What is the underlying metal?", "Gold / silver / platinum", "Metal family"], ["What is its fineness?", "750 / 925 / 950", "Precious-metal proportion"], ["Is it plated?", "18ct gold-plated silver", "Surface treatment"], ["Is construction hollow?", "Hollow 18ct gold", "Physical construction"], ["Is there a UK hallmark?", "Sponsor + fineness + Assay Office", "Independent fineness verification where applicable"], ["What is the item's weight?", "4.8 g", "Finished-item mass"], ["What metal is used in individual components?", "Main body / clasp / spring", "Component composition where relevant"]] },
+      { type: "paragraph", text: "Do not collapse those questions into one vague field labelled Material." }
+    ]
+  },
+  {
+    heading: "Product Description vs Hallmark",
+    content: [
+      { type: "paragraph", text: "Both matter. The hallmark verifies applicable precious-metal fineness. The product description can provide information beyond the hallmark, including: metal colour; construction; plating; component information; and design details." },
+      { type: "paragraph", text: "For example, the hallmark may establish that the qualifying underlying article is sterling silver. The product description may additionally state that its surface is plated with 18ct gold. Those pieces of information complement one another." }
+    ]
+  },
+  {
+    heading: "What If the Product Page Says 18ct Gold but the Hallmark Says 925?",
+    content: [
+      { type: "paragraph", text: "That needs careful interpretation. If the item is accurately described as 925 silver with 18ct gold plating, a silver hallmark can be entirely appropriate because UK guidance says gold-plated silver is hallmarked as silver." },
+      { type: "paragraph", text: "But if the product is being represented as an article made from 18ct gold throughout while the applicable hallmark establishes silver, that would be a serious inconsistency. The wording around plating determines whether the information agrees or conflicts." }
+    ]
+  },
+  {
+    heading: "What If the Jewellery Has No Hallmark?",
+    content: [
+      { type: "paragraph", text: "First check whether it is subject to the UK hallmarking requirement. Current exemption thresholds are: gold — below 1 g; silver — below 7.78 g; platinum — below 0.5 g; palladium — below 1 g. An underweight article may legitimately fall outside compulsory physical hallmarking. That does not mean its metal can be described inaccurately." },
+      { type: "paragraph", text: "If an article is above the relevant threshold, offered in the UK and described as one of the regulated precious metals, the absence of a recognised hallmark deserves investigation." }
+    ]
+  },
+  {
+    heading: "Does a 925 Stamp Prove Sterling Silver?",
+    content: [
+      { type: "paragraph", text: "A 925 stamp is useful information, but context matters. On an underweight silver article it may be used without the full hallmark requirement. On a larger article that should legally be hallmarked, a single 925 stamp is not a substitute for the complete recognised hallmark. A buyer should therefore distinguish: fineness stamp from: full hallmark." }
+    ]
+  },
+  {
+    heading: "Does a 750 Stamp Prove 18ct Gold?",
+    content: [
+      { type: "paragraph", text: "750 is the recognised fineness associated with 18ct gold. But, again, a single number is not necessarily a complete statutory UK hallmark. Check whether the item should carry a full hallmark and whether the accompanying sponsor and Assay Office marks are present." }
+    ]
+  },
+  {
+    heading: "What If a Hallmark Is Too Small to Read?",
+    content: [
+      { type: "paragraph", text: "Hallmarks are often tiny. A jeweller's loupe or magnification can help. If buying online, clear hallmark information in the product description may be more useful than attempting to interpret an unclear photograph yourself. For a significant purchase, ask the seller to identify the hallmark and fineness rather than guessing from an unreadable image." }
+    ]
+  },
+  {
+    heading: "Does the Hallmark Need to Be Visible in Product Photography?",
+    content: [
+      { type: "paragraph", text: "Not necessarily. A hallmark can be positioned discreetly and may be difficult to photograph clearly without high magnification. Its absence from a normal product image is therefore not proof that no hallmark exists." },
+      { type: "paragraph", text: "The better question is whether the retailer can accurately state the applicable hallmarking information for the product." }
+    ]
+  },
+  {
+    heading: "Can Different Parts of Jewellery Use Different Metals?",
+    content: [
+      { type: "paragraph", text: "Yes. Complex jewellery can contain different components or functional parts. A clasp mechanism, spring or soldered component may not always have exactly the same composition as the visible body. UK hallmarking rules contain detailed provisions covering mixed-metal and component situations." },
+      { type: "paragraph", text: "Where component composition materially affects the product, check the manufacturer's or retailer's verified specification." }
+    ]
+  },
+  {
+    heading: "Does a Diamond Report Tell You the Metal?",
+    content: [
+      { type: "paragraph", text: "Not necessarily. A report issued for an individual loose diamond concerns the gemstone. It does not automatically verify the ring, pendant or earrings into which the stone is later mounted. Some laboratories also offer finished-jewellery reporting services, but the scope should be read carefully." },
+      { type: "paragraph", text: "Do not use: IGI reported diamond as proof that the ring is 18ct gold. Those are separate claims." },
+      { type: "paragraph", parts: [{ text: "For the distinction, read " }, { text: "Diamond Certification vs Jewellery Certification", href: "/blog/diamond-certification-vs-jewellery-certification/" }, { text: "." }] }
+    ]
+  },
+  {
+    heading: "Does a UK Hallmark Verify a Lab-Grown Diamond?",
+    content: [
+      { type: "paragraph", text: "No. The hallmark concerns precious metal. It does not establish whether the gemstone is: natural diamond; laboratory-grown diamond; moissanite; cubic zirconia; or another material. Diamond origin requires gemmological evidence. Do not combine a metal hallmark and a diamond report into one vague claim that the \"whole item is certified\"." }
+    ]
+  },
+  {
+    heading: "What If the Product Uses Lab-Grown Diamonds?",
+    content: [
+      { type: "paragraph", text: "The metal-verification process does not change. A lab-grown diamond can be set in: gold; platinum; silver; or other appropriate jewellery materials. The fact that the diamond is laboratory-grown tells you nothing by itself about the surrounding metal. Check both independently." }
+    ]
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/check-metal-used-diamond-jewellery/50 (4).jpg", alt: "Jewellery metal testing professional acid test magnet hallmark verification", title: "Professional Testing and What to Check When Buying Online", caption: "For significant purchases, professional metal testing is more reliable than home tests — and the product description remains the primary evidence.", priority: false }
+    ]
+  },
+  {
+    heading: "Can a Jeweller Test the Metal?",
+    content: [
+      { type: "paragraph", text: "Yes. Professional precious-metal testing can be used when identity or fineness remains uncertain. Methods can include controlled chemical or instrumental analysis depending on the situation. For UK hallmarking, Assay Offices independently test qualifying precious-metal articles before applying the recognised hallmark." },
+      { type: "paragraph", text: "For a consumer, professional testing is generally more appropriate than attempting potentially damaging home acid or scratch tests on finished fine jewellery." }
+    ]
+  },
+  {
+    heading: "Should You Use an Acid Test at Home?",
+    content: [
+      { type: "paragraph", text: "For valuable finished jewellery, avoid potentially damaging DIY testing when reliable documentation or professional examination is available. Acid testing can involve scratching or exposing metal to chemicals. It also requires interpretation. If the issue matters enough to test, use an appropriately qualified professional rather than damaging a piece merely to satisfy curiosity." }
+    ]
+  },
+  {
+    heading: "What Does \"Gold Tone\" Mean?",
+    content: [
+      { type: "paragraph", text: "Do not treat terms such as: gold-tone; gold-coloured; or: gold finish as equivalent to: 18ct gold. Those descriptions may refer only to appearance. If a product genuinely contains regulated precious metal, look for a proper metal and fineness description." }
+    ]
+  },
+  {
+    heading: "What Does \"White Metal\" Mean?",
+    content: [
+      { type: "paragraph", text: "It is not sufficiently specific for a fine-jewellery metal claim. The phrase might describe appearance but does not tell you whether the material is: white gold; platinum; silver; or another alloy. A buyer should seek the actual underlying metal." }
+    ]
+  },
+  {
+    heading: "What Should You Check When Buying Metal Online?",
+    content: [
+      { type: "paragraph", text: "Start with the written specification. Then compare it with any available hallmark information. If the jewellery is plated, identify both the underlying material and the plating. If weight or construction is important, determine whether the item is hollow or non-hollow rather than assuming from appearance. If the information conflicts, ask for clarification before proceeding." },
+      { type: "paragraph", text: "The same evidence framework used elsewhere in Aurelia's buyer guides applies here: Verified — supported by appropriate evidence. Disclosed — clearly stated by the seller. Unconfirmed — not yet adequately established. And distinguish: omission from: contradiction. A missing gram weight is not the same as a product described as 18ct solid-throughout gold while its verified metal information shows plated silver." },
       {
         type: "faq",
+        title: "Frequently Asked Questions",
         items: [
-          {
-            question: "How can I tell what metal my diamond ring is made from?",
-            answer: "Check the product documents and inspect the inner shank for grouped hallmark or fineness marks. If the evidence is missing or conflicting, request professional non-destructive testing."
-          },
-          {
-            question: "What does 750 mean on jewellery?",
-            answer: "750 commonly expresses 750 parts gold per thousand, equivalent to 18K gold. The number should be interpreted with its surrounding marks and legal context, not alone."
-          },
-          {
-            question: "What does 585 mean on jewellery?",
-            answer: "585 commonly indicates 585 parts gold per thousand, generally associated with 14K gold. Confirm the complete hallmark or reliable product documentation."
-          },
-          {
-            question: "Is a 925 stamp a hallmark?",
-            answer: "925 commonly indicates sterling-silver fineness, but a lone number is not necessarily a complete recognised hallmark. Check the applicable country’s required marks."
-          },
-          {
-            question: "Can I identify white gold and platinum by colour?",
-            answer: "No. White gold, platinum, silver and plated metals can look similar. Check fineness and hallmark information or obtain professional testing."
-          },
-          {
-            question: "Does a hallmark prove that the diamonds are real?",
-            answer: "No. Hallmarks concern precious-metal content. Diamond identity and quality require separate product disclosure, testing or a relevant laboratory report."
-          },
-          {
-            question: "Does a sponsor’s mark identify the jewellery maker?",
-            answer: "Not necessarily. In the UK, it identifies the registered party responsible for submitting the article for hallmarking; that party may not have manufactured it."
-          },
-          {
-            question: "Is unhallmarked gold jewellery always fake?",
-            answer: "No. A lawful weight exemption may apply, or the item may come from a jurisdiction with different rules. Its description still needs evidence appropriate to the transaction."
-          },
-          {
-            question: "What is the difference between solid gold and gold-plated jewellery?",
-            answer: "Solid gold uses the stated gold alloy through the relevant structure. Gold-plated jewellery has a gold surface layer over another metal, which should be identified."
-          },
-          {
-            question: "Can a jeweller test metal without damaging the jewellery?",
-            answer: "Often, yes. X-ray fluorescence and other screening methods may be non-destructive, though plating and mixed construction can limit results. Ask about method and limitations first."
-          },
-          {
-            question: "Does heavier jewellery mean higher-purity gold?",
-            answer: "No. Weight depends on dimensions, construction, stones and alloy density. Purity must be established through fineness evidence, hallmarking or testing."
-          },
-          {
-            question: "What metal details should an online jewellery page provide?",
-            answer: "It should state metal type, fineness, colour, solid or plated construction, base metal, hallmark information, approximate finished weight and component-level differences."
-          }
+          { question: "How can I tell what metal my jewellery is made from?", answer: "Check the product description, fineness information and applicable hallmark. For uncertainty, use professional precious-metal testing rather than relying on colour alone." },
+          { question: "What does a jewellery hallmark mean?", answer: "A recognised hallmark provides independent verification of precious-metal fineness." },
+          { question: "What are the compulsory marks in a UK hallmark?", answer: "The sponsor/maker mark, metal-and-fineness mark and Assay Office mark are compulsory. The date letter is optional." },
+          { question: "What does 750 mean on jewellery?", answer: "750 indicates 18ct gold fineness—at least 750 parts gold per thousand." },
+          { question: "What does 585 mean?", answer: "585 corresponds to 14ct gold." },
+          { question: "What does 375 mean?", answer: "375 corresponds to 9ct gold." },
+          { question: "What does 925 mean?", answer: "925 indicates sterling-silver fineness." },
+          { question: "What does 950 mean?", answer: "950 is a recognised fineness used for platinum and can also occur within other precious-metal contexts, so the complete hallmark shape and metal description should be checked rather than reading the number in isolation." },
+          { question: "Does 925 alone mean the item has a full UK hallmark?", answer: "No. A full hallmark contains the three compulsory components. An underweight silver article can also carry a 925 stamp without compulsory full hallmarking." },
+          { question: "Is solid gold the same as pure gold?", answer: "No. An item can be made from 18ct gold alloy throughout without being pure 24ct gold." },
+          { question: "Is hollow gold fake gold?", answer: "No. Hollow describes construction. The metal can still genuinely be the stated gold alloy." },
+          { question: "Is hollow gold the same as gold plated?", answer: "No. Hollow precious-metal jewellery uses the stated alloy in its structure but has an internal void. Plating is a surface layer over another underlying material." },
+          { question: "Is gold-plated jewellery solid gold?", answer: "No. Gold plating is a surface coating." },
+          { question: "Can sterling silver be gold plated?", answer: "Yes." },
+          { question: "How is gold-plated silver hallmarked in the UK?", answer: "Official guidance says it is hallmarked as silver, not as a solid gold article." },
+          { question: "Can gold-plated silver be described as 18ct gold?", answer: "Not as though the entire article were 18ct gold. The wording must make the silver article and gold plating clear." },
+          { question: "Can a gold-plated base-metal item receive a UK gold hallmark?", answer: "No. Official UK hallmarking guidance says gold-plated base-metal articles cannot be hallmarked as gold." },
+          { question: "Does gold plating wear off?", answer: "It can wear over time depending on use, thickness and construction." },
+          { question: "Is white gold the same as platinum?", answer: "No. They are different precious metals." },
+          { question: "Does a hallmark prove the diamond is genuine?", answer: "No. It verifies applicable precious-metal fineness, not diamond identity." },
+          { question: "Does an IGI diamond report prove the ring metal?", answer: "A loose-diamond report does not automatically verify the surrounding ring metal." },
+          { question: "Is a heavy ring automatically solid gold?", answer: "No." },
+          { question: "Is a lightweight ring automatically hollow?", answer: "No." },
+          { question: "Can I tell 14ct from 18ct gold by colour?", answer: "Not reliably." },
+          { question: "Does every UK gold item need a hallmark?", answer: "Compulsory hallmarking applies above the relevant exemption weight. The current UK exemption threshold for gold is 1 gram." },
+          { question: "What is the silver hallmarking threshold?", answer: "7.78 grams." },
+          { question: "What is the platinum threshold?", answer: "0.5 gram." },
+          { question: "What is the palladium threshold?", answer: "1 gram." },
+          { question: "Is jewellery gram weight the same as diamond carat weight?", answer: "No. Finished jewellery weight and gemstone carat weight are different measurements." },
+          { question: "What is the most important thing to check?", answer: "Identify the underlying metal, its fineness and its construction separately." }
         ]
-      },
-      {
-        type: "cta-banner",
-        title: "Find Your Perfect Metal Variant",
-        subtitle: "Explore our collection of 18K gold and 950 platinum lab-grown diamond jewellery.",
-        shopHref: "/shop/",
-        contactHref: "/contact/"
       }
+    ]
+  },
+  {
+    heading: "Final Answer: How Do You Know What Metal Diamond Jewellery Uses?",
+    content: [
+      { type: "paragraph", text: "Do not judge jewellery metal from colour alone. Start with the product description and identify the underlying material. Then establish its fineness. For a qualifying UK precious-metal article, use the recognised hallmark as independent evidence. A full UK hallmark includes the sponsor or maker mark, metal-and-fineness mark and Assay Office mark." },
+      { type: "paragraph", text: "After that, ask a separate construction question. Is the article made from the stated precious-metal alloy throughout the relevant component? Is it hollow? Or is another underlying material plated with gold? These descriptions are not interchangeable. An 18ct gold hollow component can genuinely be 18ct gold. A sterling-silver item with 18ct gold plating is fundamentally a silver article with a gold surface. And gold-plated base metal is different again." },
+      { type: "paragraph", text: "For UK buyers, gold-plated silver should be described as silver with gold plating and is hallmarked as silver where hallmarking applies. Finally, keep metal verification separate from diamond verification. A UK hallmark tells you about precious-metal fineness. A diamond grading report tells you about the gemstone within that report's scope. Neither replaces the other." },
+      { type: "paragraph", parts: [{ text: "For finished product dimensions and gram weight, continue with " }, { text: "How to Check Jewellery Dimensions and Weight Online", href: "/blog/check-jewellery-product-dimensions-weight/" }] },
+      { type: "paragraph", parts: [{ text: "For diamond carat weight, read " }, { text: "Lab-Grown Diamond Carat Weight Explained", href: "/blog/lab-grown-diamond-carat-weight-explained/" }, { text: "." }] },
+      { type: "paragraph", parts: [{ text: "For checking all product information before buying, use " }, { text: "What to Check Before Buying Lab-Grown Diamond Jewellery", href: "/blog/what-to-check-before-buying-lab-grown-diamond-jewellery/" }, { text: "." }] },
+      { type: "paragraph", parts: [{ text: "For loose-diamond versus finished-jewellery documentation, read " }, { text: "Diamond Certification vs Jewellery Certification", href: "/blog/diamond-certification-vs-jewellery-certification/" }, { text: "." }] },
+      { type: "paragraph", parts: [{ text: "For the broader online buying process, continue with " }, { text: "How to Buy Certified Lab-Grown Diamond Jewellery Online", href: "/blog/buy-certified-lab-grown-diamond-jewellery-online/" }, { text: "." }] },
+      { type: "paragraph", text: "When reviewing an Aurelia Royale product, only publish metal, fineness, plating, hollow-construction or hallmark claims that are verified for that specific design or SKU." },
+      { type: "paragraph", parts: [{ text: "Where a design is not currently available through an approved direct-purchase process, " }, { text: "Join the Waitlist", href: "/contact/" }, { text: " or submit an enquiry to register your interest." }] },
+      { type: "cta-banner", title: "Explore Aurelia Royale Lab-Grown Diamond Jewellery", subtitle: "Identify the underlying metal, its fineness and its construction — three separate questions.", shopHref: "/shop/", contactHref: "/contact/" }
     ]
   }
 ];
 
-export default function CheckMetalUsedPage() {
+export default function BlogCheckMetalPage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
-      {/* Script injection for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* Hero Header */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }} />
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Buying Lab-Grown Diamond Jewellery
-          </span>
-          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How to Check the Metal Used in Diamond Jewellery
-          </h1>
-          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Educational Guide • Published July 16, 2026
-          </p>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">Lab-Grown Diamond Education</span>
+          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">How to Check the Metal Used in Diamond Jewellery</h1>
+          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">Hallmarks, Fineness and Plating Explained • Published September 10, 2026</p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
-      {/* Related articles — crawlable plain links */}
       <RelatedArticles currentSlug="check-metal-used-diamond-jewellery" />
       <NewsletterSection />
     </main>
   );
 }
+

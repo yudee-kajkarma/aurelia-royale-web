@@ -19,6 +19,12 @@ const nextConfig: NextConfig = {
 	// ---------------------------------------------------------------------------
 	async redirects() {
 		return [
+			// --- Content consolidation redirects ---
+			{
+				source: "/blog/advantages-of-lab-grown-diamonds/",
+				destination: "/blog/are-lab-grown-diamonds-worth-buying/",
+				permanent: true,
+			},
 			// --- Batch 1: confirmed broken aliases from audit ---
 			{
 				source: "/blog/total-carat-weight-diamond-jewellery/",

@@ -1,454 +1,214 @@
-﻿import React from "react";
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 import RelatedArticles from "@/components/shared/RelatedArticles";
 
-// 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
   title: "Can You Wear Diamond Jewellery in the Shower?",
-  description: "It is safer to remove diamond jewellery before showering. Learn how soap, products, slippery handling and mixed materials can affect the complete piece.",
-  alternates: {
-    canonical: "https://www.aureliaroyale.com/blog/wear-diamond-jewellery-in-shower/",
-  },
+  description: "Learn whether diamond rings, earrings and necklaces should be worn in the shower, how soap and hair products affect jewellery, and what to do after accidental exposure.",
+  alternates: { canonical: "https://www.aureliaroyale.com/blog/wear-diamond-jewellery-in-shower/" },
 };
 
-// 2. The exact JSON-LD Schema (Fixed dates)
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BlogPosting",
-      "@id": "https://www.aureliaroyale.com/blog/wear-diamond-jewellery-in-shower/#article",
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.aureliaroyale.com/blog/wear-diamond-jewellery-in-shower/" },
-      "headline": "Can You Wear Diamond Jewellery in the Shower?",
-      "description": "It is safer to remove diamond jewellery before showering. Learn how soap, products, slippery handling and mixed materials can affect the complete piece.",
-      "image": "https://www.aureliaroyale.com/images/blog/wear-diamond-jewellery-in-shower.webp",
-      "author": { "@type": "Organization", "name": "Aurelia Royale" },
-      "publisher": { "@type": "Organization", "name": "Aurelia Royale", "logo": { "@type": "ImageObject", "url": "https://www.aureliaroyale.com/images/logo.png" } },
-      "datePublished": "2026-07-16",
-      "dateModified": "2026-07-16",
-      "inLanguage": "en-GB",
-      "articleSection": "Jewellery Care and Maintenance",
-      "keywords": ["can you wear diamond jewellery in the shower", "shower with diamond ring", "shower with lab-grown diamonds", "does soap damage diamonds"]
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.aureliaroyale.com/blog/wear-diamond-jewellery-in-shower/#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Can You Wear Diamond Jewellery in the Shower?", "item": "https://www.aureliaroyale.com/blog/wear-diamond-jewellery-in-shower/" }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.aureliaroyale.com/blog/wear-diamond-jewellery-in-shower/#faq",
-      "mainEntity": [
-        { "@type": "Question", "name": "Can you wear a diamond ring in the shower?", "acceptedAnswer": { "@type": "Answer", "text": "It is safer to remove it. Soap film can dull the diamond, wet handling increases loss risk, and products or impact may affect the setting and metal." } },
-        { "@type": "Question", "name": "Can you shower with lab-grown diamonds?", "acceptedAnswer": { "@type": "Answer", "text": "Lab-grown diamonds follow the same shower-care principle as natural diamonds. Remove the complete piece because its metal, setting and other materials still matter." } },
-        { "@type": "Question", "name": "Does water damage diamonds?", "acceptedAnswer": { "@type": "Answer", "text": "Ordinary clean water does not normally damage an untreated diamond, but water exposure does not make a finished jewellery piece universally safe." } },
-        { "@type": "Question", "name": "Does soap damage a diamond?", "acceptedAnswer": { "@type": "Answer", "text": "Many soaps will not chemically damage the diamond itself, but they can leave film. Abrasive or unsuitable products can harm metal or other materials." } },
-        { "@type": "Question", "name": "Why does my diamond look cloudy after showering?", "acceptedAnswer": { "@type": "Answer", "text": "Soap, conditioner, oils or hard-water minerals may have coated the surface or collected beneath the setting." } },
-        { "@type": "Question", "name": "Can you shower with diamond earrings?", "acceptedAnswer": { "@type": "Answer", "text": "Removal is recommended because hair products create residue, wet hair can pull the earrings and small backs may be lost near a drain." } },
-        { "@type": "Question", "name": "Can you wear a diamond necklace in the shower?", "acceptedAnswer": { "@type": "Answer", "text": "It is better to remove it. Chains can tangle in wet hair and products may collect around links, clasps and the pendant." } },
-        { "@type": "Question", "name": "Can hot shower water damage diamond jewellery?", "acceptedAnswer": { "@type": "Answer", "text": "The diamond itself is stable, but heat and temperature change may not suit every coloured stone, treatment, coating or adhesive." } },
-        { "@type": "Question", "name": "Is showering safe for white-gold diamond jewellery?", "acceptedAnswer": { "@type": "Answer", "text": "Removal is safer. Soap residue and abrasive products can affect appearance, while repeated rubbing may contribute to wear on a plated surface." } },
-        { "@type": "Question", "name": "What should I do after accidentally showering with my ring?", "acceptedAnswer": { "@type": "Answer", "text": "Remove it over a safe surface, inspect the setting, rinse only if all materials permit, dry fully and use the approved cleaning method if residue remains." } },
-        { "@type": "Question", "name": "Can showering loosen a diamond?", "acceptedAnswer": { "@type": "Answer", "text": "Water alone does not normally loosen a secure setting, but snagging, impact and pre-existing prong wear can compromise it." } },
-        { "@type": "Question", "name": "Should I remove jewellery before bathing as well?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Bath products, oils, prolonged soaking, slippery handling and hard surfaces create similar avoidable risks." } }
-      ]
-    }
-  ]
-};
-
-// 3. Article content sections structured for DynamicArticle (Without images)
 const articleSections: ArticleSection[] = [
   {
     content: [
-      {
-        type: "paragraph",
-        text: "It is safer to remove diamond jewellery before showering. A brief encounter with clean water is unlikely to alter an untreated diamond, whether it is lab-grown or natural. But a finished jewel includes much more than the diamond: metal alloys, settings, soldered joints, clasps, surface finishes and sometimes coloured stones or treatments."
-      },
-      {
-        type: "paragraph",
-        text: "Showering also exposes the piece to soap, shampoo, conditioner, body oils, hard-water minerals and slippery handling. These may leave film, affect vulnerable components or increase the chance of losing the jewellery near a drain."
-      }
-    ]
+      { type: "paragraph", text: "A diamond can tolerate ordinary water exposure, but that does not mean regularly showering in diamond jewellery is the best way to care for the complete piece. The safest routine is to remove fine diamond jewellery before showering. The concern is not that shower water will suddenly damage a sound diamond. Diamonds are highly stable under normal conditions. The more relevant issue is everything surrounding the diamond: the metal, setting, plating or finish, clasp, chain, earring fastening and any additional gemstones." },
+      { type: "paragraph", text: "Showering also repeatedly exposes jewellery to soap, shampoo, conditioner, body wash and skincare products, which can leave residue on diamonds and around settings. Over time, that build-up can make a diamond appear less bright even though the diamond itself has not changed. So the practical answer is: plain water is not the main problem; routine exposure of the complete jewellery item to water plus personal-care products is why removing it first is preferable." },
+    ],
   },
   {
-    heading: "Quick answer",
+    heading: "Quick Answer",
     content: [
-      {
-        type: "paragraph",
-        text: "Do not make showering in diamond jewellery a routine. Remove the piece before turning on the water and place it in a secure, padded location away from the sink and drain. The diamond itself is highly stable, but soap and hair products can leave a dulling film; abrasive products can mark metal; hot water and chemicals may not suit coloured stones, treatments, plating or adhesives; and slippery fingers can lead to loss or impact. If you accidentally shower with a compatible piece, rinse away residue only if its care instructions allow, dry it thoroughly, inspect the setting and use the approved cleaning method if film remains."
-      }
-    ]
+      { type: "paragraph", text: "You can accidentally get diamond jewellery wet in the shower without assuming it has been ruined. But wearing fine jewellery in the shower every day is unnecessary. Soap, shampoo and conditioner can leave a film across diamonds and accumulate around: prongs, settings, chains, clasps, posts, and earring backs. If the jewellery contains plating, another gemstone, enamel or another sensitive material, its care requirements may also be different from those of the diamond. A better routine is: remove jewellery → shower and apply products → dry yourself → put jewellery back on. If you accidentally shower while wearing it, rinse and clean the piece appropriately for its materials if residue remains, then dry it thoroughly." },
+    ],
   },
   {
-    heading: "Why the answer is about the complete piece",
+    heading: "Does Water Damage a Diamond?",
     content: [
-      {
-        type: "table",
-        headers: ["Component", "Shower-related concern"],
-        rows: [
-          ["Diamond", "Soap, conditioner and oil film can reduce visible sparkle"],
-          ["Prongs or bezel", "Residue can collect in recesses; existing wear may go unnoticed"],
-          ["Gold or platinum alloy", "Harsh or abrasive products can affect the surface or alloy"],
-          ["Plating or specialist finish", "Repeated abrasion and unsuitable products may shorten finish life"],
-          ["Coloured stones", "Heat, chemicals and treatments require material-specific care"],
-          ["Chain, clasp or earring back", "Slipperiness and hair contact increase snagging or loss risk"],
-          ["Adhesive-set components", "Prolonged water and product exposure may be unsuitable"]
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Ordinary water should not damage a sound diamond. GIA describes diamond as highly stable and resistant to many ordinary chemical conditions. That makes the diamond itself only one part of this question. A finished jewellery item contains more than the gemstone. For example, a diamond ring may include: gold, platinum, silver or another metal, prongs, a bezel, pavé settings, soldered joins, plating or another finish. A necklace may also include: a chain, clasp, jump ring, bail, and additional decorative components. You therefore need to care for the entire object, not only its hardest component." },
+    ],
   },
   {
-    heading: "Does water damage a diamond?",
+    heading: "Shower Water vs Swimming Pool Water",
     content: [
-      {
-        type: "paragraph",
-        text: "Water itself does not alter diamond facets, but hard-water minerals dry on surfaces, blocking light paths."
-      }
-    ]
+      { type: "paragraph", text: "Showering and swimming should not be treated as identical. A normal shower does not create the same chlorine exposure as a swimming pool. The primary shower-related issues are: soap/product residue, repeated wetting, mixed-material care, and: unnecessary risk of snagging or fastening problems." },
+      { type: "table", headers: ["Exposure", "Main Concern"], rows: [["Normal shower", "Soap, shampoo, conditioner and residue"], ["Bath", "Longer immersion + bath products"], ["Chlorinated pool", "Chlorine + loss + prolonged exposure"], ["Hot tub", "Chemicals + heat + movement"], ["Sea", "Salt, sand, movement and loss"]] },
+      { type: "paragraph", parts: [{ text: "For swimming pools and sea water, use " }, { text: "Can You Swim While Wearing Diamond Jewellery?", href: "/blog/swim-wearing-diamond-jewellery/" }] },
+    ],
   },
   {
-    heading: "How shower products affect diamond sparkle",
+    heading: "Why Soap Can Make a Diamond Look Dull",
     content: [
-      {
-        type: "paragraph",
-        text: "Moisturizing shower gels leave films that reduce light refraction. Deeper cleaning may be needed if you notice:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "a greasy or cloudy-looking surface;",
-          "reduced brightness under familiar lighting;",
-          "build-up behind the stone; or",
-          "product trapped around prongs or pavé."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Diamonds readily attract grease and surface contamination. Soap, skin oils and personal-care products can leave a film across the stone. That film changes how cleanly the diamond interacts with light, making it appear less brilliant. It does not necessarily mean: the diamond has become cloudy, the cut has deteriorated, or: the stone has permanently lost its sparkle. Often the issue is simply surface build-up." },
+      { type: "paragraph", text: "Soap Can Collect Under the Diamond Too. The top surface is not the only area that matters. Residue can accumulate underneath diamonds and inside settings. This is common in: rings, stud earrings, pendants, pavé, and other settings with small spaces around the stone. That hidden build-up can have a noticeable effect on appearance. This is why routine showering is not a substitute for proper jewellery cleaning." },
+    ],
   },
   {
-    heading: "Soap is not automatically a safe jewellery cleaner",
+    heading: "Shampoo and Conditioner",
     content: [
-      {
-        type: "paragraph",
-        text: "Avoid exfoliating soap. Many body soaps contain:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "exfoliating particles;",
-          "oils and moisturisers;",
-          "fragrances and colourants;",
-          "strong surfactants; and",
-          "ingredients unsuitable for a particular finish or gemstone."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Shampoo is designed to remove oils from hair. Conditioner is often designed to leave conditioning ingredients behind. Neither is formulated as diamond-jewellery cleaner. A conditioner that leaves a desirable film on hair can also leave residue on jewellery. The same can happen with: hair masks, leave-in treatments, and styling products used in the shower. There is little benefit in repeatedly exposing fine jewellery to them. Body washes can also contain: surfactants, oils, fragrance, moisturising ingredients, and other cosmetic components. Removing the jewellery avoids the question entirely." },
+    ],
   },
   {
-    heading: "The hidden loss and impact risk",
+    heading: "Does Showering Clean Your Diamond Ring?",
     content: [
-      {
-        type: "paragraph",
-        text: "Wet skin is slippery, increasing dropping risks. Additionally:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "a towel can catch a prong;",
-          "vigorous hair drying can pull an earring;",
-          "a necklace can knot in wet hair; and",
-          "a ring can slip while applying conditioner or lotion."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "No. A shower should not be treated as a jewellery-cleaning method. Even though soap and water are present, the products used on the body can leave their own film and may not remove residue from: the underside of the stone, small settings, prongs, or narrow galleries. The correct home-cleaning process is controlled and gentle." },
+      { type: "paragraph", parts: [{ text: "Use " }, { text: "How to Clean Lab-Grown Diamond Jewellery at Home", href: "/blog/clean-lab-grown-diamond-jewellery/" }, { text: " rather than relying on normal showering." }] },
+    ],
   },
   {
-    heading: "Can you shower with a diamond ring?",
+    heading: "Diamond Ring in the Shower",
     content: [
-      {
-        type: "paragraph",
-        text: "Remove rings first. Soapy lather reduces finger sizes and causes rings to slip off into plumbing."
-      }
-    ]
+      { type: "paragraph", text: "Rings are particularly likely to pick up shower-product residue because the hands are actively used to apply: shampoo, conditioner, soap, and body wash. That places the jewellery directly into concentrated product. The ring can also catch on: hair, washcloths, or towels. Removing the ring before showering is therefore an easy preventative habit. It is better to remove an engagement ring first — a raised setting can catch while washing hair, and if the ring already has a worn prong, loose stone, or another setting issue, routine shower handling is not helpful." },
+    ],
   },
   {
-    heading: "Can you shower with diamond earrings?",
+    heading: "Diamond Stud Earrings in the Shower",
     content: [
-      {
-        type: "paragraph",
-        text: "Shampoos coat earring backings. Wet hair strands also tangle around posts easily."
-      }
-    ]
+      { type: "paragraph", text: "Stud earrings may seem easy to leave in constantly. But both the front and back of the earring can collect: shampoo, conditioner, skin oils, hair products, and soap. Residue can build around the basket, post and backing. A wet backing can also remain against the skin after the shower. A screw back can provide good mechanical retention, but it does not make the entire earring shower-proof — the threads, post, setting and diamond can still collect residue. Fastening type and chemical exposure are separate decisions." },
+    ],
   },
   {
-    heading: "Can you shower with a diamond necklace?",
+    heading: "Diamond Necklaces, Pendants and Bracelets in the Shower",
     content: [
-      {
-        type: "paragraph",
-        text: "Pendant galleries collect body washes. Do not hang necklaces over bathroom valves."
-      }
-    ]
+      { type: "paragraph", text: "A fine necklace has additional vulnerabilities. The chain can catch on: hair, fingers, towels, and clothing during drying. Soap and conditioner can also remain between small chain links and around the clasp. If the necklace includes a pendant, residue can accumulate behind the setting where the pendant touches the skin. A tennis bracelet includes many: diamond settings, links, and a clasp — creating many small spaces where soap and personal-care residue can collect. There is little advantage to wearing a valuable tennis bracelet in the shower." },
+    ],
   },
   {
-    heading: "Can you shower with a diamond bracelet?",
+    heading: "Jewellery With Other Gemstones Requires More Caution",
     content: [
-      {
-        type: "paragraph",
-        text: "Clasps can fail when scrubbed. Flexible links suffer if twisted while cleaning limbs."
-      }
-    ]
+      { type: "paragraph", text: "This is one of the most important exceptions. A piece described as diamond jewellery may also include: pearls, emeralds, opal, turquoise, or other gemstones. Those materials can have different sensitivities to: water, heat, chemicals, and cleaning methods. GIA specifically notes that some gemstones are more vulnerable to environmental and chemical exposure. So the presence of diamond does not establish the care requirements for the complete piece. If a piece combines diamonds with pearls, the pearl should determine the more conservative care approach. Do not shower in a diamond-and-pearl piece simply because the diamond itself is durable." },
+    ],
   },
   {
-    heading: "Does the metal change the answer?",
+    heading: "What About Gold and Platinum Diamond Jewellery?",
     content: [
-      {
-        type: "paragraph",
-        parts: [{ text: "Gold jewellery: ", bold: true }, { text: "Avoid bath chemicals that may react with alloying metals." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "White gold and rhodium plating: ", bold: true }, { text: "Frequent friction wear strips rhodium coatings over time." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Platinum jewellery: ", bold: true }, { text: "Platinum remains stable, but settings and diamonds still collect film." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Sterling silver or plated jewellery: ", bold: true }, { text: "Water minerals trigger oxidation on sterling silver. Remove before showering." }]
-      }
-    ]
+      { type: "paragraph", text: "Do not write: \"Gold diamond jewellery is completely safe in the shower\" or \"platinum diamond jewellery is shower-proof.\" Gold jewellery usually uses an alloy rather than pure gold, and the piece may also use: surface finishing, plating, soldered connections, and other materials. One accidental shower does not automatically destroy a gold ring. But daily exposure is still unnecessary. Platinum is highly durable, but a platinum ring is still a constructed object containing settings, joins, and potentially other materials — and there is no benefit in coating it repeatedly with shampoo and conditioner." },
+    ],
   },
   {
-    heading: "Coloured-stone and mixed-material jewellery needs extra caution",
+    heading: "Do Not Generalise Aurelia's Metal Construction",
     content: [
-      {
-        type: "paragraph",
-        text: "Never shower with porous coloured center gems. Always confirm:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "each gemstone identity;",
-          "known treatments or coatings;",
-          "whether adhesive is used;",
-          "the metal and finish; and",
-          "the maker’s care instructions."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "This article should not say: \"All Aurelia jewellery is solid gold or platinum\" or \"All Aurelia metals are shower-safe\" unless those claims are supported across every applicable live product. Instead use: \"Check the metal, finish and care guidance for your specific Aurelia piece before making product-specific assumptions.\" If a piece has a plated or coated surface, repeated showering can introduce unnecessary exposure to: water, cosmetic products, and friction." },
+    ],
   },
   {
-    heading: "What about hot showers and steam?",
+    heading: "Does Hot Water Damage Diamond Jewellery?",
     content: [
-      {
-        type: "paragraph",
-        text: "Thermal shocks split included emeralds or opals. Keep mixed-stone pieces out of hot steam rooms."
-      }
-    ]
+      { type: "paragraph", text: "Normal shower temperatures are not remotely comparable with the extreme heat required to damage diamond itself. Avoid alarmist claims that a warm shower will destroy a diamond. However, extreme temperature changes can matter for some gemstones and treated materials. The safest advice again comes from considering the whole piece. Ordinary bathroom steam should not be confused with professional high-pressure steam cleaning, but prolonged bathroom humidity is another reason the shower is not an ideal jewellery-care environment." },
+    ],
   },
   {
-    heading: "What to do if you accidentally shower with diamond jewellery",
+    heading: "Should You Store Jewellery in the Bathroom?",
     content: [
-      {
-        type: "numbered-list",
-        items: [
-          "Move away from the open drain and handle the piece over a soft surface.",
-          "Remove it carefully without pulling at a chain, post or clasp.",
-          "Inspect for a loose stone, bent prong, open link or damaged back.",
-          "If the complete piece permits rinsing, remove remaining product with clean lukewarm water in a secured basin—not over an open drain.",
-          "Pat and air-dry it fully with the approved lint-free material.",
-          "If residue remains, follow the maker-approved home-cleaning method.",
-          "Arrange professional assessment if a stone moves, the piece snags or the material is sensitive or unknown."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "For long-term storage, a clean, protected environment away from unnecessary humidity, cosmetics and chemicals is preferable. Do not remove your jewellery before showering and then leave it loose on the sink edge. Use secure storage." },
+      { type: "paragraph", parts: [{ text: "For the full process, use " }, { text: "How to Store Diamond Jewellery Properly", href: "/blog/store-diamond-jewellery/" }] },
+    ],
   },
   {
-    heading: "A safer pre-shower routine",
+    heading: "What if You Accidentally Shower With Your Diamond Jewellery?",
     content: [
-      {
-        type: "numbered-list",
-        items: [
-          "Keep an individual padded box in the bedroom or dressing area—not beside the shower.",
-          "Remove rings, bracelets, necklaces and earrings before entering the bathroom.",
-          "Fasten chains and bracelets.",
-          "Place each item in its own position.",
-          "Shower, dry and apply body products.",
-          "Let skincare and hair products dry.",
-          "Put jewellery on last."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Do not panic. One shower does not automatically mean the jewellery has been damaged. Afterwards: inspect the piece, rinse away any obvious soap residue if the confirmed materials allow it, dry it thoroughly, and clean it appropriately if a film remains. If the piece contains another delicate gemstone or uncertain material, follow the relevant material-specific care advice. Make Sure the Piece Is Completely Dry — water can remain around: prongs, clasps, hinges, earring backs, and chain connections. Allow harder-to-reach areas to dry before storing the jewellery." },
+    ],
   },
   {
-    heading: "Showering is not the same as controlled cleaning",
+    heading: "What if Soap Has Dried on the Diamond or the Diamond Looks Cloudy?",
     content: [
-      {
-        type: "table",
-        headers: ["Shower exposure", "Approved home clean"],
-        rows: [
-          ["Products chosen for skin and hair", "Solution selected for all jewellery materials"],
-          ["Uncontrolled quantity and duration", "Deliberate dilution and contact time"],
-          ["Open drain and hard surfaces", "Secured, padded working area"],
-          ["Hot water may vary", "Suitable lukewarm temperature"],
-          ["Hair and towel snagging", "Careful supported handling"],
-          ["Residue may remain", "Thorough safe rinse and complete drying"]
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Use the normal gentle cleaning method appropriate to the complete jewellery item. For straightforward, securely set diamond jewellery, this commonly involves: warm water, mild soap, and a soft brush. That process should be controlled rather than occurring incidentally while showering. A temporary hazy appearance may simply be: soap, conditioner, body oil, or another surface residue. Clean the diamond properly before assuming its underlying appearance has changed." },
+    ],
   },
   {
-    heading: "Common myths",
+    heading: "What if the Ring Feels Loose After Showering?",
     content: [
-      {
-        type: "paragraph",
-        parts: [{ text: "“Diamonds are waterproof, so the whole ring is shower-safe”: ", bold: true }, { text: "Water does not harm the gem, but soaps corrode alloys or strip finishes." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "“Soap makes diamonds cleaner every day”: ", bold: true }, { text: "Shower soaps leave film. Specific mild detergents are required." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "“If it looks dull after a shower, it is damaged”: ", bold: true }, { text: "Film is the typical cause. Professional checks can verify security." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "“Lab-grown diamonds need different shower care”: ", bold: true }, { text: "They share physical traits with natural diamonds; mounting components dictate care." }]
-      }
-    ]
+      { type: "paragraph", text: "Temperature and water can change how the hands feel temporarily. Do not immediately conclude that the ring size has permanently changed. Dry your hands and allow them to return to normal conditions. If the ring remains persistently loose, use How Should a Diamond Ring Fit?" },
+    ],
   },
   {
-    heading: "The Aurelia Royale recommendation",
+    heading: "Showering Does Not Replace Setting Inspection",
     content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Aurelia Royale advises removing jewelry prior to showering. Browse collection at " },
-          { text: "Aurelia Royale jewellery", href: "/shop/" },
-          { text: " or " },
-          { text: "contact Aurelia Royale", href: "/contact/" },
-          { text: " to request specific specifications." }
-        ]
-      }
-    ]
+      { type: "paragraph", text: "A normal shower does not automatically loosen a properly set diamond. The more relevant concern is whether the jewellery already has: worn prongs, a compromised setting, or another mechanical issue. Clean-looking jewellery can still have a worn claw, loose stone, weak clasp, or damaged link. Cleaning and mechanical inspection are different. Bathing creates longer exposure — a bath can keep jewellery immersed for considerably longer than a quick shower. Bath oils, salts, bubble bath and other products introduce additional materials. Remove it first." },
+      { type: "paragraph", parts: [{ text: "If a stone appears tilted, clicks during normal handling or a prong looks damaged, stop wearing the piece and use " }, { text: "How to Check Diamond Jewellery for Loose Stones", href: "/blog/check-diamond-jewellery-loose-stones/" }] },
+    ],
   },
   {
+    heading: "What About Washing Your Hands?",
     content: [
-      {
-        type: "callout",
-        title: "Final verdict",
-        theme: "gold-border",
-        parts: [
-          {
-            text: "It is safer to remove diamond jewellery before showering.\n\n"
-          },
-          {
-            text: "Water alone is not the issue—soap film, hair conditioner, hard water minerals, slipperiness, and mixed materials all justify removal. Keep a padded box outside the bathroom."
-          }
-        ]
-      },
-      {
-        type: "faq",
-        items: [
-          {
-            question: "Can you wear a diamond ring in the shower?",
-            answer: "It is safer to remove it. Soap film can dull the diamond, wet handling increases loss risk, and products or impact may affect the setting and metal."
-          },
-          {
-            question: "Can you shower with lab-grown diamonds?",
-            answer: "Lab-grown diamonds follow the same shower-care principle as natural diamonds. Remove the complete piece because its metal, setting and other materials still matter."
-          },
-          {
-            question: "Does water damage diamonds?",
-            answer: "Ordinary clean water does not normally damage an untreated diamond, but water exposure does not make a finished jewellery piece universally safe."
-          },
-          {
-            question: "Does soap damage a diamond?",
-            answer: "Many soaps will not chemically damage the diamond itself, but they can leave film that reduces visible sparkle. Abrasive or unsuitable products can harm metal or other materials."
-          },
-          {
-            question: "Why does my diamond look cloudy after showering?",
-            answer: "Soap, conditioner, oils or hard-water minerals may have coated the surface or collected beneath the setting. Use the approved cleaning method if the setting is secure."
-          },
-          {
-            question: "Can you shower with diamond earrings?",
-            answer: "Removal is recommended because hair products create residue, wet hair can pull the earrings and small backs may be lost near a drain."
-          },
-          {
-            question: "Can you wear a diamond necklace in the shower?",
-            answer: "It is better to remove it. Chains can tangle in wet hair and products may collect around links, clasps and the pendant."
-          },
-          {
-            question: "Can hot shower water damage diamond jewellery?",
-            answer: "The diamond itself is stable, but heat and temperature change may not suit every coloured stone, treatment, coating or adhesive."
-          },
-          {
-            question: "Is showering safe for white-gold diamond jewellery?",
-            answer: "Removal is safer. Soap residue and abrasive products can affect appearance, while repeated rubbing may contribute to wear on a rhodium-plated surface."
-          },
-          {
-            question: "What should I do after accidentally showering with my ring?",
-            answer: "Remove it over a safe surface, inspect the setting, rinse only if all materials permit, dry fully and use the approved cleaning method if residue remains."
-          },
-          {
-            question: "Can showering loosen a diamond?",
-            answer: "Water alone does not normally loosen a secure setting, but snagging, impact and pre-existing prong wear can compromise it. Seek assessment if the stone moves or rattles."
-          },
-          {
-            question: "Should I remove jewellery before bathing as well?",
-            answer: "Yes. Bath products, oils, prolonged soaking, slippery handling and hard surfaces create similar avoidable risks."
-          }
-        ]
-      },
-      {
-        type: "cta-banner",
-        title: "Protect Stated Shine",
-        subtitle: "Aurelia Royale builds durable gold and platinum shanks, but recommends pre-shower removals for all pieces. Speak to our support experts.",
-        shopHref: "/shop/",
-        contactHref: "/contact/"
-      }
-    ]
-  }
+      { type: "paragraph", text: "Hand washing is different from intentionally spending a full shower wearing jewellery. Removing and replacing a valuable ring every single time you wash your hands can introduce its own risk of: dropping, loss, or forgetting it. The appropriate habit depends on the ring and circumstances. If soap residue builds up during normal hand washing, clean the ring appropriately. This page should focus on intentional shower wear, not tell users to constantly remove rings throughout normal hygiene." },
+    ],
+  },
+  {
+    heading: "Do Lab-Grown Diamonds Need Different Shower Care?",
+    content: [
+      { type: "paragraph", text: "No. The basic shower-care issue is about the complete piece rather than whether the diamond formed naturally or was grown in a laboratory. A lab-grown diamond can collect: soap residue, skin oil, shampoo, and cosmetics just as another diamond can. The setting and metal remain the important variables." },
+    ],
+  },
+  {
+    heading: "Shower Risk by Jewellery Type",
+    content: [
+      { type: "table", headers: ["Jewellery", "Main Shower Concern"], rows: [["Diamond ring", "Soap/product residue + hair snagging"], ["Stud earrings", "Residue around basket, post and back"], ["Drop earrings", "Snagging + moving components"], ["Pendant necklace", "Chain tangling + residue behind pendant"], ["Tennis bracelet", "Product build-up across many settings"], ["Pavé jewellery", "Residue between many small settings"], ["Mixed-gem jewellery", "Other materials may be more sensitive"]] },
+    ],
+  },
+  {
+    heading: "A Better Daily Routine",
+    content: [
+      { type: "paragraph", text: "Before showering: remove fine jewellery; place it into secure individual storage; do not leave it on the sink edge. Shower and apply: shampoo, conditioner, body wash, and skincare. Dry yourself. Allow skincare to settle where practical. Then put the jewellery back on. This simple routine also supports the guidance in Can You Wear Perfume with Diamond Jewellery?" },
+    ],
+  },
+  {
+    heading: "When Shower Exposure Becomes a Professional-Inspection Issue",
+    content: [
+      { type: "paragraph", text: "Most accidental shower exposure does not require professional inspection. Inspection becomes relevant if you notice: a stone moving, a bent or missing prong, a broken clasp, a damaged chain, visible setting deformation, or another mechanical change." },
+      { type: "paragraph", parts: [{ text: "Use " }, { text: "When Should Diamond Jewellery Be Professionally Inspected?", href: "/blog/professional-diamond-jewellery-inspection/" }, { text: " when the issue moves beyond ordinary cleaning." }] },
+    ],
+  },
+  {
+    heading: "Frequently Asked Questions",
+    content: [
+      { type: "faq", items: [
+        { question: "Can you wear a diamond ring in the shower?", answer: "You can accidentally get it wet without assuming damage, but regularly removing it before showering is better because soap, shampoo and conditioner can build up on the diamond and setting." },
+        { question: "Does water damage diamonds?", answer: "Ordinary water should not damage a sound diamond. The complete jewellery construction and products present in the shower are the more important considerations." },
+        { question: "Does soap make diamonds dull?", answer: "Soap residue can form a film that reduces apparent brilliance until the diamond is cleaned properly." },
+        { question: "Can you shower with diamond stud earrings?", answer: "It is better to remove fine studs because residue can collect around the setting, post and backing." },
+        { question: "Can you shower with a diamond necklace?", answer: "Removing it is preferable because chains and clasps can collect residue and can snag during washing or drying." },
+        { question: "Can shampoo damage a diamond?", answer: "The diamond itself is highly stable, but shampoo can leave residue and the complete jewellery may include metals, finishes or other materials with different care requirements." },
+        { question: "Can conditioner make diamond jewellery look cloudy?", answer: "Conditioner and other cosmetic products can leave a surface film that may temporarily make a diamond look less bright." },
+        { question: "Is gold diamond jewellery safe in the shower?", answer: "Do not make a universal claim. Gold jewellery contains alloys and may also use finishes or plating. Removing fine jewellery before showering remains the conservative approach." },
+        { question: "Is platinum diamond jewellery safe in the shower?", answer: "Platinum is highly durable, but the complete piece still includes settings and other components and can accumulate soap residue. There is little reason to wear it routinely in the shower." },
+        { question: "What should I do if I accidentally shower with my jewellery?", answer: "Remove obvious residue appropriately, dry the piece thoroughly and inspect it. Seek professional assessment only if you notice mechanical damage or loose-stone warning signs." },
+        { question: "Does showering damage lab-grown diamonds?", answer: "There is no special shower vulnerability caused by laboratory origin. Care should be based on the complete jewellery construction." },
+        { question: "Should I clean my diamond jewellery after every shower?", answer: "Not necessarily. Clean according to actual residue and wear rather than automatically after every accidental exposure." },
+      ]},
+    ],
+  },
+  {
+    heading: "Final Answer: Should You Wear Diamond Jewellery in the Shower?",
+    content: [
+      { type: "paragraph", text: "The safest routine is to remove it first. A normal shower is unlikely to harm a sound diamond. But that is only one part of the jewellery. Showering repeatedly exposes the complete piece to: soap, shampoo, conditioner, body wash, skincare residue, and: unnecessary wet handling. Those products can leave a film across the diamond and accumulate around settings, chains and fastenings. Other materials in the jewellery may also need more cautious care than diamond itself. So treat the issue as: diamond durability ≠ complete-jewellery shower suitability. If accidental exposure happens, do not panic. Clean the jewellery appropriately if residue remains, dry it thoroughly and inspect it for anything unusual." },
+      { type: "paragraph", parts: [{ text: "For the correct cleaning process, use " }, { text: "How to Clean Lab-Grown Diamond Jewellery at Home", href: "/blog/clean-lab-grown-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "For cleaning frequency, use " }, { text: "How Often Should Diamond Jewellery Be Cleaned?", href: "/blog/how-often-clean-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "For cosmetic exposure, use " }, { text: "Can You Wear Perfume with Diamond Jewellery?", href: "/blog/perfume-skincare-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "For swimming pools or sea water, use " }, { text: "Can You Swim While Wearing Diamond Jewellery?", href: "/blog/swim-wearing-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "For loose-stone warning signs, use " }, { text: "How to Check Diamond Jewellery for Loose Stones", href: "/blog/check-diamond-jewellery-loose-stones/" }] },
+      { type: "cta-banner", title: "Explore Aurelia Royale Lab-Grown Diamond Jewellery", subtitle: "Remove before showering — the simplest way to protect your complete piece.", shopHref: "/shop/", contactHref: "/contact/" },
+    ],
+  },
 ];
 
-export default function Page() {
+export default function BlogShowerPage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
-      {/* Script injection for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Jewellery Care and Maintenance
-          </span>
-          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            Can You Wear Diamond Jewellery in the Shower?
-          </h1>
-          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
-          </p>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">Lab-Grown Diamond Care</span>
+          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">Can You Wear Diamond Jewellery in the Shower?</h1>
+          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">Soap, Shampoo, Conditioner and Residue Explained • Published September 10, 2026</p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
-      {/* Related articles — crawlable plain links */}
       <RelatedArticles currentSlug="wear-diamond-jewellery-in-shower" />
       <NewsletterSection />
     </main>
   );
 }
+

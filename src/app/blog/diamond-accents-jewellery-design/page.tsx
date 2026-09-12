@@ -1,6 +1,7 @@
 ﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 import RelatedArticles from "@/components/shared/RelatedArticles";
 
@@ -430,14 +431,10 @@ export default function Page() {
           </p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
-      {/* Related articles — crawlable plain links */}
       <RelatedArticles currentSlug="diamond-accents-jewellery-design" />
       <NewsletterSection />
     </main>
   );
 }
+

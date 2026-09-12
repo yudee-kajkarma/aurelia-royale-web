@@ -1,647 +1,209 @@
-﻿import React from "react";
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 import RelatedArticles from "@/components/shared/RelatedArticles";
 
-// 1. SEO Metadata
 export const metadata: Metadata = {
-  title: "How to Select the Right Necklace Length",
-  description: "Select the right necklace length by testing exact centimetres, pendant drop, neckline and layering—plus learn how to measure chains correctly.",
-  alternates: {
-    canonical: "https://www.aureliaroyale.com/blog/select-right-necklace-length/",
-  },
+  title: "Necklace Length Guide: Inches, CM & Placement",
+  description: "Compare necklace lengths in inches and centimetres, see approximate placement, and learn how neck size, pendant dimensions, layering and design affect fit.",
+  alternates: { canonical: "https://www.aureliaroyale.com/blog/select-right-necklace-length/" },
 };
 
-// 2. JSON-LD Schema
-const schemaMarkup = {
-  "@context":"https://schema.org",
-  "@graph":[
-    {
-      "@type":"BlogPosting",
-      "@id":"https://www.aureliaroyale.com/blog/select-right-necklace-length/#article",
-      "mainEntityOfPage":{"@type":"WebPage","@id":"https://www.aureliaroyale.com/blog/select-right-necklace-length/"},
-      "headline":"How to Select the Right Necklace Length",
-      "description":"Select the right necklace length by testing exact centimetres, pendant drop, neckline and layering—plus learn how to measure chains correctly.",
-      "image":"https://www.aureliaroyale.com/images/blog/select-right-necklace-length.webp",
-      "datePublished":"2026-07-16",
-      "dateModified":"2026-07-16",
-      "author":{"@type":"Organization","name":"Aurelia Royale","url":"https://www.aureliaroyale.com/"},
-      "publisher":{"@type":"Organization","name":"Aurelia Royale","url":"https://www.aureliaroyale.com/"},
-      "inLanguage":"en-GB",
-      "articleSection":"Product-Category Guides",
-      "keywords":["how to select the right necklace length","necklace length guide","how to measure necklace length","pendant necklace length"]
-    },
-    {
-      "@type":"BreadcrumbList",
-      "@id":"https://www.aureliaroyale.com/blog/select-right-necklace-length/#breadcrumb",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Home","item":"https://www.aureliaroyale.com/"},
-        {"@type":"ListItem","position":2,"name":"Journal","item":"https://www.aureliaroyale.com/blog/"},
-        {"@type":"ListItem","position":3,"name":"How to Select the Right Necklace Length","item":"https://www.aureliaroyale.com/blog/select-right-necklace-length/"}
-      ]
-    },
-    {
-      "@type":"FAQPage",
-      "@id":"https://www.aureliaroyale.com/blog/select-right-necklace-length/#faq",
-      "mainEntity":[
-        {"@type":"Question","name":"What is the best necklace length?","acceptedAnswer":{"@type":"Answer","text":"There is no universal best length. Choose by placement, body proportions, pendant drop, clothing and layering."}},
-        {"@type":"Question","name":"How do I measure necklace length?","acceptedAnswer":{"@type":"Answer","text":"Fasten it, lay it flat without stretching and measure along the complete wearable path under the seller's method."}},
-        {"@type":"Question","name":"How can I test necklace length without owning the chain?","acceptedAnswer":{"@type":"Answer","text":"Use non-stretch cord or ribbon marked to the proposed length and check it safely in a mirror."}},
-        {"@type":"Question","name":"Does necklace length include the clasp?","acceptedAnswer":{"@type":"Answer","text":"Definitions vary. Confirm whether the stated figure is the complete wearable closed length."}},
-        {"@type":"Question","name":"Does pendant height count as necklace length?","acceptedAnswer":{"@type":"Answer","text":"Usually chain length and pendant height are separate. Add pendant drop to find the lowest point."}},
-        {"@type":"Question","name":"Where will a 40 cm necklace sit?","acceptedAnswer":{"@type":"Answer","text":"Placement varies with the wearer, chain and pendant. Test 40 cm on the actual body."}},
-        {"@type":"Question","name":"Where will a 45 cm necklace sit?","acceptedAnswer":{"@type":"Answer","text":"It often falls lower than 40 cm, but the exact point varies. Test it with cord or an existing necklace."}},
-        {"@type":"Question","name":"Are adjustable necklaces better for layering?","acceptedAnswer":{"@type":"Answer","text":"They offer more options, but texture, pendant width and movement still affect overlap and tangling."}},
-        {"@type":"Question","name":"How much space should I leave between layered necklaces?","acceptedAnswer":{"@type":"Answer","text":"There is no guaranteed spacing. Test separation while accounting for pendant drops, chain gauges and movement."}},
-        {"@type":"Question","name":"How do I choose necklace length as a gift?","acceptedAnswer":{"@type":"Answer","text":"Measure a frequently worn necklace or choose an adjustable, exchangeable design."}},
-        {"@type":"Question","name":"Can a jeweller shorten a diamond necklace?","acceptedAnswer":{"@type":"Answer","text":"Some can be altered, but construction, reports, warranty and returns may be affected."}},
-        {"@type":"Question","name":"Should a close necklace feel tight?","acceptedAnswer":{"@type":"Answer","text":"No. It should sit securely without restricting breathing, swallowing or normal movement."}}
-      ]
-    }
-  ]
-};
-
-// 3. Article content sections
 const articleSections: ArticleSection[] = [
   {
     content: [
-      {
-        type: "image",
-        src: "/images/blog/select-right-necklace-length/69 (1).jpg",
-        alt: "How to select the right necklace length - complete guide",
-        title: "How to Select the Right Necklace Length",
-        caption: "The right necklace length places the design where you want it to sit - test exact centimetres and pendant drop.",
-        priority: true
-      },
-      {
-        type: "paragraph",
-        text: "The right necklace length places the design where you want it to sit. That position depends on the exact chain length, neck and torso proportions, pendant dimensions, clothing and whether other necklaces will be layered."
-      },
-      {
-        type: "paragraph",
-        text: "Generic names such as \"choker\", \"princess\" or \"matinee\" can be useful shorthand, but their length ranges vary between sellers. Centimetres, millimetres and on-body testing are more reliable."
-      }
-    ]
+      { type: "image", src: "/images/blog/select-right-necklace-length/69 (1).jpg", alt: "Necklace length guide inches cm placement pendant layering neck size", title: "How to Select the Right Necklace Length", caption: "A useful process: start with a reference table, test the length against your own neck and chest, then account for pendant size, necklace design and any layering.", priority: true },
+      { type: "paragraph", text: "Necklace length determines where a chain, pendant or diamond design sits on the body, but the number alone does not guarantee the same appearance on every wearer. An 18-inch necklace may sit around the collarbone on one person and slightly higher or lower on another. Neck circumference, body proportions, chain construction and the size of any pendant all affect the finished position." },
+      { type: "paragraph", text: "That is why necklace length should be chosen using two things together: the physical chain length and: where that exact length sits on the intended wearer. A useful process is to start with a reference table, test the length against your own neck and chest, then account for pendant size, necklace design and any layering you intend to do." },
+    ],
   },
   {
-    heading: "Quick answer: how do you choose necklace length?",
+    heading: "Quick Necklace Length Guide",
     content: [
-      {
-        type: "paragraph",
-        text: "Choose in this order:"
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Decide where the focal point should sit.",
-          "Measure a well-fitting necklace that reaches that point, or test with non-stretch cord.",
-          "Record the complete closed chain length.",
-          "Add the pendant's vertical drop when relevant.",
-          "Test the measurement with the intended neckline.",
-          "Check every adjustable fastening position.",
-          "Allow planned separation for layering.",
-          "Confirm how the retailer defines the listed length."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Do not assume a 45 cm necklace will land at the same place on every person."
-      }
-    ]
+      { type: "paragraph", text: "The table below converts common necklace lengths from inches to centimetres and gives an approximate placement reference. The placement descriptions are deliberately approximate. They should help you visualise the difference between lengths, not promise that a particular necklace will sit in exactly the same place on every person." },
+      { type: "table", headers: ["Necklace Length", "Approx. Centimetres", "Approximate Placement"], rows: [["14 in", "35.6 cm", "Close around the neck / choker position"], ["16 in", "40.6 cm", "Base of neck or just above the collarbone"], ["18 in", "45.7 cm", "Around or just below the collarbone"], ["20 in", "50.8 cm", "Below the collarbone / upper chest"], ["22 in", "55.9 cm", "Upper chest"], ["24 in", "61.0 cm", "Lower on the upper chest; often works over some necklines"], ["30 in", "76.2 cm", "Lower chest / long necklace position"], ["36 in", "91.4 cm", "Long rope-style placement"]] },
+      { type: "paragraph", text: "These conversions use the standard relationship 1 inch = 2.54 centimetres. The placement column is a visual guide only. Your own proportions and the necklace design can move the final position noticeably." },
+    ],
   },
   {
-    heading: "Choose placement before the number",
+    heading: "Why Necklace Length Does Not Sit the Same on Everyone",
     content: [
-      {
-        type: "paragraph",
-        text: "Start by deciding whether the necklace should sit:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "high on the neck;",
-          "near the base of the neck;",
-          "around the collarbone;",
-          "on the upper chest; or",
-          "lower as a long pendant or layering piece."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Then find the length that creates that position on the actual wearer. This reverses the common mistake of choosing a named length first and hoping it lands correctly."
-      }
-    ]
+      { type: "paragraph", text: "A chain is a fixed measurement. The person wearing it is not. Two people can wear the same 18-inch necklace and see the pendant land at different heights because their neck circumferences differ. Body proportions also influence how a necklace looks once it moves below the neck. That means a necklace-length chart should be used as a starting reference, not as a substitute for actually checking the length against the wearer. Current Tiffany sizing guidance makes the same point: necklace position depends not only on chain length but also on neck circumference and the size of the pendant." },
+    ],
   },
   {
-    heading: "Why standard length names are only approximate",
+    heading: "How to Test a Necklace Length Before Buying",
     content: [
-      {
-        type: "paragraph",
-        text: "Retailers may use overlapping names and different ranges. A \"choker\" can mean a close chain, a rigid collar or an adjustable design. A \"princess\" length on one site may overlap another site's \"standard\" chain."
-      },
-      {
-        type: "image",
-        src: "/images/blog/select-right-necklace-length/69 (2).jpg",
-        alt: "Necklace length guide - standard lengths compared",
-        title: "Standard Necklace Lengths Compared",
-        caption: "Standard length names vary between sellers - always verify exact centimetres.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "Use labels for browsing, then verify:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "exact maximum length;",
-          "minimum adjustable length;",
-          "intermediate fastening points;",
-          "pendant drop; and",
-          "whether the stated length includes the clasp."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "One of the simplest methods is to reproduce the intended length using a soft string or ribbon. Measure a piece to the same length as the necklace you are considering. For an 18-inch necklace, for example, measure approximately 45.7 cm. Place the string around your neck and let it fall naturally. Do not pull it tightly unless the actual necklace is intended to fit closely. Look at where the centre point falls. If you are considering a pendant necklace, remember that the pendant will extend below that point. This quick test is often more useful than trying to predict placement from a generic model image." },
+      { type: "table", headers: ["Length", "Approx. CM", "What to Look For"], rows: [["16 in", "40.6 cm", "Does it sit comfortably at the base of your neck?"], ["18 in", "45.7 cm", "Does the centre fall where you want around the collarbone?"], ["20 in", "50.8 cm", "Does the lower position suit your neckline or pendant?"]] },
+    ],
   },
   {
-    heading: "Method 1: measure an existing necklace",
+    heading: "14-Inch to 24-Inch Necklace Lengths",
     content: [
-      {
-        type: "paragraph",
-        text: "Choose a necklace that sits at the desired point and has similar construction."
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Fasten it.",
-          "Lay it flat without pulling or stretching.",
-          "Measure along the chain's centre line from one clasp end to the corresponding connection.",
-          "Follow the complete wearable path rather than measuring straight across a curve.",
-          "Record the closed length in millimetres or centimetres.",
-          "Measure pendant height separately."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "For a fixed-front or rigid section, follow the seller's method. Do not assume every design is measured end to end in the same way."
-      }
-    ]
+      { type: "paragraph", text: "A 14-inch necklace is a short length and will normally sit close to the neck. However, a true 14-inch necklace may be too close for some wearers depending on neck circumference. Do not choose a choker length purely from the category name. Measure your neck and test the actual length." },
+      { type: "paragraph", text: "A 16-inch necklace usually sits close to the base of the neck or near the upper collarbone area on many adults. It can work well for small pendants, delicate chains and shorter layered arrangements. But the pendant itself changes the final visual position. A 16-inch chain with a 10 mm pendant will finish much higher than a 16-inch chain carrying a 40 mm vertical pendant. The chain length may be identical, but the complete jewellery is not." },
+      { type: "paragraph", text: "An 18-inch necklace is one of the most common general-purpose lengths. On many wearers, it falls around or just below the collarbone. However, 18 inches should not be described as universally perfect. A person with a larger neck circumference may experience a much closer fit. Someone with a smaller neck may see it fall lower. Use the length as a reference rather than a guarantee." },
+      { type: "paragraph", text: "A 20-inch necklace adds approximately 5.1 cm compared with an 18-inch necklace. That difference is visually significant. The necklace generally falls below the collarbone and begins to occupy more of the upper chest. A 22-inch chain moves the focal point farther down the upper chest. A 24-inch necklace is a noticeably longer design. Blue Nile's current necklace guide describes 24 inches as a more dramatic length and notes that it can be worn over a blouse or dress." },
+    ],
   },
   {
-    heading: "Method 2: test with cord or ribbon",
+    heading: "30-Inch and 36-Inch Necklaces",
     content: [
-      {
-        type: "paragraph",
-        text: "Use non-stretch cord, narrow ribbon or a soft measuring tape."
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Cut or mark the exact proposed length.",
-          "Join the ends safely without tightening around the neck.",
-          "Position the join where the clasp would sit.",
-          "Attach a light paper template representing the pendant if needed.",
-          "Check placement in a mirror from front and side.",
-          "Test with the intended neckline."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Do not hang a heavy object from the cord. Its weight and safety differ from a real necklace."
-      }
-    ]
-  },
-  {
-    heading: "Chain length versus pendant drop",
-    content: [
-      {
-        type: "paragraph",
-        text: "Chain length controls the path around the neck. Pendant drop extends below that path."
-      },
-      {
-        type: "paragraph",
-        text: "The final lowest point depends on:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "chain length;",
-          "pendant height;",
-          "whether height includes the bail;",
-          "bail movement;",
-          "fixed, sliding or suspended construction; and",
-          "pendant weight."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "A pendant described as 20 mm high may extend slightly more if the bail is excluded. Product pages should state both complete height and stone or motif dimensions."
-      }
-    ]
-  },
-  {
-    heading: "Fixed versus sliding pendants",
-    content: [
-      {
-        type: "paragraph",
-        text: "A fixed pendant connects to the chain at set points and may keep the focal element centred more consistently. A sliding pendant moves along the chain and can respond differently to body movement."
-      },
-      {
-        type: "paragraph",
-        text: "For fixed designs, check the total wearable length including the focal section. For sliding designs, confirm whether the chain can be adjusted without forcing the setting and whether the pendant is removable."
-      }
-    ]
-  },
-  {
-    heading: "Adjustable necklaces",
-    content: [
-      {
-        type: "paragraph",
-        text: "An adjustable necklace should list each usable position, not only a broad range."
-      },
-      {
-        type: "paragraph",
-        text: "Check whether adjustment uses:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "several fixed jump rings;",
-          "an extension chain;",
-          "a sliding mechanism; or",
-          "a removable extender."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "An extension chain may allow any link or only designated links, depending on construction. A sliding adjuster should have operating and weight-limit guidance."
-      }
-    ]
-  },
-  {
-    heading: "How neck circumference affects placement",
-    content: [
-      {
-        type: "paragraph",
-        text: "The same chain length creates a different drop after wrapping around different neck circumferences. Measure the base of the neck with a flexible tape if choosing a close length."
-      },
-      {
-        type: "image",
-        src: "/images/blog/select-right-necklace-length/69 (3).jpg",
-        alt: "How neck circumference affects necklace placement",
-        title: "Neck Circumference and Placement",
-        caption: "The same chain length creates different drops on different neck circumferences.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "Keep the tape flat and comfortably against the skin. Then test the proposed chain length rather than calculating placement from circumference alone."
-      },
-      {
-        type: "paragraph",
-        text: "For high or close-fitting designs, comfort and safe clearance are particularly important. A necklace should not restrict breathing or swallowing."
-      }
-    ]
-  },
-  {
-    heading: "Consider pendant size and weight",
-    content: [
-      {
-        type: "paragraph",
-        text: "A larger or heavier pendant can pull a chain into a sharper V and may sit slightly lower than a light motif on the same nominal length. Chain gauge and neckline contact also affect drape."
-      },
-      {
-        type: "paragraph",
-        text: "Test a paper template for size, but remember it does not reproduce weight. Use on-body video of the actual or representative design for a more realistic view."
-      }
-    ]
-  },
-  {
-    heading: "Match length to clothing",
-    content: [
-      {
-        type: "paragraph",
-        text: "Use the intended outfit as a practical test rather than following universal neckline rules."
-      },
-      {
-        type: "paragraph",
-        text: "Check whether the focal point:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "sits against skin or fabric;",
-          "disappears under a collar;",
-          "repeatedly meets an edge or button;",
-          "conflicts with embellishment; or",
-          "remains visible when seated and moving."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "A length that works with an open neckline may disappear under a high one. Adjustable positions can increase versatility."
-      }
-    ]
-  },
-  {
-    heading: "Choosing length for layering",
-    content: [
-      {
-        type: "paragraph",
-        text: "Layer by measured separation, not just by buying \"short\", \"medium\" and \"long\"."
-      },
-      {
-        type: "paragraph",
-        text: "Record:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "complete length of each chain;",
-          "pendant drop;",
-          "chain gauge;",
-          "focal width;",
-          "clasp weight; and",
-          "adjustable positions."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Leave enough vertical distance to reduce overlapping pendants. Different chain textures can still tangle, so no spacing guarantees a tangle-free stack."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Read " },
-          { text: "how to prevent necklaces from tangling", href: "/blog/store-diamond-jewellery/" },
-          { text: " before building a frequent-wear stack." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Length for station and line necklaces",
-    content: [
-      {
-        type: "paragraph",
-        text: "Placement matters beyond the centre point. For station necklaces, check where the outer diamonds end and whether the pattern remains visible around the sides."
-      },
-      {
-        type: "paragraph",
-        text: "For line necklaces, confirm whether the stated length follows the articulated curve and whether the piece lies flat at that placement. A shorter setting-heavy necklace can feel different from a fine chain of the same nominal length."
-      }
-    ]
-  },
-  {
-    heading: "Choosing length as a gift",
-    content: [
-      {
-        type: "paragraph",
-        text: "Measure a necklace the recipient already wears frequently. Record its complete length, pendant drop and adjustable position."
-      },
-      {
-        type: "paragraph",
-        text: "If you cannot measure one, an adjustable standard-size design with clear exchange terms is lower risk than an irreversible custom length. Avoid choosing from height, clothing size, age or gender alone."
-      }
-    ]
-  },
-  {
-    heading: "Converting inches and centimetres",
-    content: [
-      {
-        type: "bullet-list",
-        items: [
-          "1 inch = 2.54 centimetres.",
-          "1 centimetre = 10 millimetres."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Keep the original measurement and convert once. Common retail figures may be rounded—for example, an inch-based chain may not convert to a whole centimetre. Use the product's actual specification rather than assuming equivalence."
-      }
-    ]
-  },
-  {
-    heading: "How to check an online product page",
-    content: [
-      {
-        type: "paragraph",
-        text: "The page should provide:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "maximum wearable length;",
-          "every fastening position;",
-          "extension length;",
-          "pendant or focal-section dimensions;",
-          "whether the pendant is fixed, sliding or removable;",
-          "chain gauge and clasp;",
-          "on-body images at stated lengths; and",
-          "complete product weight."
-        ]
-      },
-      {
-        type: "image",
-        src: "/images/blog/select-right-necklace-length/69 (4).jpg",
-        alt: "Necklace length selection checklist",
-        title: "Necklace Length Checklist",
-        caption: "Use this checklist to verify necklace length before ordering.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Read " },
-          { text: "how to choose a lab-grown diamond necklace", href: "/blog/how-to-choose-lab-grown-diamond-necklace/" },
-          { text: " for the wider quality and construction checklist." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "At-home arrival test",
-    content: [
-      {
-        type: "paragraph",
-        text: "Keep tags attached and follow the return policy."
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Compare the delivered length with the order.",
-          "Check each adjustment point.",
-          "Wear it briefly in a safe indoor setting.",
-          "Test the intended neckline.",
-          "Observe pendant position while sitting and standing.",
-          "Confirm the clasp remains manageable.",
-          "Remove it before sleep, showering, exercise or leaving home."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Do not alter the chain until placement and return eligibility are confirmed."
-      }
-    ]
-  },
-  {
-    heading: "Common length mistakes",
-    content: [
-      {
-        type: "paragraph",
-        text: "Avoid:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "choosing by a name rather than centimetres;",
-          "ignoring pendant drop;",
-          "measuring straight across a curved necklace;",
-          "assuming all stated lengths include the clasp identically;",
-          "overlooking adjustable positions;",
-          "relying on one model image;",
-          "choosing by body-type rules;",
-          "failing to test the intended neckline; and",
-          "customising before confirming placement."
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Necklace-length checklist",
-    content: [
-      {
-        type: "bullet-list",
-        items: [
-          "Desired body placement is defined.",
-          "Exact length is tested with cord or an existing necklace.",
-          "Pendant drop is included.",
-          "Maximum and minimum lengths are clear.",
-          "Every adjustment point is identified.",
-          "Chain and clasp construction are understood.",
-          "Neckline and layering plans are tested.",
-          "On-body images use stated lengths.",
-          "Return or alteration terms are saved."
-        ]
-      }
-    ]
-  },
-  {
-    heading: "What Aurelia Royale should disclose",
-    content: [
-      {
-        type: "paragraph",
-        text: "Aurelia should show all lengths in centimetres and inches, define how they are measured, list every fastening position, separate pendant height from chain length, show on-body placement on more than one model where practical and provide a printable length tester with a calibration line."
-      }
-    ]
+      { type: "paragraph", text: "At 30 inches and beyond, the necklace becomes a long styling element rather than simply a close neckline piece. These lengths can create strong vertical emphasis and can work as the lowest layer in a multi-necklace arrangement. A 36-inch chain or strand may fall very low and, depending on its construction, some long necklaces may also support alternative styling. Do not assume every long diamond necklace can be doubled or wrapped. That depends on the specific clasp, articulation and construction." },
+    ],
   },
   {
     content: [
-      {
-        type: "callout",
-        title: "Final verdict",
-        theme: "gold-border",
-        parts: [
-          { text: "The right necklace length is the measured path that places the design where the wearer wants it. Decide placement first, test exact centimetres and include the pendant's full drop.\n\n" },
-          { text: "Names such as \"choker\" and \"princess\" can organise a catalogue, but they cannot predict an individual result. Measurements and on-body testing can." }
-        ]
-      },
-      {
-        type: "faq",
-        items: [
-          {
-            question: "What is the best necklace length?",
-            answer: "There is no universal best length. Choose according to desired placement, neck and torso proportions, pendant drop, clothing and layering."
-          },
-          {
-            question: "How do I measure necklace length?",
-            answer: "Fasten the necklace, lay it flat without stretching and measure along the complete wearable path under the seller's method."
-          },
-          {
-            question: "How can I test necklace length without owning the chain?",
-            answer: "Use non-stretch cord or ribbon marked to the exact proposed length and check it safely in a mirror."
-          },
-          {
-            question: "Does necklace length include the clasp?",
-            answer: "Definitions vary. Confirm whether the seller's stated length is the complete wearable closed length and how it was measured."
-          },
-          {
-            question: "Does pendant height count as necklace length?",
-            answer: "Usually chain length and pendant height are separate. Add the pendant drop to understand the lowest visual point."
-          },
-          {
-            question: "Where will a 40 cm necklace sit?",
-            answer: "Placement varies with the wearer, chain construction and pendant. Test 40 cm on the actual body rather than relying on a universal chart."
-          },
-          {
-            question: "Where will a 45 cm necklace sit?",
-            answer: "It often falls lower than 40 cm, but the exact point varies. Use cord or an existing necklace to confirm placement."
-          },
-          {
-            question: "Are adjustable necklaces better for layering?",
-            answer: "They offer more placement options, but chain texture, pendant width and movement still affect overlap and tangling."
-          },
-          {
-            question: "How much space should I leave between layered necklaces?",
-            answer: "There is no guaranteed spacing. Test measured separation while accounting for pendant drops, chain gauges and movement."
-          },
-          {
-            question: "How do I choose necklace length as a gift?",
-            answer: "Measure a frequently worn necklace or choose an adjustable, exchangeable design rather than guessing from body characteristics."
-          },
-          {
-            question: "Can a jeweller shorten a diamond necklace?",
-            answer: "Some chains and articulated designs can be altered, but construction, reports, warranty and returns may be affected. Ask first."
-          },
-          {
-            question: "Should a close necklace feel tight?",
-            answer: "No. It should sit securely without restricting breathing, swallowing or normal movement."
-          }
-        ]
-      },
-      {
-        type: "cta-banner",
-        title: "Find Your Perfect Necklace Length at Aurelia",
-        subtitle: "Browse our collection of lab-grown diamond necklaces with detailed length guides, adjustable options and transparent sizing.",
-        shopHref: "/shop/",
-        contactHref: "/contact/"
-      }
-    ]
-  }
+      { type: "image", src: "/images/blog/select-right-necklace-length/69 (2).jpg", alt: "Necklace length inches centimetres conversion table pendant size chain measurement", title: "Inches to Centimetres: Necklace Length Conversion Table", caption: "If Aurelia lists both units, they should describe the same physical necklace rather than being independently rounded to inconsistent values.", priority: false },
+    ],
+  },
+  {
+    heading: "Inches to Centimetres: Necklace Length Conversion Table",
+    content: [
+      { type: "table", headers: ["Inches", "Exact CM Conversion", "Practical Rounded Reference"], rows: [["14", "35.56 cm", "35.6 cm"], ["15", "38.10 cm", "38.1 cm"], ["16", "40.64 cm", "40.6 cm"], ["17", "43.18 cm", "43.2 cm"], ["18", "45.72 cm", "45.7 cm"], ["19", "48.26 cm", "48.3 cm"], ["20", "50.80 cm", "50.8 cm"], ["21", "53.34 cm", "53.3 cm"], ["22", "55.88 cm", "55.9 cm"], ["24", "60.96 cm", "61.0 cm"], ["26", "66.04 cm", "66.0 cm"], ["28", "71.12 cm", "71.1 cm"], ["30", "76.20 cm", "76.2 cm"], ["36", "91.44 cm", "91.4 cm"]] },
+      { type: "paragraph", text: "If a product page gives only inches, use this table to understand the approximate centimetre equivalent." },
+    ],
+  },
+  {
+    heading: "Necklace Length Is Usually the Chain Measurement, Not the Pendant Drop",
+    content: [
+      { type: "paragraph", text: "A pendant necklace has at least two relevant vertical measurements: the chain length and: the pendant length. The chain determines where the top of the pendant is positioned. The pendant's own height determines how far the jewellery extends below that point. For example, two necklaces may both use an 18-inch chain. One has a small 8 mm solitaire pendant. The other uses a 35 mm elongated diamond design. Their chains are identical in length, but their lowest visible points are dramatically different." },
+      { type: "paragraph", text: "Those measurements describe different parts of the jewellery and should not be added together. The 18 inches refers to the chain path around the neck. The 30 mm refers to the decorative element extending from its attachment point. Keep them as separate product specifications. Pendant width matters too. A broad halo or large motif can dominate the neckline even if it does not extend far vertically." },
+    ],
+  },
+  {
+    heading: "Necklace Length vs Necklace Design",
+    content: [
+      { type: "paragraph", text: "Different necklace architectures react differently to length. A pendant necklace has one central focal element. A station necklace spreads diamonds around the chain. A line necklace creates diamond coverage across a larger section of the neckline. Changing the length therefore does not produce the same visual effect across all three designs." },
+      { type: "table", headers: ["Design", "Why Length Matters"], rows: [["Pendant necklace", "Controls where the pendant starts to sit"], ["Station necklace", "Changes position of all diamond stations"], ["Line necklace", "Changes how the diamond line follows the neckline"], ["Fixed-centre necklace", "Positions a non-moving centre motif"], ["Long chain necklace", "Determines overall vertical drop"]] },
+      { type: "paragraph", parts: [{ text: "If you are still choosing the overall necklace architecture, use " }, { text: "How to Compare Different Diamond Necklace Designs", href: "/blog/compare-diamond-necklace-designs/" }] },
+    ],
+  },
+  {
+    heading: "Line Necklaces Need More Than a Length Number",
+    content: [
+      { type: "paragraph", text: "A diamond line necklace can be 16 or 18 inches long, but that does not tell you how much of the chain is actually diamond-set. One necklace might carry diamonds around nearly the complete circumference. Another might use diamonds only across the front and transition to plain metal or chain behind the neck. That means overall necklace length and diamond-set section length are separate specifications. They should not be confused." },
+    ],
+  },
+  {
+    heading: "Neck Circumference Changes Placement",
+    content: [
+      { type: "paragraph", text: "Consider two wearers. One has a 32 cm neck circumference. The other has a 40 cm neck circumference. Both put on a 45.7 cm / 18-inch necklace. The amount of extra chain beyond the neck circumference is clearly different. The necklace cannot therefore sit identically on both people. This is why generic diagrams are useful only as references. Body proportions also matter below the neck — a 24-inch necklace can look quite different on two people even after accounting for neck circumference." },
+    ],
+  },
+  {
+    heading: "Measuring an Existing Necklace",
+    content: [
+      { type: "paragraph", text: "If you already own a necklace that sits exactly where you want, use it as a reference. Lay it flat without stretching it. Measure using the same convention applied by the seller whenever possible. Some retailers, including Blue Nile, state that their necklace length is measured end-to-end including the clasp. Aurelia should use one consistent method and document it. A customer should not have to guess whether a stated 45 cm length includes the clasp." },
+    ],
+  },
+  {
+    heading: "Adjustable Necklaces Need a Range, Not One Number",
+    content: [
+      { type: "paragraph", text: "If a verified necklace adjusts between several lengths, the product page should state that range explicitly. For example: Wearable length: 40–45 cm is clearer than calling it simply: 45 cm necklace. However, do not assume Aurelia necklaces are adjustable until the individual product confirms an extender, sliding mechanism or multiple fastening positions. Do not invent an extension length. If the chain image shows several links near the clasp, that does not automatically prove they are designed as adjustment points." },
+    ],
+  },
+  {
+    heading: "Choosing Length for Layering",
+    content: [
+      { type: "paragraph", text: "Layering works best when the necklaces have enough visual separation for the individual designs to remain visible. If two necklaces are extremely close in length, pendants and chains can overlap. Greater length separation usually creates more distinct layers. But there is no mandatory two-inch rule. Pendant dimensions, chain thickness and necklace architecture all affect how much spacing looks appropriate." },
+      { type: "table", headers: ["Layer", "Example Length", "Possible Role"], rows: [["First", "16 in / 40.6 cm", "Short chain or small focal piece"], ["Second", "18 in / 45.7 cm", "Main pendant"], ["Third", "20–22 in / 50.8–55.9 cm", "Lower pendant or station necklace"]] },
+      { type: "paragraph", text: "This is a styling example, not a fixed formula. A large pendant may require more separation than a very small one. Test the complete layering combination rather than evaluating every necklace independently." },
+    ],
+  },
+  {
+    heading: "Necklace Length and Clothing Neckline",
+    content: [
+      { type: "paragraph", text: "Clothing changes the visual background behind the jewellery. A necklace may sit above a neckline, within an open neckline or over the clothing itself. The correct choice depends on whether you want the necklace to: follow the neckline, sit inside it, or contrast against the fabric. This should be treated as styling preference rather than a rigid rule connecting one necklace length to one garment type. Do not state that high necklines require one exact necklace length." },
+    ],
+  },
+  {
+    heading: "Necklace Length for a Gift",
+    content: [
+      { type: "paragraph", text: "Length uncertainty becomes more significant when buying for someone else. If possible, check a necklace the recipient already wears frequently. Measure it using the same end-to-end method. That gives you direct evidence of their preferred placement. If you cannot access one, a mid-range length can be versatile, but do not claim any one length is universally suitable. Also consider whether the product actually allows exchange if the recipient prefers another length. Use only Aurelia's confirmed policy." },
+    ],
+  },
+  {
+    heading: "Should Necklace Length Include the Pendant?",
+    content: [
+      { type: "paragraph", text: "Normally, chain or necklace length and pendant size should be stated separately. For a conventional pendant necklace, do not add the pendant's height to the chain measurement and call the result the necklace length. A customer should be able to see: Chain length and: Pendant dimensions as two distinct specifications. Two inches equals 5.08 cm — enough to change necklace placement noticeably. A 16-inch necklace and an 18-inch necklace are not near-identical fits." },
+    ],
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/select-right-necklace-length/69 (3).jpg", alt: "Necklace length comparison pendant effect chain 16 18 20 24 inches placement", title: "Necklace Length Comparison Example", caption: "Actual body placement still depends on the wearer — these examples are about relative movement.", priority: false },
+    ],
+  },
+  {
+    heading: "Necklace Length Comparison Example",
+    content: [
+      { type: "paragraph", text: "Imagine a pendant is 25 mm tall and is offered with several hypothetical chain lengths." },
+      { type: "table", headers: ["Chain Length", "Approx. CM", "Pendant Effect"], rows: [["16 in", "40.6 cm", "Pendant begins higher near neckline"], ["18 in", "45.7 cm", "Pendant moves roughly 5 cm farther into the composition compared with 16 in"], ["20 in", "50.8 cm", "More separation from neck and shorter layers"], ["24 in", "61.0 cm", "Clearly longer upper-chest placement"]] },
+    ],
+  },
+  {
+    heading: "How Aurelia Necklace Products Should Display Length",
+    content: [
+      { type: "paragraph", text: "Aurelia's product pages should avoid vague sizing such as: Standard length without the physical measurement." },
+      { type: "table", headers: ["Product Information", "Example Format"], rows: [["Necklace length", "45 cm / 17.7 in"], ["Adjustment range", "40–45 cm, only if verified"], ["Pendant height", "e.g. confirmed millimetre measurement"], ["Pendant width", "confirmed millimetre measurement"], ["Chain included", "Yes / No"], ["Chain removable", "Yes / No, only if verified"], ["Measurement method", "End-to-end including clasp, if that is Aurelia's method"]] },
+      { type: "paragraph", text: "Do not infer length from model photography. A model photograph can show general scale, but the model's neck size is unknown, camera perspective can alter appearance, and the same length sits differently on different people. Use model images as context and stated measurements as evidence." },
+    ],
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/select-right-necklace-length/69 (4).jpg", alt: "Necklace length FAQ final answer guide inches cm pendant layering design placement", title: "Frequently Asked Questions", caption: "The best necklace length is the one whose physical measurement + wearer proportions + pendant dimensions + necklace design place the jewellery where you actually want it.", priority: false },
+    ],
+  },
+  {
+    heading: "Frequently Asked Questions",
+    content: [
+      { type: "faq", items: [
+        { question: "What is the most common necklace length?", answer: "Lengths around 16–20 inches are commonly offered, with 18 inches widely used for pendant necklaces. However, popularity does not make one length correct for every wearer." },
+        { question: "How long is an 18-inch necklace in centimetres?", answer: "18 inches equals approximately 45.7 cm." },
+        { question: "How long is a 20-inch necklace in centimetres?", answer: "20 inches equals 50.8 cm." },
+        { question: "Where does an 18-inch necklace sit?", answer: "On many wearers it sits around or just below the collarbone, but neck circumference and body proportions can move that position." },
+        { question: "Is a 16-inch necklace a choker?", answer: "It can sit close to the base of the neck, but actual placement depends on the wearer's neck circumference. A 14-inch length is generally closer to traditional choker positioning." },
+        { question: "What length should I choose for a pendant?", answer: "Choose the chain length according to where you want the pendant to begin sitting, then account separately for the pendant's height and width." },
+        { question: "Does necklace length include the pendant?", answer: "For a conventional pendant necklace, chain length and pendant dimensions should normally be stated separately." },
+        { question: "Does the same necklace length fit everyone the same?", answer: "No. Neck circumference, body proportions and pendant size change the finished placement." },
+        { question: "What necklace length is best for layering?", answer: "There is no universal combination. Use enough separation that the necklace designs remain visible without unwanted overlap." },
+        { question: "How do I test necklace length at home?", answer: "Measure string or ribbon to the exact necklace length, place it around your neck and check where its centre falls. Add the pendant's approximate dimensions if relevant." },
+        { question: "What if I am between 18 and 20 inches?", answer: "Test both physically. The difference is approximately 5.1 cm and can noticeably change pendant placement." },
+        { question: "What is the biggest mistake when choosing necklace length?", answer: "Choosing a length from a generic diagram without accounting for your neck circumference, pendant size and the jewellery's actual measurement method." },
+      ]},
+    ],
+  },
+  {
+    heading: "Final Answer: How Should You Select the Right Necklace Length?",
+    content: [
+      { type: "paragraph", text: "Start with the physical measurement. Common reference lengths include: 16 inches / 40.6 cm, 18 inches / 45.7 cm, 20 inches / 50.8 cm, 22 inches / 55.9 cm, and: 24 inches / 61.0 cm. Then test the length against the actual wearer using string, ribbon or an existing necklace. Do not rely only on a model photograph." },
+      { type: "paragraph", text: "Next, account for the necklace design. A pendant necklace needs both chain length and pendant dimensions considered. A station necklace distributes elements around the complete chain. A diamond line necklace may need both total length and diamond-set coverage checked. Then consider the wearer. Neck circumference and body proportions change where the same chain length sits. Finally, consider whether the necklace will be layered and how the chosen length interacts with the other jewellery." },
+      { type: "paragraph", text: "The best necklace length is not automatically: the most common length or: the length shown on the model. It is the length whose: physical measurement + wearer proportions + pendant dimensions + necklace design place the jewellery where you actually want it." },
+      { type: "paragraph", parts: [{ text: "For the complete necklace purchase process, continue with " }, { text: "How to Choose a Lab-Grown Diamond Necklace", href: "/blog/how-to-choose-lab-grown-diamond-necklace/" }] },
+      { type: "paragraph", parts: [{ text: "For pendant construction, chain inclusion and bail compatibility, use " }, { text: "How to Choose a Lab-Grown Diamond Pendant", href: "/blog/how-to-choose-lab-grown-diamond-pendant/" }] },
+      { type: "paragraph", parts: [{ text: "For pendant-versus-necklace terminology, use " }, { text: "Diamond Necklace vs Diamond Pendant: What Is the Difference?", href: "/blog/diamond-necklace-vs-diamond-pendant/" }] },
+      { type: "paragraph", parts: [{ text: "For comparing pendant, station and line designs, use " }, { text: "How to Compare Different Diamond Necklace Designs", href: "/blog/compare-diamond-necklace-designs/" }] },
+      { type: "cta-banner", title: "Explore Aurelia Royale Lab-Grown Diamond Necklaces", subtitle: "Test the length, account for pendant dimensions, consider layering — find the right fit.", shopHref: "/shop/", contactHref: "/contact/" },
+    ],
+  },
 ];
 
-export default function SelectRightNecklaceLengthPage() {
+export default function BlogNecklaceLengthPage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
-      {/* Script injection for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Product-Category Guides
-          </span>
-          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How to Select the Right Necklace Length
-          </h1>
-          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
-          </p>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">Lab-Grown Diamond Education</span>
+          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">How to Select the Right Necklace Length</h1>
+          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">Inches, Centimetres, Placement, Pendant Size and Layering Explained • Published September 10, 2026</p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
-      {/* Related articles — crawlable plain links */}
       <RelatedArticles currentSlug="select-right-necklace-length" />
       <NewsletterSection />
     </main>
   );
 }
+

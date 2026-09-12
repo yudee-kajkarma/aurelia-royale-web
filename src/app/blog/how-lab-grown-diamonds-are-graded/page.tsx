@@ -1,977 +1,461 @@
-﻿import React from "react";
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 import RelatedArticles from "@/components/shared/RelatedArticles";
 
-// 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
-  title: "How Are Lab-Grown Diamonds Graded?",
-  description: "Follow the lab-grown diamond grading process from origin screening and the 4Cs to fluorescence, treatments, inscription and the final report.",
-  alternates: {
-    canonical: "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/",
-  },
+  title: "How Are Lab-Grown Diamonds Graded? IGI vs GIA",
+  description: "Learn how lab-grown diamonds are graded, from origin testing and carat measurements to colour, clarity, cut, polish and symmetry, plus current IGI and GIA reporting differences.",
+  alternates: { canonical: "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/" },
 };
 
-// 2. The exact JSON-LD Schema
 const schemaMarkup = {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://www.aureliaroyale.com/#organization",
-      "name": "Aurelia Royale",
-      "url": "https://www.aureliaroyale.com/"
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.aureliaroyale.com/#website",
-      "url": "https://www.aureliaroyale.com/",
-      "name": "Aurelia Royale",
-      "publisher": { "@id": "https://www.aureliaroyale.com/#organization" },
-      "inLanguage": "en-GB"
-    },
-    {
-      "@type": "ImageObject",
-      "@id": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/#primaryimage",
-      "url": "https://www.aureliaroyale.com/wp-content/uploads/how-lab-grown-diamonds-are-graded.webp",
-      "contentUrl": "https://www.aureliaroyale.com/wp-content/uploads/how-lab-grown-diamonds-are-graded.webp",
-      "width": 1600,
-      "height": 900,
-      "caption": "How lab-grown diamonds are graded"
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/#webpage",
-      "url": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/",
-      "name": "How Are Lab-Grown Diamonds Graded?",
-      "isPartOf": { "@id": "https://www.aureliaroyale.com/#website" },
-      "primaryImageOfPage": { "@id": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/#primaryimage" },
-      "datePublished": "2026-07-15",
-      "dateModified": "2026-07-15",
-      "breadcrumb": { "@id": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/#breadcrumb" },
-      "inLanguage": "en-GB"
-    },
-    {
-      "@type": "BlogPosting",
-      "@id": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/#article",
-      "headline": "How Are Lab-Grown Diamonds Graded?",
-      "description": "Follow the lab-grown diamond grading process from origin screening and the 4Cs to fluorescence, treatments, inscription and the final report.",
-      "image": { "@id": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/#primaryimage" },
-      "mainEntityOfPage": { "@id": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/#webpage" },
-      "author": { "@id": "https://www.aureliaroyale.com/#organization" },
-      "publisher": { "@id": "https://www.aureliaroyale.com/#organization" },
-      "datePublished": "2026-07-15",
-      "dateModified": "2026-07-15",
-      "articleSection": "Certification and Diamond Quality",
-      "keywords": [
-        "how are lab-grown diamonds graded",
-        "lab-grown diamond grading process",
-        "lab diamond grading",
-        "lab-grown diamond quality assessment",
-        "IGI lab-grown diamond grading",
-        "GIA lab-grown diamond grading"
-      ],
-      "inLanguage": "en-GB"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "How Are Lab-Grown Diamonds Graded?", "item": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/" }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Are lab-grown diamonds graded?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Laboratories can identify laboratory-grown origin and assess quality characteristics such as carat, colour, clarity, cut, polish, symmetry and fluorescence." }
-        },
-        {
-          "@type": "Question",
-          "name": "Are lab-grown diamonds graded the same as natural diamonds?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The same fundamental quality factors can be assessed, but laboratories may use different report formats and terminology for laboratory-grown diamonds." }
-        },
-        {
-          "@type": "Question",
-          "name": "Who grades lab-grown diamonds?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Independent gemmological laboratories such as IGI and GIA provide lab-grown diamond reports or quality assessments under their available services." }
-        },
-        {
-          "@type": "Question",
-          "name": "How does a laboratory know a diamond is lab-grown?",
-          "acceptedAnswer": { "@type": "Answer", "text": "It uses gemmological observation and advanced techniques such as spectroscopy and growth-pattern imaging to distinguish natural and laboratory-grown origin." }
-        },
-        {
-          "@type": "Question",
-          "name": "What are the 4Cs of lab-grown diamonds?",
-          "acceptedAnswer": { "@type": "Answer", "text": "They are carat weight, colour, clarity and cut. Together they provide a structured description of diamond quality." }
-        },
-        {
-          "@type": "Question",
-          "name": "Does IGI grade lab-grown diamonds using the 4Cs?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. IGI commonly provides individual 4C assessments for eligible loose lab-grown diamonds." }
-        },
-        {
-          "@type": "Question",
-          "name": "Does GIA give D–Z and FL–I3 grades to lab-grown diamonds in 2026?",
-          "acceptedAnswer": { "@type": "Answer", "text": "GIA’s current qualifying colourless-to-near-colourless lab-grown service uses Premium or Standard overall classifications. Separate coloured-diamond services use different reporting formats." }
-        },
-        {
-          "@type": "Question",
-          "name": "Are fancy-shaped lab-grown diamonds cut graded?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Cut information varies by laboratory and report service. Fancy shapes do not always receive the same overall cut grade used for eligible round brilliants." }
-        },
-        {
-          "@type": "Question",
-          "name": "Can mounted lab-grown jewellery be graded?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes, but the setting can limit examination. Results may be estimated or expressed as ranges and described as graded as mounting permits." }
-        },
-        {
-          "@type": "Question",
-          "name": "Does a grading report tell me the diamond’s value?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. It describes identity and quality. A separate valuation or appraisal considers market price and the complete jewellery item." }
-        },
-        {
-          "@type": "Question",
-          "name": "Can two laboratories give different grades?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Small differences can occur because of report systems, borderline characteristics and laboratory procedures. Compare the exact services and terminology." }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I verify a lab-grown diamond report?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Use the issuing laboratory’s official database and match the report number, origin, shape, weight, measurements and inscription to the diamond." }
-        }
-      ]
-    }
+    { "@type": "Organization", "@id": "https://www.aureliaroyale.com/#organization", "name": "Aurelia Royale", "url": "https://www.aureliaroyale.com/" },
+    { "@type": "WebSite", "@id": "https://www.aureliaroyale.com/#website", "url": "https://www.aureliaroyale.com/", "name": "Aurelia Royale", "publisher": { "@id": "https://www.aureliaroyale.com/#organization" } },
+    { "@type": "WebPage", "@id": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/#webpage", "url": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/", "name": "How Are Lab-Grown Diamonds Graded? The Laboratory Process Explained", "isPartOf": { "@id": "https://www.aureliaroyale.com/#website" }, "breadcrumb": { "@id": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/#breadcrumb" }, "datePublished": "2026-09-10", "dateModified": "2026-09-10" },
+    { "@type": "BlogPosting", "@id": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/#article", "headline": "How Are Lab-Grown Diamonds Graded? The Laboratory Process Explained", "description": "Learn how lab-grown diamonds are graded, from origin testing and carat measurements to colour, clarity, cut, polish and symmetry, plus current IGI and GIA reporting differences.", "datePublished": "2026-09-10", "dateModified": "2026-09-10", "author": { "@id": "https://www.aureliaroyale.com/#organization" }, "publisher": { "@id": "https://www.aureliaroyale.com/#organization" }, "mainEntityOfPage": { "@id": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/#webpage" }, "articleSection": "Lab-Grown Diamond Education", "keywords": ["how lab-grown diamonds are graded", "IGI GIA lab-grown grading", "GIA Premium Standard lab-grown", "diamond grading process"] },
+    { "@type": "BreadcrumbList", "@id": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/#breadcrumb", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" }, { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" }, { "@type": "ListItem", "position": 3, "name": "How Are Lab-Grown Diamonds Graded?", "item": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/" }] },
+    { "@type": "FAQPage", "@id": "https://www.aureliaroyale.com/blog/how-lab-grown-diamonds-are-graded/#faq", "mainEntity": [{ "@type": "Question", "name": "How are lab-grown diamonds graded?", "acceptedAnswer": { "@type": "Answer", "text": "They are examined in gemmological laboratories using physical measurements, controlled visual grading, specialised instruments and trained gemmologists. The final results depend on the laboratory and report service." } }, { "@type": "Question", "name": "Does GIA grade lab-grown diamonds?", "acceptedAnswer": { "@type": "Answer", "text": "GIA currently provides its Laboratory-Grown Diamond Quality Assessment for qualifying D-to-Z laboratory-grown diamonds, using Premium and Standard overall classifications." } }, { "@type": "Question", "name": "Are lab-grown diamonds graded exactly like natural diamonds?", "acceptedAnswer": { "@type": "Answer", "text": "Not universally. The underlying diamond characteristics overlap, but current laboratory report formats and terminology can differ substantially." } }] }
   ]
 };
 
-// 3. Article content sections structured for DynamicArticle
 const articleSections: ArticleSection[] = [
   {
     content: [
-      {
-        type: "image",
-        src: "/images/blog/how-lab-grown-diamonds-are-graded/1.jpg",
-        alt: "How lab-grown diamonds are graded - complete process",
-        title: "How Are Lab-Grown Diamonds Graded?",
-        caption: "Independent gemological laboratories evaluate lab-grown diamonds through precise scientific grading.",
-        priority: true
-      },
-      {
-        type: "paragraph",
-        text: "Lab-grown diamonds are evaluated through a combination of scientific identification, precision measurement and quality assessment. A laboratory first determines that the submitted stone is a diamond and establishes whether it is laboratory-grown. It then assesses characteristics such as carat weight, colour, clarity, cut, polish, symmetry and fluorescence according to the chosen report service."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "The familiar framework is the " },
-          { text: "4Cs of a lab-grown diamond", href: "/blog/4cs-of-lab-grown-diamonds/" },
-          { text: ": carat weight, colour, clarity and cut. However, the final document does not look identical across every laboratory. IGI commonly reports individual 4C grades for eligible lab-grown diamonds. GIA’s current 2026 service for qualifying colourless-to-near-colourless loose laboratory-grown diamonds uses overall " },
-          { text: "Premium", bold: true },
-          { text: " or " },
-          { text: "Standard", bold: true },
-          { text: " quality classifications, while its coloured laboratory-grown services use different reporting formats." }
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "That distinction matters. “Graded” does not always mean that every lab uses the same terminology or gives a separate letter and number for every characteristic. Buyers must read the actual report and understand the service behind it."
-      }
+      { type: "paragraph", text: "Lab-grown diamonds are evaluated in controlled gemmological laboratories using measurements, optical examination, specialised instruments and trained graders." },
+      { type: "paragraph", text: "But there is an important point to understand before looking at individual grades: not every laboratory currently reports lab-grown diamond quality in exactly the same format." },
+      { type: "paragraph", text: "IGI continues to provide detailed laboratory-grown diamond reports that can include carat weight, colour, clarity, cut where applicable, polish, symmetry, measurements and other relevant information." },
+      { type: "paragraph", text: "GIA changed its principal D-to-Z laboratory-grown diamond service on 1 October 2025. Eligible stones are now evaluated under a Laboratory-Grown Diamond Quality Assessment and classified overall as Premium or Standard when they meet the required criteria, rather than simply receiving the same reporting nomenclature GIA uses for natural diamonds." },
+      { type: "paragraph", text: "So the statement: \"Lab-grown diamonds are graded exactly the same as natural diamonds\" is now too broad. The underlying quality factors remain familiar, but the laboratory, report type, grading methodology and way the result is presented all matter." }
     ]
   },
   {
-    heading: "Quick answer: how does lab-grown diamond grading work?",
+    heading: "Quick Answer: How Is a Lab-Grown Diamond Graded?",
     content: [
-      {
-        type: "paragraph",
-        text: "A typical grading journey includes:"
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Secure intake and identification",
-          "Cleaning, weighing and measurement",
-          "Diamond and origin screening",
-          "Carat-weight recording",
-          "Colour assessment",
-          "Clarity examination",
-          "Cut, polish, symmetry and fluorescence assessment",
-          "Quality control, inscription and report issuance"
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Some laboratories also determine or comment on the growth method and post-growth treatment, depending on the report type. The exact sequence, instruments and output vary, but the purpose is consistent: describe the examined diamond accurately and connect the result to a verifiable record."
-      }
+      { type: "paragraph", text: "The process generally begins by establishing what the submitted stone actually is. A laboratory may first determine whether the material is diamond and whether its origin is natural or laboratory-grown. It can then measure and weigh the diamond and evaluate relevant characteristics such as colour, clarity, cut, polish, symmetry and fluorescence according to its own laboratory methodology." },
+      { type: "paragraph", text: "IGI describes a structured process involving anonymous intake, carat-weight measurement, optical measurements, colour and fluorescence assessment, clarity and finish grading, cut assessment, independent verification by multiple gemmologists, grading controls, inscription and final report preparation." },
+      { type: "paragraph", text: "The final document should therefore be understood as the result of a laboratory process, not simply one person looking through a loupe and choosing a grade." }
     ]
   },
   {
-    heading: "Are lab-grown diamonds graded like natural diamonds?",
+    heading: "Step One: Establishing That the Stone Is a Diamond",
     content: [
-      {
-        type: "paragraph",
-        text: "The same fundamental quality characteristics can be evaluated because laboratory-grown and natural diamonds share the essential physical, chemical and optical properties of diamond. A carat remains 200 milligrams, colour still describes body colour, clarity still evaluates internal and surface characteristics, and cut still concerns proportions, appearance and craftsmanship."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "The important difference is " },
-          { text: "origin identification and report terminology", bold: true },
-          { text: ". A laboratory must distinguish laboratory-grown from natural origin using scientific testing. It may also use a report design, inscription or grading vocabulary specifically intended for lab-grown diamonds." }
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "IGI has reaffirmed its use of the 4Cs for both natural and laboratory-grown diamonds. GIA changed its colourless-to-near-colourless laboratory-grown service in October 2025 and now uses overall Premium or Standard classifications rather than always publishing the traditional natural-diamond nomenclature."
-      },
-      {
-        type: "paragraph",
-        text: "Neither approach should be inferred from a retailer’s generic phrase such as “certified diamond.” Check the named laboratory, report date, service and recorded results."
-      }
+      { type: "paragraph", text: "Before quality can be meaningfully assessed, the laboratory needs to understand what material it is examining. This is especially important because a colourless stone presented as \"diamond\" could potentially be a natural diamond, laboratory-grown diamond or a simulant such as moissanite or cubic zirconia." },
+      { type: "paragraph", text: "IGI states that it screens submitted gemstones using specialised technologies to determine whether they are naturally mined, laboratory-grown or simulant material before further gemmological assessment." },
+      { type: "paragraph", text: "This means origin identification and quality grading are connected but separate questions. First: What is this stone? Then: What are its measurable quality characteristics?" }
     ]
   },
   {
-    heading: "The lab-grown diamond grading process step by step",
+    heading: "Step Two: Determining Natural or Laboratory-Grown Origin",
     content: [
-      {
-        type: "paragraph",
-        text: "The grading process is conducted in a series of scientific stages, starting at intake and moving all the way through verification and reporting:"
-      }
+      { type: "paragraph", text: "A lab-grown diamond cannot always be separated from a natural diamond simply by looking at it. Both are diamond material and can share essentially the same fundamental physical and optical properties." },
+      { type: "paragraph", text: "Specialist laboratories therefore examine characteristics associated with how the diamond grew. These can include growth patterns, fluorescence behaviour, trace elements, inclusions and spectroscopic features associated with atomic-level defects. The laboratory can then determine whether the diamond's growth history is consistent with natural formation, HPHT growth or CVD growth." },
+      { type: "paragraph", text: "That origin determination is fundamental because a laboratory-grown diamond should be reported as laboratory-grown rather than represented as natural." },
+      { type: "paragraph", parts: [{ text: "For the deeper identification question, read " }, { text: "Can You Tell a Lab-Grown Diamond from a Natural Diamond?", href: "/blog/can-you-tell-lab-grown-from-natural-diamond/" }] }
     ]
   },
   {
-    heading: "Stage 1: Secure intake and stone identification",
+    heading: "Step Three: Assigning a Laboratory Identification Number",
     content: [
-      {
-        type: "paragraph",
-        text: "When a loose diamond reaches the laboratory, it is entered into a controlled workflow and associated with a unique tracking reference. Packaging, client information and requested services are recorded according to laboratory procedures."
-      },
-      {
-        type: "paragraph",
-        text: "Professional laboratories separate client identity from grading decisions where their process requires it, reducing the possibility that commercial information influences quality assessment. The stone remains tracked as it moves among instruments and graders."
-      },
-      {
-        type: "paragraph",
-        text: "At intake, staff may also confirm whether the item is loose, clean enough to examine and eligible for the requested report based on weight, colour range or other service limits."
-      }
+      { type: "paragraph", text: "Professional grading involves more than examining the stone. The diamond also needs to be securely tracked throughout the process. IGI states that diamonds entering its grading process receive a unique automatically generated identification number and are graded anonymously. The stone moves through controlled stages while being electronically tracked through the laboratory." },
+      { type: "paragraph", text: "Anonymity helps separate the grading decision from the commercial identity of the submitter. The grader is evaluating the diamond rather than the retailer or brand selling it." }
     ]
   },
   {
-    heading: "Stage 2: Cleaning, weighing and measurement",
+    heading: "Step Four: Measuring Carat Weight",
     content: [
-      {
-        type: "paragraph",
-        text: "Oil, dust and polishing residue can affect visual examination, so the diamond is cleaned before detailed assessment."
-      },
-      {
-        type: "paragraph",
-        text: "A calibrated precision balance records carat weight. One metric carat equals 200 milligrams, and the laboratory normally reports the result to two decimal places under its applicable rounding rules."
-      },
-      {
-        type: "paragraph",
-        text: "The diamond is also measured:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "round diamonds: minimum diameter–maximum diameter × depth;",
-          "fancy shapes: length × width × depth."
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "These measurements help identify the stone and explain its proportions and face-up dimensions. Learn more in " },
-          { text: "lab-grown diamond carat weight explained", href: "/blog/lab-grown-diamond-carat-weight-explained/" },
-          { text: " and " },
-          { text: "carat weight versus visible size", href: "/blog/carat-weight-vs-visible-diamond-size/" },
-          { text: "." }
-        ]
-      }
+      { type: "paragraph", text: "Carat is the standard unit used to express diamond weight. One metric carat equals 0.20 grams, or 200 milligrams. In laboratory grading, a loose diamond can be weighed directly on a highly sensitive balance." },
+      { type: "paragraph", text: "IGI states that its grading balances are calibrated to four decimal places and that carat weight is reported to two decimal places on the grading report. GIA likewise describes using electronic micro-balances capable of recording diamond weight with extremely high precision before the final reported value is prepared." },
+      { type: "paragraph", text: "Carat is therefore a measured physical property. It is not determined by how large the diamond looks." },
+      { type: "paragraph", parts: [{ text: "For the full distinction, read " }, { text: "Lab-Grown Diamond Carat Weight Explained", href: "/blog/lab-grown-diamond-carat-weight-explained/" }, { text: " and " }, { text: "Diamond Carat Weight vs Size", href: "/blog/carat-weight-vs-visible-diamond-size/" }, { text: "." }] }
     ]
   },
   {
-    heading: "Stage 3: Diamond verification and origin screening",
+    heading: "Step Five: Measuring the Diamond",
     content: [
-      {
-        type: "image",
-        src: "/images/blog/how-lab-grown-diamonds-are-graded/2.jpg",
-        alt: "Lab-grown diamond verification and origin screening",
-        title: "Origin Verification Screening",
-        caption: "Laboratories use advanced spectroscopy and photoluminescence testing to screen for origin and authenticity."
-      },
-      {
-        type: "paragraph",
-        text: "Before quality grades are meaningful, the laboratory establishes what the material is and whether the diamond is natural or laboratory-grown. This cannot reliably be decided by appearance alone."
-      },
-      {
-        type: "paragraph",
-        text: "Laboratories use combinations of:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "microscopic examination;",
-          "ultraviolet fluorescence and phosphorescence observations;",
-          "imaging of growth patterns;",
-          "infrared absorption spectroscopy;",
-          "ultraviolet-visible absorption spectroscopy;",
-          "photoluminescence spectroscopy; and",
-          "other proprietary or advanced screening systems."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Different growth processes leave features at atomic, structural or growth-pattern levels. A trained gemmologist may notice indications associated with HPHT or CVD growth, but conclusive identification can require advanced instruments and comparison with research databases."
-      },
-      {
-        type: "paragraph",
-        text: "This stage also separates diamond from simulants such as moissanite or cubic zirconia. A simulant does not proceed as though it were a lower-quality diamond; it is a different material."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Read " },
-          { text: "CVD vs HPHT lab-grown diamonds", href: "/blog/cvd-vs-hpht-lab-grown-diamonds/" },
-          { text: " for an explanation of the two principal growth processes." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Stage 4: Carat-weight assessment",
-    content: [
-      {
-        type: "paragraph",
-        text: "Carat is the most objective of the 4Cs because it is measured on a calibrated balance. The result describes mass rather than visible diameter or beauty."
-      },
-      {
-        type: "paragraph",
-        text: "Graders also consider the measurements and proportion data, but these do not change the weight. Two diamonds can weigh 1.00 ct while showing different face-up sizes because weight is distributed differently through their shapes, depths and girdles."
-      },
-      {
-        type: "paragraph",
-        text: "For finished jewellery, direct weighing of an individual mounted diamond is usually not possible. A jewellery report may use production information, pre-setting grades or an estimate based on measurements, depending on what the mounting permits."
-      }
-    ]
-  },
-  {
-    heading: "Stage 5: Colour grading",
-    content: [
-      {
-        type: "paragraph",
-        text: "When a D–Z colour grade is assigned, the loose diamond is assessed in a standardised viewing environment and compared with calibrated master stones. It is generally positioned face-down and viewed through the side to reduce the influence of shape, cut, fluorescence and face-up reflections."
-      },
-      {
-        type: "paragraph",
-        text: "Multiple graders may provide opinions before the laboratory finalises the result. Small differences between neighbouring grades can be difficult for an untrained observer to see outside controlled comparison."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Colourless-to-near-colourless stones and fancy-coloured diamonds require different assessment approaches. Fancy colour considers hue, tone, saturation and distribution rather than simply placing a vivid pink, blue or yellow diamond farther down the D–Z scale. Read " },
-          { text: "lab-grown diamond colour grades explained", href: "/blog/lab-grown-diamond-colour-grades-explained/" },
-          { text: " for the full D–Z and fancy-colour distinction." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Stage 6: Clarity grading",
-    content: [
-      {
-        type: "paragraph",
-        text: "Clarity evaluates a diamond’s relative freedom from internal inclusions and surface blemishes. When a traditional clarity grade is assigned, trained graders examine the loose diamond from several directions, normally using 10× magnification."
-      },
-      {
-        type: "paragraph",
-        text: "The grade considers:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "size of the characteristics;",
-          "number;",
-          "position;",
-          "nature or type; and",
-          "relief or contrast against the diamond."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Lab-grown diamonds can contain growth-related features, including pinpoints, needles, metallic remnants, graphitic features, clouds, feathers or internal graining. The name of an inclusion does not determine the grade by itself. Its combined visual and structural effect matters."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Some reports include a clarity plot showing the approximate type and location of selected characteristics. A plot is a map, not a photograph, and the printed symbol size does not directly represent real-world severity. See " },
-          { text: "lab-grown diamond clarity grades explained", href: "/blog/lab-grown-diamond-clarity-grades-explained/" },
-          { text: "." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Stage 7: Cut, polish, symmetry and fluorescence",
-    content: [
-      {
-        type: "image",
-        src: "/images/blog/how-lab-grown-diamonds-are-graded/3.jpg",
-        alt: "Diamond cut symmetry polish and fluorescence grading",
-        title: "Proportions and Facet Symmetry Assessment",
-        caption: "Gemologists analyze proportions, facet alignment, and light return to determine overall cut quality."
-      },
-      {
-        type: "paragraph",
-        text: "Cut assessment considers how well the diamond has been designed and fashioned. For eligible round brilliant diamonds, an overall cut grade may assess elements such as brightness, fire, scintillation, proportions, weight ratio and durability according to the laboratory’s system."
-      },
-      {
-        type: "paragraph",
-        text: "Fancy shapes do not necessarily receive the same overall cut grade under every report service. Their proportions, outline, bow-tie visibility, polish, symmetry and real appearance require careful review."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Polish: ", bold: true },
-          { text: "Polish describes the quality of facet surfaces and the presence of polishing features. It is graded separately from clarity." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Symmetry: ", bold: true },
-          { text: "Symmetry evaluates the precision of the diamond’s shape, facet alignment and relationships. A diamond can have high polish but weaker symmetry, or the reverse." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Fluorescence: ", bold: true },
-          { text: "Fluorescence describes the diamond’s response to ultraviolet radiation. Its colour and strength may be recorded separately. Fluorescence is not the same as body colour and is not automatically negative." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Cut quality strongly influences visible brightness and movement. Read " },
-          { text: "lab-grown diamond cut explained", href: "/blog/lab-grown-diamond-cut-explained/" },
-          { text: " before comparing diamonds through carat, colour and clarity alone." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Stage 8: Treatment assessment, quality control, inscription and report",
-    content: [
-      {
-        type: "image",
-        src: "/images/blog/how-lab-grown-diamonds-are-graded/4.jpg",
-        alt: "Finished diamond report verification and inscription details",
-        title: "Report Issuance and Laser Inscription",
-        caption: "After passing quality control, a microscopic inscription is applied to the girdle and the final report is generated."
-      },
-      {
-        type: "paragraph",
-        text: "Laboratory-grown diamonds can undergo post-growth treatment, particularly to alter colour. Depending on the report service, the laboratory may assess growth type and whether treatment evidence is detected, then record the finding in the report or comments."
-      },
-      {
-        type: "paragraph",
-        text: "Before issue, results go through quality-control procedures. Additional graders or reviewers may reconcile borderline observations and confirm that identification, measurements and recorded data are internally consistent."
-      },
-      {
-        type: "paragraph",
-        text: "The laboratory may then apply a microscopic girdle inscription containing the report or assessment number and laboratory-grown wording. Current GIA laboratory-grown services include a “Laboratory-Grown” inscription and the applicable GIA number. IGI also offers report-number inscription and records inscriptions where relevant."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "The final report becomes available in print, digital form or both, depending on the laboratory and service. Buyers should verify it through the issuing laboratory’s official database. Read " },
-          { text: "what a diamond laser inscription is", href: "/blog/diamond-laser-inscription/" },
-          { text: " and " },
-          { text: "how to verify an IGI certificate number", href: "/blog/verify-igi-certificate-number/" },
-          { text: "." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "What do the 4Cs mean during grading?",
-    content: [
-      {
-        type: "table",
-        headers: ["Characteristic", "What the laboratory assesses", "What it does not tell you alone"],
-        rows: [
-          ["Carat", "Exact weight of the loose diamond", "Face-up size or quality"],
-          ["Colour", "Absence, presence or character of body colour", "Sparkle or cut performance"],
-          ["Clarity", "Inclusions and blemishes under standard examination", "Whether every buyer can see a feature unaided"],
-          ["Cut", "Proportions, appearance and craftsmanship under the applicable system", "Personal preference for shape or design"]
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "The 4Cs are related in the finished appearance, but they remain separate measurements. A high colour grade does not correct poor cut, and a high clarity grade does not guarantee strong light return."
-      }
-    ]
-  },
-  {
-    heading: "How IGI grades lab-grown diamonds",
-    content: [
-      {
-        type: "paragraph",
-        text: "IGI loose laboratory-grown diamond reports commonly:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "identify the stone as laboratory-grown;",
-          "state shape, cutting style and measurements;",
-          "record carat weight;",
-          "provide colour and clarity grades;",
-          "report cut information where applicable;",
-          "list polish and symmetry;",
-          "record fluorescence;",
-          "include proportions or clarity diagrams depending on report format;",
-          "state inscriptions and comments; and",
-          "provide a report number for verification."
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "IGI has publicly reaffirmed its continued use of individual 4C grading for laboratory-grown diamonds. Buyers should still inspect the actual current sample report because features can vary by service and region. See " },
-          { text: "what an IGI certificate means for a lab-grown diamond", href: "/blog/igi-certificate-for-lab-grown-diamond/" },
-          { text: "." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "How GIA currently assesses lab-grown diamonds",
-    content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "GIA’s current quality assessment for qualifying loose, colourless-to-near-colourless laboratory-grown diamonds weighing at least 0.15 ct classifies each accepted stone as " },
-          { text: "Premium", bold: true },
-          { text: " or " },
-          { text: "Standard", bold: true },
-          { text: "." }
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Under GIA’s published current criteria:"
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Premium: ", bold: true },
-          { text: "clarity: VVS or higher; colour: D; polish: Excellent; symmetry: Excellent; and cut: Excellent for round brilliants." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Standard: ", bold: true },
-          { text: "The diamond can combine Premium characteristics with these stated minimums: clarity: VS; colour: E–J; polish: Very Good; symmetry: Very Good, or Good for fancy shapes; and cut: Very Good for round brilliants." }
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "A submitted stone that does not meet all minimum Standard criteria does not receive one of these classifications. GIA offers separate services for coloured laboratory-grown diamonds, including growth-type and post-growth-treatment assessment under the applicable report."
-      },
-      {
-        type: "paragraph",
-        text: "Because services can change, Aurelia Royale should recheck GIA’s official criteria whenever this article is materially updated."
-      }
-    ]
-  },
-  {
-    heading: "Does every laboratory use the same grading system?",
-    content: [
-      {
-        type: "paragraph",
-        text: "No. Laboratories can differ in terminology, service scope, cut grading, report design and eligibility limits. Even when two labs use familiar 4C scales, grading contains expert judgement, especially near boundaries."
-      },
-      {
-        type: "paragraph",
-        text: "Small variations can occur because of:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "laboratory standards and master sets;",
-          "equipment and procedures;",
-          "graders’ conclusions on borderline characteristics;",
-          "report type;",
-          "whether the stone is loose or mounted;",
-          "changes after repolishing or damage; and",
-          "evolving services or nomenclature."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Compare like with like. A GIA Premium classification and an IGI D/VVS1/Excellent-style result are not interchangeable labels, even if both describe a high-quality lab-grown diamond."
-      }
-    ]
-  },
-  {
-    heading: "Are diamonds graded by machines or people?",
-    content: [
-      {
-        type: "paragraph",
-        text: "Both. Instruments perform precise weighing, measurement, imaging, spectroscopy and screening. Automated systems can assist with consistency and data collection. Trained gemmologists interpret observations, compare grades and make or review decisions that require expert judgement."
-      },
-      {
-        type: "paragraph",
-        text: "Modern grading is neither purely subjective visual opinion nor entirely automated scoring. It combines calibrated technology, controlled environments, documented standards and human review."
-      }
-    ]
-  },
-  {
-    heading: "Loose-diamond grading versus mounted-jewellery grading",
-    content: [
-      {
-        type: "paragraph",
-        text: "Loose diamonds allow the most complete examination. Graders can clean, weigh and view the stone from every direction without metal reflections or covered areas."
-      },
-      {
-        type: "paragraph",
-        text: "In finished jewellery:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "individual stone weight may be estimated;",
-          "metal can affect colour perception;",
-          "prongs or bezels can hide inclusions and inscriptions;",
-          "pavilion access may be limited;",
-          "cut assessment may be restricted; and",
-          "colour and clarity may be expressed as ranges."
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "IGI uses wording such as “graded as mounting permits” for relevant jewellery assessments. A jewellery report can be valuable, but it should not be presented as identical to a complete pre-setting loose-diamond report. Read " },
-          { text: "diamond certification versus jewellery certification", href: "/blog/diamond-certification-vs-jewellery-certification/" },
-          { text: "." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Does grading establish a diamond’s value?",
-    content: [
-      {
-        type: "paragraph",
-        text: "No. A grading report describes identity and quality characteristics under the laboratory’s service. It is not automatically a retail valuation, resale offer, insurance appraisal or warranty."
-      },
-      {
-        type: "paragraph",
-        text: "Price also depends on:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "current lab-grown diamond supply;",
-          "shape and market demand;",
-          "exact proportions and appearance;",
-          "report issuer;",
-          "jewellery design and craftsmanship;",
-          "metal and accent stones;",
-          "seller services; and",
-          "market conditions at the time of purchase or resale."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "A higher grade can influence comparison, but the report does not prescribe what a buyer must pay."
-      }
-    ]
-  },
-  {
-    heading: "Can the grade change if the diamond is resubmitted?",
-    content: [
-      {
-        type: "paragraph",
-        text: "A diamond’s inherent characteristics do not change simply because it is examined again, but a borderline result can differ slightly between laboratories or assessments. A grade can also change if the stone has been chipped, repolished, recut, treated or damaged since the original examination."
-      },
-      {
-        type: "paragraph",
-        text: "If a report and current diamond no longer align, obtain a re-examination rather than assuming the old document remains accurate. A changed weight or measurement is especially important."
-      }
-    ]
-  },
-  {
-    heading: "How long does lab-grown diamond grading take?",
-    content: [
-      {
-        type: "paragraph",
-        text: "Turnaround is not universal. It depends on the laboratory, location, service, stone type, volume, shipping, security procedures and whether additional testing or review is required."
-      },
-      {
-        type: "paragraph",
-        text: "Retailers should not promise a fixed grading time unless confirmed for the specific submission. Buyers ordering made-to-order jewellery should separate laboratory turnaround from design, setting, quality control and delivery time."
-      }
-    ]
-  },
-  {
-    heading: "Common grading misunderstandings",
-    content: [
-      {
-        type: "paragraph",
-        text: "Avoid these common errors when evaluating diamond grading reports:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "“Certified” means the laboratory guarantees value: A grading report is not a valuation or price guarantee.",
-          "Every laboratory uses identical grades: Current terminology and services differ, particularly between IGI and GIA for lab-grown diamonds.",
-          "Origin can be confirmed by eyesight: Conclusive separation can require advanced gemmological and spectroscopic testing.",
-          "A high carat weight means a high grade: Carat is weight only. Colour, clarity and cut are assessed independently.",
-          "Fancy shapes receive the same cut grade everywhere: Overall cut grading coverage varies by laboratory and report service.",
-          "Mounted grading is identical to loose grading: The setting can restrict weight, colour, clarity and cut assessment.",
-          "A laser inscription proves everything: The number must match the official database and the physical diamond.",
-          "A report never needs updating: Damage, recutting, treatment or significant repolishing can make old data incomplete."
-        ],
-        itemsParts: [
-          [
-            { text: "“Certified” means the laboratory guarantees value: ", bold: true },
-            { text: "A grading report is not a valuation or price guarantee." }
-          ],
-          [
-            { text: "Every laboratory uses identical grades: ", bold: true },
-            { text: "Current terminology and services differ, particularly between IGI and GIA for lab-grown diamonds." }
-          ],
-          [
-            { text: "Origin can be confirmed by eyesight: ", bold: true },
-            { text: "Conclusive separation can require advanced gemmological and spectroscopic testing." }
-          ],
-          [
-            { text: "A high carat weight means a high grade: ", bold: true },
-            { text: "Carat is weight only. Colour, clarity and cut are assessed independently." }
-          ],
-          [
-            { text: "Fancy shapes receive the same cut grade everywhere: ", bold: true },
-            { text: "Overall cut grading coverage varies by laboratory and report service." }
-          ],
-          [
-            { text: "Mounted grading is identical to loose grading: ", bold: true },
-            { text: "The setting can restrict weight, colour, clarity and cut assessment." }
-          ],
-          [
-            { text: "A laser inscription proves everything: ", bold: true },
-            { text: "The number must match the official database and the physical diamond." }
-          ],
-          [
-            { text: "A report never needs updating: ", bold: true },
-            { text: "Damage, recutting, treatment or significant repolishing can make old data incomplete." }
-          ]
-        ]
-      }
-    ]
-  },
-  {
-    heading: "How buyers should compare grading reports",
-    content: [
-      {
-        type: "numbered-list",
-        items: [
-          "Identify the issuing laboratory.",
-          "Check the report date and service name.",
-          "Confirm laboratory-grown origin.",
-          "Verify the report number in the official database.",
-          "Match shape, weight and exact measurements.",
-          "Understand whether results are individual grades or an overall classification.",
-          "Read comments, growth and treatment disclosures.",
-          "Review cut, polish, symmetry and fluorescence.",
-          "Check the girdle inscription where applicable.",
-          "Compare the actual diamond’s photographs and video.",
-          "Distinguish loose-diamond reports from jewellery reports.",
-          "Obtain professional help for mismatches or important secondary-market purchases."
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Our detailed guide explains " },
-          { text: "how to read a lab-grown diamond certificate", href: "/blog/how-to-read-lab-grown-diamond-certificate/" },
-          { text: "." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Aurelia Royale’s transparency standard",
-    content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "For individually reported principal diamonds in " },
-          { text: "Aurelia Royale jewellery", href: "/shop/" },
-          { text: ", the product page should identify the laboratory, report service, report number, laboratory-grown origin and applicable quality results." }
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Product copy should reproduce the report’s terminology accurately. An overall Premium or Standard assessment should not be rewritten as an invented D colour or VVS clarity grade. Likewise, an IGI individual 4C result should be stated as the report presents it."
-      },
-      {
-        type: "paragraph",
-        text: "For small accent diamonds without individual reports, Aurelia should disclose laboratory-grown origin, total weight and applicable colour and clarity ranges. If the finished piece was graded only as mounting permits, that limitation should remain visible."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "If any grading detail is unclear, " },
-          { text: "contact Aurelia Royale", href: "/contact/" },
-          { text: " before ordering." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Buyer checklist",
-    content: [
-      {
-        type: "bullet-list",
-        items: [
-          "Who issued the report?",
-          "What is the exact report service and date?",
-          "Does it identify the stone as laboratory-grown?",
-          "Was the diamond examined loose or mounted?",
-          "Are the results individual 4C grades or an overall classification?",
-          "Do weight and measurements match the product?",
-          "Is growth method stated where applicable?",
-          "Is post-growth treatment information provided?",
-          "Are polish, symmetry and fluorescence recorded?",
-          "Does the inscription match the official database?",
-          "Does the seller reproduce the report terminology accurately?",
-          "Are accent-diamond ranges disclosed separately?",
-          "Has the stone been altered since grading?",
-          "Are return, warranty and aftercare terms clear?"
-        ]
-      }
+      { type: "paragraph", text: "Laboratories also measure the physical geometry of the stone. IGI describes using gemstone-specific optical measuring equipment to build a three-dimensional representation of the diamond and record proportions, facet angles and key measurements. These measurements may include length, width, depth, diameter and other proportion data depending on the shape." },
+      { type: "paragraph", text: "This information matters because two diamonds can have the same carat weight yet different physical dimensions. Measurements can also contribute to cut assessment. For a round brilliant, proportions such as table size, total depth, crown angle and pavilion angle can influence light performance and therefore become relevant to the overall cut result." }
     ]
   },
   {
     content: [
-      {
-        type: "callout",
-        title: "Final verdict",
-        theme: "gold-border",
-        parts: [
-          {
-            text: "Lab-grown diamond grading begins with scientific identification and continues through precise measurement and quality assessment. Laboratories examine the 4Cs, finish, fluorescence, growth or treatment indicators and other characteristics before completing quality control, inscription and report issuance.\n\n"
-          },
-          {
-            text: "The underlying quality factors are familiar, but report systems are not identical. IGI commonly provides individual 4C grades, while GIA’s current colourless-to-near-colourless service uses Premium or Standard overall classifications. The best buyer reads the actual document, verifies it through the laboratory and compares the result with the physical diamond and finished jewellery."
-          }
-        ]
-      },
+      { type: "image", src: "/images/blog/how-lab-grown-diamonds-are-graded/2.jpg", alt: "Lab-grown diamond grading steps colour clarity cut polish IGI GIA laboratory", title: "The Grading Process: From Intake to Report", caption: "Diamond grading involves a controlled sequence of measurements, independent grader assessments and quality checks — not a single observation.", priority: false }
+    ]
+  },
+  {
+    heading: "Step Six: Colour Assessment",
+    content: [
+      { type: "paragraph", text: "Colour grading is performed under controlled viewing conditions rather than ordinary shop lighting. Lighting and surroundings can alter how colour appears to the human eye, so laboratories use standardised environments to reduce those variables." },
+      { type: "paragraph", text: "IGI states that D-to-Z colour grading is performed with the diamond viewed through the side while placed face-down and compared in a controlled environment. Multiple graders submit colour opinions independently, and the result is finalised when sufficient agreement is reached." },
+      { type: "paragraph", text: "This is important because colour grading is not simply: \"This looks white to me.\" It is a comparative laboratory assessment." },
+      { type: "paragraph", parts: [{ text: "For detailed interpretation of D, E, F, G, H and the wider colour scale, read " }, { text: "Lab-Grown Diamond Colour Grades Explained", href: "/blog/lab-grown-diamond-colour-grades-explained/" }, { text: "." }] }
+    ]
+  },
+  {
+    heading: "Step Seven: Fluorescence Assessment",
+    content: [
+      { type: "paragraph", text: "Fluorescence is separate from diamond colour. A laboratory can expose the diamond to ultraviolet radiation and observe whether the stone emits visible light. Where applicable, the report may describe the fluorescence strength and colour." },
+      { type: "paragraph", text: "IGI incorporates fluorescence assessment into its grading workflow and records it separately from ordinary colour grading. A diamond's fluorescence result therefore should not be confused with its colour grade. They describe different observations." }
+    ]
+  },
+  {
+    heading: "Step Eight: Clarity Assessment",
+    content: [
+      { type: "paragraph", text: "Clarity concerns internal and surface characteristics visible under standardised examination. IGI states that clarity grading is performed at 10× magnification and considers the visibility, size, number, location and nature of internal and surface characteristics." },
+      { type: "paragraph", text: "Those details matter. Two diamonds can contain the same general type of inclusion and still receive different clarity grades because the characteristics differ in position, size, relief or visibility. The laboratory may also record significant clarity features on a plotted diagram where the report service includes one." },
+      { type: "paragraph", parts: [{ text: "For the full grading scale and inclusion terminology, use " }, { text: "Lab-Grown Diamond Clarity Grades Explained", href: "/blog/lab-grown-diamond-clarity-grades-explained/" }] }
+    ]
+  },
+  {
+    heading: "Can Lab-Grown Diamonds Have Inclusions?",
+    content: [
+      { type: "paragraph", text: "Yes. The fact that a diamond grew in controlled conditions does not mean the resulting crystal is automatically flawless. HPHT and CVD growth can produce their own internal characteristics. A laboratory-grown diamond can therefore receive different clarity results just as individual natural diamonds vary in clarity." },
+      { type: "paragraph", text: "\"Lab-grown\" is an origin description. It is not shorthand for: Flawless or: VVS." }
+    ]
+  },
+  {
+    heading: "Step Nine: Polish Assessment",
+    content: [
+      { type: "paragraph", text: "Polish refers to the quality and condition of the diamond's polished facet surfaces. It is one of the craftsmanship characteristics created during cutting and finishing rather than during crystal growth itself. A diamond can have a desirable colour and clarity while still receiving a weaker polish result." },
+      { type: "paragraph", text: "This is why polish should remain a separate field rather than being merged into a generic claim that the diamond is simply \"well cut\". IGI states that all diamond shapes and colours receive craftsmanship grades for polish and symmetry within its relevant grading reports." }
+    ]
+  },
+  {
+    heading: "Step Ten: Symmetry Assessment",
+    content: [
+      { type: "paragraph", text: "Symmetry evaluates the precision of the diamond's shape and facet arrangement. The grader considers whether corresponding facets are properly aligned, whether the outline is balanced and whether other symmetry-related features meet the applicable standards." },
+      { type: "paragraph", text: "Again, symmetry is not identical to overall cut. A report might show one result for cut, another for polish and another for symmetry. Those should be read independently." }
+    ]
+  },
+  {
+    heading: "Step Eleven: Cut Assessment",
+    content: [
+      { type: "paragraph", text: "Cut grading is more complicated than colour or carat because diamond shape and laboratory methodology matter. For round brilliant diamonds, IGI assesses proportions, polish, symmetry and visual-performance-related factors. Its current round brilliant system has Excellent-Ideal as its highest overall cut grade." },
+      { type: "paragraph", text: "IGI also offers cut grading for fancy-shaped diamonds. Its current system combines finish, proportions, shape-specific requirements and light-return considerations, with fancy-shape cut results ranging from Excellent to Poor when that service is used." },
+      { type: "paragraph", text: "This is important because older generic advice often states that fancy shapes can never receive an overall cut grade. That is not universally true across current laboratories." }
+    ]
+  },
+  {
+    heading: "Does GIA Grade Cut the Same Way?",
+    content: [
+      { type: "paragraph", text: "No laboratory's terminology should automatically be transferred to another. GIA's traditional overall cut-grading system for natural diamonds applies to standard round brilliant diamonds within the applicable D-to-Z range. GIA evaluates brightness, fire, scintillation, weight ratio, durability, polish and symmetry within that system." },
+      { type: "paragraph", text: "For current D-to-Z laboratory-grown diamonds, GIA's Premium/Standard Quality Assessment incorporates a cut criterion for round brilliants rather than providing the same lab-grown reporting format it used before October 2025. Under the current system, a qualifying round brilliant must meet Excellent cut for Premium, while Very Good is the minimum round-brilliant cut criterion for Standard. Fancy shapes do not use that round-brilliant cut criterion within the current GIA Quality Assessment." },
+      { type: "paragraph", parts: [{ text: "For the detailed cut systems, read " }, { text: "Lab-Grown Diamond Cut Explained", href: "/blog/lab-grown-diamond-cut-explained/" }, { text: "." }] }
+    ]
+  },
+  {
+    heading: "Step Twelve: Independent Verification by Multiple Graders",
+    content: [
+      { type: "paragraph", text: "Diamond grading is not intended to rest on one uncontrolled opinion. IGI states that colour and clarity analyses involve multiple gemmologists who submit their assessments independently. The results are finalised once sufficient agreement or consensus has been reached. This helps improve consistency." },
+      { type: "paragraph", text: "GIA likewise describes using independent grader opinions and quality-control procedures within its diamond-grading processes. This does not mean gemmological grading is mathematically identical to measuring mass. Some characteristics require trained visual judgement within standardised conditions. That is precisely why laboratories use controlled methodology and multiple graders." }
+    ]
+  },
+  {
+    heading: "Is Diamond Grading Completely Objective?",
+    content: [
+      { type: "paragraph", text: "Some parts are direct physical measurements. Carat weight and dimensions are measured. Other characteristics, particularly colour and clarity, involve trained human assessment within defined laboratory standards. Cut grading can combine physical measurements with models, workmanship assessment and optical-performance criteria depending on the laboratory." },
+      { type: "paragraph", text: "Professional grading therefore seeks repeatable, standardised assessment, rather than pretending every characteristic is generated by a single machine without expert judgement." }
+    ]
+  },
+  {
+    heading: "Step Thirteen: Checking Growth Method and Treatment Information",
+    content: [
+      { type: "paragraph", text: "Lab-grown diamond reporting can contain information that does not usually arise in the same way for natural-diamond consumer descriptions. For example, the laboratory may identify whether the stone was created by CVD or HPHT. A report may also state whether evidence of post-growth treatment is present." },
+      { type: "paragraph", text: "IGI says the growth process and presence of treatments can be recorded in the comments section upon request. Growth method and treatment should not be confused. A diamond can be CVD-grown and later HPHT-treated." },
+      { type: "paragraph", parts: [{ text: "For the full distinction, use " }, { text: "CVD vs HPHT Lab-Grown Diamonds", href: "/blog/cvd-vs-hpht-lab-grown-diamonds/" }, { text: "." }] }
+    ]
+  },
+  {
+    heading: "Does Treatment Automatically Lower a Lab-Grown Diamond's Grade?",
+    content: [
+      { type: "paragraph", text: "Do not use that blanket rule. A treatment disclosure tells you something about the diamond's manufacturing history. The colour, clarity, cut, carat and finish characteristics are still evaluated according to the laboratory's relevant methodology. A post-growth treatment does not automatically tell you the final quality of the stone. The important point is accurate disclosure." }
+    ]
+  },
+  {
+    heading: "Step Fourteen: Laser Inscription",
+    content: [
+      { type: "paragraph", text: "Some laboratory reporting systems connect the physical diamond with its documentation through microscopic girdle inscriptions. IGI states that every laboratory-grown diamond it grades receives an inscription identifying its laboratory-grown origin, while its report-number LaserScribe system provides an additional means of linking the stone to its report." },
+      { type: "paragraph", text: "GIA's current D-to-Z lab-grown Quality Assessment also requires the submitted stone's girdle to be inscribed with \"Laboratory-Grown\" and the relevant GIA quality-assessment number. The inscription helps with identification. It is not itself the grading result." },
+      { type: "paragraph", parts: [{ text: "For that subject, read " }, { text: "What Is a Diamond Laser Inscription?", href: "/blog/diamond-laser-inscription/" }] }
+    ]
+  },
+  {
+    heading: "Step Fifteen: Report Preparation",
+    content: [
+      { type: "paragraph", text: "Once grading or assessment has been completed, the results are assembled into the relevant report or assessment document. IGI says its process includes final verification, report preparation and subsequent online availability of the digital report through its verification system." },
+      { type: "paragraph", text: "The document can then be used to understand the diamond's laboratory findings and compare it with other stones. But a report should not be interpreted as a promise about every aspect of the jewellery purchase. Grading and valuation are different." }
+    ]
+  },
+  {
+    heading: "Is a Diamond Grading Report an Appraisal?",
+    content: [
+      { type: "paragraph", text: "No. A grading report documents gemmological characteristics under the issuing laboratory's service. An appraisal estimates financial value for a particular purpose. Those are different services. A 1.50 ct F VS1 laboratory-grown diamond can have those same gemmological characteristics regardless of what one particular retailer charges for it. A grading laboratory does not automatically determine the correct retail or future resale price." }
+    ]
+  },
+  {
+    heading: "How IGI Currently Grades Lab-Grown Diamonds",
+    content: [
+      { type: "paragraph", text: "IGI continues to use a detailed grading-report format for laboratory-grown diamonds. Its current Laboratory Grown Diamond Report can include the stone's description and laboratory-grown origin, shape and cutting style, measurements, carat weight, colour, clarity and cut information, along with proportions and other relevant observations depending on the report." },
+      { type: "paragraph", text: "For colour, IGI uses its D-to-Z framework for colourless-to-light-colour diamonds. For clarity, its lab-grown report uses categories including IF, VVS, VS, SI and I. For round brilliants, IGI provides overall cut assessment; its current methodology also provides an optional fancy-shape cut-grading system. Polish and symmetry are recorded independently." },
+      { type: "paragraph", text: "This means an IGI lab-grown diamond can still be described using detailed individual quality results." }
+    ]
+  },
+  {
+    heading: "How GIA Currently Assesses Lab-Grown Diamonds",
+    content: [
+      { type: "paragraph", text: "GIA's current approach is materially different. On 1 October 2025, GIA replaced its previous D-to-Z laboratory-grown diamond reporting service with its Laboratory-Grown Diamond Quality Assessment for qualifying stones. Under this current system, qualifying diamonds are assigned one of two overall classifications: Premium or: Standard." },
+      { type: "paragraph", text: "A diamond that does not meet the minimum criteria for Standard does not receive the Quality Assessment. This means GIA's current lab-grown document should not be described as though it simply provides the same detailed nomenclature used on its natural-diamond grading reports." }
+    ]
+  },
+  {
+    heading: "What Does GIA Premium Mean?",
+    content: [
+      { type: "paragraph", text: "Premium is an overall assessment, not a new individual colour grade or clarity grade. To qualify as Premium under GIA's current criteria, the laboratory-grown diamond must meet all applicable Premium thresholds. Those include VVS clarity or higher, D colour, Excellent polish and symmetry and, for round brilliant diamonds, Excellent cut." },
+      { type: "paragraph", text: "Because the requirements are combined, you should not treat \"Premium\" as meaning only: D colour or only: VVS clarity. It means the stone met the complete applicable Premium criteria." }
+    ]
+  },
+  {
+    heading: "What Does GIA Standard Mean?",
+    content: [
+      { type: "paragraph", text: "Standard is also an overall classification. GIA's current minimum Standard thresholds include VS clarity, E-to-J colour, Very Good polish, Very Good symmetry—with Good symmetry permitted for fancy shapes—and Very Good cut for applicable round brilliant diamonds." },
+      { type: "paragraph", text: "A qualifying stone can contain a combination of Premium-level and Standard-level characteristics and still receive the overall Standard result. Again, Standard is not an individual colour or clarity grade." }
+    ]
+  },
+  {
+    heading: "Can You Convert GIA Premium Into an IGI Grade?",
+    content: [
+      { type: "paragraph", text: "Not reliably as a one-to-one conversion. The two laboratories currently report lab-grown diamonds differently. For example, an IGI report might directly state a colour and clarity grade. GIA Premium tells you the diamond met its overall Premium thresholds." },
+      { type: "paragraph", text: "Do not rewrite: GIA Premium as: IGI D/VVS1 unless an actual IGI report independently says that. Likewise, do not convert an IGI F/VS1 diamond into \"GIA Standard\" as though the laboratories had issued equivalent documents. Each laboratory's result should remain attached to the system that produced it." }
+    ]
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/how-lab-grown-diamonds-are-graded/3.jpg", alt: "IGI versus GIA lab-grown diamond grading comparison Premium Standard current 2025", title: "IGI vs GIA: Different Reporting Systems", caption: "IGI provides detailed 4Cs-style lab-grown reports. GIA's current D-to-Z lab-grown service uses Premium and Standard overall assessments — do not create one-to-one conversions.", priority: false }
+    ]
+  },
+  {
+    heading: "Are Lab-Grown Diamonds Graded the Same as Natural Diamonds?",
+    content: [
+      { type: "paragraph", text: "The answer is: the same broad quality concepts can apply, but current reporting is not universally identical. Carat still measures weight. Colour and clarity remain meaningful characteristics. Cut, polish and symmetry remain important to polished-diamond quality." },
+      { type: "paragraph", text: "But laboratories can use different report structures and different terminology. IGI continues detailed 4Cs-style reporting for lab-grown diamonds. GIA now deliberately separates its D-to-Z laboratory-grown assessment terminology from its natural-diamond nomenclature. Therefore, any article claiming all lab-grown diamonds are \"graded exactly the same way as mined diamonds\" needs qualification." }
+    ]
+  },
+  {
+    heading: "Why Did GIA Change Its Lab-Grown Grading System?",
+    content: [
+      { type: "paragraph", text: "When announcing the 2025 change, GIA said most laboratory-grown diamonds submitted to it fall within a relatively narrow range of colour and clarity and that descriptive quality terminology was therefore more appropriate for manufactured diamonds. GIA consequently moved from its previous natural-diamond-style lab-grown nomenclature to Premium and Standard classifications." },
+      { type: "paragraph", text: "Whether a buyer prefers that system or IGI's more granular reporting format is a separate question. The key point for Aurelia is simply to describe each laboratory accurately." }
+    ]
+  },
+  {
+    heading: "Which Lab-Grown Diamond Grading System Is Better?",
+    content: [
+      { type: "paragraph", text: "There is no need for this article to declare one laboratory universally better. They currently communicate results differently. A detailed IGI report may appeal to a buyer who wants individual colour, clarity, carat and cut information. GIA's current assessment deliberately groups qualifying lab-grown diamonds into broader Premium and Standard quality classifications." },
+      { type: "paragraph", text: "The useful buyer question is: What information does this particular report provide, and does that information help me compare the diamond accurately?" }
+    ]
+  },
+  {
+    heading: "What Is the Difference Between Grading and Identification?",
+    content: [
+      { type: "paragraph", text: "Identification asks what the stone is. Grading or quality assessment asks what characteristics the identified diamond possesses. For a lab-grown diamond, identification may establish: this is laboratory-grown diamond. The subsequent grading process may then assess its carat weight, dimensions, colour, clarity, cut and finish according to the laboratory's system." },
+      { type: "paragraph", text: "Those functions should not be confused. A diamond tester indicating \"diamond\" does not automatically provide colour, clarity or cut grades. Likewise, a grading result should be connected to the correctly identified physical stone." }
+    ]
+  },
+  {
+    heading: "What Is the Difference Between Grading and Verification?",
+    content: [
+      { type: "paragraph", text: "Grading happens in the laboratory. Verification happens when a buyer or seller checks that the report is genuine and corresponds with the diamond being offered." },
+      { type: "paragraph", text: "For example, an IGI report may have been correctly issued after a full grading process. A later buyer can then retrieve that report from IGI using the report number. But: report found does not automatically mean: physical diamond matched. The stone's inscription, measurements, carat, shape and other details can be compared with the report." },
+      { type: "paragraph", parts: [{ text: "For that process, read " }, { text: "How to Verify an IGI Certificate Number", href: "/blog/verify-igi-certificate-number/" }, { text: "." }] }
+    ]
+  },
+  {
+    heading: "Is a Diamond Graded Again Every Time It Is Sold?",
+    content: [
+      { type: "paragraph", text: "No. A laboratory report records the findings from a specific examination. A diamond can later be resold with the same report if it remains the same stone and the report continues to describe it appropriately." },
+      { type: "paragraph", text: "However, significant repolishing, recutting, damage or other changes can potentially alter characteristics enough that a new assessment becomes useful or necessary. The report should therefore be treated as documentation of a specific examined state, not a magical label independent of the physical diamond forever." }
+    ]
+  },
+  {
+    heading: "Can Two Laboratories Give Different Grades?",
+    content: [
+      { type: "paragraph", text: "Minor differences between reputable grading outcomes are possible because some elements of diamond grading involve expert judgement within each laboratory's methodology. More importantly, the laboratories may now use fundamentally different reporting frameworks for lab-grown diamonds." },
+      { type: "paragraph", text: "For example, current IGI and GIA lab-grown documents may not even express quality using the same type of final terminology. So buyers should not expect every document to line up field for field." }
+    ]
+  },
+  {
+    heading: "Can Two Lab-Grown Diamonds With the Same Carat Have Different Grades?",
+    content: [
+      { type: "paragraph", text: "Yes. Carat is only one quality characteristic. Two 1.00 ct lab-grown diamonds can differ substantially in colour, clarity, cut, polish, symmetry, dimensions and visual appearance. IGI explicitly notes that diamonds of identical carat weight can receive different colour, clarity and cut results." },
+      { type: "paragraph", text: "This is why carat should never be used as a shorthand for overall quality." }
+    ]
+  },
+  {
+    heading: "Does a Higher Grade Always Mean a Better-Looking Diamond?",
+    content: [
+      { type: "paragraph", text: "Not necessarily in every practical comparison. A higher clarity result may represent microscopic differences you cannot see without magnification. A higher colour grade may be visually subtle once the diamond is mounted. Meanwhile, cut can have a substantial influence on visible light performance." },
+      { type: "paragraph", text: "Laboratory grading provides structured information. The buyer still needs to decide which characteristics matter most to them." }
+    ]
+  },
+  {
+    heading: "Does Grading Determine Whether a Diamond Is Eye-Clean?",
+    content: [
+      { type: "paragraph", text: "No formal grading result universally guarantees what every person will perceive as eye-clean. \"Eye-clean\" is a retail and consumer description rather than an official clarity grade. Visibility depends on the inclusion, diamond size, shape, viewing distance, lighting and eyesight." },
+      { type: "paragraph", text: "Use the clarity result as technical information and inspect the individual stone where practical." }
+    ]
+  },
+  {
+    heading: "Does Grading Measure Sparkle?",
+    content: [
+      { type: "paragraph", text: "Not as a single universal \"sparkle grade\". Cut assessment can incorporate aspects of light performance. For example, IGI's round brilliant methodology considers brightness, fire, scintillation and pattern as part of its cut work, and it also offers separate Light Performance reporting. GIA's round brilliant cut methodology similarly considers brightness, fire and scintillation alongside design and craftsmanship factors." },
+      { type: "paragraph", text: "But a colour or clarity grade by itself does not tell you how sparkly the diamond will appear." }
+    ]
+  },
+  {
+    heading: "Do Fancy-Shaped Lab-Grown Diamonds Receive Cut Grades?",
+    content: [
+      { type: "paragraph", text: "The answer depends on the laboratory. IGI currently provides an optional fancy-shape cut grading system using finish assessment, proportions, shape-specific requirements and light-return evaluation. GIA's familiar overall cut grade has traditionally been limited to standard round brilliants, and its current lab-grown Premium/Standard assessment uses an overall cut criterion only for round brilliant stones." },
+      { type: "paragraph", text: "So a blanket statement that: \"Fancy diamonds never have cut grades\" is no longer correct across the industry." }
+    ]
+  },
+  {
+    heading: "What Happens When the Diamond Is Already Mounted?",
+    content: [
+      { type: "paragraph", text: "Mounted-jewellery grading is more limited because the setting can obstruct access to the diamond. IGI provides specific finished-jewellery reports and states that centre-stone characteristics are assessed as the mounting permits. Where a stone was graded before mounting, standard reporting can be referenced. When it is graded while mounted, IGI may report colour and clarity as ranges and provide an estimated cut result." },
+      { type: "paragraph", text: "This is an important reason not to expect a finished-jewellery report to contain the same level of unrestricted measurement as a loose-diamond report." }
+    ]
+  },
+  {
+    heading: "Loose-Diamond Grading vs Finished-Jewellery Grading",
+    content: [
+      { type: "paragraph", text: "A loose stone gives the laboratory access to the entire diamond. It can be directly weighed. The girdle can be inspected. All facets can be observed. The stone can be positioned freely during colour, clarity and measurement procedures." },
+      { type: "paragraph", text: "Once mounted, some of that access can be restricted. The report type should therefore tell you whether you are looking at a loose-diamond assessment or finished-jewellery assessment." },
+      { type: "paragraph", parts: [{ text: "For the dedicated distinction, read " }, { text: "Diamond Certification vs Jewellery Certification", href: "/blog/diamond-certification-vs-jewellery-certification/" }, { text: "." }] }
+    ]
+  },
+  {
+    heading: "Does Every Small Diamond Need Individual Grading?",
+    content: [
+      { type: "paragraph", text: "No. Issuing a complete individual laboratory report for every tiny pavé or melee diamond in a bracelet, halo or eternity ring can be impractical. Different reporting and quality-control approaches can be used for parcels and finished jewellery. A significant centre diamond creates a different documentation need from dozens of tiny accent stones." },
+      { type: "paragraph", parts: [{ text: "For that purchasing decision, read " }, { text: "Do Lab-Grown Diamonds Need Certification?", href: "/blog/do-lab-grown-diamonds-need-certification/" }] }
+    ]
+  },
+  {
+    heading: "What Does a Lab-Grown Diamond Report Not Tell You?",
+    content: [
+      { type: "paragraph", text: "A grading report is extremely useful, but it does not answer every purchasing question. It does not automatically tell you whether the jewellery setting is well made. It does not guarantee that a retailer's price is competitive. It does not guarantee future resale value. It does not prove environmental claims. And a loose-diamond report does not automatically assess the complete ring, necklace, earring or bracelet in which the diamond is eventually mounted." },
+      { type: "paragraph", text: "Keep the scope of the document clear." }
+    ]
+  },
+  {
+    heading: "Does Grading Prove That a Diamond Is Sustainable or Ethical?",
+    content: [
+      { type: "paragraph", text: "No. A gemmological report can establish laboratory-grown origin and diamond characteristics. That does not automatically establish the energy source used by the growth facility, working conditions, carbon footprint, cutting-facility practices or complete supply-chain history. Environmental and ethical claims require their own evidence. Do not turn a grading report into a sustainability certificate." }
+    ]
+  },
+  {
+    heading: "How Should You Read a Lab-Grown Diamond Grade Before Buying?",
+    content: [
+      { type: "paragraph", text: "Begin with the laboratory and report type. Then establish whether you are looking at detailed individual grades or an overall assessment framework. For an IGI report, you may see specific colour, clarity and cut information. For a current qualifying GIA lab-grown assessment, you may instead see Premium or Standard." },
+      { type: "paragraph", text: "Then look at carat and measurements, relevant cut information, polish, symmetry and comments. Do not compare two stones using one headline grade without understanding the systems behind those results." },
+      { type: "paragraph", parts: [{ text: "For the full report-reading process, continue with " }, { text: "How to Read a Lab-Grown Diamond Certificate", href: "/blog/how-to-read-lab-grown-diamond-certificate/" }, { text: "." }] }
+    ]
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/how-lab-grown-diamonds-are-graded/4.jpg", alt: "Lab-grown diamond report verification genuine check physical stone match", title: "How to Check Whether a Grade Is Genuine",
+      caption: "Verify the report through the official laboratory system, then match the physical stone to that record.", priority: false }
+    ]
+  },
+  {
+    heading: "How Do You Check Whether a Grade Is Genuine?",
+    content: [
+      { type: "paragraph", text: "If a diamond is accompanied by an IGI report, verify the report number using IGI's official verification service. Then establish that the physical stone corresponds with the report. That second part matters. A genuine report can exist while the wrong physical stone is presented beside it. Shape, measurements, carat weight and a matching girdle inscription can help connect the report to the diamond." },
+      { type: "paragraph", parts: [{ text: "For the dedicated process, use " }, { text: "How to Verify an IGI Certificate Number", href: "/blog/verify-igi-certificate-number/" }, { text: "." }] }
+    ]
+  },
+  {
+    heading: "Does a Laser Inscription Show the Diamond's Grade?",
+    content: [
+      { type: "paragraph", text: "Usually, the inscription primarily provides identifying information rather than reproducing every quality grade. The corresponding laboratory report contains the actual grading results. A report-number girdle inscription can therefore function as a bridge between the physical stone and its laboratory documentation." },
+      { type: "paragraph", parts: [{ text: "For the full subject, read " }, { text: "What Is a Diamond Laser Inscription?", href: "/blog/diamond-laser-inscription/" }] },
       {
         type: "faq",
+        title: "Frequently Asked Questions",
         items: [
-          {
-            question: "Are lab-grown diamonds graded?",
-            answer: "Yes. Laboratories can identify laboratory-grown origin and assess quality characteristics such as carat, colour, clarity, cut, polish, symmetry and fluorescence."
-          },
-          {
-            question: "Are lab-grown diamonds graded the same as natural diamonds?",
-            answer: "The same fundamental quality factors can be assessed, but laboratories may use different report formats and terminology for laboratory-grown diamonds."
-          },
-          {
-            question: "Who grades lab-grown diamonds?",
-            answer: "Independent gemmological laboratories such as IGI and GIA provide lab-grown diamond reports or quality assessments under their available services."
-          },
-          {
-            question: "How does a laboratory know a diamond is lab-grown?",
-            answer: "It uses gemmological observation and advanced techniques such as spectroscopy and growth-pattern imaging to distinguish natural and laboratory-grown origin."
-          },
-          {
-            question: "What are the 4Cs of lab-grown diamonds?",
-            answer: "They are carat weight, colour, clarity and cut. Together they provide a structured description of diamond quality."
-          },
-          {
-            question: "Does IGI grade lab-grown diamonds using the 4Cs?",
-            answer: "Yes. IGI commonly provides individual 4C assessments for eligible loose lab-grown diamonds."
-          },
-          {
-            question: "Does GIA give D–Z and FL–I3 grades to lab-grown diamonds in 2026?",
-            answer: "GIA’s current qualifying colourless-to-near-colourless lab-grown service uses Premium or Standard overall classifications. Separate coloured-diamond services use different reporting formats."
-          },
-          {
-            question: "Are fancy-shaped lab-grown diamonds cut graded?",
-            answer: "Cut information varies by laboratory and report service. Fancy shapes do not always receive the same overall cut grade used for eligible round brilliants."
-          },
-          {
-            question: "Can mounted lab-grown jewellery be graded?",
-            answer: "Yes, but the setting can limit examination. Results may be estimated or expressed as ranges and described as graded as mounting permits."
-          },
-          {
-            question: "Does a grading report tell me the diamond’s value?",
-            answer: "No. It documents the diamond's gemological characteristics and does not prescribe what a buyer must pay."
-          },
-          {
-            question: "Can two laboratories give different grades?",
-            answer: "Small differences can occur because of report systems, borderline characteristics and laboratory procedures. Compare the exact services and terminology."
-          },
-          {
-            question: "How do I verify a lab-grown diamond report?",
-            answer: "Use the issuing laboratory’s official database and match the report number, origin, shape, weight, measurements and inscription to the diamond."
-          }
+          { question: "How are lab-grown diamonds graded?", answer: "They are examined in gemmological laboratories using physical measurements, controlled visual grading, specialised instruments and trained gemmologists. The final results depend on the laboratory and report service." },
+          { question: "Are lab-grown diamonds graded using the 4Cs?", answer: "The 4Cs remain important quality concepts, but current reporting formats differ. IGI provides detailed 4Cs-style lab-grown reports, while GIA's current qualifying D-to-Z lab-grown service uses overall Premium/Standard assessments." },
+          { question: "Are lab-grown diamonds graded exactly like natural diamonds?", answer: "Not universally. The underlying diamond characteristics overlap, but current laboratory report formats and terminology can differ substantially." },
+          { question: "Does IGI grade lab-grown diamonds?", answer: "Yes. IGI provides Laboratory Grown Diamond Reports and documents laboratory-grown origin and relevant quality characteristics." },
+          { question: "Does GIA grade lab-grown diamonds?", answer: "GIA currently provides its Laboratory-Grown Diamond Quality Assessment for qualifying D-to-Z laboratory-grown diamonds, using Premium and Standard overall classifications." },
+          { question: "When did GIA change its lab-grown grading system?", answer: "The revised service launched on 1 October 2025." },
+          { question: "What does GIA Premium mean for a lab-grown diamond?", answer: "It means the stone met all applicable Premium criteria within GIA's current Quality Assessment, including specified colour, clarity, polish, symmetry and round-brilliant cut thresholds." },
+          { question: "What does GIA Standard mean?", answer: "It means the diamond meets at least GIA's Standard minimum criteria but does not satisfy every requirement necessary for Premium." },
+          { question: "Does GIA Premium equal D VVS?", answer: "Not as a simple grade translation. Premium is an overall classification requiring a combination of qualifying characteristics." },
+          { question: "Can you convert GIA Premium into an IGI grade?", answer: "Not reliably. They are different reporting systems." },
+          { question: "Does IGI still use colour and clarity grades for lab-grown diamonds?", answer: "Yes. IGI's current lab-grown reporting provides detailed colour and clarity assessment." },
+          { question: "How is diamond colour graded?", answer: "Under IGI's process, colourless-to-light-colour diamonds are examined under standardised conditions, with independent grader opinions contributing to the final result." },
+          { question: "How is diamond clarity graded?", answer: "IGI examines clarity at 10× magnification and considers the visibility, size, number, location and nature of internal and surface characteristics." },
+          { question: "How is carat weight graded?", answer: "Carat is measured rather than visually graded. A loose diamond is weighed using a calibrated laboratory balance." },
+          { question: "Is carat the same as diamond size?", answer: "No. Carat measures weight; millimetre dimensions describe physical size." },
+          { question: "Is polish the same as cut?", answer: "No. Polish is a separate craftsmanship characteristic." },
+          { question: "Is symmetry the same as cut?", answer: "No. Symmetry is also independently assessed." },
+          { question: "Are fancy-shape lab-grown diamonds cut graded?", answer: "IGI currently offers fancy-shape cut grading. GIA's traditional overall cut grade and current lab-grown round-cut criterion do not apply identically to fancy shapes." },
+          { question: "Can lab-grown diamonds have inclusions?", answer: "Yes. Laboratory-grown diamonds can contain internal and surface characteristics and therefore occur across different clarity levels." },
+          { question: "Are all lab-grown diamonds D colour?", answer: "No." },
+          { question: "Are all lab-grown diamonds VVS?", answer: "No." },
+          { question: "Are all lab-grown diamonds high quality?", answer: "No. Laboratory origin is not a quality grade." },
+          { question: "Does CVD mean better quality than HPHT?", answer: "No. Growth method does not automatically determine final diamond quality." },
+          { question: "Can a CVD diamond be HPHT treated?", answer: "Yes. Growth method and post-growth treatment are separate concepts." },
+          { question: "Does grading tell you whether a diamond is natural or lab-grown?", answer: "An appropriate laboratory examination establishes origin separately from the subsequent quality assessment." },
+          { question: "Does a grading report tell you the diamond's price?", answer: "No. Grading and monetary appraisal are different." },
+          { question: "Does grading guarantee resale value?", answer: "No." },
+          { question: "Can mounted jewellery be graded?", answer: "Yes, but mounting can limit access to the gemstones. IGI uses finished-jewellery reporting and may express certain mounted-stone characteristics as ranges where appropriate." },
+          { question: "Should every accent diamond have its own grading report?", answer: "No. Individual reporting is more relevant to significant stones, while smaller diamonds can use other documentation approaches." },
+          { question: "How can I verify an IGI grade?", answer: "Check the report through IGI's official verification system and then ensure the physical stone corresponds with that report." }
         ]
-      },
-      {
-        type: "cta-banner",
-        title: "Explore Certified Quality at Aurelia Royale",
-        subtitle: "Beautifully cut to deliver maximum fire and scintillation. Explore our certified laboratory-grown diamond jewellery.",
-        shopHref: "/shop/",
-        contactHref: "/contact/"
       }
+    ]
+  },
+  {
+    heading: "Final Answer: How Does Lab-Grown Diamond Grading Work?",
+    content: [
+      { type: "paragraph", text: "Lab-grown diamond grading is a controlled gemmological process. The stone is first identified and its laboratory-grown origin established. It is then weighed and measured. Relevant colour, fluorescence, clarity, cut, polish and symmetry characteristics are assessed using standardised laboratory procedures. Multiple gemmologists and quality-control procedures may contribute to the final result. Growth and treatment information may also be recorded where applicable." },
+      { type: "paragraph", text: "But the most important modern point is that \"lab-grown diamond grading\" is no longer one universal report format. IGI continues to provide detailed lab-grown reports with individual 4Cs-style information. GIA changed its applicable D-to-Z laboratory-grown service on 1 October 2025 and now uses the broader Premium / Standard Laboratory-Grown Diamond Quality Assessment." },
+      { type: "paragraph", text: "Therefore, always read a lab-grown diamond result in the context of: which laboratory issued it, which service was used, what the reported terminology means and whether the physical diamond actually corresponds with the report." },
+      { type: "paragraph", parts: [{ text: "For the 4Cs themselves, continue with " }, { text: "What Are the 4Cs of Lab-Grown Diamonds?", href: "/blog/4cs-of-lab-grown-diamonds/" }] },
+      { type: "paragraph", parts: [{ text: "For colour, use " }, { text: "Lab-Grown Diamond Colour Grades Explained", href: "/blog/lab-grown-diamond-colour-grades-explained/" }, { text: "." }] },
+      { type: "paragraph", parts: [{ text: "For clarity, read " }, { text: "Lab-Grown Diamond Clarity Grades Explained", href: "/blog/lab-grown-diamond-clarity-grades-explained/" }, { text: "." }] },
+      { type: "paragraph", parts: [{ text: "For cut methodology, continue with " }, { text: "Lab-Grown Diamond Cut Explained", href: "/blog/lab-grown-diamond-cut-explained/" }, { text: "." }] },
+      { type: "paragraph", parts: [{ text: "For report fields, use " }, { text: "How to Read a Lab-Grown Diamond Certificate", href: "/blog/how-to-read-lab-grown-diamond-certificate/" }, { text: "." }] },
+      { type: "paragraph", parts: [{ text: "For IGI report meaning, read " }, { text: "What Is an IGI Lab-Grown Diamond Certificate?", href: "/blog/igi-certificate-for-lab-grown-diamond/" }] },
+      { type: "paragraph", parts: [{ text: "For verification, continue with " }, { text: "How to Verify an IGI Certificate Number", href: "/blog/verify-igi-certificate-number/" }, { text: "." }] },
+      { type: "paragraph", parts: [{ text: "And for laser inscriptions connecting a physical diamond with documentation, read " }, { text: "What Is a Diamond Laser Inscription?", href: "/blog/diamond-laser-inscription/" }] },
+      { type: "paragraph", text: "When reviewing an Aurelia Royale diamond, any laboratory, report, grade, growth-method or treatment claim should be based on the documentation for that specific diamond or product, rather than a generic catalogue-wide assumption." },
+      { type: "paragraph", parts: [{ text: "Where a design is not currently available for direct purchase, " }, { text: "Join the Waitlist", href: "/contact/" }, { text: " or submit an enquiry to register your interest." }] },
+      { type: "cta-banner", title: "Explore Aurelia Royale Lab-Grown Diamond Jewellery", subtitle: "Understand what the grading report actually says before comparing any two diamonds.", shopHref: "/shop/", contactHref: "/contact/" }
     ]
   }
 ];
 
-export default function Page() {
+export default function BlogGradingPage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
-      {/* Script injection for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* Hero Header */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }} />
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Certification and Diamond Quality
-          </span>
-          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How Are Lab-Grown Diamonds Graded?
-          </h1>
-          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 15, 2026
-          </p>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">Lab-Grown Diamond Education</span>
+          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">How Are Lab-Grown Diamonds Graded?</h1>
+          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">The Laboratory Process Explained • Published September 10, 2026</p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
-      {/* Related articles — crawlable plain links */}
       <RelatedArticles currentSlug="how-lab-grown-diamonds-are-graded" />
       <NewsletterSection />
     </main>
   );
 }
+

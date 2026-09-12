@@ -1,629 +1,240 @@
-﻿import React from "react";
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 import RelatedArticles from "@/components/shared/RelatedArticles";
 
-// 1. SEO Metadata
 export const metadata: Metadata = {
   title: "How to Choose a Lab-Grown Diamond Pendant",
-  description: "Learn how to choose a lab-grown diamond pendant by design, size, setting, chain compatibility, diamond quality, metal, certification and price.",
-  alternates: {
-    canonical: "https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-pendant/",
-  },
+  description: "Choose a lab-grown diamond pendant by checking bail size, chain compatibility, removability, pendant dimensions, diamond weight and exactly what is included.",
+  alternates: { canonical: "https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-pendant/" },
 };
 
-// 2. JSON-LD Schema
-const schemaMarkup = {
-  "@context":"https://schema.org",
-  "@graph":[
-    {
-      "@type":"BlogPosting",
-      "@id":"https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-pendant/#article",
-      "mainEntityOfPage":{"@type":"WebPage","@id":"https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-pendant/"},
-      "headline":"How to Choose a Lab-Grown Diamond Pendant",
-      "description":"Learn how to choose a lab-grown diamond pendant by design, size, setting, chain compatibility, diamond quality, metal, certification and price.",
-      "image":"https://www.aureliaroyale.com/images/blog/how-to-choose-lab-grown-diamond-pendant.webp",
-      "datePublished":"2026-07-16",
-      "dateModified":"2026-07-16",
-      "author":{"@type":"Organization","name":"Aurelia Royale","url":"https://www.aureliaroyale.com/"},
-      "publisher":{"@type":"Organization","name":"Aurelia Royale","url":"https://www.aureliaroyale.com/"},
-      "inLanguage":"en-GB",
-      "articleSection":"Product-Category Guides",
-      "keywords":["how to choose a lab-grown diamond pendant","lab-grown diamond pendant buying guide","diamond pendant size guide"]
-    },
-    {
-      "@type":"BreadcrumbList",
-      "@id":"https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-pendant/#breadcrumb",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Home","item":"https://www.aureliaroyale.com/"},
-        {"@type":"ListItem","position":2,"name":"Journal","item":"https://www.aureliaroyale.com/blog/"},
-        {"@type":"ListItem","position":3,"name":"How to Choose a Lab-Grown Diamond Pendant","item":"https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-pendant/"}
-      ]
-    },
-    {
-      "@type":"FAQPage",
-      "@id":"https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-pendant/#faq",
-      "mainEntity":[
-        {"@type":"Question","name":"Are lab-grown diamonds real diamonds?","acceptedAnswer":{"@type":"Answer","text":"Yes. Lab-grown diamonds have the same crystal material as diamonds formed in the Earth, but their laboratory-grown origin must be clearly disclosed."}},
-        {"@type":"Question","name":"Is a lab-grown diamond pendant suitable for everyday wear?","acceptedAnswer":{"@type":"Answer","text":"It can be. Suitability depends on the setting, chain strength, bail, clasp, profile and wearer activities."}},
-        {"@type":"Question","name":"Does a diamond pendant normally include a chain?","acceptedAnswer":{"@type":"Answer","text":"Not always. Confirm package contents and chain specifications on the product page."}},
-        {"@type":"Question","name":"What is the best size for a diamond pendant?","acceptedAnswer":{"@type":"Answer","text":"There is no universal best size. Compare pendant dimensions with your preferred scale, chain position and intended use."}},
-        {"@type":"Question","name":"Is carat weight the same as pendant size?","acceptedAnswer":{"@type":"Answer","text":"No. Carat measures diamond weight; visible size depends on dimensions, shape, stone count and setting."}},
-        {"@type":"Question","name":"What does total carat weight mean on a pendant?","acceptedAnswer":{"@type":"Answer","text":"It normally means the combined weight of all diamonds included in the stated total. Ask for the centre-and-accent breakdown."}},
-        {"@type":"Question","name":"Which diamond shape is best for a pendant?","acceptedAnswer":{"@type":"Answer","text":"The best shape is the one that suits the design and personal preference. Compare outline, cut information, orientation and dimensions."}},
-        {"@type":"Question","name":"Should a lab-grown diamond pendant be certified?","acceptedAnswer":{"@type":"Answer","text":"Independent documentation can support identification and quality claims. Check the issuing laboratory and exact report scope."}},
-        {"@type":"Question","name":"Can I put a pendant on another chain?","acceptedAnswer":{"@type":"Answer","text":"Only if it is removable and the new chain clasp or end tag fits through the bail while safely supporting the pendant."}},
-        {"@type":"Question","name":"How do I choose a chain length for a pendant?","acceptedAnswer":{"@type":"Answer","text":"Use a necklace you already like as a reference, then account for pendant drop and adjustment loops."}},
-        {"@type":"Question","name":"Should the chain and pendant be the same metal?","acceptedAnswer":{"@type":"Answer","text":"They do not have to be, but differences can affect colour, wear and hallmarking. Specify each component accurately."}},
-        {"@type":"Question","name":"What should I check when buying a pendant online in Europe?","acceptedAnswer":{"@type":"Answer","text":"Check seller identity, specifications, VAT and duties, insured delivery, returns, warranty, hallmark information and report verification."}}
-      ]
-    }
-  ]
-};
-
-// 3. Article content sections
 const articleSections: ArticleSection[] = [
   {
     content: [
-      {
-        type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-pendant/71 (1).jpg",
-        alt: "How to choose a lab-grown diamond pendant - complete buying guide",
-        title: "How to Choose a Lab-Grown Diamond Pendant",
-        caption: "Choose a lab-grown diamond pendant by design, size, setting, chain compatibility, diamond quality, metal and certification.",
-        priority: true
-      },
-      {
-        type: "paragraph",
-        text: "A lab-grown diamond pendant should be chosen as a complete piece of jewellery—not as a diamond specification attached to an afterthought of a chain."
-      },
-      {
-        type: "paragraph",
-        text: "Begin with the design and scale you will actually wear. Then check the setting, pendant dimensions, chain inclusion, chain length, metal and clasp. Only after that should you compare diamond quality, total carat weight, certification and price."
-      }
-    ]
+      { type: "image", src: "/images/blog/how-to-choose-lab-grown-diamond-pendant/71 (1).jpg", alt: "How to choose lab-grown diamond pendant bail chain compatibility removability dimensions", title: "How to Choose a Lab-Grown Diamond Pendant", caption: "The strongest pendant-buying sequence: pendant construction → bail → chain compatibility → removability → included components → physical dimensions → diamond distribution → setting → final specification check.", priority: true },
+      { type: "paragraph", text: "Choosing a lab-grown diamond pendant is not the same as choosing a complete diamond necklace. A pendant is the decorative component that hangs from or connects to a chain. Depending on the product, the chain may be included, sold separately or permanently integrated with the pendant design. That distinction changes what you need to check." },
+      { type: "paragraph", text: "If you are buying a pendant by itself, bail size and chain compatibility become essential. If the pendant comes with a chain, you need to know whether it can be removed and used with another chain later. If the decorative element is permanently fixed into the chain, it may function more accurately as a complete pendant necklace rather than an interchangeable pendant." },
+      { type: "paragraph", text: "The strongest pendant-buying sequence is therefore: pendant construction → bail → chain compatibility → removability → included components → physical dimensions → diamond distribution → setting → final specification check." },
+    ],
   },
   {
-    heading: "Quick answer",
+    heading: "Quick Answer: What Should You Check Before Buying a Diamond Pendant?",
     content: [
-      {
-        type: "paragraph",
-        text: "To choose a lab-grown diamond pendant:"
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Decide whether you want a solitaire, halo, cluster, motif or coloured-stone design.",
-          "Check whether the chain is included and whether the pendant is fixed or removable.",
-          "Compare pendant height and width in millimetres, not carat weight alone.",
-          "Choose a secure setting and a chain strong enough for the pendant.",
-          "Review the diamond's origin, shape, cut, colour, clarity and carat disclosure.",
-          "Confirm the metal, fineness, hallmark information and total item weight.",
-          "Identify exactly what any grading or jewellery report covers.",
-          "Compare the full specification, warranty, delivery and returns—not only the headline price."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "First determine exactly what is being sold. Is it: a pendant only, a pendant with an included chain, or: a pendant permanently incorporated into a complete necklace? Then check how the pendant connects to the chain. If it uses a bail, confirm that the opening can accommodate the intended chain and, crucially, the chain's clasp or end fitting." },
+      { type: "paragraph", text: "Next, determine whether the pendant is removable. A pendant shown sliding along a chain may be interchangeable; a fixed-centre design may not be. After that, check the finished pendant dimensions rather than relying only on the diamond's carat weight. Finally, verify the metal, diamond information and exactly what is included with the product." },
+    ],
   },
   {
-    heading: "1. Choose the pendant style first",
+    heading: "The Pendant Buying Framework",
     content: [
-      {
-        type: "paragraph",
-        text: "The design determines how the pendant looks, moves and fits into a wardrobe."
-      },
-      {
-        type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-pendant/71 (2).jpg",
-        alt: "Lab-grown diamond pendant styles - solitaire, halo, cluster, drop, motif and coloured stone",
-        title: "Pendant Styles Compared",
-        caption: "Different pendant styles offer different visual effects and wearing experiences.",
-        priority: false
-      },
-      {
-        type: "table",
-        headers: ["Pendant style", "Visual effect", "Useful consideration"],
-        rows: [
-          ["Solitaire", "One diamond as the focal point", "Makes the centre diamond's shape and cut prominent"],
-          ["Halo", "Centre stone surrounded by smaller diamonds", "Creates a larger overall outline; check total carat disclosure"],
-          ["Cluster", "Several stones forming one composition", "Compare complete dimensions and stone count"],
-          ["Drop", "Elongated or articulated design", "Check total drop and movement"],
-          ["Motif", "Geometric, symbolic or nature-led form", "Judge craftsmanship, scale and orientation"],
-          ["Coloured centre stone with diamond accents", "Strong colour contrast", "Confirm the origin and treatment of every stone type"]
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Choose according to the effect you want rather than a trend label. A simple solitaire can be versatile; a sculptural motif may carry more visual identity at the same diamond weight."
-      }
-    ]
+      { type: "table", headers: ["Decision", "Main Question"], rows: [["Product type", "Pendant only or complete pendant necklace?"], ["Bail", "How does the pendant connect to the chain?"], ["Compatibility", "Will the intended chain actually fit through the bail?"], ["Removability", "Can the pendant be moved to another chain?"], ["Included components", "Is the chain included?"], ["Dimensions", "How large is the finished pendant?"], ["Diamond distribution", "One focal diamond or multiple stones?"], ["Setting", "How is the diamond held?"], ["Metal", "What metal and fineness does the pendant use?"], ["Verification", "Do product description and imagery agree?"]] },
+    ],
   },
   {
-    heading: "2. Confirm what the product includes",
+    heading: "What Is a Diamond Pendant?",
     content: [
-      {
-        type: "paragraph",
-        text: "\"Pendant\" can mean the focal element alone or a complete pendant-and-chain set. Styled photographs do not prove that the displayed chain is supplied."
-      },
-      {
-        type: "paragraph",
-        text: "The product page should state:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "pendant only or pendant with chain;",
-          "whether the pendant is removable, captive or fixed;",
-          "chain metal, style, gauge and length;",
-          "clasp type and adjustment points; and",
-          "which components are included in the price, warranty and report."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "If the chain is not included, add the cost of a suitable chain before comparing the product with complete necklaces."
-      }
-    ]
+      { type: "paragraph", text: "A pendant is the decorative element designed to hang from or connect to a necklace chain. It may contain: one solitaire diamond, a halo, multiple diamonds, a geometric design, a symbolic motif, or another decorative form. The important distinction is structural. The pendant is the focal component. The necklace or chain is the structure that allows that component to be worn around the neck. That means the word pendant does not automatically mean you are purchasing a complete necklace." },
+      { type: "table", headers: ["Term", "Practical Meaning"], rows: [["Pendant only", "Decorative component; chain not included unless stated"], ["Pendant with chain", "Pendant and chain supplied together"], ["Pendant necklace", "Complete necklace centred around a pendant"], ["Fixed-centre necklace", "Decorative element permanently connected between chain sections"], ["Removable pendant", "Pendant can potentially be moved to another compatible chain"]] },
+      { type: "paragraph", parts: [{ text: "If you need the full terminology distinction, use " }, { text: "Diamond Necklace vs Diamond Pendant: What Is the Difference?", href: "/blog/diamond-necklace-vs-diamond-pendant/" }] },
+    ],
   },
   {
-    heading: "3. Select the right visible size",
+    heading: "The First Question: Is the Chain Included?",
     content: [
-      {
-        type: "paragraph",
-        text: "Carat is a measure of diamond weight, not pendant dimensions. Two pendants with equal total carat weight can look different because of diamond shape, stone count, setting, halo, metal border and bail."
-      },
-      {
-        type: "paragraph",
-        text: "Compare these measurements in millimetres:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "pendant height, including and excluding the bail;",
-          "pendant width at its widest point;",
-          "depth or profile from the side;",
-          "total drop when worn; and",
-          "centre-diamond measurements when relevant."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Use an on-body photograph for context, but do not rely on it alone. Model proportions, image cropping and screen size can distort scale. A dimensioned drawing or life-size printable guide provides a more reliable comparison."
-      }
-    ]
+      { type: "paragraph", text: "This is the most important product-content question on this page. Do not assume the chain is included simply because a pendant is photographed on one. Retailers may show a chain because the pendant needs to be displayed in the way it will eventually be worn. The chain may still be sold separately. The product page should state clearly: Pendant only — chain not included or: Chain included where applicable. There should be no need for the buyer to infer this from an image." },
+    ],
   },
   {
-    heading: "4. Choose a diamond shape that suits the design",
+    heading: "The Bail Is Central to Pendant Compatibility",
     content: [
-      {
-        type: "paragraph",
-        text: "Round brilliant diamonds often prioritise a balanced outline and strong light return. Oval, pear, marquise and emerald-cut shapes create different proportions and personalities."
-      },
-      {
-        type: "paragraph",
-        text: "Consider how the outline works with the setting:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "round and cushion shapes can feel balanced and compact;",
-          "oval and marquise shapes can create an elongated appearance;",
-          "pear shapes introduce a clear direction and orientation;",
-          "emerald cuts show broad flashes and make clarity more visually relevant; and",
-          "mixed-shape designs should be assessed as a complete composition."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Shape is personal. Cut quality is different from shape: it concerns how effectively the facets and proportions handle light. For a prominent centre diamond, request enough cut information to make a meaningful comparison."
-      }
-    ]
+      { type: "paragraph", text: "Many pendants connect to a chain through a bail. The bail is the component or opening through which the chain passes or attaches. Its design affects: how the pendant hangs, how freely it moves, whether it can be removed, and: which chains can fit." },
+      { type: "table", headers: ["Question", "Why It Matters"], rows: [["Is there a bail?", "Establishes connection method"], ["Is the bail fixed or articulated?", "Changes pendant movement"], ["How large is the opening?", "Determines chain compatibility"], ["Will the chain itself fit?", "Chain width matters"], ["Will the clasp/end fitting fit through?", "Often wider than the chain"], ["Is the bail removable/opening?", "Affects interchangeability"], ["Does the bail form part of the decorative design?", "Changes finished pendant size"]] },
+    ],
   },
   {
-    heading: "5. Read the 4Cs in context",
+    heading: "Chain Compatibility Is More Than Matching Metal Colour",
     content: [
-      {
-        type: "paragraph",
-        text: "For a solitaire pendant, the centre diamond's 4Cs may be individually stated. In a multi-stone pendant, the listing may instead disclose combined or minimum grades."
-      },
-      {
-        type: "paragraph",
-        text: "Cut:"
-      },
-      {
-        type: "paragraph",
-        text: "Cut influences brightness, fire and scintillation. Do not treat carat as the only driver of visible impact. Ask how cut is graded for the stated shape and whether the grade refers to the centre diamond."
-      },
-      {
-        type: "paragraph",
-        text: "Colour:"
-      },
-      {
-        type: "paragraph",
-        text: "Colour should be assessed alongside metal colour, setting style and stone size. A stated range should make clear which diamonds it covers."
-      },
-      {
-        type: "paragraph",
-        text: "Clarity:"
-      },
-      {
-        type: "paragraph",
-        text: "Clarity grades describe internal and surface characteristics under standard assessment. For jewellery, also inspect high-resolution imagery for the appearance that matters to you."
-      },
-      {
-        type: "paragraph",
-        text: "Carat:"
-      },
-      {
-        type: "paragraph",
-        text: "Establish whether the number means one diamond's weight or the total weight of all diamonds. Never assume that \"1 ct\" means a one-carat centre stone."
-      }
-    ]
+      { type: "paragraph", text: "A compatible chain needs to work physically as well as visually. Check: the chain width, the dimensions of the bail opening, the size of the chain's end fittings, the clasp, and: the pendant's overall mass. A very fine chain might physically fit through a bail while still looking or feeling too delicate for a larger pendant." },
+    ],
   },
   {
-    heading: "6. Understand total carat weight",
+    heading: "Bail Opening vs Chain Clasp",
     content: [
-      {
-        type: "paragraph",
-        text: "Total carat weight—often abbreviated as tcw or ctw—is the combined weight of the diamonds included in the stated total. It does not communicate the weight of each diamond unless the breakdown is provided."
-      },
-      {
-        type: "paragraph",
-        text: "For a halo or cluster pendant, request:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "centre-diamond carat weight;",
-          "accent-diamond total carat weight;",
-          "number of diamonds;",
-          "relevant grade ranges; and",
-          "overall pendant dimensions."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "This prevents two visually different products from being compared using one headline total."
-      }
-    ]
+      { type: "paragraph", text: "This is one of the most overlooked pendant checks. Imagine a chain that is 1.5 mm wide. The pendant bail opening easily accommodates that thickness. But the chain's end tab or clasp is 3.5 mm wide. If the bail opening is smaller than the end fitting, the pendant still cannot be placed onto the chain unless the chain or pendant has another removable connection." },
+      { type: "table", headers: ["Measurement", "Fictional Size"], rows: [["Chain width", "1.5 mm"], ["Bail opening", "2.5 mm"], ["Chain clasp/end fitting", "3.5 mm"]] },
+      { type: "paragraph", text: "The chain itself fits. The clasp does not. The combination is therefore not automatically interchangeable." },
+    ],
   },
   {
-    heading: "7. Examine the setting and construction",
+    heading: "Fixed Bail vs Articulated Bail",
     content: [
-      {
-        type: "paragraph",
-        text: "A secure setting should hold the diamonds while allowing the intended amount of light, movement and wearability."
-      },
-      {
-        type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-pendant/71 (3).jpg",
-        alt: "Diamond pendant setting and construction guide",
-        title: "Pendant Setting and Construction",
-        caption: "Examine prongs, bezels, pavé and galleries to ensure secure construction.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "Check:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "prongs are even and do not appear lifted;",
-          "bezel edges are smooth and continuous where used;",
-          "pavé or accent stones sit consistently;",
-          "open galleries do not expose vulnerable points unnecessarily;",
-          "articulated parts move without catching; and",
-          "the pendant hangs in its intended orientation."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "A very fine, low-profile design may feel delicate; a larger setting may need greater chain strength. Product images should show the front, side and back rather than only the most flattering angle."
-      }
-    ]
-  },
-  {
-    heading: "8. Check the bail and chain compatibility",
-    content: [
-      {
-        type: "paragraph",
-        text: "The bail is the loop or component through which a chain passes. For a removable pendant, its opening must accommodate the chain's largest relevant part—not merely a chain link."
-      },
-      {
-        type: "paragraph",
-        text: "Compatibility checklist:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Is the bail's internal height and width stated?",
-          "Can the clasp or end tag pass through it?",
-          "Is the chain strong enough for the pendant's weight?",
-          "Does the chain sit freely without twisting the pendant?",
-          "Will the chain abrade a narrow or decorative bail?",
-          "Is the bail fixed, hinged or hidden?"
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Do not force a clasp through a bail. If compatibility is uncertain, ask the jeweller to confirm the exact chain reference in writing."
-      }
-    ]
-  },
-  {
-    heading: "9. Choose a practical chain length",
-    content: [
-      {
-        type: "paragraph",
-        text: "Chain length determines where the pendant sits; pendant drop extends below that point. Neck size, neckline, clothing, layering and adjustability all influence the result."
-      },
-      {
-        type: "paragraph",
-        text: "A shorter chain can place a small pendant near the collarbone. A longer chain may give a larger motif more space, but it can also increase movement. An extender or multiple adjustment loops adds flexibility, provided the clasp remains secure."
-      },
-      {
-        type: "paragraph",
-        text: "Check whether the advertised length includes the clasp and whether the pendant can be moved to another chain. Use your own well-fitting necklace as the most reliable reference."
-      }
-    ]
-  },
-  {
-    heading: "10. Match the metal to wear and appearance",
-    content: [
-      {
-        type: "paragraph",
-        text: "Metal colour changes the visual frame around a diamond. White-coloured metal can create a continuous cool-toned look; yellow or rose tones provide contrast."
-      },
-      {
-        type: "paragraph",
-        text: "The listing should identify:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "metal type and fineness;",
-          "whether the colour comes from the underlying alloy or plating;",
-          "pendant and chain metal separately;",
-          "total item weight; and",
-          "hallmark or legal marking information where applicable."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "In the UK, items described as gold, silver, platinum or palladium are subject to hallmarking rules, with statutory weight exemptions. European rules vary by country, so the seller should provide market-appropriate information rather than one vague global claim."
-      }
-    ]
-  },
-  {
-    heading: "11. Know what certification covers",
-    content: [
-      {
-        type: "paragraph",
-        text: "A loose-diamond grading report and a finished-jewellery report are not interchangeable."
-      },
-      {
-        type: "paragraph",
-        text: "An individual diamond report can identify and grade a particular stone. A jewellery report can describe the finished article, mounted gemstones, metal content and purity marks where present. Mounted assessments may be limited by the setting and stated as such."
-      },
-      {
-        type: "paragraph",
-        text: "Before buying, ask:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Is there an independent report?",
-          "What is the report number?",
-          "Can it be verified on the laboratory's official website?",
-          "Does it cover the centre diamond, all diamonds or the finished pendant?",
-          "Is the chain included in the reported article?",
-          "Are any grades estimated or given as ranges because the stones are mounted?"
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "\"Certified pendant\" is incomplete language unless the page explains the issuing laboratory and exact scope."
-      }
-    ]
-  },
-  {
-    heading: "12. Compare price using the full specification",
-    content: [
-      {
-        type: "paragraph",
-        text: "Lab-grown diamond pendants with similar photographs can differ in price because of diamond size and quality, number of stones, metal weight, chain, setting complexity, craftsmanship, report type and aftercare."
-      },
-      {
-        type: "paragraph",
-        text: "Build a like-for-like comparison table with:"
-      },
-      {
-        type: "table",
-        headers: ["Comparison point", "Product A", "Product B"],
-        rows: [
-          ["Pendant dimensions", "", ""],
-          ["Centre-diamond weight", "", ""],
-          ["Total diamond weight", "", ""],
-          ["Diamond grades", "", ""],
-          ["Metal and fineness", "", ""],
-          ["Chain included", "", ""],
-          ["Chain specification", "", ""],
-          ["Report and scope", "", ""],
-          ["Warranty and returns", "", ""],
-          ["Delivered price", "", ""]
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "For cross-border European purchases, include VAT, duties where applicable, insured delivery and return costs."
-      }
-    ]
-  },
-  {
-    heading: "13. Review wearability and aftercare",
-    content: [
-      {
-        type: "paragraph",
-        text: "The best pendant is one you can wear confidently. Consider whether the setting catches on clothing, whether the chain tangles, whether the clasp is easy to operate and whether the pendant flips during movement."
-      },
-      {
-        type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-pendant/71 (4).jpg",
-        alt: "Lab-grown diamond pendant buying checklist",
-        title: "Pendant Buying Checklist",
-        caption: "Use this checklist to verify every aspect of a lab-grown diamond pendant before ordering.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "Ask how to clean the specific metal, stones and setting. Inspect the bail, clasp and stone security periodically, and arrange professional inspection if the piece receives frequent wear or suffers an impact."
-      }
-    ]
-  },
-  {
-    heading: "A final buying checklist",
-    content: [
-      {
-        type: "bullet-list",
-        items: [
-          "the pendant style suits the intended use;",
-          "complete height, width and depth are stated;",
-          "chain inclusion is explicit;",
-          "attachment type and bail dimensions are clear;",
-          "chain length, gauge, metal and clasp are specified;",
-          "lab-grown origin is disclosed;",
-          "centre and total carat weights are separated where relevant;",
-          "diamond grades and their scope are clear;",
-          "metal, fineness, weight and hallmark information are provided;",
-          "the report number, issuer and coverage are identified;",
-          "photographs show front, side and back;",
-          "production time, insured delivery, returns and warranty are acceptable; and",
-          "the final price includes any applicable tax and cross-border charges."
-        ]
-      }
-    ]
-  },
-  {
-    heading: "The Aurelia Royale approach",
-    content: [
-      {
-        type: "paragraph",
-        text: "A strong pendant product page should let a buyer understand the entire piece without filling gaps from imagery. Aurelia Royale should disclose lab-grown diamond origin, diamond breakdown, pendant dimensions, metal specification, chain inclusion, report scope and fulfilment terms beside each relevant design."
-      },
-      {
-        type: "paragraph",
-        text: "The goal is not to present the largest headline number. It is to make scale, construction, quality and ownership clear enough for a confident comparison."
-      }
-    ]
+      { type: "table", headers: ["Bail Type", "Typical Behaviour"], rows: [["Fixed bail", "Pendant/bail relationship remains controlled"], ["Articulated bail", "More movement between chain and pendant"], ["Double bail", "Can create a different hanging structure"], ["Hidden/integrated bail", "Connection is less visually obvious"], ["Fixed chain connection", "Pendant may not be independently removable"]] },
+    ],
   },
   {
     content: [
-      {
-        type: "callout",
-        title: "Final verdict",
-        theme: "gold-border",
-        parts: [
-          { text: "Choose a lab-grown diamond pendant as a complete piece. Start with design and scale, then evaluate the setting, chain, metal and documentation.\n\n" },
-          { text: "The diamond may be the centre of attention, but the pendant succeeds only when every component works together. When the specification is complete, the decision becomes much clearer." }
-        ]
-      },
-      {
-        type: "faq",
-        items: [
-          {
-            question: "Are lab-grown diamonds real diamonds?",
-            answer: "Yes. Lab-grown diamonds have the same crystal material as diamonds formed in the Earth, but their laboratory-grown origin must be clearly disclosed."
-          },
-          {
-            question: "Is a lab-grown diamond pendant suitable for everyday wear?",
-            answer: "It can be. Suitability depends on the setting, chain strength, bail, clasp, profile and the wearer's activities—not diamond origin alone."
-          },
-          {
-            question: "Does a diamond pendant normally include a chain?",
-            answer: "Not always. Confirm package contents and chain specifications on the product page."
-          },
-          {
-            question: "What is the best size for a diamond pendant?",
-            answer: "There is no universal best size. Compare pendant dimensions with your preferred visual scale, chain position and intended use."
-          },
-          {
-            question: "Is carat weight the same as pendant size?",
-            answer: "No. Carat measures diamond weight; the pendant's visible size depends on dimensions, shape, stone count and setting."
-          },
-          {
-            question: "What does total carat weight mean on a pendant?",
-            answer: "It normally means the combined weight of all diamonds included in the stated total. Ask for the centre-and-accent breakdown."
-          },
-          {
-            question: "Which diamond shape is best for a pendant?",
-            answer: "The best shape is the one that suits the design and your preference. Compare outline, cut information, orientation and visible dimensions."
-          },
-          {
-            question: "Should a lab-grown diamond pendant be certified?",
-            answer: "Independent documentation can support identification and quality claims, especially for a significant centre diamond. Check what the report actually covers."
-          },
-          {
-            question: "Can I put a pendant on another chain?",
-            answer: "Only if it is removable and the new chain's clasp or end tag fits through the bail while safely supporting the pendant."
-          },
-          {
-            question: "How do I choose a chain length for a pendant?",
-            answer: "Use a necklace you already like as a reference, then account for the pendant's additional drop and any adjustment loops."
-          },
-          {
-            question: "Should the chain and pendant be the same metal?",
-            answer: "They do not have to be, but differences can affect colour, wear and hallmarking. Each component should be accurately specified."
-          },
-          {
-            question: "What should I check when buying a pendant online in Europe?",
-            answer: "Check seller identity, complete specifications, VAT and duties, insured delivery, returns, warranty, hallmark information and report verification."
-          }
-        ]
-      },
-      {
-        type: "cta-banner",
-        title: "Shop Lab-Grown Diamond Pendants at Aurelia",
-        subtitle: "Browse our collection of lab-grown diamond pendants with complete specifications, detailed chain information and transparent documentation.",
-        shopHref: "/shop/",
-        contactHref: "/contact/"
-      }
-    ]
-  }
+      { type: "image", src: "/images/blog/how-to-choose-lab-grown-diamond-pendant/71 (2).jpg", alt: "Pendant removable fixed dimensions carat weight solitaire halo setting", title: "Is the Pendant Removable?", caption: "Interchangeability should be treated as a product feature that needs confirmation, not an automatic characteristic of every pendant.", priority: false },
+    ],
+  },
+  {
+    heading: "Is the Pendant Removable?",
+    content: [
+      { type: "paragraph", text: "Do not assume it is. Some pendants slide freely along a chain and can potentially be removed. Others are permanently attached. Some have a bail large enough for the chain but not for the clasp. Others may require a jeweller to disconnect part of the chain before the pendant can be transferred. If changing chains matters to you, confirm removability before buying." },
+      { type: "table", headers: ["Factor", "Removable Pendant", "Fixed Pendant"], rows: [["Can use another compatible chain?", "Potentially", "Usually not directly"], ["Can slide on existing chain?", "Often", "Usually fixed in position"], ["Chain can be replaced independently?", "More easily", "May require jewellery work"], ["Focal position", "Can move", "More controlled"], ["Main buying check", "Bail compatibility", "Integrated construction"]] },
+    ],
+  },
+  {
+    heading: "Pendant Dimensions Matter More Than an Enlarged Product Image",
+    content: [
+      { type: "paragraph", text: "Macro jewellery photography is useful for seeing setting details. It is poor at communicating actual scale. A small pendant can fill an entire screen. A much larger pendant can be photographed with an almost identical crop. Use finished dimensions. At minimum, pendant height and width should be clear where size materially affects the buying decision." },
+      { type: "table", headers: ["Measurement", "What It Tells You"], rows: [["Pendant height", "Total top-to-bottom size"], ["Pendant width", "Visible horizontal scale"], ["Depth", "How far the setting projects where relevant"], ["Diamond dimensions", "Size of the focal diamond"], ["Bail dimensions", "Chain-connection compatibility"]] },
+      { type: "paragraph", parts: [{ text: "For detailed dimensional terminology, use " }, { text: "How to Check Jewellery Dimensions and Weight Online", href: "/blog/check-jewellery-product-dimensions-weight/" }] },
+    ],
+  },
+  {
+    heading: "Carat Weight Does Not Tell You Pendant Size",
+    content: [
+      { type: "paragraph", text: "Carat measures diamond weight. It does not directly state: pendant width, pendant height, or: how much of the finished piece is diamond versus metal. Two 1 ct pendant designs can therefore look very different. One might use a single diamond in a minimal setting. Another might use several diamonds totalling 1 ct inside a larger decorative motif. Another could use a 0.75 ct centre with 0.25 ct of accents." },
+      { type: "table", headers: ["Fictional Pendant", "Diamond Distribution", "Likely Effect"], rows: [["A", "One 1.00 ct focal diamond", "Diamond-led"], ["B", "0.75 ct centre + 0.25 ct halo", "Larger finished outline"], ["C", "Several diamonds totalling 1.00 ct", "Design-led motif"]] },
+    ],
+  },
+  {
+    heading: "Solitaire Pendant vs Halo Pendant vs Multi-Stone Pendant",
+    content: [
+      { type: "table", headers: ["Pendant Type", "Main Visual Focus", "Most Useful Scale Check"], rows: [["Solitaire", "One focal diamond", "Diamond dimensions + setting size"], ["Bezel solitaire", "Diamond framed by metal", "Finished bezel diameter"], ["Halo", "Centre + surrounding diamonds", "Complete halo dimensions"], ["Cluster", "Multiple diamonds as one motif", "Full motif width/height"], ["Geometric/motif", "Overall design", "Complete pendant dimensions"]] },
+      { type: "paragraph", text: "The design structure should be chosen before deciding whether a particular carat figure is \"large enough\"." },
+    ],
+  },
+  {
+    heading: "Choose the Setting in the Context of the Pendant",
+    content: [
+      { type: "table", headers: ["Setting", "Visual Character", "Finished Scale Effect"], rows: [["Prong", "Open, diamond-forward", "Often closer to stone outline"], ["Bezel", "Framed, defined", "Adds visible border"], ["Halo", "Broader sparkle around centre", "Increases face-up outline"], ["Pavé motif", "Design-led sparkle", "Scale driven by entire motif"], ["Cluster", "Several stones create one form", "Can appear larger than individual stones"]] },
+    ],
+  },
+  {
+    heading: "Pendant Balance Matters",
+    content: [
+      { type: "paragraph", text: "A pendant should hang in the orientation intended by the design. If the pendant continually flips, rotates or sits at an unintended angle, construction and weight distribution may be contributing. Several variables can contribute: bail position, pendant depth, centre of gravity, chain movement, and: the relationship between the front and back of the setting. This should be evaluated from the complete jewellery construction rather than blamed automatically on chain length." },
+    ],
+  },
+  {
+    heading: "Look at the Back and Side Profile of the Pendant",
+    content: [
+      { type: "paragraph", text: "The reverse can reveal: how the diamond setting is built, whether the pendant has an open or closed back, where the bail connects, whether the design has a clear front and back, and: how much the setting projects. Side views are especially useful for checking: setting depth, bail orientation, how the pendant sits against the body, and: whether the focal diamond projects substantially. A front view may make two pendants appear similar even when one has a much deeper construction." },
+    ],
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/how-to-choose-lab-grown-diamond-pendant/71 (3).jpg", alt: "Chain compatibility pendant chain style metal same different length proportion", title: "Chain Thickness Should Suit the Pendant", caption: "Use pendant mass, bail size, chain construction and visual proportion together — there is no universal formula.", priority: false },
+    ],
+  },
+  {
+    heading: "Chain Thickness Should Suit the Pendant",
+    content: [
+      { type: "paragraph", text: "If you are selecting your own chain, consider visual and structural proportion. A very fine chain may create a floating-diamond effect with a small pendant. The same chain may look disproportionately delicate with a large metal-heavy pendant. Conversely, a very thick chain can visually overpower a small pendant. There is no universal formula that links pendant carat weight to one chain thickness. Use: pendant mass, bail size, chain construction, and: visual proportion together." },
+    ],
+  },
+  {
+    heading: "Check Pendant Metal Independently From the Diamond",
+    content: [
+      { type: "paragraph", text: "The diamond's origin tells you nothing about the precious metal holding it. Verify: metal type, fineness, and any applicable plating or surface treatment. A laboratory diamond report does not automatically verify the metal. For the complete process, use How to Check the Metal Used in Diamond Jewellery. Where UK hallmarking requirements apply to a precious-metal article, hallmarking concerns the metal. It does not grade or authenticate the diamond's quality." },
+      { type: "paragraph", parts: [{ text: "For the complete process, use " }, { text: "How to Check the Metal Used in Diamond Jewellery", href: "/blog/check-metal-used-diamond-jewellery/" }] },
+    ],
+  },
+  {
+    heading: "The Diamond Report May Cover Only One Stone",
+    content: [
+      { type: "paragraph", text: "A solitaire pendant may contain one significant diamond with an individual laboratory report. A halo or multi-stone pendant can contain many diamonds. Do not assume a document for the centre diamond covers the surrounding accent stones. Likewise, a diamond report does not grade: the pendant setting, the bail, the chain, or: the finished workmanship. Documentation scope should always be explicit." },
+    ],
+  },
+  {
+    heading: "Pendant Only vs Complete Necklace: Final Comparison",
+    content: [
+      { type: "table", headers: ["Question", "Pendant Only", "Pendant With Chain"], rows: [["Chain supplied?", "No", "Yes"], ["Need separate chain?", "Yes", "No"], ["Bail compatibility critical before purchase?", "Very high", "Still useful if changing chains"], ["Chain length predetermined?", "No", "Usually yes"], ["Can choose own chain style?", "Yes, if compatible", "Possibly later if removable"], ["Complete wearable piece immediately?", "No", "Yes"]] },
+    ],
+  },
+  {
+    heading: "Buying a Pendant as a Gift",
+    content: [
+      { type: "paragraph", text: "A pendant can be easier to gift than a ring because no finger size is required. But chain inclusion can create an unexpected problem. If the pendant is sold alone, the recipient either needs an existing compatible chain or the giver needs to provide one separately. If you want the gift to be immediately wearable, confirm whether a chain is included. Do not assume special gift packaging, gift receipts or extended exchange terms unless Aurelia has confirmed them." },
+    ],
+  },
+  {
+    heading: "What if Aurelia Does Not Publish a Price?",
+    content: [
+      { type: "paragraph", text: "Do not estimate it. Where an Aurelia pendant does not have an approved direct-purchase price, use: Join Waitlist or: Enquire About This Piece. The waitlist should register interest only. It should not automatically mean: the pendant has been purchased, a chain has been selected, a specific piece has been reserved, a price has been accepted, or: production has begun." },
+    ],
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/how-to-choose-lab-grown-diamond-pendant/71 (4).jpg", alt: "Diamond pendant FAQ final answer guide bail chain removability dimensions metal", title: "Frequently Asked Questions", caption: "The biggest mistake: assuming that the chain shown in the product image is included or that the pendant will automatically fit another chain.", priority: false },
+    ],
+  },
+  {
+    heading: "Frequently Asked Questions",
+    content: [
+      { type: "faq", items: [
+        { question: "How do I choose a lab-grown diamond pendant?", answer: "Start by checking whether it is pendant-only or includes a chain, then review the bail, chain compatibility, removability, finished dimensions, diamond distribution, setting and metal." },
+        { question: "What is a diamond pendant?", answer: "A pendant is the decorative element designed to hang from or connect to a necklace chain." },
+        { question: "Is a pendant the same as a necklace?", answer: "No. A pendant is a component; a necklace is the complete neck-worn piece." },
+        { question: "Does a diamond pendant always come with a chain?", answer: "No. Chain inclusion must be confirmed." },
+        { question: "Can I buy a diamond pendant without a chain?", answer: "Yes, where the product is explicitly offered as pendant-only." },
+        { question: "Why would I buy the pendant separately?", answer: "You may already own a compatible chain or want to choose your own chain length or style." },
+        { question: "What is a pendant bail?", answer: "It is the part through or by which many pendants connect to a chain." },
+        { question: "Why does bail size matter?", answer: "It can determine whether the intended chain and its end fittings can pass through." },
+        { question: "If the chain fits through the bail, is it compatible?", answer: "Not necessarily. The clasp or end fitting may be larger than the chain itself." },
+        { question: "Can every pendant be moved to another chain?", answer: "No." },
+        { question: "How do I know if a pendant is removable?", answer: "Check the actual connection and product specification." },
+        { question: "What is a fixed-centre necklace?", answer: "It is a necklace where the focal decorative element is connected directly between sections of chain rather than freely sliding along it." },
+        { question: "Is a removable pendant better?", answer: "Not automatically. It offers greater chain flexibility, while a fixed design can provide more controlled positioning." },
+        { question: "Does chain thickness matter?", answer: "Yes. It affects both physical compatibility and visual proportion." },
+        { question: "Should the chain and pendant be the same metal?", answer: "Not necessarily, but if you want a matching look, verify both materials rather than judging by colour." },
+        { question: "Is carat weight the same as pendant size?", answer: "No. Carat measures diamond weight." },
+        { question: "Can two 1 ct pendants look different?", answer: "Yes. Setting, halo, motif and finished dimensions can make them appear very different." },
+        { question: "What is the difference between centre carat and TCW?", answer: "Centre carat refers to one focal diamond. TCW can include the centre diamond plus any accent diamonds." },
+        { question: "Should I check pendant dimensions?", answer: "Yes. Finished height and width are important for judging real scale." },
+        { question: "Should I check the back of the pendant?", answer: "Yes. It can reveal setting construction, bail connection and reverse finish." },
+        { question: "Why does my pendant flip?", answer: "Pendant balance, depth, bail placement and chain movement can all contribute." },
+        { question: "Does a diamond report cover the whole pendant?", answer: "No. A report for one diamond does not automatically verify the metal, bail, chain or accent stones." },
+        { question: "Does a hallmark verify the diamond?", answer: "No. A hallmark relates to precious-metal fineness." },
+        { question: "Can I use my existing chain?", answer: "Potentially, but confirm bail opening, clasp dimensions and structural/visual suitability." },
+        { question: "What is the biggest mistake when buying a pendant online?", answer: "Assuming that the chain shown in the product image is included or that the pendant will automatically fit another chain." },
+      ]},
+    ],
+  },
+  {
+    heading: "Final Answer: How Should You Choose a Lab-Grown Diamond Pendant?",
+    content: [
+      { type: "paragraph", text: "Start by establishing exactly what the product includes. Is it: pendant only, or: pendant with chain? Then inspect the bail. If you plan to use another chain, the pendant needs to accommodate not only the chain width but also whichever clasp or end fitting must pass through the opening. Next, confirm removability. A pendant can look interchangeable while actually being fixed to the supplied chain." },
+      { type: "paragraph", text: "Then check the finished pendant dimensions. Do not use diamond carat weight as a substitute for physical height and width. After that, understand the diamond distribution. Separate centre-stone weight from total carat weight where the pendant includes accent diamonds. Then review the setting and metal. Finally, confirm the documentation scope, imagery and availability." },
+      { type: "paragraph", text: "The strongest pendant is not automatically the design with: the largest diamond, the highest grade, or: the most elaborate chain. It is the pendant whose: bail + chain compatibility + removability + physical scale + construction match how you actually intend to wear it." },
+      { type: "paragraph", parts: [{ text: "For overall necklace selection, use " }, { text: "How to Choose a Lab-Grown Diamond Necklace", href: "/blog/how-to-choose-lab-grown-diamond-necklace/" }] },
+      { type: "paragraph", parts: [{ text: "For pendant-versus-necklace terminology and chain inclusion, use " }, { text: "Diamond Necklace vs Diamond Pendant: What Is the Difference?", href: "/blog/diamond-necklace-vs-diamond-pendant/" }] },
+      { type: "paragraph", parts: [{ text: "For physical measurements, use " }, { text: "How to Check Jewellery Dimensions and Weight Online", href: "/blog/check-jewellery-product-dimensions-weight/" }] },
+      { type: "paragraph", parts: [{ text: "For metal verification, use " }, { text: "How to Check the Metal Used in Diamond Jewellery", href: "/blog/check-metal-used-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "For the final product specification check, use " }, { text: "What to Check Before Buying Lab-Grown Diamond Jewellery", href: "/blog/what-to-check-before-buying-lab-grown-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "Where an Aurelia Royale pendant does not yet have an approved direct-purchase price, " }, { text: "Join the Waitlist", href: "/contact/" }, { text: " or submit an enquiry. This should register interest only and should not be presented as an order, reservation or preorder." }] },
+      { type: "cta-banner", title: "Explore Aurelia Royale Lab-Grown Diamond Pendants", subtitle: "Bail + chain compatibility + removability + physical scale — find the pendant that suits you.", shopHref: "/shop/", contactHref: "/contact/" },
+    ],
+  },
 ];
 
-export default function HowToChooseLabGrownDiamondPendantPage() {
+export default function BlogPendantBuyingGuidePage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
-      {/* Script injection for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Product-Category Guides
-          </span>
-          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How to Choose a Lab-Grown Diamond Pendant
-          </h1>
-          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
-          </p>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">Lab-Grown Diamond Education</span>
+          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">How to Choose a Lab-Grown Diamond Pendant</h1>
+          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">Bail, Chain Compatibility, Removability, Dimensions and Diamond Weight Explained • Published September 10, 2026</p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
-      {/* Related articles — crawlable plain links */}
       <RelatedArticles currentSlug="how-to-choose-lab-grown-diamond-pendant" />
       <NewsletterSection />
     </main>
   );
 }
+

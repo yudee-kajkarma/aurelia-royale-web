@@ -1,710 +1,289 @@
-﻿import React from "react";
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 import RelatedArticles from "@/components/shared/RelatedArticles";
 
-// 1. SEO Metadata
 export const metadata: Metadata = {
   title: "How to Choose Lab-Grown Diamond Drop Earrings",
-  description: "Choose lab-grown diamond drop earrings by length, movement, diamond quality, pair matching, weight, fastening, metal and certification.",
-  alternates: {
-    canonical: "https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-drop-earrings/",
-  },
+  description: "Learn how to choose lab-grown diamond drop earrings by comparing drop length, movement, articulation, weight, balance, fastening, diamond size and setting.",
+  alternates: { canonical: "https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-drop-earrings/" },
 };
 
-// 2. JSON-LD Schema
-const schemaMarkup = {
-  "@context":"https://schema.org",
-  "@graph":[
-    {
-      "@type":"BlogPosting",
-      "@id":"https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-drop-earrings/#article",
-      "mainEntityOfPage":{"@type":"WebPage","@id":"https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-drop-earrings/"},
-      "headline":"How to Choose Lab-Grown Diamond Drop Earrings",
-      "description":"Choose lab-grown diamond drop earrings by length, movement, diamond quality, pair matching, weight, fastening, metal and certification.",
-      "image":"https://www.aureliaroyale.com/images/blog/how-to-choose-lab-grown-diamond-drop-earrings.webp",
-      "datePublished":"2026-07-16",
-      "dateModified":"2026-07-16",
-      "author":{"@type":"Organization","name":"Aurelia Royale","url":"https://www.aureliaroyale.com/"},
-      "publisher":{"@type":"Organization","name":"Aurelia Royale","url":"https://www.aureliaroyale.com/"},
-      "inLanguage":"en-GB",
-      "articleSection":"Product-Category Guides",
-      "keywords":["how to choose lab-grown diamond drop earrings","lab-grown diamond drop earrings buying guide","lab diamond dangle earrings"]
-    },
-    {
-      "@type":"BreadcrumbList",
-      "@id":"https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-drop-earrings/#breadcrumb",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Home","item":"https://www.aureliaroyale.com/"},
-        {"@type":"ListItem","position":2,"name":"Journal","item":"https://www.aureliaroyale.com/blog/"},
-        {"@type":"ListItem","position":3,"name":"How to Choose Lab-Grown Diamond Drop Earrings","item":"https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-drop-earrings/"}
-      ]
-    },
-    {
-      "@type":"FAQPage",
-      "@id":"https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-drop-earrings/#faq",
-      "mainEntity":[
-        {"@type":"Question","name":"What should I look for in lab-grown diamond drop earrings?","acceptedAnswer":{"@type":"Answer","text":"Check full dimensions, movement, weight, symmetry, diamond quality, setting, fastening, metal and report scope."}},
-        {"@type":"Question","name":"What is the difference between drop and dangle earrings?","acceptedAnswer":{"@type":"Answer","text":"Usage varies. Drops extend below the lobe, while dangle often suggests more length or movement. Check dimensions and construction."}},
-        {"@type":"Question","name":"How long should diamond drop earrings be?","acceptedAnswer":{"@type":"Answer","text":"There is no universal ideal. Choose by desired placement, piercing, hairstyle, clothing and comfort using exact dimensions."}},
-        {"@type":"Question","name":"Is carat weight stated for one drop earring or the pair?","acceptedAnswer":{"@type":"Answer","text":"Often it is the pair total. Confirm pair, per-ear, principal-stone and accent-stone weights separately."}},
-        {"@type":"Question","name":"How should two drop earrings match?","acceptedAnswer":{"@type":"Answer","text":"They should align in length, width, stone orientation, spacing, movement and visual weight unless intentionally asymmetric."}},
-        {"@type":"Question","name":"Are articulated diamond earrings fragile?","acceptedAnswer":{"@type":"Answer","text":"Not automatically, but every joint needs sound construction and inspection. Remove them for activities likely to pull or tangle them."}},
-        {"@type":"Question","name":"Which fastening is best for drop earrings?","acceptedAnswer":{"@type":"Answer","text":"It depends on weight, dexterity and wear. Posts, lever backs, hooks and hinged closures have different handling and support."}},
-        {"@type":"Question","name":"Are lever backs secure?","acceptedAnswer":{"@type":"Answer","text":"A correctly fitted, maintained lever back can be dependable, but no closure is loss-proof. Check it regularly."}},
-        {"@type":"Question","name":"Do lab-grown diamond drop earrings need certificates?","acceptedAnswer":{"@type":"Answer","text":"Not every small stone needs a report. Documentation may cover principal diamonds, a matched pair or finished jewellery."}},
-        {"@type":"Question","name":"Does a jewellery report grade mounted diamonds exactly?","acceptedAnswer":{"@type":"Answer","text":"Not always. Mountings can limit assessment, so reports may provide ranges or estimates as the setting permits."}},
-        {"@type":"Question","name":"Can a hallmark verify the diamonds?","acceptedAnswer":{"@type":"Answer","text":"No. A hallmark concerns precious-metal fineness. Diamond origin and quality need separate disclosure or reporting."}},
-        {"@type":"Question","name":"How should drop earrings be stored?","acceptedAnswer":{"@type":"Answer","text":"Store each separately with the drop laid straight, fasten posts or hooks and prevent components from rubbing."}}
-      ]
-    }
-  ]
-};
-
-// 3. Article content sections
 const articleSections: ArticleSection[] = [
   {
     content: [
-      {
-        type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-drop-earrings/62 (1).jpg",
-        alt: "How to choose lab-grown diamond drop earrings - complete buying guide",
-        title: "How to Choose Lab-Grown Diamond Drop Earrings",
-        caption: "Lab-grown diamond drop earrings balance length, movement and sparkle without sacrificing comfort or security.",
-        priority: true
-      },
-      {
-        type: "paragraph",
-        text: "Lab-grown diamond drop earrings use length and movement to create presence. Unlike studs, they are seen from several angles and change as the wearer moves. That makes their engineering as important as their stones."
-      },
-      {
-        type: "paragraph",
-        text: "A beautiful front view cannot tell you whether a pair feels balanced, twists unpredictably, catches on clothing or finishes at the intended point beside the face. Choose by full dimensions, articulation, weight, fastening and pair symmetry—then assess diamond quality and documentation."
-      }
-    ]
+      { type: "image", src: "/images/blog/how-to-choose-lab-grown-diamond-drop-earrings/62 (1).jpg", alt: "How to choose lab-grown diamond drop earrings length movement articulation weight balance", title: "How to Choose Lab-Grown Diamond Drop Earrings", caption: "A better decision sequence: drop length → movement → articulation → weight and balance → fastening → diamond distribution → setting → metal and final product verification.", priority: true },
+      { type: "paragraph", text: "Choosing lab-grown diamond drop earrings is different from choosing studs. With a stud, most of the jewellery stays close to the earlobe. With a drop earring, the design extends below the piercing, which means length, movement, articulation, finished weight and balance become much more important." },
+      { type: "paragraph", text: "Two pairs can contain a similar amount of diamond weight yet feel completely different when worn. One may have a short, controlled drop that moves only slightly. Another may use several articulated sections that swing noticeably whenever the wearer turns their head. A third may place one larger diamond at the bottom of a long, fine chain, creating more movement even though the metal structure looks minimal." },
+      { type: "paragraph", text: "The right pair is therefore not simply the one with the largest diamonds. A better decision sequence is: drop length → movement → articulation → weight and balance → fastening → diamond distribution → setting → metal and final product verification." },
+    ],
   },
   {
-    heading: "Quick answer: how should you choose diamond drop earrings?",
+    heading: "Quick Answer: What Should You Check Before Buying Diamond Drop Earrings?",
     content: [
-      {
-        type: "paragraph",
-        text: "Choose in this order:"
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Decide whether the pair is for frequent wear or specific occasions.",
-          "Choose a fixed drop, articulated drop or longer dangle.",
-          "Check full length, maximum width and on-ear scale.",
-          "Confirm total pair weight, per-ear weight and carat distribution.",
-          "Assess the 4Cs and matching of the principal diamonds.",
-          "Inspect every setting, link and articulation point.",
-          "Choose a post, lever-back, hinged or hook fitting.",
-          "Confirm metal type, fineness and any plating.",
-          "Identify the laboratory-report type and scope.",
-          "Read return, warranty, delivery and care terms."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "If a listing gives only carat weight and a close-up, it does not provide enough information to judge a drop earring."
-      }
-    ]
+      { type: "paragraph", text: "Start with the physical drop length. That measurement tells you how far the earrings extend below the lobe and often has a greater effect on their overall appearance than carat weight alone. Then check whether the design is fixed, partially articulated or highly articulated. This tells you how much movement the earrings are likely to create." },
+      { type: "paragraph", text: "Next consider finished weight and balance. A drop should feel controlled rather than repeatedly pulling at the piercing or twisting unpredictably. The fastening matters because it supports the complete earring, not only the diamond. A longer or heavier drop places different demands on the top section and backing than a compact stud. Only after those practical decisions should you compare diamond specifications, total carat weight, setting and metal." },
+    ],
   },
   {
-    heading: "1. Choose the type of drop",
+    heading: "The Main Drop-Earring Buying Framework",
     content: [
-      {
-        type: "paragraph",
-        text: "Different drop styles behave differently when worn."
-      },
-      {
-        type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-drop-earrings/62 (2).jpg",
-        alt: "Lab-grown diamond drop earring styles - fixed drop, articulated drop, linear dangle and cluster drop",
-        title: "Drop Earring Styles Compared",
-        caption: "Different drop styles offer different movement, length and visual presence.",
-        priority: false
-      },
-      {
-        type: "table",
-        headers: ["Style", "How it behaves", "What to check"],
-        rows: [
-          ["Fixed drop", "Extends below the lobe with limited movement", "Orientation, setting height and balance"],
-          ["Articulated drop", "Uses one or more joints", "Link strength, controlled movement and symmetry"],
-          ["Linear dangle", "Creates a longer vertical line", "Full length, tangling and clothing clearance"],
-          ["Cluster drop", "Concentrates several stones in a motif", "Total footprint, stone count and setting density"],
-          ["Coloured-centre drop", "Uses diamonds around another stone", "Stone identity, treatment and separate weights"]
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "\"Drop\" and \"dangle\" are not always used consistently by retailers. Depend on dimensions and construction rather than the product name."
-      }
-    ]
+      { type: "table", headers: ["Decision", "Main Question"], rows: [["Drop length", "How far below the lobe will the earring extend?"], ["Articulation", "Which sections can move independently?"], ["Movement", "Do I want controlled or noticeable motion?"], ["Weight", "Will the earring feel comfortable for its intended wear time?"], ["Balance", "Does the earring hang correctly or pull forwards/sideways?"], ["Fastening", "Does the closure suit the length and weight of the design?"], ["Diamond layout", "One focal stone or several distributed diamonds?"], ["Setting", "How are the diamonds held and how much metal is visible?"], ["Scale", "What are the actual millimetre dimensions?"], ["Verification", "Do product claims, images and any documentation agree?"]] },
+    ],
   },
   {
-    heading: "2. Select length by placement, not a generic rule",
+    heading: "Start With Drop Length",
     content: [
-      {
-        type: "paragraph",
-        text: "Full drop length should be measured from the top of the fitting or visible decorative element to the lowest point. Check whether the seller includes the hook, post top or bail in that figure."
-      },
-      {
-        type: "paragraph",
-        text: "Consider where the earring will finish relative to:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "the earlobe and piercing position;",
-          "jawline and neck;",
-          "hairstyle;",
-          "collars and scarves;",
-          "glasses or hearing devices; and",
-          "other piercings."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "On-ear images help with context, but anatomy differs. Use the stated millimetre length to create a paper template or mark the distance beside the ear. Avoid universal claims that a particular length \"suits\" one face shape; personal preference and styling matter more."
-      }
-    ]
+      { type: "paragraph", text: "Drop length is one of the most important specifications on the page. A product image can make a 20 mm drop and a 50 mm drop look similarly prominent because ecommerce photographs are cropped to highlight the jewellery. The real measurement tells you far more. A shorter drop usually remains relatively close to the ear and creates a more controlled silhouette. A medium drop introduces a clearer vertical line. A longer design becomes a major part of the wearer's overall look and can interact more with hair, clothing and head movement. There is no universal ideal length. The correct length depends on the wearer, the occasion and how much visual movement they want." },
+      { type: "table", headers: ["Factor", "Shorter Drop", "Medium Drop", "Longer Drop"], rows: [["Visual presence", "Subtle", "Noticeable", "Strong"], ["Movement", "Lower", "Moderate", "Usually higher"], ["Interaction with hair", "Lower", "Moderate", "Higher potential"], ["Interaction with clothing", "Lower", "Depends on neckline", "Higher potential"], ["Everyday versatility", "Often easier", "Style-dependent", "More deliberate"], ["Occasion impact", "Refined", "Balanced", "Statement-led"]] },
+    ],
   },
   {
-    heading: "3. Check width and three-dimensional profile",
+    heading: "Drop Length Is Not Diamond Size",
     content: [
-      {
-        type: "paragraph",
-        text: "Length is only one dimension. Maximum width determines whether a drop looks fine, balanced or substantial. Depth affects how far the design projects and how it turns."
-      },
-      {
-        type: "paragraph",
-        text: "Request or review:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "full length;",
-          "widest point;",
-          "setting depth;",
-          "distance between articulated sections;",
-          "size of each main motif; and",
-          "side and back views."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Macro images exaggerate scale. A narrow two-centimetre drop can look very different from a broad piece of the same length."
-      }
-    ]
+      { type: "paragraph", text: "A common mistake is to assume that a long pair of earrings must contain large diamonds. That is not necessarily true. A design may create length using: fine chain, metal links, small diamonds, decorative spacers, or multiple articulated sections. Another pair may be much shorter but use one comparatively large focal diamond. This is why the finished drop measurement and diamond dimensions should be considered separately. A 40 mm earring is describing the jewellery. A 6 mm diamond is describing one stone. Those measurements answer different questions." },
+    ],
   },
   {
-    heading: "4. Understand total carat weight",
+    heading: "Measure From the Top of the Earring to the Lowest Point",
     content: [
-      {
-        type: "paragraph",
-        text: "The headline weight may combine every diamond in both earrings. It does not necessarily describe each centre stone."
-      },
-      {
-        type: "paragraph",
-        text: "A transparent specification separates:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "total carat weight for the pair;",
-          "total per earring;",
-          "each principal-diamond weight;",
-          "combined accent-diamond weight; and",
-          "diamond count."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "For coloured-stone designs, the coloured stone and diamond weights should be identified separately. Never infer individual size by dividing a multi-stone total."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Read " },
-          { text: "what total carat weight means", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" },
-          { text: " before comparing complex drops." }
-        ]
-      }
-    ]
+      { type: "paragraph", text: "When comparing two drop earrings, use the full vertical dimension. Ideally, the measurement should describe the distance from the highest visible part of the earring to the lowest point of the drop. That provides a much more realistic picture than measuring only the suspended diamond. If one product gives only the diamond size but not the completed drop length, the buyer still lacks important information about physical scale." },
+      { type: "paragraph", parts: [{ text: "For the broader measurement framework, use " }, { text: "How to Check Jewellery Dimensions and Weight Online", href: "/blog/check-jewellery-product-dimensions-weight/" }] },
+    ],
   },
   {
-    heading: "5. Evaluate diamond quality in context",
+    heading: "Articulation Is What Makes Many Drop Earrings Distinctive",
     content: [
-      {
-        type: "paragraph",
-        text: "The 4Cs—cut, colour, clarity and carat weight—work together. GIA describes brightness, fire and scintillation as central effects of diamond light performance; IGI documents relevant grades under its reporting systems."
-      },
-      {
-        type: "paragraph",
-        text: "For drop earrings, ask:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Do the principal diamonds show compatible brightness and outline?",
-          "Are colour and clarity harmonious across the pair?",
-          "Are measurements—not only weights—similar?",
-          "Are accent stones evenly matched across corresponding sections?",
-          "Do step cuts, brilliant cuts or mixed shapes create the intended contrast?"
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "The highest individual grades are not automatically the best use of budget. Visual coherence across two multi-component earrings is the priority."
-      }
-    ]
+      { type: "paragraph", text: "Articulation means that parts of the earring can move independently because they are connected through joints, links or flexible sections. This is one of the clearest differences between drop earrings. One design may have a completely fixed metal bar ending in a diamond. Another may have a fixed top section with one moving diamond beneath it. A third may contain several linked sections that move separately. The greater the articulation, the more movement normally becomes part of the visual design." },
+      { type: "table", headers: ["Construction", "Movement", "Visual Character", "Main Consideration"], rows: [["Fixed drop", "Low", "Clean and controlled", "Alignment"], ["Partially articulated", "Moderate", "Controlled movement", "Joint quality"], ["Multi-section articulated", "High", "Fluid and dynamic", "Balance and link construction"], ["Chain drop", "High", "Fine, flowing movement", "Tangling and weight distribution"]] },
+    ],
   },
   {
-    heading: "6. Inspect pair symmetry",
+    heading: "Controlled Movement vs Maximum Movement",
     content: [
-      {
-        type: "paragraph",
-        text: "Place or view both earrings together. Compare:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "total finished length and width;",
-          "alignment of settings;",
-          "spacing between sections;",
-          "orientation of pear, oval or geometric stones;",
-          "link size and position;",
-          "diamond distribution;",
-          "movement amplitude; and",
-          "fastening height."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Hand-finished jewellery can show small tolerances, but the pair should look intentional. One earring should not hang visibly lower or twist differently without being an asymmetric design."
-      }
-    ]
+      { type: "paragraph", text: "When buyers see articulated diamond earrings, it is easy to assume that more movement must mean more sparkle and therefore a better design. That is too simplistic. Movement also affects: comfort, balance, hair interaction, whether the earring turns backwards, and whether the pair remains visually symmetrical. A well-balanced drop can move elegantly without feeling chaotic. The craftsmanship challenge is therefore to create intentional movement, not merely the greatest possible movement." },
+    ],
   },
   {
-    heading: "7. Assess articulation and movement",
+    heading: "Balance Matters More in Drop Earrings Than in Studs",
     content: [
-      {
-        type: "paragraph",
-        text: "Movement creates changing reflections, but every joint is also a construction point."
-      },
-      {
-        type: "paragraph",
-        text: "Useful video should show the earrings:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "hanging still;",
-          "moving gently;",
-          "returning to rest;",
-          "viewed from the side; and",
-          "worn on an ear."
-        ]
-      },
-      {
-        type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-drop-earrings/62 (3).jpg",
-        alt: "Articulated diamond drop earring movement and construction guide",
-        title: "Drop Earring Movement and Articulation",
-        caption: "Check how drop earrings move, hang and return to rest using video before purchasing.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "Look for smooth, independent movement without binding. Links should be closed and proportionate. Very free movement may increase tangling; very restricted joints may make the earring look stiff. Neither is automatically wrong—the behaviour should match the design."
-      }
-    ]
+      { type: "paragraph", text: "A stud sits close to the piercing and usually has little leverage away from the ear. A drop extends below it. The longer and more complex the construction becomes, the more important balance can become. A well-balanced drop should hang naturally from its fastening. The front should normally remain oriented in the way the design intends. The earring should not constantly twist so that the reverse becomes more visible than the front unless the piece was deliberately designed to look good from both sides." },
+      { type: "table", headers: ["Behaviour", "What It Suggests"], rows: [["Hangs vertically as intended", "Balanced construction"], ["Moves but returns naturally", "Controlled articulation"], ["Constantly twists backwards", "Balance or connection may need checking"], ["Pulls noticeably towards one side", "Uneven weight distribution may contribute"], ["Pair hangs differently left vs right", "Construction or fastening should be checked"]] },
+    ],
   },
   {
-    heading: "8. Consider weight and balance",
+    heading: "Check the Pair, Not Just One Earring",
     content: [
-      {
-        type: "paragraph",
-        text: "Ask for total gram weight and preferably weight per earring. Equal weight does not guarantee equal comfort: centre of gravity, surface area and the fitting all affect pressure."
-      },
-      {
-        type: "paragraph",
-        text: "Consider:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "whether most weight sits at the lobe or lower in the drop;",
-          "whether the front pulls the post downward;",
-          "whether movement causes repeated contact with the neck;",
-          "the size of the supporting back; and",
-          "how long the pair will be worn."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Comfort cannot be guaranteed from a number, so transparent returns are especially important for heavier designs."
-      }
-    ]
+      { type: "paragraph", text: "Drop earrings are a pair. They should therefore be considered together. The left and right earrings should have compatible: length, visible diamond distribution, orientation, weight, and movement. Perfect microscopic identity is not necessary, but they should look intentionally matched. This becomes especially important when the design uses larger individual diamonds. If one earring consistently hangs lower or moves differently from the other, the pair can look unbalanced even when each earring appears attractive individually." },
+    ],
   },
   {
-    heading: "9. Choose the fastening",
+    heading: "Finished Weight Deserves More Attention",
     content: [
-      {
-        type: "paragraph",
-        text: "Post with friction or screw back:"
-      },
-      {
-        type: "paragraph",
-        text: "A post provides a defined top position. Friction backs are quick to fit; threaded posts resist a straight pull but require more dexterity. A broader back may support a heavier front."
-      },
-      {
-        type: "paragraph",
-        text: "Lever-back fitting:"
-      },
-      {
-        type: "paragraph",
-        text: "A lever closes behind the ear, integrating the earring and closure. Check hinge movement, latch engagement, internal space and whether the decorative drop faces forwards."
-      },
-      {
-        type: "paragraph",
-        text: "Hook or wire fitting:"
-      },
-      {
-        type: "paragraph",
-        text: "Hooks create a light, flowing look. Confirm wire thickness, usable length and whether a stopper is included or recommended. Open hooks can be easier to dislodge during clothing changes."
-      },
-      {
-        type: "paragraph",
-        text: "Hinged or latch fitting:"
-      },
-      {
-        type: "paragraph",
-        text: "Hinged closures should click or engage cleanly without excessive side play. Product video should show the actual mechanism."
-      },
-      {
-        type: "paragraph",
-        text: "No fastening is loss-proof. Inspect it regularly and choose according to dexterity, comfort and intended activity."
-      }
-    ]
+      { type: "paragraph", text: "Drop earrings place weight below the piercing. That means finished earring weight can influence comfort more strongly than buyers sometimes expect. A longer earring is not automatically heavy. A short earring is not automatically light. Metal construction, stone count, setting style and thickness all contribute to finished mass. Where the product page provides gram weight, use it as physical information rather than as a quality score. Heavier does not automatically mean better-made. Lighter does not automatically mean lower quality." },
+    ],
   },
   {
-    heading: "10. Review every setting and connection",
+    heading: "Drop Length, Weight and Articulation Work Together",
     content: [
-      {
-        type: "paragraph",
-        text: "Multi-stone drop earrings contain more potential contact and setting points than simple studs."
-      },
-      {
-        type: "paragraph",
-        text: "Check:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "prongs are even and do not catch;",
-          "bezels are continuous and symmetrical;",
-          "pavé or accent rows are aligned;",
-          "links are fully closed;",
-          "solder joints look clean;",
-          "posts are straight; and",
-          "the two earrings share the same construction."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "A durable diamond does not make a fine link or clasp maintenance-free. Stop wearing a pair if a stone moves, a link opens or a fastening changes feel."
-      }
-    ]
-  },
-  {
-    heading: "11. Confirm metal and hallmark information",
-    content: [
-      {
-        type: "paragraph",
-        text: "Metal colour is not a complete specification. Check precious-metal type, fineness, plating, finish and whether posts or backs use another alloy."
-      },
-      {
-        type: "paragraph",
-        text: "UK hallmarking rules apply to precious-metal articles above the relevant exemption weights. Other European markets have their own systems. A hallmark concerns metal fineness; it does not certify the diamonds."
-      },
-      {
-        type: "paragraph",
-        text: "For sensitive ears, request the composition of every component that contacts the piercing. Avoid assumptions based only on colour or a broad \"hypoallergenic\" label."
-      }
-    ]
-  },
-  {
-    heading: "12. Understand certification and report scope",
-    content: [
-      {
-        type: "paragraph",
-        text: "Drop earrings may use individual diamond reports, matched-pair documentation, a finished-jewellery report or retailer specifications for small accents."
-      },
-      {
-        type: "paragraph",
-        text: "IGI states that its jewellery reports can describe the mounted gemstones, precious-metal content and purity stamps when present. It also explains that mounted centre-stone grades may be expressed as ranges or estimates \"as mounting permits\"."
-      },
-      {
-        type: "paragraph",
-        text: "Confirm:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "issuer and report number;",
-          "whether the report covers loose diamonds or the finished pair;",
-          "which stones are individually graded;",
-          "laboratory-grown origin disclosure;",
-          "treatment comments where applicable; and",
-          "official verification access."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "A report is not a warranty or valuation.",
-        parts: [
-          { text: "Read " },
-          { text: "what should be included with certified diamond jewellery", href: "/blog/what-included-certified-diamond-jewellery/" },
-          { text: "." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "13. Check online images properly",
-    content: [
-      {
-        type: "paragraph",
-        text: "The product page should show:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "both earrings together;",
-          "front, side and back;",
-          "fastening open and closed;",
-          "an on-ear scale view;",
-          "video showing natural movement;",
-          "close-ups of joints and settings; and",
-          "whether imagery represents the exact pair."
-        ]
-      },
-      {
-        type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-drop-earrings/62 (4).jpg",
-        alt: "Lab-grown diamond drop earring buying checklist",
-        title: "Drop Earring Buying Checklist",
-        caption: "Use this checklist to verify every aspect of lab-grown diamond drop earrings before ordering.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "Lighting can change apparent sparkle and metal colour. Use images to understand construction and movement, then rely on specifications for dimensions and quality."
-      }
-    ]
-  },
-  {
-    heading: "14. Match the pair to the occasion",
-    content: [
-      {
-        type: "paragraph",
-        text: "For frequent wear, prioritise manageable length, controlled movement and simple secure fittings. For events, a longer or more articulated pair may be worth the extra styling and handling."
-      },
-      {
-        type: "paragraph",
-        text: "Also consider necklaces, collars, scarves and hair. A dramatic drop may work best without a competing necklace; a compact drop may integrate more easily with daily layers. These are styling choices, not fixed rules."
-      }
-    ]
-  },
-  {
-    heading: "15. Plan care and storage",
-    content: [
-      {
-        type: "paragraph",
-        text: "After wear, wipe metal and stones with a suitable soft cloth and follow the seller's cleaning guidance. Cosmetics and hair products can collect behind settings."
-      },
-      {
-        type: "paragraph",
-        text: "Store each earring separately with drops laid straight. Do not suspend a delicate pair where links bear weight continuously. Fasten posts or hooks so they cannot scratch the other earring."
-      },
-      {
-        type: "paragraph",
-        text: "Before wearing, check backs, hinges, prongs and links. Arrange professional inspection when the seller recommends it or whenever anything feels loose."
-      }
-    ]
-  },
-  {
-    heading: "Drop-earring buying checklist",
-    content: [
-      {
-        type: "paragraph",
-        text: "Scale and design:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Full length, width and depth are disclosed.",
-          "On-ear images show credible scale.",
-          "Movement is shown on video.",
-          "Both earrings appear symmetrical."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Stones and metal:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Pair-total, per-ear and principal-stone weights are separated.",
-          "Diamond count, shape and quality are clear.",
-          "Coloured stones are separately identified.",
-          "Metal, fineness, plating and hallmark details are stated."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Construction and order:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Setting, links, post and fastening are visible.",
-          "Per-ear product weight is available where relevant.",
-          "Report issuer and scope are clear and verifiable.",
-          "Returns, delivery, warranty and care terms are saved."
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Red flags",
-    content: [
-      {
-        type: "paragraph",
-        text: "Pause if the page omits full dimensions, shows only one earring, hides the back and fastening, confuses pair-total with per-ear weight, calls the piece \"certified\" without defining scope, describes metal only by colour, or provides no movement video for an articulated design."
-      }
-    ]
-  },
-  {
-    heading: "What Aurelia Royale should disclose",
-    content: [
-      {
-        type: "paragraph",
-        text: "Each applicable drop-earring page should provide full dimensions, pair and per-ear weight, carat distribution, stone count and grades, pair-matching method, setting and articulation details, fastening type, metal and hallmark information, report scope, actual-versus-representative imagery, production time, returns, warranty, care and package contents."
-      }
-    ]
+      { type: "table", headers: ["Construction", "Length", "Weight", "Likely Wearing Character"], rows: [["Short fixed drop", "Short", "Light", "Stable"], ["Short diamond cluster drop", "Short", "Higher", "Compact but substantial"], ["Long chain drop", "Long", "Light", "Highly mobile"], ["Long multi-stone drop", "Long", "Higher", "Strong visual and physical presence"], ["Medium articulated drop", "Medium", "Moderate", "Balanced movement"]] },
+      { type: "paragraph", text: "The product should therefore be judged as a complete mechanical design." },
+    ],
   },
   {
     content: [
-      {
-        type: "callout",
-        title: "Final verdict",
-        theme: "gold-border",
-        parts: [
-          { text: "Choose lab-grown diamond drop earrings as moving objects, not static photographs. Their length, width, balance, articulation and fastening determine how they frame the face and feel over time.\n\n" },
-          { text: "Once the construction is right, compare diamond quality, pair symmetry, metal and documentation. A strong product page should make every one of those details visible or verifiable." }
-        ]
-      },
-      {
-        type: "faq",
-        items: [
-          {
-            question: "What should I look for in lab-grown diamond drop earrings?",
-            answer: "Check full dimensions, movement, weight, pair symmetry, diamond quality, setting, connections, fastening, metal and report scope."
-          },
-          {
-            question: "What is the difference between drop and dangle earrings?",
-            answer: "Usage varies. Drops generally extend below the lobe, while \"dangle\" often suggests more length or movement. Use dimensions and construction rather than the label."
-          },
-          {
-            question: "How long should diamond drop earrings be?",
-            answer: "There is no universal ideal. Choose by desired placement, piercing position, hairstyle, clothing and comfort, using exact millimetre dimensions."
-          },
-          {
-            question: "Is carat weight stated for one drop earring or the pair?",
-            answer: "Often it is the combined pair total. Confirm pair-total, per-ear, principal-stone and accent-stone weights separately."
-          },
-          {
-            question: "How should two drop earrings match?",
-            answer: "They should align in length, width, stone orientation, spacing, movement and overall visual weight unless intentionally asymmetric."
-          },
-          {
-            question: "Are articulated diamond earrings fragile?",
-            answer: "Not automatically, but every joint needs sound construction and inspection. Remove them for activities likely to pull, strike or tangle the design."
-          },
-          {
-            question: "Which fastening is best for drop earrings?",
-            answer: "The best choice depends on weight, dexterity and wear. Posts, lever backs, hooks and hinged closures each have different handling and support."
-          },
-          {
-            question: "Are lever backs secure?",
-            answer: "A correctly fitted, well-maintained lever back can be dependable, but no closure is loss-proof. Check hinge and latch condition regularly."
-          },
-          {
-            question: "Do lab-grown diamond drop earrings need certificates?",
-            answer: "Not every small stone needs an individual report. Documentation may cover principal diamonds, a matched pair or the finished jewellery."
-          },
-          {
-            question: "Does a jewellery report grade mounted diamonds exactly?",
-            answer: "Not always. Mountings can limit assessment, so a report may provide ranges or estimates as the setting permits."
-          },
-          {
-            question: "Can a hallmark verify the diamonds?",
-            answer: "No. A hallmark concerns precious-metal fineness. Diamond origin and quality require separate disclosure or reporting."
-          },
-          {
-            question: "How should drop earrings be stored?",
-            answer: "Store each earring separately with the drop laid straight, fasten posts or hooks and prevent links, stones and metal from rubbing."
-          }
-        ]
-      },
-      {
-        type: "cta-banner",
-        title: "Shop Lab-Grown Diamond Drop Earrings at Aurelia",
-        subtitle: "Browse our collection of lab-grown diamond drop earrings with complete dimensions, articulation details and transparent documentation.",
-        shopHref: "/shop/",
-        contactHref: "/contact/"
-      }
-    ]
-  }
+      { type: "image", src: "/images/blog/how-to-choose-lab-grown-diamond-drop-earrings/62 (2).jpg", alt: "Drop earring fastening post back hook hinge top section support balance", title: "Fastening Is Part of the Earring Design", caption: "The fastening supports everything below the piercing — a longer or heavier drop places different demands on the backing than a compact stud.", priority: false },
+    ],
+  },
+  {
+    heading: "Fastening Is Part of the Earring Design",
+    content: [
+      { type: "paragraph", text: "The fastening deserves special attention because it supports everything below the piercing. Drop earrings can use different top constructions, including: a post with backing, a hinged mechanism, a hook-style wire, or another design. The correct closure depends partly on the structure and weight of the complete earring. A fastening that works perfectly on a small stud may not create the same wearing experience when supporting a long articulated drop. GIA's earring guidance notes that backing size and fastening security matter to how earrings sit and that larger earrings can droop when the backing does not provide adequate support." },
+    ],
+  },
+  {
+    heading: "Post-and-Back Drop Earrings",
+    content: [
+      { type: "paragraph", text: "Some drops begin with a stud-like top section. In these designs, the earring post passes through the piercing and a backing secures it behind the lobe. This arrangement can provide a relatively controlled anchor point for an articulated section below. The backing should be suitable for the finished earring. A visually attractive long drop with inadequate support at the lobe can sit poorly. Do not assume every Aurelia drop earring uses a friction, screw or locking back unless the product specification confirms it." },
+    ],
+  },
+  {
+    heading: "Hook-Style Drop Earrings",
+    content: [
+      { type: "paragraph", text: "Some drop earrings use a curved hook passing through the piercing rather than a conventional post and separate backing. This can create a lighter, more fluid aesthetic. The practical question becomes how the design is retained in the ear and whether an additional stopper or retention component is used. Again, the product specification should tell the buyer rather than forcing them to infer the fastening from photography." },
+    ],
+  },
+  {
+    heading: "Fastening Comparison",
+    content: [
+      { type: "table", headers: ["Fastening Style", "Wearing Character", "Main Check"], rows: [["Post + backing", "Stable anchor", "Back support and comfort"], ["Hook-style wire", "Light and fluid", "Retention and hook length"], ["Hinged design", "Integrated closure", "Hinge alignment and latch"], ["Hoop/drop combination", "Curved top + suspended movement", "Closure and drop balance"]] },
+      { type: "paragraph", text: "Aurelia should identify the actual fastening on each drop-earring product rather than relying only on front-facing images." },
+    ],
+  },
+  {
+    heading: "Decide Where You Want the Focal Diamond",
+    content: [
+      { type: "paragraph", text: "Not every drop earring distributes diamonds in the same way. One may place the largest stone directly at the earlobe and use smaller elements beneath it. Another may use a small top diamond and position the largest stone at the end of the drop. Another may use several similarly sized diamonds along the complete length." },
+      { type: "table", headers: ["Diamond Layout", "Visual Effect"], rows: [["Large top diamond + smaller drop", "Focus stays close to face"], ["Small top + large bottom diamond", "Eye is drawn downward"], ["Graduated stones", "Progressive vertical emphasis"], ["Equal repeating stones", "Continuous pattern"], ["Single suspended diamond", "Minimal, focused movement"], ["Clustered lower section", "Strong emphasis at bottom of drop"]] },
+    ],
+  },
+  {
+    heading: "Total Carat Weight Does Not Tell You How the Earrings Will Look",
+    content: [
+      { type: "paragraph", text: "Drop earrings often contain multiple stones. That makes total carat weight useful but incomplete. A pair described as 2.00 ct total weight could distribute that weight across: two large focal diamonds, several medium diamonds, dozens of small stones, or a combination of all three. The same headline total can therefore create very different finished jewellery." },
+    ],
+  },
+  {
+    heading: "Pair TCW vs Per-Earring Weight",
+    content: [
+      { type: "paragraph", text: "Always establish whether the stated diamond weight refers to: the complete pair, one earring, one main diamond, or all diamonds combined. Imagine a fictional pair containing 2.00 ct total diamond weight. That might mean approximately 1.00 ct of diamonds per earring. It does not automatically mean a 2 ct diamond hangs from each ear." },
+      { type: "paragraph", parts: [{ text: "For the full explanation, use " }, { text: "Total Carat Weight Meaning in Diamond Jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" }] },
+    ],
+  },
+  {
+    heading: "A Fictional Drop-Earring Comparison",
+    content: [
+      { type: "paragraph", text: "Imagine three fictional laboratory-grown diamond drop-earring pairs. These examples are educational only and do not represent Aurelia products." },
+      { type: "table", headers: ["Specification", "Pair A", "Pair B", "Pair C"], rows: [["Drop length", "20 mm", "35 mm", "55 mm"], ["Construction", "Fixed", "Two-section articulated", "Fine chain drop"], ["Pair TCW", "1.50 ct", "1.50 ct", "1.50 ct"], ["Diamond layout", "One main stone per ear", "Graduated stones", "Bottom focal diamond"], ["Movement", "Low", "Moderate", "High"], ["Weight character", "Compact", "Balanced", "Lower weight but higher movement"], ["Visual emphasis", "Close to lobe", "Vertical progression", "Lowest point of drop"]] },
+      { type: "paragraph", text: "All three contain the same fictional total diamond weight. They still offer completely different wearing experiences. That is why drop length and construction should be compared before carat weight." },
+    ],
+  },
+  {
+    heading: "Diamond Shape Changes the Character of the Drop",
+    content: [
+      { type: "paragraph", text: "Diamond shape can strongly influence a drop design. Round diamonds create compact points of brilliance. Pear-shaped diamonds naturally complement vertical designs because their outline is directional. Oval and marquise shapes can create an elongated appearance. Emerald-cut diamonds introduce more geometric lines. Mixed-shape earrings can create a more complex progression from top to bottom. Choose shape as part of the overall earring architecture rather than treating one shape as universally superior." },
+    ],
+  },
+  {
+    heading: "Diamond Orientation Matters",
+    content: [
+      { type: "paragraph", text: "Fancy-shaped diamonds can be positioned in different orientations. A pear may point downward or upward. An oval may be vertical or horizontal. An emerald cut may follow the length of the drop. Orientation can change the apparent length and rhythm of the design even when the underlying diamond is unchanged. This is another reason to evaluate the complete earring rather than relying only on a laboratory report." },
+    ],
+  },
+  {
+    heading: "Setting Style Affects Surface and Movement",
+    content: [
+      { type: "paragraph", text: "Prongs expose more of a diamond. Bezels surround more of the stone with metal. Pavé can create a continuous glittering surface across metal sections. The right setting depends on the design. In a highly articulated drop, the setting also needs to work with the movement rather than creating awkward protrusions between sections. GIA notes in its general earring guidance that more enclosing settings can provide more protection around the diamond, whereas more open prongs reveal more of the stone. This should be interpreted as a design trade-off, not a claim that one setting is always better." },
+    ],
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/how-to-choose-lab-grown-diamond-drop-earrings/62 (3).jpg", alt: "Drop earring metal check side view back photography exact vs representative", title: "Check the Metal Separately",  caption: "The diamond origin does not tell you what metal the earrings use — verify underlying metal and fineness independently.", priority: false },
+    ],
+  },
+  {
+    heading: "Check the Metal Separately",
+    content: [
+      { type: "paragraph", text: "The diamond origin does not tell you what metal the earrings use. Verify the underlying metal and fineness separately. Metal can also contribute to the wearing experience because it forms part of the finished earring's weight and structural design. Do not infer metal identity from colour alone. A white-coloured earring does not automatically identify the underlying metal." },
+      { type: "paragraph", parts: [{ text: "For the full verification process, use " }, { text: "How to Check the Metal Used in Diamond Jewellery", href: "/blog/check-metal-used-diamond-jewellery/" }] },
+    ],
+  },
+  {
+    heading: "Check How the Earrings Look From the Side",
+    content: [
+      { type: "paragraph", text: "Front photography shows the decorative design. Side photography can reveal: how far the earring projects, setting depth, how the top section sits against the lobe, and how articulated sections connect. For drop earrings, side views are particularly valuable because an earring can appear delicate from the front while having substantial depth. The reverse of a drop earring can reveal how the stone settings are constructed and whether the design has a clear front and back. This becomes important for articulated earrings because they may occasionally rotate during wear." },
+    ],
+  },
+  {
+    heading: "Short Drops for Everyday Wear",
+    content: [
+      { type: "paragraph", text: "Shorter drop earrings can suit frequent wear because they create some vertical movement without extending far below the lobe. But length alone does not make a pair suitable for everyday use. A short but heavy earring may feel more noticeable than a longer fine-chain design. The correct assessment combines length, weight, fastening and movement." },
+    ],
+  },
+  {
+    heading: "Longer Drops for Occasion Wear",
+    content: [
+      { type: "paragraph", text: "Longer articulated designs can create stronger movement and more visible presence. That can make them attractive for occasion dressing. But longer does not automatically mean formal, just as short does not automatically mean casual. A minimal long chain drop can look understated. A short diamond cluster can look highly decorative. Use physical design rather than simplistic category rules." },
+    ],
+  },
+  {
+    heading: "Hair, Necklines and Glasses",
+    content: [
+      { type: "paragraph", text: "Long hair can interact with moving earrings differently from short hair or an updo. An articulated drop may occasionally move into the hair. A short rigid drop can remain closer to the face. Drop earrings create a vertical line near the face. When worn with a high neckline, they may become one of the strongest jewellery elements visible. With an open neckline and a necklace, the earrings become part of a larger composition. If both the earrings and necklace are highly elaborate, they may compete visually. Glasses can also affect the visual balance around the side of the face. There is no need for generic face-shape rules. Actual scale is more useful." },
+    ],
+  },
+  {
+    heading: "Buying Drop Earrings as a Gift",
+    content: [
+      { type: "paragraph", text: "Drop earrings can be more preference-sensitive than compact studs because their length and movement are much more noticeable. If buying for someone else, look at the earrings they already wear. Do they choose short controlled drops? Long articulated designs? Mostly studs? Do they avoid heavier earrings? That evidence is more useful than simply buying the most dramatic pair within the budget." },
+      { type: "paragraph", parts: [{ text: "For the wider gifting framework, use " }, { text: "How to Choose Lab-Grown Diamond Earrings as a Gift", href: "/blog/choose-lab-grown-diamond-earrings-gift/" }] },
+    ],
+  },
+  {
+    heading: "What if Aurelia Does Not Display a Price?",
+    content: [
+      { type: "paragraph", text: "Do not estimate one. If the product does not yet have an approved direct-purchase price, Aurelia should use Join Waitlist or Enquire About This Piece. Joining the waitlist should register interest only. It should not mean that: a pair has been purchased, a specific pair has been reserved, a price has been accepted, or production has started." },
+    ],
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/how-to-choose-lab-grown-diamond-drop-earrings/62 (4).jpg", alt: "Drop earrings FAQ final answer guide length articulation weight balance fastening", title: "Frequently Asked Questions", caption: "The biggest mistake when buying drop earrings: choosing by diamond carat or close-up appearance before understanding the earring's actual length, movement and finished construction.", priority: false },
+    ],
+  },
+  {
+    heading: "Frequently Asked Questions",
+    content: [
+      { type: "faq", items: [
+        { question: "What are diamond drop earrings?", answer: "Drop earrings extend below the earlobe rather than remaining concentrated directly around the piercing." },
+        { question: "What should I check when buying lab-grown diamond drop earrings?", answer: "Prioritise drop length, articulation, movement, finished weight, balance and fastening before comparing detailed diamond grades." },
+        { question: "What is drop length?", answer: "It is the full vertical distance from the top of the earring to its lowest point." },
+        { question: "Is a longer drop always more formal?", answer: "No. Length alone does not determine formality." },
+        { question: "What does articulated mean in earrings?", answer: "It means that one or more sections are connected so they can move independently." },
+        { question: "Are articulated earrings more sparkly?", answer: "Movement can change how diamonds interact with light, but more articulation is not automatically better." },
+        { question: "Should drop earrings move?", answer: "Usually to some extent, although the intended movement depends on construction." },
+        { question: "How much movement is too much?", answer: "There is no universal amount. Movement becomes problematic when the earring repeatedly twists, feels uncontrolled or becomes uncomfortable." },
+        { question: "Are heavier earrings higher quality?", answer: "No. Finished weight is a physical characteristic, not a quality grade." },
+        { question: "Can long earrings be lightweight?", answer: "Yes. Fine-chain and open constructions can create length without large mass." },
+        { question: "Does TCW tell me how long the earrings are?", answer: "No. TCW measures combined diamond weight, not physical length." },
+        { question: "Does 2 ct drop earrings mean 2 ct in each ear?", answer: "Not necessarily. The figure may refer to the complete pair." },
+        { question: "Which fastening is best for diamond drop earrings?", answer: "There is no single best fastening. The closure should suit the earring's weight, construction and wearer's comfort." },
+        { question: "Are screw backs always best?", answer: "No. GIA notes that screw backs can provide security, but some wearers find their thicker threaded posts less comfortable." },
+        { question: "Can a small backing make an earring droop?", answer: "Yes. GIA notes that larger earrings may droop when their backs are too small to provide adequate support." },
+        { question: "Should both drop earrings weigh exactly the same?", answer: "A matched pair should be suitably balanced, although minute manufacturing differences do not automatically create a problem." },
+        { question: "Are pear-shaped diamonds good for drop earrings?", answer: "Pear shapes can suit vertical designs particularly well, but shape is a styling choice rather than a quality hierarchy." },
+        { question: "Are drop earrings suitable for everyday wear?", answer: "They can be. Everyday suitability depends on length, movement, weight, fastening and the wearer's routine." },
+        { question: "Should I check finished gram weight?", answer: "Yes if available, particularly when comfort is a concern." },
+        { question: "Should I check the back and side of the earring?", answer: "Yes. These views can reveal setting depth, connection points and the reverse finish." },
+        { question: "Does every diamond in drop earrings need an individual report?", answer: "No. Reporting depends on the diamonds and product configuration." },
+        { question: "What is more important: clarity or comfort?", answer: "They answer different questions, but a high clarity grade cannot compensate for earrings the wearer finds uncomfortable." },
+        { question: "Should I choose earrings from photographs alone?", answer: "No. Use physical dimensions and verified specifications alongside the images." },
+        { question: "What is the biggest mistake when buying drop earrings?", answer: "Choosing by diamond carat or close-up appearance before understanding the earring's actual length, movement and finished construction." },
+      ]},
+    ],
+  },
+  {
+    heading: "Final Answer: How Should You Choose Lab-Grown Diamond Drop Earrings?",
+    content: [
+      { type: "paragraph", text: "Start with drop length. Decide how far below the lobe you want the earrings to extend. Then examine articulation. A fixed drop creates controlled movement. A multi-section or chain drop can move far more freely. Next consider weight and balance. The earrings should hang naturally and should not repeatedly twist or pull in a way that makes them uncomfortable. Then verify the fastening. The closure needs to support the complete earring and suit the wearer." },
+      { type: "paragraph", text: "After that, compare the diamonds. Understand whether the advertised carat weight applies to the whole pair, each earring or a particular focal stone. Check how the diamond weight is distributed, because equal TCW can create completely different designs. Then review setting, metal, physical dimensions and applicable documentation." },
+      { type: "paragraph", text: "The strongest drop-earring choice is not automatically: the longest design, the largest carat weight, or: the highest clarity grade. It is the pair whose: length + movement + weight + balance + fastening + diamond distribution match how you actually want the earrings to feel and look." },
+      { type: "paragraph", parts: [{ text: "If you are still deciding between studs, hoops and drops, continue with " }, { text: "How to Compare Different Diamond Earring Designs", href: "/blog/compare-diamond-earring-designs/" }] },
+      { type: "paragraph", parts: [{ text: "If you are buying for someone else, use " }, { text: "How to Choose Lab-Grown Diamond Earrings as a Gift", href: "/blog/choose-lab-grown-diamond-earrings-gift/" }] },
+      { type: "paragraph", parts: [{ text: "For finished measurements, use " }, { text: "How to Check Jewellery Dimensions and Weight Online", href: "/blog/check-jewellery-product-dimensions-weight/" }] },
+      { type: "paragraph", parts: [{ text: "For total diamond weight, read " }, { text: "Total Carat Weight Meaning in Diamond Jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "For workmanship and setting quality, use " }, { text: "What Makes Lab-Grown Diamond Jewellery High Quality?", href: "/blog/what-makes-lab-grown-diamond-jewellery-high-quality/" }] },
+      { type: "paragraph", parts: [{ text: "For the final specification check, use " }, { text: "What to Check Before Buying Lab-Grown Diamond Jewellery", href: "/blog/what-to-check-before-buying-lab-grown-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "Where an Aurelia Royale drop-earring design does not have an approved direct-purchase price, " }, { text: "Join the Waitlist", href: "/contact/" }, { text: " or submit an enquiry. This should register interest only and should not be presented as an order, reservation or preorder." }] },
+      { type: "cta-banner", title: "Explore Aurelia Royale Lab-Grown Diamond Drop Earrings", subtitle: "Length, movement, balance and fastening — find the pair that suits how you wear them.", shopHref: "/shop/", contactHref: "/contact/" },
+    ],
+  },
 ];
 
-export default function HowToChooseLabGrownDiamondDropEarringsPage() {
+export default function BlogDropEarringsPage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
-      {/* Script injection for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Product-Category Guides
-          </span>
-          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How to Choose Lab-Grown Diamond Drop Earrings
-          </h1>
-          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
-          </p>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">Lab-Grown Diamond Education</span>
+          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">How to Choose Lab-Grown Diamond Drop Earrings</h1>
+          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">Drop Length, Movement, Articulation, Weight and Fastening Explained • Published September 10, 2026</p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
-      {/* Related articles — crawlable plain links */}
       <RelatedArticles currentSlug="how-to-choose-lab-grown-diamond-drop-earrings" />
       <NewsletterSection />
     </main>
   );
 }
+

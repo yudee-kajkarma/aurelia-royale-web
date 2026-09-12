@@ -1,682 +1,449 @@
-﻿import React from "react";
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 import RelatedArticles from "@/components/shared/RelatedArticles";
 
-// 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
   title: "How to Compare Lab-Grown Diamond Jewellery Online",
-  description: "Learn how to compare lab-grown diamond jewellery online by normalising carat weight, grades, reports, metal, dimensions, construction, price and service.",
-  alternates: {
-    canonical: "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/",
-  },
+  description: "Learn how to compare lab-grown diamond jewellery online using centre-stone weight, total carat weight, dimensions, reports, metal, construction and price.",
+  alternates: { canonical: "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/" },
 };
 
-// 2. The exact JSON-LD Schema
 const schemaMarkup = {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://www.aureliaroyale.com/#organization",
-      "name": "Aurelia Royale",
-      "url": "https://www.aureliaroyale.com/"
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.aureliaroyale.com/#website",
-      "url": "https://www.aureliaroyale.com/",
-      "name": "Aurelia Royale",
-      "publisher": { "@id": "https://www.aureliaroyale.com/#organization" },
-      "inLanguage": "en-GB"
-    },
-    {
-      "@type": "ImageObject",
-      "@id": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/#primaryimage",
-      "url": "https://www.aureliaroyale.com/wp-content/uploads/compare-lab-grown-diamond-jewellery-online.webp",
-      "contentUrl": "https://www.aureliaroyale.com/wp-content/uploads/compare-lab-grown-diamond-jewellery-online.webp",
-      "width": 1600,
-      "height": 900,
-      "caption": "Structured online comparison of lab-grown diamond jewellery"
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/#webpage",
-      "url": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/",
-      "name": "How to Compare Lab-Grown Diamond Jewellery Online",
-      "isPartOf": { "@id": "https://www.aureliaroyale.com/#website" },
-      "primaryImageOfPage": { "@id": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/#primaryimage" },
-      "datePublished": "2026-07-16",
-      "dateModified": "2026-07-16",
-      "breadcrumb": { "@id": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/#breadcrumb" },
-      "inLanguage": "en-GB"
-    },
-    {
-      "@type": "BlogPosting",
-      "@id": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/#article",
-      "headline": "How to Compare Lab-Grown Diamond Jewellery Online",
-      "description": "A structured method for comparing lab-grown diamond jewellery online by normalising variants, carat weight, grades, reports, metal, dimensions, construction, total price and service.",
-      "image": { "@id": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/#primaryimage" },
-      "mainEntityOfPage": { "@id": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/#webpage" },
-      "author": { "@id": "https://www.aureliaroyale.com/#organization" },
-      "publisher": { "@id": "https://www.aureliaroyale.com/#organization" },
-      "datePublished": "2026-07-16",
-      "dateModified": "2026-07-16",
-      "articleSection": "Buying Lab-Grown Diamond Jewellery",
-      "keywords": [
-        "compare lab-grown diamond jewellery online",
-        "how to compare lab-grown diamond jewellery",
-        "lab-grown diamond jewellery comparison",
-        "compare lab-grown diamond jewellery prices",
-        "lab-grown diamond comparison checklist"
-      ],
-      "inLanguage": "en-GB"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "How to Compare Lab-Grown Diamond Jewellery Online", "item": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/" }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What should I compare first in lab-grown diamond jewellery?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Confirm that the products are the same category and lock each exact variant. Then compare stone origin, individual and total carat weight, measurements, grade scope, report type, metal and dimensions before comparing price." }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I compare lab-grown diamond jewellery by price per carat?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Price per carat can reveal a weight mismatch, but it cannot rank finished jewellery alone. Metal, construction, setting count, components, documentation, taxes and service also contribute to price." }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I compare total carat weight between earrings?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Record the weight per principal diamond, weight per earring and total for the sold pair. Confirm whether the advertised number refers to one earring or both." }
-        },
-        {
-          "@type": "Question",
-          "name": "Are two diamonds with the same 4Cs identical?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. Similar grading results do not make diamonds visually identical. Measurements, proportions, inclusion pattern, transparency, contrast and light performance can differ." }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I compare IGI and GIA laboratory-grown diamond reports directly?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Compare the information each report actually records, but do not invent a grade conversion. Laboratories may use different services, formats and terminology, particularly for laboratory-grown diamonds." }
-        },
-        {
-          "@type": "Question",
-          "name": "Is an exact grade always better than a colour and clarity range?",
-          "acceptedAnswer": { "@type": "Answer", "text": "An exact independent grade provides greater precision for an individual diamond. A properly defined range can still be appropriate for small matched diamonds in multi-stone jewellery. Scope matters more than presentation alone." }
-        },
-        {
-          "@type": "Question",
-          "name": "Should I compare diamond measurements or carat weight?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Compare both. Carat states weight, while measurements help explain face-up size and outline. Neither should be judged without cut and visual appearance." }
-        },
-        {
-          "@type": "Question",
-          "name": "How can I compare diamond sparkle from different websites?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Use actual videos with similar lighting, angle, magnification and speed. When evidence is not equivalent, score image confidence separately instead of assuming that the brighter video shows the better diamond." }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I compare white gold and platinum jewellery?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Compare metal type, fineness, finished weight, colour treatment, dimensions, maintenance, feel and price. Do not treat them as equivalent simply because both appear white." }
-        },
-        {
-          "@type": "Question",
-          "name": "What price should I use for a European cross-border comparison?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Use the total delivered price in one currency on the same date, including VAT, insured delivery, duties, clearance fees, currency conversion and required options." }
-        },
-        {
-          "@type": "Question",
-          "name": "Should a longer warranty make one jewellery product the winner?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Only if its coverage and cross-border use are genuinely better. Compare covered faults, exclusions, inspection requirements, shipping responsibility and available repair service, not the headline duration alone." }
-        },
-        {
-          "@type": "Question",
-          "name": "What should I do when a product page is missing a specification?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Mark it as not stated and ask the retailer for written confirmation. Do not assume the missing value is favourable. Remove the product if the unresolved information is material to the purchase." }
-        }
-      ]
-    }
+    { "@type": "Organization", "@id": "https://www.aureliaroyale.com/#organization", "name": "Aurelia Royale", "url": "https://www.aureliaroyale.com/" },
+    { "@type": "WebSite", "@id": "https://www.aureliaroyale.com/#website", "url": "https://www.aureliaroyale.com/", "name": "Aurelia Royale", "publisher": { "@id": "https://www.aureliaroyale.com/#organization" } },
+    { "@type": "WebPage", "@id": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/#webpage", "url": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/", "name": "How to Compare Lab-Grown Diamond Jewellery Online", "isPartOf": { "@id": "https://www.aureliaroyale.com/#website" }, "breadcrumb": { "@id": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/#breadcrumb" }, "datePublished": "2026-09-10", "dateModified": "2026-09-10" },
+    { "@type": "BlogPosting", "@id": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/#article", "headline": "How to Compare Lab-Grown Diamond Jewellery Online", "description": "Learn how to compare lab-grown diamond jewellery online using centre-stone weight, total carat weight, dimensions, reports, metal, construction and price.", "datePublished": "2026-09-10", "dateModified": "2026-09-10", "author": { "@id": "https://www.aureliaroyale.com/#organization" }, "publisher": { "@id": "https://www.aureliaroyale.com/#organization" }, "mainEntityOfPage": { "@id": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/#webpage" }, "articleSection": "Lab-Grown Diamond Education", "keywords": ["compare lab-grown diamond jewellery", "online diamond jewellery comparison", "centre stone vs total carat weight", "diamond jewellery units comparison"] },
+    { "@type": "BreadcrumbList", "@id": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/#breadcrumb", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" }, { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" }, { "@type": "ListItem", "position": 3, "name": "How to Compare Lab-Grown Diamond Jewellery Online", "item": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/" }] },
+    { "@type": "FAQPage", "@id": "https://www.aureliaroyale.com/blog/compare-lab-grown-diamond-jewellery-online/#faq", "mainEntity": [{ "@type": "Question", "name": "Is total carat weight the same as centre-stone weight?", "acceptedAnswer": { "@type": "Answer", "text": "No. Total carat weight can include multiple diamonds." } }, { "@type": "Question", "name": "Is carat the same as diamond size?", "acceptedAnswer": { "@type": "Answer", "text": "No. Carat measures weight." } }, { "@type": "Question", "name": "What units should I use when comparing diamond jewellery?", "acceptedAnswer": { "@type": "Answer", "text": "Use carats for diamond weight, millimetres for jewellery and gemstone dimensions, grams for finished-item mass, and centimetres for necklace or bracelet length." } }] }
   ]
 };
 
-// 3. Article content sections structured for DynamicArticle
 const articleSections: ArticleSection[] = [
   {
     content: [
-      {
-        type: "image",
-        src: "/images/blog/compare-lab-grown-diamond-jewellery-online/1.jpg",
-        alt: "Comparing lab-grown diamond jewellery from different online retailers",
-        title: "Comparison Standard Guide",
-        caption: "Comparing similar categories and normalising specifications ensures a fair assessment.",
-        priority: true
-      },
-      {
-        type: "paragraph",
-        text: "Comparing lab-grown diamond jewellery online is difficult for a simple reason: product pages do not always describe the same unit."
-      },
-      {
-        type: "paragraph",
-        text: "One pair of earrings may advertise the weight of each centre diamond; another may advertise the total weight of both earrings. One ring may give an exact grade for an independently reported centre stone; another may give a colour and clarity range for every diamond combined. A lower-priced necklace may exclude the chain, use a different metal fineness or be much smaller than its magnified image suggests."
-      },
-      {
-        type: "paragraph",
-        text: "The solution is to normalise before you evaluate. Translate every shortlisted product into the same comparison fields, mark missing information and only then decide whether a price or quality difference is meaningful."
-      }
+      { type: "paragraph", text: "Two pieces of lab-grown diamond jewellery can look similar in photographs while being materially different products." },
+      { type: "paragraph", text: "One ring may contain a larger centre diamond but fewer accent stones. Another may have a lower centre-stone weight but greater total diamond weight. Two necklaces may both contain one carat of diamonds while differing in chain length, pendant dimensions, metal construction and how that carat weight is distributed." },
+      { type: "paragraph", text: "Even the phrase \"certified diamond jewellery\" can describe different situations depending on whether an individual centre diamond has its own report or the complete mounted article has been examined." },
+      { type: "paragraph", text: "That is why a useful online comparison needs to move beyond the product title. Compare each piece using the same units and the same categories, then separate verified facts from visual preference." }
     ]
   },
   {
-    heading: "Quick answer: how do you compare lab-grown diamond jewellery online?",
+    heading: "Quick Answer: How Should You Compare Two Lab-Grown Diamond Jewellery Products?",
     content: [
-      {
-        type: "paragraph",
-        text: "Follow this order:"
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Choose the exact product variant on every website.",
-          "Confirm that every stone group is disclosed as laboratory-grown, natural or another material.",
-          "Separate individual diamond weight from total carat weight.",
-          "Compare measurements as well as carat weight.",
-          "Identify which stones the colour, clarity and cut information covers.",
-          "Record the laboratory, report type, report number and report scope.",
-          "Compare actual or representative images under similar viewing conditions.",
-          "Normalise metal type, fineness, coating and finished metal weight where available.",
-          "Compare setting, chain, clasp, backs and other functional components.",
-          "Compare dimensions, fit, total weight and wearability.",
-          "Calculate the total delivered price in one currency and on one date.",
-          "Add production time, returns, warranty and aftercare to the comparison.",
-          "Score the differences using your own priorities rather than equal weighting.",
-          "Eliminate any listing with unresolved material information."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Do not start with price. Price only becomes comparable after the products do."
-      }
+      { type: "paragraph", text: "First make sure you are comparing genuinely similar products. Then compare: diamond configuration; centre-stone carat weight; total diamond weight; diamond dimensions; finished-jewellery dimensions; diamond grades; report type; metal and fineness; construction; finished-item weight where relevant; size or length; availability; and price basis." },
+      { type: "paragraph", text: "Do not compare unlike numbers. For example: 1.50 ct is a diamond-weight measurement. 9.0 mm is a physical dimension. 4.8 g is finished-jewellery mass. 45 cm is necklace length. Each tells you something different. The aim is not to find the product with the largest number. It is to understand what each product actually contains and which differences matter to you." }
     ]
   },
   {
-    heading: "Step 1: decide whether the products belong in the same comparison",
+    heading: "Start by Comparing Like With Like",
     content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Compare items within identical categories (e.g. stud earrings with stud earrings). If you are still deciding what to buy, begin with " },
-          { text: "the first-time buyer’s guide to lab-grown diamond jewellery", href: "/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/" },
-          { text: " rather than comparing unrelated designs." }
-        ]
-      }
+      { type: "paragraph", text: "The strongest comparisons keep the basic product category similar. Compare: solitaire ring with solitaire ring; stud earrings with stud earrings; pendant necklace with pendant necklace; tennis bracelet with tennis bracelet." },
+      { type: "paragraph", text: "You can certainly compare a ring with a necklace if you are deciding what type of jewellery to buy, but that is a style decision rather than a direct specification comparison. Like-for-like comparison makes technical differences easier to understand." }
     ]
   },
   {
-    heading: "Step 2: lock the exact variant",
+    heading: "Compare the Exact Variation",
     content: [
-      {
-        type: "paragraph",
-        text: "Before recording specs, select exact parameters (metal, size, carat weight options, engraving). Ensure selectors update specs, imagery, and pricing in sync."
-      }
+      { type: "paragraph", text: "A product family may contain several variations. For example: yellow gold; white gold; different ring sizes; different chain lengths; different centre-stone weights; or different diamond quality options." },
+      { type: "paragraph", text: "Make sure the specifications you are reading apply to the exact variation being compared. Do not assume the weight or dimensions shown for one version automatically apply to every other version." }
     ]
   },
   {
-    heading: "Step 3: build one comparison card for every product",
+    heading: "Use Consistent Units",
     content: [
-      {
-        type: "image",
-        src: "/images/blog/compare-lab-grown-diamond-jewellery-online/2.jpg",
-        alt: "Creating a technical comparison table for diamond jewelry",
-        title: "Product Comparison Matrix",
-        caption: "Structuring specifications side-by-side reveals hidden trade-offs and missing values."
-      },
-      {
-        type: "table",
-        headers: ["Field", "Product A", "Product B", "Product C"],
-        rows: [
-          ["Product reference", "", "", ""],
-          ["Selected variant", "", "", ""],
-          ["Stone origin", "", "", ""],
-          ["Centre-stone weight", "", "", ""],
-          ["Accent or additional weight", "", "", ""],
-          ["Total carat weight", "", "", ""],
-          ["Colour/clarity scope", "", "", ""],
-          ["Cut or finish information", "", "", ""],
-          ["Report issuer and type", "", "", ""],
-          ["Metal and fineness", "", "", ""],
-          ["Dimensions and finished weight", "", "", ""],
-          ["Setting and fastening", "", "", ""],
-          ["Production and delivery", "", "", ""],
-          ["Returns and warranty", "", "", ""],
-          ["Total delivered price", "", "", ""]
-        ]
-      }
+      { type: "paragraph", text: "This article should use one consistent system: Diamond weight: carats — ct; Diamond and jewellery dimensions: millimetres — mm; Finished jewellery weight: grams — g; Necklace and bracelet length: centimetres — cm. Where a retailer supplies another unit, convert it before comparing. For example: 18 inches is approximately 45.7 cm." },
+      { type: "paragraph", text: "Consistency prevents accidental comparisons such as treating a 5 g jewellery weight as though it were a 5 ct diamond weight." }
     ]
   },
   {
-    heading: "Step 4: normalise diamond origin and stone count",
+    heading: "Carat and Gram Are Not Interchangeable",
     content: [
-      {
-        type: "paragraph",
-        text: "Determine gemstone identities (natural vs lab-grown) and roles (center vs accent). Record total stone counts to compare design intricacies fairly."
-      }
+      { type: "paragraph", text: "GIA defines one metric carat as exactly 0.20 grams, and carat refers to gemstone weight rather than jewellery size. A complete ring weighing 5 g therefore does not contain a five-carat diamond. Most of that finished mass can come from the metal and other components. Keep gemstone weight and finished-product weight separate throughout the comparison." }
     ]
   },
   {
-    heading: "Step 5: convert carat claims to the same unit",
+    heading: "Step 1: Compare the Diamond Configuration",
     content: [
-      {
-        type: "image",
-        src: "/images/blog/compare-lab-grown-diamond-jewellery-online/3.jpg",
-        alt: "Differentiating individual stone carats from combined pair weights",
-        title: "Carat Unit Normalisation",
-        caption: "Normalising earring weight to per-ear values avoids false price-to-weight comparisons."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Ensure weight descriptions share identical baselines. Read " },
-          { text: "what total carat weight means in diamond jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" },
-          { text: " for full explanation." }
-        ]
-      },
-      {
-        type: "table",
-        headers: ["Listing", "What 1.00 ct means", "Actual centre stone per ear"],
-        rows: [
-          ["Pair A", "1.00 ct total for the pair", "Approximately 0.50 ct each"],
-          ["Pair B", "1.00 ct per earring", "Approximately 1.00 ct each; 2.00 ct total pair"]
-        ]
-      }
+      { type: "paragraph", text: "Before comparing grades, determine how the diamonds are arranged. A product may contain: one centre diamond; one centre stone plus accents; several similarly sized diamonds; a halo; a pavé setting; or dozens of diamonds distributed around a bracelet or necklace." },
+      { type: "paragraph", text: "Two products with identical total diamond weights can therefore look very different. Consider: Product A: one 1.00 ct centre diamond. Product B: ten diamonds totalling 1.00 ct. Both genuinely contain one total carat in this hypothetical example. They do not provide the same visual effect." }
     ]
   },
   {
-    heading: "Step 6: compare measurements, not carat alone",
+    heading: "Step 2: Separate Centre-Stone Weight From Total Diamond Weight",
     content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Weight does not dictate visual size. Compare face-up dimensions and profiles. Refer to " },
-          { text: "carat weight versus visible diamond size", href: "/blog/carat-weight-vs-visible-diamond-size/" },
-          { text: " for measurement comparisons." }
-        ]
-      }
+      { type: "paragraph", text: "This is one of the most important comparison checks. Imagine two fictional rings. Ring A: Centre diamond: 1.20 ct; Accent diamonds: 0.30 ct total; Total diamond weight: 1.50 ct. Ring B: Centre diamond: 1.00 ct; Accent diamonds: 0.70 ct total; Total diamond weight: 1.70 ct." },
+      { type: "paragraph", text: "If you compare only the largest total number, Ring B appears to have more diamond weight. That is true. But Ring A has the larger centre stone. Which difference matters more depends on the design and buyer preference." },
+      { type: "paragraph", parts: [{ text: "For the full combined-weight explanation, read " }, { text: "Total Carat Weight Meaning in Diamond Jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" }, { text: "." }] }
     ]
   },
   {
-    heading: "Step 7: put colour and clarity on the same basis",
+    heading: "Step 3: Compare Individual Diamond Carat Properly",
     content: [
-      {
-        type: "image",
-        src: "/images/blog/compare-lab-grown-diamond-jewellery-online/4.jpg",
-        alt: "Comparing the colour and clarity grades of accent and center stones",
-        title: "Quality Grade Scope Check",
-        caption: "Separating exact laboratory results from broad accent ranges ensures you know what you are buying."
-      },
-      {
-        type: "table",
-        headers: ["Quality field", "Centre/principal diamond", "Additional diamonds"],
-        rows: [
-          ["Colour", "", ""],
-          ["Clarity", "", ""],
-          ["Cut/finish", "", ""],
-          ["Source of grade", "", ""]
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Verify grading scopes before ranking items. Read " },
-          { text: "the 4Cs of lab-grown diamonds", href: "/blog/4cs-of-lab-grown-diamonds/" },
-          { text: " for the grading framework." }
-        ]
-      }
+      { type: "paragraph", text: "If the jewellery contains one significant centre diamond, compare that stone's individual carat weight. But remember: carat measures weight, not physical dimensions. Two equal-carat diamonds can have different visible dimensions because of shape and proportions. That is why centre-stone carat should be read together with millimetre measurements." },
+      { type: "paragraph", parts: [{ text: "For carat itself, read " }, { text: "Lab-Grown Diamond Carat Weight Explained", href: "/blog/lab-grown-diamond-carat-weight-explained/" }, { text: "." }] },
+      { type: "paragraph", parts: [{ text: "For carat versus visible physical size, read " }, { text: "Diamond Carat Weight vs Size", href: "/blog/carat-weight-vs-visible-diamond-size/" }, { text: "." }] }
     ]
   },
   {
-    heading: "Step 8: compare cut and appearance from evidence",
+    heading: "Step 4: Compare Diamond Dimensions",
     content: [
-      {
-        type: "paragraph",
-        text: "Review outline symmetry, brightness patterns, contrast, and bow-tie effects using actual videos rather than generic sample clips."
-      }
+      { type: "paragraph", text: "Suppose two oval centre diamonds both weigh 1.50 ct. One measures: 9.10 × 6.40 mm and another: 8.85 × 6.55 mm. They weigh the same in this fictional example but have different outlines. The first is longer and narrower. The second is shorter and wider. Neither set of dimensions automatically establishes that one diamond is better. It tells you that their physical proportions differ. This can materially change the appearance of the completed jewellery." }
     ]
   },
   {
-    heading: "Step 9: compare reports by scope, not by logo",
+    heading: "Step 5: Compare Finished-Jewellery Dimensions Separately",
     content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Loose diamond reports, mounted reports, and seller cards are not equivalent. Refer to " },
-          { text: "how to compare two certified lab-grown diamonds", href: "/blog/how-to-compare-certified-lab-grown-diamonds/" },
-          { text: " and " },
-          { text: "how to verify an IGI report number", href: "/blog/verify-igi-certificate-number/" },
-          { text: " for verification steps." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Step 10: normalise the precious metal",
-    content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Note metal type, gold fineness, coatings, hallmark status, and weights. For metal-specific guidance, review " },
-          { text: "checking the metal used in diamond jewellery", href: "/blog/check-metal-used-diamond-jewellery/" },
-          { text: "." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Step 11: compare construction and functional components",
-    content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Rings: ", bold: true },
-          { text: "Compare setting height, band widths, gallery designs, and resize limitations." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Earrings: ", bold: true },
-          { text: "Compare posts, closures, drop length articulation, and weight per ear." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Necklaces and pendants: ", bold: true },
-          { text: "Verify if chains are included, length adjustments, clasps, and bails." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Bracelets: ", bold: true },
-          { text: "Check wearable lengths, safety catches, link flexibility, and settings." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Jewellery sets: ", bold: true },
-          { text: "Evaluate specs component-by-component rather than using single averages." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Step 12: compare fit and real-life scale",
-    content: [
-      {
-        type: "paragraph",
-        text: "Draw dimensions on paper, check sizes against existing items, and verify that model references match the chosen scale."
-      }
-    ]
-  },
-  {
-    heading: "Step 13: calculate one total delivered price",
-    content: [
-      {
-        type: "paragraph",
-        text: "Calculate base price, tax, shipping, duties, conversions, and sizing options in one currency on the same date."
-      }
-    ]
-  },
-  {
-    heading: "Step 14: compare production, delivery and availability",
-    content: [
-      {
-        type: "paragraph",
-        text: "Compare stock statuses, production times, dispatch timing, and customs contingencies."
-      }
-    ]
-  },
-  {
-    heading: "Step 15: compare returns, warranty and aftercare",
-    content: [
-      {
-        type: "paragraph",
-        text: "Verify return windows, return shipping insurance responsibilities, resizing, and covered defect terms."
-      }
-    ]
-  },
-  {
-    heading: "Step 16: compare sustainability claims on equal scope",
-    content: [
-      {
-        type: "paragraph",
-        text: "Compare claims side-by-side, distinguishing loose statements from certified facility energy or carbon credits."
-      }
-    ]
-  },
-  {
-    heading: "Step 17: weight the comparison according to use",
-    content: [
-      {
-        type: "paragraph",
-        text: "Weight characteristics based on use: give a score (1–5) for importance, multiply by the product's performance score, and check for essential failures."
-      }
-    ]
-  },
-  {
-    heading: "A worked comparison example",
-    content: [
-      {
-        type: "table",
-        headers: ["Field", "Product A", "Product B", "What the difference means"],
-        rows: [
-          ["Earrings", "Stud pair", "Stud pair", "Comparable category"],
-          ["Diamond weight", "1.00 ct total pair", "1.00 ct each", "B contains twice the principal weight"],
-          ["Quality", "F/VS1 exact for each", "F–G/VS range", "Different precision and scope"],
-          ["Report", "Two individual reports", "Jewellery report", "Different document types"],
-          ["Metal", "18 ct white gold", "14 ct white gold", "Different fineness"],
-          ["Dimensions", "5.1 mm each", "6.4 mm each", "B has greater visual spread"],
-          ["Backs", "Screw backs", "Butterfly backs", "Security and convenience trade-off"],
-          ["Production", "In stock", "Made to order, four weeks", "Timing difference"],
-          ["Return", "Standard item returnable", "Made-to-order restrictions", "Flexibility difference"],
-          ["Delivered price", "€1,200", "€1,650", "Not a like-for-like weight comparison"]
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Comparison red flags",
-    content: [
-      {
-        type: "bullet-list",
-        items: [
-          "Variant configurations changing silently during browsing.",
-          "Stated carat weights without individual/total designations.",
-          "Using center diamond grades to represent the entire piece.",
-          "Mismatched report numbers, shapes, or weights.",
-          "Lack of physical dimensions on close-up imagery.",
-          "Taxes, custom clearance fees, or shipping costs added late at checkout."
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Printable comparison worksheet",
-    content: [
-      {
-        type: "table",
-        headers: ["Comparison field", "Importance 1–5", "Product A", "Product B", "Product C"],
-        rows: [
-          ["Exact variant confirmed", "", "", "", ""],
-          ["Stone origin and count", "", "", "", ""],
-          ["Individual and total weight", "", "", "", ""],
-          ["Measurements and visible scale", "", "", "", ""],
-          ["Colour/clarity scope", "", "", "", ""],
-          ["Cut and visual evidence", "", "", "", ""],
-          ["Report type and verification", "", "", "", ""],
-          ["Metal and fineness", "", "", "", ""],
-          ["Construction and components", "", "", "", ""],
-          ["Fit and comfort", "", "", "", ""],
-          ["Total delivered price", "", "", "", ""],
-          ["Production and delivery", "", "", "", ""],
-          ["Returns and warranty", "", "", "", ""],
-          ["Aftercare practicality", "", "", "", ""],
-          ["Sustainability evidence", "", "", "", ""],
-          ["Unresolved information", "—", "", "", ""]
-        ]
-      }
-    ]
-  },
-  {
-    heading: "How This Guide Differs from Related Buying Guides",
-    content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "What to check before buying evaluates single products. This guide compares multiple shortlist products side-by-side. " },
-          { text: "How to buy certified lab-grown diamond jewellery online", href: "/blog/buy-certified-lab-grown-diamond-jewellery-online/" },
-          { text: " covers merchant transaction, payment, and shipping checks." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Aurelia Royale’s comparison standard",
-    content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Aurelia Royale structures specs cleanly to facilitate comparisons. Buyers can browse " },
-          { text: "Aurelia Royale jewellery", href: "/shop/" },
-          { text: " and use the " },
-          { text: "contact page", href: "/contact/" },
-          { text: " to clarify specifications." }
-        ]
-      }
+      { type: "paragraph", text: "Diamond dimensions and complete jewellery dimensions are different. A 6.5 mm centre diamond inside a halo might form part of a 10 mm-wide finished ring head. A 7 mm diamond inside a pendant may produce a finished pendant measuring 12 mm across once the setting is included. Do not use centre-stone dimensions to estimate complete jewellery scale." },
+      { type: "paragraph", parts: [{ text: "For the dedicated measurement guide, read " }, { text: "How to Check Jewellery Dimensions and Weight Online", href: "/blog/check-jewellery-product-dimensions-weight/" }] }
     ]
   },
   {
     content: [
-      {
-        type: "callout",
-        title: "Final verdict",
-        theme: "gold-border",
-        parts: [
-          {
-            text: "The best way to compare lab-grown diamond jewellery online is to stop comparing product names and start comparing complete product records.\n\n"
-          },
-          {
-            text: "Normalise the variant, diamond weight, measurements, grade scope, report, metal, dimensions and delivered price. Then compare construction, timing, returns and aftercare. Finally, weight those differences according to the way the jewellery will actually be worn."
-          }
-        ]
-      },
+      { type: "image", src: "/images/blog/compare-lab-grown-diamond-jewellery-online/2.jpg", alt: "Compare lab-grown diamond jewellery online colour clarity cut report type metal", title: "Steps 6–12: Comparing Grades, Reports and Metal", caption: "Compare grades within the same reporting framework — a higher total carat does not automatically mean a larger centre stone.", priority: false }
+    ]
+  },
+  {
+    heading: "Step 6: Compare Colour and Clarity",
+    content: [
+      { type: "paragraph", text: "Where individual diamond grades are available, compare them directly only when they refer to comparable stones and reporting systems. For example: F / VS1 and: G / VS2 describe different reported colour and clarity results. But do not immediately conclude that F/VS1 must be the better finished jewellery purchase." },
+      { type: "paragraph", text: "One product could have: a larger centre stone; better proportions; a design you prefer; or a substantially different price. The formal grades answer technical questions. They do not decide the entire jewellery comparison." }
+    ]
+  },
+  {
+    heading: "Step 7: Compare Cut Where Applicable",
+    content: [
+      { type: "paragraph", text: "Cut can have a major influence on the visual performance of a polished diamond. If both products contain significant round brilliant centre stones with applicable cut information, compare that information. For fancy shapes, pay close attention to the actual laboratory framework and visual appearance rather than expecting every shape to use the same conventional overall cut system." },
+      { type: "paragraph", text: "Do not reduce the complete jewellery decision to: higher colour + higher clarity = automatically better. The stone's cutting and proportions matter too." }
+    ]
+  },
+  {
+    heading: "Step 8: Compare Polish and Symmetry",
+    content: [
+      { type: "paragraph", text: "If reports provide polish and symmetry results, compare those fields separately. If both stones have: Excellent polish and: Excellent symmetry, those categories do not meaningfully separate them. Move to where the products actually differ. A useful comparison focuses on differences, not on repeatedly listing every matching specification." }
+    ]
+  },
+  {
+    heading: "Step 9: Compare the Report Type",
+    content: [
+      { type: "paragraph", text: "The word certified is not enough. Determine whether: an individual centre diamond has its own report; the complete mounted jewellery article has a jewellery report; or the retailer is simply providing its own documentation." },
+      { type: "paragraph", text: "IGI provides both loose-diamond reporting and finished-jewellery reporting. For mounted jewellery, IGI states that centre-stone shape, measurements and 4Cs assessments are provided as the mounting permits. Where the setting restricts grading, colour and clarity may be given as ranges and cut may be estimated. So: loose stone report and: mounted jewellery report should not automatically be treated as identical evidence." }
+    ]
+  },
+  {
+    heading: "Step 10: Compare Reports Within Their Actual Scope",
+    content: [
+      { type: "paragraph", text: "Suppose Jewellery A includes an individual IGI report for its centre diamond. Jewellery B includes an IGI finished-jewellery report. Both can provide useful evidence. But they describe different examination situations. The loose centre stone may have been examined independently before setting. The mounted jewellery assessment may be limited by what the setting allows the gemmologist to observe." },
+      { type: "paragraph", parts: [{ text: "For what the different documents mean, use " }, { text: "Diamond Certification vs Jewellery Certification", href: "/blog/diamond-certification-vs-jewellery-certification/" }] },
+      { type: "paragraph", parts: [{ text: "For reading one diamond report, use " }, { text: "How to Read a Lab-Grown Diamond Certificate", href: "/blog/how-to-read-lab-grown-diamond-certificate/" }, { text: "." }] }
+    ]
+  },
+  {
+    heading: "Step 11: Verify a Report When It Applies to an Individual Stone",
+    content: [
+      { type: "paragraph", text: "If an individual reported centre diamond is part of the comparison, verify the report through the issuing laboratory where possible. Then make sure the report appears to correspond with the actual stone being offered. Do not stop at: \"the report number exists.\" Compare available identifiers such as: shape; carat; dimensions; grades; and girdle inscription where relevant." },
+      { type: "paragraph", parts: [{ text: "The detailed process belongs in " }, { text: "How to Verify an IGI Certificate Number", href: "/blog/verify-igi-certificate-number/" }, { text: "." }] }
+    ]
+  },
+  {
+    heading: "Step 12: Do Not Compare Report Numbers as Quality Scores",
+    content: [
+      { type: "paragraph", text: "A report number is an identifier. A larger or newer-looking number does not mean a better diamond. Likewise, the existence of an IGI report is not itself a high-quality grade. Read what the report actually says. IGI's current laboratory-grown diamond reports include description, shape, cutting style, measurements and 4Cs assessment." }
+    ]
+  },
+  {
+    heading: "Step 13: Compare the Metal",
+    content: [
+      { type: "paragraph", text: "The diamond is only part of finished jewellery. Two otherwise similar products can use different metals. For example: 18ct gold; 14ct gold; platinum; sterling silver; or plated constructions. Metal identity and fineness should therefore be compared separately from diamond specifications. For UK buyers, hallmarking provides independent verification of qualifying precious-metal fineness above applicable thresholds." },
+      { type: "paragraph", parts: [{ text: "For the detailed metal framework, use " }, { text: "How to Check the Metal Used in Diamond Jewellery", href: "/blog/check-metal-used-diamond-jewellery/" }] }
+    ]
+  },
+  {
+    heading: "Step 14: Keep Metal Fineness and Construction Separate",
+    content: [
+      { type: "paragraph", text: "Imagine: Product A: 18ct gold. Product B: sterling silver with 18ct gold plating. Both can have a yellow-gold appearance. They are not equivalent material constructions. Likewise: hollow 18ct gold and: 18ct gold-plated base metal describe fundamentally different products. So when comparing metal, ask two questions: What is the underlying metal and fineness? and: How is the item constructed or finished? Do not let colour alone answer either question." }
+    ]
+  },
+  {
+    heading: "Step 15: Compare Hallmark Information Correctly",
+    content: [
+      { type: "paragraph", text: "A UK hallmark is useful evidence about qualifying precious-metal fineness. It is not a diamond certificate. Current UK guidance says a complete hallmark contains three compulsory components: the sponsor or maker mark; the metal and fineness mark; and: the Assay Office mark." },
+      { type: "paragraph", text: "Do not award a product extra \"diamond quality\" because the jewellery is hallmarked. The hallmark and diamond report answer different questions." }
+    ]
+  },
+  {
+    heading: "Step 16: Compare Finished-Jewellery Weight Where Relevant",
+    content: [
+      { type: "paragraph", text: "Finished-item gram weight can help indicate how substantial an article may feel. Suppose two otherwise similar chains have: Product A: 5.4 g; Product B: 3.2 g. That tells you the first product has greater finished mass. It does not automatically establish that Product A has better workmanship." },
+      { type: "paragraph", text: "Differences could arise from: metal choice; chain dimensions; hollow versus non-hollow construction; product size; or design. Treat finished weight as another product characteristic—not a quality score." }
+    ]
+  },
+  {
+    heading: "Step 17: Compare Necklace and Bracelet Length",
+    content: [
+      { type: "paragraph", text: "Length strongly affects wearability. If two necklaces contain similar diamonds but one is: 40 cm and another: 45 cm, they will sit differently. Likewise, two tennis bracelets with equal total diamond weight can present differently if one uses a different total length or number of stones. Keep: length in cm separate from: diamond weight in ct." }
+    ]
+  },
+  {
+    heading: "Step 18: Compare Ring Measurements",
+    content: [
+      { type: "paragraph", text: "For rings, useful differences can include: band width; setting height; head dimensions; and centre-stone dimensions. Two 1.50 ct solitaire rings may look and wear differently because one has: a 1.6 mm band while another has: a 2.4 mm band. Likewise, one may have a higher setting profile. Those measurements belong in the finished-jewellery comparison even when the centre diamonds are very similar." }
+    ]
+  },
+  {
+    heading: "Step 19: Compare Earring Weight Claims Carefully",
+    content: [
+      { type: "paragraph", text: "Earrings create another frequent unit problem. A product may say: 2.00 ct earrings. Does that mean: 2.00 ct per earring? or: 2.00 ct total per pair? Those are very different products. The listing should make the unit explicit. For a matched two-stone pair described as 2.00 ct total, each diamond might be approximately one carat—but only use that conclusion where the actual product data supports it. Do not invent equal distribution across more complex earring designs." }
+    ]
+  },
+  {
+    heading: "Step 20: Compare Product Photography Only After Understanding the Numbers",
+    content: [
+      { type: "paragraph", text: "Photography is useful for style and visual proportion. It is not a substitute for measurements. One retailer may photograph a 7 mm stud very close to the lens. Another may show a 10 mm stud at a greater distance. The smaller product can appear larger on screen. Use photographs to judge design. Use verified dimensions for physical scale." },
+      { type: "paragraph", parts: [{ text: "For remote visual evaluation, read " }, { text: "How to Choose Diamond Jewellery Without Seeing It in Person", href: "/blog/choose-diamond-jewellery-without-seeing-in-person/" }, { text: "." }] }
+    ]
+  },
+  {
+    heading: "Step 21: Compare Exact Item vs Representative Imagery",
+    content: [
+      { type: "paragraph", text: "This is especially important when individual centre stones differ. Product A might show the exact finished item. Product B might use a representative rendering. That does not automatically make Product B worse. But it changes what can be compared visually." },
+      { type: "paragraph", text: "If imagery is representative, rely more heavily on the agreed dimensions, diamond specifications and construction information. Do not assume the exact visual characteristics of a unique centre stone from a generic product image." }
+    ]
+  },
+  {
+    heading: "Step 22: Compare What Is Included",
+    content: [
+      { type: "paragraph", text: "Two jewellery products with similar apparent specifications may come with different documentation or accessories. Possible included items might include an applicable diamond report or retailer documentation. But do not assume that every seller supplies: an appraisal; insurance valuation; gift receipt; warranty card; special packaging; or complimentary resizing." },
+      { type: "paragraph", text: "Compare only what the retailer actually states is included. For Aurelia, no such brand-specific promises should be published unless confirmed by the client." }
+    ]
+  },
+  {
+    heading: "Step 23: Compare Availability",
+    content: [
+      { type: "paragraph", text: "Two visually similar products may have different availability situations. One may already exist. Another may need to be produced. Another may be enquiry-only. This matters because availability affects: which exact item you are seeing; whether the stone has already been selected; and when the product could realistically be supplied." },
+      { type: "paragraph", text: "Do not describe an enquiry-only product as immediate stock unless that status is confirmed." }
+    ]
+  },
+  {
+    heading: "Step 24: Compare Ready-Made and Made-to-Order Carefully",
+    content: [
+      { type: "paragraph", text: "A ready-made item may be the exact completed piece shown. A made-to-order item may be produced after the transaction begins. This does not automatically make one better. But it changes what is fixed at the time of comparison. For a made-to-order piece, clarify: metal; diamond specification; dimensions; size; and which characteristics may legitimately vary." },
+      { type: "paragraph", parts: [{ text: "For the detailed distinction, use " }, { text: "Ready-Made vs Made-to-Order Diamond Jewellery", href: "/blog/ready-made-vs-made-to-order-diamond-jewellery/" }] }
+    ]
+  },
+  {
+    heading: "Step 25: Compare Price Only After Making the Products Comparable",
+    content: [
+      { type: "paragraph", text: "A lower price can look attractive until you discover that the products are not equivalent. For example: Product A may have a 1.50 ct centre stone. Product B may advertise 1.50 ct total spread across several diamonds. Product A may be 18ct gold. Product B may be plated silver. Product A may include an individually reported centre diamond. Product B may use non-individually reported small stones. Without identifying those differences first, comparing price tells you very little." },
+      { type: "paragraph", text: "The correct sequence is: normalise specifications first → compare price second." }
+    ]
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/compare-lab-grown-diamond-jewellery-online/3.jpg", alt: "Lab-grown diamond jewellery comparison worksheet pendant example verified disclosed unconfirmed", title: "Worked Comparison: Two Fictional Lab-Grown Diamond Pendants",
+      caption: "Same total carat does not mean same appearance — the distribution between centre stone and accents matters.", priority: false }
+    ]
+  },
+  {
+    heading: "Worked Comparison: Two Fictional Lab-Grown Diamond Pendants",
+    content: [
+      { type: "paragraph", text: "Consider two hypothetical pendant necklaces. These figures are illustrative only. They are not Aurelia product specifications." },
+      { type: "table", headers: ["Specification", "Pendant A", "Pendant B"], rows: [["Diamond origin", "Lab-grown", "Lab-grown"], ["Centre diamond weight", "0.75 ct", "0.60 ct"], ["Accent diamond weight", "0.15 ct", "0.30 ct"], ["Total diamond weight", "0.90 ct", "0.90 ct"], ["Centre diamond dimensions", "5.8 mm diameter", "5.5 mm diameter"], ["Finished pendant width", "8.0 mm", "9.5 mm"], ["Chain length", "45 cm", "45 cm"], ["Metal", "18ct gold", "18ct gold"], ["Finished jewellery weight", "3.2 g", "3.6 g"], ["Centre report", "Individual report", "Individual report"]] },
+      { type: "paragraph", text: "At first glance, both products contain 0.90 ct total diamond weight. But they are not equivalent. Pendant A puts more of that weight into the centre stone. Pendant B distributes more weight into accent diamonds. Pendant B also has a wider finished pendant. The chain lengths are equal. The metals are equivalent in this fictional example. The finished gram weights differ slightly. There is no universal winner. The answer depends on whether the buyer prefers: a larger centre diamond; or: more surrounding diamond coverage and a wider finished design. That is what a good comparison should reveal." }
+    ]
+  },
+  {
+    heading: "A Second Example: Why Units Matter",
+    content: [
+      { type: "paragraph", text: "Now imagine this poorly structured comparison: Ring A: 1.50 ct; Ring B: 8.5 mm; Ring C: 4.6 g. Which is largest? The question cannot be answered because the figures measure different things. 1.50 ct = diamond weight. 8.5 mm = physical dimension. 4.6 g = finished jewellery mass. The comparison only becomes meaningful after each product is assigned the same categories." }
+    ]
+  },
+  {
+    heading: "The Finished-Jewellery Comparison Worksheet",
+    content: [
+      { type: "paragraph", text: "Use this worksheet for two similar products." },
+      { type: "table", headers: ["Comparison field", "Jewellery A", "Jewellery B"], rows: [["Jewellery type", "", ""], ["Exact item or representative design?", "", ""], ["Diamond origin", "", ""], ["Centre-stone weight (ct)", "", ""], ["Accent diamond weight (ct)", "", ""], ["Total diamond weight (ct)", "", ""], ["Centre-stone dimensions (mm)", "", ""], ["Finished-product dimensions (mm)", "", ""], ["Colour", "", ""], ["Clarity", "", ""], ["Cut / finish information", "", ""], ["Report laboratory", "", ""], ["Report type", "", ""], ["Report verified?", "", ""], ["Underlying metal", "", ""], ["Metal fineness", "", ""], ["Plated?", "", ""], ["Hollow construction?", "", ""], ["Finished jewellery weight (g)", "", ""], ["Necklace/bracelet length (cm)", "", ""], ["Availability", "", ""], ["Ready-made / made-to-order", "", ""], ["Price / quotation", "", ""], ["Important terms", "", ""]] },
+      { type: "paragraph", text: "Do not fill a missing field with an assumption. Mark it: Unconfirmed and decide whether it matters enough to ask about." }
+    ]
+  },
+  {
+    heading: "Verified, Disclosed and Unconfirmed",
+    content: [
+      { type: "paragraph", text: "This framework makes product comparison much cleaner. Verified means suitable evidence supports the specification. Disclosed means the retailer or manufacturer clearly states it. Unconfirmed means you do not yet have enough information." },
+      { type: "paragraph", text: "For example: A centre-stone carat matching an individual laboratory report may be Verified. A stated chain length may be Disclosed through manufacturer data. An unstated setting height remains Unconfirmed. Not every unconfirmed field needs to be resolved. Only investigate details capable of changing your decision." }
+    ]
+  },
+  {
+    heading: "Exact, Minimum, Range and Approximate",
+    content: [
+      { type: "paragraph", text: "The second useful framework concerns precision. Exact: 1.03 ct. Minimum: VS2 or better. Range: F–G. Approximate: 1.50 ct total." },
+      { type: "paragraph", text: "Do not compare a minimum specification as though it were an exact grade. For example: VS or better cannot automatically be entered into the worksheet as: VS1. Likewise: F–G cannot simply become: F. Use the specification as it is actually stated." }
+    ]
+  },
+  {
+    heading: "Omission, Ambiguity and Contradiction",
+    content: [
+      { type: "paragraph", text: "When information is problematic, identify what kind of problem you have. An omission means something is missing. Example: Pendant width not stated. An ambiguity means the wording can be interpreted in more than one way. Example: \"2 carat earrings\" without stating whether that means per pair or per earring. A contradiction means two sources cannot both be correct. Example: Product page says 1.50 ct oval centre diamond while the associated report states 1.02 ct round brilliant." },
+      { type: "paragraph", text: "Contradictions deserve resolution before purchase." }
+    ]
+  },
+  {
+    heading: "What If One Product Has More Total Carat but a Smaller Centre Stone?",
+    content: [
+      { type: "paragraph", text: "That is entirely possible. A halo, pavé design or multi-stone piece can have more total diamond weight even though its centre stone is smaller. Decide whether you care more about: centre-stone presence; overall diamond coverage; or the finished design. Do not treat total weight as a centre-stone specification." }
+    ]
+  },
+  {
+    heading: "What If One Product Has a Higher Colour Grade?",
+    content: [
+      { type: "paragraph", text: "The higher formal grade is a technical difference. Whether that difference is visually meaningful enough to affect your decision is another question. A product with slightly lower colour could still have: a larger centre stone; stronger proportions; a more attractive design; or: a lower price. Compare the finished jewellery, not one grade in isolation." }
+    ]
+  },
+  {
+    heading: "What If Both Products Have the Same Total Carat?",
+    content: [
+      { type: "paragraph", text: "Determine how the weight is distributed. One could contain: one dominant centre stone. Another could contain: several smaller stones. A third could spread the same total weight across dozens of pavé diamonds. Same total carat does not mean same appearance." }
+    ]
+  },
+  {
+    heading: "What If Both Products Have the Same 4Cs?",
+    content: [
+      { type: "paragraph", text: "Compare the rest of the product. Look at: diamond dimensions; proportions; metal; finished-jewellery dimensions; setting design; product weight; availability; and price. Two finished jewellery products can use technically similar diamonds and still be very different objects." }
+    ]
+  },
+  {
+    heading: "What If One Product Has a Certificate and the Other Does Not?",
+    content: [
+      { type: "paragraph", text: "First determine what certificate actually means. A significant individually reported centre diamond may have its own laboratory report. Another product may contain many smaller diamonds where individual reporting is impractical or unnecessary. The existence of a report is useful evidence. It should not automatically make the entire finished product superior. Compare the documentation appropriate to each product." }
+    ]
+  },
+  {
+    heading: "Can You Compare IGI Jewellery Reports With Loose-Diamond Reports?",
+    content: [
+      { type: "paragraph", text: "Yes, but recognise their different scopes. IGI explains that mounted centre stones may be assessed as mounting permits, and colour or clarity can be expressed as ranges where the setting limits examination. Do not interpret a mounted F–G result as though the laboratory had necessarily assigned one exact loose-stone grade." }
+    ]
+  },
+  {
+    heading: "Should You Compare Two Jewellery Items Only by Price per Carat?",
+    content: [
+      { type: "paragraph", text: "Usually not. Price per carat can become misleading for finished jewellery because the retail price also reflects: metal; setting; design; manufacturing; diamond distribution; construction; and seller-specific factors. A 1.50 ct total tennis bracelet and a 1.50 ct solitaire ring are not economically or physically equivalent products. Price-per-carat calculations can obscure more than they reveal when used across different jewellery types." }
+    ]
+  },
+  {
+    heading: "Is the Heavier Jewellery Piece Better?",
+    content: [
+      { type: "paragraph", text: "No. Finished gram weight is only one property. Greater weight may come from: more metal; different metal density; larger dimensions; or different construction. It does not automatically establish superior workmanship." }
+    ]
+  },
+  {
+    heading: "Is 18ct Gold Better Than 14ct Gold?",
+    content: [
+      { type: "paragraph", text: "They have different gold finenesses and material characteristics. Which is preferable depends on the design, wearer, price and intended use. This comparison page should record the metal accurately rather than create one universal metal hierarchy." },
+      { type: "paragraph", parts: [{ text: "For the technical metal guide, read " }, { text: "How to Check the Metal Used in Diamond Jewellery", href: "/blog/check-metal-used-diamond-jewellery/" }] }
+    ]
+  },
+  {
+    heading: "Can You Compare Plated and Non-Plated Jewellery?",
+    content: [
+      { type: "paragraph", text: "Yes, but recognise that they are different material constructions. For example: 18ct gold and: sterling silver with 18ct gold plating are not comparable simply because both appear yellow. The underlying metal needs to be part of the worksheet." }
+    ]
+  },
+  {
+    heading: "How Important Are Product Dimensions?",
+    content: [
+      { type: "paragraph", text: "Very. Dimensions often explain differences that carat does not. One pair of earrings can have the same total diamond weight as another but appear larger because the stone distribution or setting dimensions differ. For finished jewellery, real-world physical measurements are often essential to a meaningful comparison." }
+    ]
+  },
+  {
+    heading: "Compare the Buying Terms Last",
+    content: [
+      { type: "paragraph", text: "Once the products are technically understood, compare the transaction. Look at: price or quotation; availability; whether the item already exists; whether production is required; delivery information; and: returns or cancellation terms." },
+      { type: "paragraph", text: "Do not allow a more generous-looking commercial policy to obscure a fundamentally different product. Likewise, do not choose the technically stronger product without understanding the transaction." },
+      { type: "paragraph", parts: [{ text: "The full purchase journey belongs in " }, { text: "How to Buy Certified Lab-Grown Diamond Jewellery Online", href: "/blog/buy-certified-lab-grown-diamond-jewellery-online/" }, { text: "." }] }
+    ]
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/compare-lab-grown-diamond-jewellery-online/4.jpg", alt: "Final comparison sequence diamond metal dimensions price terms lab-grown jewellery", title: "The Complete Comparison Sequence", caption: "Make the products comparable first — then compare price and terms last.", priority: false }
+    ]
+  },
+  {
+    heading: "Frequently Asked Questions",
+    content: [
       {
         type: "faq",
+        title: "Frequently Asked Questions",
         items: [
-          {
-            question: "What should I compare first in lab-grown diamond jewellery?",
-            answer: "Confirm that the products are the same category and lock each exact variant. Then compare stone origin, individual and total carat weight, measurements, grade scope, report type, metal and dimensions before comparing price."
-          },
-          {
-            question: "Can I compare lab-grown diamond jewellery by price per carat?",
-            answer: "Price per carat can reveal a weight mismatch, but it cannot rank finished jewellery alone. Metal, construction, setting count, components, documentation, taxes and service also contribute to price."
-          },
-          {
-            question: "How do I compare total carat weight between earrings?",
-            answer: "Record the weight per principal diamond, weight per earring and total for the sold pair. Confirm whether the advertised number refers to one earring or both."
-          },
-          {
-            question: "Are two diamonds with the same 4Cs identical?",
-            answer: "No. Similar grading results do not make diamonds visually identical. Measurements, proportions, inclusion pattern, transparency, contrast and light performance can differ."
-          },
-          {
-            question: "Can I compare IGI and GIA laboratory-grown diamond reports directly?",
-            answer: "Compare the information each report actually records, but do not invent a grade conversion. Laboratories may use different services, formats and terminology, particularly for laboratory-grown diamonds."
-          },
-          {
-            question: "Is an exact grade always better than a colour and clarity range?",
-            answer: "An exact independent grade provides greater precision for an individual diamond. A properly defined range can still be appropriate for small matched diamonds in multi-stone jewellery. Scope matters more than presentation alone."
-          },
-          {
-            question: "Should I compare diamond measurements or carat weight?",
-            answer: "Compare both. Carat states weight, while measurements help explain face-up size and outline. Neither should be judged without cut and visual appearance."
-          },
-          {
-            question: "How can I compare diamond sparkle from different websites?",
-            answer: "Use actual videos with similar lighting, angle, magnification and speed. When evidence is not equivalent, score image confidence separately instead of assuming that the brighter video shows the better diamond."
-          },
-          {
-            question: "How do I compare white gold and platinum jewellery?",
-            answer: "Compare metal type, fineness, finished weight, colour treatment, dimensions, maintenance, feel and price. Do not treat them as equivalent simply because both appear white."
-          },
-          {
-            question: "What price should I use for a European cross-border comparison?",
-            answer: "Use the total delivered price in one currency on the same date, including VAT, insured delivery, duties, clearance fees, currency conversion and required options."
-          },
-          {
-            question: "Should a longer warranty make one jewellery product the winner?",
-            answer: "Only if its coverage and cross-border use are genuinely better. Compare covered faults, exclusions, inspection requirements, shipping responsibility and available repair service, not the headline duration alone."
-          },
-          {
-            question: "What should I do when a product page is missing a specification?",
-            answer: "Mark it as not stated and ask the retailer for written confirmation. Do not assume the missing value is favourable. Remove the product if the unresolved information is material to the purchase."
-          }
+          { question: "How do I compare lab-grown diamond jewellery online?", answer: "Compare like-for-like products using diamond configuration, centre and total carat weight, dimensions, grades, reporting, metal, construction, finished weight, length and price." },
+          { question: "Is total carat weight the same as centre-stone weight?", answer: "No. Total carat weight can include multiple diamonds." },
+          { question: "Is carat the same as diamond size?", answer: "No. Carat measures weight." },
+          { question: "How much does one diamond carat weigh?", answer: "One metric carat equals 0.20 grams." },
+          { question: "Is finished-jewellery gram weight the same as diamond carat?", answer: "No. They measure different things." },
+          { question: "Can two one-carat diamonds have different dimensions?", answer: "Yes. Shape and proportions can produce different physical measurements at the same weight." },
+          { question: "Should I compare diamond dimensions?", answer: "Yes, especially for significant centre stones." },
+          { question: "Should I compare finished jewellery dimensions too?", answer: "Yes. The setting can make the complete product much larger than the diamond itself." },
+          { question: "Is a higher total carat always better?", answer: "No. It may simply distribute more weight across multiple smaller stones." },
+          { question: "Are two pieces with the same TCW equivalent?", answer: "No. The weight can be distributed differently." },
+          { question: "Should I compare colour?", answer: "Yes when comparable grades are available, but do not make the complete decision from colour alone." },
+          { question: "Should I compare clarity?", answer: "Yes, but consider whether the difference matters visually and commercially." },
+          { question: "Should I compare cut?", answer: "Yes, particularly for significant centre diamonds where suitable cut information is available." },
+          { question: "Does certification make one jewellery product better?", answer: "Not automatically. Determine which report exists and what it actually covers." },
+          { question: "Can IGI grade mounted jewellery?", answer: "Yes. IGI offers jewellery reports and assesses centre stones as the mounting permits." },
+          { question: "Is mounted grading identical to loose-diamond grading?", answer: "Not necessarily. A setting can limit assessment, leading to ranges or estimates." },
+          { question: "Should I verify an individual diamond report?", answer: "For a significant individually reported stone, verification is useful." },
+          { question: "Does a hallmark verify the diamond?", answer: "No. It relates to precious-metal fineness." },
+          { question: "Should I compare metal type?", answer: "Yes." },
+          { question: "Is plated silver the same as solid gold?", answer: "No." },
+          { question: "Does heavier jewellery mean higher quality?", answer: "No." },
+          { question: "Should necklace length be compared in carats?", answer: "No. Use a linear unit such as centimetres." },
+          { question: "What units should I use?", answer: "Use carats for diamond weight, millimetres for jewellery and gemstone dimensions, grams for finished-item mass, and centimetres for necklace or bracelet length." },
+          { question: "What if a specification is missing?", answer: "Mark it unconfirmed rather than inventing a value." },
+          { question: "What if two sources contradict each other?", answer: "Resolve the discrepancy before proceeding." },
+          { question: "Can product photography replace dimensions?", answer: "No." },
+          { question: "What is the best way to compare value?", answer: "First make the products genuinely comparable. Then decide which differences matter enough to justify the price difference." }
         ]
-      },
-      {
-        type: "cta-banner",
-        title: "Compare with Precision",
-        subtitle: "Aurelia Royale provides structured specifications, independent certification details, and clean metal disclosures on every product page to help you compare with confidence.",
-        shopHref: "/shop/",
-        contactHref: "/contact/"
       }
+    ]
+  },
+  {
+    heading: "Final Answer: How Should You Compare Lab-Grown Diamond Jewellery Online?",
+    content: [
+      { type: "paragraph", text: "Start by comparing products, not headlines. Make sure the jewellery type and variation are genuinely comparable. Then separate: centre-stone carat; accent diamond weight; total diamond weight; diamond dimensions; finished-jewellery dimensions; and: finished-product gram weight. Never use those figures as though they measure the same thing." },
+      { type: "paragraph", text: "After that, compare the diamond quality information. Look at colour, clarity, cut, polish and symmetry where they apply. Check which laboratory report exists and whether it covers an individual loose diamond or mounted jewellery. Then compare the metal. Identify the underlying precious metal, fineness and any plating or hollow construction rather than judging from colour alone." },
+      { type: "paragraph", text: "Next compare the complete physical product: ring dimensions; earring diameter; pendant dimensions; chain or bracelet length; finished weight; and setting design. Only once those differences are clear should you compare price and commercial terms." },
+      { type: "paragraph", text: "The strongest sequence is: make the products comparable → normalise the units → compare diamonds → compare metal → compare finished jewellery → compare price and terms." },
+      { type: "paragraph", parts: [{ text: "For comparing two individual reported stones rather than complete jewellery pieces, use " }, { text: "How to Compare Two Certified Lab-Grown Diamonds", href: "/blog/how-to-compare-certified-lab-grown-diamonds/" }] },
+      { type: "paragraph", parts: [{ text: "For diamond carat itself, read " }, { text: "Lab-Grown Diamond Carat Weight Explained", href: "/blog/lab-grown-diamond-carat-weight-explained/" }, { text: "." }] },
+      { type: "paragraph", parts: [{ text: "For carat versus millimetre size, use " }, { text: "Diamond Carat Weight vs Size", href: "/blog/carat-weight-vs-visible-diamond-size/" }, { text: "." }] },
+      { type: "paragraph", parts: [{ text: "For combined stone weight, read " }, { text: "Total Carat Weight Meaning in Diamond Jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" }, { text: "." }] },
+      { type: "paragraph", parts: [{ text: "For metal identity, fineness, plating and construction, read " }, { text: "How to Check the Metal Used in Diamond Jewellery", href: "/blog/check-metal-used-diamond-jewellery/" }, { text: "." }] },
+      { type: "paragraph", parts: [{ text: "For physical jewellery dimensions, use " }, { text: "How to Check Jewellery Dimensions and Weight Online", href: "/blog/check-jewellery-product-dimensions-weight/" }] },
+      { type: "paragraph", parts: [{ text: "For remote visual assessment, continue with " }, { text: "How to Choose Diamond Jewellery Without Seeing It in Person", href: "/blog/choose-diamond-jewellery-without-seeing-in-person/" }, { text: "." }] },
+      { type: "paragraph", text: "When comparing Aurelia Royale designs, use only the specifications verified for the specific products and variations being compared." },
+      { type: "paragraph", parts: [{ text: "Where a design is not currently available through an approved direct-purchase process, " }, { text: "Join the Waitlist", href: "/contact/" }, { text: " or submit an enquiry to register your interest." }] },
+      { type: "cta-banner", title: "Explore Aurelia Royale Lab-Grown Diamond Jewellery", subtitle: "Normalise the units, separate the categories, then compare — the only way to make a fair comparison.", shopHref: "/shop/", contactHref: "/contact/" }
     ]
   }
 ];
 
-export default function Page() {
+export default function BlogCompareJewelleryPage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
-      {/* Script injection for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* Hero Header */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }} />
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Buying Lab-Grown Diamond Jewellery
-          </span>
-          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How to Compare Lab-Grown Diamond Jewellery Online
-          </h1>
-          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
-          </p>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">Lab-Grown Diamond Education</span>
+          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">How to Compare Lab-Grown Diamond Jewellery Online</h1>
+          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">Units, Worksheets and Step-by-Step Comparison • Published September 10, 2026</p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
-      {/* Related articles — crawlable plain links */}
       <RelatedArticles currentSlug="compare-lab-grown-diamond-jewellery-online" />
       <NewsletterSection />
     </main>
   );
 }
+

@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
 import { SITE_URL } from "@/config/site";
 
-// ---------------------------------------------------------------------------
-// Blog section layout — Server Component
-// ---------------------------------------------------------------------------
-
-
 export const metadata: Metadata = {
   title: "Lab-Grown Diamond Jewellery Guides | Aurelia Royale",
   description:
@@ -13,10 +8,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE_URL}/blog/`,
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
   openGraph: {
     title: "Lab-Grown Diamond Jewellery Guides | Aurelia Royale",
     description:

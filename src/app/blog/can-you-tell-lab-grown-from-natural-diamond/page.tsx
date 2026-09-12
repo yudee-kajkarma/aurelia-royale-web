@@ -1,574 +1,452 @@
 ﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 import RelatedArticles from "@/components/shared/RelatedArticles";
 
-// 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
-  title: "Can You Tell a Lab-Grown Diamond from a Natural One?",
-  description: "Learn whether you can identify lab-grown and natural diamonds by sight, tester, laser inscription, certificate or professional laboratory testing.",
+  title: "Can You Tell Lab-Grown vs Natural Diamonds Apart?",
+  description: "Can you tell a lab-grown diamond from a natural one? Compare visual inspection, diamond testers, laser inscriptions and professional laboratory testing.",
   alternates: {
     canonical: "https://www.aureliaroyale.com/blog/can-you-tell-lab-grown-from-natural-diamond/",
   },
 };
 
-// 2. The exact JSON-LD Schema
 const schemaMarkup = {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://www.aureliaroyale.com/#organization",
-      "name": "Aurelia Royale",
-      "url": "https://www.aureliaroyale.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.aureliaroyale.com/images/aurelia-royale-logo.png"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.aureliaroyale.com/#website",
-      "url": "https://www.aureliaroyale.com/",
-      "name": "Aurelia Royale",
-      "publisher": {
-        "@id": "https://www.aureliaroyale.com/#organization"
-      },
-      "inLanguage": "en-GB"
-    },
+    { "@type": "Organization", "@id": "https://www.aureliaroyale.com/#organization", "name": "Aurelia Royale", "url": "https://www.aureliaroyale.com/" },
+    { "@type": "WebSite", "@id": "https://www.aureliaroyale.com/#website", "url": "https://www.aureliaroyale.com/", "name": "Aurelia Royale", "publisher": { "@id": "https://www.aureliaroyale.com/#organization" } },
     {
       "@type": "WebPage",
       "@id": "https://www.aureliaroyale.com/blog/can-you-tell-lab-grown-from-natural-diamond/#webpage",
       "url": "https://www.aureliaroyale.com/blog/can-you-tell-lab-grown-from-natural-diamond/",
       "name": "Can You Tell a Lab-Grown Diamond from a Natural Diamond?",
-      "isPartOf": {
-        "@id": "https://www.aureliaroyale.com/#website"
-      },
-      "breadcrumb": {
-        "@id": "https://www.aureliaroyale.com/blog/can-you-tell-lab-grown-from-natural-diamond/#breadcrumb"
-      },
-      "primaryImageOfPage": {
-        "@id": "https://www.aureliaroyale.com/blog/can-you-tell-lab-grown-from-natural-diamond/#primaryimage"
-      },
-      "datePublished": "2026-07-15",
-      "dateModified": "2026-07-15",
-      "inLanguage": "en-GB"
-    },
-    {
-      "@type": "ImageObject",
-      "@id": "https://www.aureliaroyale.com/blog/can-you-tell-lab-grown-from-natural-diamond/#primaryimage",
-      "url": "https://www.aureliaroyale.com/images/blog/tell-lab-grown-from-natural-diamond.webp",
-      "contentUrl": "https://www.aureliaroyale.com/images/blog/tell-lab-grown-from-natural-diamond.webp",
-      "width": 1600,
-      "height": 900,
-      "caption": "Lab-grown and natural diamonds that appear identical without testing"
+      "isPartOf": { "@id": "https://www.aureliaroyale.com/#website" },
+      "breadcrumb": { "@id": "https://www.aureliaroyale.com/blog/can-you-tell-lab-grown-from-natural-diamond/#breadcrumb" },
+      "datePublished": "2026-07-15", "dateModified": "2026-09-10"
     },
     {
       "@type": "BlogPosting",
       "@id": "https://www.aureliaroyale.com/blog/can-you-tell-lab-grown-from-natural-diamond/#article",
-      "mainEntityOfPage": {
-        "@id": "https://www.aureliaroyale.com/blog/can-you-tell-lab-grown-from-natural-diamond/#webpage"
-      },
       "headline": "Can You Tell a Lab-Grown Diamond from a Natural Diamond?",
-      "description": "Learn whether you can identify lab-grown and natural diamonds by sight, tester, laser inscription, certificate or professional laboratory testing.",
-      "image": {
-        "@id": "https://www.aureliaroyale.com/blog/can-you-tell-lab-grown-from-natural-diamond/#primaryimage"
-      },
-      "datePublished": "2026-07-15",
-      "dateModified": "2026-07-15",
-      "author": {
-        "@id": "https://www.aureliaroyale.com/#organization"
-      },
-      "publisher": {
-        "@id": "https://www.aureliaroyale.com/#organization"
-      },
+      "description": "Can you tell a lab-grown diamond from a natural one? Compare visual inspection, diamond testers, laser inscriptions and professional laboratory testing.",
+      "datePublished": "2026-07-15", "dateModified": "2026-09-10",
+      "author": { "@id": "https://www.aureliaroyale.com/#organization" },
+      "publisher": { "@id": "https://www.aureliaroyale.com/#organization" },
+      "mainEntityOfPage": { "@id": "https://www.aureliaroyale.com/blog/can-you-tell-lab-grown-from-natural-diamond/#webpage" },
       "articleSection": "Lab-Grown Diamond Education",
-      "keywords": [
-        "can you tell a lab-grown diamond from a natural diamond",
-        "how to identify a lab-grown diamond",
-        "can a diamond tester detect lab-grown diamonds",
-        "lab-grown diamond laser inscription",
-        "can a jeweller tell if a diamond is lab-grown",
-        "verify lab-grown diamond certificate"
-      ],
-      "inLanguage": "en-GB"
+      "keywords": ["can you tell lab-grown from natural diamond", "how to identify lab-grown diamond", "diamond tester lab-grown", "lab-grown diamond inscription"]
     },
     {
       "@type": "BreadcrumbList",
       "@id": "https://www.aureliaroyale.com/blog/can-you-tell-lab-grown-from-natural-diamond/#breadcrumb",
       "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.aureliaroyale.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Blog",
-          "item": "https://www.aureliaroyale.com/blog/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Can You Tell a Lab-Grown Diamond from a Natural Diamond?",
-          "item": "https://www.aureliaroyale.com/blog/can-you-tell-lab-grown-from-natural-diamond/"
-        }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Can You Tell a Lab-Grown Diamond from a Natural Diamond?", "item": "https://www.aureliaroyale.com/blog/can-you-tell-lab-grown-from-natural-diamond/" }
       ]
     },
     {
       "@type": "FAQPage",
       "@id": "https://www.aureliaroyale.com/blog/can-you-tell-lab-grown-from-natural-diamond/#faq",
       "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Can you tell a lab-grown diamond by looking at it?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Natural and laboratory-grown diamonds can appear the same to the unaided eye."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can a jeweller tell if a diamond is lab-grown?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A jeweller may verify an inscription or use screening equipment, but sight alone is not always conclusive. Laboratory testing may be required."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can a diamond tester detect a lab-grown diamond?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A basic thermal tester usually cannot distinguish natural from laboratory-grown diamonds because both are diamond materials."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can a loupe identify a lab-grown diamond?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A loupe may reveal an inscription or useful clues, but it cannot always establish origin conclusively."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do lab-grown diamonds have serial numbers?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Many independently assessed laboratory-grown diamonds have laser-inscribed report numbers. The exact format depends on the issuing laboratory."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can a laser inscription be removed?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A girdle inscription may be removed or altered through repolishing. It should therefore be checked alongside the official report."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can UV light identify a lab-grown diamond?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "UV reactions can provide clues, but ordinary fluorescence observation is not conclusive."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can mounted lab-grown diamonds be tested?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Many can be screened or identified while mounted, although the setting may limit access and measurement."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What if a diamond has no certificate?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The absence of a report does not prove origin. Request professional screening or independent laboratory testing if confirmation is important."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the most reliable way to identify diamond origin?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Advanced examination by a recognised gemmological laboratory is the most reliable method."
-          }
-        }
+        { "@type": "Question", "name": "Can you tell a lab-grown diamond from a natural diamond by looking at it?", "acceptedAnswer": { "@type": "Answer", "text": "Not reliably. Polished laboratory-grown and natural diamonds can look extremely similar. Origin determination generally requires documentation, specialist screening or laboratory testing." } },
+        { "@type": "Question", "name": "Will a normal diamond tester identify a lab-grown diamond?", "acceptedAnswer": { "@type": "Answer", "text": "A conventional tester may identify both natural and laboratory-grown diamonds as diamond. That does not establish origin." } },
+        { "@type": "Question", "name": "Are lab-grown diamonds laser inscribed?", "acceptedAnswer": { "@type": "Answer", "text": "Many documented laboratory-grown diamonds are. Current GIA laboratory-grown services include an origin inscription and assessment or report number. But not every lab-grown diamond should be assumed to carry an inscription." } },
+        { "@type": "Question", "name": "What does 'refer' mean on a diamond screening machine?", "acceptedAnswer": { "@type": "Answer", "text": "It means the stone did not meet the instrument's criteria for a natural-diamond pass and requires further testing. It does not automatically confirm laboratory-grown origin." } },
+        { "@type": "Question", "name": "Can you use the fog test to identify a lab-grown diamond?", "acceptedAnswer": { "@type": "Answer", "text": "No. It is not a reliable natural-versus-lab identification method." } }
       ]
     }
   ]
 };
 
-// 3. The Article Content Sections
 const articleSections: ArticleSection[] = [
   {
-    "content": [
+    content: [
       {
-        "type": "image",
-        "src": "/images/blog/can-you-tell-lab-grown-from-natural-diamond/8 (1).jpg",
-        "alt": "Lab-grown and natural diamonds that appear identical without testing",
-        "title": "Can You Tell a Lab Diamond from Natural?",
-        "caption": "Natural and laboratory-grown diamonds share identical visual qualities, making visual detection impossible.",
-        "priority": true
+        type: "image",
+        src: "/images/blog/can-you-tell-lab-grown-from-natural-diamond/8 (1).jpg",
+        alt: "Polished lab-grown and natural diamonds that look identical to the naked eye",
+        title: "Can You Tell a Lab-Grown Diamond from a Natural Diamond?",
+        caption: "Lab-grown and natural diamonds can look virtually identical — origin determination requires specialist testing, not visual inspection.",
+        priority: true,
       },
+      { type: "paragraph", text: "In most cases, you cannot reliably tell a polished lab-grown diamond from a natural diamond simply by looking at it." },
+      { type: "paragraph", text: "Laboratory-grown and natural diamonds share essentially the same core chemical, physical and optical properties. Once both have been cut and polished, they can look extremely similar to the unaided eye." },
+      { type: "paragraph", text: "That does not mean their origins are impossible to distinguish." },
+      { type: "paragraph", text: "Professional gemmological laboratories can separate natural from laboratory-grown diamonds because the two grow under different conditions, leaving detectable differences in crystal structure, inclusions, trace defects, fluorescence, phosphorescence and spectroscopic behaviour." },
+      { type: "paragraph", text: "The important distinction is between looking, screening and definitive identification." },
+      { type: "paragraph", text: "A basic diamond tester may tell you that a gemstone behaves like diamond but not whether it formed naturally or in a laboratory." },
+      { type: "paragraph", text: "A laser inscription may link a stone to a laboratory report, but not every diamond necessarily has one." },
+      { type: "paragraph", text: "A professional screening instrument can sometimes positively identify a natural diamond or flag a stone for further testing." },
+      { type: "paragraph", text: "And advanced laboratory analysis can provide the strongest determination of origin." }
+    ]
+  },
+  {
+    heading: "Quick Answer: How Can You Tell Lab-Grown and Natural Diamonds Apart?",
+    content: [
+      { type: "paragraph", text: "For an ordinary buyer, appearance alone is not a reliable method." },
       {
-        "type": "paragraph",
-        "text": "You normally cannot tell a lab-grown diamond from a natural diamond simply by looking at it."
-      },
-      {
-        "type": "paragraph",
-        "text": "Both are diamond materials and can share closely comparable chemical, physical and optical properties. A well-cut laboratory-grown diamond can display the same type of brilliance, fire and transparency as a comparable natural diamond."
-      },
-      {
-        "type": "paragraph",
-        "text": "A basic diamond tester will not normally determine origin either. It may confirm that a stone behaves like diamond, but both natural and laboratory-grown diamonds are diamonds."
-      },
-      {
-        "type": "callout",
-        "title": "Quick Answer",
-        "parts": [
-          {
-            "text": "You cannot reliably distinguish a lab-grown diamond from a natural diamond with the naked eye, an ordinary loupe or a basic thermal diamond tester.\n\n"
-          },
-          {
-            "text": "Professional laboratories identify origin by examining growth structures, atomic-level defects, spectroscopy and fluorescence or phosphorescence patterns.\n\n"
-          },
-          {
-            "text": "For consumers, the safest verification process is:\n"
-          },
-          {
-            "text": "• Check the grading report and verify its number online.\n"
-          },
-          {
-            "text": "• Match the report to the diamond's physical measurements.\n"
-          },
-          {
-            "text": "• Check the laser inscription under magnification where available."
-          }
+        type: "table",
+        headers: ["Method", "What it can tell you", "Main limitation"],
+        rows: [
+          ["Naked eye", "General appearance", "Cannot reliably establish origin"],
+          ["10× loupe/microscope", "May reveal inscription or suggestive inclusions", "Visual clues are not conclusive for every diamond"],
+          ["Basic diamond tester", "Helps establish whether material behaves like diamond", "Usually cannot distinguish natural from lab-grown"],
+          ["Laser inscription", "Can link a stone to a report/origin statement", "Not every stone has one; inscription must be checked"],
+          ["Professional screening device", "Can identify many natural stones or refer suspicious stones", "A 'refer' result may require further analysis"],
+          ["Gemmological laboratory", "Uses multiple advanced techniques to establish origin", "Requires specialist instrumentation and examination"]
         ]
       },
       {
-        "type": "table",
-        "headers": [
-          "Method",
-          "Can it identify origin reliably?",
-          "Important limitation"
-        ],
-        "rows": [
-          [
-            "Naked-eye inspection",
-            "No",
-            "Both can look alike"
-          ],
-          [
-            "Jewellery photographs",
-            "No",
-            "Lighting and editing affect appearance"
-          ],
-          [
-            "10× loupe",
-            "Not conclusively",
-            "May reveal an inscription or clues, but not every stone has them"
-          ],
-          [
-            "Basic thermal diamond tester",
-            "No",
-            "Both conduct heat like diamond"
-          ],
-          [
-            "UV lamp",
-            "Not conclusively",
-            "Fluorescence may provide clues but overlaps occur"
-          ],
-          [
-            "Fog / Water / Scratch tests",
-            "No",
-            "Uncontrolled, unreliable or potentially destructive"
-          ],
-          [
-            "Laser inscription",
-            "Useful verification clue",
-            "Can be hidden, polished away or fraudulently copied"
-          ],
-          [
-            "Grading report",
-            "Reliable when authentic",
-            "The report must be verified and matched to the stone"
-          ],
-          [
-            "Professional screening device",
-            "Often highly effective",
-            "Some results may require referral for further testing"
-          ],
-          [
-            "Gemmological laboratory",
-            "Yes",
-            "Uses several advanced analytical spectroscopic methods"
-          ]
+        type: "callout",
+        title: "The safest principle is simple:",
+        text: "Do not rely on one visual clue or one basic tester to establish diamond origin."
+      }
+    ]
+  },
+  {
+    heading: "Can You Tell by Looking at the Diamond?",
+    content: [
+      { type: "paragraph", text: "Usually not." },
+      { type: "paragraph", text: "A well-cut laboratory-grown diamond can show the same kinds of brightness, fire and scintillation that people associate with a natural diamond." },
+      { type: "paragraph", text: "Natural and laboratory-grown diamonds can also occur across different colour and clarity ranges." },
+      { type: "paragraph", text: "There is therefore no dependable visual rule such as: \"Lab diamonds look too perfect.\" \"Natural diamonds sparkle more.\" \"Lab diamonds have a blue tint.\" or \"Lab diamonds look glassy.\"" },
+      { type: "paragraph", text: "Those statements are not reliable identification methods." },
+      { type: "paragraph", text: "An unattractive diamond can be natural or laboratory-grown. An exceptionally attractive diamond can also be either." },
+      { type: "paragraph", text: "Appearance tells you about the individual gemstone. It does not reliably establish how the crystal formed." },
+      {
+        type: "paragraph",
+        parts: [
+          { text: "For the broader authenticity question, see " },
+          { text: "Are Lab-Grown Diamonds Real?", href: "/blog/are-lab-grown-diamonds-real/" }
         ]
       }
     ]
   },
   {
-    "heading": "Why Do They Look Alike?",
-    "content": [
+    heading: "Why Can Experts Tell Them Apart If They Look So Similar?",
+    content: [
+      { type: "paragraph", text: "Natural and laboratory-grown diamonds form in different environments." },
+      { type: "paragraph", text: "Natural diamonds crystallise through geological processes within the Earth." },
+      { type: "paragraph", text: "Laboratory-grown diamonds are produced using technological processes, primarily High Pressure High Temperature (HPHT) or Chemical Vapour Deposition (CVD)." },
+      { type: "paragraph", text: "Those different growth environments can leave different microscopic and atomic-level evidence." },
+      { type: "paragraph", text: "Gemmologists may examine characteristics such as crystal-growth structure, inclusions, colour zoning, graining, fluorescence and phosphorescence." },
+      { type: "paragraph", text: "Laboratories can also analyse how the diamond absorbs or emits different wavelengths of light." },
+      { type: "paragraph", text: "No single feature should automatically be used to identify every diamond." },
+      { type: "paragraph", text: "Modern lab-grown diamond production is sophisticated, and exceptions exist. Professional identification therefore commonly relies on multiple observations and analytical techniques working together." },
       {
-        "type": "paragraph",
-        "text": "Natural and laboratory-grown diamonds share the defining crystal structure of diamond. Both can be transparent, faceted into the same shapes, graded for quality, and set in the same precious metals."
-      },
-      {
-        "type": "paragraph",
-        "text": "Their main difference is how and where the crystal formed. Natural diamonds developed through geological processes inside the Earth over billions of years, while laboratory-grown diamonds are produced through CVD or HPHT technology in a matter of weeks."
-      },
-      {
-        "type": "paragraph",
-        "text": "These different growth histories leave scientific clues at the atomic level, but sight alone is insufficient. Sparkle is also not an origin test; a well-cut laboratory-grown diamond can sparkle more attractively than a poorly cut natural diamond, and vice versa."
+        type: "image",
+        src: "/images/blog/can-you-tell-lab-grown-from-natural-diamond/8 (2).jpg",
+        alt: "Professional gemmological testing equipment for diamond origin identification",
+        title: "How Experts Identify Diamond Origin",
+        caption: "Professional laboratories use spectroscopy, luminescence imaging and growth-pattern analysis — not visual inspection alone."
       }
     ]
   },
   {
-    "heading": "Can a Jeweller or a 10× Loupe Tell?",
-    "content": [
+    heading: "Can a Jeweller Tell a Lab-Grown Diamond from a Natural Diamond?",
+    content: [
+      { type: "paragraph", text: "Sometimes — but it depends entirely on what equipment and evidence the jeweller has available." },
+      { type: "paragraph", text: "A jeweller looking at a polished stone with the unaided eye cannot simply declare its origin with certainty." },
+      { type: "paragraph", text: "A trained gemmologist using magnification may identify features suggesting HPHT or CVD growth. They may also find a laser inscription linking the diamond to a laboratory report." },
+      { type: "paragraph", text: "A jeweller with specialist screening equipment can go considerably further." },
+      { type: "paragraph", text: "However, if a stone produces an inconclusive screening result, advanced testing may still be necessary." },
+      { type: "paragraph", text: "A more accurate statement is: a properly equipped professional may be able to screen or identify diamond origin, while difficult or uncertain cases may require a gemmological laboratory." }
+    ]
+  },
+  {
+    heading: "Can You Tell with a 10× Loupe?",
+    content: [
+      { type: "paragraph", text: "A loupe can be useful, but it is not a universal lab-grown detector." },
+      { type: "paragraph", text: "At 10× magnification, you may be able to see a laser inscription on the girdle if one is present and accessible." },
+      { type: "paragraph", text: "A skilled observer may also notice particular inclusions or growth features." },
+      { type: "paragraph", text: "For example, some HPHT-grown diamonds can contain metallic flux inclusions. Some CVD-grown diamonds can contain dark pinpoint or graphitic characteristics and growth-related features." },
+      { type: "paragraph", text: "But these are clues — not universal rules." },
+      { type: "paragraph", text: "A loupe can therefore contribute evidence, but it should not be treated as a guaranteed natural-versus-lab test." }
+    ]
+  },
+  {
+    heading: "Will a Regular Diamond Tester Detect a Lab-Grown Diamond?",
+    content: [
+      { type: "paragraph", text: "A standard handheld diamond tester generally does not tell you whether a diamond is natural or laboratory-grown." },
+      { type: "paragraph", text: "Many conventional testers are designed primarily to distinguish diamond from common simulants by measuring a physical property such as thermal conductivity." },
+      { type: "paragraph", text: "Both natural and laboratory-grown diamonds possess diamond's characteristic properties." },
+      { type: "paragraph", text: "A lab-grown diamond can therefore produce a positive \"diamond\" reading." },
+      { type: "paragraph", text: "That result means something like: \"This material behaves as diamond under the property being measured.\"" },
+      { type: "paragraph", text: "It does not mean: \"This diamond definitely formed naturally.\"" },
+      { type: "paragraph", text: "Professional natural-versus-laboratory screening uses substantially more sophisticated technology." }
+    ]
+  },
+  {
+    heading: "Do Lab-Grown Diamonds Pass Diamond Testers?",
+    content: [
+      { type: "paragraph", text: "Many do." },
+      { type: "paragraph", text: "That should not be surprising because laboratory-grown diamonds are diamond material." },
+      { type: "paragraph", text: "A conventional tester detecting diamond properties is not being \"fooled\" when it responds positively to a lab-grown stone." },
+      { type: "paragraph", text: "It is simply answering a different question." },
       {
-        "type": "paragraph",
-        "text": "A jeweller may be able to verify an inscription or inspect documentation, but even an experienced jeweller cannot always identify origin conclusively by visual examination alone. Gemmologists look for growth-sector patterns, metallic/graphitic inclusions, or fluorescence, but advanced testing is recommended for definitive confirmation."
-      },
-      {
-        "type": "paragraph",
-        "text": "An ordinary 10× loupe can help verify a laser inscription, but it is not independent proof. Not every inscription is easy to find, settings can hide girdle details, and inscriptions can be fraudulently copied. An inscription should always be matched with the issuing laboratory's official online report."
-      },
-      {
-        "type": "image",
-        "src": "/images/blog/can-you-tell-lab-grown-from-natural-diamond/8 (2).jpg",
-        "alt": "Examining diamond girdle under a microscope to find laser inscription",
-        "title": "Inspecting Diamond Girdle",
-        "caption": "A jeweller using a loupe or microscope can check the diamond's girdle for grading inscriptions."
+        type: "callout",
+        title: "There are two separate identification problems:",
+        text: "Question 1: Is this gemstone diamond? Question 2: If it is diamond, did it form naturally or through laboratory production? Basic diamond testers are often designed mainly for the first question. The second requires more specialised analysis."
       }
     ]
   },
   {
-    "heading": "What Is a Diamond Laser Inscription?",
-    "content": [
+    heading: "What Does \"Pass\" or \"Refer\" Mean on a Professional Screening Device?",
+    content: [
+      { type: "paragraph", text: "Many professional screening systems do not simply display \"NATURAL\" or \"LAB-GROWN\"." },
+      { type: "paragraph", text: "Instead, they may use a pass/refer system." },
+      { type: "paragraph", text: "For example, GIA's iD100 is designed to identify the characteristic luminescence pattern of natural diamonds." },
+      { type: "paragraph", text: "A PASS indicates that the instrument has detected the expected natural-diamond signature within the device's testing scope." },
+      { type: "paragraph", text: "A REFER result does not automatically mean the stone is laboratory-grown." },
+      { type: "paragraph", text: "It means the diamond did not produce the natural signature required for a pass and therefore requires additional testing." },
+      { type: "paragraph", text: "A referred stone could potentially be: a laboratory-grown diamond, a diamond simulant, or even a natural diamond requiring further examination." },
       {
-        "type": "paragraph",
-        "text": "A laser inscription is a microscopic sequence of letters, numbers, or symbols placed on a diamond's girdle (the narrow outer edge). It allows the diamond to be matched with its documented gemmological details."
-      },
+        type: "callout",
+        title: "This distinction is critical:",
+        text: "\"Refer\" means investigate further — not \"confirmed lab-grown.\""
+      }
+    ]
+  },
+  {
+    heading: "Are Lab-Grown Diamonds Laser Inscribed?",
+    content: [
+      { type: "paragraph", text: "Many documented laboratory-grown diamonds are laser inscribed, but you should not assume every lab-grown diamond in existence has an inscription." },
+      { type: "paragraph", text: "Current GIA laboratory-grown diamond services provide a particularly clear example." },
+      { type: "paragraph", text: "Laboratory-grown diamonds evaluated under GIA's current applicable services are laser inscribed on the girdle with \"Laboratory-Grown\" and the relevant GIA assessment or report number." },
+      { type: "paragraph", text: "IGI also uses laser inscription to link diamonds with corresponding laboratory reports." },
+      { type: "paragraph", text: "These inscriptions can provide valuable traceability." },
+      { type: "paragraph", text: "But the absence of an inscription should not be used as proof that a diamond is natural." },
+      { type: "paragraph", text: "Different stones, sizes, reports, laboratories and historical services can involve different documentation." },
       {
-        "type": "paragraph",
-        "parts": [
-          {
-            "text": "Do all lab diamonds say \"lab-grown\"? ",
-            "bold": true
-          },
-          {
-            "text": "No. Inscription formats vary. GIA eligible stones are inscribed with \"Laboratory-Grown\" and their assessment number, while other laboratories use different wording or formats."
-          }
-        ]
-      },
+        type: "image",
+        src: "/images/blog/can-you-tell-lab-grown-from-natural-diamond/8 (3).jpg",
+        alt: "Diamond girdle laser inscription showing laboratory-grown origin marking",
+        title: "Diamond Laser Inscriptions",
+        caption: "A laser inscription on the diamond girdle can link the stone to its laboratory report — but not every diamond carries one."
+      }
+    ]
+  },
+  {
+    heading: "Where Is the Laser Inscription on a Diamond?",
+    content: [
+      { type: "paragraph", text: "A grading or identification inscription is typically placed on the diamond's girdle." },
+      { type: "paragraph", text: "The girdle is the narrow outer edge separating the crown — the upper portion of the polished diamond — from the pavilion below." },
+      { type: "paragraph", text: "The inscription is microscopic." },
+      { type: "paragraph", text: "GIA states that its report-number inscriptions can be viewed using approximately 10× magnification." },
+      { type: "paragraph", text: "Depending on the jewellery setting, however, part of the girdle may be covered by a prong, bezel or other metal." },
+      { type: "paragraph", text: "A mounted diamond can therefore make an inscription more difficult to locate than a loose stone." }
+    ]
+  },
+  {
+    heading: "Does a Laser Inscription Prove the Diamond Is Lab-Grown?",
+    content: [
+      { type: "paragraph", text: "An inscription explicitly stating laboratory-grown origin provides strong evidence of how the stone was documented." },
+      { type: "paragraph", text: "But inscriptions should still be interpreted properly." },
+      { type: "paragraph", text: "If you are using a report number, retrieve the report from the issuing laboratory's official verification system and check whether its details correspond with the diamond in front of you." },
+      { type: "paragraph", text: "Do not assume that merely being shown a certificate automatically proves that the physical diamond is the one described on it." },
       {
-        "type": "paragraph",
-        "parts": [
-          {
-            "text": "Is it enough to prove origin? ",
-            "bold": true
-          },
-          {
-            "text": "No. Printed reports and inscriptions can be copied or mismatched. IGI has reported cases of laboratory-grown diamonds carrying inscriptions associated with natural diamonds. Girdle inscriptions should always be checked in conjunction with the laboratory's digital database."
-          }
+        type: "paragraph",
+        parts: [
+          { text: "For a detailed explanation, see " },
+          { text: "What Is a Diamond Laser Inscription?", href: "/blog/diamond-laser-inscription/" }
         ]
       }
     ]
   },
   {
-    "heading": "Can a Basic Tester or UV Light Detect Lab Diamonds?",
-    "content": [
+    heading: "How Do Gemmological Laboratories Identify Lab-Grown Diamonds?",
+    content: [
+      { type: "paragraph", text: "Professional laboratories use substantially more sophisticated analysis than basic diamond testers." },
+      { type: "paragraph", text: "GIA describes examining factors including inclusions, graining and reactions to ultraviolet light before using advanced analytical methods where required." },
+      { type: "paragraph", text: "Spectroscopic techniques can detect differences associated with atomic-level defects and impurities within the diamond crystal." },
+      { type: "paragraph", text: "Luminescence imaging can reveal growth-related patterns." },
+      { type: "paragraph", text: "Fluorescence and phosphorescence behaviour can provide additional clues." },
+      { type: "paragraph", text: "Microscopic inclusions may support an interpretation of HPHT or CVD growth." },
+      { type: "paragraph", text: "The strongest identification comes from considering multiple lines of evidence together." }
+    ]
+  },
+  {
+    heading: "Can Laboratories Tell Whether a Diamond Is CVD or HPHT?",
+    content: [
+      { type: "paragraph", text: "Often, yes." },
+      { type: "paragraph", text: "CVD and HPHT growth occur through different technological processes, and these can create different sets of growth-related characteristics." },
+      { type: "paragraph", text: "GIA has documented differences involving growth structure, fluorescence patterns, graining, strain and characteristic inclusions." },
+      { type: "paragraph", text: "Advanced laboratory analysis can therefore often determine not only that a diamond is laboratory-grown but also provide information about its growth method." },
       {
-        "type": "paragraph",
-        "text": "A basic thermal tester cannot distinguish natural from lab-grown diamonds because both conduct heat exactly like diamond. While some electronic conductivity testers exist, their results are easily affected by calibration, stone size, and temperature."
-      },
-      {
-        "type": "paragraph",
-        "text": "UV light reactions (fluorescence and phosphorescence) can provide useful clues—such as cross-shaped HPHT growth patterns or CVD striations—but they are not conclusive for consumers, as natural diamonds can also fluoresce."
-      },
-      {
-        "type": "image",
-        "src": "/images/blog/can-you-tell-lab-grown-from-natural-diamond/8 (3).jpg",
-        "alt": "Handheld diamond tester and UV fluorescence examination",
-        "title": "Handheld Testers and UV Light",
-        "caption": "Thermal conductivity testers show diamond results for both types, while UV reaction provides growth sector clues."
+        type: "paragraph",
+        parts: [
+          { text: "For a full explanation of the methods themselves, see " },
+          { text: "CVD vs HPHT Lab-Grown Diamonds", href: "/blog/cvd-vs-hpht-lab-grown-diamonds/" },
+          { text: "." }
+        ]
       }
     ]
   },
   {
-    "heading": "How Gemmological Laboratories Identify Origin",
-    "content": [
+    heading: "Can UV Light Tell If a Diamond Is Lab-Grown?",
+    content: [
+      { type: "paragraph", text: "Not reliably by itself." },
+      { type: "paragraph", text: "Natural and laboratory-grown diamonds can show fluorescence and phosphorescence under ultraviolet radiation." },
+      { type: "paragraph", text: "The colour, pattern, intensity and persistence of those reactions can contain useful diagnostic information." },
+      { type: "paragraph", text: "But shining a simple UV torch on a diamond and observing a particular colour is not a universally reliable origin test." },
+      { type: "paragraph", text: "Professional screening instruments analyse responses in controlled ways and within defined specifications." },
+      { type: "paragraph", text: "Do not reduce those techniques to: \"Blue means natural.\" or: \"Orange means lab-grown.\" Real identification is more complicated." }
+    ]
+  },
+  {
+    heading: "Can You Use the Fog Test?",
+    content: [
+      { type: "paragraph", text: "The so-called fog test is not a reliable way to distinguish laboratory-grown from natural diamonds." },
+      { type: "paragraph", text: "Even if a test helps separate some materials based on heat behaviour, laboratory-grown and natural diamonds share essentially the same fundamental diamond properties." },
+      { type: "paragraph", text: "The same problem applies to improvised home tests involving water, light reflections or newspaper text." },
+      { type: "paragraph", text: "They are not appropriate tools for establishing diamond origin." },
+      { type: "paragraph", text: "At best they may provide unreliable guesses. At worst, DIY testing can create unnecessary risk to valuable jewellery." }
+    ]
+  },
+  {
+    heading: "What About the Scratch Test?",
+    content: [
+      { type: "paragraph", text: "Do not use it." },
+      { type: "paragraph", text: "Diamond identification should not involve deliberately scratching jewellery or other objects." },
+      { type: "paragraph", text: "Even if hardness tests can distinguish materials in controlled mineralogical contexts, they are inappropriate for deciding whether a jewellery diamond is natural or laboratory-grown." },
+      { type: "paragraph", text: "More importantly, both natural and laboratory-grown diamonds possess diamond's characteristic hardness." },
+      { type: "paragraph", text: "A scratch test therefore does not solve the origin question." }
+    ]
+  },
+  {
+    heading: "Can You Tell by the Inclusions?",
+    content: [
+      { type: "paragraph", text: "Sometimes inclusions can provide clues, but they are not enough for an ordinary buyer to make a universal determination." },
+      { type: "paragraph", text: "Some HPHT-grown stones may contain metallic inclusions associated with the growth environment." },
+      { type: "paragraph", text: "Some CVD stones can show graphitic or other characteristic features." },
+      { type: "paragraph", text: "Natural diamonds can contain a broad range of mineral crystals and other inclusions resulting from geological formation." },
+      { type: "paragraph", text: "However, there is too much variation to use a simple rule such as: \"Metallic inclusion = definitely lab-grown.\"" },
+      { type: "paragraph", text: "Identification should account for the complete suite of characteristics." }
+    ]
+  },
+  {
+    heading: "Can You Tell Lab-Grown and Natural Diamonds Apart When They Are Mounted?",
+    content: [
+      { type: "paragraph", text: "Mounting can make identification more difficult because metal may restrict access to parts of the diamond." },
+      { type: "paragraph", text: "The girdle inscription may be hidden." },
+      { type: "paragraph", text: "Certain optical observations may be harder to perform." },
+      { type: "paragraph", text: "Nevertheless, some professional screening instruments are specifically designed to test mounted diamonds within defined size and colour ranges." },
+      { type: "paragraph", text: "A mounting therefore does not make identification impossible. It simply changes which methods can be used effectively." }
+    ]
+  },
+  {
+    heading: "The Best Way to Verify a Diamond's Origin",
+    content: [
+      { type: "paragraph", text: "For a significant diamond, the strongest process combines documentation with physical verification." },
+      { type: "paragraph", text: "Start by checking what origin the seller states." },
+      { type: "paragraph", text: "Review the independent laboratory documentation where provided." },
+      { type: "paragraph", text: "Look for the corresponding girdle inscription under suitable magnification if applicable." },
+      { type: "paragraph", text: "Verify the report number through the issuing laboratory." },
+      { type: "paragraph", text: "Check that basic details such as weight and measurements align." },
+      { type: "paragraph", text: "If the stone has no reliable documentation or doubts remain, use professional screening or submit it for advanced gemmological examination." },
+      { type: "paragraph", text: "This is far more dependable than trying to identify origin through sparkle, colour or a cheap tester." },
       {
-        "type": "paragraph",
-        "text": "Professional laboratories use a combination of advanced analytical methods:"
-      },
-      {
-        "type": "bullet-list",
-        "items": [
-          "Spectroscopy: Analysing how the diamond absorbs or emits light to reveal impurities.",
-          "Photoluminescence: Laser excitation of atomic-level defects associated with specific growth methods.",
-          "Infrared Analysis: Mapping atomic structures and nitrogen/boron configurations.",
-          "Fluorescence Imaging: Exposing growth sector shapes that differ between natural (concentric), HPHT (cuboctahedral), and CVD (layered) diamonds.",
-          "Microscopic Inspection: Identifying metallic flux residuals (HPHT) or graphitic pinpoints (CVD)."
-        ]
-      },
-      {
-        "type": "image",
-        "src": "/images/blog/can-you-tell-lab-grown-from-natural-diamond/8 (4).jpg",
-        "alt": "Advanced spectroscopic testing instruments in a gemmological laboratory",
-        "title": "Advanced Gemmological Screening",
-        "caption": "Gemmological laboratories employ spectrometers and photoluminescence detectors to verify origin conclusively."
+        type: "image",
+        src: "/images/blog/can-you-tell-lab-grown-from-natural-diamond/8 (4).jpg",
+        alt: "Diamond laboratory report and verification process for origin identification",
+        title: "Verifying Diamond Origin Through Documentation",
+        caption: "A verified laboratory report matched to the physical diamond is the most reliable consumer method for confirming origin."
       }
     ]
   },
   {
-    "heading": "Buyer Verification Checklist",
-    "content": [
+    heading: "What If the Inscription and Report Do Not Match?",
+    content: [
+      { type: "paragraph", text: "Do not assume everything is fine." },
+      { type: "paragraph", text: "If the inscription number differs from the supplied report number, the stone's major measurements do not correspond, or the origin description conflicts with what you were told, the discrepancy should be resolved before purchase." },
+      { type: "paragraph", text: "Do not attempt to decide which document is correct by guessing." },
+      { type: "paragraph", text: "Verify the report through the issuing laboratory and ask the seller to explain the mismatch." },
+      { type: "paragraph", text: "If uncertainty remains, independent professional examination is appropriate." }
+    ]
+  },
+  {
+    heading: "Final Answer: Can You Tell a Lab-Grown Diamond from a Natural Diamond?",
+    content: [
+      { type: "paragraph", text: "Not reliably with the naked eye or an ordinary diamond tester." },
+      { type: "paragraph", text: "Natural and laboratory-grown diamonds can look extremely similar because both are diamond material with essentially the same core physical and optical properties." },
+      { type: "paragraph", text: "The difference lies in how they formed." },
+      { type: "paragraph", text: "Those different growth histories leave microscopic and atomic-level characteristics that professional instruments and gemmological laboratories can detect." },
+      { type: "paragraph", text: "A laser inscription can make identification straightforward when it is present and linked to a verified report." },
+      { type: "paragraph", text: "A skilled gemmologist may recognise useful microscopic clues." },
+      { type: "paragraph", text: "A professional screening device can identify many natural stones or refer suspicious stones for additional testing." },
+      { type: "paragraph", text: "But when certainty matters, the strongest evidence comes from verified documentation combined with appropriate professional gemmological analysis." },
       {
-        "type": "table",
-        "headers": [
-          "Step",
-          "Verification Action"
-        ],
-        "rows": [
-          [
-            "1. Disclosure",
-            "Confirm the product clearly states 'laboratory-grown diamond' in titles and description."
-          ],
-          [
-            "2. Report Verification",
-            "Enter the report number directly on the official GIA or IGI verification portal."
-          ],
-          [
-            "3. Dimension Check",
-            "Confirm that physical measurements and carat weight match the report exactly."
-          ],
-          [
-            "4. Girdle Inscription",
-            "Verify the microscopic inscription on the diamond girdle under a loop or microscope."
-          ],
-          [
-            "5. Sourcing Info",
-            "Check whether precious metals and total stone weight are fully specified."
-          ],
-          [
-            "6. UK Compliance",
-            "Ensure the seller does not describe lab stones only as 'diamonds' without qualifiers."
-          ]
+        type: "callout",
+        title: "The rule for buyers is therefore simple:",
+        theme: "gold-border",
+        text: "Do not judge diamond origin by sparkle, colour, price or a basic tester. Verify the evidence."
+      },
+      {
+        type: "faq",
+        title: "Frequently Asked Questions",
+        items: [
+          { question: "Can you tell a lab-grown diamond from a natural diamond by looking at it?", answer: "Not reliably. Polished laboratory-grown and natural diamonds can look extremely similar. Origin determination generally requires documentation, specialist screening or laboratory testing." },
+          { question: "Can a jeweller tell if a diamond is lab-grown?", answer: "A properly equipped jeweller or gemmologist may be able to screen the stone or identify useful characteristics. Difficult or inconclusive cases may require advanced laboratory analysis." },
+          { question: "Will a normal diamond tester identify a lab-grown diamond?", answer: "A conventional tester may identify both natural and laboratory-grown diamonds as diamond. That does not establish origin." },
+          { question: "Do lab-grown diamonds test as real diamonds?", answer: "Many conventional diamond testers respond positively because laboratory-grown diamonds possess diamond's physical properties. The result does not mean the stone is necessarily natural." },
+          { question: "Can a diamond tester distinguish natural from lab-grown?", answer: "Basic consumer testers generally cannot. Specialist screening instruments designed specifically for origin screening can provide more information." },
+          { question: "What does 'refer' mean on a diamond screening machine?", answer: "It means the stone did not meet the instrument's criteria for a natural-diamond pass and requires further testing. It does not automatically confirm laboratory-grown origin." },
+          { question: "Are lab-grown diamonds laser inscribed?", answer: "Many documented laboratory-grown diamonds are. Current GIA laboratory-grown services include an origin inscription and assessment or report number. But not every lab-grown diamond should be assumed to carry an inscription." },
+          { question: "Where is a diamond's laser inscription?", answer: "Usually on the girdle, the narrow outer edge between the crown and pavilion. It normally requires magnification to see." },
+          { question: "Can a laser inscription tell you whether a diamond is lab-grown?", answer: "It can provide strong evidence when it clearly states laboratory-grown origin or links to a verified laboratory report. The inscription and official report should be checked together." },
+          { question: "Can you identify a lab-grown diamond with a loupe?", answer: "A loupe can reveal inscriptions or potentially suggestive inclusions, but it is not a guaranteed natural-versus-laboratory identification tool." },
+          { question: "Can UV light distinguish a lab-grown diamond?", answer: "UV reactions can provide valuable diagnostic information to professionals, but a simple UV-light observation is not a reliable standalone consumer test." },
+          { question: "Can CVD and HPHT diamonds be distinguished?", answer: "Professional gemmological analysis can often identify growth-related characteristics associated with CVD and HPHT production." },
+          { question: "Can you use the fog test to identify a lab-grown diamond?", answer: "No. It is not a reliable natural-versus-lab identification method." },
+          { question: "Can you use the scratch test?", answer: "No. It is inappropriate for jewellery and would not reliably solve the origin question because both natural and laboratory-grown diamonds possess diamond hardness." },
+          { question: "Can a phone camera tell whether a diamond is lab-grown?", answer: "An ordinary smartphone photograph cannot reliably establish diamond origin." },
+          { question: "Can mounted lab-grown diamonds be identified?", answer: "Yes, depending on the stone, setting and equipment. Some professional screening devices can test mounted diamonds, although the setting may obstruct inscriptions or limit other observations." },
+          { question: "How can I be certain whether my diamond is natural or lab-grown?", answer: "Use reliable laboratory documentation matched to the physical stone, verify any report number with the issuing laboratory and seek specialist screening or gemmological analysis if uncertainty remains." }
+        ]
+      },
+      { type: "paragraph", text: "Aurelia Royale clearly identifies its jewellery as laboratory-grown diamond jewellery so the gemstone's origin is clear from the outset." },
+      {
+        type: "paragraph",
+        parts: [
+          { text: "Explore Aurelia Royale's laboratory-grown diamond jewellery and, where a piece is not currently available for direct purchase, " },
+          { text: "Join the Waitlist", href: "/contact/" },
+          { text: " or submit an enquiry to register your interest." }
         ]
       },
       {
-        "type": "callout",
-        "title": "Final Verdict",
-        "theme": "gold-border",
-        "parts": [
-          {
-            "text": "You cannot reliably tell whether a polished diamond is laboratory-grown or natural simply by looking at it. The safest consumer verification process combines clear seller disclosure, a recognised grading report (GIA/IGI), online report database verification, and checking the laser inscription.\n\n"
-          },
-          {
-            "text": "At Aurelia Royale, laboratory-grown origin is always disclosed clearly before purchase so customers understand exactly what they are purchasing."
-          }
-        ]
-      },
-      {
-        "type": "faq",
-        "items": [
-          {
-            "question": "Can you tell a lab-grown diamond by looking at it?",
-            "answer": "No. Natural and laboratory-grown diamonds can appear the same to the unaided eye."
-          },
-          {
-            "question": "Can a jeweller tell if a diamond is lab-grown?",
-            "answer": "A jeweller may verify an inscription or use screening equipment, but sight alone is not always conclusive. Laboratory testing may be required."
-          },
-          {
-            "question": "Can a diamond tester detect a lab-grown diamond?",
-            "answer": "A basic thermal tester usually cannot distinguish natural from laboratory-grown diamonds because both are diamond materials."
-          },
-          {
-            "question": "Can a loupe identify a lab-grown diamond?",
-            "answer": "A loupe may reveal an inscription or useful clues, but it cannot always establish origin conclusively."
-          },
-          {
-            "question": "Do lab-grown diamonds have serial numbers?",
-            "answer": "Many independently assessed laboratory-grown diamonds have laser-inscribed report numbers. The exact format depends on the issuing laboratory."
-          },
-          {
-            "question": "Can a laser inscription be removed?",
-            "answer": "A girdle inscription may be removed or altered through repolishing. It should therefore be checked alongside the official report."
-          },
-          {
-            "question": "Can UV light identify a lab-grown diamond?",
-            "answer": "UV reactions can provide clues, but ordinary fluorescence observation is not conclusive."
-          },
-          {
-            "question": "Can mounted lab-grown diamonds be tested?",
-            "answer": "Yes. Many can be screened or identified while mounted, although the setting may limit access and measurement."
-          },
-          {
-            "question": "What if a diamond has no certificate?",
-            "answer": "The absence of a report does not prove origin. Request professional screening or independent laboratory testing if confirmation is important."
-          },
-          {
-            "question": "What is the most reliable way to identify diamond origin?",
-            "answer": "Advanced examination by a recognised gemmological laboratory is the most reliable method."
-          }
-        ]
-      },
-      {
-        "type": "cta-banner",
-        "title": "Discover Certified Quality at Aurelia Royale",
-        "subtitle": "Every laboratory-grown diamond in our fine collections is independently graded, fully verified, and transparently disclosed.",
-        "shopHref": "/shop/",
-        "contactHref": "/contact/"
+        type: "cta-banner",
+        title: "Verify Before You Rely on Assumptions",
+        subtitle: "Aurelia Royale identifies all jewellery as laboratory-grown diamond — transparent origin, genuine diamond material.",
+        shopHref: "/shop/",
+        contactHref: "/contact/"
       }
     ]
   }
 ];
 
-export default function Blog8Page() {
+export default function BlogCanYouTellPage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
-      {/* Script injection for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* Hero Header */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }} />
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Lab-Grown Diamond Education
-          </span>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">Lab-Grown Diamond Education</span>
           <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            Can You Tell a Lab Diamond from Natural?
+            Can You Tell a Lab-Grown Diamond from a Natural Diamond?
           </h1>
           <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Identification Guide • Published July 15, 2026
+            Visual Inspection vs Professional Testing • Published July 15, 2026
           </p>
         </div>
       </section>
-
-      {/* Render Content Blocks */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
-      {/* Related articles — crawlable plain links */}
       <RelatedArticles currentSlug="can-you-tell-lab-grown-from-natural-diamond" />
       <NewsletterSection />
     </main>
   );
 }
+
