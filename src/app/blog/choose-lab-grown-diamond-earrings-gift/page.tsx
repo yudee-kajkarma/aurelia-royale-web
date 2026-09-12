@@ -1,671 +1,358 @@
-import React from "react";
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
-// 1. SEO Metadata
 export const metadata: Metadata = {
-  title: "How to Choose Diamond Earrings as a Gift",
-  description: "Choose lab-grown diamond earrings as a gift using the recipient's style, piercing, preferred size, metal, fastening and your return deadline.",
-  alternates: {
-    canonical: "https://www.aureliaroyale.com/blog/choose-lab-grown-diamond-earrings-gift/",
-  },
+  title: "How to Choose Lab-Grown Diamond Earrings as a Gift",
+  description: "Choose lab-grown diamond earrings as a gift by checking piercing type, fastening, size, diamond weight, metal, everyday style and exchange flexibility.",
+  alternates: { canonical: "https://www.aureliaroyale.com/blog/choose-lab-grown-diamond-earrings-gift/" },
 };
 
-// 2. JSON-LD Schema
-const schemaMarkup = {
-  "@context":"https://schema.org",
-  "@graph":[
-    {
-      "@type":"BlogPosting",
-      "@id":"https://www.aureliaroyale.com/blog/choose-lab-grown-diamond-earrings-gift/#article",
-      "mainEntityOfPage":{"@type":"WebPage","@id":"https://www.aureliaroyale.com/blog/choose-lab-grown-diamond-earrings-gift/"},
-      "headline":"How to Choose Lab-Grown Diamond Earrings as a Gift",
-      "description":"Choose lab-grown diamond earrings as a gift using the recipient's style, piercing, preferred size, metal, fastening and your return deadline.",
-      "image":"https://www.aureliaroyale.com/images/blog/choose-lab-grown-diamond-earrings-gift.webp",
-      "datePublished":"2026-07-16",
-      "dateModified":"2026-07-16",
-      "author":{"@type":"Organization","name":"Aurelia Royale","url":"https://www.aureliaroyale.com/"},
-      "publisher":{"@type":"Organization","name":"Aurelia Royale","url":"https://www.aureliaroyale.com/"},
-      "inLanguage":"en-GB",
-      "articleSection":"Product-Category Guides",
-      "keywords":["how to choose lab-grown diamond earrings as a gift","lab-grown diamond earrings gift","diamond earrings gift guide"]
-    },
-    {
-      "@type":"BreadcrumbList",
-      "@id":"https://www.aureliaroyale.com/blog/choose-lab-grown-diamond-earrings-gift/#breadcrumb",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Home","item":"https://www.aureliaroyale.com/"},
-        {"@type":"ListItem","position":2,"name":"Journal","item":"https://www.aureliaroyale.com/blog/"},
-        {"@type":"ListItem","position":3,"name":"How to Choose Lab-Grown Diamond Earrings as a Gift","item":"https://www.aureliaroyale.com/blog/choose-lab-grown-diamond-earrings-gift/"}
-      ]
-    },
-    {
-      "@type":"FAQPage",
-      "@id":"https://www.aureliaroyale.com/blog/choose-lab-grown-diamond-earrings-gift/#faq",
-      "mainEntity":[
-        {"@type":"Question","name":"Are lab-grown diamond earrings a good gift?","acceptedAnswer":{"@type":"Answer","text":"They can be when the recipient likes diamond jewellery and the style, scale, metal and fastening reflect their preferences."}},
-        {"@type":"Question","name":"Are stud earrings the safest diamond earring gift?","acceptedAnswer":{"@type":"Answer","text":"Studs are often versatile, but only when the recipient has suitable piercings and wears a similar scale and fastening."}},
-        {"@type":"Question","name":"How do I choose diamond earring size as a gift?","acceptedAnswer":{"@type":"Answer","text":"Measure or compare a favourite pair and use finished millimetre dimensions rather than carat weight alone."}},
-        {"@type":"Question","name":"Is earring carat weight for one ear or the pair?","acceptedAnswer":{"@type":"Answer","text":"It is often the pair total. Confirm per-ear, principal-stone and accent-stone weights separately."}},
-        {"@type":"Question","name":"Which metal colour should I choose?","acceptedAnswer":{"@type":"Answer","text":"Use the colour the recipient wears most often, then verify the actual metal, fineness, plating and component composition."}},
-        {"@type":"Question","name":"What if I do not know whether their ears are pierced?","acceptedAnswer":{"@type":"Answer","text":"Do not guess. Ask discreetly, consult someone reliable or choose the gift together."}},
-        {"@type":"Question","name":"Are screw backs best for a gift?","acceptedAnswer":{"@type":"Answer","text":"Not universally. Choose a fastening the recipient already uses comfortably; dexterity and preference matter."}},
-        {"@type":"Question","name":"Should gift earrings have diamond certificates?","acceptedAnswer":{"@type":"Answer","text":"Use the documentation promised for that product. It may cover principal stones, a matched pair or the finished jewellery."}},
-        {"@type":"Question","name":"Can I personalise diamond earrings?","acceptedAnswer":{"@type":"Answer","text":"You can where offered, but personalisation may affect returns. Confirm the terms and the recipient's preference first."}},
-        {"@type":"Question","name":"How early should I order diamond earrings for a gift?","acceptedAnswer":{"@type":"Answer","text":"Work backwards from the date and include production, quality control, dispatch, insured transit and customs time plus a buffer."}},
-        {"@type":"Question","name":"Should I include the invoice with the gift?","acceptedAnswer":{"@type":"Answer","text":"Keep price presentation discreet, but ensure the recipient has the documents needed for exchange, warranty, service and insurance."}},
-        {"@type":"Question","name":"What if the recipient does not like the earrings?","acceptedAnswer":{"@type":"Answer","text":"Follow the saved gift-return procedure promptly, keeping the earrings unworn, tags attached and packaging and documents complete."}}
-      ]
-    }
-  ]
-};
-
-// 3. Article content sections
 const articleSections: ArticleSection[] = [
   {
     content: [
-      {
-        type: "image",
-        src: "/images/blog/choose-lab-grown-diamond-earrings-gift/64 (1).jpg",
-        alt: "How to choose lab-grown diamond earrings as a gift - complete gift buying guide",
-        title: "How to Choose Lab-Grown Diamond Earrings as a Gift",
-        caption: "Choose lab-grown diamond earrings as a gift using the recipient's style, piercing, size, metal and fastening preferences.",
-        priority: true
-      },
-      {
-        type: "paragraph",
-        text: "Lab-grown diamond earrings can mark a birthday, anniversary, graduation or personal milestone without requiring a ring size. Yet earrings are not automatically an easy gift. The wearer still has preferences about scale, metal, movement, fastening and comfort."
-      },
-      {
-        type: "paragraph",
-        text: "The safest approach is to treat what the recipient already wears as evidence. Choose the closest confident match, preserve the option to exchange it and make the presentation personal rather than making the jewellery irreversible."
-      }
-    ]
+      { type: "image", src: "/images/blog/choose-lab-grown-diamond-earrings-gift/64 (1).jpg", alt: "How to choose lab-grown diamond earrings as a gift piercing fastening size style", title: "How to Choose Lab-Grown Diamond Earrings as a Gift", caption: "The objective is not to choose the technically most impressive pair — it is to choose a pair the recipient is likely to wear comfortably and repeatedly.", priority: true },
+      { type: "paragraph", text: "Lab-grown diamond earrings can make an appealing gift because they do not require ring sizing and can work for birthdays, anniversaries, graduations, milestones and other occasions. But earrings are not completely size-free or preference-free." },
+      { type: "paragraph", text: "The recipient still has practical preferences that can determine whether the gift is comfortable and wearable. Before choosing a pair, try to understand the recipient's piercing type, usual earring style, familiar fastening, preferred scale, metal preference and tolerance for heavier or more noticeable earrings." },
+      { type: "paragraph", text: "If several of those details are unknown, exchange flexibility becomes more important than trying to guess perfectly. The objective is not to choose the technically most impressive pair of earrings. It is to choose a pair the recipient is likely to wear comfortably and repeatedly." },
+    ],
   },
   {
-    heading: "Quick answer: how do you choose diamond earrings for someone else?",
+    heading: "Quick Answer: What Should You Check When Buying Diamond Earrings as a Gift?",
     content: [
-      {
-        type: "paragraph",
-        text: "Choose in this order:"
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Confirm that the recipient has pierced ears and identify which piercings they use.",
-          "Observe whether they wear studs, drops, hoops or a mixture.",
-          "Measure or compare a favourite pair for visible size.",
-          "Identify their usual metal colour and, if possible, alloy preference.",
-          "Choose a familiar fastening they can operate comfortably.",
-          "Check pair-total versus per-ear carat weight.",
-          "Verify diamond origin, quality and report scope.",
-          "Confirm production and insured-delivery timing.",
-          "Read gift-return conditions before personalising anything.",
-          "Include the documents while keeping price presentation discreet."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "When you have little evidence, choose versatility and exchangeability rather than guessing a bold style."
-      }
-    ]
+      { type: "paragraph", text: "Start by confirming that the recipient actually wears earrings and identifying where they normally wear them. Then look at the styles already in their jewellery collection. Someone who almost always wears small studs may not suddenly prefer long diamond drops simply because they contain more diamonds." },
+      { type: "paragraph", text: "Check the fastening style they already use, because a familiar fastening can matter almost as much as the front-facing design. Then check the real dimensions of the earrings rather than judging scale from magnified photography. For diamond earrings, also clarify whether the advertised carat weight refers to each diamond or the pair combined. Finally, review the retailer's actual exchange and returns terms before committing, particularly when you are choosing the style for someone else." },
+    ],
   },
   {
-    heading: "Start with a five-minute jewellery audit",
+    heading: "Start With the Recipient, Not the Diamond Specification",
     content: [
-      {
-        type: "paragraph",
-        text: "Look at photographs or the recipient's jewellery collection without invading private storage. Record patterns rather than one exceptional piece."
-      },
-      {
-        type: "image",
-        src: "/images/blog/choose-lab-grown-diamond-earrings-gift/64 (2).jpg",
-        alt: "Jewellery audit guide for choosing diamond earrings as a gift",
-        title: "Five-Minute Jewellery Audit",
-        caption: "Observe what the recipient already wears to make a confident earring gift choice.",
-        priority: false
-      },
-      {
-        type: "table",
-        headers: ["Observe", "What it may tell you", "What not to assume"],
-        rows: [
-          ["Mostly small studs", "They may prefer compact, low-movement earrings", "That they dislike every larger design"],
-          ["Frequent drops", "They may enjoy length and movement", "That any drop length will be comfortable"],
-          ["Consistent metal colour", "Useful colour preference", "Exact alloy or skin compatibility"],
-          ["Simple shapes", "Preference for restrained design", "A specific diamond grade"],
-          ["Multiple piercings", "Need for a small footprint or coordinated stack", "Available space without measurements"],
-          ["Same backs repeatedly", "Familiar fastening preference", "That worn backs remain secure"]
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "If possible, ask a trusted person who knows their jewellery habits. Avoid revealing a high-value surprise to several people unnecessarily."
-      }
-    ]
+      { type: "paragraph", text: "When buying earrings for yourself, you already know what feels comfortable. When buying for someone else, that information is missing. That is why an earring gift should usually begin with observation rather than the 4Cs. Look at what the recipient already wears. Do they repeatedly choose tiny studs? Do they wear medium hoops? Do they prefer visible drop earrings for events? Do they almost never wear jewellery at all? Those clues are usually more useful at the beginning than immediately deciding between VS and VVS clarity. A technically impressive pair that does not suit the recipient's normal style can still become a poor gift." },
+    ],
   },
   {
-    heading: "1. Confirm piercing type and position",
+    heading: "First Confirm That Their Ears Are Pierced",
     content: [
-      {
-        type: "paragraph",
-        text: "Do not assume pierced ears. Clip-on or other non-pierced fittings require purpose-designed construction; a standard post is not suitable."
-      },
-      {
-        type: "paragraph",
-        text: "For pierced ears, notice whether the gift is intended for:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "the main lobe piercing;",
-          "a second or third lobe piercing;",
-          "cartilage; or",
-          "an established earring stack."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "The product must be designed for that placement. Piercing healing, gauge and medical suitability are matters for a qualified piercer or healthcare professional, not a jewellery gift guide."
-      }
-    ]
+      { type: "paragraph", text: "This sounds basic, but it is the first practical check. Do not assume someone has pierced ears because they wear jewellery elsewhere. If they do have pierced ears, notice where the piercing is. Standard lobe earrings are different from jewellery worn through cartilage or other ear piercings. You do not need to become an expert in piercing anatomy. You simply need to avoid buying an earring format for a placement the recipient does not normally use. If you are unsure, their existing jewellery is usually the best clue." },
+    ],
   },
   {
-    heading: "2. Choose between studs, drops and hoops",
+    heading: "Piercing Position Can Affect What Looks Right",
     content: [
-      {
-        type: "paragraph",
-        text: "Studs: the lower-risk surprise"
-      },
-      {
-        type: "paragraph",
-        text: "Studs have a compact profile and limited movement. They are often the most adaptable option when the recipient already wears studs regularly."
-      },
-      {
-        type: "paragraph",
-        text: "Check setting height, post length and back type. A visually simple stud can still feel wrong if it tips or the post is uncomfortable."
-      },
-      {
-        type: "paragraph",
-        text: "Drop earrings: choose only with evidence"
-      },
-      {
-        type: "paragraph",
-        text: "Drops create length and movement. They can feel more occasion-led and expressive, but comfort depends on full length, weight and fastening."
-      },
-      {
-        type: "paragraph",
-        text: "Choose them when the recipient already wears comparable drops or has clearly admired a particular design."
-      },
-      {
-        type: "paragraph",
-        text: "Hoops and huggie-style earrings"
-      },
-      {
-        type: "paragraph",
-        text: "These can be versatile, but fit depends on internal opening and piercing position. Do not rely only on external diameter."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Read " },
-          { text: "how to choose lab-grown diamond earrings", href: "/blog/how-to-choose-lab-grown-diamond-earrings/" },
-          { text: " for the category comparison." }
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Even within ordinary lobe piercings, placement varies. One person's piercing may sit relatively high on the lobe. Another may sit lower. The earlobe itself can also differ in shape and size. That means the same stud can look more prominent on one person than another. Similarly, a hoop's inner diameter determines how closely it sits around the ear. A product image shown on a model gives general context, but it cannot guarantee exactly how the earring will sit on the gift recipient. For that reason, physical measurements remain more reliable than photography when scale matters." },
+    ],
   },
   {
-    heading: "3. Match their usual scale",
+    heading: "Use Their Existing Earrings as the Best Reference",
     content: [
-      {
-        type: "paragraph",
-        text: "Photographs can make earrings difficult to size. If you can safely access a frequently worn pair, measure its finished width, length or hoop diameter with a ruler without altering it."
-      },
-      {
-        type: "paragraph",
-        text: "Compare:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "finished front-facing footprint;",
-          "setting depth;",
-          "full drop length;",
-          "product weight where known; and",
-          "post and back proportions."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Carat weight is not the same as visible size. It measures diamond weight, and the listing may state a combined total for both ears.",
-        parts: [
-          { text: "Use " },
-          { text: "the diamond earring size guide", href: "/blog/select-right-size-diamond-earrings/" },
-          { text: " before choosing a larger or smaller look." }
-        ]
-      }
-    ]
+      { type: "paragraph", text: "If possible, look at a pair they already wear frequently. You are trying to answer simple questions. Are their everyday earrings tiny or clearly visible? Do they prefer round shapes or elongated designs? Do they normally wear yellow-coloured, white-coloured or rose-coloured metal? Do they wear studs, hoops or drops? Do their earrings tend to sit close to the ear, or do they prefer movement? You do not need an exact duplicate. The existing pair gives you a comfort and style baseline. A successful gift can still be more special than their daily jewellery without becoming completely unfamiliar." },
+    ],
   },
   {
-    heading: "4. Understand the carat description",
+    heading: "Do Not Assume \"More Dramatic\" Means \"Better Gift\"",
     content: [
-      {
-        type: "paragraph",
-        text: "A pair described as 1.00 carat total weight may contain approximately 0.50 carat per ear when it uses two diamonds. A halo, cluster or drop can distribute the total across many stones."
-      },
-      {
-        type: "paragraph",
-        text: "The page should separate:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "pair-total carat weight;",
-          "per-ear weight;",
-          "each principal diamond;",
-          "accent-diamond total; and",
-          "stone count."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "For a gift, visible dimensions are easier to compare with what the recipient already owns than an unfamiliar carat figure."
-      }
-    ]
+      { type: "paragraph", text: "Diamond jewellery can encourage the idea that a larger or more elaborate piece makes a stronger gift. That is not necessarily true. Someone who consistently wears understated jewellery may value a beautifully proportioned pair of studs more than large drop earrings they rarely have an occasion to wear. Likewise, someone who loves expressive jewellery may find very small studs less exciting. The gift should fit the recipient rather than the perceived importance of the occasion." },
+    ],
   },
   {
-    heading: "5. Choose metal from evidence",
+    heading: "Studs Are Often Easier to Gift—But Still Require Thought",
     content: [
-      {
-        type: "paragraph",
-        text: "Observe whether the recipient usually wears white-, yellow- or rose-coloured metal. Then verify the actual product metal and fineness; colour alone does not identify alloy composition."
-      },
-      {
-        type: "paragraph",
-        text: "Check:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "gold, platinum or other stated metal;",
-          "fineness;",
-          "plating or finish;",
-          "post and back composition; and",
-          "hallmark information where applicable."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "In the UK, hallmarking rules apply to precious-metal articles above relevant exemption weights. A hallmark concerns metal fineness, not the diamonds."
-      },
-      {
-        type: "paragraph",
-        text: "If the recipient has mentioned sensitivity, do not guess that a colour or marketing term is safe. Ask discreetly or choose the gift together."
-      }
-    ]
+      { type: "paragraph", text: "Diamond studs are one of the easier earring categories to choose for another person because the design can be relatively simple and versatile. But stud earrings still vary significantly in: visible diameter, diamond shape, setting style, metal, fastening, and physical presence. A small round stud and a larger halo stud may both be described as diamond studs while looking completely different on the ear. So even with studs, do not stop at the category name. Check the measurements and fastening." },
+    ],
   },
   {
-    heading: "6. Match a familiar fastening",
+    heading: "Hoops Require More Scale Awareness",
     content: [
-      {
-        type: "paragraph",
-        text: "Friction or butterfly backs are familiar and quick. Screw backs take longer to align. Lever backs integrate a closing mechanism, while hooks may use separate stoppers."
-      },
-      {
-        type: "paragraph",
-        text: "Consider dexterity, long nails and what the recipient already manages comfortably. No fastening is loss-proof, and unfamiliar hardware can make an otherwise thoughtful gift frustrating."
-      }
-    ]
+      { type: "paragraph", text: "Hoops are especially sensitive to dimension. A few millimetres can materially change how a hoop sits and how prominent it appears. Look for the outer diameter, and where provided, the width or thickness of the hoop. If you know the approximate size of hoops the recipient already wears, use that as your reference. Do not judge diameter from a close-up photograph. A 12 mm hoop and a 25 mm hoop can appear similarly large on separate product pages because ecommerce images are cropped differently." },
+    ],
   },
   {
-    heading: "7. Assess diamond quality as a pair",
+    heading: "Drop Earrings Require Both Length and Movement Consideration",
     content: [
-      {
-        type: "paragraph",
-        text: "The 4Cs describe cut, colour, clarity and carat weight, but earrings also need visual matching. Principal diamonds should have compatible outline, measurements, colour, clarity and light response."
-      },
-      {
-        type: "paragraph",
-        text: "Avoid selecting solely by the highest colour or clarity grade. A balanced, well-matched pair at the intended visible size is the more relevant goal."
-      },
-      {
-        type: "paragraph",
-        text: "For multi-stone earrings, check alignment and consistency across corresponding areas. For coloured-centre designs, confirm the identity, origin and treatment disclosure of every stone type."
-      }
-    ]
+      { type: "paragraph", text: "Drop earrings introduce another dimension: vertical length. A recipient who normally wears jewellery close to the ear may find a long drop earring unfamiliar even if the design is attractive. Check the full drop measurement from the top of the earring to the lowest point. Also look at whether the design is: rigid, partially articulated, or highly mobile. Movement can be part of the visual appeal, but it can also change how noticeable the earrings feel during wear. For a gift, familiar proportions are usually safer than guessing from the photograph alone." },
+    ],
   },
   {
-    heading: "8. Verify certification without overselling it",
+    heading: "Fastening Style Matters More Than Many Gift Buyers Expect",
     content: [
-      {
-        type: "paragraph",
-        text: "Earrings may have separate reports for principal diamonds, matched-pair documentation, a finished-jewellery report or retailer specifications for smaller stones."
-      },
-      {
-        type: "paragraph",
-        text: "IGI states that its finished laboratory-grown diamond jewellery reports can identify mounted gemstones and precious-metal information, with centre-stone assessment supplied as the mounting permits."
-      },
-      {
-        type: "paragraph",
-        text: "Confirm the issuer, report type, report number and exact scope. Verify it through the issuer's official service. A grading report is not a warranty, valuation or promise of future value."
-      },
-      {
-        type: "paragraph",
-        text: "Include the promised documents with the gift.",
-        parts: [
-          { text: "Read " },
-          { text: "what should come with certified diamond jewellery", href: "/blog/what-included-certified-diamond-jewellery/" },
-          { text: "." }
-        ]
-      }
-    ]
+      { type: "paragraph", text: "The front of the earring gets most of the attention. The back determines how the recipient actually puts it on and secures it. Stud earrings may use friction or butterfly-style backs, screw backs, locking mechanisms or other systems. Hoops may use hinged or latch-style closures. Different wearers develop strong preferences." },
+      { type: "paragraph", text: "GIA notes that screw backs and locking backs can offer greater security for diamond studs, but also points out that some people find threaded screw-back posts less comfortable because the posts can be thicker. This makes the gifting rule straightforward: familiarity can be more valuable than choosing the theoretically most secure fastening. If someone has worn butterfly backs comfortably for years, they may prefer them. If they already use screw backs for valuable studs, maintaining that familiar system may make sense." },
+    ],
   },
   {
-    heading: "9. Set a budget around the complete gift",
+    heading: "Look at What Fastening Their Existing Earrings Use",
     content: [
-      {
-        type: "paragraph",
-        text: "Budget for more than the headline diamond weight:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "stones and quality;",
-          "precious metal and construction;",
-          "documentation;",
-          "insured delivery;",
-          "VAT, duty and currency costs where applicable;",
-          "possible exchange shipping; and",
-          "insurance after gifting where appropriate."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Do not present lab-grown diamond earrings as an investment. Buy them for design, wear and meaning."
-      }
-    ]
+      { type: "paragraph", text: "If you can discreetly inspect a pair they already own, the fastening gives you useful information. You are not trying to determine which closure is universally best. You are checking: What is this person already comfortable using? This matters particularly for older recipients, people with limited dexterity or anyone who finds tiny mechanisms inconvenient. A secure fastening that the recipient dislikes using can still reduce how often the gift is worn." },
+    ],
   },
   {
-    heading: "10. Protect the surprise without harming flexibility",
+    heading: "Earring Weight Also Affects Comfort",
     content: [
-      {
-        type: "paragraph",
-        text: "Read the return and exchange policy before checkout. Check the deadline, whether it runs from delivery, condition and tag requirements, return insurance, refund route and any gift-receipt option."
-      },
-      {
-        type: "paragraph",
-        text: "Online buyers in the UK and EU may have statutory cancellation and faulty-goods rights, subject to applicable law and exceptions. Personalised goods can be treated differently. Do not engrave, alter or make a non-standard specification unless you are confident and understand the consequences."
-      },
-      {
-        type: "paragraph",
-        text: "A personal note is safer than irreversible personalisation."
-      }
-    ]
+      { type: "paragraph", text: "Two earrings with a similar front-facing design can feel different on the ear. Weight depends on the diamonds, metal, size and construction. GIA notes that larger earrings can droop if the backs do not adequately support them and that backing size can affect how the stud sits. For a gift, this means you should not choose maximum physical scale automatically. If the recipient typically wears delicate earrings, a significantly heavier pair may feel unfamiliar. Where finished earring weight is supplied, treat it as useful context rather than as a quality score. Heavier does not automatically mean better." },
+    ],
   },
   {
-    heading: "11. Plan production and delivery backwards",
+    heading: "Carat Weight Is Not Earring Size",
     content: [
-      {
-        type: "paragraph",
-        text: "Separate:"
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "manufacture or preparation;",
-          "quality control and hallmarking where required;",
-          "dispatch;",
-          "insured transit; and",
-          "customs processing where applicable."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Order with a buffer. \"Available\" does not always mean ready to dispatch. If the date is essential, obtain a written delivery commitment rather than relying on a generic estimate."
-      },
-      {
-        type: "paragraph",
-        text: "For a surprise, use a secure address where an adult can receive the parcel without revealing its contents. Never request insecure unattended delivery for high-value jewellery."
-      }
-    ]
-  },
-  {
-    heading: "12. Present the gift with useful information",
-    content: [
-      {
-        type: "paragraph",
-        text: "The recipient should receive:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "the earrings and correct backs;",
-          "grading or jewellery report access where promised;",
-          "product specification;",
-          "metal and hallmark information;",
-          "care guidance;",
-          "warranty details; and",
-          "gift receipt or exchange instructions."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Keep the full invoice separately if the price should remain private, but do not withhold information needed for service, return, warranty or insurance."
-      }
-    ]
-  },
-  {
-    heading: "Low-information gift strategy",
-    content: [
-      {
-        type: "image",
-        src: "/images/blog/choose-lab-grown-diamond-earrings-gift/64 (4).jpg",
-        alt: "Low-information gift strategy for choosing diamond earrings",
-        title: "Low-Information Gift Strategy",
-        caption: "When you have limited information, prioritize versatility and exchangeability over guessing a bold style.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "If you know little about the recipient's preferences:"
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Do not guess about pierced ears or sensitivities.",
-          "Choose together, or offer a private selection appointment.",
-          "If a physical surprise matters, use a clearly exchangeable pair close to what they already wear.",
-          "Avoid engraving and non-returnable customisation.",
-          "Preserve every tag, document and deadline."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "The surprise can be the gesture; the final design does not have to be a secret."
-      }
-    ]
-  },
-  {
-    heading: "Gift-buying checklist",
-    content: [
-      {
-        type: "image",
-        src: "/images/blog/choose-lab-grown-diamond-earrings-gift/64 (3).jpg",
-        alt: "Diamond earring gift buying checklist",
-        title: "Gift-Buying Checklist",
-        caption: "Use this checklist to choose lab-grown diamond earrings as a gift with confidence.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "Recipient:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Piercing type and intended position are known.",
-          "Preferred category, scale and metal colour are evidenced.",
-          "Familiar fastening is identified.",
-          "No unsupported sensitivity assumption is being made."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Product:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Dimensions and per-ear weight are clear.",
-          "Pair-total and individual carat weights are separated.",
-          "Diamonds are matched and origin is disclosed.",
-          "Metal, fineness and hallmark information are stated.",
-          "Report issuer and scope are verifiable."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Order:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Production and transit fit the gift date.",
-          "Delivery is insured and discreet.",
-          "Gift return and exchange terms are saved.",
-          "Personalisation does not remove needed flexibility.",
-          "Documents and care guidance will accompany the gift."
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Mistakes to avoid",
-    content: [
-      {
-        type: "paragraph",
-        text: "Avoid choosing by carat alone, assuming pierced ears, treating metal colour as composition, guessing a bold drop length, buying unfamiliar backs, personalising too early, confusing a report with a warranty, or scheduling delivery with no buffer."
-      }
-    ]
-  },
-  {
-    heading: "What Aurelia Royale should offer gift buyers",
-    content: [
-      {
-        type: "paragraph",
-        text: "Aurelia should provide exact dimensions, pair and per-ear weights, fastening details, metal and report scope, neutral outer packaging, gift messages, gift receipts, clear exchange instructions, delivery-date visibility and an explicit list of package contents."
-      },
-      {
-        type: "paragraph",
-        text: "Gift pages should never hide information to preserve romance. Confidence is part of the experience."
-      }
-    ]
+      { type: "paragraph", text: "This distinction is particularly important for gift buying because buyers often use carat as a shortcut for deciding how large the earrings will look. Carat measures diamond weight, not physical diameter. One metric carat equals 200 milligrams. Two diamonds with the same carat weight can also have different physical dimensions because their proportions differ. So when choosing earrings for another person, look at both: the diamond carat weight and: the physical dimensions of the finished earring. If scale matters, millimetres are easier to visualise than a carat number." },
+    ],
   },
   {
     content: [
-      {
-        type: "callout",
-        title: "Final verdict",
-        theme: "gold-border",
-        parts: [
-          { text: "The best lab-grown diamond earring gift reflects the recipient's established taste. Observe what they wear, match the scale and metal, choose familiar hardware and verify every specification.\n\n" },
-          { text: "Then protect the gesture with realistic delivery timing and a usable exchange route. Thoughtful evidence beats a generic \"perfect gift\" label every time." }
-        ]
-      },
-      {
-        type: "faq",
-        items: [
-          {
-            question: "Are lab-grown diamond earrings a good gift?",
-            answer: "They can be when the recipient likes diamond jewellery and the style, scale, metal and fastening reflect their preferences."
-          },
-          {
-            question: "Are stud earrings the safest diamond earring gift?",
-            answer: "Studs are often versatile, but only when the recipient has suitable piercings and wears a similar scale and fastening."
-          },
-          {
-            question: "How do I choose diamond earring size as a gift?",
-            answer: "Measure or compare a favourite pair and use finished millimetre dimensions rather than carat weight alone."
-          },
-          {
-            question: "Is earring carat weight for one ear or the pair?",
-            answer: "It is often the pair total. Confirm per-ear, principal-stone and accent-stone weights separately."
-          },
-          {
-            question: "Which metal colour should I choose?",
-            answer: "Use the colour the recipient wears most often, then verify the actual metal, fineness, plating and component composition."
-          },
-          {
-            question: "What if I do not know whether their ears are pierced?",
-            answer: "Do not guess. Ask discreetly, consult someone reliable or choose the gift together."
-          },
-          {
-            question: "Are screw backs best for a gift?",
-            answer: "Not universally. Choose a fastening the recipient already uses comfortably; dexterity and preference matter."
-          },
-          {
-            question: "Should gift earrings have diamond certificates?",
-            answer: "Use the documentation promised for that product. It may cover principal stones, a matched pair or the finished jewellery."
-          },
-          {
-            question: "Can I personalise diamond earrings?",
-            answer: "You can where offered, but personalisation may affect returns. Confirm the terms and the recipient's preference first."
-          },
-          {
-            question: "How early should I order diamond earrings for a gift?",
-            answer: "Work backwards from the date and include production, quality control, dispatch, insured transit and customs time plus a buffer."
-          },
-          {
-            question: "Should I include the invoice with the gift?",
-            answer: "Keep price presentation discreet, but ensure the recipient has the documents needed for exchange, warranty, service and insurance."
-          },
-          {
-            question: "What if the recipient does not like the earrings?",
-            answer: "Follow the saved gift-return procedure promptly, keeping the earrings unworn, tags attached and packaging and documents complete."
-          }
-        ]
-      },
-      {
-        type: "cta-banner",
-        title: "Find the Perfect Diamond Earring Gift at Aurelia",
-        subtitle: "Browse our collection of lab-grown diamond earrings with complete specifications, transparent documentation and gift-friendly options.",
-        shopHref: "/shop/",
-        contactHref: "/contact/"
-      }
-    ]
-  }
+      { type: "image", src: "/images/blog/choose-lab-grown-diamond-earrings-gift/64 (2).jpg", alt: "Diamond earrings carat weight per earring per pair dimensions scale gift buying", title: "Check Whether the Advertised Carat Weight Is Per Earring or Per Pair", caption: "This is one of the most important specification checks for diamond earrings — the product page should make the weight distribution clear.", priority: false },
+    ],
+  },
+  {
+    heading: "Check Whether the Advertised Carat Weight Is Per Earring or Per Pair",
+    content: [
+      { type: "paragraph", text: "This is one of the most important specification checks for diamond earrings. Suppose a pair is advertised as: 1.00 ct lab-grown diamond earrings. That could mean the pair contains approximately 1.00 ct in total, potentially around 0.50 ct per main diamond in a simple two-stone stud design. It should not automatically be interpreted as one carat in each ear. The product page should make the weight distribution clear. If it does not, ask before buying." },
+      { type: "paragraph", parts: [{ text: "For the complete distinction, use " }, { text: "Total Carat Weight Meaning in Diamond Jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" }] },
+    ],
+  },
+  {
+    heading: "Use Millimetres to Judge the Gift's Real Presence",
+    content: [
+      { type: "paragraph", text: "If the earrings are listed as 7 mm wide, try visualising seven millimetres using a ruler. That gives you a much better sense of scale than a product photograph filling your screen. For studs, diameter or overall width can be useful. For hoops, use outer diameter. For drop earrings, use full drop length. For decorative shapes, both height and width may matter. This is particularly important for gifts because the recipient cannot help you correct a mistaken size assumption before the purchase." },
+      { type: "paragraph", parts: [{ text: "For the broader measurement framework, use " }, { text: "How to Check Jewellery Dimensions and Weight Online", href: "/blog/check-jewellery-product-dimensions-weight/" }] },
+    ],
+  },
+  {
+    heading: "Choose the Diamond Shape From Style Preference, Not Ranking",
+    content: [
+      { type: "paragraph", text: "Round diamonds are popular in earrings, but there is no rule that a gift must use a round brilliant. Oval, pear, emerald, radiant and other shapes can all create distinctive earring designs. The safest shape is often the one consistent with the recipient's existing jewellery. If they repeatedly choose round or softly curved forms, an angular emerald-cut design may represent a bigger style departure. If they already wear elongated or geometric pieces, a fancy shape may feel more natural. Treat shape as a design preference rather than a hierarchy." },
+    ],
+  },
+  {
+    heading: "For Stud Earrings, Matching Between the Two Sides Matters",
+    content: [
+      { type: "paragraph", text: "A pair of diamond studs is a two-diamond product. The diamonds do not need to be mathematically identical in every microscopic characteristic, but they should appear suitably paired. GIA specifically notes that buying studs involves selecting two diamonds rather than one and discusses the need to consider their combined appearance and quality. When a significant pair is individually specified, useful comparison points can include: shape, dimensions, carat, colour, clarity, and overall visual balance. The aim is not to chase two perfectly identical laboratory reports. It is to make sure the earrings appear deliberately matched." },
+    ],
+  },
+  {
+    heading: "Do Not Overpay for Grades the Recipient Will Never Notice or Care About",
+    content: [
+      { type: "paragraph", text: "An earring gift does not necessarily need the highest available colour and clarity grades. The recipient will normally view the earrings at conversational distance rather than inspecting them under magnification. GIA's guidance on stud earrings likewise notes that buyers may have somewhat more flexibility with diamond quality trade-offs in studs than with a highly scrutinised solitaire engagement ring." },
+      { type: "paragraph", text: "The gifting question should therefore be: Will this specification contribute meaningfully to the appearance or quality of the pair? rather than: What is the highest grade I can afford?" },
+      { type: "paragraph", parts: [{ text: "For the technical details, use " }, { text: "Lab-Grown Diamond Colour Grades Explained", href: "/blog/lab-grown-diamond-colour-grades-explained/" }, { text: " and " }, { text: "Lab-Grown Diamond Clarity Grades Explained", href: "/blog/lab-grown-diamond-clarity-grades-explained/" }] },
+    ],
+  },
+  {
+    heading: "Prioritise Cut and Overall Appearance Where Relevant",
+    content: [
+      { type: "paragraph", text: "If the gift uses significant round brilliant centre diamonds, cut and overall light performance deserve attention. A larger carat number alone does not guarantee a more attractive pair. GIA similarly cautions against using carat as the only criterion for diamond studs because the other quality factors affect appearance. For a gift, an attractive, balanced pair often matters more than maximising one paper specification." },
+    ],
+  },
+  {
+    heading: "Check the Metal the Recipient Already Wears",
+    content: [
+      { type: "paragraph", text: "If the recipient consistently wears yellow-coloured jewellery, choosing a white-metal design may be a bigger risk. Likewise, someone who usually wears white metal may find yellow gold harder to integrate into their normal jewellery. But colour alone does not tell you the metal composition. Check the actual: metal, fineness, and any plating separately. For example, yellow-coloured jewellery could represent different underlying materials and constructions." },
+      { type: "paragraph", parts: [{ text: "For the complete framework, read " }, { text: "How to Check the Metal Used in Diamond Jewellery", href: "/blog/check-metal-used-diamond-jewellery/" }] },
+    ],
+  },
+  {
+    heading: "Do Not Guess Metal Allergy or Sensitivity Requirements",
+    content: [
+      { type: "paragraph", text: "If you know the recipient avoids certain jewellery because of sensitivity, the exact material specification becomes important. But do not diagnose an allergy or assume a product is hypoallergenic based on its colour, price or luxury positioning. Use the confirmed material information. If you do not know whether the recipient has sensitivities, avoid making medical assumptions." },
+    ],
+  },
+  {
+    heading: "Consider Their Other Jewellery",
+    content: [
+      { type: "paragraph", text: "A gift becomes easier to wear when it integrates naturally with what the recipient already owns. If they wear multiple earrings in one ear, consider whether the new pair would work with that styling. If they wear glasses frequently, very elaborate side-facing earrings may interact differently with the frame than small studs. If they regularly wear necklaces and earrings together, think about whether the new earrings complement those pieces rather than competing with them. This is practical styling, not a requirement. The gift should still be able to stand on its own." },
+    ],
+  },
+  {
+    heading: "Everyday Earrings and Occasion Earrings Are Different Gifts",
+    content: [
+      { type: "paragraph", text: "Before choosing scale, think about how often you want the recipient to use the earrings. Everyday earrings usually benefit from easy styling and familiar proportions. Occasion earrings can support more movement, scale or decorative detail. Neither is automatically more valuable as a gift. A pair worn fifty times may be more meaningful to one recipient than an elaborate pair worn once. Try to understand the intended use before increasing size or complexity." },
+    ],
+  },
+  {
+    heading: "Surprise vs Certainty",
+    content: [
+      { type: "paragraph", text: "Some people value complete surprise. Others would rather have a say in jewellery they are expected to wear regularly. Earrings sit somewhere between the relatively low sizing risk of a pendant and the high fit sensitivity of a ring. If you are very confident about: style, metal, scale, and fastening, a surprise can work well. If several of those remain unknown, consider whether keeping the choice flexible is more important than maximising surprise." },
+      { type: "paragraph", parts: [{ text: "For broad gift strategy, use " }, { text: "What to Know Before Purchasing Fine Jewellery as a Gift", href: "/blog/buying-fine-jewellery-as-gift/" }, { text: " rather than repeating the entire subject here." }] },
+    ],
+  },
+  {
+    heading: "Exchange Flexibility Is Particularly Important for Earrings",
+    content: [
+      { type: "paragraph", text: "When gifting jewellery, you are making aesthetic and comfort decisions for someone else. That makes the seller's exchange and returns terms important. For UK distance purchases, customers generally have a limited right to cancel an eligible online order after receipt. GOV.UK currently states that online customers generally have 14 days after receiving an item to notify the retailer that they want to cancel and another 14 days to return it. However, there are exceptions, including certain sealed goods that are unsuitable for return for health or hygiene reasons once unsealed. You should therefore not assume that all earrings are automatically returnable or automatically non-returnable. Check the retailer's actual earring policy before buying." },
+    ],
+  },
+  {
+    heading: "Pierced-Earring Hygiene Policies Need to Be Read Before the Gift Is Opened",
+    content: [
+      { type: "paragraph", text: "This is particularly important when a retailer uses hygiene seals or similar packaging. If a returns exception depends on sealed hygiene-sensitive goods remaining sealed, opening or trying the product may affect the available return route depending on the circumstances and policy. That means the gift buyer should understand the rules before the recipient opens everything. Do not publish a blanket statement such as: \"Pierced earrings cannot be returned.\" That is too broad. The correct approach is to check the specific seller's terms and applicable consumer rights." },
+    ],
+  },
+  {
+    heading: "Remember That the Buyer and Recipient Are Different People",
+    content: [
+      { type: "paragraph", text: "This is a subtle but important gifting issue. GOV.UK notes that a retailer is generally only required to accept a return from the person who bought the item. That makes gift-return arrangements worth checking before purchase. If the recipient may need to exchange the earrings, find out whether the retailer offers: gift receipts, recipient exchanges, store credit, or another gift-specific process. Do not assume any of those services exist. For Aurelia, they should only be advertised if the client has confirmed them." },
+    ],
+  },
+  {
+    heading: "Do Not Assume Aurelia Offers Gift Packaging",
+    content: [
+      { type: "paragraph", text: "Aurelia's website should not promise: gift wrapping, luxury gift boxes, gift notes, gift receipts, discreet packaging, extended Christmas returns, or: special gift exchanges unless the client has confirmed those services. Presentation packaging and the jewellery itself are separate things. If packaging is important to the gift, verify what is actually included." },
+    ],
+  },
+  {
+    heading: "Do Not Assume Aurelia Has an Extended Gift Exchange Window",
+    content: [
+      { type: "paragraph", text: "A retailer can choose to offer more generous commercial exchange terms than the legal minimum. But that is a brand policy, not something to invent for SEO copy. Until Aurelia confirms an extended gifting policy, this article should simply advise customers to review the applicable current return or exchange terms before purchase." },
+    ],
+  },
+  {
+    heading: "If the Earrings Are Personalised, Check the Terms Before Ordering",
+    content: [
+      { type: "paragraph", text: "Engraving or another customer-specific modification can change the commercial situation. UK online-shopping rules contain exceptions for certain personalised or custom-made goods. Do not therefore personalise a gift first and investigate exchange flexibility afterwards. If personalisation is offered, understand the applicable cancellation and return terms before committing. Do not imply that Aurelia offers engraving or personalisation unless the client confirms it." },
+    ],
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/choose-lab-grown-diamond-earrings-gift/64 (3).jpg", alt: "Diamond earring gift decision process examples studs hoops drops exchange", title: "What if You Do Not Know the Recipient's Preferred Size?", caption: "Use existing earrings as the first reference — a moderate scale is generally easier to integrate than an extreme choice.", priority: false },
+    ],
+  },
+  {
+    heading: "What if You Do Not Know the Recipient's Preferred Size?",
+    content: [
+      { type: "paragraph", text: "Use their existing earrings as the first reference. If that is impossible, avoid choosing extreme proportions based purely on the idea that a gift should look substantial. A moderate scale is generally easier to integrate into different wardrobes than a very large design, but there is no universal \"safe\" millimetre size for every recipient. The correct solution is to understand the specific product dimensions and choose according to the recipient's usual style." },
+    ],
+  },
+  {
+    heading: "What if You Do Not Know Their Preferred Fastening?",
+    content: [
+      { type: "paragraph", text: "Again, look at what they already wear. For expensive diamond studs, you may be tempted to choose the fastening that sounds most secure. Security matters, but so does comfort and ease of use. GIA notes that locking and screw backs can provide strong security, while threaded screw posts may be less comfortable for some wearers. If there is no useful evidence about the recipient's preference, treat fastening as one of the uncertainties that makes exchange flexibility more valuable." },
+    ],
+  },
+  {
+    heading: "What if You Do Not Know Their Metal Preference?",
+    content: [
+      { type: "paragraph", text: "Look at the jewellery they wear most often. If nearly everything is yellow gold, that is meaningful evidence. If they mix metals frequently, you have more flexibility. Do not assume skin tone determines which metal someone wants. Personal style is a stronger signal than generic colour-season rules." },
+    ],
+  },
+  {
+    heading: "What if You Do Not Know Whether They Prefer Lab-Grown Diamonds?",
+    content: [
+      { type: "paragraph", text: "Do not assume that every recipient views natural and laboratory-grown diamonds in the same way. If the gift is important or symbolic, it can be worth knowing whether the recipient has a preference regarding diamond origin. The product itself should clearly disclose laboratory-grown origin." },
+      { type: "paragraph", parts: [{ text: "For the broader origin comparison, use " }, { text: "Lab-Grown vs Natural Diamonds", href: "/blog/lab-grown-vs-natural-diamonds/" }] },
+    ],
+  },
+  {
+    heading: "What if the Earrings Have an Individual Laboratory Report?",
+    content: [
+      { type: "paragraph", text: "For substantial individually reported diamonds, laboratory documentation can provide useful information about the stones. But a report should not dominate the gift decision. Check that: the report applies to the supplied diamond, the product description agrees with it, and: the pair still meets the recipient's style and comfort preferences. A technically impressive report does not make the wrong earring style the right gift." },
+    ],
+  },
+  {
+    heading: "Does Every Diamond Earring Need an Individual Report?",
+    content: [
+      { type: "paragraph", text: "No. Small diamonds and multi-stone earrings do not necessarily require individual reports for every stone. The important question is whether the advertised product specifications and documentation are appropriate to the piece. If a significant individually reported diamond is used, understand what the report covers." },
+      { type: "paragraph", parts: [{ text: "For the complete product check, use " }, { text: "What to Check Before Buying Lab-Grown Diamond Jewellery", href: "/blog/what-to-check-before-buying-lab-grown-diamond-jewellery/" }] },
+    ],
+  },
+  {
+    heading: "How Much Should You Spend on Diamond Earrings as a Gift?",
+    content: [
+      { type: "paragraph", text: "There is no correct gift amount. Do not use the occasion to pressure yourself into a predetermined spending rule. Set a budget you are comfortable with, then choose within it according to the recipient's priorities. If the available money can buy either: larger diamonds in an unfamiliar design, or: slightly smaller diamonds in a style the recipient is likely to wear often, the second option may be the better gift." },
+      { type: "paragraph", parts: [{ text: "For the full budgeting process, use " }, { text: "How to Set a Budget for Lab-Grown Diamond Jewellery", href: "/blog/set-budget-lab-grown-diamond-jewellery/" }] },
+    ],
+  },
+  {
+    heading: "A Simple Earring-Gift Decision Process",
+    content: [
+      { type: "paragraph", text: "A useful decision sequence is: recipient's existing style → piercing → earring category → scale → fastening → metal → diamond specification → exchange flexibility. That sequence intentionally places colour and clarity relatively late. Why? Because if you get the first six decisions wrong, a higher clarity grade will not rescue the gift." },
+    ],
+  },
+  {
+    heading: "Example: Buying Stud Earrings for Someone Who Wears Small Studs",
+    content: [
+      { type: "paragraph", text: "Imagine the recipient normally wears small, simple round studs in white-coloured metal. A sensible gift does not have to copy them exactly. You might choose a slightly more noticeable lab-grown diamond stud while keeping: the familiar close-to-ear style, similar metal preference, and comfortable fastening. The upgrade comes from the significance and quality of the new pair—not from completely changing how they wear earrings." },
+    ],
+  },
+  {
+    heading: "Example: Buying for Someone Who Usually Wears Drops",
+    content: [
+      { type: "paragraph", text: "Now imagine the recipient regularly wears long earrings for dinners and events. Very small diamond studs may technically be versatile but fail to match what they enjoy. A diamond drop or articulated design may suit them better. The point is not that drops are a better gift. The point is that their existing behaviour is evidence." },
+    ],
+  },
+  {
+    heading: "Example: When Exchange Flexibility Should Control the Decision",
+    content: [
+      { type: "paragraph", text: "Suppose you know the recipient loves diamond earrings but you do not know: their preferred scale, whether they like screw backs, or: which metal they currently wear most. In that situation, the retailer's applicable exchange terms may be more important than trying to optimise another diamond grade. The purchase contains too many preference uncertainties. Preserving a route to change the pair can create a better gifting outcome than pretending you know the answers." },
+    ],
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/choose-lab-grown-diamond-earrings-gift/64 (4).jpg", alt: "Diamond earrings gift FAQ final answer checklist decision process", title: "Frequently Asked Questions", caption: "Choose for the recipient's ears and habits — not simply for the diamond specification.", priority: false },
+    ],
+  },
+  {
+    heading: "Frequently Asked Questions",
+    content: [
+      { type: "faq", title: "Frequently Asked Questions", items: [
+        { question: "Are lab-grown diamond earrings a good gift?", answer: "They can be, particularly when the recipient already wears earrings and you understand their general style, fastening and scale preferences." },
+        { question: "What is the safest earring style to give?", answer: "There is no universally safest design. Studs are often relatively versatile, but the recipient's existing jewellery is a better guide than a generic rule." },
+        { question: "Should I buy studs or hoops as a gift?", answer: "Look at what the recipient wears most often. Familiar category preference is usually more useful than guessing." },
+        { question: "How do I know what earring size to buy?", answer: "Use the dimensions of earrings they already wear where possible. Otherwise check actual millimetre measurements rather than relying on photographs." },
+        { question: "Does carat tell me how big diamond earrings are?", answer: "No. Carat measures diamond weight, not physical dimensions." },
+        { question: "Does 1 ct diamond earrings mean 1 ct each?", answer: "Not necessarily. It may refer to the total carat weight of the pair. Check the product specification." },
+        { question: "Should diamond stud earrings match?", answer: "They should appear appropriately paired in shape, dimensions and overall visual character." },
+        { question: "What earring back is best?", answer: "There is no single best option for every wearer. Screw and locking backs can provide strong security, while some people prefer the comfort and familiarity of other fastening systems." },
+        { question: "Are screw backs always better?", answer: "No. GIA notes their security but also that some people find thicker threaded posts uncomfortable." },
+        { question: "Should I buy the largest earrings I can afford?", answer: "Not automatically. Choose a scale that fits the recipient's style and intended use." },
+        { question: "Should I choose the highest clarity possible?", answer: "Not necessarily. Balance the diamond specification with design, size and budget." },
+        { question: "Should I choose the highest colour grade?", answer: "Not automatically. Consider the complete pair rather than maximising one grade." },
+        { question: "Does the recipient need to prefer lab-grown diamonds?", answer: "Preferences regarding diamond origin can matter, particularly for symbolic gifts. If you know the recipient has a preference, respect it." },
+        { question: "Should I check the metal?", answer: "Yes. Verify the actual metal and fineness rather than judging by colour." },
+        { question: "Can earrings be returned in the UK?", answer: "Eligible online purchases generally have cancellation rights, but exceptions can apply, including to certain sealed goods unsuitable for return for health or hygiene reasons once unsealed. Check the actual retailer policy and applicable terms rather than assuming all earrings follow one rule." },
+        { question: "Are pierced earrings automatically non-returnable?", answer: "Do not assume so. The actual product, packaging, hygiene status and retailer's lawful terms matter." },
+        { question: "Can the gift recipient return the earrings?", answer: "Do not assume they can transact directly with the retailer. GOV.UK notes that a retailer generally only has to accept returns from the purchaser. Check whether the retailer offers a gift-exchange process." },
+        { question: "Does Aurelia offer gift wrapping?", answer: "Do not state this until Aurelia confirms its packaging and gifting services." },
+        { question: "Does Aurelia offer gift receipts?", answer: "This should remain unconfirmed until the client provides the actual policy." },
+        { question: "Does Aurelia offer extended gift exchanges?", answer: "Do not claim an extended exchange period unless Aurelia has confirmed one." },
+        { question: "What if the earrings have no published price?", answer: "Where an Aurelia product is not currently offered through an approved direct-purchase flow, use Join Waitlist or Enquire About This Piece rather than inventing a price." },
+        { question: "Does joining a waitlist purchase the earrings?", answer: "No. Under Aurelia's current proposed setup, joining should register interest only." },
+        { question: "What is the most important rule when buying earrings as a gift?", answer: "Choose for the recipient's ears and habits, not simply for the diamond specification." },
+      ]},
+    ],
+  },
+  {
+    heading: "Final Answer: How Should You Choose Lab-Grown Diamond Earrings as a Gift?",
+    content: [
+      { type: "paragraph", text: "Begin with what the recipient already wears. Confirm that their ears are pierced and look at the earring category they choose naturally. If they repeatedly wear studs, start there. If they prefer hoops or drops, use that information." },
+      { type: "paragraph", text: "Then consider the physical scale. Do not use carat weight or magnified photography as a substitute for millimetre dimensions. For studs, understand the diameter and whether the carat weight refers to each stone or the pair. For hoops, check the diameter. For drops, check the full length." },
+      { type: "paragraph", text: "Then consider the fastening. A familiar closure can make a valuable pair more comfortable and easier to wear. After that, check the metal and diamond specification. Make sure the lab-grown origin is clear and the product information matches any applicable documentation." },
+      { type: "paragraph", text: "Finally, check exchange flexibility before you buy. When buying for another person, uncertainty about scale, fastening and style is unavoidable. The best gift decision often comes from reducing those uncertainties rather than chasing the highest possible technical specification." },
+      { type: "paragraph", parts: [{ text: "For broad fine-jewellery gifting advice, use " }, { text: "What to Know Before Purchasing Fine Jewellery as a Gift", href: "/blog/buying-fine-jewellery-as-gift/" }] },
+      { type: "paragraph", parts: [{ text: "For earring dimensions and physical scale, use " }, { text: "How to Check Jewellery Dimensions and Weight Online", href: "/blog/check-jewellery-product-dimensions-weight/" }] },
+      { type: "paragraph", parts: [{ text: "For total carat weight, read " }, { text: "Total Carat Weight Meaning in Diamond Jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "For the full product-verification check, use " }, { text: "What to Check Before Buying Lab-Grown Diamond Jewellery", href: "/blog/what-to-check-before-buying-lab-grown-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "For budgeting, use " }, { text: "How to Set a Budget for Lab-Grown Diamond Jewellery", href: "/blog/set-budget-lab-grown-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "Where an Aurelia Royale earring design currently has no approved direct-purchase price, " }, { text: "Join the Waitlist", href: "/contact/" }, { text: " or submit an enquiry. That should register interest only and should not imply an order, reservation or preorder." }] },
+      { type: "cta-banner", title: "Explore Aurelia Royale Lab-Grown Diamond Earrings", subtitle: "Choose for the recipient's style, piercing and comfort — not just the specification.", shopHref: "/shop/", contactHref: "/contact/" },
+    ],
+  },
 ];
 
-export default function ChooseLabGrownDiamondEarringsGiftPage() {
+export default function BlogEarringsGiftPage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
-      {/* Script injection for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Product-Category Guides
-          </span>
-          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How to Choose Lab-Grown Diamond Earrings as a Gift
-          </h1>
-          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
-          </p>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">Lab-Grown Diamond Education</span>
+          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">How to Choose Lab-Grown Diamond Earrings as a Gift</h1>
+          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">Piercing, Fastening, Scale, Metal, Style and Exchange Flexibility • Published September 10, 2026</p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
+      <RelatedArticles currentSlug="choose-lab-grown-diamond-earrings-gift" />
       <NewsletterSection />
     </main>
   );
 }
+

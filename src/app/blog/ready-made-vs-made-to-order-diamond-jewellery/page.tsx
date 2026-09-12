@@ -1,691 +1,385 @@
-import React from "react";
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
-import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
-// 1. SEO Metadata
+import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
+
 export const metadata: Metadata = {
   title: "Ready-Made vs Made-to-Order Diamond Jewellery",
-  description: "Compare ready-made and made-to-order diamond jewellery by choice, sizing, inspection, production time, returns, price and event deadlines.",
-  alternates: {
-    canonical: "https://www.aureliaroyale.com/blog/ready-made-vs-made-to-order-diamond-jewellery/",
-  },
+  description: "Compare ready-made and made-to-order diamond jewellery by availability, sizing, design certainty, production time, customisation and cancellation considerations.",
+  alternates: { canonical: "https://www.aureliaroyale.com/blog/ready-made-vs-made-to-order-diamond-jewellery/" },
 };
 
-// 2. JSON-LD Schema
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BlogPosting",
-      "@id": "https://www.aureliaroyale.com/blog/ready-made-vs-made-to-order-diamond-jewellery/#article",
-      "mainEntityOfPage": {"@type":"WebPage","@id":"https://www.aureliaroyale.com/blog/ready-made-vs-made-to-order-diamond-jewellery/"},
-      "headline": "Ready-Made vs Made-to-Order Diamond Jewellery: Which Should You Choose?",
-      "description": "Compare ready-made and made-to-order diamond jewellery by choice, sizing, inspection, production time, returns, price and event deadlines.",
-      "image": "https://www.aureliaroyale.com/images/blog/ready-made-vs-made-to-order-diamond-jewellery.webp",
-      "datePublished": "2026-07-16",
-      "dateModified": "2026-07-16",
-      "author": {"@type":"Organization","name":"Aurelia Royale","url":"https://www.aureliaroyale.com/"},
-      "publisher": {"@type":"Organization","name":"Aurelia Royale","url":"https://www.aureliaroyale.com/"},
-      "inLanguage": "en-GB",
-      "articleSection": "Buying Lab-Grown Diamond Jewellery",
-      "keywords": ["ready-made vs made-to-order diamond jewellery","ready-made diamond jewellery","made-to-order diamond jewellery","made-to-order jewellery meaning"]
-    },
-    {
-      "@type":"BreadcrumbList",
-      "@id":"https://www.aureliaroyale.com/blog/ready-made-vs-made-to-order-diamond-jewellery/#breadcrumb",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Home","item":"https://www.aureliaroyale.com/"},
-        {"@type":"ListItem","position":2,"name":"Journal","item":"https://www.aureliaroyale.com/blog/"},
-        {"@type":"ListItem","position":3,"name":"Ready-Made vs Made-to-Order Diamond Jewellery","item":"https://www.aureliaroyale.com/blog/ready-made-vs-made-to-order-diamond-jewellery/"}
-      ]
-    },
-    {
-      "@type":"FAQPage",
-      "@id":"https://www.aureliaroyale.com/blog/ready-made-vs-made-to-order-diamond-jewellery/#faq",
-      "mainEntity":[
-        {"@type":"Question","name":"What is ready-made diamond jewellery?","acceptedAnswer":{"@type":"Answer","text":"It is a finished piece produced before the customer's order. Final verification, alteration, engraving, packing and dispatch may remain."}},
-        {"@type":"Question","name":"What does made-to-order jewellery mean?","acceptedAnswer":{"@type":"Answer","text":"It means some or all manufacture or assembly occurs after the customer confirms the order, usually from an existing design with defined options."}},
-        {"@type":"Question","name":"Is made-to-order the same as bespoke?","acceptedAnswer":{"@type":"Answer","text":"No. Made-to-order can use an established design in a selected size or metal. Bespoke usually involves substantial design development."}},
-        {"@type":"Question","name":"Is made-to-order jewellery handmade?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. It may combine digital design, casting, fabrication, hand assembly, stone setting and polishing."}},
-        {"@type":"Question","name":"Is ready-made jewellery lower quality?","acceptedAnswer":{"@type":"Answer","text":"No. Quality depends on specification, materials, engineering, setting, finish and inspection—not inventory timing."}},
-        {"@type":"Question","name":"Can made-to-order jewellery be returned?","acceptedAnswer":{"@type":"Answer","text":"It depends on the product, degree of personalisation, seller terms and applicable law. Confirm before production."}},
-        {"@type":"Question","name":"Is made-to-order jewellery more expensive?","acceptedAnswer":{"@type":"Answer","text":"Not automatically. Compare diamonds, metal, labour, documentation, services and delivered price rather than the label."}},
-        {"@type":"Question","name":"How long does made-to-order jewellery take?","acceptedAnswer":{"@type":"Answer","text":"There is no universal time. The seller should provide a range covering production, quality control, hallmarking and dispatch."}},
-        {"@type":"Question","name":"Can ready-made jewellery be resized?","acceptedAnswer":{"@type":"Answer","text":"Sometimes. Resizability depends on design, setting, metal and required change. Confirm limits, cost and timing."}},
-        {"@type":"Question","name":"Will made-to-order jewellery look exactly like the photograph?","acceptedAnswer":{"@type":"Answer","text":"It should match the approved specification, but representative imagery may allow stated variations in stones, dimensions or hand finishing."}},
-        {"@type":"Question","name":"Which option is better for a wedding deadline?","acceptedAnswer":{"@type":"Answer","text":"Ready-made is generally safer when time is short. Obtain a written arrival commitment and include an inspection and resizing buffer."}},
-        {"@type":"Question","name":"What should a made-to-order confirmation include?","acceptedAnswer":{"@type":"Answer","text":"It should include design, size, metal, diamonds, dimensions, engraving, tolerance, price, approvals, lead time, returns and warranty."}}
-      ]
-    }
-  ]
-};
-
-// 3. Article content sections
 const articleSections: ArticleSection[] = [
   {
     content: [
-      {
-        type: "image",
-        src: "/images/blog/ready-made-vs-made-to-order-diamond-jewellery/53 (1).jpg",
-        alt: "Ready-made vs made-to-order diamond jewellery comparison",
-        title: "Ready-Made vs Made-to-Order",
-        caption: "Understanding the difference between ready-made and made-to-order helps you choose the right option.",
-        priority: true
-      },
-      {
-        type: "paragraph",
-        text: "Ready-made and made-to-order diamond jewellery can use the same quality diamonds, precious metals and craftsmanship. The difference is primarily when the product becomes allocated or manufactured in relation to your order."
-      },
-      {
-        type: "paragraph",
-        text: "With ready-made jewellery, a finished piece already exists. With made-to-order jewellery, some or all production begins or is completed after you confirm the specification. That changes what you can inspect, how quickly it can arrive, which details you can choose and what may happen if you change your mind."
-      },
-      {
-        type: "paragraph",
-        text: "Neither model is automatically better. The right choice depends on your deadline, confidence in the specification, sizing needs, desired control and tolerance for variation."
-      },
-      {
-        type: "callout",
-        title: "Quick answer",
-        parts: [
-          { text: "Choose ", bold: true },
-          { text: "ready-made diamond jewellery", bold: true },
-          { text: " when you prioritise:\n\n", bold: true },
-          { text: "• faster and more predictable dispatch\n• seeing the exact finished piece before purchase\n• simpler gifting under a fixed deadline\n• fewer design approvals\n• the possibility of a standard return, subject to policy and law\n\n" },
-          { text: "Choose ", bold: true },
-          { text: "made-to-order diamond jewellery", bold: true },
-          { text: " when you prioritise:\n\n", bold: true },
-          { text: "• a specific ring size, length or metal option\n• selecting a centre diamond or controlled grade\n• a variation of an established design\n• fresh production for your confirmed specification\n• details unavailable in existing inventory\n\nDo not assume that \"made to order\" means bespoke, handmade, unique or non-returnable. Ask the seller to define exactly what is being made or changed." }
-        ]
-      }
-    ]
+      { type: "image", src: "/images/blog/ready-made-vs-made-to-order-diamond-jewellery/53 (1).jpg", alt: "Ready-made vs made-to-order diamond jewellery comparison", title: "Ready-Made vs Made-to-Order Diamond Jewellery: Which Is Right for You?", caption: "The key difference is when the jewellery is manufactured relative to your order — not simply whether one piece is standard and the other is custom.", priority: true },
+      { type: "paragraph", text: "The difference between ready-made and made-to-order diamond jewellery is not simply whether one piece is \"standard\" and the other is \"custom\"." },
+      { type: "paragraph", text: "The real difference is when the jewellery is manufactured relative to your order." },
+      { type: "paragraph", text: "Ready-made jewellery already exists as a finished piece or as available finished stock before you commit." },
+      { type: "paragraph", text: "Made-to-order jewellery is produced after an order is accepted, usually according to an existing design and agreed specifications." },
+      { type: "paragraph", text: "Both models can work well. The better choice depends on what matters most to you: immediate availability, seeing the exact finished piece, selecting a particular size or variation, accepting a production period or understanding which aspects of the final item may vary." },
+      { type: "paragraph", text: "A third concept also needs to remain separate: joining a waitlist does not mean you have ordered either type of jewellery. A waitlist normally registers interest. It should not be treated as an order, reservation or start of production unless the retailer has explicitly created such a process." },
+    ],
   },
   {
-    heading: "What is ready-made diamond jewellery?",
+    heading: "Quick Answer: Ready-Made vs Made-to-Order Jewellery",
     content: [
-      {
-        type: "paragraph",
-        text: "Ready-made jewellery is already manufactured as a finished piece before your order. It may be held by the retailer, workshop or fulfilment partner."
-      },
-      {
-        type: "paragraph",
-        text: "The exact item can potentially be:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "photographed and filmed;",
-          "measured and weighed;",
-          "inspected for stone setting and finish;",
-          "matched to its report or inscription;",
-          "hallmarked where required; and",
-          "dispatched after final checks."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Ready-made does not necessarily mean same-day dispatch. Payment review, resizing, engraving, report verification, final polishing, packing and insured courier collection may remain."
-      },
-      {
-        type: "paragraph",
-        text: "It also does not mean mass-produced or lower quality. A one-off finished piece can be ready-made, while a standard collection design can be made after every order."
-      }
-    ]
+      { type: "paragraph", text: "Choose ready-made jewellery when you value seeing an existing finished piece, want less production uncertainty or need a potentially shorter path to dispatch." },
+      { type: "paragraph", text: "Choose made-to-order jewellery when you are comfortable waiting for production and want a standard design manufactured after you select the applicable size, metal or other available specification." },
+      { type: "paragraph", text: "Made to order does not automatically mean bespoke. A standard design manufactured after purchase can still be made to order without being individually customised." },
+      { type: "paragraph", text: "Likewise, made to order does not automatically mean non-returnable. UK consumer guidance distinguishes ordinary made-after-order products from goods genuinely made to the consumer's specifications or clearly personalised." },
+      { type: "paragraph", text: "The key question is: Are you buying an existing finished piece, ordering a standard design to be produced, or commissioning something specifically customised for you?" },
+    ],
   },
   {
-    heading: "What is made-to-order diamond jewellery?",
+    heading: "What Is Ready-Made Diamond Jewellery?",
     content: [
-      {
-        type: "paragraph",
-        text: "Made-to-order jewellery is manufactured, assembled or materially completed after the buyer confirms the order. The design may already exist, but the selected combination is produced for the buyer."
-      },
-      {
-        type: "paragraph",
-        text: "Made-to-order work can involve:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "producing a ring in a selected size;",
-          "choosing metal type or colour;",
-          "allocating a particular centre diamond;",
-          "changing chain or bracelet length;",
-          "setting stones into an existing mount design;",
-          "adding engraving; or",
-          "coordinating several pieces as a set."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "The term does not reveal the manufacturing method. A made-to-order piece may combine computer-aided design, casting, hand assembly, stone setting, polishing and quality control. Ask what remains after payment and which features can actually be changed."
-      }
-    ]
+      { type: "paragraph", text: "Ready-made jewellery already exists before you place the order. Depending on the retailer, this may mean: the exact completed ring, a completed necklace, a finished pair of earrings, or finished stock available in certain variations." },
+      { type: "paragraph", text: "The advantage is greater certainty about the physical product. If the photographs show that exact item, you may be able to evaluate its visible design before purchasing. Its production stage is already complete." },
+      { type: "paragraph", text: "The remaining process may involve: order processing, size confirmation where applicable, documentation, dispatch, and delivery." },
+    ],
   },
   {
-    heading: "Made to order is not the same as bespoke",
+    heading: "Ready-Made Does Not Always Mean Every Variation Is in Stock",
     content: [
-      {
-        type: "paragraph",
-        text: "These terms are frequently confused."
-      },
-      {
-        type: "table",
-        headers: ["Model", "Design starting point", "Buyer's control"],
-        rows: [
-          ["Ready-made", "Finished existing piece", "Usually selection from available inventory"],
-          ["Made to order", "Existing design produced or completed after order", "Defined options such as size, metal or stone"],
-          ["Customised", "Existing piece or design altered", "Specific approved modifications"],
-          ["Bespoke", "Design developed substantially for the buyer", "Wider design process and approvals"]
-        ]
-      },
-      {
-        type: "image",
-        src: "/images/blog/ready-made-vs-made-to-order-diamond-jewellery/53 (2).jpg",
-        alt: "Comparison of ready-made, made-to-order, custom and bespoke jewellery",
-        title: "Jewellery Production Models",
-        caption: "Understanding the differences between ready-made, made-to-order, custom and bespoke helps set realistic expectations.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "A standard ring produced in size M is made to order but not necessarily bespoke. An existing pendant with an engraved date is personalised but not necessarily a custom design."
-      },
-      {
-        type: "paragraph",
-        text: "This distinction matters for price, timing, revision rights and returns."
-      }
-    ]
+      { type: "paragraph", text: "A jewellery design can be generally available while only certain variations physically exist. For example, a ring might be available in one size but not another. A design may exist in white gold while the yellow-gold version requires production. A necklace may be ready in one chain length but not another." },
+      { type: "paragraph", text: "So the useful question is not simply: \"Is this design ready-made?\" Ask: \"Does the exact variation I want already exist?\"" },
+    ],
   },
   {
-    heading: "Side-by-side comparison",
+    heading: "What Is Made-to-Order Diamond Jewellery?",
     content: [
-      {
-        type: "table",
-        headers: ["Factor", "Ready-made", "Made to order"],
-        rows: [
-          ["Product existence", "Finished before order", "Completed after order"],
-          ["Exact-item inspection", "Often possible", "Usually based on sample or render"],
-          ["Dispatch", "Generally faster", "Follows production and checks"],
-          ["Size and length options", "Limited to inventory or alteration", "Can be built to available options"],
-          ["Diamond choice", "Existing stone or stated range", "May allow selection or allocation"],
-          ["Variation", "Lower", "Normal within stated tolerances"],
-          ["Approvals", "Usually none", "May require confirmation or design approval"],
-          ["Cancellation", "Often simpler before dispatch", "May narrow once work or allocation begins"],
-          ["Returns", "Depends on terms and law", "Depends on personalisation, terms and law"],
-          ["Event planning", "Useful for short deadlines", "Requires production buffer"]
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "The table describes typical differences, not universal rules. The seller's written specification and terms control the actual purchase."
-      }
-    ]
+      { type: "paragraph", text: "Made-to-order jewellery is produced after the customer places and the retailer accepts an order. The design itself may already be established. The customer might simply choose from standard options such as: ring size, metal, diamond specification, chain length, or another offered variation. Production then begins according to the agreed order." },
+      { type: "paragraph", text: "This makes made to order different from immediately available stock. But it still does not necessarily make the piece bespoke." },
+    ],
   },
   {
-    heading: "Advantage 1: certainty about the exact appearance",
+    heading: "Made to Order Does Not Automatically Mean Custom",
     content: [
-      {
-        type: "paragraph",
-        text: "A ready-made product can be photographed as the exact item. You may be able to inspect:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "diamond outline and pattern;",
-          "colour matching across stones;",
-          "prong alignment;",
-          "finished proportions;",
-          "hallmark and report number;",
-          "product weight; and",
-          "clasp or earring-back construction."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Ask whether the images and video show the exact item. Some ready-made listings still use representative collection imagery."
-      },
-      {
-        type: "paragraph",
-        text: "Made-to-order products usually rely on samples, renders or reference photography. The delivered piece should match the written specification, but minor variation can occur in stone dimensions, engraving placement, hand finishing or total weight. The permitted tolerance should be stated."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Use " },
-          { text: "how to check jewellery dimensions and weight", href: "/blog/check-jewellery-product-dimensions-weight/" },
-          { text: " to compare the reference image with measurable specifications." }
-        ]
-      }
-    ]
+      { type: "paragraph", text: "This distinction is essential. Imagine a retailer offers the same ring design in several standard sizes and metals. You select: ring size, one of the listed metals, and one of the existing diamond options. The ring is then manufactured. That is made-to-order jewellery. It may still be a standard catalogue design." },
+      { type: "paragraph", text: "Now imagine you ask the jeweller to: change the setting architecture, use dimensions not normally offered, add a personal engraving, or create a completely new design. That moves much closer to personalised, custom or bespoke work. The fact that production starts after the order does not decide the issue by itself." },
+    ],
   },
   {
-    heading: "Advantage 2: sizing and fit",
+    heading: "Made to Order vs Bespoke Jewellery",
     content: [
-      {
-        type: "paragraph",
-        text: "Made-to-order can be useful when the required ring size, bracelet length or necklace length is not held as finished stock. Producing the correct size from the start may preserve proportions better than altering a completed piece."
-      },
-      {
-        type: "paragraph",
-        text: "However, made-to-order sizing is only beneficial when the input is correct. Confirm:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "sizing system;",
-          "ring width and fit style;",
-          "wrist measurement and comfort allowance;",
-          "chain length and adjustment positions;",
-          "resize range after delivery; and",
-          "correction cost if the supplied size was wrong."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Ready-made jewellery can sometimes be resized or shortened, but not every setting, eternity ring, articulated bracelet or engraved piece allows easy alteration."
-      }
-    ]
+      { type: "paragraph", text: "These terms are often used loosely in jewellery marketing, but they should not be treated as synonyms." },
+      { type: "table", headers: ["Model", "What usually happens"], rows: [["Ready-made", "Finished product exists before the order"], ["Made to order", "Standard or repeatable design is manufactured after ordering"], ["Customised", "Existing design is materially altered for a specific customer"], ["Bespoke", "Product is created to an individually agreed specification"], ["Waitlist", "Customer registers interest; normally no order yet"]] },
+      { type: "paragraph", text: "The exact business process matters more than the marketing label. If the retailer describes an item as bespoke, ask what is actually unique about it." },
+    ],
   },
   {
-    heading: "Advantage 3: diamond and metal choice",
+    heading: "Where Does a Waitlist Fit?",
     content: [
-      {
-        type: "paragraph",
-        text: "A made-to-order model can offer combinations that would be inefficient to hold in inventory: several gold colours, platinum, multiple carat options or individually report-covered centre diamonds."
-      },
-      {
-        type: "paragraph",
-        text: "Before choosing, define whether you are selecting:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "an exact diamond with report number;",
-          "a diamond meeting a minimum or range;",
-          "a representative total carat weight;",
-          "the centre stone only; or",
-          "every principal stone in a matched design."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "For metal, confirm type, fineness, colour, plating, approximate weight and hallmark arrangements."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Read " },
-          { text: "how to check the metal used in diamond jewellery", href: "/blog/check-metal-used-diamond-jewellery/" },
-          { text: " before approving a variant." }
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Choice is valuable only when the selected specification appears on the order confirmation."
-      }
-    ]
-  },
-  {
-    heading: "Advantage 4: speed and event deadlines",
-    content: [
-      {
-        type: "paragraph",
-        text: "Ready-made usually wins when time is short because manufacturing is already complete. Yet alteration and dispatch still require time."
-      },
-      {
-        type: "image",
-        src: "/images/blog/ready-made-vs-made-to-order-diamond-jewellery/53 (3).jpg",
-        alt: "Timeline comparison between ready-made and made-to-order jewellery production",
-        title: "Production Timeline Comparison",
-        caption: "Ready-made generally offers faster dispatch, while made-to-order requires production time.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "Made-to-order timing can include material allocation, manufacture, stone setting, finishing, quality control, hallmarking, documentation and insured dispatch. Express delivery shortens carrier transit; it does not automatically shorten production."
-      },
-      {
-        type: "paragraph",
-        text: "For a wedding, proposal or anniversary:"
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "give the seller the essential date before ordering;",
-          "ask whether the exact ready-made variant exists;",
-          "obtain the latest dispatch and arrival dates in writing;",
-          "allow time to inspect and correct sizing; and",
-          "avoid treating an estimate as a guarantee."
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Use the worksheet in " },
-          { text: "jewellery availability and production time", href: "/blog/jewellery-availability-production-time/" },
-          { text: " to calculate the full timeline." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Advantage 5: returns and cancellation",
-    content: [
-      {
-        type: "paragraph",
-        text: "Do not assume all made-to-order jewellery is automatically non-returnable or that every ready-made item can be returned without restriction."
-      },
-      {
-        type: "paragraph",
-        text: "The position depends on:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "seller location and buyer destination;",
-          "whether the transaction is online or in person;",
-          "whether the product is standard, made to order or clearly personalised;",
-          "when production or diamond allocation begins;",
-          "written cancellation and return terms; and",
-          "applicable consumer law."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Current EU guidance provides a 14-day withdrawal period for many distance purchases but lists goods made to order or clearly personalised among exceptions. National application and the facts matter. UK distance-selling rules also contain exceptions for personalised or custom-made goods."
-      },
-      {
-        type: "paragraph",
-        text: "Before paying, ask:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Can I cancel before production begins?",
-          "At what milestone does the order become committed?",
-          "Is choosing a standard size treated differently from engraving?",
-          "Can the piece be returned if it matches the approved specification?",
-          "What remedies apply if it is faulty or not as described?",
-          "Who pays insured return shipping?"
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Contractual return restrictions do not erase statutory remedies for faulty or misdescribed goods. Obtain legal guidance for a dispute."
-      }
-    ]
-  },
-  {
-    heading: "Is made-to-order jewellery more expensive?",
-    content: [
-      {
-        type: "paragraph",
-        text: "Not necessarily. Price depends on diamonds, metal, design, labour, documentation, service and business model."
-      },
-      {
-        type: "paragraph",
-        text: "Made-to-order production can avoid holding every variant as inventory, but it can add sourcing, administration, setup or custom labour. Ready-made stock can benefit from repeat production, or it may carry inventory and financing costs."
-      },
-      {
-        type: "paragraph",
-        text: "Compare the final specification rather than the label. Ask whether the price includes:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "exact diamond or quality range;",
-          "resizing and engraving;",
-          "design revisions;",
-          "independent reports;",
-          "hallmarking;",
-          "insured delivery; and",
-          "aftercare."
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Read " },
-          { text: "what determines the price of lab-grown diamond jewellery", href: "/blog/what-determines-price-lab-grown-diamond-jewellery/" },
-          { text: " for the complete price stack." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Does one model produce better quality?",
-    content: [
-      {
-        type: "paragraph",
-        text: "No. Quality depends on design, materials, manufacturing, setting, finishing and inspection."
-      },
-      {
-        type: "paragraph",
-        text: "A ready-made piece has the advantage of being inspectable before allocation. A made-to-order piece may receive quality control against a buyer-specific specification. Either can be excellent or poor."
-      },
-      {
-        type: "paragraph",
-        text: "Request evidence:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "complete product specifications;",
-          "exact-item or representative-image statement;",
-          "quality-control process;",
-          "measurements and tolerances;",
-          "report and hallmark scope;",
-          "warranty; and",
-          "procedure if the delivered item differs."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "GIA's jewellery quality benchmarks address features such as workmanship and construction; they do not say that inventory timing determines quality."
-      }
-    ]
-  },
-  {
-    heading: "Decision guide",
-    content: [
-      {
-        type: "callout",
-        title: "Choose ready-made when:",
-        theme: "pine",
-        parts: [
-          { text: "• your deadline is close\n• you want to inspect the exact item\n• standard sizing works\n• you prefer fewer approval steps\n• the available specification already matches your priorities\n• flexibility to return a standard product is important, subject to terms" }
-        ]
-      },
-      {
-        type: "callout",
-        title: "Choose made to order when:",
-        theme: "cream",
-        parts: [
-          { text: "• your size or length is unavailable\n• you want a defined metal or diamond combination\n• the design is established but requires approved changes\n• you can accommodate production time\n• you understand the variation tolerance\n• you accept the stated cancellation and return position" }
-        ]
-      },
-      {
-        type: "callout",
-        title: "Pause when:",
-        theme: "gold-border",
-        parts: [
-          { text: "• the seller cannot define what \"made to order\" means\n• images are representative but no tolerance is given\n• payment is requested before the final specification\n• return restrictions appear only after checkout\n• the event date is acknowledged only verbally\n• the invoice does not list selected options" }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Pre-order comparison worksheet",
-    content: [
-      {
-        type: "image",
-        src: "/images/blog/ready-made-vs-made-to-order-diamond-jewellery/53 (4).jpg",
-        alt: "Comparison worksheet for ready-made vs made-to-order jewellery",
-        title: "Decision Worksheet",
-        caption: "Use this worksheet to compare ready-made and made-to-order options before deciding.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "Complete this before payment:"
-      },
-      {
-        type: "table",
-        headers: ["Question", "Ready-made option", "Made-to-order option"],
-        rows: [
-          ["Does the exact piece exist?", "", ""],
-          ["Are images exact or representative?", "", ""],
-          ["Which specifications can I choose?", "", ""],
-          ["What variation is permitted?", "", ""],
-          ["What work remains?", "", ""],
-          ["Latest dispatch and arrival", "", ""],
-          ["Can I cancel before dispatch?", "", ""],
-          ["Return eligibility", "", ""],
-          ["Resize or alteration options", "", ""],
-          ["Documents and hallmark", "", ""],
-          ["Warranty and aftercare", "", ""],
-          ["Final delivered price", "", ""]
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Complete both columns for the exact variants. A general store policy is not enough if the product page states a specific exception."
-      }
-    ]
-  },
-  {
-    heading: "What Aurelia Royale should disclose",
-    content: [
-      {
-        type: "paragraph",
-        text: "Every Aurelia Royale product should be labelled ready-made, made to order or bespoke/customised using a published definition. The page should state:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "whether the exact item exists;",
-          "exact versus representative imagery;",
-          "configurable specifications;",
-          "production stages and lead-time range;",
-          "variation tolerance;",
-          "approval milestones;",
-          "cancellation and return position;",
-          "latest dispatch estimate by variant; and",
-          "what happens if a specification cannot be fulfilled."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "The cart should repeat the model and selected options. A made-to-order customer should receive a final specification approval before non-recoverable work begins."
-      }
-    ]
+      { type: "paragraph", text: "A waitlist belongs before an order, not inside the ready-made-versus-made-to-order comparison itself. A customer may join a waitlist because: a design is not currently available, the price has not yet been confirmed, ordering has not opened, or the retailer wants to collect expressions of interest." },
+      { type: "paragraph", text: "Joining the waitlist should not automatically mean: the customer has bought the item, production has started, an item has been reserved, or a production slot has been secured." },
+      { type: "paragraph", text: "For Aurelia's current proposed model, Join Waitlist should mean: register your interest and allow Aurelia to contact you when further availability or ordering information becomes available. That is all." },
+      { type: "paragraph", parts: [{ text: "For the full terminology, read " }, { text: "How to Understand Jewellery Availability and Production Time", href: "/blog/jewellery-availability-production-time/" }] },
+    ],
   },
   {
     content: [
-      {
-        type: "callout",
-        title: "Final verdict",
-        theme: "gold-border",
-        parts: [
-          { text: "Ready-made diamond jewellery offers greater exact-item certainty and generally faster fulfilment. Made-to-order jewellery offers more control over available sizes, metals and diamond options but requires production time, an approved specification and careful review of cancellation and return terms.\n\n" },
-          { text: "Choose based on the factor that matters most: deadline, exact-item inspection, fit, configuration or contractual flexibility. Neither model proves quality or value by itself.\n\n" },
-          { text: "The safest purchase is the one where the seller defines the model, records the complete specification and explains what happens before and after production begins." }
-        ]
-      },
-      {
-        type: "faq",
-        items: [
-          {
-            question: "What is ready-made diamond jewellery?",
-            answer: "It is a finished piece produced before the customer's order. Final verification, alteration, engraving, packing and dispatch may still remain."
-          },
-          {
-            question: "What does made-to-order jewellery mean?",
-            answer: "It means some or all manufacture or assembly occurs after the customer confirms the order, usually from an existing design with defined options."
-          },
-          {
-            question: "Is made-to-order the same as bespoke?",
-            answer: "No. Made-to-order can use an established design in a selected size or metal. Bespoke usually involves substantial design development for one client."
-          },
-          {
-            question: "Is made-to-order jewellery handmade?",
-            answer: "Not necessarily. It may combine digital design, casting, fabrication, hand assembly, stone setting and polishing. Ask which processes apply."
-          },
-          {
-            question: "Is ready-made jewellery lower quality?",
-            answer: "No. Quality depends on specification, materials, engineering, setting, finish and inspection—not whether the piece existed before the order."
-          },
-          {
-            question: "Can made-to-order jewellery be returned?",
-            answer: "It depends on the product, degree of personalisation, seller terms and applicable law. Confirm the exact position before production."
-          },
-          {
-            question: "Is made-to-order jewellery more expensive?",
-            answer: "Not automatically. Compare diamonds, metal, labour, documentation, services and final delivered price rather than the production label."
-          },
-          {
-            question: "How long does made-to-order jewellery take?",
-            answer: "There is no universal time. The seller should provide a range covering manufacture, setting, finishing, quality control, hallmarking and dispatch."
-          },
-          {
-            question: "Can ready-made jewellery be resized?",
-            answer: "Sometimes. Resizability depends on design, setting, metal and required change. Confirm limits, cost and effect on delivery and returns."
-          },
-          {
-            question: "Will made-to-order jewellery look exactly like the photograph?",
-            answer: "It should match the approved specification, but representative imagery may allow stated variations in stones, dimensions or hand finishing."
-          },
-          {
-            question: "Which option is better for a wedding deadline?",
-            answer: "Ready-made is generally safer when time is short. Whichever model you choose, obtain a written arrival commitment and include an inspection and resizing buffer."
-          },
-          {
-            question: "What should a made-to-order confirmation include?",
-            answer: "It should include product code, design, size, metal, diamonds, dimensions, engraving, tolerance, price, approvals, lead time, returns and warranty."
-          }
-        ]
-      },
-      {
-        type: "cta-banner",
-        title: "Shop with Confidence at Aurelia",
-        subtitle: "Explore our collection with transparent ready-made and made-to-order options.",
-        shopHref: "/shop/",
-        contactHref: "/contact/"
-      }
-    ]
-  }
+      { type: "image", src: "/images/blog/ready-made-vs-made-to-order-diamond-jewellery/53 (2).jpg", alt: "Ready-made jewellery advantages certainty finished product existing stock", title: "Ready-Made Jewellery: Main Advantages", caption: "Ready-made jewellery can provide physical certainty — the finished item may already exist for evaluation.", priority: false },
+    ],
+  },
+  {
+    heading: "Ready-Made Jewellery: Main Advantages",
+    content: [
+      { type: "paragraph", text: "The strongest advantage is certainty. If the exact piece already exists, you may be able to evaluate: its finished proportions, the actual stone arrangement, the visible setting, the specific centre diamond, and the real product rather than a representative design. Production is already complete. That can also reduce the number of future variables." },
+      { type: "paragraph", text: "If timing matters, a ready-made item may therefore offer a simpler path to delivery, although actual dispatch and delivery still depend on the retailer's process." },
+    ],
+  },
+  {
+    heading: "Ready-Made Jewellery: Main Limitations",
+    content: [
+      { type: "paragraph", text: "The existing product may not match every preference. Your required: ring size, metal, chain length, centre diamond, or other specification may not be available in that exact finished piece. You are also generally choosing from what already exists rather than asking production to begin around your selected standard variation. That is not necessarily a disadvantage. It simply reduces flexibility." },
+    ],
+  },
+  {
+    heading: "Made-to-Order Jewellery: Main Advantages",
+    content: [
+      { type: "paragraph", text: "Made to order can allow a standard design to be produced in the applicable variation you actually need. For example, a retailer may be able to manufacture the same design in an available: ring size, metal option, chain length, or approved diamond specification. The exact options depend on the retailer. Do not assume every design can be changed in every way." },
+      { type: "paragraph", text: "Where the retailer clearly defines the available choices, made to order can offer useful flexibility without requiring a completely bespoke project." },
+    ],
+  },
+  {
+    heading: "Made-to-Order Jewellery: Main Limitations",
+    content: [
+      { type: "paragraph", text: "The most obvious trade-off is that the finished item does not yet exist. That introduces production time. It can also mean you are evaluating: a previous example, representative photography, a 3D rendering, or an agreed product specification rather than holding the exact finished piece." },
+      { type: "paragraph", text: "If individual diamonds vary, the final stone may not look precisely like a representative image unless the exact diamond has already been selected and shown. The buyer therefore needs greater clarity about what is fixed before production and what can legitimately vary." },
+    ],
+  },
+  {
+    heading: "Which Gives You More Certainty?",
+    content: [
+      { type: "paragraph", text: "Usually, the exact ready-made item. That is because you can potentially evaluate the actual completed product. But this only applies when the images and specifications really describe that exact piece. A ready-made listing using generic photography can still involve uncertainty. Likewise, made-to-order jewellery can be highly predictable when the design and specifications are tightly controlled." },
+      { type: "paragraph", text: "The important distinction is: physical certainty versus specification certainty. Ready-made can provide more physical certainty. Made-to-order can still provide strong specification certainty." },
+    ],
+  },
+  {
+    heading: "Which Gives You More Flexibility?",
+    content: [
+      { type: "paragraph", text: "Made to order often offers more flexibility among the retailer's approved standard options. But do not assume unlimited customisation. A retailer might allow: three metals, several ring sizes, and two centre-stone options. That does not mean the customer can redesign the entire setting. Before ordering, distinguish: standard selectable options from: custom modifications." },
+    ],
+  },
+  {
+    heading: "Does Made to Order Let You Choose the Exact Diamond?",
+    content: [
+      { type: "paragraph", text: "Sometimes. But not automatically. A retailer might: select the stone according to an agreed quality range, allow you to choose a specific individually reported diamond, or use matched stones within a stated specification. These are different fulfilment models. If the exact diamond matters, ask whether the particular stone is chosen before production and whether its report or imagery can be reviewed. Do not assume every made-to-order product includes individually selected stone approval." },
+    ],
+  },
+  {
+    heading: "Ready-Made vs Made-to-Order: Photography",
+    content: [
+      { type: "paragraph", text: "Ready-made product photography can potentially show the exact completed item. Made-to-order product photography may instead show: a previous example, a sample, a representative product, or a rendering. That does not make it misleading when disclosed appropriately. The mistake is assuming a representative image guarantees the exact appearance of a future individual stone." },
+      { type: "paragraph", parts: [{ text: "For remote inspection, use " }, { text: "How to Choose Diamond Jewellery Without Seeing It in Person", href: "/blog/choose-diamond-jewellery-without-seeing-in-person/" }] },
+    ],
+  },
+  {
+    heading: "Ready-Made vs Made-to-Order: Jewellery Dimensions",
+    content: [
+      { type: "paragraph", text: "For ready-made jewellery, the item's actual measurements may already be available. For made-to-order jewellery, some dimensions may instead be: design specifications, target measurements, or approximate values. Normal production tolerances may apply. Do not create false precision. If physical scale is important, confirm whether the published number is: exact, nominal, or approximate." },
+      { type: "paragraph", parts: [{ text: "For the dedicated guide, use " }, { text: "How to Check Jewellery Dimensions and Weight Online", href: "/blog/check-jewellery-product-dimensions-weight/" }] },
+    ],
+  },
+  {
+    heading: "Ready-Made vs Made-to-Order: Carat Weight",
+    content: [
+      { type: "paragraph", text: "The same principle applies to diamond weight. A ready-made product with one individually reported centre diamond may have one exact carat figure. A repeatable made-to-order multi-stone design may instead use: minimum, range, or approximate total diamond weight. That can be perfectly legitimate when described honestly. Do not assume every made-to-order jewellery item must have an identical decimal carat total. Check what the number actually represents." },
+    ],
+  },
+  {
+    heading: "Ready-Made vs Made-to-Order: Metal",
+    content: [
+      { type: "paragraph", text: "The production model does not decide metal quality. Both ready-made and made-to-order jewellery can use different precious metals and construction methods. Check: underlying metal, fineness, plating, and relevant construction separately. A made-to-order piece is not automatically higher quality because it was produced after the order. A ready-made piece is not automatically mass-produced or lower quality because it already existed." },
+      { type: "paragraph", parts: [{ text: "For the full metal framework, read " }, { text: "How to Check the Metal Used in Diamond Jewellery", href: "/blog/check-metal-used-diamond-jewellery/" }] },
+    ],
+  },
+  {
+    heading: "Which Is Better for a Ring?",
+    content: [
+      { type: "paragraph", text: "Neither model is universally better. Ready-made may suit you if: the exact ring exists, the size works, you like the actual stone, and timing matters. Made to order may suit you if: you want an existing design produced in an available size or metal option and are comfortable waiting for production. For rings, also check whether the design can realistically accommodate the required size before assuming it can simply be resized later." },
+    ],
+  },
+  {
+    heading: "Which Is Better for Earrings?",
+    content: [
+      { type: "paragraph", text: "Ready-made earrings can be easy to assess because the complete pair already exists. Made-to-order earrings may still work well where the design is repeatable and stone matching follows a confirmed specification. For diamond earrings, confirm whether the stated weight applies: per stone, per earring, or: per pair. The production model does not remove that need." },
+    ],
+  },
+  {
+    heading: "Which Is Better for Necklaces and Pendants?",
+    content: [
+      { type: "paragraph", text: "Ready-made necklaces can provide certainty around actual pendant size and chain configuration. Made-to-order necklaces may offer standard metal or length choices, depending on the retailer. The important questions are: pendant dimensions, chain length, diamond configuration, and which options are actually available. Do not infer custom chain lengths merely because a necklace is made to order." },
+    ],
+  },
+  {
+    heading: "Which Is Better for Bracelets?",
+    content: [
+      { type: "paragraph", text: "For bracelets, fit becomes particularly important. A ready-made bracelet may already have a fixed wearable length. Made-to-order production may allow certain available size choices if the retailer offers them. But again, do not assume infinite sizing flexibility. Check the actual options before choosing the production model." },
+    ],
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/ready-made-vs-made-to-order-diamond-jewellery/53 (3).jpg", alt: "Production time made-to-order jewellery manufacturing dispatch delivery timeline", title: "How Production Time Changes the Decision", caption: "Made-to-order jewellery requires production before dispatch — account for the full timeline, not just courier transit.", priority: false },
+    ],
+  },
+  {
+    heading: "How Production Time Changes the Decision",
+    content: [
+      { type: "paragraph", text: "Ready-made jewellery has already completed manufacturing. Made-to-order jewellery has not. That means made-to-order purchases require a production period before dispatch. The timeline should therefore be understood as: order accepted → production → dispatch → delivery rather than: order → delivery. Do not compare a ready-made dispatch estimate directly with a made-to-order courier transit estimate. They measure different stages." },
+      { type: "paragraph", parts: [{ text: "For timing terminology, use " }, { text: "How to Understand Jewellery Availability and Production Time", href: "/blog/jewellery-availability-production-time/" }] },
+    ],
+  },
+  {
+    heading: "Does Made to Order Always Take Longer?",
+    content: [
+      { type: "paragraph", text: "It normally requires production where ready-made does not. But actual total fulfilment time depends on: the product, retailer, available components, size, diamond selection, and operational workflow. Do not publish universal claims such as: all made-to-order jewellery takes four weeks unless that is confirmed operational data. Likewise, do not assume a ready-made product always dispatches immediately." },
+    ],
+  },
+  {
+    heading: "Can Ready-Made Jewellery Still Need Alteration?",
+    content: [
+      { type: "paragraph", text: "Yes. An existing ring might need sizing. Another finished piece might need an agreed adjustment before dispatch. Once alterations are introduced, the timeline and cancellation implications can change. Therefore, distinguish: existing product from: existing product being altered for the buyer. Those are not always the same commercial situation." },
+    ],
+  },
+  {
+    heading: "Can Made-to-Order Jewellery Be Returned?",
+    content: [
+      { type: "paragraph", text: "This question needs careful wording. Do not assume: made to order = no returns. UK government guidance says distance-sale customers generally have cancellation rights, while certain personalised or custom-made goods are exceptions. More importantly, official implementation guidance explains that an item assembled after an order is placed does not necessarily become bespoke. A product created from a retailer's standard range can remain distinguishable from something made to a unique specification." },
+      { type: "paragraph", text: "That distinction is directly relevant to jewellery. A standard ring produced after purchase in one of the retailer's ordinary sizes may not necessarily be equivalent to a one-off ring engraved and altered uniquely for one person. Always check the actual retailer terms and product configuration." },
+    ],
+  },
+  {
+    heading: "Can Custom Jewellery Be Returned?",
+    content: [
+      { type: "paragraph", text: "Certain genuinely personalised or custom-made goods can fall outside ordinary change-of-mind cancellation rights under UK distance-selling rules. But this does not remove the retailer's obligations where goods are: faulty, not as described, or otherwise fail applicable consumer standards. Products sold to consumers must still be as described, of satisfactory quality and fit for purpose where applicable." },
+      { type: "paragraph", text: "So: change-of-mind rights and: rights when goods are faulty or misdescribed should not be confused." },
+    ],
+  },
+  {
+    heading: "Can a Retailer Say All Made-to-Order Jewellery Is Non-Refundable?",
+    content: [
+      { type: "paragraph", text: "That is not a safe blanket rule. The actual product and degree of personalisation matter. Current CMA guidance also warns businesses against unfair contract terms, including disproportionate cancellation charges or automatic loss of all upfront payments. Aurelia should therefore not publish: \"All made-to-order jewellery is final sale\" unless the client has obtained appropriate legal advice and the actual product/transaction supports that position." },
+    ],
+  },
+  {
+    heading: "Can You Cancel Before Production Starts?",
+    content: [
+      { type: "paragraph", text: "This depends on: the actual contract, the type of product, whether ordinary cancellation rights apply, and whether any legitimate exception exists. Do not invent a universal pre-production cancellation rule. A retailer should make the applicable terms available before the customer commits. For online sales, UK rules require businesses to provide cancellation and contract-ending information before an order is placed." },
+    ],
+  },
+  {
+    heading: "Is a Deposit Automatically Non-Refundable?",
+    content: [
+      { type: "paragraph", text: "No blanket assumption should be made. The contract needs to explain: what the deposit does, when it becomes payable, what happens if either party cancels, and whether retaining it would be legally fair. Current CMA guidance notes that terms allowing automatic loss of all upfront payments or disproportionate cancellation charges can be unfair. Do not create an Aurelia deposit policy unless the client has actually approved one." },
+    ],
+  },
+  {
+    heading: "What About Faulty Made-to-Order Jewellery?",
+    content: [
+      { type: "paragraph", text: "Being made to order does not eliminate basic consumer protections. UK guidance says products sold to consumers must be: as described, of satisfactory quality, and fit for purpose where that requirement applies. This means a retailer cannot rely on the words custom, bespoke or made to order to avoid responsibility for goods that fail those requirements." },
+    ],
+  },
+  {
+    heading: "What About Delivery Time?",
+    content: [
+      { type: "paragraph", text: "For distance sales, GOV.UK says businesses must tell customers about delivery arrangements and expected timing before an order is placed. Goods should ordinarily be delivered within 30 days unless another timeframe has been agreed. Made-to-order jewellery can therefore legitimately have a longer agreed timeframe. But that timeframe should be clear. Do not hide a long production period behind a short courier-delivery estimate." },
+    ],
+  },
+  {
+    heading: "Ready-Made vs Made-to-Order for a Fixed Event Date",
+    content: [
+      { type: "paragraph", text: "If you need jewellery for: a wedding, proposal, anniversary, birthday, graduation, or another fixed date, ready-made may reduce production uncertainty. Made to order may still be suitable if enough time exists and the production schedule has been confirmed. Do not assume either model guarantees delivery. Ask whether the required date can realistically be met. Then distinguish: production estimate, dispatch date, and delivery date." },
+    ],
+  },
+  {
+    heading: "Ready-Made vs Made-to-Order for a Gift",
+    content: [
+      { type: "paragraph", text: "For surprise gifts, ready-made jewellery can offer more certainty because the finished item exists. Made-to-order jewellery may be attractive where the giver knows the recipient's: size, metal preference, and desired design. But customisation can reduce flexibility if the recipient later wants something different." },
+      { type: "paragraph", parts: [{ text: "For gifting considerations, read " }, { text: "What to Know Before Purchasing Fine Jewellery as a Gift", href: "/blog/buying-fine-jewellery-as-gift/" }] },
+    ],
+  },
+  {
+    heading: "Ready-Made vs Made-to-Order for a First Purchase",
+    content: [
+      { type: "paragraph", text: "First-time buyers often benefit from reducing unnecessary variables. If you are uncertain about: dimensions, metal, fit, diamond shape, or overall style, seeing an existing finished piece can make the decision easier. If you already know exactly what you want and simply need an available standard variation produced, made to order may be equally suitable. The best model depends on how much of the decision has already been resolved." },
+    ],
+  },
+  {
+    heading: "Which Offers Better Quality?",
+    content: [
+      { type: "paragraph", text: "Neither automatically. Production timing does not determine quality. A ready-made piece can be extremely well made. A made-to-order piece can be poor. And the reverse can also be true. Evaluate quality through: materials, construction, diamond specifications, finishing, and actual workmanship evidence rather than the manufacturing model alone." },
+    ],
+  },
+  {
+    heading: "Which Offers Better Value?",
+    content: [
+      { type: "paragraph", text: "Again, neither automatically. Made to order can sometimes reduce inventory requirements for a retailer. Ready-made can provide immediate product certainty. But those operational differences do not create a universal consumer-value rule. Compare the actual: diamond specifications, metal, dimensions, construction, price, and service rather than assuming one production model should always cost more or less." },
+    ],
+  },
+  {
+    heading: "Ready-Made vs Made-to-Order Comparison",
+    content: [
+      { type: "table", headers: ["Question", "Ready-Made", "Made-to-Order"], rows: [["Does the finished item already exist?", "Usually yes", "Usually no"], ["Is production required after ordering?", "Usually no", "Yes"], ["Can photos show the exact item?", "Often possible", "Often representative until complete"], ["Can standard options be selected?", "Depends on available stock", "Often, within offered choices"], ["Does it automatically mean bespoke?", "No", "No"], ["Does it automatically mean customisable?", "No", "No"], ["Is production time required?", "Usually no", "Yes"], ["Does it automatically remove cancellation rights?", "No", "No"], ["Can a waitlist apply?", "Yes, if unavailable", "Yes, before orders open"], ["Is one automatically higher quality?", "No", "No"]] },
+    ],
+  },
+  {
+    heading: "Questions to Ask Before Choosing Made to Order",
+    content: [
+      { type: "paragraph", text: "You do not need a long interrogation. Ask only what matters. Useful questions include:" },
+      { type: "bullet-list", items: ["Is this a standard design or will it be customised specifically for me?", "Which specifications are fixed before production starts?", "Which aspects can vary?", "Will I choose the exact centre diamond or a quality range?", "What is the estimated production period?", "Does that timeframe end at dispatch or delivery?", "What cancellation and return terms apply to this specific configuration?"] },
+      { type: "paragraph", text: "Those questions separate actual production information from assumptions." },
+    ],
+  },
+  {
+    heading: "Questions to Ask Before Choosing Ready-Made",
+    content: [
+      { type: "paragraph", text: "Useful questions include:" },
+      { type: "bullet-list", items: ["Does the exact variation I need physically exist?", "Are the photos of the exact item?", "Does the centre diamond shown correspond with the supplied report?", "Does the ring need sizing or alteration before dispatch?", "What is the expected dispatch timeframe?"] },
+      { type: "paragraph", text: "The fact that an item already exists does not make all other verification unnecessary." },
+    ],
+  },
+  {
+    heading: "What if the Jewellery Is Only on a Waitlist?",
+    content: [
+      { type: "paragraph", text: "Then you are not yet choosing between ready-made and made to order at the transaction stage. You are simply registering interest. For Aurelia's current proposed unpriced-product model: Join Waitlist = expression of interest only. It should not mean: Order placed, Preorder placed, Product reserved, or: Production started unless Aurelia later creates an actual process with pricing, payment and terms that supports those statements." },
+      { type: "paragraph", text: "If ordering becomes available later, the buyer can then be told whether the piece is: ready-made, made to order, or offered through another confirmed model." },
+    ],
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/ready-made-vs-made-to-order-diamond-jewellery/53 (4).jpg", alt: "Ready-made made-to-order diamond jewellery FAQ final answer decision", title: "Frequently Asked Questions", caption: "Use this framework to identify which production model suits your specific situation.", priority: false },
+    ],
+  },
+  {
+    heading: "Frequently Asked Questions",
+    content: [
+      { type: "faq", title: "Frequently Asked Questions", items: [
+        { question: "What is ready-made jewellery?", answer: "Jewellery that already exists as a finished product before the customer places an order." },
+        { question: "What does made-to-order jewellery mean?", answer: "A jewellery design that is produced after an order is accepted rather than supplied from finished stock." },
+        { question: "Is made to order the same as custom?", answer: "No." },
+        { question: "Is made to order the same as bespoke?", answer: "No. A standard design can be produced after ordering." },
+        { question: "Is bespoke jewellery always made to order?", answer: "Usually production follows an individual commission, but the exact retailer process should still be confirmed." },
+        { question: "Is ready-made jewellery mass-produced?", answer: "Not necessarily. Ready-made only tells you that the item already exists." },
+        { question: "Is made-to-order jewellery handmade?", answer: "Not necessarily. Made to order describes timing, not the exact manufacturing method." },
+        { question: "Is made-to-order jewellery better quality?", answer: "Not automatically." },
+        { question: "Is ready-made jewellery lower quality?", answer: "No." },
+        { question: "Is made-to-order jewellery more expensive?", answer: "Not automatically." },
+        { question: "Does made to order always take longer?", answer: "It requires production where an equivalent ready-made item already exists, but actual fulfilment times vary." },
+        { question: "Can made-to-order jewellery use a standard design?", answer: "Yes." },
+        { question: "Can I choose the exact diamond?", answer: "Sometimes, depending on the retailer and product." },
+        { question: "Can made-to-order jewellery use a diamond quality range?", answer: "Yes, where that is the agreed specification and communicated clearly." },
+        { question: "Are photos of made-to-order jewellery exact?", answer: "Not necessarily. They may be representative of the design." },
+        { question: "Is a rendering the same as a photograph of the final item?", answer: "No." },
+        { question: "Can ready-made jewellery still need resizing?", answer: "Yes." },
+        { question: "Does ready-made mean same-day shipping?", answer: "No." },
+        { question: "Is made-to-order jewellery automatically non-refundable?", answer: "No. That is too broad." },
+        { question: "Are personalised items treated differently?", answer: "They can be. UK distance-selling rules identify certain personalised or custom-made goods as exceptions to ordinary change-of-mind cancellation rights." },
+        { question: "Is every product made after an order legally bespoke?", answer: "No. UK implementation guidance explicitly says that an item assembled after an order is not necessarily bespoke if it comes from a standard range." },
+        { question: "Can faulty custom jewellery still be challenged?", answer: "Yes. Consumer goods still need to be as described, of satisfactory quality and fit for purpose where applicable." },
+        { question: "Does a waitlist count as an order?", answer: "Not under Aurelia's current proposed model." },
+        { question: "Does joining a waitlist reserve the jewellery?", answer: "No reservation should be claimed unless the retailer actually operates a reservation system." },
+        { question: "Does a waitlist start production?", answer: "No." },
+        { question: "Can a made-to-order item have a longer than 30-day delivery period?", answer: "A different timeframe can be agreed with the customer. GOV.UK says 30 days applies unless another timeframe is agreed." },
+        { question: "Should production and delivery time be shown separately?", answer: "Yes." },
+        { question: "What should I confirm before choosing made to order?", answer: "Confirm the specification, permitted variations, production timing, cancellation terms and whether any customisation changes those terms." },
+        { question: "What is the biggest difference between ready-made and made to order?", answer: "Whether the finished jewellery already exists before you order." },
+      ]},
+    ],
+  },
+  {
+    heading: "Final Answer: Should You Choose Ready-Made or Made-to-Order Diamond Jewellery?",
+    content: [
+      { type: "paragraph", text: "Choose ready-made when you value greater certainty about the existing physical product and want to avoid a manufacturing stage after ordering. Choose made to order when you are comfortable with production time and want an existing design manufactured after selecting from the retailer's available specifications." },
+      { type: "paragraph", text: "Do not assume made to order means bespoke. Do not assume it means unlimited customisation. And do not assume it is automatically non-returnable." },
+      { type: "paragraph", text: "The most useful decision framework is: Does the exact item already exist? Do I need a standard variation that must be manufactured? Am I requesting something genuinely personalised or unique? How much production time am I comfortable with? Do I understand what will be fixed before production begins? Do I understand the applicable cancellation and return terms?" },
+      { type: "paragraph", text: "If the product is currently only available through an Aurelia Royale Join Waitlist form, then no ready-made or made-to-order purchase should be implied yet. The waitlist should simply register interest. When actual ordering becomes available, Aurelia can then confirm: the product model, price, specifications, production requirements, and applicable transaction terms." },
+      { type: "paragraph", parts: [{ text: "For waitlists, preorders and production terminology, read " }, { text: "How to Understand Jewellery Availability and Production Time", href: "/blog/jewellery-availability-production-time/" }] },
+      { type: "paragraph", parts: [{ text: "For the full product specification check, use " }, { text: "What to Check Before Buying Lab-Grown Diamond Jewellery", href: "/blog/what-to-check-before-buying-lab-grown-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "For assessing a future or representative product remotely, read " }, { text: "How to Choose Diamond Jewellery Without Seeing It in Person", href: "/blog/choose-diamond-jewellery-without-seeing-in-person/" }] },
+      { type: "paragraph", parts: [{ text: "For the complete online buying process, continue with " }, { text: "How to Buy Certified Lab-Grown Diamond Jewellery Online", href: "/blog/buy-certified-lab-grown-diamond-jewellery-online/" }] },
+      { type: "paragraph", parts: [{ text: "For seller terms and accountability, read " }, { text: "How to Choose a Trustworthy Online Diamond Jeweller", href: "/blog/choose-trustworthy-online-diamond-jeweller/" }] },
+      { type: "cta-banner", title: "Explore Aurelia Royale Lab-Grown Diamond Jewellery", subtitle: "Know whether the piece already exists — or will be made for you.", shopHref: "/shop/", contactHref: "/contact/" },
+    ],
+  },
 ];
 
-export default function ReadyMadeVsMadeToOrderPage() {
+export default function BlogReadyMadePage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
-      {/* Script injection for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Buying Lab-Grown Diamond Jewellery
-          </span>
-          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            Ready-Made vs Made-to-Order Diamond Jewellery
-          </h1>
-          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
-          </p>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">Lab-Grown Diamond Education</span>
+          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">Ready-Made vs Made-to-Order Diamond Jewellery: Which Is Right for You?</h1>
+          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">Availability, Production Time, Customisation and Cancellation Explained • Published September 10, 2026</p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
+      <RelatedArticles currentSlug="ready-made-vs-made-to-order-diamond-jewellery" />
       <NewsletterSection />
     </main>
   );
 }
+

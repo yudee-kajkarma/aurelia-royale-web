@@ -1,501 +1,213 @@
-import React from "react";
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
-import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
-// 1. SEO Metadata
+import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
+
 export const metadata: Metadata = {
   title: "How to Measure Your Wrist for a Bracelet",
-  description: "Measure your wrist accurately for a flexible bracelet, tennis bracelet, bangle or cuff using tape, paper or string—and avoid sizing mistakes.",
-  alternates: {
-    canonical: "https://www.aureliaroyale.com/blog/measure-wrist-for-bracelet/",
-  },
+  description: "Learn how to measure your wrist for chain, tennis, bangle and cuff bracelets, convert cm and inches, and understand wrist size versus bracelet length.",
+  alternates: { canonical: "https://www.aureliaroyale.com/blog/measure-wrist-for-bracelet/" },
 };
 
-// 2. JSON-LD Schema
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BlogPosting",
-      "@id": "https://www.aureliaroyale.com/blog/measure-wrist-for-bracelet/#article",
-      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.aureliaroyale.com/blog/measure-wrist-for-bracelet/"},
-      "headline": "How to Measure Your Wrist for a Bracelet",
-      "description": "Measure your wrist accurately for a flexible bracelet, tennis bracelet, bangle or cuff using tape, paper or string—and avoid sizing mistakes.",
-      "image": "https://www.aureliaroyale.com/images/blog/measure-wrist-for-bracelet.webp",
-      "datePublished": "2026-07-16",
-      "dateModified": "2026-07-16",
-      "author": {"@type": "Organization", "name": "Aurelia Royale", "url": "https://www.aureliaroyale.com/"},
-      "publisher": {"@type": "Organization", "name": "Aurelia Royale", "url": "https://www.aureliaroyale.com/"},
-      "inLanguage": "en-GB",
-      "articleSection": "Product-Category Guides",
-      "keywords": ["how to measure your wrist for a bracelet", "bracelet wrist measurement", "how to measure bracelet size", "measure wrist without tape"]
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.aureliaroyale.com/blog/measure-wrist-for-bracelet/#breadcrumb",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Journal", "item": "https://www.aureliaroyale.com/blog/"},
-        {"@type": "ListItem", "position": 3, "name": "How to Measure Your Wrist for a Bracelet", "item": "https://www.aureliaroyale.com/blog/measure-wrist-for-bracelet/"}
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.aureliaroyale.com/blog/measure-wrist-for-bracelet/#faq",
-      "mainEntity": [
-        {"@type": "Question", "name": "Where should I measure my wrist for a bracelet?", "acceptedAnswer": {"@type": "Answer", "text": "Measure at the exact position where the bracelet will sit, especially beside a watch or in a stack."}},
-        {"@type": "Question", "name": "How tight should the measuring tape be?", "acceptedAnswer": {"@type": "Answer", "text": "It should lie flat and comfortably against the skin without compressing it or leaving a gap."}},
-        {"@type": "Question", "name": "Can I measure my wrist with string?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, if it is non-stretch. Mark the meeting point, lay it flat and measure without pulling."}},
-        {"@type": "Question", "name": "Should I add extra length to my wrist measurement?", "acceptedAnswer": {"@type": "Answer", "text": "Only according to the specific bracelet’s method and desired fit. Do not use one universal allowance."}},
-        {"@type": "Question", "name": "How do I measure for a tennis bracelet?", "acceptedAnswer": {"@type": "Answer", "text": "Measure wrist circumference at the wearing position, then use the seller’s design-specific guidance."}},
-        {"@type": "Question", "name": "How do I measure for a bangle?", "acceptedAnswer": {"@type": "Answer", "text": "For a slip-on bangle, measure the widest compressed hand under the brand’s method; hinged bangles may use wrist dimensions."}},
-        {"@type": "Question", "name": "Is bracelet length the same as wrist circumference?", "acceptedAnswer": {"@type": "Answer", "text": "No. Bracelet length is a product dimension; wrist circumference is a body measurement."}},
-        {"@type": "Question", "name": "Can I measure a bracelet I already own?", "acceptedAnswer":{"@type": "Answer", "text": "Yes, if it fits well and has comparable construction. Measure usable length or internal bangle dimensions."}},
-        {"@type": "Question", "name": "Should I measure both wrists?", "acceptedAnswer": {"@type": "Answer", "text": "Yes if you may switch wrists. They can differ, so label the intended side."}},
-        {"@type": "Question", "name": "Should I measure in centimetres or inches?", "acceptedAnswer": {"@type": "Answer", "text": "Use the seller’s unit while preserving your precise original measurement. One inch equals 25.4 millimetres."}},
-        {"@type": "Question", "name": "Why does a diamond bracelet feel smaller than a chain of the same length?", "acceptedAnswer": {"@type": "Answer", "text": "Diamond settings and clasps occupy internal space, reducing usable circumference."}},
-        {"@type": "Question", "name": "What if my measurement falls between sizes?", "acceptedAnswer": {"@type": "Answer", "text": "Follow design-specific advice or ask customer service, sharing the raw measurement and desired fit."}}
-      ]
-    }
-  ]
-};
-
-// 3. Article content sections
 const articleSections: ArticleSection[] = [
   {
     content: [
-      {
-        type: "image",
-        src: "/images/blog/measure-wrist-for-bracelet/67 (1).jpg",
-        alt: "Measuring wrist circumference for a diamond bracelet",
-        title: "How to Measure Wrist Size",
-        caption: "Wrap a flexible tape flat against your skin at the exact wearing position to find your wrist circumference.",
-        priority: true
-      },
-      {
-        type: "paragraph",
-        text: "To measure your wrist for a bracelet, wrap a flexible tape around the exact place where the bracelet will sit. Keep the tape flat and comfortably against the skin without compressing it. Record the circumference, repeat the measurement and then follow the sizing instructions for the specific bracelet."
-      },
-      {
-        type: "paragraph",
-        text: "That last step matters. Wrist circumference is a body measurement; bracelet length is a product measurement. Setting depth, clasp design and link construction determine how the two relate."
-      },
-      {
-        type: "callout",
-        title: "Quick answer: the basic wrist-measurement method",
-        parts: [
-          { text: "Follow this checklist:\n\n", bold: true },
-          { text: "1. Choose the wrist and intended wearing position.\n2. Relax the hand and keep the palm open naturally.\n3. Wrap a flexible tape around the wrist.\n4. Keep it level, flat and comfortably snug.\n5. Read the measurement without rounding early.\n6. Repeat twice.\n7. Record the largest consistent result in millimetres and centimetres.\n8. Apply the seller’s bracelet-specific sizing method.\n\nDo not add an arbitrary allowance until you know how the brand defines its listed sizes." }
-        ]
-      }
-    ]
+      { type: "image", src: "/images/blog/measure-wrist-for-bracelet/67 (1).jpg", alt: "How to measure wrist for bracelet chain tennis bangle cuff convert cm inches wrist size", title: "How to Measure Your Wrist for a Bracelet", caption: "The right process: measure the body first → identify the bracelet construction → understand how that product is sized → then choose the appropriate fit.", priority: true },
+      { type: "paragraph", text: "Measuring your wrist for a bracelet starts with one important distinction: your wrist circumference is not automatically your bracelet length. Wrist circumference measures your body. Bracelet length describes the jewellery." },
+      { type: "paragraph", text: "A flexible bracelet normally needs some room beyond the bare wrist measurement so it can move comfortably. A rigid bangle follows different sizing logic. A closed slip-on bangle may need to pass over the widest part of the hand, while a hinged bangle can open around the wrist. A cuff uses an open rigid structure and should not automatically be treated like either a chain bracelet or a closed bangle." },
+      { type: "paragraph", text: "That means the right process is: measure the body first → identify the bracelet construction → understand how that product is sized → then choose the appropriate fit. Do not add an arbitrary number to your wrist measurement before you know what type of bracelet you are buying." },
+    ],
   },
   {
-    heading: "What you are actually measuring",
+    heading: "Quick Answer: How Do You Measure Your Wrist for a Bracelet?",
     content: [
-      {
-        type: "paragraph",
-        text: "Measuring the wrist alone cannot size every bangle. A solid slip-on bangle must pass over the hand, which is wider than the wrist."
-      },
-      {
-        type: "table",
-        headers: ["Bracelet construction", "Body measurement needed", "Product measurement to compare"],
-        rows: [
-          ["Flexible tennis or line bracelet", "Wrist circumference at wearing point", "Usable closed length or brand size"],
-          ["Chain or station bracelet", "Wrist circumference", "Closed length and adjuster positions"],
-          ["Slip-on bangle", "Widest compressed hand circumference or cross-section", "Internal diameter or circumference"],
-          ["Hinged bangle", "Wrist width, depth or circumference under brand method", "Internal width and height"],
-          ["Cuff", "Wrist circumference and shape at wearing point", "Internal dimensions and opening"]
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Use a flexible measuring tape and measure the exact wrist where the bracelet will normally sit. Keep the tape close to the skin without pulling it tightly enough to compress the wrist. Record the measurement in centimetres or millimetres. That number is your wrist circumference." },
+      { type: "paragraph", text: "If you do not have a flexible tape, wrap a non-stretch strip of paper or string around the wrist, mark where the ends meet, lay it flat and measure the marked length with a ruler. Then identify the bracelet type. For a flexible chain, station or tennis bracelet, the bracelet normally needs some ease beyond the body circumference. For a closed slip-on bangle, wrist circumference alone may be insufficient because the rigid circle also needs to pass over the hand. For a hinged bangle, the opening mechanism means sizing can be based more directly on wrist fit. For a cuff, use the maker's actual wrist-size guidance and internal dimensions where supplied." },
+    ],
   },
   {
-    heading: "Tools you can use",
+    heading: "Wrist Size and Bracelet Size Are Not the Same Number",
     content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Flexible measuring tape: ", bold: true },
-          { text: "A soft tailor’s tape is the simplest option. Check that its zero point is intact and identify whether the scale is centimetres, millimetres or inches."
-          }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Paper strip: ", bold: true },
-          { text: "Cut a straight, narrow strip that does not stretch. Wrap it around the wrist, mark the overlap precisely, lay it flat and measure from the end to the mark with a rigid ruler."
-          }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Non-stretch string: ", bold: true },
-          { text: "String works when paper is unavailable, but it can twist, stretch or compress the skin. Use a non-elastic type, mark the meeting point and measure it flat without pulling."
-          }
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Do not use elastic cord, a phone-charging cable, thick ribbon or a stretchy bracelet."
-      }
-    ]
+      { type: "paragraph", text: "Imagine your wrist measures exactly 16 cm. That tells you that the circumference of your wrist at the measuring point is 16 cm. It does not automatically mean that every 16 cm bracelet will fit properly. A flexible bracelet that closes at exactly 16 cm may sit extremely close to the skin. A 17 cm flexible bracelet would provide approximately 1 cm of additional circumference. Whether either amount is correct depends on the bracelet design and the fit you want." },
+      { type: "table", headers: ["Measurement", "What It Describes"], rows: [["Wrist circumference", "Circumference of your body where the bracelet will sit"], ["Bracelet length", "Physical length stated for the jewellery"], ["Usable closed circumference", "Internal wearing space created once the bracelet is fastened"], ["Bangle internal dimensions", "Rigid internal opening/shape"], ["Hand circumference", "Widest circumference a closed slip-on bangle may need to pass over"]] },
+    ],
   },
   {
-    heading: "Step-by-step: measuring for a flexible diamond bracelet",
+    heading: "Step 1: Decide Where You Will Wear the Bracelet",
     content: [
-      {
-        type: "image",
-        src: "/images/blog/measure-wrist-for-bracelet/67 (2).jpg",
-        alt: "Wrapping a flexible measuring tape flat against the wrist sitting position",
-        title: "Snug Tape Measurement Check",
-        caption: "Keep the measuring tape flat against the skin at the exact wearing position without pinching.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "Step 1: select the correct wrist. Measure the wrist that will wear the bracelet. Dominant and non-dominant wrists can differ. Do not assume they are interchangeable."
-      },
-      {
-        type: "paragraph",
-        text: "Step 2: choose the wearing position. Measure where the bracelet will normally sit. A bracelet worn beside a watch may sit higher on the forearm than one worn alone."
-      },
-      {
-        type: "paragraph",
-        text: "Step 3: relax the hand. Keep the wrist neutral, fingers relaxed and palm open. A clenched fist can alter muscles and tendons around the wrist."
-      },
-      {
-        type: "paragraph",
-        text: "Step 4: place the tape. Wrap the tape around the wrist so it lies flat and does not spiral. It should touch the skin without digging in or leaving a gap."
-      },
-      {
-        type: "paragraph",
-        text: "Step 5: read and record. Read at the overlap while the tape remains in position. Record the raw measurement—for example, 162 mm or 16.2 cm—rather than immediately rounding to 16 cm."
-      },
-      {
-        type: "paragraph",
-        text: "Step 6: repeat. Remove the tape and repeat at least twice. If results vary materially, check position, tension and tape alignment."
-      },
-      {
-        type: "paragraph",
-        text: "Step 7: use the product’s size chart. Apply the manufacturer’s stated rule. Confirm whether a listed “18 cm bracelet” means overall length, wearable closed length, internal circumference or a nominal category."
-      }
-    ]
+      { type: "paragraph", text: "Measure the point where the bracelet will actually sit. This becomes particularly important if you wear your bracelets above the wrist bone, close to the hand or as part of a stack. Your forearm gradually changes circumference as you move away from the wrist. A measurement taken in one position may therefore be wrong for jewellery intended to sit somewhere else. If you are planning a stack, measure at the location where each bracelet is expected to rest." },
+    ],
   },
   {
-    heading: "How snug should the tape be?",
+    heading: "Step 2: Use a Flexible Measuring Tape",
     content: [
-      {
-        type: "paragraph",
-        text: "The raw wrist measurement should be comfortably snug, not the final desired bracelet fit. You should not insert fingers beneath the tape unless the seller specifically instructs you to do so."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Measure the body first. Choose close, balanced or relaxed ease afterwards using the exact design’s guidance. Read " },
-          { text: "how a diamond bracelet should fit", href: "/blog/how-should-diamond-bracelet-fit/" },
-          { text: " before choosing ease." }
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Wrap a flexible tape measure around the wrist at the intended wearing position. Keep it flat against the skin. The tape should be snug enough to follow the actual circumference but should not dig into the wrist. Read the point where the tape meets itself. Record that number without adding any extra fit allowance yet. Keep the raw measurement. The additional room should be determined only after you know what type of bracelet you are choosing." },
+    ],
   },
   {
-    heading: "Measuring without a tape",
+    heading: "Common Wrist Measurement Conversions",
     content: [
-      {
-        type: "paragraph",
-        text: "Use a paper strip rather than estimating from clothing size or photographs. Cut a strip approximately 1–2 cm wide, wrap it flat without overlap at an angle, and mark exactly where the end meets the strip. Measure on a rigid ruler to the nearest millimetre. Repeat with a new mark or strip to ensure consistency."
-      },
-      {
-        type: "paragraph",
-        text: "Photograph the measured strip beside the ruler if you need to send evidence to customer service."
-      }
-    ]
+      { type: "table", headers: ["Centimetres", "Millimetres", "Inches"], rows: [["13 cm", "130 mm", "5.12 in"], ["14 cm", "140 mm", "5.51 in"], ["15 cm", "150 mm", "5.91 in"], ["16 cm", "160 mm", "6.30 in"], ["17 cm", "170 mm", "6.69 in"], ["18 cm", "180 mm", "7.09 in"], ["19 cm", "190 mm", "7.48 in"], ["20 cm", "200 mm", "7.87 in"], ["21 cm", "210 mm", "8.27 in"], ["22 cm", "220 mm", "8.66 in"]] },
+      { type: "paragraph", text: "Use the unrounded centimetre or millimetre measurement whenever the product's sizing system is precise enough to support it. Do not round too early. Suppose the wrist measures 16.4 cm. Rounding it immediately to 16 cm removes 4 mm. Rounding it to 17 cm adds 6 mm. That difference can matter on a closely fitted bracelet." },
+    ],
   },
   {
-    heading: "How to measure for a slip-on bangle",
+    heading: "Step 4: Identify the Bracelet Construction",
     content: [
-      {
-        type: "image",
-        src: "/images/blog/measure-wrist-for-bracelet/67 (3).jpg",
-        alt: "Measuring hand width for slip-on bangle sizing",
-        title: "Bangle Knuckle Sizing",
-        caption: "For a slip-on bangle, bring the thumb towards the little finger and measure around the widest knuckle area.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "A closed bangle must pass the widest compressed part of the hand. Bring the thumb towards the little finger as if putting on a bangle, relax the hand, and wrap a tape or paper strip around the widest knuckle area."
-      },
-      {
-        type: "paragraph",
-        text: "Some brands request an across-hand diameter instead. Follow their exact diagram. Do not convert circumference to diameter unless the bangle is circular and the brand explicitly accepts that method; many hands and bangles are oval."
-      }
-    ]
+      { type: "paragraph", text: "This is where bracelet sizing separates into several different paths. A flexible bracelet follows the wrist. A bangle holds a rigid shape. A cuff is rigid but open. These designs should not share one universal sizing formula." },
+      { type: "table", headers: ["Bracelet Type", "Primary Measurement", "Main Sizing Issue"], rows: [["Tennis bracelet", "Wrist circumference", "Enough ease for controlled movement"], ["Chain bracelet", "Wrist circumference", "Desired drape/ease"], ["Station bracelet", "Wrist circumference", "Movement and station positioning"], ["Closed slip-on bangle", "Hand/knuckle clearance + wrist fit", "Must pass over hand"], ["Hinged bangle", "Wrist circumference + internal dimensions", "Does not need to slide over entire hand"], ["Cuff", "Wrist circumference + product shape", "Open rigid fit"], ["Bracelet stack", "Circumference at each wearing position", "Several pieces can sit at different points"]] },
+    ],
   },
   {
-    heading: "Measuring for a hinged bangle",
+    heading: "Measuring for a Flexible Bracelet",
     content: [
-      {
-        type: "paragraph",
-        text: "Hinged bangles open, so hand passage may not determine size. The seller may request wrist circumference, wrist width and sometimes depth."
-      },
-      {
-        type: "paragraph",
-        text: "Measure with the wrist in a neutral position. If internal width and height are provided, compare them with a well-fitting hinged bangle rather than assuming circumference alone predicts shape compatibility."
-      }
-    ]
+      { type: "paragraph", text: "Flexible bracelets include many tennis, chain and station designs. Measure the bare wrist first. Then compare that circumference with the finished bracelet's actual wearable size. A flexible bracelet normally needs some room for movement, but the amount depends on the design. A tennis bracelet will generally be worn more closely than a deliberately loose chain bracelet. That means there should not be one site-wide rule such as: \"Always add 2 cm.\"" },
+      { type: "table", headers: ["Closed Bracelet Length", "Difference From Wrist", "Likely Character"], rows: [["16.0 cm", "0 cm", "Very close fit; may be too restrictive depending on construction"], ["17.0 cm", "+1.0 cm", "Moderate ease"], ["18.0 cm", "+2.0 cm", "Looser movement"]] },
+      { type: "paragraph", text: "These examples illustrate the mathematics. They are not universal fit recommendations. The correct choice depends on whether the product is a tennis bracelet, chain bracelet or another construction." },
+    ],
   },
   {
-    heading: "Measuring for a cuff",
+    heading: "How to Measure for a Tennis Bracelet",
     content: [
-      {
-        type: "paragraph",
-        text: "Measure at the exact position where the cuff will sit. Record wrist circumference and, where requested, width across the top and side depth."
-      },
-      {
-        type: "paragraph",
-        text: "The cuff opening is part of the design. Do not repeatedly squeeze or spread precious metal to correct an uncertain measurement unless the maker explicitly permits adjustment."
-      }
-    ]
+      { type: "paragraph", text: "Start with your wrist circumference at the point where the tennis bracelet will sit. A tennis bracelet should normally have enough room for slight controlled movement without travelling excessively up and down the arm. Current GIA guidance uses the ability to place approximately one finger between the wrist and the bracelet as a practical reference for a classic tennis-bracelet fit. That does not mean you should convert \"one finger\" into one fixed centimetre allowance. Finger thickness differs between people. Use it as a final fit check rather than a mathematical sizing formula." },
+      { type: "paragraph", parts: [{ text: "For the complete fit diagnosis, use " }, { text: "How Should a Diamond Bracelet Fit?", href: "/blog/how-should-diamond-bracelet-fit/" }] },
+    ],
   },
   {
-    heading: "Measuring an existing bracelet",
+    heading: "Flexible Bracelet Length Is Not Always the Same as Usable Closed Circumference",
     content: [
-      {
-        type: "paragraph",
-        text: "An existing well-fitting bracelet can be useful only when its construction is comparable. For a flexible bracelet, lay it straight without stretching, close or align the clasp according to the brand’s method, measure the wearable length, and record width and setting depth."
-      },
-      {
-        type: "paragraph",
-        text: "For a bangle, measure internal width and height through the centre. Do not measure the outside, which includes metal thickness. A fine chain and a deep tennis bracelet of the same end-to-end length may not fit alike."
-      }
-    ]
+      { type: "paragraph", text: "A retailer may publish a bracelet as 18 cm long. But what exactly has been measured? It could mean: the total end-to-end length laid flat, the length including part of the clasp, the nominal product size, or: the usable internal circumference when closed. Those are not automatically identical. For accurate online sizing, product pages should state how the length was measured. Aurelia should publish whichever measurement actually corresponds to the customer's fit decision and label it clearly." },
+    ],
   },
   {
-    heading: "When to measure",
+    heading: "Measuring for a Closed Slip-On Bangle",
     content: [
-      {
-        type: "paragraph",
-        text: "Measure under ordinary indoor conditions. Wrist circumference can shift slightly with heat, activity and time of day."
-      },
-      {
-        type: "paragraph",
-        text: "Avoid measuring immediately after strenuous exercise, prolonged heat or unusual swelling. If normal results vary, record the range and ask the seller how the design accommodates it. For substantial or medically related swelling, seek appropriate professional advice."
-      }
-    ]
+      { type: "paragraph", text: "A traditional closed bangle has no clasp or hinge. It must pass over the hand before reaching the wrist. That changes the measurement completely. Your wrist may measure only 16 cm, but the rigid bangle still has to clear the knuckles and widest section of the hand. For this type of bangle, wrist circumference alone is not enough. Measure the widest hand circumference that the rigid bangle must pass over." },
+      { type: "paragraph", text: "Bring the thumb towards the palm as though you were about to slide on a bangle. Bring the fingers together naturally. Wrap the measuring tape around the widest group of knuckles and hand. Record that circumference. This measurement helps determine whether the rigid internal opening can physically pass over the hand." },
+    ],
   },
   {
-    heading: "Left wrist versus right wrist",
+    heading: "Closed Bangle vs Hinged Bangle",
     content: [
-      {
-        type: "paragraph",
-        text: "Measure both if you may switch wrists. Record them separately and label the intended wrist."
-      },
-      {
-        type: "paragraph",
-        text: "If stacking with a watch, measure at the actual position of the bracelet rather than at the narrowest point by default. The circumference may change only a short distance up the arm."
-      }
-    ]
+      { type: "table", headers: ["Feature", "Closed Slip-On Bangle", "Hinged Bangle"], rows: [["Opens?", "No", "Yes"], ["Must pass over hand?", "Yes", "No"], ["Wrist circumference useful?", "Yes, for final fit", "Yes"], ["Hand circumference important?", "Usually", "Much less important"], ["Internal bangle dimensions important?", "Yes", "Yes"], ["Closure needs checking?", "None", "Yes"]] },
+      { type: "paragraph", text: "Do not treat all products labelled bangle as mechanically identical. A hinged bangle opens, so sizing is based more on wrist fit and internal dimensions rather than hand clearance." },
+    ],
   },
   {
-    heading: "Metric and imperial conversion",
+    heading: "Measuring for a Cuff Bracelet",
     content: [
-      {
-        type: "paragraph",
-        text: "European sellers commonly use centimetres or millimetres, while some sites list inches (1 centimetre = 10 millimetres; 1 inch = 25.4 millimetres). Keep the original measurement and convert only once. Avoid repeated rounding."
-      }
-    ]
-  },
-  {
-    heading: "Why deep diamond bracelets may feel smaller",
-    content: [
-      {
-        type: "paragraph",
-        text: "Diamond settings, galleries and clasps occupy space inside the bracelet. An articulated line with substantial baskets can have less usable room than a flat chain with the same stated overall length."
-      },
-      {
-        type: "paragraph",
-        text: "Ask for usable closed length, setting width and depth, clasp dimensions, and fit model guidelines before selecting a size. This is why a universal allowance rule is unreliable."
-      }
-    ]
-  },
-  {
-    heading: "Measuring as a gift",
-    content: [
-      {
-        type: "paragraph",
-        text: "The least intrusive method is to measure a bracelet the recipient already wears on the intended wrist. Choose a similar construction and record its usable length and width."
-      },
-      {
-        type: "paragraph",
-        text: "Do not rely on watch-strap holes or clothing size. If certainty is low, prioritise an adjustable design, an exchangeable standard size or choosing together. Avoid custom sizing until the recipient confirms fit."
-      }
-    ]
-  },
-  {
-    heading: "Common measurement mistakes",
-    content: [
-      {
-        type: "paragraph",
-        text: "Avoid measuring the wrong wrist, using elastic string, treating overall flat length as usable closed length, or adding arbitrary margins without reviewing the brand's specific chart."
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "measuring the wrong wrist;",
-          "measuring the narrowest point when the bracelet sits elsewhere;",
-          "pulling the tape tightly or leaving gaps;",
-          "confusing bangle outside diameter with inside diameter;",
-          "treating overall length as usable length."
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Measurement record template",
-    content: [
-      {
-        type: "image",
-        src: "/images/blog/measure-wrist-for-bracelet/67 (4).jpg",
-        alt: "Keeping a record of wrist and hand dimensions for sizing",
-        title: "Wrist Measurement Record Template",
-        caption: "Keep a written template of your wrist, knuckle, and stack options to assist with custom orders.",
-        priority: false
-      },
-      {
-        type: "table",
-        headers: ["Field", "Record"],
-        rows: [
-          ["Intended wrist", "Left / right"],
-          ["Wearing position", "Alone / beside watch / stacked"],
-          ["Raw wrist circumference", "___ mm / ___ cm"],
-          ["Repeat measurement", "___ mm / ___ cm"],
-          ["Hand measurement for slip-on bangle", "___ mm / ___ cm"],
-          ["Existing bracelet usable length", "___ mm / ___ cm"],
-          ["Desired fit", "Close / balanced / relaxed"],
-          ["Product and size chart reviewed", "Yes / no"],
-          ["Seller confirmation", "Date and response"]
-        ]
-      }
-    ]
-  },
-  {
-    heading: "What Aurelia Royale should provide",
-    content: [
-      {
-        type: "paragraph",
-        text: "Aurelia provides design-specific measurement diagrams, defines listed length, states usable closed length, width and depth, and provides sizing charts customized for flexible, bangle, and cuff variants."
-      }
-    ]
+      { type: "paragraph", text: "A cuff is generally rigid or semi-rigid and has an opening rather than forming a fully closed circle. Measure the wrist where the cuff will sit. Because cuffs vary significantly in shape and opening width, wrist circumference is only the starting point. The product's actual internal dimensions and size range matter. Do not assume the cuff can simply be bent wider or narrower. Repeated bending can damage some constructions or alter stone settings. Only adjust a cuff if the specific product is designed for adjustment." },
+    ],
   },
   {
     content: [
-      {
-        type: "callout",
-        title: "Final verdict",
-        theme: "gold-border",
-        parts: [
-          { text: "Measure the body before choosing the bracelet size. Record the wrist circumference at the actual wearing position with a flat, comfortably snug tape, repeat it and preserve the unrounded result.\n\n" },
-          { text: "Then follow the exact product’s method. Bracelet fit is a calculation made from a reliable measurement, a chosen amount of ease and the construction of the piece—not a universal number added to every wrist." }
-        ]
-      },
-      {
-        type: "faq",
-        items: [
-          {
-            question: "Where should I measure my wrist for a bracelet?",
-            answer: "Measure at the exact position where the bracelet will sit, especially if it will be worn beside a watch or in a stack."
-          },
-          {
-            question: "How tight should the measuring tape be?",
-            answer: "It should lie flat and comfortably against the skin without compressing it or leaving a gap."
-          },
-          {
-            question: "Can I measure my wrist with string?",
-            answer: "Yes, if it is non-stretch. Mark the meeting point, lay it flat and measure it without pulling."
-          },
-          {
-            question: "Should I add extra length to my wrist measurement?",
-            answer: "Only according to the specific bracelet’s sizing method and your desired fit. Do not use one universal allowance."
-          },
-          {
-            question: "How do I measure for a tennis bracelet?",
-            answer: "Measure wrist circumference at the wearing position, then use the seller’s guidance for that bracelet’s setting depth and usable length."
-          },
-          {
-            question: "How do I measure for a bangle?",
-            answer: "For a slip-on bangle, measure the widest compressed part of the hand using the brand’s method; hinged bangles may use wrist dimensions."
-          },
-          {
-            question: "Is bracelet length the same as wrist circumference?",
-            answer: "No. Bracelet length is a product dimension, while wrist circumference is a body measurement. Construction determines the relationship."
-          },
-          {
-            question: "Can I measure a bracelet I already own?",
-            answer: "Yes, if it fits well and has comparable construction. Measure usable length for flexible pieces or internal dimensions for bangles."
-          },
-          {
-            question: "Should I measure both wrists?",
-            answer: "Yes if you may switch wrists. They can differ, so label the intended side."
-          },
-          {
-            question: "Should I measure in centimetres or inches?",
-            answer: "Use the unit required by the seller, while keeping your original precise measurement. One inch equals 25.4 millimetres."
-          },
-          {
-            question: "Why does a diamond bracelet feel smaller than a chain of the same length?",
-            answer: "Diamond settings and clasps occupy internal space, reducing usable circumference compared with a flat chain."
-          },
-          {
-            question: "What if my measurement falls between sizes?",
-            answer: "Follow the seller’s design-specific advice or ask customer service, sharing the raw measurement and desired fit."
-          }
-        ]
-      },
-      {
-        type: "cta-banner",
-        title: "Find Your Perfect Bracelet Fit at Aurelia",
-        subtitle: "Browse our collection of lab-grown diamond bracelets with detailed fit guidance, complete specifications and transparent sizing.",
-        shopHref: "/shop/",
-        contactHref: "/contact/"
-      }
-    ]
-  }
+      { type: "image", src: "/images/blog/measure-wrist-for-bracelet/67 (2).jpg", alt: "Wrist circumference bracelet sizing practical examples tennis chain bangle cuff", title: "Wrist Circumference vs Bracelet Size: Practical Examples", caption: "The construction must be identified before interpreting the wrist measurement — the same number means different things for different bracelet types.", priority: false },
+    ],
+  },
+  {
+    heading: "Wrist Circumference vs Bracelet Size: Practical Examples",
+    content: [
+      { type: "table", headers: ["Body Measurement", "Jewellery", "Product Information", "What to Assess"], rows: [["16 cm wrist", "Tennis bracelet", "17 cm usable closed length", "Whether +1 cm gives appropriate controlled movement"], ["16 cm wrist", "Chain bracelet", "18 cm closed length", "Whether +2 cm gives desired loose drape"], ["16 cm wrist / 20 cm hand", "Closed bangle", "Fixed internal opening", "Whether it clears 20 cm hand measurement"], ["16 cm wrist", "Hinged bangle", "Size designed for 15.5–16.5 cm wrists", "Use manufacturer range"], ["16 cm wrist", "Cuff", "Medium = 15.5–17 cm wrist range", "Use product-specific fit range"]] },
+      { type: "paragraph", text: "These are measurement examples, not Aurelia product specifications." },
+    ],
+  },
+  {
+    heading: "Do You Add 1 cm or 2 cm to Your Wrist Measurement?",
+    content: [
+      { type: "paragraph", text: "Sometimes a particular brand or product may recommend that. It should not be treated as a universal jewellery rule. For example, Cartier's current general bracelet sizing tool recommends adding 1 cm for a loose fit within Cartier's sizing system. Other brands use different recommendations. This means the correct approach is: measure your bare wrist accurately first, then follow the sizing method for the actual bracelet you are buying. Do not alter the body measurement itself. Some bracelet systems and charm-bracelet guides use larger allowances because their constructions and intended contents require more room. Treat fixed centimetre additions as product-specific sizing instructions, not mathematical laws." },
+    ],
+  },
+  {
+    heading: "What if You Fall Between Two Bracelet Sizes?",
+    content: [
+      { type: "paragraph", text: "First identify how the retailer defines each size. If the product uses actual bracelet lengths, compare those lengths with your wrist measurement. If the product uses Small, Medium and Large, use the wrist ranges assigned by the manufacturer. If the piece is rigid, inspect the internal dimensions as well. Do not automatically choose the larger size unless the manufacturer's own sizing guidance recommends it. Bracelet size labels are not standardised — one brand's Medium does not necessarily equal another brand's Medium." },
+    ],
+  },
+  {
+    heading: "Measure Each Wrist Separately",
+    content: [
+      { type: "paragraph", text: "Your two wrists may not have identical circumferences. Measure the wrist on which the bracelet will actually be worn. Do not assume the measurement from the opposite wrist is interchangeable. This matters especially for close-fitting tennis bracelets, cuffs and bangles. If you wear several bracelets together, they may naturally sit at slightly different points on the arm. Measure those positions rather than assuming one wrist measurement works for the complete stack." },
+    ],
+  },
+  {
+    heading: "Does Bracelet Width Affect Fit?",
+    content: [
+      { type: "paragraph", text: "Yes, potentially. A broad rigid cuff covers more wrist surface than a very fine chain bracelet. Two bracelets with the same nominal internal size can therefore feel different. Width, finished weight, rigidity and movement all influence comfort. The numerical size is only part of the fit. Weight does not directly change wrist circumference, but it can change how the bracelet behaves. A heavier flexible bracelet may settle more noticeably around the wrist." },
+    ],
+  },
+  {
+    heading: "Wrist Measurement Does Not Tell You Whether the Bracelet Is Well Made",
+    content: [
+      { type: "paragraph", text: "A 17 cm bracelet can fit a wrist perfectly and still have poor articulation or an inadequate clasp. Sizing and workmanship are separate decisions. Once you determine the correct dimensions, check: the clasp, stone settings, link movement, hinges, and overall construction." },
+      { type: "paragraph", parts: [{ text: "Use " }, { text: "What Makes Lab-Grown Diamond Jewellery High Quality?", href: "/blog/what-makes-lab-grown-diamond-jewellery-high-quality/" }, { text: " for the workmanship assessment." }] },
+    ],
+  },
+  {
+    heading: "A Waitlist Size Is Not a Production Instruction",
+    content: [
+      { type: "paragraph", text: "If a customer enters their wrist measurement into Aurelia's waitlist, that should be treated as preference information unless a later order process confirms a specific bracelet size. Joining the waitlist should not mean: a bracelet has been ordered, a bespoke size has been accepted, the bracelet has been reserved, or production has started." },
+    ],
+  },
+  {
+    heading: "Bracelet Measurement Checklist",
+    content: [
+      { type: "table", headers: ["Check", "Confirm"], rows: [["Correct wrist measured", "✓"], ["Exact wearing position measured", "✓"], ["Measurement recorded without added allowance", "✓"], ["cm/mm/inch unit recorded", "✓"], ["Bracelet type identified", "✓"], ["Flexible vs rigid construction identified", "✓"], ["Closed bangle hand clearance checked if relevant", "✓"], ["Manufacturer's size method checked", "✓"], ["Closed usable length understood", "✓"], ["Final fit checked separately using bracelet fit guide", "✓"]] },
+      { type: "paragraph", text: "The key principle is simple: measure the body accurately first and interpret the jewellery second." },
+    ],
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/measure-wrist-for-bracelet/67 (3).jpg", alt: "Bracelet sizing FAQ wrist measurement chain tennis bangle cuff final answer guide", title: "Frequently Asked Questions", caption: "Wrist circumference and bracelet length are related but not interchangeable — keep them as separate measurements throughout the process.", priority: false },
+    ],
+  },
+  {
+    heading: "Frequently Asked Questions",
+    content: [
+      { type: "faq", items: [
+        { question: "How do I measure my wrist for a bracelet?", answer: "Wrap a flexible tape around the wrist where the bracelet will sit, keeping it close to the skin without compressing it. Record that number as your wrist circumference." },
+        { question: "Should I add extra length while measuring my wrist?", answer: "No. Record the bare wrist circumference first. Add or select ease only after checking the sizing guidance for the actual bracelet." },
+        { question: "Is wrist circumference the same as bracelet length?", answer: "No. Wrist circumference describes the body; bracelet length describes the jewellery." },
+        { question: "How much longer should a bracelet be than my wrist?", answer: "There is no universal allowance. It depends on whether the bracelet is flexible, a tennis bracelet, chain, bangle or cuff and on the manufacturer's sizing method." },
+        { question: "How should I measure for a tennis bracelet?", answer: "Measure the wrist where it will sit, then select a product size that allows controlled movement. GIA uses approximately one finger of room as a practical fit reference." },
+        { question: "How do I measure for a closed bangle?", answer: "In addition to the wrist, measure the widest circumference of the hand and knuckles that the rigid bangle must pass over." },
+        { question: "Do I need hand circumference for a hinged bangle?", answer: "Usually not in the same way, because the bangle opens rather than sliding over the entire hand. Use the product's wrist range and internal dimensions." },
+        { question: "How do I measure for a cuff?", answer: "Measure the wrist at the point where the cuff will sit, then use the cuff manufacturer's own wrist range and internal dimensions." },
+        { question: "Is 16 cm wrist the same as a 16 cm bracelet?", answer: "Not automatically. A 16 cm flexible bracelet could fit extremely closely on a 16 cm wrist, while another construction may use an entirely different size system." },
+        { question: "Should I add 1 cm or 2 cm to my wrist?", answer: "Only when the specific bracelet manufacturer recommends that allowance for that product type. Neither figure is universal." },
+        { question: "What if I fall between two bracelet sizes?", answer: "Use the actual manufacturer's fit chart and product construction rather than automatically choosing the larger or smaller option." },
+        { question: "What is the difference between this guide and the bracelet-fit guide?", answer: "This page determines your wrist measurement and how to interpret bracelet sizing. How Should a Diamond Bracelet Fit? determines whether the finished bracelet is actually too tight, secure or too loose once worn." },
+      ]},
+    ],
+  },
+  {
+    heading: "Final Answer: How Should You Measure Your Wrist for a Bracelet?",
+    content: [
+      { type: "paragraph", text: "Measure the bare wrist first. Use a flexible measuring tape around the exact location where the bracelet will sit. Keep the tape snug against the skin without compressing it. Record the result accurately in centimetres or millimetres. Do not immediately add 1 cm, 1.5 cm or 2 cm." },
+      { type: "paragraph", text: "Next identify the bracelet construction. For a tennis, chain or station bracelet, use wrist circumference as the starting point and then select the appropriate additional room according to the actual product's sizing system. For a closed slip-on bangle, also measure the widest part of the hand because the rigid bangle must physically pass over it. For a hinged bangle, use wrist circumference and the manufacturer's internal sizing because it opens around the wrist. For a cuff, measure the intended wearing position and follow the cuff's product-specific wrist range and internal dimensions." },
+      { type: "paragraph", text: "Most importantly, keep these two numbers separate: Wrist circumference = your body measurement. Bracelet length = the jewellery measurement. They are related, but they are not interchangeable." },
+      { type: "paragraph", parts: [{ text: "Once you know your measurement, continue with " }, { text: "How Should a Diamond Bracelet Fit?", href: "/blog/how-should-diamond-bracelet-fit/" }, { text: " to determine whether the actual bracelet is secure and comfortable." }] },
+      { type: "paragraph", parts: [{ text: "Use " }, { text: "How to Compare Different Diamond Bracelet Designs", href: "/blog/compare-diamond-bracelet-designs/" }, { text: " if you still need to choose between tennis, station, chain, bangle and cuff designs." }] },
+      { type: "paragraph", parts: [{ text: "For the complete purchase decision, use " }, { text: "How to Choose a Lab-Grown Diamond Bracelet", href: "/blog/how-to-choose-lab-grown-diamond-bracelet/" }] },
+      { type: "cta-banner", title: "Explore Aurelia Royale Lab-Grown Diamond Bracelets", subtitle: "Measure your wrist accurately — then find the bracelet whose fit and design work for you.", shopHref: "/shop/", contactHref: "/contact/" },
+    ],
+  },
 ];
 
-export default function MeasureWristForBraceletPage() {
+export default function BlogWristMeasurePage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
-      {/* Script injection for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Product-Category Guides
-          </span>
-          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How to Measure Your Wrist for a Bracelet
-          </h1>
-          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
-          </p>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">Lab-Grown Diamond Education</span>
+          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">How to Measure Your Wrist for a Bracelet</h1>
+          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">Chain, Tennis, Bangle and Cuff Sizing Explained • Published September 10, 2026</p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
+      <RelatedArticles currentSlug="measure-wrist-for-bracelet" />
       <NewsletterSection />
     </main>
   );
 }
+

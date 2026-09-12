@@ -1,647 +1,99 @@
-import React from "react";
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
-
-// 1. SEO Metadata
+import RelatedArticles from "@/components/shared/RelatedArticles";
 export const metadata: Metadata = {
-  title: "Jewellery Availability and Production Time Explained",
-  description: "Understand in-stock, ready-to-ship and made-to-order jewellery timelines, then calculate production, dispatch and delivery before ordering.",
-  alternates: {
-    canonical: "https://www.aureliaroyale.com/blog/jewellery-availability-production-time/",
-  },
+  title: "Jewellery Availability & Production Time Explained",
+  description: "Learn the difference between in-stock, waitlist, preorder and made-to-order jewellery, how production time differs from delivery time, and what to confirm before ordering.",
+  alternates: { canonical: "https://www.aureliaroyale.com/blog/jewellery-availability-production-time/" },
 };
-
-// 2. JSON-LD Schema
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BlogPosting",
-      "@id": "https://www.aureliaroyale.com/blog/jewellery-availability-production-time/#article",
-      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.aureliaroyale.com/blog/jewellery-availability-production-time/"},
-      "headline": "How to Understand Jewellery Availability and Production Time",
-      "description": "Understand in-stock, ready-to-ship and made-to-order jewellery timelines, then calculate production, dispatch and delivery before ordering.",
-      "image": "https://www.aureliaroyale.com/images/blog/jewellery-availability-production-time.webp",
-      "datePublished": "2026-07-16",
-      "dateModified": "2026-07-16",
-      "author": {"@type": "Organization", "name": "Aurelia Royale", "url": "https://www.aureliaroyale.com/"},
-      "publisher": {"@type": "Organization", "name": "Aurelia Royale", "url": "https://www.aureliaroyale.com/"},
-      "inLanguage": "en-GB",
-      "articleSection": "Buying Lab-Grown Diamond Jewellery",
-      "keywords": ["jewellery production time", "jewellery availability explained", "made-to-order jewellery lead time", "jewellery dispatch time"]
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.aureliaroyale.com/blog/jewellery-availability-production-time/#breadcrumb",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Journal", "item": "https://www.aureliaroyale.com/blog/"},
-        {"@type": "ListItem", "position": 3, "name": "Jewellery Availability and Production Time", "item": "https://www.aureliaroyale.com/blog/jewellery-availability-production-time/"}
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.aureliaroyale.com/blog/jewellery-availability-production-time/#faq",
-      "mainEntity": [
-        {"@type":"Question","name":"What does 'in stock' mean for jewellery?","acceptedAnswer":{"@type":"Answer","text":"It should mean relevant inventory is physically held, but your exact size or selected diamond may not be finished. Confirm the selected variant and remaining work."}},
-        {"@type":"Question","name":"What does 'ready to ship' mean?","acceptedAnswer":{"@type":"Answer","text":"It generally means production is complete, although payment review, verification, engraving, packing and courier scheduling may remain."}},
-        {"@type":"Question","name":"How long does made-to-order jewellery take?","acceptedAnswer":{"@type":"Answer","text":"There is no universal period. Design, materials, setting complexity, sizing, hallmarking, quality control and workshop capacity determine the range."}},
-        {"@type":"Question","name":"Does production time include delivery?","acceptedAnswer":{"@type":"Answer","text":"Usually not unless explicitly stated. Add dispatch handling, carrier transit and any customs clearance to production time."}},
-        {"@type":"Question","name":"What is the difference between dispatch and delivery?","acceptedAnswer":{"@type":"Answer","text":"Dispatch occurs when the seller hands the parcel to the carrier. Delivery occurs when the parcel reaches the recipient."}},
-        {"@type":"Question","name":"Do weekends count in a jewellery lead time?","acceptedAnswer":{"@type":"Answer","text":"Only if the seller uses calendar days. Business-day estimates normally exclude weekends and may exclude local public holidays."}},
-        {"@type":"Question","name":"Can express shipping make jewellery production faster?","acceptedAnswer":{"@type":"Answer","text":"Not automatically. Express shipping shortens carrier transit. Production changes only if priority manufacture is separately confirmed."}},
-        {"@type":"Question","name":"Does ring sizing add production time?","acceptedAnswer":{"@type":"Answer","text":"It can. A ready-made ring may need alteration, while some designs must be produced in the selected size."}},
-        {"@type":"Question","name":"Does jewellery hallmarking add time?","acceptedAnswer":{"@type":"Answer","text":"It can when the finished article must be sent to an external assay office. Confirm whether hallmarking is included in the lead time."}},
-        {"@type":"Question","name":"What should I do if I need jewellery for a wedding?","acceptedAnswer":{"@type":"Answer","text":"State the essential date before ordering, request the latest arrival in writing and include time to inspect or resize the jewellery."}},
-        {"@type":"Question","name":"Can made-to-order jewellery be returned?","acceptedAnswer":{"@type":"Answer","text":"Rights depend on the product, degree of personalisation, seller terms and applicable law. Read the specific policy before production."}},
-        {"@type":"Question","name":"What records should I keep for a delayed order?","acceptedAnswer":{"@type":"Answer","text":"Keep the product page, availability message, promised dates, event-date disclosure, order confirmation, correspondence and tracking."}}
-      ]
-    }
-  ]
-};
-
-// 3. Article content sections
 const articleSections: ArticleSection[] = [
-  {
-    content: [
-      {
-        type: "image",
-        src: "/images/blog/jewellery-availability-production-time/52 (1).jpg",
-        alt: "Jewellery production timeline and availability stages",
-        title: "Jewellery Production Timeline",
-        caption: "Understanding the full journey from order to delivery helps set realistic expectations.",
-        priority: true
-      },
-      {
-        type: "paragraph",
-        text: "An online jewellery page may say \"available\" while the piece still needs to be sized, assembled, set, hallmarked or made. Another product may be physically ready but require several days for verification and insured dispatch."
-      },
-      {
-        type: "paragraph",
-        text: "The useful question is therefore not only \"Is it available?\" It is \"What work remains, when will it be dispatched and when should it arrive at my address?\""
-      },
-      {
-        type: "paragraph",
-        text: "Production time, dispatch time and delivery time are separate. Understanding each stage is essential when jewellery is intended for a proposal, wedding, anniversary, journey or gift date."
-      },
-      {
-        type: "callout",
-        title: "Quick answer: how do you calculate a jewellery delivery date?",
-        parts: [
-          { text: "Use this formula:\n\n" },
-          { text: "Estimated arrival = order processing + sourcing + production or alteration + quality control and documentation + dispatch handling + carrier transit + customs contingency\n\n" },
-          { text: "Before ordering, confirm:\n\n", bold: true },
-          { text: "1. The availability status of your exact variant.\n2. Whether the stated timeline uses calendar or business days.\n3. When the clock begins: order, cleared payment or approved design.\n4. Whether sizing, engraving or stone selection adds time.\n5. Whether quality control, reporting or hallmarking is included.\n6. The estimated dispatch date—not only \"ships in\" wording.\n7. Carrier transit time for your destination.\n8. Customs or import processing for cross-border orders.\n9. Whether the date is an estimate or guarantee.\n10. What happens if the seller misses an agreed essential deadline.\n\nFor an important event, obtain the delivery commitment in writing and leave a sensible buffer." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Availability terms are not interchangeable",
-    content: [
-      {
-        type: "paragraph",
-        text: "Retailers use availability labels differently. Read the definition on the product page or policy."
-      },
-      {
-        type: "table",
-        headers: ["Label", "What it should mean", "What to confirm"],
-        rows: [
-          ["In stock", "A relevant item or component is physically held", "Is my exact size, metal and diamond option complete?"],
-          ["Ready to ship", "The finished selected item requires no production", "What verification and dispatch handling remain?"],
-          ["Ready-made", "The design already exists as finished inventory", "Is resizing or alteration required?"],
-          ["Made to order", "Production starts or is completed for the order", "What stages and lead-time range apply?"],
-          ["Back-order", "Item is temporarily unavailable but expected again", "Is the replenishment date confirmed?"],
-          ["Pre-order", "Order is accepted before release or completed supply", "Is the date fixed, estimated or dependent on demand?"],
-          ["Bespoke", "Design or specifications are created for the client", "When does timing begin and how many approvals are required?"],
-          ["Available on request", "Seller must check supplier or workshop availability", "When will availability and price be confirmed?"]
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "\"Available\" can mean purchasable, not physically finished. \"In stock\" can refer to a mount without its selected centre diamond. Always check the exact variant."
-      }
-    ]
-  },
-  {
-    heading: "Check the selected variant, not the default product",
-    content: [
-      {
-        type: "paragraph",
-        text: "A ring page may display \"ready to ship\", while only one size and metal combination is ready. Changing to another ring size, gold colour, chain length or diamond specification can change the lead time."
-      },
-      {
-        type: "paragraph",
-        text: "Before adding to the basket, record:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "product code;",
-          "chosen metal and fineness;",
-          "ring size or wearable length;",
-          "selected diamond specification;",
-          "engraving or personalisation;",
-          "report requirements; and",
-          "the availability message after all selections are made."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "The cart and confirmation email should repeat both the variant and expected dispatch window."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Use the " },
-          { text: "diamond jewellery product-specification checklist", href: "/blog/diamond-jewellery-product-specifications-checklist/" },
-          { text: " to preserve the complete order record." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "If a seller will not define availability or provide written timing, revisit " },
-          { text: "how to choose a trustworthy online diamond jeweller", href: "/blog/choose-trustworthy-online-diamond-jeweller/" },
-          { text: " before paying." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "The stages inside jewellery production time",
-    content: [
-      {
-        type: "image",
-        src: "/images/blog/jewellery-availability-production-time/52 (2).jpg",
-        alt: "Step-by-step jewellery production stages from order to dispatch",
-        title: "Production Stages Breakdown",
-        caption: "Made-to-order jewellery passes through multiple stages before reaching your doorstep.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "Made-to-order jewellery does not spend the entire lead time at a workbench. A realistic schedule may contain several dependencies."
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Order review and payment clearance — The seller confirms the specification, fraud checks, payment and delivery information.",
-          "Diamond and material allocation — The selected diamond, accent stones, precious metal and components must be available.",
-          "Design confirmation or adaptation — Bespoke work requires drawings, renders and written approval.",
-          "Manufacturing and assembly — Casting, fabrication, cleaning, component production and preliminary finishing.",
-          "Stone setting — Diamonds are matched, placed and secured.",
-          "Finishing and plating — Polishing, texturing, engraving or plating.",
-          "Quality control — The workshop inspects stone security, alignment, polish, dimensions and clasps.",
-          "Hallmarking and documentation — Hallmarking and independent laboratory reporting.",
-          "Packing and insured dispatch — Final photography, packaging and courier booking."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "This sequence explains why \"manufactured\" and \"dispatched\" are not the same milestone."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "These production and control stages are also part of " },
-          { text: "what makes lab-grown diamond jewellery high quality", href: "/blog/high-quality-lab-grown-diamond-jewellery/" },
-          { text: "; speed should not erase necessary inspection." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Production time, dispatch time and delivery time",
-    content: [
-      {
-        type: "paragraph",
-        text: "These three phrases should never be merged:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Production time: time required to prepare or make the jewellery.",
-          "Dispatch time: time until the completed parcel leaves the seller.",
-          "Delivery or transit time: time the carrier takes after collection."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "If production is quoted as 10 business days and delivery as 2–4 business days, the arrival estimate is not 10 days. It is production plus any dispatch handling plus transit."
-      },
-      {
-        type: "paragraph",
-        text: "For international delivery, add possible customs clearance. Paying for express carriage does not necessarily accelerate production."
-      }
-    ]
-  },
-  {
-    heading: "Calendar days versus business days",
-    content: [
-      {
-        type: "paragraph",
-        text: "Ten business days can span two full working weeks and longer when public holidays intervene. Confirm:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "which days the workshop treats as business days;",
-          "the seller's country and holiday calendar;",
-          "order cut-off time and time zone;",
-          "whether the order day counts as day one;",
-          "seasonal closures; and",
-          "whether carrier weekends are included."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "For example, an order placed after Friday's cut-off may enter processing on Monday. If Monday is a local holiday, counting may start Tuesday. Avoid calculating from the marketing banner alone."
-      }
-    ]
-  },
-  {
-    heading: "Estimated date, dispatch window and guaranteed date",
-    content: [
-      {
-        type: "paragraph",
-        text: "An estimate is a forecast, not necessarily a contractual guarantee. A range such as \"dispatches in 10–15 business days\" acknowledges uncertainty but should still have a defined starting point."
-      },
-      {
-        type: "paragraph",
-        text: "Ask which of these the seller is offering:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "expected production completion;",
-          "estimated dispatch window;",
-          "estimated carrier delivery;",
-          "latest agreed delivery date; or",
-          "guaranteed event delivery."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "If timing is essential, tell the seller the event date before ordering and ask them to confirm the latest delivery date in writing. Do not rely on a customer-service phrase such as \"should be fine\"."
-      }
-    ]
-  },
-  {
-    heading: "Why personalised and bespoke orders need extra care",
-    content: [
-      {
-        type: "paragraph",
-        text: "Engraving, unusual sizing, design changes or a client-selected diamond can affect both production and cancellation terms."
-      },
-      {
-        type: "paragraph",
-        text: "Before approving the work, confirm:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "final specification and spelling;",
-          "drawing or render approval deadline;",
-          "number of included revisions;",
-          "when the order becomes non-cancellable;",
-          "whether returns are restricted;",
-          "what happens if materials become unavailable;",
-          "price consequences of changes; and",
-          "revised delivery date after any amendment."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Consumer cancellation rights and exceptions vary with jurisdiction and the actual degree of personalisation. A \"made to order\" label does not, by itself, explain the legal position."
-      }
-    ]
-  },
-  {
-    heading: "Ready-to-ship does not mean same-day arrival",
-    content: [
-      {
-        type: "paragraph",
-        text: "Even completed jewellery may require:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "payment and fraud review;",
-          "report-number matching;",
-          "stone-security inspection;",
-          "final polishing;",
-          "engraving requested at checkout;",
-          "address validation;",
-          "courier collection scheduling; and",
-          "signature or secure-delivery arrangements."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Check the daily dispatch cut-off and whether high-value orders ship on Fridays or before public holidays. Some sellers avoid parcels remaining in courier networks over weekends."
-      }
-    ]
-  },
-  {
-    heading: "Cross-border orders in Europe and the UK",
-    content: [
-      {
-        type: "image",
-        src: "/images/blog/jewellery-availability-production-time/52 (3).jpg",
-        alt: "International jewellery delivery and customs processing",
-        title: "Cross-Border Delivery Considerations",
-        caption: "International orders involve additional steps like customs clearance and VAT handling.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "For a cross-border order, establish:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "where the jewellery dispatches from;",
-          "whether it crosses a customs border;",
-          "which party is importer of record;",
-          "whether VAT and duties are prepaid;",
-          "documents required by the carrier;",
-          "whether customs delays fall outside the quoted transit time; and",
-          "who contacts the carrier if clearance stalls."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "EU consumer guidance states that, unless a different time is specifically agreed, traders should generally deliver within 30 days. UK distance-selling rules have their own framework."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Read " },
-          { text: "how to buy lab-grown diamond jewellery online in Europe", href: "/blog/buy-lab-grown-diamond-jewellery-online-europe/" },
-          { text: " for the wider cross-border checklist." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "A realistic arrival-date worksheet",
-    content: [
-      {
-        type: "image",
-        src: "/images/blog/jewellery-availability-production-time/52 (4).jpg",
-        alt: "Delivery date planning worksheet for jewellery orders",
-        title: "Arrival Date Planning Worksheet",
-        caption: "Use this worksheet to track each stage and calculate a realistic delivery date.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "Complete this before payment:"
-      },
-      {
-        type: "table",
-        headers: ["Stage", "Seller's estimate", "Earliest date", "Latest date"],
-        rows: [
-          ["Order/payment clearance", "", "", ""],
-          ["Diamond/material allocation", "", "", ""],
-          ["Production or alteration", "", "", ""],
-          ["Engraving/personalisation", "", "", ""],
-          ["Quality control", "", "", ""],
-          ["Hallmark/report documentation", "", "", ""],
-          ["Dispatch handling", "", "", ""],
-          ["Carrier transit", "", "", ""],
-          ["Customs contingency", "", "", ""],
-          ["Expected arrival", "", "", ""],
-          ["Event buffer", "", "", ""]
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Use the latest date, not the earliest, when deciding whether the order is suitable for an event. Add a buffer for sizing corrections, missed delivery attempts or inspection after arrival."
-      }
-    ]
-  },
-  {
-    heading: "Questions to ask before placing a time-sensitive order",
-    content: [
-      {
-        type: "paragraph",
-        text: "Send the seller these questions in one message:"
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Is my exact selected variant physically finished?",
-          "Which stages remain before dispatch?",
-          "When does the quoted lead time begin?",
-          "Are the days calendar or business days?",
-          "Does sizing or engraving change the estimate?",
-          "Are hallmarking and reports already complete?",
-          "What is the earliest and latest dispatch date?",
-          "Which carrier service will be used?",
-          "Is customs clearance included in the estimate?",
-          "Can you commit in writing to arrival by my essential date?",
-          "What happens if that date is missed?",
-          "Can I cancel before production begins?"
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Keep the response with the order confirmation."
-      }
-    ]
-  },
-  {
-    heading: "What to do when an order is delayed",
-    content: [
-      {
-        type: "paragraph",
-        text: "First identify the milestone that moved: sourcing, production, external documentation, dispatch, carrier transit or customs."
-      },
-      {
-        type: "paragraph",
-        text: "Then:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "request the revised date and reason in writing;",
-          "ask whether work has begun and whether cancellation is available;",
-          "preserve the original promised date;",
-          "clarify whether the event deadline was accepted as essential;",
-          "avoid approving changes without a revised schedule; and",
-          "use the seller's formal complaint route if necessary."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "EU guidance generally asks consumers to give an additional reasonable delivery period when the agreed date is missed. UK rights depend on the contract and circumstances."
-      }
-    ]
-  },
-  {
-    heading: "Availability and timing red flags",
-    content: [
-      {
-        type: "paragraph",
-        text: "Pause when a product page shows:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "\"available\" with no defined status;",
-          "one lead time for every size and custom option;",
-          "\"ships in 10 days\" without business/calendar wording;",
-          "production time presented as arrival time;",
-          "no starting event for the lead-time clock;",
-          "\"express shipping\" used to imply faster manufacturing;",
-          "a guaranteed event date only given verbally;",
-          "pre-order stock with no release basis;",
-          "back-order dates repeatedly moving without notice;",
-          "personalisation added without revised timing or return terms; or",
-          "no process for delays."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "A realistic range is more useful than an impossibly precise promise with no operational basis."
-      }
-    ]
-  },
-  {
-    heading: "What Aurelia Royale should show",
-    content: [
-      {
-        type: "paragraph",
-        text: "Each Aurelia Royale variant should display one controlled availability label with a definition. The page and cart should show:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "exact variant status;",
-          "remaining production stages;",
-          "lead-time range;",
-          "business or calendar days;",
-          "timing start point and order cut-off;",
-          "estimated dispatch date by destination;",
-          "separate carrier transit range;",
-          "personalisation impact;",
-          "cross-border customs note; and",
-          "delay, cancellation and return route."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Order-status emails should identify milestones such as confirmed, in production, quality control, ready for dispatch and dispatched."
-      }
-    ]
-  },
-  {
-    content: [
-      {
-        type: "callout",
-        title: "Final verdict",
-        theme: "gold-border",
-        parts: [
-          { text: "Jewellery availability is meaningful only when it applies to your exact variant. Production time tells you how long preparation or manufacture may take; dispatch time tells you when the seller expects to release the parcel; delivery time begins with the carrier.\n\n" },
-          { text: "Separate these periods, confirm business-day rules and calculate a latest realistic arrival date. For proposals, weddings and gifts, communicate the essential date before ordering and obtain a written commitment or choose an already finished piece with enough buffer." }
-        ]
-      },
-      {
-        type: "faq",
-        items: [
-          {
-            question: "What does 'in stock' mean for jewellery?",
-            answer: "It should mean relevant inventory is physically held, but your exact size or selected diamond may not be finished. Confirm the selected variant and remaining work."
-          },
-          {
-            question: "What does 'ready to ship' mean?",
-            answer: "It generally means production is complete, although payment review, verification, engraving, packing and courier scheduling may remain. Ask for the dispatch date."
-          },
-          {
-            question: "How long does made-to-order jewellery take?",
-            answer: "There is no universal period. Design, materials, setting complexity, sizing, hallmarking, quality control and workshop capacity determine the stated range."
-          },
-          {
-            question: "Does production time include delivery?",
-            answer: "Usually not unless explicitly stated. Add dispatch handling, carrier transit and any customs clearance to the production period."
-          },
-          {
-            question: "What is the difference between dispatch and delivery?",
-            answer: "Dispatch occurs when the seller hands the parcel to the carrier. Delivery occurs when the parcel reaches the recipient under the carrier's process."
-          },
-          {
-            question: "Do weekends count in a jewellery lead time?",
-            answer: "Only if the seller uses calendar days. Business-day estimates normally exclude weekends and may exclude local public holidays."
-          },
-          {
-            question: "Can express shipping make jewellery production faster?",
-            answer: "Not automatically. Express shipping shortens carrier transit. Production changes only if the workshop separately offers and confirms priority manufacture."
-          },
-          {
-            question: "Does ring sizing add production time?",
-            answer: "It can. A ready-made ring may need alteration, while some designs must be produced directly in the selected size. Ask for the revised dispatch window."
-          },
-          {
-            question: "Does jewellery hallmarking add time?",
-            answer: "It can when the finished article must be sent to an external assay office. Confirm whether hallmarking is complete or included in the quoted lead time."
-          },
-          {
-            question: "What should I do if I need jewellery for a wedding?",
-            answer: "State the essential date before ordering, request the latest guaranteed arrival in writing and include time to inspect, resize or resolve delivery problems."
-          },
-          {
-            question: "Can made-to-order jewellery be returned?",
-            answer: "Return and cancellation rights depend on the product, degree of personalisation, seller terms and applicable law. Read the specific policy before approving production."
-          },
-          {
-            question: "What records should I keep for a delayed order?",
-            answer: "Keep the selected product page, availability message, promised dates, event-date disclosure, order confirmation, seller correspondence and carrier tracking."
-          }
-        ]
-      },
-      {
-        type: "cta-banner",
-        title: "Shop with Confidence at Aurelia",
-        subtitle: "Explore our collection with transparent availability timelines and reliable delivery tracking.",
-        shopHref: "/shop/",
-        contactHref: "/contact/"
-      }
-    ]
-  }
+  { content: [{ type: "paragraph", text: "When a jewellery product appears online, it does not necessarily mean the finished piece is sitting in stock ready for immediate dispatch. Fine jewellery can be offered in several different ways. One item may already exist and be available now. Another may be produced only after an order is placed. A future collection may be offered through preorder. A design that is not currently available may simply allow customers to join a waitlist or submit an enquiry." }, { type: "paragraph", text: "Those situations are commercially different, and the wording matters. The most important distinction is this: joining a waitlist is not the same as placing a preorder, and placing a preorder is not necessarily the same as commissioning made-to-order jewellery. Each stage creates different expectations around payment, production, delivery and whether an actual order or contract exists." }] },
+  { heading: "Quick Answer: What Do Jewellery Availability Terms Mean?", content: [{ type: "paragraph", text: "Available now generally means a finished item or applicable stock is currently available for sale, subject to the retailer's actual inventory. Waitlist means you are asking to be contacted or notified about future availability. Unless the retailer expressly establishes otherwise, joining a waitlist should not be treated as an order, reservation or preorder. Preorder generally means the retailer is accepting actual orders for an item that will be supplied later rather than immediately. Made to order usually means production of the jewellery begins after the customer's order is accepted. Custom or personalised jewellery may involve changes created specifically for the customer and can have different cancellation implications from standard products." }, { type: "paragraph", text: "The practical question is therefore not simply: \"Is this jewellery available?\" It is: \"What stage is this product at, and what commitment am I making if I continue?\"" }] },
+  { heading: "Jewellery Availability Is Not One Status", content: [{ type: "paragraph", text: "Ecommerce language can make several different situations look similar. A product page might contain a design, images and an enquiry button even when no finished item is currently available. Another product may be fully manufactured but waiting for a particular size selection. Another may require several production steps after an order. Another may not yet be accepting orders at all. That is why jewellery availability should be described more precisely than simply: Available or: Unavailable." }] },
+  { heading: "What Does \"In Stock\" Mean?", content: [{ type: "paragraph", text: "For consumers, in stock normally creates a reasonable expectation that an item exists in available inventory. But even that term needs context. A ring may exist only in one size. A necklace may be available in one metal but not another. If jewellery is described as in stock, the retailer should avoid wording that implies every possible variation is immediately available unless that is actually true. For high-value jewellery, useful availability information might distinguish between: finished piece available and: design available but production required. Those are different customer expectations." }] },
+  { heading: "Does In Stock Mean Same-Day Dispatch?", content: [{ type: "paragraph", text: "No. Availability and dispatch speed are separate questions. A finished item can be available while still requiring: quality checking; sizing; documentation preparation; or normal order processing. If timing matters, check the stated dispatch and delivery information separately." }] },
+  { heading: "What Does \"Ready to Ship\" Mean?", content: [{ type: "paragraph", text: "\"Ready to ship\" is stronger than a general availability statement because it suggests production is already complete. But it still does not necessarily mean the customer will receive the jewellery the next day. There may still be: order processing; payment verification; dispatch preparation; courier collection; and transit time. So even where \"ready to ship\" is accurate, the product page should not allow buyers to confuse it with guaranteed next-day delivery unless a specific delivery service actually supports that promise." }] },
+  { heading: "What Is a Jewellery Waitlist?", content: [{ type: "paragraph", text: "A waitlist is usually the lowest-commitment availability status. The customer provides contact details because they want to hear when: a design becomes available; new stock arrives; ordering opens; pricing is confirmed; or more information becomes available. The key point is that the customer is expressing interest. Unless the retailer clearly creates something more, a waitlist submission should not be represented as: an order; a reservation; a confirmed allocation; a preorder; or a payment obligation." }, { type: "paragraph", text: "For Aurelia, this distinction is essential. If a visitor enters an email address into a Join Waitlist form, the safest wording is that Aurelia may contact them when further information or availability becomes available. The form should not suggest that the customer has secured the jewellery unless the client has established an actual reservation process." }] },
+  { heading: "What Should Happen After Joining a Waitlist?", content: [{ type: "paragraph", text: "A waitlist confirmation can say that the customer's interest has been recorded. It can also explain that Aurelia may contact them regarding availability. It should not say: Your order is confirmed; Your item has been reserved; Your preorder is successful; or: Your jewellery is now in production unless one of those things has genuinely happened. That distinction protects both customer expectations and the accuracy of the website." }] },
+  { heading: "Is a Waitlist the Same as a Reservation?", content: [{ type: "paragraph", text: "No, not automatically. A reservation suggests that a particular item, production slot or allocation is being held for a customer. A waitlist normally means the customer is waiting for an opportunity to purchase or receive more information. If Aurelia eventually introduces a reservation system, it should have separate terms explaining: what is reserved; for how long; whether payment is required; and what happens if the customer does not proceed. Until then: Join Waitlist = register interest." }] },
+  { heading: "What Is a Jewellery Preorder?", content: [{ type: "paragraph", text: "A preorder is more substantial than a waitlist. In ordinary ecommerce use, preorder means the retailer is accepting an actual order now for supply at a later date. The item may not yet be ready for dispatch. The important difference is that a preorder generally involves an ordering process rather than simply collecting an email address. If payment is required, that obligation needs to be made clear." }, { type: "paragraph", text: "Current UK online-selling guidance states that the final ordering step must make it clear when a consumer is taking on an obligation to pay, and businesses must set out the steps involved in placing the order. That is why a Join Waitlist form should not be quietly labelled or treated as a preorder." }] },
+  { heading: "Does a Preorder Need a Delivery Date?", content: [{ type: "paragraph", text: "The retailer should provide meaningful information about expected supply. Current UK distance-selling guidance requires businesses to provide delivery arrangements and information about how long goods will take to arrive before an order is placed. It also states that goods should ordinarily be delivered within 30 days unless another timeframe has been agreed with the customer. This means a legitimate preorder can use a longer agreed timeframe where that is clearly established. The important point is that the later timeframe should be communicated and agreed rather than discovered after payment." }] },
+  { heading: "What Is Made-to-Order Jewellery?", content: [{ type: "paragraph", text: "Made-to-order jewellery usually means a design is produced after an order is accepted rather than being taken from existing finished inventory. That does not automatically mean the piece is completely unique. A jeweller might repeatedly manufacture the same ring design but begin production only after a customer selects: metal; size; diamond specifications; or another approved variation. The result can still be a standard design. The important difference is the production model: ready-made = already manufactured; made to order = manufacturing begins after the order. That distinction affects lead time and what can be inspected before purchase." }] },
+  { heading: "Made to Order Does Not Automatically Mean Custom", content: [{ type: "paragraph", text: "A standard necklace produced after the order is placed can be made to order without being uniquely customised. A ring engraved with a customer's initials or manufactured to one-off specifications may be personalised or custom-made. Those categories can have different commercial and cancellation consequences. Current UK returns guidance provides ordinary cancellation rights for eligible distance purchases but lists certain personalised or custom-made goods among exceptions. That does not mean every product manufactured after an order automatically loses ordinary cancellation rights. The actual nature of the product and transaction matters." }] },
+  { heading: "What Is Custom or Bespoke Jewellery?", content: [{ type: "paragraph", text: "Custom or bespoke jewellery generally involves product decisions specific to the customer beyond selecting a normal stocked or standard option. That could include: unique design changes; special engraving; non-standard dimensions; or an individually commissioned design. However, businesses should use these terms carefully. Calling every standard ring produced after purchase \"bespoke\" can create confusion. The description should reflect what is actually being commissioned. For a buyer, ask: Am I choosing from standard options, or is the product being specifically altered or created for me?" }] },
+  { content: [{ type: "image", src: "/images/blog/jewellery-availability-production-time/52 (2).jpg", alt: "Jewellery availability waitlist preorder made to order table comparison", title: "Waitlist vs Preorder vs Made to Order", caption: "These terms describe different commercial stages — a waitlist should register interest only, not create a payment obligation.", priority: false }] },
+  { heading: "Waitlist vs Preorder vs Made to Order", content: [
+    { type: "table", headers: ["Status", "What the customer is doing", "Has an order normally been created?", "Is production necessarily underway?"], rows: [["Waitlist", "Registering interest / asking to be notified", "No, unless explicitly established otherwise", "No"], ["Preorder", "Placing an order for future supply", "Yes", "Not necessarily"], ["Made to order", "Ordering a piece that will be manufactured after acceptance", "Yes", "Usually begins after the agreed order stage"], ["Custom / bespoke", "Commissioning a customer-specific version or design", "Usually", "Normally after specifications are agreed"], ["In stock", "Purchasing existing available inventory", "Yes when ordered", "Already produced"], ["Ready to ship", "Purchasing a finished item prepared for fulfilment", "Yes when ordered", "Production complete"]] },
+    { type: "paragraph", text: "This table describes the normal commercial distinctions. A retailer's actual terms control the specific transaction." }
+  ] },
+  { heading: "A Waitlist Should Not Create a Payment Obligation", content: [{ type: "paragraph", text: "This is particularly important for Aurelia's current setup. If the client has not provided product prices and no direct checkout is available, Join Waitlist should remain a lead-generation action. The page or confirmation message can explain: Joining the waitlist registers your interest. It does not place an order or reserve a piece. Aurelia may contact you when further availability or ordering information is available. That wording is clear without making promises the business has not established. Do not display quantity selectors, an Add to Cart button or order-confirmation wording if the product cannot currently be purchased through the site." }] },
+  { heading: "What Is Jewellery Production Time?", content: [{ type: "paragraph", text: "Production time is the period required to manufacture or prepare the jewellery before it can be dispatched. Depending on the actual product, that process could include: manufacturing; stone selection; setting; finishing; sizing; quality control; or other preparation. The critical concept is simply: production time ends before dispatch begins. It is not the same as delivery time." }] },
+  { heading: "Production Time vs Dispatch Time vs Delivery Time", content: [{ type: "paragraph", text: "These terms should remain separate. Production time is the time required to create or prepare the product. Dispatch time concerns when the finished order leaves the retailer. Delivery or transit time concerns the carrier journey to the customer. Suppose a jewellery item has: 10 days of production; 1 day of dispatch processing; and 2 days of courier transit. Calling that simply: 2-day delivery would give the customer an inaccurate expectation. The same problem occurs when a retailer says: ships in two days when the jewellery itself takes several weeks to manufacture before the shipping stage begins. Use terms precisely." }] },
+  { heading: "What Is a Jewellery Lead Time?", content: [{ type: "paragraph", text: "Lead time is often used to describe the overall period between an agreed order and the item being ready or supplied. But different businesses may use it differently. One company may use it for production only. Another may include production and dispatch. Another may mean estimated arrival. Therefore, if a product page uses the term: Lead time: 3–4 weeks it should explain what that period covers." }] },
+  { heading: "What If You Need Jewellery for a Specific Date?", content: [{ type: "paragraph", text: "This is particularly important for: anniversaries; birthdays; weddings; proposals; graduations; or other fixed events. Do not calculate backwards using courier transit alone. First determine: whether the piece already exists; whether production is required; whether sizing or personalisation is required; when dispatch is expected; and: the estimated delivery window. Only then decide whether the timing works. If the event date is important, disclose it during the enquiry or ordering process and obtain a clear response. Do not assume that mentioning an event date automatically creates a contractual delivery guarantee." }] },
+  { heading: "What Does \"Available Soon\" Mean?", content: [{ type: "paragraph", text: "On its own, not very much. \"Available soon\" can create uncertainty because it does not tell the customer: whether production has begun; whether orders are open; whether stock exists; or: when they can reasonably purchase the piece. If Aurelia does not yet have a confirmed availability date, clearer wording might be: Join the waitlist to register your interest and receive availability updates. That communicates what the visitor can actually do. Avoid false countdowns or artificial scarcity. The CMA has repeatedly warned businesses about misleading urgency claims, and its guidance covers claims such as countdown timers and scarcity messages that pressure consumers without a genuine basis." }] },
+  { heading: "Should a Waitlist Have a Quantity Selector?", content: [{ type: "paragraph", text: "No, not in Aurelia's current enquiry-only setup. A quantity selector visually suggests a commerce transaction. If the user is merely registering interest in a product, asking them to choose Qty 1 / Qty 2 creates unnecessary confusion. Keep the action aligned with what actually happens." }] },
+  { heading: "Should There Be an Add to Cart Button?", content: [{ type: "paragraph", text: "Not where the item cannot currently be purchased through an approved checkout. For Aurelia products without an approved selling price or direct purchasing mechanism: remove Add to Cart and quantity selection. Retain Wishlist functionality if desired. Use: Join Waitlist or: Enquire About This Piece. That accurately communicates the stage of the buyer journey." }] },
+  { heading: "How Should Aurelia Describe the Current Waitlist?", content: [{ type: "paragraph", text: "Use wording along these lines: Join the Waitlist — Register your interest in this design and leave your email address. Aurelia may contact you when further availability or ordering information becomes available. Joining the waitlist does not place an order, reserve the jewellery or require payment. That is much safer than: Preorder Now if no preorder process exists. Or: Reserve Yours if no reservation actually occurs." }] },
+  { heading: "What Should the Waitlist Confirmation Message Say?", content: [{ type: "paragraph", text: "A simple confirmation can state: Thank you. Your interest has been registered. We may contact you when further information about this design becomes available. This is not an order confirmation or reservation. That removes ambiguity at the exact point where misunderstanding could otherwise occur." }] },
+  { heading: "Can You Cancel Made-to-Order Jewellery?", content: [{ type: "paragraph", text: "Do not assume the answer is always no. Current UK distance-selling rules generally provide cancellation rights for eligible online purchases, while certain goods made to the consumer's specifications or clearly personalised are exceptions. The critical distinction is that: made after the order does not automatically equal: made uniquely to the consumer's specifications. A standard repeatable design manufactured after an order and a uniquely engraved bespoke ring are not necessarily the same legal situation. Aurelia should therefore avoid blanket wording such as: All made-to-order pieces are non-refundable. Use only policy language that has been legally and commercially confirmed." }] },
+  { heading: "How to Read a Jewellery Availability Page", content: [{ type: "paragraph", text: "When evaluating availability, ask four questions: Does the finished item currently exist? Can I place an actual order now? Will manufacturing begin only after I order? When should I reasonably expect dispatch or delivery? If the page does not answer those questions and timing matters to you, ask before committing." }] },
+  { content: [{ type: "image", src: "/images/blog/jewellery-availability-production-time/52 (3).jpg", alt: "Jewellery availability examples in-stock made-to-order preorder waitlist Aurelia", title: "Availability Examples", caption: "Different availability stages create different expectations — know which stage you are entering before taking action.", priority: false }] },
+  { heading: "Availability Examples", content: [{ type: "paragraph", text: "Example: In-Stock Ring. A ring already exists in the customer's required size. Process: available item → order → processing → dispatch → delivery. The relevant timing question is primarily fulfilment and delivery." }, { type: "paragraph", text: "Example: Made-to-Order Ring. The design is standard, but the ring will be produced only after the buyer chooses the required size and metal. Process becomes: order accepted → production → quality/preparation → dispatch → delivery. The customer needs to understand production time before relying on a delivery estimate." }, { type: "paragraph", text: "Example: Preorder Collection. A jewellery collection is scheduled for a future release, but the retailer accepts orders before that date. Process: preorder accepted → future stock/production → release → dispatch → delivery. Here the customer has actually ordered something. That is fundamentally different from a waitlist." }, { type: "paragraph", text: "Example: Aurelia Waitlist. For an Aurelia design that currently has no confirmed direct-purchase price or ordering mechanism: view design → join waitlist / submit enquiry → Aurelia may follow up → customer receives future information → customer decides whether to proceed. There is no automatic payment, order, reservation, or production stage created merely by submitting the email form. That distinction should appear consistently across the website." }] },
+  { content: [{ type: "image", src: "/images/blog/jewellery-availability-production-time/52 (4).jpg", alt: "Jewellery availability production dispatch delivery timeline final answer", title: "The Complete Availability and Production Timeline", caption: "Availability → order → production → dispatch → delivery — know which stage applies to your product.", priority: false }] },
+  { heading: "Frequently Asked Questions", content: [
+    { type: "faq", title: "Frequently Asked Questions", items: [
+      { question: "What does jewellery availability mean?", answer: "It describes the current commercial status of a piece—whether it already exists, can currently be ordered, requires production or is only open for future interest." },
+      { question: "What does in stock mean?", answer: "It generally means inventory is currently available, although individual sizes or variations may still differ." },
+      { question: "Does in stock mean immediate delivery?", answer: "No. Processing and shipping can still take time." },
+      { question: "What does made to order mean?", answer: "It generally means the jewellery is produced after an order is accepted rather than supplied from existing finished stock." },
+      { question: "Is made to order the same as bespoke?", answer: "No. A standard design can be manufactured after purchase without being unique or bespoke." },
+      { question: "What is bespoke jewellery?", answer: "It generally refers to a product created or materially adapted to a customer's individual specification." },
+      { question: "What is a jewellery waitlist?", answer: "It is usually a way to register interest and receive future availability information." },
+      { question: "Does joining a waitlist place an order?", answer: "Not in Aurelia's proposed current setup. The email submission should register interest only." },
+      { question: "Does joining Aurelia's waitlist reserve the jewellery?", answer: "No reservation should be claimed unless Aurelia creates an actual reservation system." },
+      { question: "Is a waitlist the same as a preorder?", answer: "No." },
+      { question: "What is a preorder?", answer: "A preorder normally means an actual order is accepted for future supply rather than immediate delivery." },
+      { question: "What is production time?", answer: "It is the time needed to manufacture or prepare the jewellery before dispatch." },
+      { question: "Is production time the same as delivery time?", answer: "No." },
+      { question: "What is jewellery lead time?", answer: "It generally refers to the time needed before the item is ready or delivered, but sellers should define what their quoted lead time actually covers." },
+      { question: "Does UK law require delivery within 30 days?", answer: "For distance sales, GOV.UK guidance states goods should ordinarily be delivered within 30 days unless another timeframe has been agreed with the customer." },
+      { question: "Can made-to-order jewellery be cancelled?", answer: "Do not assume all made-to-order jewellery is automatically exempt from cancellation rights. Certain clearly personalised or customer-specification goods can be treated differently under UK distance-selling rules." },
+      { question: "What if I need the jewellery for a wedding or anniversary?", answer: "Confirm the complete expected timeline before ordering and explain the required date to the retailer." },
+      { question: "Should I count only shipping time?", answer: "No. If production is required, account for production, processing, dispatch and transit." },
+      { question: "Does joining a waitlist start production?", answer: "No, not unless the retailer explicitly creates that system." },
+      { question: "Should Aurelia use \"Preorder Now\" instead of \"Join Waitlist\"?", answer: "Not unless Aurelia is genuinely accepting orders for future supply and has the necessary pricing, payment, timing and terms in place." },
+      { question: "Should Aurelia keep Add to Cart on products without prices?", answer: "No. If the item cannot currently be purchased, the interface should not imply that it can." },
+      { question: "What CTA should Aurelia use?", answer: "For current products without an approved direct-purchase flow, use Join Waitlist and/or Enquire About This Piece." },
+      { question: "What is the most important availability rule?", answer: "Know whether you are registering interest, placing an order or commissioning production before assuming that a product has been secured." }
+    ]}
+  ] },
+  { heading: "Final Answer: How Should You Understand Jewellery Availability and Production Time?", content: [
+    { type: "paragraph", text: "Start by identifying the product's actual status. If the finished item already exists, you are dealing primarily with order processing and delivery. If production starts only after the order, it is made to order. If you place an actual order now for future supply, it may be a preorder. If you only provide your email address because the product is not currently available for purchase, you are joining a waitlist. These terms should not be used interchangeably." },
+    { type: "paragraph", text: "Then separate the timeline into: availability → order → production → dispatch → delivery. Some products skip the production stage because they already exist. Others may spend most of their lead time there. For any product needed by a specific date, confirm the entire timeframe rather than looking only at courier transit." },
+    { type: "paragraph", text: "For Aurelia Royale, the current Join Waitlist or enquiry process should be treated only as an expression of interest where no approved purchase process exists. It should not imply: an order; a preorder; a reservation; payment; or: the start of production." },
+    { type: "paragraph", parts: [{ text: "For the difference between existing and manufactured-after-order products, continue with " }, { text: "Ready-Made vs Made-to-Order Diamond Jewellery", href: "/blog/ready-made-vs-made-to-order-diamond-jewellery/" }] },
+    { type: "paragraph", parts: [{ text: "For the overall online buying process, read " }, { text: "How to Buy Certified Lab-Grown Diamond Jewellery Online", href: "/blog/buy-certified-lab-grown-diamond-jewellery-online/" }] },
+    { type: "paragraph", parts: [{ text: "Where an Aurelia design is not currently offered through an approved direct-purchase flow, " }, { text: "Join the Waitlist", href: "/contact/" }, { text: " or submit an enquiry to register your interest. Joining the waitlist should not be described as placing an order or reserving the product." }] },
+    { type: "cta-banner", title: "Explore Aurelia Royale Lab-Grown Diamond Jewellery", subtitle: "Know which stage you are at — availability, interest, order or production.", shopHref: "/shop/", contactHref: "/contact/" }
+  ] }
 ];
-
-export default function JewelleryAvailabilityProductionTimePage() {
+export default function BlogAvailabilityPage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
-      {/* Script injection for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Buying Lab-Grown Diamond Jewellery
-          </span>
-          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How to Understand Jewellery Availability and Production Time
-          </h1>
-          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
-          </p>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">Lab-Grown Diamond Education</span>
+          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">How to Understand Jewellery Availability and Production Time</h1>
+          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">Waitlist, Preorder, Made-to-Order and Delivery Explained • Published September 10, 2026</p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
+      <RelatedArticles currentSlug="jewellery-availability-production-time" />
       <NewsletterSection />
     </main>
   );
 }
+

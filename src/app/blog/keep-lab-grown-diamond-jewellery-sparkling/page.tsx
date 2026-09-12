@@ -1,7 +1,9 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -33,8 +35,7 @@ const schemaMarkup = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
         { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Jewellery Care and Maintenance", "item": "https://www.aureliaroyale.com/blog/category/jewellery-care-maintenance/" },
-        { "@type": "ListItem", "position": 4, "name": "How to Keep Lab-Grown Diamond Jewellery Sparkling", "item": "https://www.aureliaroyale.com/blog/keep-lab-grown-diamond-jewellery-sparkling/" }
+        { "@type": "ListItem", "position": 3, "name": "How to Keep Lab-Grown Diamond Jewellery Sparkling", "item": "https://www.aureliaroyale.com/blog/keep-lab-grown-diamond-jewellery-sparkling/" }
       ]
     },
     {
@@ -441,12 +442,10 @@ export default function Page() {
           </p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
+      <RelatedArticles currentSlug="keep-lab-grown-diamond-jewellery-sparkling" />
       <NewsletterSection />
     </main>
   );
 }
+

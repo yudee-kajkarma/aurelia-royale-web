@@ -9,13 +9,9 @@ export type FaqItem = {
 
 export const FAQSection: React.FC<{ items: FaqItem[]; title?: string }> = ({
   items,
-  title = "Frequently Asked Questions",
 }) => {
   return (
-    <div className="mt-16">
-      <h2 className="mb-8 font-cormorant text-3xl md:text-4xl font-semibold leading-tight text-[#153f35] uppercase tracking-wide border-t border-[#e2dfd5] pt-12">
-        {title}
-      </h2>
+    <div>
       <div className="space-y-4 mb-20">
         {items.map((faq, index) => (
           <details

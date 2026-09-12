@@ -1,451 +1,187 @@
-import React from "react";
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
-// 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
-  title: "Can You Swim with Diamond Jewellery?",
-  description: "Remove diamond jewellery before swimming. Learn how chlorine, salt water, sand, cold water, sunscreen and loss can affect rings, settings and stones.",
-  alternates: {
-    canonical: "https://www.aureliaroyale.com/blog/swim-wearing-diamond-jewellery/",
-  },
+  title: "Can You Swim Wearing Diamond Jewellery?",
+  description: "Learn whether you should wear diamond rings, earrings, necklaces or bracelets in pools or the sea, what chlorine and salt water can affect, and what to do after accidental exposure.",
+  alternates: { canonical: "https://www.aureliaroyale.com/blog/swim-wearing-diamond-jewellery/" },
 };
 
-// 2. The exact JSON-LD Schema (Fixed dates)
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BlogPosting",
-      "@id": "https://www.aureliaroyale.com/blog/swim-wearing-diamond-jewellery/#article",
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.aureliaroyale.com/blog/swim-wearing-diamond-jewellery/" },
-      "headline": "Can You Swim While Wearing Diamond Jewellery?",
-      "description": "Remove diamond jewellery before swimming. Learn how chlorine, salt water, sand, cold water, sunscreen and loss can affect rings, settings and stones.",
-      "image": "https://www.aureliaroyale.com/images/blog/swim-wearing-diamond-jewellery.webp",
-      "author": { "@type": "Organization", "name": "Aurelia Royale" },
-      "publisher": { "@type": "Organization", "name": "Aurelia Royale", "logo": { "@type": "ImageObject", "url": "https://www.aureliaroyale.com/images/logo.png" } },
-      "datePublished": "2026-07-16",
-      "dateModified": "2026-07-16",
-      "inLanguage": "en-GB",
-      "articleSection": "Jewellery Care and Maintenance",
-      "keywords": ["can you swim with diamond jewellery", "swim with diamond ring", "chlorine diamond jewellery", "diamond jewellery salt water"]
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.aureliaroyale.com/blog/swim-wearing-diamond-jewellery/#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Can You Swim While Wearing Diamond Jewellery?", "item": "https://www.aureliaroyale.com/blog/swim-wearing-diamond-jewellery/" }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.aureliaroyale.com/blog/swim-wearing-diamond-jewellery/#faq",
-      "mainEntity": [
-        { "@type": "Question", "name": "Can you swim with a diamond ring?", "acceptedAnswer": { "@type": "Answer", "text": "It is safer to remove it. Chlorine may affect setting alloys, while cold water, sunscreen and movement increase the chance of loss." } },
-        { "@type": "Question", "name": "Does chlorine damage diamonds?", "acceptedAnswer": { "@type": "Answer", "text": "Chlorine is not expected to damage an untreated diamond, but it can affect some metal alloys used in diamond settings." } },
-        { "@type": "Question", "name": "Can you wear lab-grown diamonds in a pool?", "acceptedAnswer": { "@type": "Answer", "text": "No. Lab-grown and natural diamond jewellery follow the same rule because the setting, metal and loss risk matter more than growth origin." } },
-        { "@type": "Question", "name": "Can you swim in the sea with a diamond ring?", "acceptedAnswer": { "@type": "Answer", "text": "Do not. Cold water, waves, sunscreen, sand and poor underwater visibility make permanent loss or damage more likely." } },
-        { "@type": "Question", "name": "Does salt water damage diamond jewellery?", "acceptedAnswer": { "@type": "Answer", "text": "The diamond is stable, but salt residue, sand, sunscreen, settings, finishes and other stones remain concerns. Loss is the largest risk." } },
-        { "@type": "Question", "name": "Can I wear diamond earrings while swimming?", "acceptedAnswer": { "@type": "Answer", "text": "Removal is recommended because caps, goggles, towels and wet hair can catch earrings, which are difficult to recover underwater." } },
-        { "@type": "Question", "name": "Can I wear a diamond bracelet in a pool?", "acceptedAnswer": { "@type": "Answer", "text": "No. Chemicals, impact, sunscreen and snagging can affect its links, settings and clasp even with a safety catch." } },
-        { "@type": "Question", "name": "Is a hot tub safe for diamond jewellery?", "acceptedAnswer": { "@type": "Answer", "text": "No. Hot tubs combine sanitising chemicals, heat, jets and prolonged soaking, which can be unsuitable for metals, settings and mixed materials." } },
-        { "@type": "Question", "name": "Can cold water make a ring fall off?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Fingers may temporarily reduce in size in cold water, and sunscreen or motion can make the ring easier to lose." } },
-        { "@type": "Question", "name": "What should I do after swimming with diamond jewellery?", "acceptedAnswer": { "@type": "Answer", "text": "Remove and inspect it, rinse only if all materials permit, dry fully and seek assessment if the setting, clasp or surface has changed." } },
-        { "@type": "Question", "name": "Can sand scratch a diamond ring?", "acceptedAnswer": { "@type": "Answer", "text": "Sand is unlikely to scratch the diamond, but it can abrade jewellery metals and softer gemstones, especially when rubbed." } },
-        { "@type": "Question", "name": "Where should I keep jewellery while swimming?", "acceptedAnswer": { "@type": "Answer", "text": "Secure storage at home or in suitable accommodation is best. If it travels, use an individual padded case and proportionate security." } }
-      ]
-    }
-  ]
-};
-
-// 3. Article content sections structured for DynamicArticle (Without images)
 const articleSections: ArticleSection[] = [
   {
     content: [
-      {
-        type: "paragraph",
-        text: "Remove diamond jewellery before swimming. The diamond itself is highly stable, but the complete piece includes metal alloys, settings, clasps, finishes and sometimes coloured stones or treatments. Chlorine may affect some alloys, cold water can make rings easier to lose, sand can abrade jewellery, and open water makes recovery exceptionally difficult."
-      },
-      {
-        type: "paragraph",
-        text: "The safest routine is to decide before leaving home whether a valuable piece should travel at all. If it does, store it securely before applying sunscreen or entering the water—not loose in a towel, shoe or beach bag."
-      }
-    ]
+      { type: "paragraph", text: "It is better to remove fine diamond jewellery before swimming. The diamond itself is highly durable, but swimming exposes the complete piece to risks that have little to do with diamond hardness. In a swimming pool or hot tub, chlorine can affect some of the metal alloys used in jewellery and can contribute to damage in settings over time. In the sea, salt water introduces a different combination of residue, abrasive particles, movement and a serious practical issue: loss. Cold water can also make fingers temporarily smaller, making a ring that normally feels secure easier to lose. The safest rule is therefore simple: remove fine diamond jewellery before entering a pool, hot tub, sea or other swimming environment. If you accidentally swim while wearing it, do not panic. Rinse the jewellery appropriately, dry it thoroughly and inspect it for any change in the setting or fastening." },
+    ],
   },
   {
-    heading: "Quick answer",
+    heading: "Quick Answer",
     content: [
-      {
-        type: "paragraph",
-        text: "Do not swim in diamond rings, earrings, necklaces or bracelets. GIA advises removing diamond jewellery before chlorinated pools and hot tubs because chlorine can erode some metal alloys used in settings and may contribute to damaged or loosened prongs. In the sea or a lake, cold water, movement, reduced visibility and depth create serious loss risks; salt, sunscreen and sand can leave residue or abrade vulnerable surfaces. Lab-grown and natural diamonds follow the same rule because the risk belongs mainly to the finished jewel and the environment, not its growth origin."
-      }
-    ]
+      { type: "paragraph", text: "You can physically swim while wearing diamond jewellery, but it is not recommended. The main reasons are: chlorine can affect jewellery metals, salt and other residue can collect around settings, water movement increases loss risk, and: cold water can temporarily reduce finger size. A diamond surviving the swim is not the same thing as the complete jewellery remaining unaffected. For valuable or sentimental pieces, removing them before swimming is the safer choice." },
+    ],
   },
   {
-    heading: "The risk depends on where you swim",
+    heading: "The Diamond Is Not the Main Problem",
     content: [
-      {
-        type: "table",
-        headers: ["Environment", "Principal risks", "Recommendation"],
-        rows: [
-          ["Chlorinated pool", "Alloy damage, residue, impact, loss", "Remove before entry"],
-          ["Hot tub or spa", "Chlorine/bromine, heat, jets, snagging", "Remove before entry"],
-          ["Sea", "Cold-water fit changes, waves, salt, sand, permanent loss", "Leave securely on land"],
-          ["Lake or river", "Cold water, current, poor visibility, rocks, loss", "Leave securely on land"],
-          ["Water park", "Chemicals, high movement, impact, ride restrictions", "Do not wear fine jewellery"]
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Diamond ranks 10 on the Mohs hardness scale and is highly resistant to scratching. But jewellery is made from much more than diamond. A ring can contain: gold, platinum, silver, plating, prongs, soldered joints, pavé settings, and other components. An earring also relies on: posts, backs, hinges, and fastening mechanisms. A bracelet or necklace relies on: clasps, links, jump rings, bails, and articulated sections. The piece should therefore be judged according to its weakest or most vulnerable component, not just the hardness of its diamond." },
+    ],
   },
   {
-    heading: "Can chlorine damage diamond jewellery?",
+    heading: "Swimming Pool vs Sea: The Risks Are Different",
     content: [
-      {
-        type: "paragraph",
-        text: "Chlorine pitting targets gold alloys, potentially causing settings to fracture. Do not swim with gold rings in pools."
-      }
-    ]
+      { type: "table", headers: ["Environment", "Main Concerns"], rows: [["Chlorinated pool", "Chemical exposure to metal/alloys + loss"], ["Hot tub", "Chlorine/chemicals + heat + loss"], ["Sea", "Salt residue + sand + movement + loss"], ["Cold open water", "Finger shrinkage + loss + impact"], ["Fresh water", "Loss + impact + residue depending on conditions"]] },
+      { type: "paragraph", text: "The recommendation remains broadly the same: remove the jewellery first." },
+    ],
   },
   {
-    heading: "Can you wear a diamond ring in a swimming pool?",
+    heading: "Can Chlorine Damage Diamond Jewellery?",
     content: [
-      {
-        type: "paragraph",
-        text: "Pool water cools skin, making fingers shrink temporarily. Rings slide off easily into deep filter paths."
-      }
-    ]
+      { type: "paragraph", text: "The diamond itself is not the main concern. GIA specifically warns that chlorine can damage or discolour precious metals and notes that chlorine can affect alloys used in gold jewellery. It also advises removing fine jewellery before entering chlorinated swimming pools. For diamond settings, this matters because weakened or damaged metal can affect the security of the stone. A diamond remaining intact does not help if the metal holding it becomes compromised." },
+    ],
   },
   {
-    heading: "Can you wear diamond earrings while swimming?",
+    heading: "Why Chlorine Matters for Gold Settings",
     content: [
-      {
-        type: "paragraph",
-        text: "Swim cap bands snag ear hoops. Tiny studs are impossible to locate when lost in busy pool basins."
-      }
-    ]
+      { type: "paragraph", text: "Pure gold is very resistant to corrosion, but jewellery gold is usually alloyed with other metals to create the required strength, colour and working properties. Chlorine can affect some of those alloy metals. GIA warns that chlorine exposure can erode metal alloys used in diamond settings and can contribute to damaged or loosened prongs. This is why the advice should be: remove the ring before swimming rather than: \"the diamond will be fine.\"" },
+    ],
   },
   {
-    heading: "Can you swim with a diamond necklace or bracelet?",
+    heading: "Platinum and Chlorine",
     content: [
-      {
-        type: "paragraph",
-        text: "Chains catch on steps or lane ropes. Fasten clasps flat in travel cases before entering pool zones."
-      }
-    ]
+      { type: "paragraph", text: "Platinum is highly durable, but a platinum jewellery piece can still contain: other components, joins, gemstone settings, clasps, or mixed materials. Aurelia should therefore avoid claiming that platinum jewellery is automatically \"pool safe\". Even if the metal itself tolerates exposure well, the jewellery can still be: lost, knocked, or affected through another component." },
+    ],
   },
   {
-    heading: "Are hot tubs worse for jewellery?",
+    heading: "Sterling Silver and Swimming",
     content: [
-      {
-        type: "paragraph",
-        text: "Hot tubs mix high chlorine doses, strong jets, and elevated temperatures. This accelerates setting wear."
-      }
-    ]
+      { type: "paragraph", text: "Sterling silver is especially relevant because chlorine and salty environments can accelerate surface changes and tarnish. Current Tiffany silver-care guidance specifically recommends removing sterling-silver jewellery before: pools, hot tubs, hot springs, and the ocean. If the product is plated silver, the care requirements may be even more specific. Plated jewellery has a surface layer over another metal. Repeated chemical exposure, friction and environmental contact can affect that finish depending on the plating system and construction. The accurate guidance is: avoid unnecessary swimming exposure and follow the care instructions for the confirmed metal and finish." },
+    ],
   },
   {
-    heading: "Can you wear diamond jewellery in the sea?",
+    heading: "What About Salt Water?",
     content: [
-      {
-        type: "paragraph",
-        text: "Salt residues leave thick films, and waves pull rings from fingers. Keep fine jewelry locked in safes."
-      }
-    ]
+      { type: "paragraph", text: "Salt water is different from chlorinated pool water. The main concerns are: residue, sand, abrasion, movement, and loss. Salt itself can dry onto the jewellery and leave deposits around: settings, clasps, hinges, and articulated links. The sea also creates constant movement, making jewellery easier to lose. For rings, colder water creates an additional risk because finger size can temporarily decrease. Normal sea water is unlikely to damage the diamond itself, but the finished jewellery still faces residue, metal, setting and loss concerns. The recommendation remains: take fine jewellery off before entering the sea." },
+    ],
   },
   {
-    heading: "What about lakes, rivers and natural springs?",
+    heading: "Cold Water Can Make Rings Looser",
     content: [
-      {
-        type: "paragraph",
-        text: "River currents wash loose pieces away instantly. Rocks also chip gold bands on impact."
-      }
-    ]
+      { type: "paragraph", text: "Finger circumference changes with temperature. Cold conditions can make fingers temporarily smaller. A ring that feels comfortably secure on land may therefore become looser in cold water. That makes beaches, lakes and open-water swimming particularly risky for rings. A ring does not need to be oversized under normal conditions to slip off in cold water. Swimming adds: cold, lubrication, movement, and water pressure. The combination makes loss much easier than during normal dry wear. For this reason, even a correctly fitted engagement ring is best removed before swimming." },
+    ],
   },
   {
-    heading: "Sunscreen creates a separate problem",
+    heading: "Swimming With Earrings, Necklaces and Bracelets",
     content: [
-      {
-        type: "paragraph",
-        text: "Always follow this product order to avoid coating stones:"
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Remove and secure jewellery.",
-          "Apply sunscreen as directed.",
-          "Enter the water without jewellery.",
-          "Shower and dry after swimming.",
-          "Reapply required skincare.",
-          "Put jewellery back on only when skin is clean and dry."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Stud earrings may appear safer because they do not slide from fingers. But they can still be lost. Water activity can affect: backings, posts, hair movement, swim caps, goggles, and towels. A friction back that is already worn can become an obvious weak point. Hoops and drop earrings introduce even more movement and can catch on hair, swimwear, goggles, or towels." },
+      { type: "paragraph", text: "A necklace can be lost if: the clasp opens, a jump ring deforms, the chain catches, or movement places stress on a weak connection. Tennis bracelets combine: many diamond settings, articulated links, and a clasp — swimming therefore exposes multiple possible failure points. The safer approach for all of these is to store them securely before entering the water." },
+    ],
   },
   {
-    heading: "Sand can scratch the rest of the piece",
+    heading: "Hot Tubs Add More Than Just Water",
     content: [
-      {
-        type: "paragraph",
-        text: "Sand quartz particles scratch gold alloys and rhodium plating. Never scrub sandy bands with dry towels."
-      }
-    ]
+      { type: "paragraph", text: "Hot tubs combine: chemical exposure, heat, jets, and movement. Tiffany's current care guidance specifically recommends removing jewellery before swimming in hot tubs. The combination of elevated chlorine and temperature makes this a more concerning environment than a brief rinse with clean water." },
+    ],
   },
   {
-    heading: "Lab-grown versus natural diamonds in water",
+    heading: "What if You Accidentally Swim in a Chlorinated Pool?",
     content: [
-      {
-        type: "paragraph",
-        text: "The origin label does not change water risks. Concerns focus on:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "the metal alloy;",
-          "setting condition;",
-          "plating or coating;",
-          "coloured stones and treatments;",
-          "adhesives or speciality components; and",
-          "the swimming environment."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Do not panic. One accidental exposure does not automatically mean the jewellery has been destroyed. Once you are out of the pool: rinse the jewellery appropriately with clean water if its materials permit it, dry it thoroughly, and inspect it under good light. Look for: changed stone position, bent prongs, damaged clasps, or unusual movement. If anything appears different, stop wearing the piece and arrange professional inspection. For salt water: rinse off salt and residue appropriately. Pay attention to areas where salt can remain trapped: under settings, inside clasps, around earring backs, and within articulated bracelet links. Dry completely. Then inspect the jewellery." },
+    ],
   },
   {
-    heading: "Jewellery that combines diamonds and coloured stones",
+    heading: "Do Not Use Aggressive Cleaning After Swimming",
     content: [
-      {
-        type: "paragraph",
-        text: "Porous stones absorb sea salts and chemicals. Always confirm:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "each gemstone identity;",
-          "known treatments or coatings;",
-          "whether adhesive is used;",
-          "the metal and finish; and",
-          "the maker’s care instructions."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Avoid reacting to chlorine or salt exposure by using: toothpaste, abrasive powders, bleach, harsh household chemicals, or hard scrubbing. The jewellery may already have experienced unnecessary exposure. Use the appropriate gentle cleaning method instead." },
+      { type: "paragraph", parts: [{ text: "For the full process, use " }, { text: "How to Clean Lab-Grown Diamond Jewellery at Home", href: "/blog/clean-lab-grown-diamond-jewellery/" }] },
+    ],
   },
   {
-    heading: "Where should jewellery be kept while swimming?",
+    heading: "Inspect the Setting After Accidental Exposure",
     content: [
-      {
-        type: "paragraph",
-        text: "Leave valuable items in room safes. Do not:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "leave cases visible in vehicles;",
-          "wrap in beach towels or hide in shoes; or",
-          "leave bags unmonitored on beach chairs."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Swimming itself does not automatically loosen a diamond. But if the jewellery already had a weakened setting, exposure and movement can make an existing problem more obvious. Look for: a tilted stone, missing or bent prongs, new gaps, pavé irregularities, or unusual clicking during normal handling. Do not deliberately shake or push the stone to test it." },
+      { type: "paragraph", parts: [{ text: "Use " }, { text: "How to Check Diamond Jewellery for Loose Stones", href: "/blog/check-diamond-jewellery-loose-stones/" }] },
+    ],
   },
   {
-    heading: "What to do if you accidentally swam with jewellery",
+    heading: "What if Sand Gets Into the Setting?",
     content: [
-      {
-        type: "numbered-list",
-        items: [
-          "Remove the piece over a soft, secure surface.",
-          "Inspect the clasp, links, prongs, posts and stones.",
-          "If all materials permit, rinse pool chemicals, salt or sand using clean lukewarm water in a secured container—not over an open drain.",
-          "Pat and air-dry fully with the approved lint-free material.",
-          "Follow the maker-approved cleaning process if sunscreen or film remains.",
-          "Arrange professional inspection if a stone moves, the metal has changed, a clasp feels different or the piece received an impact."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Sand can be abrasive. Do not rub the jewellery aggressively while sand remains present. Rinse it appropriately first. Once obvious particles are removed, follow the normal cleaning method suitable for the piece. Avoid scrubbing gritty contamination across polished metal." },
+    ],
   },
   {
-    heading: "What if a ring is lost in water?",
+    heading: "Does Swimming Make Lab-Grown Diamonds Cloudy?",
     content: [
-      {
-        type: "paragraph",
-        text: "If loss occurs, document details immediately:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Stop unnecessary movement around the likely location.",
-          "Note the exact position, time and water conditions.",
-          "Notify pool or venue staff immediately.",
-          "Do not enter unsafe water or filtration areas.",
-          "For open water, use a qualified local recovery or metal-detecting service where permitted.",
-          "Report the loss to the appropriate authority and insurer as required.",
-          "Keep grading reports, photographs and identifying numbers available separately."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Swimming should not permanently change a sound lab-grown diamond's inherent optical properties. What may happen is that: residue, salt, oils, or other material collects on the surface and affects appearance. If the diamond looks hazy after swimming, clean it appropriately before assuming that the stone itself has changed. The basic swimming advice is the same for lab-grown and natural diamonds — the risks are mostly related to: the finished jewellery, metal, setting, fastening, and loss." },
+    ],
   },
   {
-    heading: "Common swimming-jewellery myths",
+    heading: "Aurelia Insurance Registration Claim Must Be Removed Unless Verified",
     content: [
-      {
-        type: "paragraph",
-        parts: [{ text: "“Diamond is the hardest material, so the ring is safe”: ", bold: true }, { text: "Hardness prevents scratches, but does not secure mount claws or prevent loss." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "“Salt water cleans a diamond”: ", bold: true }, { text: "Salt leaves cloudy residues on stones. Safe rinses are required." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "“A tight ring cannot fall off”: ", bold: true }, { text: "Cold water reduces blood flow, shrinking finger diameters." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "“A safety clasp makes a bracelet pool-safe”: ", bold: true }, { text: "Clasps can snag on lane dividers or suit straps." }]
-      }
-    ]
+      { type: "paragraph", text: "This article should not state: \"Aurelia registers your jewellery value for international insurance.\" It should not promise: international insurance registration, travel declarations, customs-value registration, or: insurance valuation assistance unless Aurelia has confirmed exactly what service exists. The safe wording is: \"If you need documentation for insurance or international travel, check the requirements with your insurer and contact Aurelia to ask what purchase or product documentation is currently available for your piece.\" Jewellery insurance does not make swimming safe — even if a piece is insured, policies can contain: limits, exclusions, excesses, documentation requirements, and geographic conditions." },
+    ],
   },
   {
-    heading: "Pre-swim checklist",
+    heading: "Swimming Risk by Jewellery Type",
     content: [
-      {
-        type: "bullet-list",
-        items: [
-          "Leave valuable jewellery securely at home when possible.",
-          "Remove rings, earrings, necklaces and bracelets before changing.",
-          "Store each item in its own padded position.",
-          "Use appropriate secure storage—not a towel or shoe.",
-          "Apply sunscreen only after jewellery is removed.",
-          "Put jewellery back on after swimming, showering and drying.",
-          "Inspect any accidentally exposed piece before wearing it again."
-        ]
-      }
-    ]
+      { type: "table", headers: ["Jewellery", "Main Swimming Risk"], rows: [["Ring", "Chlorine/metal exposure + cold-water loss"], ["Stud earrings", "Backing loss + product residue"], ["Hoops/drops", "Catching + greater movement"], ["Pendant necklace", "Chain/clasp failure + impact"], ["Tennis bracelet", "Clasp/link/setting exposure + loss"], ["Bangle", "Impact + slipping depending on fit"], ["Mixed-gem jewellery", "Additional material sensitivities"]] },
+    ],
   },
   {
-    heading: "The Aurelia Royale recommendation",
+    heading: "A Simple Swimming Routine",
     content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Aurelia Royale mandates pre-swim removals for all designs. Browse collections at " },
-          { text: "Aurelia Royale jewellery", href: "/shop/" },
-          { text: " or " },
-          { text: "contact Aurelia Royale", href: "/contact/" },
-          { text: " to request specific specifications." }
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Before swimming: remove fine jewellery; place it into secure individual storage; do not leave it loose in a beach bag. After swimming: dry yourself first; apply any sunscreen or skincare you need; then put jewellery back on once your hands and skin are dry where practical. That also reduces sunscreen and lotion transfer onto the diamond. Beach Storage Matters — removing jewellery before swimming only helps if the storage method is secure. Do not place a ring loose into: a towel, open handbag pocket, shoe, or beach bag. Use an individual secure container." },
+      { type: "paragraph", parts: [{ text: "For the full storage guide, use " }, { text: "How to Store Diamond Jewellery Properly", href: "/blog/store-diamond-jewellery/" }] },
+    ],
   },
   {
+    heading: "Frequently Asked Questions",
     content: [
-      {
-        type: "callout",
-        title: "Final verdict",
-        theme: "gold-border",
-        parts: [
-          {
-            text: "Pools, hot tubs, seas and lakes create different risks, but the recommendation is the same.\n\n"
-          },
-          {
-            text: "Store fine jewellery securely before entering the water. Chlorine erodes setting alloys, seawater shrinks fingers, and open depths make recovery impossible."
-          }
-        ]
-      },
-      {
-        type: "faq",
-        items: [
-          {
-            question: "Can you swim with a diamond ring?",
-            answer: "It is safer to remove it. Chlorine may affect setting alloys, while cold water, sunscreen and movement increase the chance of loss."
-          },
-          {
-            question: "Does chlorine damage diamonds?",
-            answer: "Chlorine is not expected to damage an untreated diamond, but it can affect some metal alloys used in diamond settings and may contribute to weakened prongs."
-          },
-          {
-            question: "Can you wear lab-grown diamonds in a pool?",
-            answer: "No. Lab-grown and natural diamond jewellery follow the same pool-care rule because the setting, metal and loss risk matter more than growth origin."
-          },
-          {
-            question: "Can you swim in the sea with a diamond ring?",
-            answer: "Do not. Cold water, waves, sunscreen, sand and poor underwater visibility make permanent loss or damage more likely."
-          },
-          {
-            question: "Does salt water damage diamond jewellery?",
-            answer: "The diamond is stable, but salt residue, sand, sunscreen, settings, finishes and other stones remain concerns. Loss is the largest risk."
-          },
-          {
-            question: "Can I wear diamond earrings while swimming?",
-            answer: "Removal is recommended. Caps, goggles, towels and wet hair can catch earrings, and a small stud or back is difficult to recover underwater."
-          },
-          {
-            question: "Can I wear a diamond bracelet in a pool?",
-            answer: "No. Chemicals, impact, sunscreen and snagging can affect its links, settings and clasp even when it has a safety catch."
-          },
-          {
-            question: "Is a hot tub safe for diamond jewellery?",
-            answer: "No. Hot tubs combine sanitising chemicals, heat, jets and prolonged soaking, which can be unsuitable for metals, settings and mixed materials."
-          },
-          {
-            question: "Can cold water make a ring fall off?",
-            answer: "Yes. Fingers may temporarily reduce in size in cold water, and sunscreen or motion can make the ring easier to lose."
-          },
-          {
-            question: "What should I do after swimming with diamond jewellery?",
-            answer: "Remove and inspect it, rinse only if all materials permit, dry fully and arrange professional assessment if the setting, clasp or surface has changed."
-          },
-          {
-            question: "Can sand scratch a diamond ring?",
-            answer: "Sand is unlikely to scratch the diamond, but it can abrade jewellery metals and softer gemstones, especially when rubbed with a towel."
-          },
-          {
-            question: "Where should I keep jewellery while swimming?",
-            answer: "Secure storage at home or in suitable accommodation is best. If it travels, use an individual padded case and security appropriate to its value."
-          }
-        ]
-      },
-      {
-        type: "cta-banner",
-        title: "Secure Holiday Styles",
-        subtitle: "Aurelia Royale helps you register replacement insurance values for international travels. Contact our client support.",
-        shopHref: "/shop/",
-        contactHref: "/contact/"
-      }
-    ]
-  }
+      { type: "faq", items: [
+        { question: "Can you swim in a pool wearing a diamond ring?", answer: "It is better not to. Chlorine can affect some jewellery metals and the water environment increases the risk of losing the ring." },
+        { question: "Does chlorine damage diamonds?", answer: "The diamond itself is highly resistant, but chlorine can affect metals and alloys used in the setting." },
+        { question: "Can chlorine loosen diamond prongs?", answer: "GIA warns that chlorine can erode some metal alloys used in diamond settings, potentially contributing to damaged or loosened prongs over time." },
+        { question: "Can you wear a diamond ring in the sea?", answer: "It is not recommended. Salt residue, movement and cold-water finger shrinkage all increase risk, especially the risk of loss." },
+        { question: "Does salt water damage lab-grown diamonds?", answer: "The diamond itself is unlikely to be harmed by ordinary sea water, but the finished jewellery still faces residue, metal, setting and loss concerns." },
+        { question: "Why do rings fall off in cold water?", answer: "Fingers can temporarily become smaller in cold conditions, reducing the security of a ring that normally fits properly." },
+        { question: "Can I swim wearing diamond earrings?", answer: "It is safer to remove them. Posts and backs can loosen or be lost, particularly with water movement, towels and swim equipment." },
+        { question: "Can I swim wearing a tennis bracelet?", answer: "It is better to remove it because the bracelet contains many settings, links and a clasp, all while loss remains possible." },
+        { question: "What should I do if I accidentally swim wearing jewellery?", answer: "Rinse and clean it appropriately for its materials, dry it completely and inspect the setting and fastening before wearing it again." },
+        { question: "Should I have the jewellery inspected after swimming?", answer: "Not after every brief accidental exposure. But inspect it closely and seek professional assessment if there was impact, visible damage, unusual movement or an already questionable setting." },
+        { question: "Does Aurelia arrange jewellery insurance for international travel?", answer: "Do not assume so. Insurance or travel-document support should only be claimed if Aurelia has confirmed that service." },
+        { question: "Is lab-grown diamond jewellery safer to swim in than natural-diamond jewellery?", answer: "No meaningful swimming-care advantage comes from the diamond's origin. The risks are mainly about the jewellery construction, metals, fastening and loss." },
+      ]},
+    ],
+  },
+  {
+    heading: "Final Answer: Should You Swim Wearing Diamond Jewellery?",
+    content: [
+      { type: "paragraph", text: "The safer answer is no. Remove fine diamond jewellery before entering: swimming pools, hot tubs, the sea, and: open water. The diamond itself is highly durable. The complete jewellery is the concern. Chlorine can affect some metal alloys. Salt and sand can create residue and abrasion. Cold water can make fingers temporarily smaller. And every swimming environment increases the possibility of simply losing the piece." },
+      { type: "paragraph", text: "If accidental exposure happens, do not panic. Rinse and clean the jewellery appropriately for its confirmed materials, dry it thoroughly and inspect the settings and fastenings. If you notice damage or a loose stone, stop wearing it until professionally assessed." },
+      { type: "paragraph", parts: [{ text: "For cleaning after exposure, use " }, { text: "How to Clean Lab-Grown Diamond Jewellery at Home", href: "/blog/clean-lab-grown-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "For loose-stone warning signs, use " }, { text: "How to Check Diamond Jewellery for Loose Stones", href: "/blog/check-diamond-jewellery-loose-stones/" }] },
+      { type: "paragraph", parts: [{ text: "For professional inspection, use " }, { text: "When Should Diamond Jewellery Be Professionally Inspected?", href: "/blog/professional-diamond-jewellery-inspection/" }] },
+      { type: "paragraph", parts: [{ text: "For storage before swimming or while travelling, use " }, { text: "How to Store Diamond Jewellery Properly", href: "/blog/store-diamond-jewellery/" }] },
+      { type: "cta-banner", title: "Explore Aurelia Royale Lab-Grown Diamond Jewellery", subtitle: "Remove before swimming — protect your diamonds from chlorine, salt and loss.", shopHref: "/shop/", contactHref: "/contact/" },
+    ],
+  },
 ];
 
-export default function Page() {
+export default function BlogSwimmingPage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
-      {/* Script injection for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Jewellery Care and Maintenance
-          </span>
-          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            Can You Swim While Wearing Diamond Jewellery?
-          </h1>
-          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
-          </p>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">Lab-Grown Diamond Care</span>
+          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">Can You Swim While Wearing Diamond Jewellery?</h1>
+          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">Pools, Hot Tubs, Sea Water and Cold Water Explained • Published September 10, 2026</p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
+      <RelatedArticles currentSlug="swim-wearing-diamond-jewellery" />
       <NewsletterSection />
     </main>
   );
 }
+

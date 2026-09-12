@@ -1,693 +1,104 @@
-import React from "react";
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
-
-// 1. SEO Metadata for Search Engines
+import RelatedArticles from "@/components/shared/RelatedArticles";
 export const metadata: Metadata = {
-  title: "Lab-Grown Diamond Jewellery Buying Guide",
-  description: "Buying lab-grown diamond jewellery for the first time? Learn how to choose the category, budget, 4Cs, metal, fit, certification and seller.",
-  alternates: {
-    canonical: "https://www.aureliaroyale.com/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/",
-  },
+  title: "Lab-Grown Diamond Jewellery Buying Guide for Beginners",
+  description: "Buying lab-grown diamond jewellery for the first time? Choose your first piece by purpose, jewellery type, budget, design, diamond priorities, metal, size and fit.",
+  alternates: { canonical: "https://www.aureliaroyale.com/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/" },
 };
-
-// 2. The exact JSON-LD Schema
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://www.aureliaroyale.com/#organization",
-      "name": "Aurelia Royale",
-      "url": "https://www.aureliaroyale.com/"
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.aureliaroyale.com/#website",
-      "url": "https://www.aureliaroyale.com/",
-      "name": "Aurelia Royale",
-      "publisher": { "@id": "https://www.aureliaroyale.com/#organization" },
-      "inLanguage": "en-GB"
-    },
-    {
-      "@type": "ImageObject",
-      "@id": "https://www.aureliaroyale.com/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/#primaryimage",
-      "url": "https://www.aureliaroyale.com/wp-content/uploads/first-time-buyers-guide-lab-grown-diamond-jewellery.webp",
-      "contentUrl": "https://www.aureliaroyale.com/wp-content/uploads/first-time-buyers-guide-lab-grown-diamond-jewellery.webp",
-      "width": 1600,
-      "height": 900,
-      "caption": "A first-time buyer’s guide to lab-grown diamond jewellery"
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://www.aureliaroyale.com/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/#webpage",
-      "url": "https://www.aureliaroyale.com/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/",
-      "name": "A First-Time Buyer’s Guide to Lab-Grown Diamond Jewellery",
-      "isPartOf": { "@id": "https://www.aureliaroyale.com/#website" },
-      "primaryImageOfPage": { "@id": "https://www.aureliaroyale.com/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/#primaryimage" },
-      "datePublished": "2026-07-16",
-      "dateModified": "2026-07-16",
-      "breadcrumb": { "@id": "https://www.aureliaroyale.com/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/#breadcrumb" },
-      "inLanguage": "en-GB"
-    },
-    {
-      "@type": "BlogPosting",
-      "@id": "https://www.aureliaroyale.com/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/#article",
-      "headline": "A First-Time Buyer’s Guide to Lab-Grown Diamond Jewellery",
-      "description": "Buying lab-grown diamond jewellery for the first time? Learn how to choose the category, budget, 4Cs, metal, fit, certification and seller.",
-      "image": { "@id": "https://www.aureliaroyale.com/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/#primaryimage" },
-      "mainEntityOfPage": { "@id": "https://www.aureliaroyale.com/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/#webpage" },
-      "author": { "@id": "https://www.aureliaroyale.com/#organization" },
-      "publisher": { "@id": "https://www.aureliaroyale.com/#organization" },
-      "datePublished": "2026-07-16",
-      "dateModified": "2026-07-16",
-      "articleSection": "Buying Lab-Grown Diamond Jewellery",
-      "keywords": [
-        "lab-grown diamond jewellery buying guide",
-        "first-time diamond buyer",
-        "how to buy lab-grown diamond jewellery",
-        "lab-grown diamond buying guide",
-        "beginner diamond jewellery checklist"
-      ],
-      "inLanguage": "en-GB"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.aureliaroyale.com/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Buying Lab-Grown Diamond Jewellery", "item": "https://www.aureliaroyale.com/blog/category/buying-lab-grown-diamond-jewellery/" },
-        { "@type": "ListItem", "position": 4, "name": "First-Time Buyer’s Guide", "item": "https://www.aureliaroyale.com/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/" }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.aureliaroyale.com/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Are lab-grown diamonds suitable for a first jewellery purchase?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. They offer diamond's material and optical properties with laboratory-grown origin. Buyers should still compare quality, design, metal, documentation and seller service." }
-        },
-        {
-          "@type": "Question",
-          "name": "Which of the 4Cs should a first-time buyer prioritise?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Prioritise attractive visible performance and then balance colour, clarity and carat around the design, metal, budget and personal preferences." }
-        },
-        {
-          "@type": "Question",
-          "name": "Is a higher clarity grade always worth paying for?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. Differences at very high clarity levels may not be visible without magnification. An eye-clean diamond with suitable inclusion placement may offer a better balance." }
-        },
-        {
-          "@type": "Question",
-          "name": "Should I choose carat weight or millimetre size?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Check both. Carat measures weight, while millimetres and product dimensions explain visible scale and setting compatibility." }
-        },
-        {
-          "@type": "Question",
-          "name": "Does every lab-grown diamond jewellery piece need a certificate?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. Important centre diamonds may have individual reports, while small accent stones may be described through origin testing, total weight and quality ranges." }
-        },
-        {
-          "@type": "Question",
-          "name": "Is IGI or GIA better for a first-time buyer?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Both are established laboratories, but their current laboratory-grown report formats differ. Read the exact document and do not translate one laboratory's terminology into invented grades." }
-        },
-        {
-          "@type": "Question",
-          "name": "What metal is best for lab-grown diamond jewellery?",
-          "acceptedAnswer": { "@type": "Answer", "text": "There is no universal best metal. Choose according to colour preference, durability, weight, maintenance, budget, sensitivity and the applicable hallmark information." }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I choose the correct bracelet or ring size?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Use the retailer's measurement method, account for band or bracelet width and desired ease, and check resizing or exchange terms before ordering." }
-        },
-        {
-          "@type": "Question",
-          "name": "Are online images enough to choose diamond jewellery?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Images are useful but should be combined with millimetre dimensions, scale views, variant labels, specifications and actual-stone video where applicable." }
-        },
-        {
-          "@type": "Question",
-          "name": "What should I check before buying jewellery as a gift?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Confirm style, adjustable fit, delivery date, presentation, exchange terms and whether engraving or personalisation changes return eligibility." }
-        },
-        {
-          "@type": "Question",
-          "name": "Should I buy lab-grown diamond jewellery for resale value?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Buy primarily for design and wear. Laboratory-grown diamond prices and secondary markets can change, and a grading report does not guarantee resale value." }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the most important final check before payment?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Make sure the exact selected variant, material, diamond weight, documentation, price, delivery estimate and return conditions appear in a record you can save." }
-        }
-      ]
-    }
-  ]
-};
-
-// 3. Article content sections structured for DynamicArticle
 const articleSections: ArticleSection[] = [
-  {
-    content: [
-      {
-        type: "image",
-        src: "/images/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/1.jpg",
-        alt: "A first-time buyer's guide to lab-grown diamond jewellery",
-        title: "First-Time Buyer's Guide",
-        caption: "A thoughtful sequence of decisions simplifies choosing your first lab-grown diamond jewellery.",
-        priority: true
-      },
-      {
-        type: "paragraph",
-        text: "Buying lab-grown diamond jewellery for the first time can feel more technical than it needs to be. Product pages introduce carat weight, colour, clarity, cut, certificates, metals, settings and policies at once. The solution is not to memorise every grade. It is to make decisions in an order that reflects how the jewellery will actually be worn."
-      },
-      {
-        type: "paragraph",
-        text: "Start with the person, purpose and budget. Then choose the category, dimensions and style. Only after those decisions should you balance diamond grades, metal, documentation and seller service."
-      },
-      {
-        type: "paragraph",
-        text: "This guide gives you that sequence. It applies to earrings, necklaces, pendants, bracelets, rings and jewellery sets rather than treating every purchase like an engagement-ring search."
-      }
-    ]
-  },
-  {
-    heading: "Quick answer: how should a first-time buyer choose lab-grown diamond jewellery?",
-    content: [
-      {
-        type: "paragraph",
-        text: "Use these steps:"
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Decide who will wear the jewellery and how often.",
-          "Choose the category before choosing a carat target.",
-          "Set an all-in budget covering the complete piece.",
-          "Confirm that laboratory-grown diamonds suit your priorities.",
-          "Choose the design, shape and visible scale you prefer.",
-          "Balance cut, colour, clarity and carat instead of maximising every grade.",
-          "Select the metal, setting and fastening for comfort and maintenance.",
-          "Check fit and dimensions in millimetres.",
-          "Understand which diamond or jewellery document is supplied.",
-          "Review the product page, images and seller information.",
-          "Confirm production, delivery, returns, warranty and aftercare.",
-          "Save the specifications and compare them with delivery."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "The best first purchase is not the piece with the highest grades. It is the one that looks attractive, fits the wearer, matches the intended use and is supported by clear information."
-      }
-    ]
-  },
-  {
-    heading: "First, understand what a lab-grown diamond is",
-    content: [
-      {
-        type: "paragraph",
-        text: "A laboratory-grown diamond is diamond material created under controlled conditions rather than formed naturally underground. It has the crystal structure and essential physical and optical properties of diamond. It is not the same material as moissanite or cubic zirconia."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "The important commercial distinction is origin. Laboratory-grown and natural diamonds operate in different supply and pricing markets. Start with " },
-          { text: "what lab-grown diamonds are", href: "/blog/what-are-lab-grown-diamonds/" },
-          { text: " and " },
-          { text: "CVD versus HPHT lab-grown diamonds", href: "/blog/cvd-vs-hpht-lab-grown-diamonds/" },
-          { text: " if you want the technical background." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Step 1: define the purpose and wear pattern",
-    content: [
-      {
-        type: "image",
-        src: "/images/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/2.jpg",
-        alt: "A woman wearing diamond studs and a delicate diamond pendant necklace",
-        title: "Daily and Occasion Wear Options",
-        caption: "Matching style and setting security to lifestyle constraints ensures the jewelry is worn and enjoyed daily."
-      },
-      {
-        type: "paragraph",
-        text: "Ask four questions before opening a product filter: Is this jewellery for yourself or a gift? Is it intended for regular wear or occasional events? Does the wearer prefer subtle scale or strong visual presence? Which comfort or activity constraints matter?"
-      },
-      {
-        type: "table",
-        headers: ["Wear pattern", "Useful priorities"],
-        rows: [
-          ["Daily earrings", "Secure backs, manageable dimensions, comfort and easy cleaning"],
-          ["Work necklace", "Appropriate chain length, stable pendant orientation and versatile scale"],
-          ["Regular bracelet", "Accurate wrist fit, secure clasp and setting protection"],
-          ["Ring for everyday wear", "Correct size, practical profile, durable setting and resizing options"],
-          ["Occasion jewellery", "Movement, visual scale, outfit compatibility and delivery date"],
-          ["Gift", "Adjustable fit, clear exchange terms, neutral styling and presentation"]
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Step 2: choose the jewellery category",
-    content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Earrings: ", bold: true },
-          { text: "Decide between studs, drops, and hoops. Confirm carat weight scope (per-stone vs pair-total)." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Necklaces and pendants: ", bold: true },
-          { text: "Check chain lengths, adjustable extensions, and pendant dimensions." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Bracelets: ", bold: true },
-          { text: "Measure wrists. Clasp and setting security are as important as stone quality." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Rings: ", bold: true },
-          { text: "Verify ring sizes, band widths, setting profiles, and resizing options." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Jewellery sets: ", bold: true },
-          { text: "Verify exactly which items are included and check individual component specs." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Step 3: create an all-in budget",
-    content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Set a range. A lower loose-diamond price does not automatically make the final piece cheaper; metal weight and setting intricacy contribute substantially to the total cost. Buy primarily for design and wear. Read " },
-          { text: "whether lab-grown diamonds have resale value", href: "/blog/do-lab-grown-diamonds-have-resale-value/" },
-          { text: " before making financial assumptions." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Step 4: choose design and visible scale before paper grades",
-    content: [
-      {
-        type: "image",
-        src: "/images/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/3.jpg",
-        alt: "Visual comparison of diamond sizes on a model's hand",
-        title: "Scale and Proportions Guide",
-        caption: "Comparing millimetre measurements to carat weight prevents buying a stone that appears smaller than expected."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Visual scale is determined by shape, dimensions, and settings—not only by carat weight. Read " },
-          { text: "carat weight versus visible diamond size", href: "/blog/carat-weight-vs-visible-diamond-size/" },
-          { text: " and " },
-          { text: "what total carat weight means in diamond jewellery", href: "/blog/total-carat-weight-diamond-jewellery/" },
-          { text: "." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Step 5: understand diamond shape",
-    content: [
-      {
-        type: "table",
-        headers: ["Shape", "General visual character", "First-time consideration"],
-        rows: [
-          ["Round brilliant", "Balanced, familiar brilliance", "Cut information is often easier to compare"],
-          ["Oval", "Elongated coverage and soft outline", "Inspect bow-tie pattern and outline symmetry"],
-          ["Emerald cut", "Broad step facets and calm flashes", "Clarity and transparency can be more visible"],
-          ["Pear", "Tapered, directional shape", "Check symmetry, point protection and orientation"],
-          ["Cushion", "Rounded square or rectangular outline", "Faceting and proportions vary substantially"],
-          ["Marquise", "Elongated coverage with pointed ends", "Check bow-tie, symmetry and protected tips"],
-          ["Princess", "Angular square outline", "Corners need suitable protection"]
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Step 6: balance the 4Cs in the right order",
-    content: [
-      {
-        type: "image",
-        src: "/images/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/4.jpg",
-        alt: "A close-up of a diamond reflecting light to show brilliance",
-        title: "Balancing the 4Cs",
-        caption: "Prioritising cut quality ensures maximum sparkle and life, allowing for practical tradeoffs in color and clarity."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Cut: prioritising visible performance. ", bold: true },
-          { text: "For round brilliants, use grading reports. For fancy shapes, rely on actual images to check bow-ties and outline symmetry. Read " },
-          { text: "diamond cut explained", href: "/blog/lab-grown-diamond-cut-explained/" },
-          { text: "." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Colour: choose in context. ", bold: true },
-          { text: "Near-colourless grades look white in most settings, and rose or yellow gold allow for lower colour grades. Read " },
-          { text: "diamond colour grades explained", href: "/blog/lab-grown-diamond-colour-grades-explained/" },
-          { text: "." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Clarity: focus on visibility and durability. ", bold: true },
-          { text: "Ensure the diamond is eye-clean under standard viewing. Pay for visible cleanliness rather than microscopic rarity. Read " },
-          { text: "diamond clarity grades explained", href: "/blog/lab-grown-diamond-clarity-grades-explained/" },
-          { text: "." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Carat: compare weight and dimensions. ", bold: true },
-          { text: "Ensure weight is not hidden beneath the girdle. Read " },
-          { text: "the 4Cs of lab-grown diamonds", href: "/blog/4cs-of-lab-grown-diamonds/" },
-          { text: "." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "A practical first-time priority order",
-    content: [
-      {
-        type: "bullet-list",
-        items: [
-          "Attractive design and correct category.",
-          "Comfortable dimensions and fit.",
-          "Strong visible diamond performance.",
-          "Eye-clean appearance and acceptable transparency.",
-          "Colour that suits the chosen metal.",
-          "Desired visible size.",
-          "Reliable documentation and disclosure.",
-          "Seller service, delivery and aftercare."
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Step 7: choose the precious metal",
-    content: [
-      {
-        type: "paragraph",
-        text: "Select based on colour preference, durability, and maintenance. White gold is neutral but may need rhodium replating, yellow gold offers warm contrast, and platinum is naturally white and dense. Ensure fineness and hallmarking are disclosed clearly."
-      }
-    ]
-  },
-  {
-    heading: "Step 8: evaluate the setting, fastening and construction",
-    content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "For centre stones: ", bold: true },
-          { text: "Compare prong and bezel settings, ensuring corners and points are protected." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "For earrings: ", bold: true },
-          { text: "Check post lengths, earring backs, and pair weights." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "For necklaces and bracelets: ", bold: true },
-          { text: "Inspect clasps, safety mechanisms, and potential rotation." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "For rings: ", bold: true },
-          { text: "Evaluate band thickness, profiles, and resizing limits." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Step 9: check size, fit and comfort",
-    content: [
-      {
-        type: "paragraph",
-        text: "Avoid sizing strictly by general descriptors. Use specific size charts for rings, wrist measurements for bracelets, and chain lengths for necklines. Gift purchases should check resizing terms first."
-      }
-    ]
-  },
-  {
-    heading: "Step 10: understand certification and documentation",
-    content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Identify the issuer, scope, and document verification route. An important centre stone should have an individual grading report, while accent stones may be graded in ranges. Read " },
-          { text: "what certified lab-grown diamond jewellery means", href: "/blog/certified-lab-grown-diamond-jewellery-meaning/" },
-          { text: " and " },
-          { text: "how to verify an IGI certificate number", href: "/blog/how-to-verify-an-igi-certificate-number/" },
-          { text: "." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Step 11: review the product page and images",
-    content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Verify that origin, carat weights, metal details, and policies are fully disclosed on the listing page. For support, reference " },
-          { text: "the diamond product-page details checklist", href: "/blog/diamond-details-product-page/" },
-          { text: " and " },
-          { text: "the complete diamond information audit", href: "/blog/check-diamond-information-is-complete/" },
-          { text: "." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Step 12: evaluate the seller and purchase conditions",
-    content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Before buying, confirm trader location, shipping terms, VAT or taxes, return windows, warranties, and aftercare services. For detailed buying procedures, proceed to the next guide: " },
-          { text: "how to buy certified lab-grown diamond jewellery online", href: "/blog/buy-certified-lab-grown-diamond-jewellery-online/" },
-          { text: "." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "What should arrive with the jewellery?",
-    content: [
-      {
-        type: "paragraph",
-        text: "The package should include the jewellery in protective cases, the invoice, grading/jewellery reports, seller authenticity cards, hallmark details where relevant, warranty terms, and care/return instructions."
-      }
-    ]
-  },
-  {
-    heading: "Common first-time buying mistakes",
-    content: [
-      {
-        type: "bullet-list",
-        items: [
-          "Starting with carat alone instead of visible size and design suitability.",
-          "Maximising all four Cs, which wastes budget on invisible traits.",
-          "Ignoring setting quality, metal, clasp, and construction details.",
-          "Treating all certificates as identical or ignoring document scope.",
-          "Relying strictly on macro photography for scale.",
-          "Assuming laboratory growth automatically guarantees sustainability.",
-          "Forgetting to check production and shipping times for important dates."
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Example first-time decision path",
-    content: [
-      {
-        type: "paragraph",
-        text: "A buyer choosing a necklace selects: Wear (daily/versatile) -> Category (pendant necklace) -> Budget (all-in) -> Scale (millimetre dimensions from model reference) -> Diamond (light performance and eye-clean VS quality over D/FL rarity) -> Metal (color and allergy status) -> Fit (chain with extension link) -> Support (verifiable report and clear returns)."
-      }
-    ]
-  },
-  {
-    heading: "Aurelia Royale’s first-time buyer standard",
-    content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Aurelia Royale supports first-time buyers with progressive disclosure and simple filters. Buyers can explore " },
-          { text: "Aurelia Royale jewellery", href: "/shop/" },
-          { text: " or " },
-          { text: "contact Aurelia Royale", href: "/contact/" },
-          { text: " for product-specific guidance." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Final first-time buyer checklist",
-    content: [
-      {
-        type: "bullet-list",
-        items: [
-          "I know who will wear the jewellery and how often.",
-          "I have selected the category before chasing a carat target.",
-          "My budget includes the whole product and transaction.",
-          "Laboratory-grown origin is clear.",
-          "I understand shape, dimensions and real-life scale.",
-          "The 4Cs are balanced around visible priorities.",
-          "Metal, fineness, setting and fastening suit the wearer.",
-          "Size and fit have been measured.",
-          "The report and documentation scope are clear.",
-          "Images identify the variant shown.",
-          "Production and delivery times are separate.",
-          "Returns, warranty and aftercare are acceptable.",
-          "The final order confirmation preserves the specifications."
-        ]
-      }
-    ]
-  },
-  {
-    content: [
-      {
-        type: "callout",
-        title: "Final verdict",
-        theme: "gold-border",
-        parts: [
-          {
-            text: "A first-time buyer does not need the highest colour, clarity and carat combination. They need a clear sequence of decisions.\n\n"
-          },
-          {
-            text: "Choose for wear first, appearance second and paper grades in context. Evaluate the complete jewellery rather than the diamond alone. Then verify documentation, seller information and purchase conditions before paying."
-          }
-        ]
-      },
-      {
-        type: "faq",
-        items: [
-          {
-            question: "Are lab-grown diamonds suitable for a first jewellery purchase?",
-            answer: "Yes. They offer diamond's material and optical properties with laboratory-grown origin. Buyers should still compare quality, design, metal, documentation and seller service."
-          },
-          {
-            question: "Which of the 4Cs should a first-time buyer prioritise?",
-            answer: "Prioritise attractive visible performance and then balance colour, clarity and carat around the design, metal, budget and personal preferences."
-          },
-          {
-            question: "Is a higher clarity grade always worth paying for?",
-            answer: "No. Differences at very high clarity levels may not be visible without magnification. An eye-clean diamond with suitable inclusion placement may offer a better balance."
-          },
-          {
-            question: "Should I choose carat weight or millimetre size?",
-            answer: "Check both. Carat measures weight, while millimetres and product dimensions explain visible scale and setting compatibility."
-          },
-          {
-            question: "Does every lab-grown diamond jewellery piece need a certificate?",
-            answer: "No. Important centre diamonds may have individual reports, while small accent stones may be described through origin testing, total weight and quality ranges."
-          },
-          {
-            question: "Is IGI or GIA better for a first-time buyer?",
-            answer: "Both are established laboratories, but their current laboratory-grown report formats differ. Read the exact document and do not translate one laboratory's terminology into invented grades."
-          },
-          {
-            question: "What metal is best for lab-grown diamond jewellery?",
-            answer: "There is no universal best metal. Choose according to colour preference, durability, weight, maintenance, budget, sensitivity and the applicable hallmark information."
-          },
-          {
-            question: "How do I choose the correct bracelet or ring size?",
-            answer: "Use the retailer's measurement method, account for band or bracelet width and desired ease, and check resizing or exchange terms before ordering."
-          },
-          {
-            question: "Are online images enough to choose diamond jewellery?",
-            answer: "Images are useful but should be combined with millimetre dimensions, scale views, variant labels, specifications and actual-stone video where applicable."
-          },
-          {
-            question: "What should I check before buying jewellery as a gift?",
-            answer: "Confirm style, adjustable fit, delivery date, presentation, exchange terms and whether engraving or personalisation changes return eligibility."
-          },
-          {
-            question: "Should I buy lab-grown diamond jewellery for resale value?",
-            answer: "Buy primarily for design and wear. Laboratory-grown diamond prices and secondary markets can change, and a grading report does not guarantee resale value."
-          },
-          {
-            question: "What is the most important final check before payment?",
-            answer: "Make sure the exact selected variant, material, diamond weight, documentation, price, delivery estimate and return conditions appear in a record you can save."
-          }
-        ]
-      },
-      {
-        type: "cta-banner",
-        title: "Find Your Perfect First Piece",
-        subtitle: "Aurelia Royale guides you through every step with clear specifications, independent reporting, and premium craftsmanship. Discover our collection.",
-        shopHref: "/shop/",
-        contactHref: "/contact/"
-      }
-    ]
-  }
+  { content: [{ type: "paragraph", text: "Buying your first piece of diamond jewellery can become unnecessarily complicated. You begin looking for a necklace or pair of earrings and suddenly encounter carat weights, colour grades, clarity grades, CVD, HPHT, laboratory reports, total carat weight, diamond measurements, precious-metal fineness and dozens of competing ideas about what constitutes \"better\"." }, { type: "paragraph", text: "You do not need to master all of those subjects before choosing your first piece. A better process starts with the jewellery decision, then goes deeper only where a technical detail could materially change your choice. For a first purchase, work through five questions: What do I want the jewellery for? Which jewellery category fits that purpose? What am I comfortable spending? Which design will I actually wear? What size, fit and diamond characteristics matter for that design?" }] },
+  { heading: "Quick Answer: What Should a First-Time Lab-Grown Diamond Jewellery Buyer Decide First?", content: [{ type: "paragraph", text: "Start with the purpose of the piece rather than the diamond grade. If you want jewellery for frequent everyday wear, prioritise wearability and a design that fits naturally into your wardrobe. If it is a gift, recipient preference and sizing uncertainty become more important. If you want one visually dominant diamond, a solitaire-style piece may make more sense than jewellery distributing the same total carat weight across many stones. If you want continuous sparkle, a tennis-style or multi-stone design may be more relevant." }, { type: "paragraph", text: "Then set a spending boundary, choose the jewellery category and design, establish the dimensions or fit you need and only then compare the diamond specifications relevant to that piece. For most first-time buyers, that sequence is much more useful than simply trying to buy the highest colour, clarity and carat numbers available." }] },
+  { heading: "Step 1: Understand What a Lab-Grown Diamond Is", content: [{ type: "paragraph", text: "Before choosing the jewellery, make sure the gemstone category is clear. A laboratory-grown diamond is diamond material created through technological growth rather than through geological formation inside the Earth. It is not the same product as cubic zirconia or moissanite. GIA explains that laboratory-grown diamonds are essentially chemically and optically the same as natural diamonds, which is why advanced gemmological testing can be required to distinguish their origin reliably. The fundamental difference is origin. Laboratory-grown diamonds are principally produced using HPHT or CVD methods, while natural diamonds formed geologically." }, { type: "paragraph", text: "Your decision: Ask yourself: Am I comfortable choosing a laboratory-grown diamond rather than a natural diamond? If yes, move on. If origin itself is still your main uncertainty, read What Are Lab-Grown Diamonds? and Lab-Grown vs Natural Diamonds before comparing jewellery." }] },
+  { heading: "Step 2: Decide Why You Are Buying the Jewellery", content: [{ type: "paragraph", text: "Purpose helps eliminate unsuitable options quickly. Are you buying: an everyday piece; something for occasional dressing; your first significant diamond; a gift; a milestone piece; an engagement ring; or simply jewellery you love? Those objectives do not necessarily lead to the same design." }, { type: "paragraph", text: "Someone wanting jewellery for everyday use may value easy styling and comfortable proportions more than dramatic scale. Someone choosing an anniversary or milestone piece may deliberately want greater visual presence. Someone buying a surprise gift has to consider the recipient's preferences and size rather than only their own. Your decision: Complete this sentence: \"I want this piece mainly for __________.\" That answer should guide the rest of the purchase." }, { type: "paragraph", parts: [{ text: "For gifting specifically, continue with " }, { text: "What to Know Before Purchasing Fine Jewellery as a Gift", href: "/blog/buying-fine-jewellery-as-gift/" }] }] },
+  { heading: "Step 3: Choose Your First Jewellery Category", content: [{ type: "paragraph", text: "Do not begin by comparing every ring, necklace, bracelet and pair of earrings on the website simultaneously. Choose the category first." }, { type: "table", headers: ["Jewellery type", "Often suitable when you want", "Main first-time consideration"], rows: [["Earrings", "Easy everyday wear or a lower-sizing-risk gift", "Diameter, drop, fastening and pair total weight"], ["Pendant/necklace", "A visible but versatile piece", "Pendant scale and chain length"], ["Bracelet", "Continuous wrist presence", "Length, fit, clasp and stone distribution"], ["Ring", "A highly visible or symbolic piece", "Ring size, setting profile and finger fit"]] }, { type: "paragraph", text: "None is universally the best first diamond purchase. The right category is the one you are likely to wear." }] },
+  { heading: "Step 4: Earrings or Necklace? Start With Your Existing Habits", content: [{ type: "paragraph", text: "If you already wear earrings almost every day but rarely wear necklaces, that is useful evidence. Your first diamond purchase does not need to reinvent your style. Look at what is already in your jewellery box. The pieces you actually wear are more useful than the pieces you merely admire online. Your decision: Choose the category that requires the least behavioural change if everyday use is the objective. For a gift, choose according to the recipient's habits instead." }] },
+  { heading: "Step 5: Understand the Sizing Risk Before Choosing", content: [{ type: "paragraph", text: "Different jewellery categories require different levels of fit certainty. Earrings generally eliminate ring-sizing risk. Necklaces still require a suitable length. Bracelets need appropriate wrist fit. Rings require the correct finger and size. Do not choose a ring simply because it feels more significant if you cannot establish an appropriate size and do not understand whether that design can be resized. Your decision: Ask: \"Do I know the fit information required for this jewellery type?\" If not, either resolve it or choose a category with lower sizing uncertainty." }] },
+  { content: [{ type: "image", src: "/images/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/2.jpg", alt: "First time lab-grown diamond buyer budget design priority metal", title: "Steps 6–14: Budget, Design and Diamond Decisions", caption: "Set your budget before comparing specifications — your priority should guide the decision, not the grading scale.", priority: false }] },
+  { heading: "Step 6: Set a Budget Before You Start Maximising Specifications", content: [{ type: "paragraph", text: "The best time to establish your spending limit is before you fall in love with a particular carat size. Decide what total amount you are genuinely comfortable allocating to the purchase. Then treat that as a boundary rather than a target you must completely spend. A larger budget does not mean you should automatically choose: the highest colour; the highest clarity; the largest carat; and the most complex design. Those decisions can compete with each other. Your decision: Set your comfortable spend. Do not allow gradual specification upgrades to move the maximum number indefinitely." }] },
+  { heading: "Step 7: Decide What You Want the Budget to Achieve", content: [{ type: "paragraph", text: "\"Best value\" has no meaning until you define the desired outcome. A buyer may want: a larger visible centre diamond; higher paper grades; more total diamond coverage; a particular precious metal; or a specific jewellery design. For example, if visual centre-stone size is your priority, allocating a large amount of budget to extremely high microscopic clarity may not help that goal as much as choosing a different combination of specifications. Your decision: Choose your number-one budget priority. Only one. You can optimise the remaining specifications around it." }] },
+  { heading: "Step 8: Do Not Assume the Highest Grade Is Always the Best First Purchase", content: [{ type: "paragraph", text: "Diamond grades are useful. They are not a competition to reach the highest abbreviation. Suppose you are comparing VS and VVS clarity. VVS represents a higher clarity category, but that does not automatically mean the difference will be obvious during normal wear. The same principle applies to colour. The correct question is not: \"What is the highest grade?\" It is: \"At what point does increasing this grade stop materially improving what matters to me?\"" }, { type: "paragraph", parts: [{ text: "For technical detail, use " }, { text: "Lab-Grown Diamond Colour Grades Explained", href: "/blog/lab-grown-diamond-colour-grades-explained/" }, { text: " and " }, { text: "Lab-Grown Diamond Clarity Grades Explained", href: "/blog/lab-grown-diamond-clarity-grades-explained/" }] }] },
+  { heading: "Step 9: Decide Whether Visible Size Matters More Than Carat Alone", content: [{ type: "paragraph", text: "Carat is a weight measurement. It is not a direct measurement of how large a diamond appears from above. Two diamonds of the same carat weight can have different millimetre dimensions because their shape and proportions distribute the weight differently. Your decision: If visible presence matters strongly, do not choose using carat alone. Compare: carat + millimetre dimensions + shape + proportions." }, { type: "paragraph", parts: [{ text: "For the detailed relationship, read " }, { text: "Diamond Carat Weight vs Size", href: "/blog/carat-weight-vs-visible-diamond-size/" }] }] },
+  { heading: "Step 10: Choose Between One Dominant Diamond and More Total Diamond Coverage", content: [{ type: "paragraph", text: "Ring A: 1.00 ct centre diamond. Ring B: 1.00 ct total diamond weight distributed across several diamonds. Both can truthfully involve one carat. They do not look the same. A solitaire concentrates visual attention into one stone. A pavé, halo, tennis or multi-stone design distributes diamond weight differently. Your decision: Ask: Do I want one clearly dominant stone or more diamond coverage across the jewellery?" }, { type: "paragraph", parts: [{ text: "For combined diamond weight, read " }, { text: "Total Carat Weight Meaning in Diamond Jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" }] }] },
+  { heading: "Step 11: Choose the Design Before Chasing Technical Perfection", content: [{ type: "paragraph", text: "A beautifully specified diamond in a design you do not enjoy wearing is not a successful first purchase. Look at overall jewellery design first. Do you prefer: minimal; classic; geometric; delicate; bold; symmetrical; or more decorative jewellery? Your first piece should look like something you would choose even if you did not know the grading abbreviations. Your decision: Save the two or three designs you would actually wear. Only then compare their technical differences." }] },
+  { heading: "Step 12: Think About Everyday Wear", content: [{ type: "paragraph", text: "If your first piece is intended for frequent use, consider practical profile as well as appearance. A high ring setting behaves differently from a low one. Large drop earrings behave differently from studs. A delicate chain feels different from a substantial necklace. There is no universally superior construction. The design needs to fit the way you expect to wear it. Your decision: Ask: \"Would I comfortably wear this during the situations I am buying it for?\"" }] },
+  { heading: "Step 13: Choose Your Diamond Shape According to Appearance", content: [{ type: "paragraph", text: "Shape has an immediate visual effect. A round brilliant has a different outline and facet arrangement from an oval. Emerald cuts use broader step facets. Radiants combine angular outlines with brilliant-style faceting. Pear shapes introduce a tapered point. Your first purchase does not require choosing whichever shape is currently most popular. Choose the outline you actually prefer. Your decision: Pick the shape visually first. Then investigate that shape's technical considerations." }] },
+  { heading: "Step 14: Do Not Assume All Lab-Grown Diamonds Are Identical", content: [{ type: "paragraph", text: "Laboratory growth does not make every stone interchangeable. Individual diamonds can differ in: growth process; carat; dimensions; colour; clarity; cut; polish; symmetry; fluorescence; and visible characteristics. Current IGI reports demonstrate this directly by documenting stone-specific measurements and grading characteristics. Your decision: Once you have chosen a design and general specification range, evaluate the individual diamond where the piece contains a significant individually selected stone." }] },
+  { heading: "Step 15: Choose Metal According to Preference and Product Construction", content: [{ type: "paragraph", text: "The metal affects the appearance of the finished jewellery just as much as the diamond. Do not choose metal colour solely according to what makes a diamond look \"whiter\". Look at jewellery you already wear. Then check the actual metal specification rather than inferring composition from colour. Your decision: Choose your preferred metal colour, then verify the actual metal and fineness offered." }, { type: "paragraph", parts: [{ text: "For hallmarking, fineness and solid/hollow/plated distinctions, read " }, { text: "How to Check the Metal Used in Diamond Jewellery", href: "/blog/check-metal-used-diamond-jewellery/" }] }] },
+  { heading: "Step 16: Understand UK Hallmarking Without Confusing It With Diamond Certification", content: [{ type: "paragraph", text: "For qualifying precious-metal articles sold in the UK, hallmarking independently verifies precious-metal fineness. A hallmark answers a metal question. It does not grade: diamond colour; clarity; cut; carat; or laboratory-grown origin. Your decision: Treat metal verification and diamond verification as separate checks." }] },
+  { heading: "Step 17: Understand What \"Certified\" Means Before Using It as a Buying Filter", content: [{ type: "paragraph", text: "A laboratory report can provide valuable independent gemmological information. But it does not automatically certify: the retailer; the price; the complete workmanship; the returns policy; or future resale value. IGI currently provides detailed reports for laboratory-grown diamonds, including origin determination and relevant diamond characteristics. It also provides separate finished-jewellery reporting services. Your decision: If an independently reported diamond matters to you, determine which laboratory issued the report and what exactly was examined." }, { type: "paragraph", parts: [{ text: "For the complete explanation, read " }, { text: "What Does Certified Lab-Grown Diamond Jewellery Actually Mean?", href: "/blog/certified-lab-grown-diamond-jewellery-meaning/" }] }] },
+  { heading: "Step 18: Be Aware That IGI and Current GIA Lab-Grown Reporting Are Not Identical", content: [{ type: "paragraph", text: "IGI currently provides detailed laboratory-grown diamond reports documenting characteristics such as the 4Cs and other relevant information. GIA changed its applicable colourless-to-near-colourless laboratory-grown service in October 2025. Its current Laboratory-Grown Diamond Quality Assessment uses an overall Premium or Standard classification rather than simply mirroring the traditional natural-diamond reporting format; qualifying stones are also inscribed with \"Laboratory-Grown\" and the assessment number. Your decision: Do not reject or prefer a diamond merely because two laboratories display information differently. Understand the actual report system first." }] },
+  { heading: "Step 19: Do Not Learn the Entire 4Cs Before Making Any Decision", content: [{ type: "paragraph", text: "The 4Cs—cut, colour, clarity and carat—are useful because they describe important diamond characteristics. But a first-time buyer does not need a gemmology course before choosing a jewellery category. Use the 4Cs once you know what you want. Your decision: Use the 4Cs as filters, not as the starting purpose of the purchase." }, { type: "paragraph", parts: [{ text: "For the overview, read " }, { text: "What Are the 4Cs of Lab-Grown Diamonds?", href: "/blog/4cs-of-lab-grown-diamonds/" }] }] },
+  { content: [{ type: "image", src: "/images/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/3.jpg", alt: "First time diamond jewellery purchase steps cut fit dimensions seller", title: "Steps 20–28: Cut, Fit, Dimensions and Purchase Process", caption: "Prioritise cut when sparkle matters — then check physical dimensions before finalising diamond grades.", priority: false }] },
+  { heading: "Step 20: Prioritise Cut When Sparkle Matters", content: [{ type: "paragraph", text: "If brilliance and light performance are major priorities, do not focus exclusively on colour and clarity. Cutting and proportions strongly influence how a polished diamond handles light. Two stones with similar colour and clarity can still look different because their proportions and facet relationships differ. Your decision: If your goal is: \"I want a lively-looking diamond\" make cut and visual performance an explicit comparison criterion." }, { type: "paragraph", parts: [{ text: "For detail, use " }, { text: "Lab-Grown Diamond Cut Explained", href: "/blog/lab-grown-diamond-cut-explained/" }] }] },
+  { heading: "Step 21: Use Colour and Clarity as Deliberate Choices", content: [{ type: "paragraph", text: "First-time buyers often overspend on specifications because they are uncomfortable choosing anything below the highest grade they understand. Instead, learn enough to make an intentional trade-off. For colour, ask whether you want a very colourless appearance or whether a broader near-colourless range works with your preference. For clarity, understand that grading is performed under controlled magnification and that eye-clean is a visual description rather than an official grade. Your decision: Determine a comfortable range rather than automatically choosing the maximum grade. Then compare the individual stone." }] },
+  { heading: "Step 22: Check Physical Jewellery Dimensions", content: [{ type: "paragraph", text: "Online photographs are normally enlarged. A pendant filling your screen could be only a few millimetres across. Use real measurements. For earrings, look at diameter or drop. For pendants, check height and width. For necklaces and bracelets, check length. For rings, band width and setting height can matter. Your decision: Before proceeding, make sure you understand real-world scale." }, { type: "paragraph", parts: [{ text: "For the complete methodology, read " }, { text: "How to Check Jewellery Dimensions and Weight Online", href: "/blog/check-jewellery-product-dimensions-weight/" }] }] },
+  { heading: "Step 23: Check Fit According to Jewellery Type", content: [{ type: "paragraph", text: "A first jewellery purchase should not create an avoidable fit problem. For rings, know the intended finger and ring size. For bracelets, consider wrist fit and product length. For necklaces, check where the stated chain length is likely to sit. For earrings, check dimensions and fastening style. Do not assume adjustability or free resizing unless the exact product or retailer policy confirms it. Your decision: Identify the single measurement most likely to determine whether the piece fits properly. Verify that measurement before proceeding." }] },
+  { heading: "Step 24: If Buying Online, Separate Photos From Facts", content: [{ type: "paragraph", text: "Images answer visual questions. Specifications answer factual questions. A product image can help you decide: Do I like the design? It cannot reliably prove: exact carat; formal colour grade; formal clarity grade; precious-metal fineness; or exact dimensions. Your decision: Use every source only for what it can reasonably establish." }, { type: "paragraph", parts: [{ text: "For the full remote-inspection process, read " }, { text: "How to Choose Diamond Jewellery Without Seeing It in Person", href: "/blog/choose-diamond-jewellery-without-seeing-in-person/" }] }] },
+  { heading: "Step 25: Check the Product Information Before Ordering", content: [{ type: "paragraph", text: "By this stage, you should already know: why you want the piece; which category you prefer; your budget; your style; and your sizing requirements. Now perform the product-specification check. Confirm relevant details such as: diamond origin; individual versus total carat weight; physical dimensions; colour and clarity information; cut information where applicable; metal; report scope; and availability." }, { type: "paragraph", parts: [{ text: "Use " }, { text: "What to Check Before Buying Lab-Grown Diamond Jewellery", href: "/blog/what-to-check-before-buying-lab-grown-diamond-jewellery/" }, { text: " for that final technical check." }] }] },
+  { heading: "Step 26: Check the Seller Separately From the Product", content: [{ type: "paragraph", text: "A strong diamond does not prove that the retailer is trustworthy. Before committing, check the business identity, contact information, important commercial policies and whether material claims can be verified. Your decision: Ask two independent questions: \"Do I want this product?\" and: \"Am I comfortable dealing with this seller?\"" }, { type: "paragraph", parts: [{ text: "For retailer evaluation, use " }, { text: "How to Choose a Trustworthy Online Diamond Jeweller", href: "/blog/choose-trustworthy-online-diamond-jeweller/" }] }] },
+  { heading: "Step 27: Understand the Transaction Before You Commit", content: [{ type: "paragraph", text: "Once you have chosen the piece, move from product selection into transaction review. Check: price or quotation; availability; whether the piece is ready-made or made to order; relevant cancellation or return terms; and delivery arrangements." }, { type: "paragraph", parts: [{ text: "For the complete process, continue with " }, { text: "How to Buy Certified Lab-Grown Diamond Jewellery Online", href: "/blog/buy-certified-lab-grown-diamond-jewellery-online/" }] }] },
+  { heading: "Step 28: If the Product Has No Published Price, Do Not Treat the Waitlist as a Purchase", content: [{ type: "paragraph", text: "For Aurelia products where the client has not supplied an approved direct-purchase price, the correct action should be: Join Waitlist or: Enquire About This Piece. Submitting your contact details should register interest so Aurelia can follow up. It should not be represented as: a completed order; confirmed reservation; or confirmed preorder unless Aurelia establishes a separate process that actually creates one. Your decision: If the product uses the enquiry/waitlist model, treat your submission as the start of the conversation, not the completion of the purchase." }] },
+  { heading: "A Simple First-Purchase Decision Path", content: [{ type: "table", headers: ["Decision", "Question"], rows: [["1. Purpose", "Why do I want this jewellery?"], ["2. Category", "Ring, earrings, necklace or bracelet?"], ["3. Budget", "What am I genuinely comfortable spending?"], ["4. Priority", "Size, design, grades, metal or diamond coverage?"], ["5. Style", "What would I actually wear?"], ["6. Diamond", "Which shape and approximate specification range suit me?"], ["7. Metal", "Which metal/colour works with my style?"], ["8. Fit", "What measurement must be correct?"], ["9. Product check", "Do the specifications support what is being advertised?"], ["10. Transaction", "Am I comfortable with seller, terms and availability?"]] }, { type: "paragraph", text: "If you cannot answer one row, that is where you need more research. Do not restart the entire buying process." }] },
+  { heading: "First-Purchase Examples", content: [{ type: "paragraph", text: "Example 1 — Everyday Earrings: Purpose: everyday wear. Category: earrings. Priority: versatile size and appearance. Design: studs or small hoops. Fit check: earring diameter and fastening. Diamond check: understand whether carat weight is per pair or per stone. You do not need to study ring setting heights or necklace lengths." }, { type: "paragraph", text: "Example 2 — A Pendant: Priority: centre-stone appearance; pendant scale; metal colour; and chain length. Useful checks: diamond carat and dimensions; pendant dimensions; chain length; metal; and applicable diamond documentation." }, { type: "paragraph", text: "Example 3 — A Ring: Purpose: \"I want a statement piece that I will notice every day.\" Now fit becomes much more important. Decision may involve: ring size; band width; setting height; centre-stone dimensions; shape; and design profile." }, { type: "paragraph", text: "Example 4 — A Gift: Consider: recipient's existing jewellery; metal preference; usual jewellery category; size information; and how much uncertainty the surprise creates. A necklace or earrings may remove ring-size uncertainty, but only if those categories actually suit the recipient." }] },
+  { heading: "Common First-Time Buyer Mistakes", content: [{ type: "paragraph", text: "Starting With Carat: Carat does not tell you which jewellery type you want, whether the design suits you or how large the finished piece appears. Start with the piece. Then choose the diamond." }, { type: "paragraph", text: "Buying the Highest Clarity Automatically: A higher clarity grade is a technical improvement. It does not automatically create a proportional visible improvement for every buyer. Understand what matters to you before paying for microscopic differences." }, { type: "paragraph", text: "Ignoring Millimetre Dimensions: A carat number without physical measurements can create unrealistic expectations of visible size. Use both. Confusing Centre Carat With Total Carat Weight: Always determine whether the stated weight belongs to one diamond or the whole jewellery piece." }, { type: "paragraph", text: "Choosing Metal Only by Colour in a Photograph: Similar-looking jewellery can use very different underlying materials and constructions. Check the actual metal specification. Assuming \"Certified\" Means Everything Is Verified: A grading report has a defined scope. It does not certify the entire transaction." }, { type: "paragraph", text: "Choosing for Resale Instead of Wear: If your main objective is jewellery to enjoy, do not let uncertain future resale predictions dominate every decision. Buying a Style You Rarely Wear: A spectacular necklace that stays in a box may offer less practical value to you than simpler earrings worn several times each week." },
+    { type: "faq", title: "Frequently Asked Questions", items: [
+      { question: "Are lab-grown diamonds real diamonds?", answer: "Lab-grown diamonds have essentially the same optical, physical and chemical properties associated with diamond, but their origin is technological rather than geological." },
+      { question: "Are lab-grown diamonds the same as cubic zirconia?", answer: "No. Cubic zirconia is a diamond simulant, not laboratory-grown diamond." },
+      { question: "Are all lab-grown diamonds the same?", answer: "No. Individual stones can differ in colour, clarity, carat, cut, dimensions, growth method and other characteristics." },
+      { question: "Should a first-time buyer choose CVD or HPHT?", answer: "Do not assume one growth method is automatically better. Evaluate the finished individual diamond and its relevant characteristics." },
+      { question: "What is the best first piece of diamond jewellery?", answer: "There is no universal best category. Choose according to what you are most likely to wear and the level of sizing certainty available." },
+      { question: "Are earrings a good first diamond purchase?", answer: "They can be, especially for someone who already wears earrings regularly and wants lower sizing complexity than a ring." },
+      { question: "How much should I spend on my first diamond jewellery?", answer: "There is no universal amount. Set a comfortable total spending boundary before comparing specifications." },
+      { question: "Should I spend my whole budget?", answer: "No. Your spending limit is a maximum, not a target." },
+      { question: "Should I buy the biggest diamond I can afford?", answer: "Not automatically. Design, proportions, cut, metal and wearability also matter." },
+      { question: "Is carat the same as diamond size?", answer: "No. Carat measures weight; physical size is better understood using millimetre dimensions as well." },
+      { question: "Is higher clarity always better?", answer: "It is a higher laboratory clarity result, but that does not automatically make it the best value for every wearer." },
+      { question: "Should I always choose D colour?", answer: "No. Choose a colour range that suits your preferences and budget rather than automatically maximising the grade." },
+      { question: "Is cut important?", answer: "Yes. Cut and proportions can strongly affect a polished diamond's visual performance." },
+      { question: "What does total carat weight mean?", answer: "It refers to the combined weight of the diamonds included in the stated total rather than necessarily one centre stone." },
+      { question: "Do I need an IGI report?", answer: "For a significant individually reported diamond, independent documentation can be useful. Whether every small accent diamond needs its own report is a different question." },
+      { question: "Can IGI identify lab-grown diamonds?", answer: "Yes. IGI states that it screens diamonds to determine natural, laboratory-grown or simulant origin and reports relevant gemmological characteristics." },
+      { question: "Does GIA still grade lab-grown diamonds using normal D–Z and clarity grades?", answer: "Its current applicable colourless-to-near-colourless laboratory-grown service changed in October 2025 to an overall Premium/Standard assessment structure." },
+      { question: "Does a UK hallmark grade my diamond?", answer: "No. Hallmarking verifies qualifying precious-metal fineness, not diamond quality or origin." },
+      { question: "Should I check jewellery measurements?", answer: "Yes. They help translate enlarged online imagery into real-world scale." },
+      { question: "What matters most for a first ring?", answer: "Design, ring size, centre-stone appearance, band dimensions and setting profile are common considerations." },
+      { question: "What matters most for first earrings?", answer: "Style, dimensions, fastening and whether diamond weight is per stone, per earring or per pair." },
+      { question: "What matters most for a first necklace?", answer: "Pendant scale, diamond configuration, chain length, metal and how the design fits your existing style." },
+      { question: "What if I cannot decide between two products?", answer: "Once you have narrowed the category and purpose, use How to Compare Lab-Grown Diamond Jewellery Online for a structured finished-product comparison." },
+      { question: "Can I buy lab-grown diamond jewellery online?", answer: "Yes, but evaluate the product information and transaction separately. Use How to Buy Certified Lab-Grown Diamond Jewellery Online for the full process." },
+      { question: "What is the most important first-time buying rule?", answer: "Decide what you want the jewellery to do for you before deciding how high its specifications should be." }
+    ]}
+  ] },
+  { heading: "Final Answer: How Should You Choose Your First Lab-Grown Diamond Jewellery Piece?", content: [
+    { type: "paragraph", text: "Keep the process simple. First, decide why you want the jewellery. Then choose the category most likely to suit that purpose: earrings, necklace, bracelet or ring. Set a comfortable spending boundary before you start upgrading carat, colour and clarity. Choose your main priority—whether that is design, visible diamond size, diamond coverage, metal or technical grades. Then select a design you would genuinely wear." },
+    { type: "paragraph", text: "After that, look at the diamond. Understand carat, dimensions, colour, clarity and cut only as deeply as necessary to make the specific decision in front of you. Check the metal separately. Check physical jewellery dimensions and fit. Where an independent laboratory report applies, understand what the report actually covers. Finally, verify the product specifications, retailer and transaction before committing." },
+    { type: "paragraph", text: "The most useful first-time sequence is: purpose → category → budget → priority → design → diamond → metal → fit → verification → purchase process. You do not need to become a gemmologist before buying your first piece. You need to make each decision in the right order." },
+    { type: "paragraph", parts: [{ text: "For the basic diamond category, start with " }, { text: "What Are Lab-Grown Diamonds?", href: "/blog/what-are-lab-grown-diamonds/" }] },
+    { type: "paragraph", parts: [{ text: "For the 4Cs, continue with " }, { text: "What Are the 4Cs of Lab-Grown Diamonds?", href: "/blog/4cs-of-lab-grown-diamonds/" }] },
+    { type: "paragraph", parts: [{ text: "For carat and visible size, read " }, { text: "Diamond Carat Weight vs Size", href: "/blog/carat-weight-vs-visible-diamond-size/" }] },
+    { type: "paragraph", parts: [{ text: "For product specifications, use " }, { text: "What to Check Before Buying Lab-Grown Diamond Jewellery", href: "/blog/what-to-check-before-buying-lab-grown-diamond-jewellery/" }] },
+    { type: "paragraph", parts: [{ text: "For comparing two finished pieces, read " }, { text: "How to Compare Lab-Grown Diamond Jewellery Online", href: "/blog/compare-lab-grown-diamond-jewellery-online/" }] },
+    { type: "paragraph", parts: [{ text: "Where an Aurelia Royale design is not currently available through an approved direct-purchase flow, " }, { text: "Join the Waitlist", href: "/contact/" }, { text: " or submit an enquiry to register your interest." }] },
+    { type: "cta-banner", title: "Explore Aurelia Royale Lab-Grown Diamond Jewellery", subtitle: "Start with purpose — then choose the category, design and specifications in the right order.", shopHref: "/shop/", contactHref: "/contact/" }
+  ] }
 ];
-
-export default function Page() {
+export default function BlogFirstTimeBuyersPage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
-      {/* Script injection for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Buying Lab-Grown Diamond Jewellery
-          </span>
-          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            A First-Time Buyer’s Guide to Lab-Grown Diamond Jewellery
-          </h1>
-          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
-          </p>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">Lab-Grown Diamond Education</span>
+          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">A First-Time Buyer's Guide to Lab-Grown Diamond Jewellery</h1>
+          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">28 Steps From Purpose to Purchase • Published September 10, 2026</p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
+      <RelatedArticles currentSlug="first-time-buyers-guide-lab-grown-diamond-jewellery" />
       <NewsletterSection />
     </main>
   );
 }
+

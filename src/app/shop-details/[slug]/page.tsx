@@ -139,8 +139,12 @@ export default async function ShopDetailsBySlugPage({
         },
         {
             label: "Certificate",
-            // value: product.certificate ?? "",
-            value: "IGI Certified",
+            // Use product.certificate when the backend populates this field.
+            // Hardcoded fallback removed — certification must come from the
+            // product record so it is accurate per item (e.g. watches are not
+            // IGI certified). TODO (business owner): ensure every product has
+            // the correct certificate value set in the backend.
+            value: product.certificate ?? "",
             icon: "/icons/cert-icon.svg",
         },
         // {
@@ -184,8 +188,8 @@ export default async function ShopDetailsBySlugPage({
             />
             <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#EDE8DF]">
                 <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-3 px-6 py-20 sm:py-24 md:py-28">
-                    <h1 className="font-cormorant text-5xl font-medium text-deep sm:text-6xl md:text-7xl">
-                        Product Details
+                    <h1 className="font-cormorant text-5xl font-medium text-deep sm:text-6xl md:text-7xl text-center">
+                        {product.title}
                     </h1>
                     <p className="font-jost text-xs font-semibold uppercase tracking-[0.28em] text-deep/55">
                         <Link href="/" className="transition hover:text-gold">
@@ -255,7 +259,7 @@ export default async function ShopDetailsBySlugPage({
                         {getProductCategory(product)}
                     </p>
 
-                    <h2 className="font-cormorant mt-3 text-4xl font-medium uppercase tracking-[0.02em] text-deep sm:text-5xl">
+                    <h2 className="font-cormorant mt-3 text-4xl font-medium uppercase tracking-[0.02em] text-deep sm:text-5xl sr-only">
                         {product.title}
                     </h2>
 

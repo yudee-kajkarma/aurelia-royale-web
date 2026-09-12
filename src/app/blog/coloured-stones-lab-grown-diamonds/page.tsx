@@ -1,7 +1,9 @@
-import React from "react";
+﻿import React from "react";
 import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
 // 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
@@ -317,7 +319,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Gold alloy color frames influence how both diamonds and gemstones sit. For metal checklists, see " },
-          { text: "how to check the metal used in diamond jewellery", href: "/blog/how-to-check-metal-used-diamond-jewellery/" },
+          { text: "how to check the metal used in diamond jewellery", href: "/blog/check-metal-used-diamond-jewellery/" },
           { text: "." }
         ]
       }
@@ -339,7 +341,7 @@ const articleSections: ArticleSection[] = [
         type: "paragraph",
         parts: [
           { text: "Keep lab-grown diamond designations distinct from coloured stone origin types. Terminology guidelines are detailed at " },
-          { text: "lab-grown diamond description and disclosure", href: "/blog/lab-grown-diamond-description-disclosure/" },
+          { text: "lab-grown diamond description and disclosure", href: "/blog/how-lab-grown-diamonds-should-be-disclosed/" },
           { text: "." }
         ]
       }
@@ -592,12 +594,10 @@ export default function Page() {
           </p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
+      <RelatedArticles currentSlug="coloured-stones-lab-grown-diamonds" />
       <NewsletterSection />
     </main>
   );
 }
+

@@ -1,618 +1,228 @@
-import React from "react";
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
-// 1. SEO Metadata
 export const metadata: Metadata = {
-  title: "How to Measure Your Ring Size at Home",
-  description: "Learn how to measure your ring size using an existing ring or finger measurement, avoid common errors and compare UK and European sizing safely.",
-  alternates: {
-    canonical: "https://www.aureliaroyale.com/blog/how-to-measure-ring-size/",
-  },
+  title: "How to Measure Ring Size: UK, EU & US Chart",
+  description: "Measure your ring size accurately using an existing ring or your finger, then convert UK, EU and US sizes with diameter and circumference measurements.",
+  alternates: { canonical: "https://www.aureliaroyale.com/blog/how-to-measure-ring-size/" },
 };
 
-// 2. JSON-LD Schema
-const schemaMarkup = {
-  "@context":"https://schema.org",
-  "@graph":[
-    {
-      "@type":"BlogPosting",
-      "@id":"https://www.aureliaroyale.com/blog/how-to-measure-ring-size/#article",
-      "mainEntityOfPage":{"@type":"WebPage","@id":"https://www.aureliaroyale.com/blog/how-to-measure-ring-size/"},
-      "headline":"How to Measure Your Ring Size Accurately",
-      "description":"Learn how to measure your ring size using an existing ring or finger measurement, avoid common errors and compare UK and European sizing safely.",
-      "image":"https://www.aureliaroyale.com/images/blog/how-to-measure-ring-size.webp",
-      "datePublished":"2026-07-16",
-      "dateModified":"2026-07-16",
-      "author":{"@type":"Organization","name":"Aurelia Royale","url":"https://www.aureliaroyale.com/"},
-      "publisher":{"@type":"Organization","name":"Aurelia Royale","url":"https://www.aureliaroyale.com/"},
-      "inLanguage":"en-GB",
-      "articleSection":"Product-Category Guides",
-      "keywords":["how to measure ring size","measure ring size at home","ring size guide UK","European ring size guide"]
-    },
-    {
-      "@type":"BreadcrumbList",
-      "@id":"https://www.aureliaroyale.com/blog/how-to-measure-ring-size/#breadcrumb",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Home","item":"https://www.aureliaroyale.com/"},
-        {"@type":"ListItem","position":2,"name":"Journal","item":"https://www.aureliaroyale.com/blog/"},
-        {"@type":"ListItem","position":3,"name":"How to Measure Your Ring Size","item":"https://www.aureliaroyale.com/blog/how-to-measure-ring-size/"}
-      ]
-    },
-    {
-      "@type":"FAQPage",
-      "@id":"https://www.aureliaroyale.com/blog/how-to-measure-ring-size/#faq",
-      "mainEntity":[
-        {"@type":"Question","name":"What is the most accurate way to measure ring size?","acceptedAnswer":{"@type":"Answer","text":"A professional fitting with ring sizers on the intended finger is the most reliable method."}},
-        {"@type":"Question","name":"Can I measure ring size with an existing ring?","acceptedAnswer":{"@type":"Answer","text":"Yes, if it fits the same finger and hand. Measure its inner diameter through the centre and compare with the seller chart."}},
-        {"@type":"Question","name":"Can I use string to measure my finger?","acceptedAnswer":{"@type":"Answer","text":"String is only a rough estimate because it can stretch, twist and compress the skin. A ring sizer is better."}},
-        {"@type":"Question","name":"Should a ring sizer feel tight?","acceptedAnswer":{"@type":"Answer","text":"It should feel secure at the finger base and pass over the knuckle with gentle resistance, without pain or force."}},
-        {"@type":"Question","name":"When is the best time to measure ring size?","acceptedAnswer":{"@type":"Answer","text":"Measure when hands are at a normal, comfortable temperature and repeat at different times and on another day."}},
-        {"@type":"Question","name":"Are ring sizes the same on both hands?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. Measure the exact finger on the hand where the ring will be worn."}},
-        {"@type":"Question","name":"Does band width affect ring size?","acceptedAnswer":{"@type":"Answer","text":"Yes. Wider bands and stacks often feel tighter, so use guidance specific to the design."}},
-        {"@type":"Question","name":"What is the difference between ring diameter and circumference?","acceptedAnswer":{"@type":"Answer","text":"Diameter is the distance across the ring inner opening; circumference is the distance around that opening."}},
-        {"@type":"Question","name":"Are UK and European ring sizes the same?","acceptedAnswer":{"@type":"Answer","text":"No. UK sizes commonly use letters, while many European systems use numbers related to circumference in millimetres."}},
-        {"@type":"Question","name":"Can I trust an online ring-size conversion chart?","acceptedAnswer":{"@type":"Answer","text":"Use the chart from the exact seller and verify its millimetre measurements because conversions can vary through rounding and tolerances."}},
-        {"@type":"Question","name":"Can every ring be resized?","acceptedAnswer":{"@type":"Answer","text":"No. Eternity settings, continuous pave, engraving and complex construction may restrict resizing."}},
-        {"@type":"Question","name":"What should I do if I am between two sizes?","acceptedAnswer":{"@type":"Answer","text":"Recheck the measurement and ask the jeweller to consider your knuckle, band width, inner profile and resizing options."}}
-      ]
-    }
-  ]
-};
-
-// 3. Article content sections
 const articleSections: ArticleSection[] = [
   {
     content: [
-      {
-        type: "image",
-        src: "/images/blog/how-to-measure-ring-size/73 (1).jpg",
-        alt: "How to measure your ring size accurately - complete guide",
-        title: "How to Measure Your Ring Size Accurately",
-        caption: "Measure ring size with an existing well-fitting ring or a correctly fitted finger sizer.",
-        priority: true
-      },
-      {
-        type: "paragraph",
-        text: "The most reliable way to find your ring size is to have the intended finger measured by a jeweller using professional ring sizers. If that is not possible, measure either the inner diameter of a well-fitting ring or the circumference of the intended finger—and repeat the result before ordering."
-      },
-      {
-        type: "paragraph",
-        text: "Ring size is not just a number or letter. The finger, knuckle, band width, measuring method and sizing system must all match the ring you plan to buy."
-      }
-    ]
+      { type: "image", src: "/images/blog/how-to-measure-ring-size/73 (1).jpg", alt: "How to measure ring size UK EU US conversion chart diameter circumference", title: "How to Measure Your Ring Size Accurately", caption: "The most useful process: measure → verify → account for ring width → convert → then assess real-world fit.", priority: true },
+      { type: "paragraph", text: "The most reliable way to choose a ring size is to measure the exact finger on which the ring will be worn and then interpret that measurement in the sizing system used by the retailer. Ring sizing becomes confusing because different markets describe essentially the same physical ring using different labels. The UK commonly uses letters, the US uses numbers and half or quarter sizes, while European sizing commonly follows the ring's internal circumference in millimetres." },
+      { type: "paragraph", text: "The underlying physical measurements are therefore more useful than the label alone. A ring has an inside diameter and an inside circumference. Those physical measurements can then be translated into UK, EU or US sizing. For the most accurate result, professional finger-sizing gauges remain preferable. If you are measuring at home, an existing ring that already fits the intended finger well is usually a stronger reference than loosely wrapping string around the finger. The most useful process is: measure → verify → account for ring width → convert → then assess real-world fit." },
+    ],
   },
   {
-    heading: "Quick answer",
+    heading: "Quick Answer: How Do You Measure Ring Size?",
     content: [
-      {
-        type: "paragraph",
-        text: "If you already own a ring that fits:"
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Choose a circular ring worn comfortably on the same finger and hand.",
-          "Measure its inside diameter across the centre in millimetres.",
-          "Do not include the metal edges.",
-          "Repeat in several directions and compare with the seller's exact chart."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "If you do not own a suitable ring:"
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Use a proper reusable ring sizer where possible.",
-          "Fit it over the widest part of the finger or knuckle.",
-          "It should feel secure but pass over the knuckle without force.",
-          "Repeat at different times on more than one day.",
-          "Record the result in millimetres and the stated sizing system."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "For an expensive, wide, eternity-style or difficult-to-resize ring, confirm the result professionally."
-      }
-    ]
+      { type: "paragraph", text: "If you already own a ring that fits the correct finger, measure its inside diameter in millimetres, from one inner edge directly across to the opposite inner edge. Do not include the metal itself. Then compare the measurement with the conversion table in this guide." },
+      { type: "paragraph", text: "If you do not have an existing ring, use a proper ring-sizing gauge or flexible measuring tool to estimate the circumference of the finger where the ring will sit. Measure more than once and under normal conditions. Do not choose the final size while your hands are unusually cold, very warm or temporarily swollen. Also consider band width. A broad ring can feel tighter than a narrow ring with the same nominal size, so the final size should reflect the construction of the actual ring being purchased." },
+    ],
   },
   {
-    heading: "Why ring-size measurements go wrong",
+    heading: "The Most Accurate Ways to Measure Ring Size",
     content: [
-      {
-        type: "paragraph",
-        text: "Common errors include:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "measuring the wrong finger or opposite hand;",
-          "measuring only once;",
-          "pulling paper or string too tightly;",
-          "including the ring's outer edges in a diameter reading;",
-          "printing a guide at \"fit to page\" rather than 100% scale;",
-          "ignoring a larger knuckle;",
-          "using a narrow sizer for a wide band;",
-          "converting through several charts; and",
-          "assuming every brand manufactures to identical tolerances."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "The aim is not to produce a perfect abstract measurement. It is to select the best size for one specific ring on one specific finger."
-      }
-    ]
+      { type: "table", headers: ["Method", "Reliability", "Best Used When", "Main Limitation"], rows: [["Professional metal ring sizer", "Highest", "Buying an important ring", "Requires access to a jeweller"], ["Existing well-fitting ring", "High", "You already own a correct-fit ring", "Must fit same finger properly"], ["Plastic ring sizer", "Good", "Measuring at home", "Tool quality and technique vary"], ["Flexible measuring tape", "Moderate", "No ring or sizer available", "Can be pulled too tightly"], ["Paper/string method", "Lower", "Rough estimate only", "Can stretch, bend or compress"]] },
+      { type: "paragraph", text: "If you are ordering a ring that may be difficult to resize, professional measurement is worth prioritising." },
+    ],
   },
   {
-    heading: "Understand diameter and circumference",
+    heading: "Method 1: Measure an Existing Ring",
     content: [
-      {
-        type: "paragraph",
-        text: "Two measurements appear frequently in ring-size charts:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Inner diameter: the straight distance across the inside of a circular ring through its centre.",
-          "Inner circumference: the distance around the inside of the ring, corresponding approximately to the finger circumference the ring must enclose."
-        ]
-      },
-      {
-        type: "image",
-        src: "/images/blog/how-to-measure-ring-size/73 (2).jpg",
-        alt: "Ring size measurement - inner diameter and inner circumference explained",
-        title: "Ring Diameter vs Circumference",
-        caption: "Understanding the difference between inner diameter and inner circumference is essential for accurate ring sizing.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "For a perfect circle, circumference is diameter multiplied by π. In practice, do not calculate and round repeatedly when a seller provides a chart. Measure directly, retain decimals and compare with the chart for that product."
-      },
-      {
-        type: "paragraph",
-        text: "Never use outer diameter. Ring thickness makes it larger than the opening that determines fit."
-      }
-    ]
+      { type: "paragraph", text: "This is one of the easiest home methods when you already own a ring that fits well. Choose a ring that is worn comfortably on the same finger for which the new ring is intended. Place it on a flat surface. Measure the inside diameter across the centre of the ring from one inside edge to the other. Do not measure the outside diameter. Do not include the thickness of the metal." },
+      { type: "paragraph", text: "For example, if the internal diameter measures approximately 17.3 mm, the ring sits around the region of a US size 7 in commonly used conversion charts. The UK and EU equivalents then depend on the conversion system being used." },
+    ],
   },
   {
-    heading: "Method 1: measure an existing ring",
+    heading: "How to Measure the Inside Diameter Correctly",
     content: [
-      {
-        type: "paragraph",
-        text: "This is useful when the existing ring:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "fits the intended finger comfortably;",
-          "has a similar band width;",
-          "is circular rather than visibly distorted; and",
-          "has not been sized with an unusual internal insert."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Step-by-step method:"
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Place the ring flat on a ruler marked in millimetres or use a calliper carefully.",
-          "Align the zero point with the inner edge—not the outside of the metal.",
-          "Measure straight across the exact centre to the opposite inner edge.",
-          "Record the diameter to at least one decimal place if the tool permits.",
-          "Rotate the ring and repeat. Different readings may indicate distortion or an off-centre measurement.",
-          "Compare the consistent result with the product's own size guide."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Printable ring-chart method:"
-      },
-      {
-        type: "paragraph",
-        text: "A correctly scaled chart lets you place an existing ring over printed circles. The printed line should sit immediately inside the ring, without visible space or being hidden by the band."
-      },
-      {
-        type: "paragraph",
-        text: "Before using it:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "print at 100% or \"actual size\";",
-          "disable page scaling;",
-          "verify the guide's calibration line with a physical ruler; and",
-          "do not measure from a phone or monitor, where display scaling varies."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "The measurement needs to pass directly through the centre of the ring. If you measure slightly above or below the centre, the result can be smaller than the true diameter. Also check that the ring is reasonably round. If the shank has become oval, distorted or intentionally non-circular, one horizontal measurement may not represent its effective size accurately. In that case, professional measurement using a ring mandrel is much safer." },
+      { type: "paragraph", text: "Do Not Measure the Outside Diameter. The ring-size chart refers to the space available for the finger, not the total width of the metal ring. Using the outside measurement would lead to a substantially incorrect ring size. Always measure: inside edge → inside edge. The Existing Ring Must Fit the Correct Finger. A ring that fits your index finger cannot automatically be used to determine the correct size for your ring finger. Measure for the actual finger on which the new ring will be worn." },
+    ],
   },
   {
-    heading: "Method 2: measure the finger",
+    heading: "Method 2: Measure the Finger Directly",
     content: [
-      {
-        type: "paragraph",
-        text: "A reusable plastic or metal ring sizer is generally more consistent than string. Select the intended finger on the correct hand."
-      },
-      {
-        type: "paragraph",
-        text: "Slide the sizer on and off several times. It should sit securely at the base without pinching, yet move over the knuckle with gentle resistance. If the knuckle is much wider than the finger base, choose a balance that can pass the knuckle without spinning excessively once seated."
-      },
-      {
-        type: "paragraph",
-        text: "Using a printable finger sizer:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Verify print scale with the calibration mark.",
-          "Cut only where instructed.",
-          "Keep the strip flat and untwisted.",
-          "Fit it as the real ring would pass over the knuckle.",
-          "Read the mark at the overlap without pulling it into the skin.",
-          "Repeat the test."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Using paper as a rough check:"
-      },
-      {
-        type: "paragraph",
-        text: "A non-stretch paper strip can provide an estimate. Mark the overlap, lay the strip flat and measure its length in millimetres. It should not compress the skin or hang loosely."
-      },
-      {
-        type: "paragraph",
-        text: "String, thread and elastic are poor primary tools because they stretch, twist and sink into the finger. Use them only as a preliminary estimate, never the sole basis for a high-value made-to-order ring."
-      }
-    ]
+      { type: "paragraph", text: "If you do not own a suitable ring, measure the finger itself. A proper finger-sizing gauge is preferable. If one is unavailable, a flexible measuring tape can provide an estimate of finger circumference. Wrap it around the part of the finger where the ring will normally sit. It should be comfortably snug rather than pulled tightly into the skin. Record the circumference in millimetres. Then compare that measurement with the chart." },
+      { type: "paragraph", text: "Ring-size differences are small. Using millimetres avoids unnecessary conversion and gives a more useful level of precision. A difference of only a fraction of a millimetre in internal diameter can correspond to a meaningful change in ring fit. If your measurement is in centimetres, convert it to millimetres before comparing it with the chart." },
+    ],
   },
   {
-    heading: "Measure at the right time",
+    heading: "Why String and Paper Can Be Inaccurate",
     content: [
-      {
-        type: "paragraph",
-        text: "Finger size can vary with temperature, exercise, fluid retention and time of day. Avoid measuring immediately after intense activity, in unusually hot or cold conditions, or when your hands are visibly swollen."
-      },
-      {
-        type: "paragraph",
-        text: "For a representative result:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "measure when hands feel normal and comfortably warm;",
-          "take readings at two or three different times;",
-          "repeat on another day; and",
-          "investigate any inconsistent result rather than averaging blindly."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "If your finger size fluctuates significantly for health-related reasons, seek personal advice from a jeweller and, where appropriate, a healthcare professional."
-      }
-    ]
+      { type: "paragraph", text: "String can stretch. Paper can crease. Both can be pulled more tightly around the finger than a metal ring would naturally fit. Even a difference of a millimetre in the measured circumference can affect the resulting size recommendation. If you use string or paper because no better method is available, repeat the measurement several times and treat the result as an estimate rather than an exact size. For an important ring, verify the result using a ring sizer before committing to the final size." },
+    ],
   },
   {
-    heading: "Measure the correct hand and finger",
+    heading: "Measure the Knuckle as Well",
     content: [
-      {
-        type: "paragraph",
-        text: "Corresponding fingers on the left and right hand can differ. Never transfer the size of one ring finger to the other without measuring."
-      },
-      {
-        type: "paragraph",
-        text: "Likewise, a middle-finger ring is not a dependable guide to the ring finger. Record the result with a precise label such as \"right-hand ring finger,\" not simply \"my ring size.\""
-      },
-      {
-        type: "paragraph",
-        text: "For a surprise gift, an existing ring works only if you know which finger and hand it fits. Asking a jeweller to measure that ring is safer than tracing it approximately."
-      }
-    ]
+      { type: "paragraph", text: "Some people have knuckles that are noticeably wider than the part of the finger where the ring rests. That creates a sizing compromise. The ring must be large enough to pass over the knuckle while still being secure once it reaches the base of the finger. If the difference is substantial, measuring only the finger base can produce a ring that technically matches the circumference but cannot comfortably pass the joint. Measure both areas. The final size needs to work with both." },
+      { type: "paragraph", text: "This is one of the situations where a numerical chart cannot solve the entire problem. Professional fitting is especially useful in this situation. After choosing the numerical size, use How Should a Diamond Ring Fit? to understand whether the finished ring is behaving correctly." },
+    ],
   },
   {
-    heading: "Account for band width",
+    heading: "Finger Size Changes During the Day",
     content: [
-      {
-        type: "paragraph",
-        text: "Wider bands contact more of the finger and can feel tighter than narrow bands in the same nominal size. Stacks of several rings can behave like one wide band."
-      },
-      {
-        type: "image",
-        src: "/images/blog/how-to-measure-ring-size/73 (3).jpg",
-        alt: "How band width affects ring size - wide vs narrow bands",
-        title: "Band Width and Ring Size",
-        caption: "Wider bands feel tighter than narrow bands of the same nominal size.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "Compare the width of the measuring ring or sizer with the ring being ordered. If the design is wide, ask the seller whether its stated sizing already accounts for width and whether a wide-band sizing set is available."
-      },
-      {
-        type: "paragraph",
-        text: "Do not automatically order a larger size based on a generic rule. Interior profile, thickness, manufacturing tolerance and the wearer's finger shape all matter."
-      }
-    ]
+      { type: "paragraph", text: "Your finger is not a fixed measurement. Temperature, humidity, activity and other ordinary conditions can affect finger circumference. Cold hands can make fingers temporarily smaller. Heat can make them feel fuller. That means one measurement taken under unusual conditions may not represent your normal ring size. Measure under comfortable everyday conditions rather than immediately after exposing your hands to significant heat or cold. Take measurements on more than one occasion if possible." },
+    ],
   },
   {
-    heading: "Consider the inner profile",
+    heading: "Ring Size Conversion Chart: UK, EU and US",
     content: [
-      {
-        type: "paragraph",
-        text: "Rings may have a flat interior, a rounded or \"comfort-fit\" interior, or a design interrupted by stones and settings. Two rings with the same measured inner circumference can feel different."
-      },
-      {
-        type: "paragraph",
-        text: "Product pages should state:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "band width and thickness;",
-          "inner profile where relevant;",
-          "whether stones or settings extend between the fingers;",
-          "approximate manufacturing tolerance; and",
-          "size recommendations specific to the design."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "This is why measurement and fit are related but not identical."
-      }
-    ]
+      { type: "paragraph", text: "The table below provides a practical reference between European numeric sizing, UK letter sizing and US numeric sizing, alongside the physical inner diameter and circumference. Because there is no single worldwide conversion table used identically by every manufacturer, international equivalents can differ slightly between jewellers. For that reason, inside diameter and circumference should be treated as the physical anchor, while the UK, EU and US labels are conversion references." },
+      { type: "table", headers: ["EU Size", "UK Size", "US Size", "Inside Diameter", "Inside Circumference"], rows: [["44", "F ½", "3", "14.0 mm", "44 mm"], ["45", "G", "3 ¼", "14.3 mm", "45 mm"], ["46", "H", "3 ¾", "14.6 mm", "46 mm"], ["47", "H ½", "4", "15.0 mm", "47 mm"], ["48", "I ½", "4 ½", "15.3 mm", "48 mm"], ["49", "J ½", "4 ¾", "15.6 mm", "49 mm"], ["50", "K", "5 ¼", "15.9 mm", "50 mm"], ["51", "L", "5 ¾", "16.2 mm", "51 mm"], ["52", "L ½", "6", "16.6 mm", "52 mm"], ["53", "M ½", "6 ¼", "16.9 mm", "53 mm"], ["54", "N ½", "6 ¾", "17.2 mm", "54 mm"], ["55", "O", "7 ¼", "17.5 mm", "55 mm"], ["56", "P", "7 ½", "17.8 mm", "56 mm"], ["57", "P ½", "8", "18.1 mm", "57 mm"], ["58", "Q ½", "8 ¼", "18.5 mm", "58 mm"], ["59", "R", "8 ¾", "18.8 mm", "59 mm"], ["60", "S", "9", "19.1 mm", "60 mm"], ["61", "S ½", "9 ½", "19.4 mm", "61 mm"], ["62", "T ½", "10", "19.7 mm", "62 mm"], ["63", "U ½", "10 ¼", "20.1 mm", "63 mm"], ["64", "V", "10 ¾", "20.4 mm", "64 mm"], ["65", "W", "11", "20.7 mm", "65 mm"], ["66", "W ½", "11 ½", "21.0 mm", "66 mm"], ["67", "X ½", "11 ¾", "21.3 mm", "67 mm"], ["68", "Z", "12 ¼", "21.6 mm", "68 mm"], ["69", "Z ½", "12 ½", "22.0 mm", "69 mm"]] },
+      { type: "paragraph", text: "Important: use this as a conversion reference rather than assuming every jeweller will map UK and US labels identically. If the retailer publishes its own size chart, use the retailer's physical dimensions first." },
+    ],
   },
   {
-    heading: "UK, EU and other ring-size systems",
+    heading: "Why EU Ring Size Is Easier to Understand Physically",
     content: [
-      {
-        type: "paragraph",
-        text: "The UK commonly uses letters and half sizes. Many continental European charts use a number related to inner circumference in millimetres. US sizes use a different numerical system."
-      },
-      {
-        type: "paragraph",
-        text: "The same ring may therefore be labelled differently across websites. Always confirm:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "which system the seller uses;",
-          "whether EU numbering represents circumference;",
-          "whether half or intermediate sizes are offered;",
-          "the millimetre diameter or circumference behind the label; and",
-          "whether the conversion chart belongs to that exact retailer."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Avoid converting UK to US and then US to EU. Each extra conversion and rounding step can introduce error. Use the measured millimetre value as the common reference."
-      }
-    ]
+      { type: "paragraph", text: "European numerical ring sizing is particularly intuitive because the number commonly corresponds closely to the ring's internal circumference in millimetres. An EU 54 ring therefore corresponds to approximately a 54 mm internal circumference. That does not mean every international retailer will use precisely identical manufacturing tolerances. But it makes the physical logic of the sizing system easier to understand than letter-based UK sizes." },
+    ],
   },
   {
-    heading: "A practical size-recording template",
+    heading: "UK and US Ring Sizes",
     content: [
-      {
-        type: "image",
-        src: "/images/blog/how-to-measure-ring-size/73 (4).jpg",
-        alt: "Ring size recording template",
-        title: "Ring Size Recording Template",
-        caption: "Use this template to record your ring measurements accurately.",
-        priority: false
-      },
-      {
-        type: "table",
-        headers: ["Field", "Your result"],
-        rows: [
-          ["Hand and finger", ""],
-          ["Existing-ring inner diameter", " mm"],
-          ["Finger/sizer circumference", " mm"],
-          ["Measurement dates and times", ""],
-          ["Existing/measuring band width", " mm"],
-          ["New ring band width", " mm"],
-          ["Seller's sizing system", ""],
-          ["Seller's recommended size", ""],
-          ["Professional confirmation", ""]
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "If diameter and finger measurements point to different sizes, do not choose whichever result you prefer. Recheck the technique and contact the jeweller with both measurements."
-      }
-    ]
+      { type: "paragraph", text: "UK ring sizes commonly use letters. The system can also include half sizes. A UK size N and UK size N ½ are therefore different physical ring sizes. Do not convert a UK letter to another country's system using memory alone. Use the physical diameter or circumference where possible. The US system uses numbers. Half sizes are common, and some sizing systems also use quarter increments. For example, a US 7 and US 7.5 are different sizes. The US number itself does not directly state a physical measurement, so use a conversion table to connect it to diameter or circumference." },
+    ],
   },
   {
-    heading: "Check resizing before ordering",
+    heading: "Why Different Ring-Size Charts Sometimes Disagree",
     content: [
-      {
-        type: "paragraph",
-        text: "Resizing can be limited by:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "full eternity or near-eternity stone settings;",
-          "continuous pavé;",
-          "engraving or patterned bands;",
-          "unusual alloys or mixed metals;",
-          "complex galleries; and",
-          "the amount of change required."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Ask whether the exact ring can be resized, by how much, at what cost and whether adjustment affects its warranty or production time. \"Resizable\" does not mean unlimited alteration."
-      }
-    ]
+      { type: "paragraph", text: "You may notice that one jeweller's chart maps a particular UK letter to one US size while another chart differs by a quarter or half step. That does not necessarily mean one chart is defective. International systems do not align perfectly at every point, and retailers can use slightly different manufacturing increments and rounding conventions. This is why the most reliable cross-check is: inside diameter + inside circumference + retailer-specific chart. Do not treat international labels as more precise than the underlying physical measurement." },
+    ],
   },
   {
-    heading: "Ordering a ring online",
+    heading: "Band Width Can Change the Size You Need",
     content: [
-      {
-        type: "paragraph",
-        text: "Before checkout, confirm:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "size system and product-specific chart;",
-          "band width, thickness and inner profile;",
-          "whether the ring is ready-made or produced to size;",
-          "stated manufacturing tolerance;",
-          "exchange or resize policy;",
-          "return eligibility for resized, engraved or made-to-order items;",
-          "production and delivery time; and",
-          "insured return procedure."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Retain your measurements, product specifications and order confirmation. If the fit is wrong, avoid wearing the ring long enough to mark or damage it before contacting the seller."
-      }
-    ]
+      { type: "paragraph", text: "This is one of the most important qualifications in the article. A wider band normally contacts more of the finger. That can make it feel tighter than a narrow ring in the same nominal size. Professional sizing guidance distinguishes between narrow and wide rings for exactly this reason. Rings up to roughly 4 mm wide can generally be evaluated using narrow sizing gauges. When the ring becomes wider than roughly 4 mm, wide-band sizing needs additional consideration. That does not mean every ring over 4 mm automatically requires the same fixed size increase." },
+      { type: "table", headers: ["Factor", "Narrow Ring", "Wide Ring"], rows: [["Finger contact", "Lower", "Higher"], ["Same nominal size may feel", "Less restrictive", "More snug"], ["Sizing gauge", "Narrow gauge", "Wide-band gauge preferred"], ["Automatic size-up rule", "No", "No"], ["Professional assessment useful", "Yes", "Especially"]] },
+      { type: "paragraph", text: "Do not publish a rule such as \"add half a size to every wide ring\". That oversimplifies the fitting process." },
+    ],
   },
   {
-    heading: "Final measurement checklist",
+    heading: "Engagement Ring + Wedding Band Width Matters Too",
     content: [
-      {
-        type: "bullet-list",
-        items: [
-          "I measured the intended finger on the correct hand.",
-          "I repeated the measurement at normal temperature and on another occasion.",
-          "My existing ring fits the same finger and has a comparable width.",
-          "I measured inner—not outer—diameter.",
-          "Any printed guide was verified at 100% scale.",
-          "I recorded the result in millimetres.",
-          "I checked the new ring's band width and inner profile.",
-          "I used the seller's exact sizing system and chart.",
-          "I reviewed resizing, exchange and made-to-order terms.",
-          "I sought professional confirmation where the risk of error is high."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "A narrow engagement ring may fit comfortably alone. A wedding band beside it increases the total width of metal around the finger. Together, they can feel tighter. Professional sizing guidance specifically treats combined bridal sets wider than approximately 4–5 mm as requiring additional fit consideration. If the rings will usually be worn together, it can be useful to test the combination rather than sizing each piece only in isolation." },
+    ],
   },
   {
-    heading: "The Aurelia Royale approach",
+    heading: "What if Your Measurement Falls Between Two Sizes?",
     content: [
-      {
-        type: "paragraph",
-        text: "Every Aurelia Royale ring page should identify its sizing system, available sizes, band dimensions and relevant resizing limits. A downloadable guide should include a physical calibration line and instruct users to print at actual size."
-      },
-      {
-        type: "paragraph",
-        text: "For designs whose width, profile or stone setting changes fit, the product page should provide design-specific guidance instead of relying on a generic chart alone."
-      }
-    ]
+      { type: "paragraph", text: "Do not automatically use one universal rule such as \"always choose the larger size\". Band width, finger shape and ring construction all affect the final fit. For a narrow conventional ring, the answer may differ from a broad band or multi-ring stack. If your physical measurement sits between available sizes, compare it with the retailer's actual size chart and consider the construction of the ring. For a high-value or difficult-to-resize ring, professional sizing is the safer answer." },
+    ],
+  },
+  {
+    heading: "Example: Converting an Existing Ring Measurement",
+    content: [
+      { type: "paragraph", text: "Imagine an existing ring has an internal diameter of approximately 17.5 mm. Its internal circumference is close to 55 mm. Using the reference table, that places the ring around: EU 55, UK O, US 7 ¼ in the conversion system used by this chart. The next step is not automatically to order that size. First check whether the new ring has a similar band width and interior construction. Then verify that the reference ring genuinely fits the intended finger." },
+    ],
+  },
+  {
+    heading: "Example: Converting Finger Circumference",
+    content: [
+      { type: "paragraph", text: "Imagine you measure your finger several times and consistently obtain approximately 60 mm circumference. The reference chart places that close to: EU 60, UK S, US 9. If the ring being purchased is a broad band, do not automatically order that nominal size without considering the extra width. Use the figure as the starting measurement." },
+    ],
+  },
+  {
+    heading: "How Should the Ring Fit After You Choose the Size?",
+    content: [
+      { type: "paragraph", text: "This article should stop at size determination. The real-world fit assessment belongs to How Should a Diamond Ring Fit? In practical terms, the finished ring should normally pass over the knuckle with some resistance, sit comfortably at the finger base and remain reasonably stable during ordinary movement. A numerical size can be technically correct while the ring still spins because of finger anatomy or top-heavy construction. Likewise, a size can appear correct on a chart but feel restrictive because the ring is unusually wide. Measurement and fit therefore work together." },
+    ],
   },
   {
     content: [
-      {
-        type: "callout",
-        title: "Final verdict",
-        theme: "gold-border",
-        parts: [
-          { text: "Accurate ring sizing requires measuring the intended finger or a well-fitting ring with the same band width on the same hand. Repeat the measurement in millimetres and convert only through the seller's exact chart.\n\n" },
-          { text: "When in doubt, or when the ring is expensive or difficult to resize, a professional fitting is the most reliable investment before the purchase." }
-        ]
-      },
-      {
-        type: "faq",
-        items: [
-          {
-            question: "What is the most accurate way to measure ring size?",
-            answer: "A professional fitting with ring sizers on the intended finger is the most reliable method."
-          },
-          {
-            question: "Can I measure ring size with an existing ring?",
-            answer: "Yes, if it fits the same finger and hand. Measure its inner diameter through the centre and compare with the seller's chart."
-          },
-          {
-            question: "Can I use string to measure my finger?",
-            answer: "String is only a rough estimate because it can stretch, twist and compress the skin. A ring sizer is better."
-          },
-          {
-            question: "Should a ring sizer feel tight?",
-            answer: "It should feel secure at the finger base and pass over the knuckle with gentle resistance, without pain or force."
-          },
-          {
-            question: "When is the best time to measure ring size?",
-            answer: "Measure when your hands are at a normal, comfortable temperature and repeat at different times and on another day."
-          },
-          {
-            question: "Are ring sizes the same on both hands?",
-            answer: "Not necessarily. Measure the exact finger on the hand where the ring will be worn."
-          },
-          {
-            question: "Does band width affect ring size?",
-            answer: "Yes. Wider bands and stacks often feel tighter, so use guidance specific to the design rather than an automatic adjustment."
-          },
-          {
-            question: "What is the difference between ring diameter and circumference?",
-            answer: "Diameter is the distance across the ring's inner opening; circumference is the distance around that opening."
-          },
-          {
-            question: "Are UK and European ring sizes the same?",
-            answer: "No. UK sizes commonly use letters, while many European systems use numbers related to circumference in millimetres."
-          },
-          {
-            question: "Can I trust an online ring-size conversion chart?",
-            answer: "Use the chart from the exact seller and verify its millimetre measurements. Conversions can vary through rounding and tolerances."
-          },
-          {
-            question: "Can every ring be resized?",
-            answer: "No. Eternity settings, continuous pavé, engraving and complex construction may restrict resizing."
-          },
-          {
-            question: "What should I do if I am between two sizes?",
-            answer: "Recheck the measurement and ask the jeweller to consider your knuckle, band width, inner profile and the ring's resizing options."
-          }
-        ]
-      },
-      {
-        type: "cta-banner",
-        title: "Find Your Perfect Ring Size at Aurelia",
-        subtitle: "Browse our collection of lab-grown diamond rings with detailed size guides, design-specific fit guidance and transparent resizing policies.",
-        shopHref: "/shop/",
-        contactHref: "/contact/"
-      }
-    ]
-  }
+      { type: "image", src: "/images/blog/how-to-measure-ring-size/73 (2).jpg", alt: "Ring size measurement checklist UK EU US conversion inside diameter circumference", title: "Ring-Size Measurement Checklist", caption: "The objective is not to produce a number as quickly as possible — it is to produce a number you can trust.", priority: false },
+    ],
+  },
+  {
+    heading: "Ring-Size Measurement Checklist",
+    content: [
+      { type: "table", headers: ["Check", "Why It Matters"], rows: [["Measure the exact intended finger", "Different fingers vary"], ["Measure the correct hand", "Left/right may differ"], ["Use millimetres", "Better precision"], ["Measure more than once", "Reduces one-off error"], ["Avoid very cold hands", "Fingers may measure smaller"], ["Avoid temporary swelling", "Can inflate measurement"], ["Check the knuckle", "Ring must pass it comfortably"], ["Consider band width", "Wider rings can feel tighter"], ["Use similar reference-ring width", "Improves comparison"], ["Confirm retailer's own chart", "International mappings vary"]] },
+    ],
+  },
+  {
+    heading: "Measuring Ring Size for Special Situations",
+    content: [
+      { type: "paragraph", text: "For an engagement ring, measure the exact finger and hand on which the engagement ring will be worn. If the ring has a conventional narrow shank, a standard sizing gauge provides a good starting point. If the ring has a wide shank, unusual inner profile or will nearly always be paired with a broad wedding band, those factors should be considered." },
+      { type: "paragraph", text: "For an eternity ring, correct initial sizing is particularly important for rings with diamonds extending around most or all of the circumference. Full-eternity designs can be more difficult to resize because there may be little or no plain metal section available for conventional alteration. Do not deliberately choose a questionable size on the assumption that resizing will always be possible later." },
+      { type: "paragraph", text: "For a surprise gift, use a ring they already wear on the correct finger if possible. Measure its inside diameter or have a jeweller measure it on a ring mandrel. Make sure you know which finger and hand the ring normally fits. A ring worn on the middle finger is not a reliable substitute for the ring finger." },
+    ],
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/how-to-measure-ring-size/73 (3).jpg", alt: "Ring size conversion chart UK EU US existing ring measurement finger circumference", title: "Inner Diameter vs Inner Circumference", caption: "If you have an existing ring, diameter is usually easier to measure accurately at home. If you are measuring the finger itself, circumference is the more natural measurement.", priority: false },
+    ],
+  },
+  {
+    heading: "Inner Diameter vs Inner Circumference",
+    content: [
+      { type: "paragraph", text: "These are two ways of describing the same internal circle. Inside diameter measures directly across the centre. Inside circumference measures all the way around the internal surface. If you have an existing ring, diameter is usually easier to measure accurately at home. If you are measuring the finger itself, circumference is the more natural measurement. Both can lead to the same ring-size range when measured correctly." },
+    ],
+  },
+  {
+    heading: "Why Small Measurement Errors Matter",
+    content: [
+      { type: "paragraph", text: "Ring sizes are physically close together. A difference of around 0.2–0.4 mm in internal diameter can shift the recommended size. That means measuring with a thick ruler, reading the wrong edge or rounding too early can create an avoidable error. Where possible, record your raw measurement before converting it to a ring-size label. Do not convert 5.45 cm straight to \"about 5.5 cm\" and then select a ring. That rounding can change the size recommendation." },
+    ],
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/how-to-measure-ring-size/73 (4).jpg", alt: "Ring size FAQ final answer guide UK EU US conversion diameter circumference band width", title: "Frequently Asked Questions", caption: "Measurement and fit work together — this page determines the numerical size, How Should a Diamond Ring Fit? checks whether the ring behaves correctly once worn.", priority: false },
+    ],
+  },
+  {
+    heading: "Frequently Asked Questions",
+    content: [
+      { type: "faq", items: [
+        { question: "How do I measure my ring size accurately?", answer: "The most accurate approach is a professional finger-sizing gauge. At home, measure the inside diameter of an existing ring that already fits the correct finger well, then compare that measurement with a conversion chart." },
+        { question: "How do I measure ring size from an existing ring?", answer: "Measure directly across the centre from one inside edge to the opposite inside edge. Use the internal diameter, not the outside measurement." },
+        { question: "How do I measure ring size in millimetres?", answer: "Measure either the ring's internal diameter in millimetres or the finger's circumference in millimetres, then compare that measurement with a ring-size chart." },
+        { question: "Is EU ring size the same as finger circumference?", answer: "European numerical sizing commonly corresponds closely to the internal circumference in millimetres, although you should still check the retailer's own chart." },
+        { question: "Are UK and US ring-size conversions exact?", answer: "Not always. Conversion charts can differ slightly between manufacturers, so use physical diameter and circumference as the anchor." },
+        { question: "Should I measure my knuckle?", answer: "Yes, especially if the knuckle is wider than the finger base. The ring needs to pass the joint without becoming excessively loose once in position." },
+        { question: "Should I measure my ring size when my hands are cold?", answer: "No. Cold fingers may temporarily measure smaller than they do under normal conditions." },
+        { question: "Does ring width affect size?", answer: "Yes. Wider bands generally feel more snug because more metal contacts the finger. Rings wider than approximately 4 mm deserve additional sizing consideration." },
+        { question: "Should I automatically size up for a wide band?", answer: "No. There is no universal size increase that applies to every wide ring and every finger." },
+        { question: "Can I measure ring size with string?", answer: "You can obtain a rough estimate, but string can stretch or be pulled too tightly. A physical ring sizer or existing well-fitting ring is more reliable." },
+        { question: "What if I fall between two ring sizes?", answer: "Check the actual ring width, interior construction and retailer's sizing chart rather than automatically rounding up or down." },
+        { question: "Is measuring ring size the same as checking ring fit?", answer: "No. This page determines the numerical size. How Should a Diamond Ring Fit? explains whether the finished ring is actually secure and comfortable once worn." },
+      ]},
+    ],
+  },
+  {
+    heading: "Final Answer: How Do You Measure Ring Size Accurately?",
+    content: [
+      { type: "paragraph", text: "For the highest accuracy, use a professional ring-sizing gauge. If you are measuring at home and already own a properly fitting ring, measure its inside diameter in millimetres and compare the measurement with the UK / EU / US conversion chart. If you are measuring the finger itself, measure the circumference at the position where the ring will sit, while also accounting for the knuckle. Take more than one measurement. Measure under normal temperature conditions. Use millimetres rather than rough centimetre estimates." },
+      { type: "paragraph", text: "Then consider the actual ring. A wide band can feel tighter than a narrow ring with the same nominal size, and several rings worn together can effectively behave like a wider band. Use the conversion chart to identify the correct numerical region, but use the retailer's product-specific sizing information before finalising the order." },
+      { type: "paragraph", parts: [{ text: "Once you have chosen the size, continue with " }, { text: "How Should a Diamond Ring Fit?", href: "/blog/how-should-diamond-ring-fit/" }, { text: " to assess real-world comfort, knuckle resistance, spinning and pressure." }] },
+      { type: "paragraph", parts: [{ text: "For the complete ring-buying journey, continue with " }, { text: "How to Choose a Lab-Grown Diamond Ring", href: "/blog/how-to-choose-lab-grown-diamond-ring/" }] },
+      { type: "paragraph", text: "Where an Aurelia Royale ring does not yet have a confirmed size and purchase route, use Join the Waitlist or Enquire About This Piece. Providing a preferred ring size during an enquiry should not itself be presented as an order, reservation or production instruction." },
+      { type: "cta-banner", title: "Explore Aurelia Royale Lab-Grown Diamond Rings", subtitle: "Measure accurately — then find the ring whose size, fit and design work together.", shopHref: "/shop/", contactHref: "/contact/" },
+    ],
+  },
 ];
 
-export default function HowToMeasureRingSizePage() {
+export default function BlogRingSizePage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
-      {/* Script injection for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Product-Category Guides
-          </span>
-          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How to Measure Your Ring Size Accurately
-          </h1>
-          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
-          </p>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">Lab-Grown Diamond Education</span>
+          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">How to Measure Your Ring Size Accurately</h1>
+          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">UK, EU and US Conversion Chart with Diameter and Circumference • Published September 10, 2026</p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
+      <RelatedArticles currentSlug="how-to-measure-ring-size" />
       <NewsletterSection />
     </main>
   );
 }
+

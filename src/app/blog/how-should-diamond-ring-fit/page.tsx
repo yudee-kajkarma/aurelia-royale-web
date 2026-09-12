@@ -1,654 +1,256 @@
-import React from "react";
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
+
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
-// 1. SEO Metadata
 export const metadata: Metadata = {
-  title: "How Should a Diamond Ring Fit? Complete Guide",
-  description: "Learn how a diamond ring should fit over the knuckle and at the finger base, plus signs it is too tight, too loose or needs professional adjustment.",
-  alternates: {
-    canonical: "https://www.aureliaroyale.com/blog/how-should-diamond-ring-fit/",
-  },
+  title: "How Should a Diamond Ring Fit? Ring Fit Guide",
+  description: "Learn how a diamond ring should fit, including knuckle resistance, spinning, pressure, band width, swelling and signs a ring is too tight or too loose.",
+  alternates: { canonical: "https://www.aureliaroyale.com/blog/how-should-diamond-ring-fit/" },
 };
 
-// 2. JSON-LD Schema
-const schemaMarkup = {
-  "@context":"https://schema.org",
-  "@graph":[
-    {
-      "@type":"BlogPosting",
-      "@id":"https://www.aureliaroyale.com/blog/how-should-diamond-ring-fit/#article",
-      "mainEntityOfPage":{"@type":"WebPage","@id":"https://www.aureliaroyale.com/blog/how-should-diamond-ring-fit/"},
-      "headline":"How Should a Diamond Ring Fit?",
-      "description":"Learn how a diamond ring should fit over the knuckle and at the finger base, plus signs it is too tight, too loose or needs professional adjustment.",
-      "image":"https://www.aureliaroyale.com/images/blog/how-should-diamond-ring-fit.webp",
-      "datePublished":"2026-07-16",
-      "dateModified":"2026-07-16",
-      "author":{"@type":"Organization","name":"Aurelia Royale","url":"https://www.aureliaroyale.com/"},
-      "publisher":{"@type":"Organization","name":"Aurelia Royale","url":"https://www.aureliaroyale.com/"},
-      "inLanguage":"en-GB",
-      "articleSection":"Product-Category Guides",
-      "keywords":["how should a diamond ring fit","how tight should a ring be","ring too loose","diamond ring spinning"]
-    },
-    {
-      "@type":"BreadcrumbList",
-      "@id":"https://www.aureliaroyale.com/blog/how-should-diamond-ring-fit/#breadcrumb",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Home","item":"https://www.aureliaroyale.com/"},
-        {"@type":"ListItem","position":2,"name":"Journal","item":"https://www.aureliaroyale.com/blog/"},
-        {"@type":"ListItem","position":3,"name":"How Should a Diamond Ring Fit?","item":"https://www.aureliaroyale.com/blog/how-should-diamond-ring-fit/"}
-      ]
-    },
-    {
-      "@type":"FAQPage",
-      "@id":"https://www.aureliaroyale.com/blog/how-should-diamond-ring-fit/#faq",
-      "mainEntity":[
-        {"@type":"Question","name":"How tight should a diamond ring be?","acceptedAnswer":{"@type":"Answer","text":"It should feel secure without painful pressure and pass the knuckle with gentle resistance."}},
-        {"@type":"Question","name":"Should a ring spin on your finger?","acceptedAnswer":{"@type":"Answer","text":"Occasional rotation can be normal, especially with a top-heavy setting. Constant spinning needs a fit and balance assessment."}},
-        {"@type":"Question","name":"Should a ring leave an indent?","acceptedAnswer":{"@type":"Answer","text":"A faint temporary line can occur, but a deep persistent mark with pressure or discomfort suggests the fit should be reviewed."}},
-        {"@type":"Question","name":"How should a ring fit over the knuckle?","acceptedAnswer":{"@type":"Answer","text":"It should move over the knuckle with controlled, gentle resistance and without force or pain."}},
-        {"@type":"Question","name":"How can I tell if my ring is too loose?","acceptedAnswer":{"@type":"Answer","text":"It may be too loose if it slips over the knuckle freely, slides when the hand points down or repeatedly turns upside down."}},
-        {"@type":"Question","name":"How can I tell if my ring is too tight?","acceptedAnswer":{"@type":"Answer","text":"Pain, numbness, persistent pressure, pronounced bulging or difficult removal under normal conditions are warning signs."}},
-        {"@type":"Question","name":"Is it normal for a ring to fit differently during the day?","acceptedAnswer":{"@type":"Answer","text":"Small changes can occur with temperature and activity. Assess fit across several ordinary conditions."}},
-        {"@type":"Question","name":"Do wide rings fit tighter?","acceptedAnswer":{"@type":"Answer","text":"They often feel tighter because they contact more of the finger. Use guidance specific to the finished band."}},
-        {"@type":"Question","name":"Why does my diamond ring keep turning sideways?","acceptedAnswer":{"@type":"Answer","text":"The ring may be loose, top-heavy, narrow in the band or fitted over a knuckle wider than the finger base."}},
-        {"@type":"Question","name":"Should stacked rings be the same size?","acceptedAnswer":{"@type":"Answer","text":"Not automatically. The combined width and each ring's profile affect fit, so test the complete stack."}},
-        {"@type":"Question","name":"Can every diamond ring be resized?","acceptedAnswer":{"@type":"Answer","text":"No. Eternity settings, extensive pave, engraving and complex construction can restrict alteration."}},
-        {"@type":"Question","name":"When is a stuck ring an emergency?","acceptedAnswer":{"@type":"Answer","text":"Seek urgent help for rapid swelling, severe pain, numbness, colour change, injury or another sign that the ring is restricting the finger."}}
-      ]
-    }
-  ]
-};
-
-// 3. Article content sections
 const articleSections: ArticleSection[] = [
   {
     content: [
-      {
-        type: "image",
-        src: "/images/blog/how-should-diamond-ring-fit/74 (1).jpg",
-        alt: "How should a diamond ring fit - complete fit guide",
-        title: "How Should a Diamond Ring Fit?",
-        caption: "A well-fitted diamond ring sits securely and comfortably, passing the knuckle with gentle resistance.",
-        priority: true
-      },
-      {
-        type: "paragraph",
-        text: "A diamond ring should feel secure at the base of the finger without painful pressure. It should pass over the knuckle with gentle resistance—not fall off freely and not require force."
-      },
-      {
-        type: "paragraph",
-        text: "The ring should remain reasonably stable during ordinary hand movement. A small amount of rotation can be normal, particularly with a prominent centre setting or a finger whose knuckle is wider than its base. Persistent spinning, sliding or tilting deserves a closer fit assessment."
-      }
-    ]
+      { type: "image", src: "/images/blog/how-should-diamond-ring-fit/74 (1).jpg", alt: "How should a diamond ring fit knuckle resistance spinning comfort secure", title: "How Should a Diamond Ring Fit?", caption: "A good fit combines knuckle resistance, comfort at the base of the finger and reasonable stability once the ring is being worn.", priority: true },
+      { type: "paragraph", text: "A diamond ring should feel secure on the finger without feeling restrictive. The simplest practical test is this: the ring should pass over the knuckle with some resistance, settle comfortably at the base of the finger and remain reasonably stable during normal hand movement." },
+      { type: "paragraph", text: "It should not slide straight over the knuckle with almost no resistance. It should also not require painful force to remove." },
+      { type: "paragraph", text: "Once the ring is in position, the band should feel snug enough that the ring does not constantly spin, tilt or feel at risk of slipping off, but loose enough that you can comfortably bend your finger, make a fist and wear it through ordinary changes in finger size." },
+      { type: "paragraph", text: "The correct fit therefore sits between two extremes. Too tight means the ring creates pressure, pinching or difficulty moving over the knuckle. Too loose means the ring spins excessively, moves freely over the knuckle or feels insecure. A good fit combines knuckle resistance, comfort at the base of the finger and reasonable stability once the ring is being worn." },
+    ],
   },
   {
-    heading: "Quick fit test",
+    heading: "Quick Ring Fit Test",
     content: [
-      {
-        type: "paragraph",
-        text: "A well-fitted ring should:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "sit comfortably at the finger base;",
-          "pass over the knuckle with controlled, gentle resistance;",
-          "come off with a slight twist rather than force;",
-          "remain on during normal downward hand movement;",
-          "avoid pain, numbness, tingling or strong throbbing pressure;",
-          "leave no deep or persistent mark; and",
-          "stay acceptably upright for its weight and design."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Test the ring more than once under normal conditions. One moment on a very hot, cold or swollen hand is not a dependable final judgement."
-      }
-    ]
+      { type: "paragraph", text: "Before analysing ring size charts or conversions, put the ring on and run through four practical checks. First, slide the ring over the knuckle. It should require a little resistance but should not hurt. Second, let the ring settle at the base of the finger. It should feel snug without pressing deeply into the skin. Third, turn your hand palm-down and move your fingers naturally. The ring should remain secure rather than feeling as though it could simply slide off. Finally, try removing it. A small amount of twisting or gentle resistance at the knuckle can be normal. Painful pulling, significant swelling around the band or an inability to remove it under ordinary conditions suggests the fit needs attention." },
+    ],
   },
   {
-    heading: "Fit is different from size",
+    heading: "Too Tight, Secure or Too Loose?",
     content: [
-      {
-        type: "paragraph",
-        text: "Ring size describes an internal measurement or a position within a sizing system. Fit describes how the finished ring interacts with a particular finger."
-      },
-      {
-        type: "image",
-        src: "/images/blog/how-should-diamond-ring-fit/74 (2).jpg",
-        alt: "Ring fit vs ring size - how they differ",
-        title: "Fit vs Size",
-        caption: "Ring size is a measurement; fit describes how the finished ring interacts with your finger.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "Two rings in the same nominal size may feel different because of:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "band width and thickness;",
-          "flat or rounded inner profile;",
-          "ring weight;",
-          "setting height;",
-          "centre-stone size;",
-          "stones or metal extending between the fingers;",
-          "manufacturing tolerance; and",
-          "whether the ring is worn alone or in a stack."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "This is why a size that works for a narrow plain band may not feel identical in a wide diamond ring."
-      }
-    ]
+      { type: "table", headers: ["Ring Fit", "Going Over the Knuckle", "At the Base of the Finger", "During Movement", "Typical Interpretation"], rows: [["Too tight", "Difficult or painful", "Strong pressure or pinching", "Restrictive", "Ring is likely too small or too restrictive for the band design"], ["Secure fit", "Mild resistance", "Snug but comfortable", "Mostly stable", "Fit is likely appropriate"], ["Too loose", "Very little resistance", "Noticeably mobile", "Spins, tilts or slips", "Ring may be too large or insufficiently stable"]] },
+      { type: "paragraph", text: "This table is a better starting point than trying to decide fit from the size number alone. Two people wearing the same nominal ring size can experience different fit because finger shape, knuckle size and band construction differ." },
+    ],
   },
   {
-    heading: "How the ring should pass over the knuckle",
+    heading: "The Ring Should Pass the Knuckle With Some Resistance",
     content: [
-      {
-        type: "paragraph",
-        text: "The knuckle is often the widest point the ring must cross. On removal, a well-fitted ring generally needs a small controlled twist or gentle movement over it."
-      },
-      {
-        type: "paragraph",
-        text: "Too little resistance:"
-      },
-      {
-        type: "paragraph",
-        text: "If the ring passes over the knuckle without any resistance, slips off when the hand points down or can be removed accidentally during ordinary movement, it may be too loose."
-      },
-      {
-        type: "paragraph",
-        text: "Too much resistance:"
-      },
-      {
-        type: "paragraph",
-        text: "If removal is painful, requires hard pulling, causes panic or repeatedly traps the ring, it may be too tight or unsuitable for the finger's shape."
-      },
-      {
-        type: "paragraph",
-        text: "Large knuckles create a genuine fitting challenge: the ring must cross the knuckle yet remain stable at a narrower finger base. A jeweller may consider fit aids or construction options rather than simply making the whole ring smaller."
-      }
-    ]
+      { type: "paragraph", text: "The knuckle is one of the most important parts of ring fit. For many people, the knuckle is wider than the section of the finger where the ring eventually rests. That creates a necessary compromise. The ring needs to be large enough to pass the knuckle but small enough to remain secure once it reaches the base of the finger." },
+      { type: "paragraph", text: "If the ring slides over the knuckle almost without resistance, it may have too much room. If it requires painful force or leaves you worried that it will not come off again, the fit may be too tight. The ideal movement is usually a controlled slide with a little resistance around the widest part of the joint." },
+    ],
   },
   {
-    heading: "How the ring should feel at the finger base",
+    heading: "What Should Taking the Ring Off Feel Like?",
     content: [
-      {
-        type: "paragraph",
-        text: "At rest, the band should make comfortable contact without pinching. The finger should not bulge dramatically around it, and the ring should not feel like a restrictive band."
-      },
-      {
-        type: "paragraph",
-        text: "A faint temporary line after removal does not by itself prove the ring is too small; skin compresses under jewellery. The more useful questions are:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Does the mark fade promptly?",
-          "Is there pain or persistent pressure?",
-          "Can the ring rotate or be removed normally?",
-          "Does the skin remain its usual colour and sensation?",
-          "Does the fit work across ordinary daily variation?"
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Discomfort and circulation-related symptoms are not normal fit goals."
-      }
-    ]
+      { type: "paragraph", text: "Removing a correctly fitted ring does not necessarily feel identical to putting it on. A small amount of twisting can help the band move over the knuckle. That does not automatically mean the ring is too small. What matters is the level of resistance. The ring should not feel trapped during normal conditions, but neither should it fall off with virtually no resistance. Think of the knuckle as a security checkpoint. The ring should pass it comfortably, but the joint should provide enough resistance that the jewellery does not simply slip from the finger during ordinary use." },
+    ],
   },
   {
-    heading: "Should a diamond ring spin?",
+    heading: "What Should the Ring Feel Like Once It Reaches the Base of the Finger?",
     content: [
-      {
-        type: "paragraph",
-        text: "Occasional rotation can be normal. Fingers taper, knuckles differ and hands change position throughout the day. A large or raised centre setting also places more weight above the band, making rotation more likely."
-      },
-      {
-        type: "paragraph",
-        text: "The fit may need review when the ring:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "turns upside down repeatedly;",
-          "slides from the base towards the knuckle;",
-          "rotates during minimal movement;",
-          "catches because the setting constantly moves sideways; or",
-          "feels insecure even when the hand is cool and relaxed."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Do not assume that every spinning ring should be resized smaller. The cause may be a narrow band, top-heavy setting, large knuckle, stacking interaction or seasonal change."
-      }
-    ]
+      { type: "paragraph", text: "Once over the knuckle, the ring should settle around the finger without creating constant pressure. You should be able to bend and straighten the finger normally. A small amount of skin displacement around a snug ring can be normal, especially with broader bands, but the ring should not create significant discomfort. The key is to judge the ring while actually using your hand. A ring can appear perfectly fitted when the fingers are held straight and still yet become uncomfortable when you type, grip something or make a fist. That is why fit should always be tested through movement." },
+    ],
   },
   {
-    heading: "Why top-heavy rings tilt",
+    heading: "The Practical Movement Test",
     content: [
-      {
-        type: "paragraph",
-        text: "A diamond ring with a large centre stone, tall gallery or broad halo has a higher centre of mass. A thin band offers less contact area to resist movement."
-      },
-      {
-        type: "image",
-        src: "/images/blog/how-should-diamond-ring-fit/74 (3).jpg",
-        alt: "Why top-heavy diamond rings tilt and solutions",
-        title: "Top-Heavy Ring Solutions",
-        caption: "Top-heavy rings may need sizing beads, wider bands or professional assessment to stay upright.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "Possible design-led solutions a jeweller may assess include:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "a wider or thicker shank;",
-          "sizing beads inside the band;",
-          "an internal sizing bar or insert;",
-          "an alternative shank shape;",
-          "a lower setting; or",
-          "a professionally evaluated size adjustment."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "The right option depends on the ring's construction and the wearer's finger. Temporary plastic adjusters should not obscure damage, trap moisture or become a permanent substitute for professional assessment."
-      }
-    ]
+      { type: "table", headers: ["Test", "Appropriate Fit", "Possible Fit Problem"], rows: [["Bend finger normally", "Comfortable", "Pressure or pinching"], ["Make a relaxed fist", "Band remains comfortable", "Ring digs strongly into finger"], ["Shake hand gently", "Ring remains secure", "Ring feels as though it may slip"], ["Turn palm down", "Ring stays controlled", "Ring slides towards knuckle"], ["Remove ring", "Mild knuckle resistance", "Falls off easily or is painfully difficult"]] },
+      { type: "paragraph", text: "This test is useful because it reflects how the jewellery will actually behave rather than evaluating it only while the hand is stationary." },
+    ],
   },
   {
-    heading: "Signs a ring may be too loose",
+    heading: "Should a Diamond Ring Spin?",
     content: [
-      {
-        type: "table",
-        headers: ["Sign", "What it may indicate"],
-        rows: [
-          ["Slides off over the knuckle with no resistance", "Nominal size may be too large"],
-          ["Moves significantly when the hand points down", "Inadequate security"],
-          ["Spins constantly", "Size, balance or band proportion issue"],
-          ["Rocks from side to side", "Top-heavy setting or loose base fit"],
-          ["Fits only when fingers are warm", "Seasonal or situational fit problem"],
-          ["Falls off during hand washing or drying", "Immediate loss risk"]
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "If a valuable ring can slip off easily, stop wearing it until a jeweller checks the fit."
-      }
-    ]
+      { type: "paragraph", text: "A small amount of movement can be normal. Constant spinning is different. A diamond ring that repeatedly rotates so the centre setting moves towards the side or underside of the finger may be too loose. However, spinning does not always mean that the overall ring size is dramatically wrong. Ring geometry matters. A large centre diamond or elevated setting can make the top of the ring heavier than the band beneath the finger. That imbalance can encourage rotation. Finger anatomy also matters. Someone with a larger knuckle and a narrower finger base may need enough ring size to pass the knuckle, leaving extra room once the ring reaches its final position." },
+      { type: "paragraph", text: "The useful question is therefore not simply: \"Does my ring ever move?\" It is: \"How often does it move, and do I constantly need to turn it back into position?\"" },
+      { type: "table", headers: ["Behaviour", "What It May Mean"], rows: [["Ring moves slightly during the day", "Often normal"], ["Centre shifts occasionally after hand movement", "Not automatically a sizing problem"], ["Ring rotates every few minutes", "Fit or balance may need checking"], ["Centre repeatedly turns underneath finger", "Ring may be too loose at the finger base"], ["Ring spins but is difficult to pass over knuckle", "Finger shape may be creating a knuckle/base-size mismatch"]] },
+    ],
   },
   {
-    heading: "Signs a ring may be too tight",
+    heading: "A Ring Should Normally Stay Upright",
     content: [
-      {
-        type: "table",
-        headers: ["Sign", "What it may indicate"],
-        rows: [
-          ["Pain or throbbing pressure", "Excess restriction"],
-          ["Numbness or tingling", "Not an acceptable fit condition"],
-          ["Persistent deep indentation", "Excessive pressure or unsuitable profile"],
-          ["Pronounced bulging around the band", "Ring may be too small or finger swollen"],
-          ["Difficult removal under normal conditions", "Insufficient allowance over the knuckle"],
-          ["Change in finger colour or rapidly increasing swelling", "Seek prompt professional or medical help"]
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Do not keep wearing a ring to \"break it in\". Metal rings do not adapt safely to a dangerously tight finger."
-      }
-    ]
-  },
-  {
-    heading: "Normal changes throughout the day",
-    content: [
-      {
-        type: "paragraph",
-        text: "Finger size can change with temperature, exercise, fluid balance and other personal factors. A ring may feel slightly looser when hands are cool and tighter when they are warm."
-      },
-      {
-        type: "paragraph",
-        text: "Assess fit across several normal days. Avoid making a permanent sizing decision from an unusual episode of heat, cold, travel, intense activity or temporary swelling."
-      },
-      {
-        type: "paragraph",
-        text: "If swelling is frequent, severe, painful or unexplained, discuss it with an appropriate healthcare professional. A jeweller can assess the ring, but cannot diagnose a health condition."
-      }
-    ]
-  },
-  {
-    heading: "How band width changes fit",
-    content: [
-      {
-        type: "paragraph",
-        text: "Wide bands contact more of the finger and often feel tighter than narrow bands with the same nominal internal size. Several rings worn together can behave like one wide band."
-      },
-      {
-        type: "paragraph",
-        text: "When judging fit, consider:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "the width of the finished band;",
-          "whether the interior is flat or rounded;",
-          "whether the ring will be stacked;",
-          "where accent settings contact adjacent fingers; and",
-          "whether the measuring sizer matched the finished width."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Do not apply a universal \"size up\" rule without design-specific guidance. The correct adjustment varies with construction and finger shape."
-      }
-    ]
-  },
-  {
-    heading: "How a ring stack should fit",
-    content: [
-      {
-        type: "paragraph",
-        text: "An engagement ring, wedding band and eternity ring can feel tighter together than individually. They may also push one another towards a wider part of the finger."
-      },
-      {
-        type: "paragraph",
-        text: "Test the intended combination and order. Check that:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "the full stack crosses the knuckle comfortably;",
-          "no single ring becomes trapped;",
-          "diamond settings do not abrade the neighbouring ring;",
-          "the rings do not pinch skin between them; and",
-          "the combined width remains comfortable during normal hand movement."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Buying each ring in isolation can miss the way the complete stack behaves."
-      }
-    ]
-  },
-  {
-    heading: "Fit considerations for different ring designs",
-    content: [
-      {
-        type: "paragraph",
-        text: "Solitaire and halo rings:"
-      },
-      {
-        type: "paragraph",
-        text: "Prominent settings can rotate even when the band is close to the correct size. Assess setting balance and band proportion."
-      },
-      {
-        type: "paragraph",
-        text: "Pavé rings:"
-      },
-      {
-        type: "paragraph",
-        text: "Continuous or extensive pavé may limit resizing. Confirm fit early and review the resize policy before alteration."
-      },
-      {
-        type: "paragraph",
-        text: "Eternity rings:"
-      },
-      {
-        type: "paragraph",
-        text: "Full-circle stone settings can be difficult or impossible to resize conventionally. Accurate initial fitting is especially important."
-      },
-      {
-        type: "paragraph",
-        text: "Wide or sculptural rings:"
-      },
-      {
-        type: "paragraph",
-        text: "These create greater finger contact and may need a sizing method matched to their width and interior."
-      },
-      {
-        type: "paragraph",
-        text: "Coloured-stone diamond rings:"
-      },
-      {
-        type: "paragraph",
-        text: "Fit principles are the same, but raised or delicate centre-stone settings may increase the practical importance of stability."
-      }
-    ]
-  },
-  {
-    heading: "When to consider resizing",
-    content: [
-      {
-        type: "paragraph",
-        text: "Ask a qualified jeweller to assess resizing when the ring remains consistently loose or tight across normal conditions."
-      },
-      {
-        type: "paragraph",
-        text: "Before authorising work, confirm:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "how many sizes the ring can safely change;",
-          "whether stones extend around the band;",
-          "whether engraving or hallmarks will be affected;",
-          "whether the ring must be refinished or replated;",
-          "whether stones will be checked after work;",
-          "how alteration affects warranty; and",
-          "expected cost and turnaround time."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "A large change can alter proportions, stone alignment or structural tension. Resizing is skilled jewellery work, not just changing a label."
-      }
-    ]
-  },
-  {
-    heading: "Alternatives to conventional resizing",
-    content: [
-      {
-        type: "paragraph",
-        text: "Depending on the ring and finger, a jeweller might discuss sizing beads, inserts, an adjustable shank or another specialist solution. These can help when the knuckle is substantially wider than the finger base or when conventional resizing is limited."
-      },
-      {
-        type: "paragraph",
-        text: "Each option has trade-offs in comfort, appearance, cleaning and future service. Avoid bending, cutting, gluing or modifying a fine-jewellery ring at home."
-      }
-    ]
-  },
-  {
-    heading: "What to do if a ring becomes stuck",
-    content: [
-      {
-        type: "paragraph",
-        text: "Do not continue pulling aggressively, as this can worsen swelling. If the finger is rapidly swelling, very painful, numb, changing colour or injured—or the ring acts as a restrictive band—seek urgent professional medical help."
-      },
-      {
-        type: "paragraph",
-        text: "Ring removal in a safety situation may require trained personnel and proper tools. Protecting the finger takes priority over protecting the jewellery."
-      }
-    ]
-  },
-  {
-    heading: "Fit check before the return window closes",
-    content: [
-      {
-        type: "paragraph",
-        text: "When a new ring arrives:"
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Inspect it without removing tags or causing wear.",
-          "Try it on the intended finger indoors over a clean, soft surface.",
-          "Test the base fit, knuckle passage and ordinary rotation.",
-          "Repeat under normal conditions on another occasion if policy time allows.",
-          "Try the intended stack without allowing settings to scrape.",
-          "Record any concern with photographs or video.",
-          "Contact the seller before resizing or wearing the ring outside."
-        ]
-      },
-      {
-        type: "image",
-        src: "/images/blog/how-should-diamond-ring-fit/74 (4).jpg",
-        alt: "Diamond ring fit checklist",
-        title: "Ring Fit Checklist",
-        caption: "Use this checklist to test your diamond ring fit before the return window closes.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "Altered, engraved or visibly worn jewellery may have different return rights, so read the product's exact terms first."
-      }
-    ]
-  },
-  {
-    heading: "Final fit checklist",
-    content: [
-      {
-        type: "bullet-list",
-        items: [
-          "The ring sits comfortably at the finger base.",
-          "It passes the knuckle with gentle resistance.",
-          "Removal requires control but not force.",
-          "There is no pain, numbness or persistent pressure.",
-          "It does not slip off during normal hand movement.",
-          "Rotation is minor or explainable by the design.",
-          "The setting remains acceptably stable.",
-          "The band width and inner profile suit the finger.",
-          "The intended stack is comfortable as a complete set.",
-          "Fit has been checked under more than one normal condition.",
-          "Resize limits and return terms are understood."
-        ]
-      }
-    ]
-  },
-  {
-    heading: "The Aurelia Royale approach",
-    content: [
-      {
-        type: "paragraph",
-        text: "An Aurelia Royale ring page should support fit before and after purchase. It should disclose the sizing system, band dimensions, setting height, inner profile where relevant, available sizes and resizing limits."
-      },
-      {
-        type: "paragraph",
-        text: "Fit guidance should also distinguish a wrong nominal size from a balance issue caused by the ring's architecture. This helps customers choose a solution that protects both comfort and craftsmanship."
-      }
-    ]
+      { type: "paragraph", text: "For a conventional solitaire or centre-set diamond ring, the setting should generally remain reasonably upright during normal wear. It does not have to behave as though glued to the finger. Hands move constantly. But persistent side-to-side rotation means the ring is not being stabilised effectively. This matters practically as well as visually. A centre stone that constantly rotates may interact more frequently with neighbouring fingers, clothing or surrounding objects. Proper ring fit therefore supports both comfort and predictable positioning." },
+    ],
   },
   {
     content: [
-      {
-        type: "callout",
-        title: "Final verdict",
-        theme: "gold-border",
-        parts: [
-          { text: "A well-fitted diamond ring should feel secure at the finger base, pass the knuckle with gentle resistance and remain stable during ordinary movement without pain, numbness or persistent pressure.\n\n" },
-          { text: "When fit is uncertain, seek a professional assessment before resizing. The right fit protects both the finger and the jewellery." }
-        ]
-      },
-      {
-        type: "faq",
-        items: [
-          {
-            question: "How tight should a diamond ring be?",
-            answer: "It should feel secure without painful pressure and pass the knuckle with gentle resistance."
-          },
-          {
-            question: "Should a ring spin on your finger?",
-            answer: "Occasional rotation can be normal, especially with a top-heavy setting. Constant spinning needs a fit and balance assessment."
-          },
-          {
-            question: "Should a ring leave an indent?",
-            answer: "A faint temporary line can occur, but a deep persistent mark with pressure or discomfort suggests the fit should be reviewed."
-          },
-          {
-            question: "How should a ring fit over the knuckle?",
-            answer: "It should move over the knuckle with controlled, gentle resistance and without force or pain."
-          },
-          {
-            question: "How can I tell if my ring is too loose?",
-            answer: "It may be too loose if it slips over the knuckle freely, slides when the hand points down or repeatedly turns upside down."
-          },
-          {
-            question: "How can I tell if my ring is too tight?",
-            answer: "Pain, numbness, persistent pressure, pronounced bulging or difficult removal under normal conditions are warning signs."
-          },
-          {
-            question: "Is it normal for a ring to fit differently during the day?",
-            answer: "Small changes can occur with temperature and activity. Assess fit across several ordinary conditions."
-          },
-          {
-            question: "Do wide rings fit tighter?",
-            answer: "They often feel tighter because they contact more of the finger. Use guidance specific to the finished band."
-          },
-          {
-            question: "Why does my diamond ring keep turning sideways?",
-            answer: "The ring may be loose, top-heavy, narrow in the band or fitted over a knuckle wider than the finger base."
-          },
-          {
-            question: "Should stacked rings be the same size?",
-            answer: "Not automatically. The combined width and each ring's profile affect fit, so test the complete stack."
-          },
-          {
-            question: "Can every diamond ring be resized?",
-            answer: "No. Eternity settings, extensive pavé, engraving and complex construction can restrict alteration."
-          },
-          {
-            question: "When is a stuck ring an emergency?",
-            answer: "Seek urgent help if there is rapid swelling, severe pain, numbness, colour change, injury or another sign that the ring is restricting the finger."
-          }
-        ]
-      },
-      {
-        type: "cta-banner",
-        title: "Find Your Perfect Ring Fit at Aurelia",
-        subtitle: "Browse our collection of lab-grown diamond rings with detailed fit guidance, design-specific sizing and transparent resizing policies.",
-        shopHref: "/shop/",
-        contactHref: "/contact/"
-      }
-    ]
-  }
+      { type: "image", src: "/images/blog/how-should-diamond-ring-fit/74 (2).jpg", alt: "Ring fit too tight too loose knuckle problem wide band finger shape engagement ring", title: "How Tight Is Too Tight?", caption: "Fit should be judged by comfort and function during movement — not only while the hand is stationary.", priority: false },
+    ],
+  },
+  {
+    heading: "How Tight Is Too Tight?",
+    content: [
+      { type: "paragraph", text: "A ring is too tight when snugness becomes pressure. One of the clearest signs is discomfort when bending the finger. Another is a band that feels increasingly restrictive during ordinary wear rather than simply secure. A ring should not require the wearer to tolerate pain in order to prevent spinning. Nor should the band be forced over the knuckle to the point that removal becomes unusually difficult." },
+      { type: "paragraph", text: "A tight-looking ring is not automatically incorrectly sized because some fingers naturally have more soft tissue around the band. The better test is functional: Can you comfortably move the finger, wear the ring for normal periods and remove it without painful force? If not, the fit deserves reassessment." },
+    ],
+  },
+  {
+    heading: "Does a Ring Leaving a Mark Mean It Is Too Tight?",
+    content: [
+      { type: "paragraph", text: "Not necessarily. A close-fitting ring can leave a temporary light impression on the skin. The important distinction is between a mild mark and ongoing pressure. If the ring causes significant discomfort, deep indentation, numbness, persistent pinching or difficulty moving the finger, that is very different from a faint temporary line after removing a comfortably fitted band. Fit should be judged by comfort and function, not by the presence or absence of any skin impression whatsoever." },
+    ],
+  },
+  {
+    heading: "How Loose Is Too Loose?",
+    content: [
+      { type: "paragraph", text: "A ring is likely too loose when it feels insecure during ordinary movements. If the ring slides straight over the knuckle with very little resistance, that is an obvious concern. Less obvious signs include: repeated spinning, constant tilting, the setting moving towards the palm, or needing to reposition the ring frequently. A ring does not need to fall off before it qualifies as too loose. \"Still on my finger\" is a very low standard for correct fit. The better standard is: secure, comfortable and stable enough that you rarely need to think about its position." },
+    ],
+  },
+  {
+    heading: "The Knuckle Problem: Large Knuckle, Narrow Finger Base",
+    content: [
+      { type: "paragraph", text: "One of the hardest ring-fit situations occurs when the knuckle is considerably wider than the part of the finger where the ring rests. A ring large enough to pass the knuckle may then feel relatively loose once in position. That can create spinning even though reducing the overall ring size would make it difficult to get the jewellery on and off. This is not unusual ring behaviour caused by the diamond itself. It is a geometry problem. The solution should therefore be based on professional fit assessment rather than blindly reducing the ring size. Depending on the ring's construction and the difference between the knuckle and finger base, a jeweller may consider suitable fit-adjustment approaches. Do not assume every ring can be modified in the same way." },
+    ],
+  },
+  {
+    heading: "Band Width Can Change How the Same Ring Size Feels",
+    content: [
+      { type: "paragraph", text: "A wider ring generally places more metal in contact with the finger. That can make it feel tighter than a narrow ring in the same nominal size. GIA's professional ring-sizing benchmarks specifically separate narrow rings from wider bands and recommend different sizing gauges once ring width increases beyond roughly 4 mm. That does not mean every wide band needs exactly one predetermined larger size. It means band width materially affects fit and should be considered during sizing." },
+      { type: "table", headers: ["Factor", "Narrow Band", "Wider Band"], rows: [["Finger contact area", "Smaller", "Larger"], ["Perceived tightness at same nominal size", "Usually lower", "Often higher"], ["Movement", "May rotate more easily", "Can feel more stable but tighter"], ["Sizing approach", "Narrow sizing gauge appropriate", "Wide-band consideration needed"], ["Main risk", "Excessive spinning if loose", "Pressure if sized like a narrow band"]] },
+      { type: "paragraph", text: "This becomes particularly important with broad wedding bands, multi-row rings and stacked combinations." },
+    ],
+  },
+  {
+    heading: "What Happens When You Wear Two Rings Together?",
+    content: [
+      { type: "paragraph", text: "An engagement ring and wedding band may each fit comfortably when worn alone but feel tighter when worn together. Why? Because the combined bands cover more of the finger. The total width effectively behaves more like one wider ring. That can change pressure and comfort. A bridal stack or multiple bands should therefore be judged as the combination actually worn, not only as individual rings. If two rings will usually be worn together, try them together during fit assessment." },
+    ],
+  },
+  {
+    heading: "Engagement Ring vs Wedding Band Fit",
+    content: [
+      { type: "table", headers: ["Factor", "Diamond Engagement Ring", "Wedding Band"], rows: [["Weight distribution", "Often heavier at top", "Often more even"], ["Spinning tendency", "Can be higher", "Usually lower in simple bands"], ["Width", "Varies", "Can range from very narrow to broad"], ["Fit when stacked", "Should be assessed with wedding band if usually worn together", "Combined width matters"], ["Resizing consideration", "Depends on design/setting", "Full-eternity styles can be particularly restrictive"]] },
+      { type: "paragraph", text: "The style does not change the fundamental fit goal, but it changes the practical behaviour." },
+    ],
+  },
+  {
+    heading: "Why a Large Centre Diamond Can Make a Ring Spin More",
+    content: [
+      { type: "paragraph", text: "A larger or higher-set diamond moves more mass away from the centre of the finger. That can make the top of the ring relatively heavy compared with the bottom of the shank. If the band has extra room around the finger, gravity and normal hand motion can then encourage the ring to rotate. This means there are cases where two rings in the same size fit the finger similarly around the band but behave differently because one has a much heavier top. The solution should not automatically be: \"Make the ring tighter.\" You need to distinguish a genuine size issue from a balance issue." },
+    ],
+  },
+  {
+    heading: "The Four-Part Practical Ring Fit Test",
+    content: [
+      { type: "table", headers: ["Test", "What You Want"], rows: [["Knuckle test", "Mild resistance, no painful force"], ["Fist test", "Comfortable when finger bends"], ["Spin test", "Ring remains reasonably upright"], ["Removal test", "Comes off with controlled resistance"]] },
+      { type: "paragraph", text: "If the ring passes all four, the fit is likely close to appropriate." },
+    ],
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/how-should-diamond-ring-fit/74 (3).jpg", alt: "Finger size changes temperature cold hot ring size variation daily ring fit", title: "Finger Size Changes During the Day", caption: "A ring should work through the range of normal conditions — not be sized based on a single extreme temperature reading.", priority: false },
+    ],
+  },
+  {
+    heading: "Finger Size Changes During the Day",
+    content: [
+      { type: "paragraph", text: "A ring does not necessarily feel identical from morning to evening. Finger circumference can change with temperature and other ordinary conditions. GIA specifically notes that temperature, humidity, altitude and time of day can affect finger size. This is one reason a ring that feels slightly loose at one moment may feel much closer later. It also means measuring the finger once under unusual conditions should not automatically be treated as perfect sizing evidence. A ring should work through the range of normal conditions in which the wearer expects to use it." },
+    ],
+  },
+  {
+    heading: "Cold Fingers Can Make a Ring Feel Looser",
+    content: [
+      { type: "paragraph", text: "When fingers are colder, they can temporarily become smaller. A ring assessed only when the hands are very cold may therefore feel looser than it does during typical wear. This can be misleading if the buyer immediately decides to size down. Assess fit under ordinary indoor conditions rather than using an extreme temperature as the benchmark." },
+    ],
+  },
+  {
+    heading: "Heat Can Make a Ring Feel Tighter",
+    content: [
+      { type: "paragraph", text: "The opposite can also occur when the fingers become warmer. A ring that is already very tight may become noticeably uncomfortable. That is why the correct everyday fit normally includes enough tolerance for natural variation without becoming insecure when the finger is slightly smaller. The goal is not an absolutely motionless ring under every condition. That is unrealistic." },
+    ],
+  },
+  {
+    heading: "Ring Size Numbers Alone Do Not Tell You How a Ring Will Feel",
+    content: [
+      { type: "paragraph", text: "A ring size describes an internal dimension. It does not describe: band width, ring weight, centre-stone size, setting height, finger shape, knuckle difference, or whether several bands will be worn together. That is why this article should not duplicate the ring-size measurement guide. The measurement guide should explain how to obtain a ring size and convert between sizing systems. This guide explains whether the resulting ring actually behaves correctly on the finger. That distinction is important for both SEO and usefulness." },
+    ],
+  },
+  {
+    heading: "Wide Bands Need Special Attention",
+    content: [
+      { type: "paragraph", text: "If you currently wear a narrow solitaire comfortably, do not automatically assume a broad diamond band in the same nominal size will feel identical. Greater width increases contact with the finger. GIA's professional sizing standards use different gauges for narrow and wide rings and specifically flag bridal combinations whose combined width exceeds roughly 4–5 mm for additional consideration. The practical lesson is straightforward: the wider the ring or combined stack, the more important it becomes to assess fit using a similar width. A narrow temporary sizing ring may not perfectly predict a much broader final design." },
+    ],
+  },
+  {
+    heading: "Full-Eternity and Diamond-Set Bands Deserve Extra Care",
+    content: [
+      { type: "paragraph", text: "A ring with diamonds continuing all the way around the band can be more restrictive to alter than a simple plain-metal shank. The same can apply to some heavily pavé or channel-set designs. That makes correct sizing before purchase particularly important. This does not mean such rings are impossible to alter in every circumstance. It means the setting architecture can make resizing more complex. Do not promise that any Aurelia diamond ring can later be resized unless the exact product has been evaluated for that service." },
+    ],
+  },
+  {
+    heading: "Ring Fit Diagnostic Table",
+    content: [
+      { type: "table", headers: ["What You Notice", "Most Likely Area to Investigate"], rows: [["Ring slides straight over knuckle", "Overall fit may be too loose"], ["Ring repeatedly spins", "Base fit or ring balance"], ["Ring spins but knuckle fit is already tight", "Knuckle/base mismatch"], ["Ring hurts when making a fist", "Fit may be too tight or band too wide"], ["Wide ring feels tighter than narrow ring in same size", "Band width"], ["Engagement ring fits alone but stack feels tight", "Combined band width"], ["Ring is loose mainly when hands are cold", "Normal finger-size variation may contribute"], ["Ring is tight mainly when fingers are warmer", "Temporary finger expansion may contribute"], ["Ring fits but centre stone tilts constantly", "Size and top-heavy balance both need checking"], ["Ring cannot comfortably cross knuckle", "Size likely needs reassessment"]] },
+      { type: "paragraph", text: "This diagnostic approach is stronger than immediately changing the ring size whenever one symptom appears." },
+    ],
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/how-should-diamond-ring-fit/74 (4).jpg", alt: "Diamond ring fit FAQ final answer guide too tight too loose knuckle spinning", title: "Frequently Asked Questions", caption: "The most important rule: the ring should cross the knuckle securely, sit comfortably at the finger base and remain stable without excessive spinning.", priority: false },
+    ],
+  },
+  {
+    heading: "Frequently Asked Questions",
+    content: [
+      { type: "faq", items: [
+        { question: "How should a diamond ring fit?", answer: "It should pass the knuckle with some resistance, sit comfortably at the base of the finger and remain reasonably stable during normal movement." },
+        { question: "Should a ring be tight or loose?", answer: "Neither. It should feel snug and secure without creating uncomfortable pressure." },
+        { question: "Should a ring be difficult to get over the knuckle?", answer: "Some resistance can be normal. Painful force is not the goal." },
+        { question: "Should a ring be hard to take off?", answer: "A little resistance at the knuckle can help keep the ring secure, but removal should not routinely require painful force." },
+        { question: "Should a ring spin?", answer: "A small amount of movement can be normal. Constant spinning deserves further fit assessment." },
+        { question: "Is my ring too big if it spins?", answer: "Possibly, but not always. A large knuckle, narrow finger base or top-heavy setting can also contribute." },
+        { question: "How much ring spinning is normal?", answer: "There is no useful universal amount. Occasional movement is normal; repeated rotation requiring constant correction is more concerning." },
+        { question: "Should an engagement ring stay upright?", answer: "It should normally remain reasonably stable rather than freely rotating around the finger." },
+        { question: "Why does my engagement ring turn to the side?", answer: "The ring may be relatively loose at the finger base, the centre setting may be top-heavy or both factors may be contributing." },
+        { question: "Should a ring leave a mark?", answer: "A mild temporary impression can occur with snug jewellery. Persistent painful pressure is different." },
+        { question: "How do I know if my ring is too tight?", answer: "Look for discomfort, pinching, restricted finger movement or difficulty removing the ring during ordinary conditions." },
+        { question: "How do I know if my ring is too loose?", answer: "Look for little knuckle resistance, repeated spinning, frequent tilting or a feeling that the ring could slip off." },
+        { question: "Does a wider ring fit tighter?", answer: "It can. Wider bands put more metal in contact with the finger and require separate sizing consideration." },
+        { question: "Do wide bands need a different ring size?", answer: "They may require an adjustment relative to a narrow band, but there is no universal change that applies to every person and ring." },
+        { question: "Does an engagement ring fit differently with a wedding band?", answer: "It can. The combined width may make the pair feel tighter than either ring alone." },
+        { question: "Should I size my engagement ring while wearing the wedding band?", answer: "If they will normally be worn together, checking the combined fit is useful." },
+        { question: "Does finger size change during the day?", answer: "Yes. Normal conditions such as temperature and time of day can change how snug a ring feels." },
+        { question: "Why is my ring loose when my hands are cold?", answer: "The finger can temporarily become smaller in colder conditions." },
+        { question: "Why is my ring tighter later in the day?", answer: "Temporary changes in finger circumference can affect fit." },
+        { question: "Should I size down because my ring is loose when cold?", answer: "Not automatically. Assess how it fits under normal conditions overall." },
+        { question: "Does diamond carat affect ring size?", answer: "Not directly. A larger centre diamond can affect balance and spinning, but it does not determine finger circumference." },
+        { question: "Does setting height affect fit?", answer: "It can affect perceived stability because a higher setting places more of the ring's mass away from the finger." },
+        { question: "Can an eternity ring be resized?", answer: "Some may be difficult to alter because diamonds continue around much or all of the band. Resizability depends on the exact design." },
+        { question: "Can every Aurelia ring be resized?", answer: "Do not assume so. Resizing must be confirmed for the specific product." },
+        { question: "What is the most important ring-fit rule?", answer: "The ring should cross the knuckle securely, sit comfortably at the finger base and remain stable without excessive spinning." },
+      ]},
+    ],
+  },
+  {
+    heading: "Final Answer: How Should a Diamond Ring Fit?",
+    content: [
+      { type: "paragraph", text: "A properly fitted diamond ring should pass over the knuckle with slight resistance. Once it reaches the base of the finger, it should feel snug but comfortable. You should be able to bend the finger, make a fist and use your hand normally without the band creating significant pressure." },
+      { type: "paragraph", text: "The ring should remain reasonably upright. Some movement is normal, especially when finger size changes slightly during the day, but constant spinning or repeated tilting deserves attention. When removing the ring, some resistance at the knuckle can be useful because it helps keep the jewellery secure. It should not, however, require painful force." },
+      { type: "paragraph", text: "Remember that ring width also changes fit. A broad band or several rings worn together can feel tighter than a narrow solitaire in the same nominal size. A top-heavy diamond setting can also create spinning even when the ring size is close. The best practical assessment therefore combines four checks: knuckle resistance, comfort at the finger base, stability during normal movement, and: comfortable removal." },
+      { type: "paragraph", parts: [{ text: "For physical dimensions and finished jewellery weight, use " }, { text: "How to Check Jewellery Dimensions and Weight Online", href: "/blog/check-jewellery-product-dimensions-weight/" }] },
+      { type: "paragraph", parts: [{ text: "For ring construction and workmanship, read " }, { text: "What Makes Lab-Grown Diamond Jewellery High Quality?", href: "/blog/what-makes-lab-grown-diamond-jewellery-high-quality/" }] },
+      { type: "paragraph", parts: [{ text: "For how to measure your ring size, use " }, { text: "How to Measure Ring Size", href: "/blog/how-to-measure-ring-size/" }] },
+      { type: "paragraph", parts: [{ text: "Where an Aurelia Royale ring does not yet have confirmed pricing or size availability, " }, { text: "Join the Waitlist", href: "/contact/" }, { text: " or submit an enquiry. This should register interest only and should not be presented as an order, reservation or production confirmation." }] },
+      { type: "cta-banner", title: "Explore Aurelia Royale Lab-Grown Diamond Rings", subtitle: "Find the ring that passes the knuckle, sits comfortably and stays in position.", shopHref: "/shop/", contactHref: "/contact/" },
+    ],
+  },
 ];
 
-export default function HowShouldDiamondRingFitPage() {
+export default function BlogRingFitPage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
-      {/* Script injection for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Product-Category Guides
-          </span>
-          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How Should a Diamond Ring Fit?
-          </h1>
-          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
-          </p>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">Lab-Grown Diamond Education</span>
+          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">How Should a Diamond Ring Fit?</h1>
+          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">Knuckle Resistance, Spinning, Band Width and Comfort Explained • Published September 10, 2026</p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
+      <RelatedArticles currentSlug="how-should-diamond-ring-fit" />
       <NewsletterSection />
     </main>
   );
 }
+

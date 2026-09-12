@@ -1,702 +1,358 @@
-import React from "react";
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
 
-// 1. SEO Metadata for Search Engines
 export const metadata: Metadata = {
   title: "How to Set a Budget for Lab-Grown Diamond Jewellery",
-  description: "Build a realistic lab-grown diamond jewellery budget by balancing design, diamond quality, metal, certification, delivered costs and future care.",
-  alternates: {
-    canonical: "https://www.aureliaroyale.com/blog/set-budget-lab-grown-diamond-jewellery/",
-  },
+  description: "Learn how to budget for lab-grown diamond jewellery by prioritising design, visible size, diamond quality, metal and fit without overspending on specifications you do not need.",
+  alternates: { canonical: "https://www.aureliaroyale.com/blog/set-budget-lab-grown-diamond-jewellery/" },
 };
 
-// 2. The exact JSON-LD Schema
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://www.aureliaroyale.com/#organization",
-      "name": "Aurelia Royale",
-      "url": "https://www.aureliaroyale.com/"
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.aureliaroyale.com/#website",
-      "url": "https://www.aureliaroyale.com/",
-      "name": "Aurelia Royale",
-      "publisher": { "@id": "https://www.aureliaroyale.com/#organization" },
-      "inLanguage": "en-GB"
-    },
-    {
-      "@type": "ImageObject",
-      "@id": "https://www.aureliaroyale.com/blog/set-budget-lab-grown-diamond-jewellery/#primaryimage",
-      "url": "https://www.aureliaroyale.com/wp-content/uploads/set-budget-lab-grown-diamond-jewellery.webp",
-      "contentUrl": "https://www.aureliaroyale.com/wp-content/uploads/set-budget-lab-grown-diamond-jewellery.webp",
-      "width": 1600,
-      "height": 900,
-      "caption": "Structured all-in budget planning for lab-grown diamond jewellery"
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://www.aureliaroyale.com/blog/set-budget-lab-grown-diamond-jewellery/#webpage",
-      "url": "https://www.aureliaroyale.com/blog/set-budget-lab-grown-diamond-jewellery/",
-      "name": "How to Set a Budget for Lab-Grown Diamond Jewellery",
-      "isPartOf": { "@id": "https://www.aureliaroyale.com/#website" },
-      "primaryImageOfPage": { "@id": "https://www.aureliaroyale.com/blog/set-budget-lab-grown-diamond-jewellery/#primaryimage" },
-      "datePublished": "2026-07-16",
-      "dateModified": "2026-07-16",
-      "breadcrumb": { "@id": "https://www.aureliaroyale.com/blog/set-budget-lab-grown-diamond-jewellery/#breadcrumb" },
-      "inLanguage": "en-GB"
-    },
-    {
-      "@type": "BlogPosting",
-      "@id": "https://www.aureliaroyale.com/blog/set-budget-lab-grown-diamond-jewellery/#article",
-      "headline": "How to Set a Budget for Lab-Grown Diamond Jewellery",
-      "description": "A practical framework for setting an all-in lab-grown diamond jewellery budget across design, diamonds, metal, documentation, delivery, tax and future care.",
-      "image": { "@id": "https://www.aureliaroyale.com/blog/set-budget-lab-grown-diamond-jewellery/#primaryimage" },
-      "mainEntityOfPage": { "@id": "https://www.aureliaroyale.com/blog/set-budget-lab-grown-diamond-jewellery/#webpage" },
-      "author": { "@id": "https://www.aureliaroyale.com/#organization" },
-      "publisher": { "@id": "https://www.aureliaroyale.com/#organization" },
-      "datePublished": "2026-07-16",
-      "dateModified": "2026-07-16",
-      "articleSection": "Buying Lab-Grown Diamond Jewellery",
-      "keywords": [
-        "how to set a budget for lab-grown diamond jewellery",
-        "lab-grown diamond jewellery budget",
-        "how much to spend on lab-grown diamond jewellery",
-        "budget for lab-grown diamond ring",
-        "lab-grown diamond buying budget"
-      ],
-      "inLanguage": "en-GB"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.aureliaroyale.com/blog/set-budget-lab-grown-diamond-jewellery/#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Buying Lab-Grown Diamond Jewellery", "item": "https://www.aureliaroyale.com/blog/category/buying-lab-grown-diamond-jewellery/" },
-        { "@type": "ListItem", "position": 4, "name": "How to Set a Budget for Lab-Grown Diamond Jewellery", "item": "https://www.aureliaroyale.com/blog/set-budget-lab-grown-diamond-jewellery/" }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.aureliaroyale.com/blog/set-budget-lab-grown-diamond-jewellery/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How much should I spend on lab-grown diamond jewellery?",
-          "acceptedAnswer": { "@type": "Answer", "text": "There is no universal amount or salary rule. Choose an all-in ceiling that is comfortable for your finances and includes the complete purchase, delivery, tax, required options and expected ownership costs." }
-        },
-        {
-          "@type": "Question",
-          "name": "Are lab-grown diamonds suitable for a lower jewellery budget?",
-          "acceptedAnswer": { "@type": "Answer", "text": "They can provide different size and quality options at the time of purchase, but the budget should still protect cut, setting, metal, documentation and aftercare rather than focusing only on diamond size." }
-        },
-        {
-          "@type": "Question",
-          "name": "Should I spend more on diamond cut or carat weight?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Protect attractive cut and visible performance before increasing weight. A poorly proportioned diamond can hide weight and appear dull or smaller than expected." }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I save money by choosing a lower clarity grade?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Possibly, if the diamond remains eye-clean for the size, shape and viewing conditions and no characteristic creates a durability concern. Compare individual diamonds rather than relying only on the grade." }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I save money by choosing a lower colour grade?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Possibly. Metal colour, shape, size and personal sensitivity influence appearance. Compare the diamond in a similar setting and lighting before deciding whether a higher grade provides value." }
-        },
-        {
-          "@type": "Question",
-          "name": "Should my budget include VAT and customs duty?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Use the total delivered cost, including applicable tax, insured delivery, customs, clearance and currency conversion. Confirm whether charges are included or collected on arrival." }
-        },
-        {
-          "@type": "Question",
-          "name": "Does total carat weight help me budget?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Only when its scope is clear. Separate centre-stone weight, accent weight and total weight. Two pieces with equal total weight can look and cost very differently." }
-        },
-        {
-          "@type": "Question",
-          "name": "Should I pay extra for a diamond grading report?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Appropriate independent documentation is valuable for an important individual diamond. For small multi-stone jewellery, a different documentation approach may be reasonable. Confirm the report's issuer, type and scope." }
-        },
-        {
-          "@type": "Question",
-          "name": "Should I include jewellery insurance in the budget?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Consider it according to the item's value, risk and existing cover. A warranty and grading report do not replace insurance for theft, loss or accidental damage." }
-        },
-        {
-          "@type": "Question",
-          "name": "Is financing a good way to increase my jewellery budget?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Financing changes timing, not the underlying price. Compare total repayment, interest, fees and return treatment, and avoid a commitment that creates financial strain." }
-        },
-        {
-          "@type": "Question",
-          "name": "How much contingency should I keep?",
-          "acceptedAnswer": { "@type": "Answer", "text": "There is no fixed percentage. Keep enough for realistic small changes in tax, conversion, sizing or delivery based on the transaction. Unused contingency does not need to be spent." }
-        },
-        {
-          "@type": "Question",
-          "name": "What should I reduce first if the jewellery is over budget?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Remove optional personalisation or complexity, then test modest adjustments to carat, colour or clarity that preserve attractive appearance. Do not first cut security, structural quality or essential fit." }
-        }
-      ]
-    }
-  ]
-};
-
-// 3. Article content sections structured for DynamicArticle
 const articleSections: ArticleSection[] = [
   {
     content: [
-      {
-        type: "image",
-        src: "/images/blog/set-budget-lab-grown-diamond-jewellery/1.jpg",
-        alt: "Budgeting for lab-grown diamond jewellery",
-        title: "All-in Budgeting Guide",
-        caption: "Planning from the outside-in separates the base product cost from necessary options and delivered charges.",
-        priority: true
-      },
-      {
-        type: "paragraph",
-        text: "A useful jewellery budget is not the highest amount a retailer or payment provider will allow you to spend. It is the amount you can spend comfortably after accounting for the complete purchase and the qualities that matter to you."
-      },
-      {
-        type: "paragraph",
-        text: "For lab-grown diamond jewellery, the simplest method is to work backwards: set a total spending ceiling, subtract transaction/ownership costs, define a minimum quality floor, allocate options (appearance/metal/design), and compare pieces within that framework."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "This avoids using the entire budget on carat weights only to exceed limits later. Read " },
-          { text: "what makes lab-grown diamond jewellery high quality", href: "/blog/what-makes-lab-grown-diamond-jewellery-high-quality/" },
-          { text: " to define your structural limits first." }
-        ]
-      }
-    ]
+      { type: "image", src: "/images/blog/set-budget-lab-grown-diamond-jewellery/1.jpg", alt: "How to set a budget for lab-grown diamond jewellery priorities spending", title: "How to Set a Budget for Lab-Grown Diamond Jewellery", caption: "Set your budget before you begin comparing — then rank your priorities and compare actual products within that limit.", priority: true },
+      { type: "paragraph", text: "Setting a jewellery budget should happen before you begin increasing carat weight, colour, clarity, metal specification and design complexity." },
+      { type: "paragraph", text: "Without a budget, online comparison can become an endless sequence of small upgrades. A slightly larger diamond looks attractive. Then a higher colour grade appears only one step away. Then clarity increases. Then the setting changes. Each decision can make sense independently while gradually moving the final purchase far beyond what you originally wanted to spend." },
+      { type: "paragraph", text: "A better approach starts with two numbers: the amount you are comfortable spending and: the absolute maximum you do not want to exceed. Then decide what you want that money to achieve." },
+      { type: "paragraph", text: "For one buyer, visible centre-diamond size may be the priority. For another, the jewellery design matters more. Another buyer may prioritise metal, total diamond coverage or everyday wearability. There is no universal percentage of income or fixed amount that everyone should spend on diamond jewellery. A useful budget is personal, deliberate and linked to the features that actually matter to you." },
+    ],
   },
   {
-    heading: "Quick answer: how should you budget for lab-grown diamond jewellery?",
+    heading: "Quick Answer: How Should You Budget for Lab-Grown Diamond Jewellery?",
     content: [
-      {
-        type: "paragraph",
-        text: "Use these steps:"
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Choose a maximum all-in amount you can spend without financial strain.",
-          "Decide whether the jewellery is for daily wear, an occasion or a gift.",
-          "Fix non-negotiables such as category, metal, size and delivery date.",
-          "Reserve money for VAT, insured delivery, customs and currency costs where applicable.",
-          "Reserve for immediate options such as sizing, engraving or chain upgrades.",
-          "Protect adequate cut, setting security and construction before increasing carat.",
-          "Choose acceptable colour and clarity by visible result, not grade prestige.",
-          "Separate centre-stone weight from total carat weight.",
-          "Decide which documentation is appropriate for the piece.",
-          "Compare the same product specification across retailers.",
-          "Include likely inspection, cleaning, insurance or maintenance costs.",
-          "Keep a contingency instead of spending to the final available euro or pound."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "There is no universal correct amount or salary-based rule. The right budget reflects the buyer’s finances, intended use and priorities."
-      }
-    ]
+      { type: "paragraph", text: "Start with a total amount you can spend comfortably without depending on an arbitrary jewellery-spending rule. Then choose your main priority: design, visible diamond size, diamond quality, diamond coverage, metal or overall wearability. Protect that priority first." },
+      { type: "paragraph", text: "Next, decide where you are willing to compromise. For example, if visible size matters most, you may decide that you do not need to maximise microscopic clarity. If design matters most, you may prefer a smaller centre stone in the setting you actually love. If the piece is intended for frequent wear, dimensions and comfort may matter more than pushing every diamond grade upward." },
+      { type: "paragraph", text: "Finally, compare actual products within the budget instead of continually increasing the budget to match better specifications. The most useful principle is: Set the budget first. Rank your priorities second. Compare products third." },
+    ],
   },
   {
-    heading: "Begin with an all-in ceiling, not a product price",
+    heading: "1. Start With a Comfortable Budget, Not a Jewellery Rule",
     content: [
-      {
-        type: "image",
-        src: "/images/blog/set-budget-lab-grown-diamond-jewellery/2.jpg",
-        alt: "Budget ledger comparing total limits to item list price",
-        title: "All-in Budget Equation",
-        caption: "Factoring in VAT, customs clearance, and initial ownership costs ensures the checkout total stays below the target ceiling."
-      },
-      {
-        type: "paragraph",
-        text: "Write one ceiling number including: selected jewellery, tax, shipping, customs fees, size adjustments, engraving, and initial insurance premiums."
-      }
-    ]
+      { type: "paragraph", text: "You may encounter rules suggesting that a particular type of jewellery should cost a certain number of weeks or months of income. You do not need to use them. A jewellery purchase does not become more meaningful simply because it consumes a predetermined percentage of your salary." },
+      { type: "paragraph", text: "Instead ask: What amount can I spend without creating financial pressure? That is your starting budget. Then ask: What is the absolute maximum I would still be comfortable paying if I found a significantly better-fit product? Those figures may be identical. That is perfectly reasonable. Your maximum is a limit—not a target." },
+    ],
   },
   {
-    heading: "Choose a ceiling that remains comfortable",
+    heading: "2. Decide Whether the Budget Covers the Entire Jewellery Piece",
     content: [
-      {
-        type: "paragraph",
-        text: "Jewellery is discretionary. Budget for wearing enjoyment, not prospective resale. If utilizing financing options, review total payable amounts and return implications carefully."
-      }
-    ]
+      { type: "paragraph", text: "This sounds obvious, but it prevents poor comparisons. Your total jewellery budget may need to cover: the diamond or diamonds, the precious metal, the setting, the finished design, and whatever legitimate charges are part of the final transaction. Do not mentally assign your entire budget to the centre diamond and then discover that the complete jewellery piece exceeds it. When comparing products, use the total amount you would actually need to pay, not just one component." },
+      { type: "paragraph", text: "Where Aurelia does not currently display an approved product price, do not estimate or invent one. The appropriate action is to join the waitlist or enquire and evaluate the confirmed price when it becomes available." },
+    ],
   },
   {
-    heading: "Define the purchase before allocating money",
+    heading: "3. Pick One Primary Spending Priority",
     content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Confirm design categories before allocating funds. Consult " },
-          { text: "the first-time buyer’s guide to lab-grown diamond jewellery", href: "/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/" },
-          { text: " to frame options." }
-        ]
-      }
-    ]
+      { type: "paragraph", text: "A budget becomes useful only once you decide what you want it to optimise. Possible priorities include: visible centre-diamond size, overall diamond coverage, design, cut and visual performance, higher colour, higher clarity, precious metal, finished jewellery scale, or: a balance across all of them. Trying to maximise all of those simultaneously is how budgets grow quickly. Choose the feature that would most affect your satisfaction with the finished piece. Then protect that feature during comparison." },
+    ],
   },
   {
-    heading: "Separate non-negotiables from preferences",
+    heading: "4. If Visible Diamond Size Is Your Priority",
     content: [
-      {
-        type: "image",
-        src: "/images/blog/set-budget-lab-grown-diamond-jewellery/3.jpg",
-        alt: "Dividing jewelry requirements into essential and optional columns",
-        title: "Priority Classification Table",
-        caption: "Prioritising secure settings and proper sizing prevents purchasing high-carat stones set in unstable mountings."
-      },
-      {
-        type: "table",
-        headers: ["Priority", "Meaning", "Example"],
-        rows: [
-          ["Essential", "The product is unsuitable without it", "Correct ring size, laboratory-grown disclosure, secure setting"],
-          ["Important", "Strong influence but trade-offs are possible", "White metal, particular shape, independent report"],
-          ["Optional", "Desirable only if budget remains", "Engraving, premium packaging, a symbolic carat threshold"]
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Do not allocate your budget using carat alone. Carat measures diamond weight, while millimetre measurements help describe actual physical dimensions. Two diamonds with the same carat weight can differ in their face-up measurements because of shape and proportions. GIA likewise distinguishes carat weight from the other quality factors and defines carat as the diamond's weight measurement." },
+      { type: "paragraph", text: "If appearance is the priority, compare: carat + millimetre dimensions + shape + proportions rather than simply buying the largest carat number available." },
+      { type: "paragraph", parts: [{ text: "For the full topic, read " }, { text: "Diamond Carat Weight vs Size", href: "/blog/carat-weight-vs-visible-diamond-size/" }] },
+    ],
   },
   {
-    heading: "Create five budget envelopes",
+    heading: "5. If Sparkle Is Your Priority",
     content: [
-      {
-        type: "paragraph",
-        text: "Divide funds into: Finished jewellery, Required options, Delivery/Tax, Ownership, and Contingency envelopes. Adjust partitions based on cross-border statuses."
-      }
-    ]
+      { type: "paragraph", text: "Do not automatically spend most of the budget on colour or clarity. Cutting and proportions strongly affect how a diamond handles light. GIA identifies cut as a key component of diamond appearance and notes that cut determines brilliance, sparkle and fire in applicable diamonds. This means a budget aimed at visible beauty should not treat cut as an afterthought. A technically higher clarity grade does not compensate for a diamond whose overall visual performance you prefer less." },
+      { type: "paragraph", parts: [{ text: "For the detailed guide, read " }, { text: "Lab-Grown Diamond Cut Explained", href: "/blog/lab-grown-diamond-cut-explained/" }] },
+    ],
   },
   {
-    heading: "A fictional all-in budget example",
+    heading: "6. If Clarity Is Important, Decide How Much Is Enough for You",
     content: [
-      {
-        type: "table",
-        headers: ["Budget item", "Illustrative amount"],
-        rows: [
-          ["Maximum total commitment", "€3,000"],
-          ["Estimated tax/delivery/conversion exposure", "− €220"],
-          ["Required sizing or personalisation", "− €80"],
-          ["Initial ownership reserve", "− €150"],
-          ["Contingency", "− €150"],
-          ["Maximum product-page price", "€2,400"]
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Higher clarity represents fewer or less significant clarity characteristics under the applicable grading system. But that does not mean every grade increase creates an equally noticeable improvement without magnification. GIA notes that clarity grading involves inclusions and blemishes and that many characteristics assessed under magnification may not be readily apparent to an unaided observer." },
+      { type: "paragraph", text: "Your budget question should therefore be: \"Will paying for a higher clarity category meaningfully improve what I care about?\" rather than: \"What is the highest clarity I can possibly afford?\"" },
+      { type: "paragraph", parts: [{ text: "For the technical distinctions, use " }, { text: "Lab-Grown Diamond Clarity Grades Explained", href: "/blog/lab-grown-diamond-clarity-grades-explained/" }] },
+    ],
   },
   {
-    heading: "Establish a jewellery-quality floor",
+    heading: "7. Apply the Same Logic to Colour",
     content: [
-      {
-        type: "paragraph",
-        text: "Allocate for secure settings, proper thickness, and functional clasps before expanding sizes. A diamond requires a secure mount to remain wearable."
-      }
-    ]
+      { type: "paragraph", text: "Formal colour differences are real grading distinctions. But your preference for those differences is personal. The jewellery metal, diamond shape and surrounding design can also influence how colour appears to the wearer, even though they do not change the laboratory colour result. GIA notes that setting metal and diamond cutting style can influence perceived colour appearance." },
+      { type: "paragraph", text: "If maximising colour is not your main objective, identify the range that satisfies you and allocate the remaining budget to something that matters more." },
+      { type: "paragraph", parts: [{ text: "For the dedicated explanation, read " }, { text: "Lab-Grown Diamond Colour Grades Explained", href: "/blog/lab-grown-diamond-colour-grades-explained/" }] },
+    ],
   },
   {
-    heading: "Protect diamond cut before chasing grade prestige",
+    heading: "8. Do Not Treat Carat as a Quality Grade",
     content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Verify cut light performance and dimensions before carat counts. A poorly cut stone hides weight in deep pavilions. Read " },
-          { text: "diamond cut explained", href: "/blog/lab-grown-diamond-cut-explained/" },
-          { text: " for full cut details." }
-        ]
-      }
-    ]
+      { type: "paragraph", text: "A larger diamond is not automatically a higher-quality diamond. Carat tells you weight. Cut, colour and clarity describe other characteristics. GIA explicitly distinguishes carat weight from quality, noting that size itself does not determine the quality of a diamond." },
+      { type: "paragraph", text: "That distinction is extremely useful for budgeting. You can deliberately choose: more size, or: higher grades, or: a balance between them. There is no requirement to maximise both." },
+    ],
   },
   {
-    heading: "Set colour by appearance and setting",
+    heading: "9. Decide Between Centre-Stone Size and Total Diamond Coverage",
     content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Colour preferences are affected by sizing, shape, and metal selection. Find metal guides at " },
-          { text: "diamond colour grades explained", href: "/blog/lab-grown-diamond-colour-grades-explained/" },
-          { text: "." }
-        ]
-      }
-    ]
+      { type: "paragraph", text: "The same total jewellery budget can produce very different visual outcomes depending on how diamond weight is distributed. One design may concentrate weight in a single centre diamond. Another may distribute weight across: a halo, side stones, a pavé band, a tennis bracelet, or multiple earrings." },
+      { type: "paragraph", text: "Suppose two fictional pieces each contain 1.50 ct total diamond weight. One might include a dominant centre diamond. The other might distribute the entire weight across many smaller stones. Neither is universally better. Budget decision: Ask: Do I want one visually dominant diamond or more diamond coverage across the complete piece?" },
+      { type: "paragraph", parts: [{ text: "For total weight terminology, read " }, { text: "Total Carat Weight Meaning in Diamond Jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" }] },
+    ],
   },
   {
-    heading: "Set clarity by visible cleanliness and durability",
+    heading: "10. Decide How Much of the Budget Belongs to the Design",
     content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Verify eye-clean parameters for viewing distances instead of overpaying for invisible grades. Details can be found at " },
-          { text: "diamond clarity grades", href: "/blog/lab-grown-diamond-clarity-grades-explained/" },
-          { text: "." }
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Do not treat the setting as merely the object holding the diamond. It is part of the finished jewellery you will actually wear. A design can affect: the amount and type of metal, number of diamonds, overall dimensions, setting complexity, and finished appearance. If you strongly prefer one design, budgeting for that design can make more sense than choosing a cheaper setting purely to increase the centre diamond. Your objective is not to own the highest specification sheet. It is to buy the finished piece you prefer." },
+    ],
   },
   {
-    heading: "Choose carat after visible size is understood",
+    heading: "11. Include the Metal in the Decision",
     content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Evaluate visible width/length dimensions alongside weight parameters. Consult " },
-          { text: "carat weight versus visible diamond size", href: "/blog/carat-weight-vs-visible-diamond-size/" },
-          { text: " and " },
-          { text: "total carat weight explained", href: "/blog/total-carat-weight-diamond-jewellery/" },
-          { text: "." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Allocate for matching in multi-stone pieces",
-    content: [
-      {
-        type: "paragraph",
-        text: "For bracelets, studs, and sets, allocate budget to visual matching (colour, measurements, scale) rather than hyper-focused grades."
-      }
-    ]
-  },
-  {
-    heading: "Decide how much documentation the piece needs",
-    content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Confirm issuer verification, coverage scopes, and check if reports are built into listed quotes. Refer to " },
-          { text: "what certified lab-grown diamond jewellery actually means", href: "/blog/certified-lab-grown-diamond-jewellery-meaning/" },
-          { text: "." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Allocate the metal and design budget together",
-    content: [
-      {
-        type: "paragraph",
-        text: "Metal prices shift by fineness, solid structure weight, and labor. Balance structural thickness limits prior to adding accent stones."
-      }
-    ]
-  },
-  {
-    heading: "Adjust the budget for intended wear",
-    content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Daily wear: ", bold: true },
-          { text: "Prioritise setting thickness, lower snag profiles, and local service access." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Occasional wear: ", bold: true },
-          { text: "Delicate mountings are acceptable, but safe storage is necessary." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Gift purchase: ", bold: true },
-          { text: "Reserve budget for sizing options, presentation packaging, and simple return processes." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Dated occasion: ", bold: true },
-          { text: "Factor in shipping padding to bypass expensive expedited options." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Adjust the allocation by jewellery category",
-    content: [
-      {
-        type: "image",
-        src: "/images/blog/set-budget-lab-grown-diamond-jewellery/4.jpg",
-        alt: "A diamond bracelet clasp and safety wire checks",
-        title: "Category Specific Reserves",
-        caption: "Securing robust clasps and thick earring backs maintains the safety of your jewelry over time."
-      },
-      {
-        type: "table",
-        headers: ["Category", "Protect first", "Common budget distraction"],
-        rows: [
-          ["Stud earrings", "Diamond matching, secure settings, comfortable backs", "Comparing pair total with per-diamond weight"],
-          ["Drop earrings", "Articulation, total ear weight, secure fastening", "Paying for length without checking construction"],
-          ["Ring", "Centre appearance, setting security, shank dimensions, correct size", "Increasing carat while thinning the structure"],
-          ["Pendant", "Centre appearance, bail and chain suitability", "Comparing pendant-only price with chain-included price"],
-          ["Necklace", "Wearable length, chain quality, clasp and diamond distribution", "Using total carat without comparing length or stone count"],
-          ["Bracelet", "Link movement, setting consistency, clasp and safety", "Choosing total weight without checking fit and fastening"],
-          ["Jewellery set", "Consistency across every component", "Treating one combined specification as sufficient"]
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Create an upgrade ladder before shopping",
-    content: [
-      {
-        type: "paragraph",
-        text: "Determine your personal sequence for feature upgrades (Cut -> Setting -> Size -> Colour -> Clarity) to avoid impulse spending."
-      }
-    ]
-  },
-  {
-    heading: "Know when to pause instead of stretching the budget",
-    content: [
-      {
-        type: "paragraph",
-        text: "Stop when product choices consistently break the ceiling, sizing costs remain unstated, or structural limits are thinned to hit carat targets."
-      }
-    ]
-  },
-  {
-    heading: "Include the complete delivered price for Europe and the UK",
-    content: [
-      {
-        type: "paragraph",
-        text: "Factor in VAT percentages, customs, payment exchange adjustments, and international return postage fees."
-      }
-    ]
-  },
-  {
-    heading: "Reserve for ownership, not just acquisition",
-    content: [
-      {
-        type: "paragraph",
-        text: "Allocate small sums for inspection fees, cleaning solutions, prong checkups, rhodium platings, and specific jewelry insurance."
-      }
-    ]
-  },
-  {
-    heading: "Use three product scenarios instead of one rigid specification",
-    content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Scenario A: appearance priority: ", bold: true },
-          { text: "Focus budget on cut quality and face size; select eye-clean clarity." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Scenario B: materials priority: ", bold: true },
-          { text: "Focus on metal weight and simple setting; choose a smaller carat diamond." }
-        ]
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Scenario C: documentation and service priority: ", bold: true },
-          { text: "Prioritise independent reports, return options, and aftercare; select basic mounts." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "A budget allocation worksheet",
-    content: [
-      {
-        type: "table",
-        headers: ["Budget decision", "Your answer"],
-        rows: [
-          ["Maximum total commitment", ""],
-          ["Destination and currency", ""],
-          ["Category and intended wear", ""],
-          ["Essential requirements", ""],
-          ["Important preferences", ""],
-          ["Optional upgrades", ""],
-          ["Estimated tax and delivery", ""],
-          ["Required sizing/personalisation", ""],
-          ["Ownership reserve", ""],
-          ["Contingency", ""],
-          ["Maximum product-page price", ""],
-          ["Minimum metal/construction floor", ""],
-          ["Diamond cut priority", ""],
-          ["Acceptable colour appearance", ""],
-          ["Acceptable clarity appearance", ""],
-          ["Desired visible size", ""],
-          ["Required report type", ""],
-          ["Final all-in total", ""]
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Budget mistakes to avoid",
-    content: [
-      {
-        type: "bullet-list",
-        items: [
-          "Starting with a symbolic carat target rather than intended appearance.",
-          "Treating total carat weight as one diamond’s weight.",
-          "Paying for colour or clarity differences you cannot appreciate.",
-          "Sacrificing cut, setting or construction to increase size.",
-          "Comparing product-page prices without matching specifications.",
-          "Forgetting VAT, customs, conversion and insured delivery.",
-          "Ignoring the cost of an international return.",
-          "Personalising before confirming fit and return eligibility.",
-          "Assuming a warranty covers accidental damage or maintenance.",
-          "Treating resale value as repayment of the purchase.",
-          "Spending the contingency simply because it exists.",
-          "Financing from monthly payment alone without checking total repayment."
-        ]
-      }
-    ]
-  },
-  {
-    heading: "How to compare products within the budget",
-    content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Filter by product price limits, check essentials, normalise carats, compare shapes, and match margins. For full instructions, refer to " },
-          { text: "how to compare lab-grown diamond jewellery online", href: "/blog/compare-lab-grown-diamond-jewellery-online/" },
-          { text: "." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Aurelia Royale’s budget-transparency standard",
-    content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Aurelia Royale helps you select items within your boundaries. Buyers can browse " },
-          { text: "Aurelia Royale jewellery", href: "/shop/" },
-          { text: " or " },
-          { text: "contact Aurelia Royale", href: "/contact/" },
-          { text: " with specification questions." }
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Different jewellery can use different metals, finenesses and constructions. Do not decide what the diamond should consume from the budget without considering the actual finished jewellery material. For example, two yellow-coloured pieces may not have equivalent construction. One could use gold throughout. Another could use a different underlying metal with gold plating. The visually similar colour does not make them economically or materially equivalent." },
+      { type: "paragraph", text: "Your budget comparison should therefore use the verified: underlying metal, fineness, and: construction rather than surface colour alone." },
+      { type: "paragraph", parts: [{ text: "For the full guide, read " }, { text: "How to Check the Metal Used in Diamond Jewellery", href: "/blog/check-metal-used-diamond-jewellery/" }] },
+    ],
   },
   {
     content: [
-      {
-        type: "callout",
-        title: "Final verdict",
-        theme: "gold-border",
-        parts: [
-          {
-            text: "Set a lab-grown diamond jewellery budget from the outside in.\n\n"
-          },
-          {
-            text: "Begin with a comfortable all-in ceiling. Subtract delivery, tax, required options, ownership and contingency. Protect a minimum standard for construction, security and disclosure. Then allocate the remaining product budget to the diamond characteristics and design features that produce a visible or practical benefit for you."
-          }
-        ]
-      },
-      {
-        type: "faq",
-        items: [
-          {
-            question: "How much should I spend on lab-grown diamond jewellery?",
-            answer: "There is no universal amount or salary rule. Choose an all-in ceiling that is comfortable for your finances and includes the complete purchase, delivery, tax, required options and expected ownership costs."
-          },
-          {
-            question: "Are lab-grown diamonds suitable for a lower jewellery budget?",
-            answer: "They can provide different size and quality options at the time of purchase, but the budget should still protect cut, setting, metal, documentation and aftercare rather than focusing only on diamond size."
-          },
-          {
-            question: "Should I spend more on diamond cut or carat weight?",
-            answer: "Protect attractive cut and visible performance before increasing weight. A poorly proportioned diamond can hide weight and appear dull or smaller than expected."
-          },
-          {
-            question: "Can I save money by choosing a lower clarity grade?",
-            answer: "Possibly, if the diamond remains eye-clean for the size, shape and viewing conditions and no characteristic creates a durability concern. Compare individual diamonds rather than relying only on the grade."
-          },
-          {
-            question: "Can I save money by choosing a lower colour grade?",
-            answer: "Possibly. Metal colour, shape, size and personal sensitivity influence appearance. Compare the diamond in a similar setting and lighting before deciding whether a higher grade provides value."
-          },
-          {
-            question: "Should my budget include VAT and customs duty?",
-            answer: "Yes. Use the total delivered cost, including applicable tax, insured delivery, customs, clearance and currency conversion. Confirm whether charges are included or collected on arrival."
-          },
-          {
-            question: "Does total carat weight help me budget?",
-            answer: "Only when its scope is clear. Separate centre-stone weight, accent weight and total weight. Two pieces with equal total weight can look and cost very differently."
-          },
-          {
-            question: "Should I pay extra for a diamond grading report?",
-            answer: "Appropriate independent documentation is valuable for an important individual diamond. For small multi-stone jewellery, a different documentation approach may be reasonable. Confirm the report's issuer, type and scope."
-          },
-          {
-            question: "Should I include jewellery insurance in the budget?",
-            answer: "Consider it according to the item's value, risk and existing cover. A warranty and grading report do not replace insurance for theft, loss or accidental damage."
-          },
-          {
-            question: "Is financing a good way to increase my jewellery budget?",
-            answer: "Financing changes timing, not the underlying price. Compare total repayment, interest, fees and return treatment, and avoid a commitment that creates financial strain."
-          },
-          {
-            question: "How much contingency should I keep?",
-            answer: "There is no fixed percentage. Keep enough for realistic small changes in tax, conversion, sizing or delivery based on the transaction. Unused contingency does not need to be spent."
-          },
-          {
-            question: "What should I reduce first if the jewellery is over budget?",
-            answer: "Remove optional personalisation or complexity, then test modest adjustments to carat, colour or clarity that preserve attractive appearance. Do not first cut security, structural quality or essential fit."
-          }
-        ]
-      },
-      {
-        type: "cta-banner",
-        title: "Budget with Complete Transparency",
-        subtitle: "Aurelia Royale guides you through honest price disclosures, clear tax parameters, and comprehensive component specifications. Explore our collection.",
-        shopHref: "/shop/",
-        contactHref: "/contact/"
-      }
-    ]
-  }
+      { type: "image", src: "/images/blog/set-budget-lab-grown-diamond-jewellery/2.jpg", alt: "Budgeting by jewellery type ring earrings pendant bracelet necklace", title: "12. Budget According to Jewellery Type", caption: "Different jewellery categories distribute value differently — start with the category, then decide which characteristics dominate.", priority: false },
+    ],
+  },
+  {
+    heading: "12. Budget According to Jewellery Type",
+    content: [
+      { type: "paragraph", text: "Different categories distribute value differently. A solitaire ring can concentrate a large part of the buying decision around one centre diamond. A tennis bracelet distributes diamonds across the wrist. Stud earrings normally require a pair. A pendant can involve a centre stone, setting and chain. That means the same total spending limit should not be allocated identically across every jewellery category. Start with the category. Then decide which characteristics dominate that particular product." },
+    ],
+  },
+  {
+    heading: "13. Budgeting for a Ring",
+    content: [
+      { type: "paragraph", text: "For a centre-stone ring, you may need to balance: centre-diamond size, diamond quality, metal, setting design, and ring dimensions. If a larger centre stone is the main priority, avoid increasing other grades automatically. If the design is the main priority, protect the setting choice first. If everyday wear matters most, physical profile and comfort may deserve more attention than an incremental clarity upgrade." },
+    ],
+  },
+  {
+    heading: "14. Budgeting for Earrings",
+    content: [
+      { type: "paragraph", text: "For diamond earrings, clarify whether the stated carat figure describes: one stone, one earring, or: the pair total. A pair containing 2.00 ct total and a pair containing 2.00 ct per earring are fundamentally different products. Also check physical diameter. Carat weight alone does not tell you exactly how large the earrings will appear." },
+    ],
+  },
+  {
+    heading: "15. Budgeting for a Pendant",
+    content: [
+      { type: "paragraph", text: "A pendant budget can involve: centre-diamond size, accent stones, pendant design, metal, and chain. Do not spend the entire mental budget on the diamond while ignoring the chain or finished pendant dimensions. Ask whether your priority is: a larger centre diamond, a more decorative pendant, or: the complete necklace design." },
+    ],
+  },
+  {
+    heading: "16. Budgeting for a Tennis Bracelet or Necklace",
+    content: [
+      { type: "paragraph", text: "Multi-stone jewellery requires a different approach. Total diamond weight is distributed across many stones. Increasing the overall carat total can affect stone size, stone count or both depending on the design. Length also matters. Two pieces with the same total carat weight can present differently when the stones are distributed across different lengths. Budget around the finished effect, not TCW alone." },
+    ],
+  },
+  {
+    heading: "17. Use a Priority Ladder",
+    content: [
+      { type: "paragraph", text: "Once you have a maximum budget, rank the variables. For example: Priority 1: design, Priority 2: visible diamond size, Priority 3: cut/visual performance, Priority 4: metal, Priority 5: colour, Priority 6: clarity. That sequence is only an example. Another buyer might place metal first. Another might put clarity higher. The purpose is to stop yourself from paying for upgrades that rank below characteristics you would have preferred to protect." },
+    ],
+  },
+  {
+    heading: "18. Identify Your \"Good Enough\" Point",
+    content: [
+      { type: "paragraph", text: "Every graded specification can encourage upward movement. F sounds better than G. VVS sounds better than VS. A larger carat sounds better than a smaller one. But a successful budget needs a stopping point. Ask: At what level am I already satisfied? Once a specification reaches that threshold, put additional budget toward a higher-priority feature rather than upgrading automatically. This is especially useful with characteristics where the incremental difference may be more visible on the laboratory report than during normal wear." },
+    ],
+  },
+  {
+    heading: "19. Do Not Budget Around Labels Alone",
+    content: [
+      { type: "paragraph", text: "Marketing labels such as: premium, luxury, elite, signature, or: exclusive do not themselves tell you what specification you are receiving. If one product costs more, compare the actual differences. Are you getting: a larger centre stone? different diamond grades? more total diamond weight? a different metal? more substantial dimensions? a different construction? an individually reported stone? If the factual difference is unclear, do not increase your budget based solely on positioning language." },
+    ],
+  },
+  {
+    heading: "20. Compare Complete Products Before Raising the Budget",
+    content: [
+      { type: "paragraph", text: "Suppose your budget is £1,500. You find one piece at £1,450 and another at £1,700. Do not immediately increase the budget because the second product has a stronger headline specification. First ask what changed. Perhaps the second piece has: higher clarity that you cannot readily distinguish, a larger centre diamond, a different precious metal, or a design you genuinely prefer. Only raise the budget if the extra spend buys something that ranks highly in your priorities. Otherwise, the original budget is doing its job." },
+    ],
+  },
+  {
+    heading: "A Clearly Fictional Budget Example",
+    content: [
+      { type: "paragraph", text: "The following example is purely illustrative. It does not represent Aurelia Royale pricing, current market pricing or a recommendation about what a particular diamond should cost." },
+      { type: "paragraph", text: "Imagine a buyer decides: Comfortable budget: £1,500, Absolute maximum: £1,650. Their priorities are: 1. Design, 2. Visible centre-diamond presence, 3. Cut/appearance, 4. Metal, 5. Colour, 6. Clarity. They compare three fictional pieces." },
+      { type: "table", headers: ["Fictional option", "Price", "Main difference", "Decision implication"], rows: [["A", "£1,350", "Preferred design, smaller centre diamond", "Leaves budget unused but satisfies top priority"], ["B", "£1,495", "Preferred design + larger centre diamond", "Uses almost all comfortable budget"], ["C", "£1,640", "Same approximate visual size as B but higher clarity", "Uses maximum mainly for lower-priority upgrade"]] },
+      { type: "paragraph", text: "If the buyer cannot see a meaningful benefit from the clarity increase in Option C and clarity ranks sixth, spending the extra £145 may not align with their priorities. If Option B genuinely provides the design and visible presence they want, it may be the stronger budget fit. But if they prefer Option A's proportions, there is no rule saying they must spend the remaining £150. Unused budget is not wasted budget. That is the point of setting the limit before shopping." },
+    ],
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/set-budget-lab-grown-diamond-jewellery/3.jpg", alt: "Size-first vs design-first budget example lab-grown diamond jewellery", title: "A Second Fictional Example: Size-First vs Design-First", caption: "Two buyers with the same budget can reach completely different — and equally correct — decisions based on their different priorities.", priority: false },
+    ],
+  },
+  {
+    heading: "A Second Fictional Example: Size-First vs Design-First",
+    content: [
+      { type: "paragraph", text: "Again, these figures are fictional and are not Aurelia prices. Imagine two buyers each set a £2,000 maximum budget. Buyer A's priority is: largest suitable centre-diamond presence within the budget. Buyer B's priority is: a particular jewellery design they intend to wear frequently." },
+      { type: "paragraph", text: "Buyer A may choose a simpler setting and allocate more of the available spending to the centre diamond. Buyer B may choose a smaller centre diamond because more of the available budget goes toward the preferred finished design. Neither has budgeted incorrectly. They are solving different problems." },
+      { type: "paragraph", text: "This is why generic advice such as: \"Spend X% on the diamond and Y% on the setting\" is rarely useful across every buyer and jewellery category." },
+    ],
+  },
+  {
+    heading: "Should You Use Fixed Budget Percentages?",
+    content: [
+      { type: "paragraph", text: "Usually, no. You may see formulas suggesting that a certain percentage of the total budget should go to: the centre diamond, setting, metal, or another component. Those ratios can be useful as rough planning exercises, but they should not become rigid rules. A solitaire and a multi-stone necklace have completely different cost structures. A platinum piece and a plated piece are different products. A one-stone ring and tennis bracelet distribute diamonds differently. Allocate according to the actual product and your priorities." },
+    ],
+  },
+  {
+    heading: "Build a Flexible Budget Instead",
+    content: [
+      { type: "paragraph", text: "A more useful approach is to divide your total amount into three conceptual buckets." },
+      { type: "paragraph", text: "Must-Have Budget: This covers the characteristics you are unwilling to compromise on. Examples could include: a preferred jewellery category, metal, minimum physical size, or a particular design." },
+      { type: "paragraph", text: "Flexible Budget: This covers features where you are willing to move up or down. That might include: colour, clarity, carat, or design details." },
+      { type: "paragraph", text: "Reserve: Keep a small mental reserve below your absolute maximum. That gives you room if a meaningful upgrade appears without forcing you to rewrite your entire budget. You do not have to spend the reserve." },
+    ],
+  },
+  {
+    heading: "Do Not Use a Budget to Predict Resale Value",
+    content: [
+      { type: "paragraph", text: "A higher purchase price does not guarantee stronger future resale. Likewise, a grading report does not guarantee a future selling price. If resale matters to your decision, investigate it separately rather than assuming that increasing the original budget creates an investment." },
+      { type: "paragraph", parts: [{ text: "For the dedicated topic, read " }, { text: "Do Lab-Grown Diamonds Have Resale Value?", href: "/blog/do-lab-grown-diamonds-have-resale-value/" }] },
+    ],
+  },
+  {
+    heading: "Do Not Set the Budget From a Discount Percentage",
+    content: [
+      { type: "paragraph", text: "A product advertised as: 40% off does not tell you whether it is a better fit for your budget. Your budget should be based on: the actual final price, the specifications, the design, and: your priorities. A large-looking discount is not itself a jewellery specification. Ask: Would I still consider this product at its actual final price if I had never seen the percentage discount? That is often a more useful question." },
+    ],
+  },
+  {
+    heading: "Why Two Similar Pieces Can Have Different Prices",
+    content: [
+      { type: "paragraph", text: "Two pieces that look similar in a photograph can differ in: diamond carat, diamond dimensions, colour, clarity, cut, total diamond weight, metal, construction, product dimensions, reporting, and other product factors. This budget guide should not duplicate those explanations. If your question becomes: \"Why does Product A cost more than Product B?\" continue with What Affects the Price of Lab-Grown Diamond Jewellery? Use that guide to understand the price difference. Then return to this budget question: \"Is that difference worth paying for according to my priorities?\" That keeps the two decisions separate." },
+    ],
+  },
+  {
+    heading: "Do Not Increase Your Budget Before Making the Products Comparable",
+    content: [
+      { type: "paragraph", text: "A £1,000 product and £1,500 product cannot be compared meaningfully if one uses centre-stone carat and the other advertises total diamond weight. Likewise, comparing an 18ct gold item with gold-plated silver based only on price can be misleading. Before deciding whether to spend more, normalise the specifications." },
+      { type: "paragraph", parts: [{ text: "For side-by-side comparison, use " }, { text: "How to Compare Lab-Grown Diamond Jewellery Online", href: "/blog/compare-lab-grown-diamond-jewellery-online/" }] },
+    ],
+  },
+  {
+    heading: "Budget for Real-World Size, Not Photography",
+    content: [
+      { type: "paragraph", text: "Online jewellery is usually photographed at substantial magnification. A small pendant can fill the screen. A pair of studs can appear dramatically larger than they will on the ear. Before paying more for size, compare actual dimensions. For a centre diamond, use millimetre measurements. For finished jewellery, use: diameter, width, height, drop, chain length, bracelet length, or other relevant dimensions." },
+      { type: "paragraph", parts: [{ text: "For the full methodology, read " }, { text: "How to Check Jewellery Dimensions and Weight Online", href: "/blog/check-jewellery-product-dimensions-weight/" }] },
+    ],
+  },
+  {
+    heading: "Budget Around What You Will Actually Wear",
+    content: [
+      { type: "paragraph", text: "A purchase that stays in a jewellery box provides little practical value to someone buying primarily for regular wear. If your aim is frequent use, ask: Will this design work with my normal clothing? Is the jewellery physically comfortable for how I live? Will I actually wear this size? Does the metal fit my existing jewellery? A technically impressive diamond in a design you rarely use may be a worse personal budget decision than a simpler piece you wear constantly." },
+    ],
+  },
+  {
+    heading: "Budgeting for a Gift",
+    content: [
+      { type: "paragraph", text: "Gift buying adds uncertainty because your own preferences may not match the recipient's. Before increasing the budget, improve your certainty about: their jewellery category, metal preference, style, and sizing where relevant. Paying more does not compensate for choosing the wrong style." },
+      { type: "paragraph", parts: [{ text: "For the full gift framework, use " }, { text: "What to Know Before Purchasing Fine Jewellery as a Gift", href: "/blog/buying-fine-jewellery-as-gift/" }] },
+    ],
+  },
+  {
+    heading: "Budgeting for Your First Diamond Jewellery Piece",
+    content: [
+      { type: "paragraph", text: "If this is your first significant jewellery purchase, simplify the decision. Choose: your jewellery category, your spending limit, your main visual priority, your preferred style, your metal, and: the fit information you need. Then learn only enough technical diamond information to compare the relevant products intelligently." },
+      { type: "paragraph", parts: [{ text: "For the full beginner pathway, read " }, { text: "A First-Time Buyer's Guide to Lab-Grown Diamond Jewellery", href: "/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/" }] },
+    ],
+  },
+  {
+    heading: "What If Aurelia Does Not Display a Price?",
+    content: [
+      { type: "paragraph", text: "Do not invent or estimate one. For Aurelia designs where the client has not supplied an approved direct-purchase price, the site should use: Join Waitlist or: Enquire About This Piece. Submitting an email address should register interest. It should not imply that the customer has: accepted a price, placed an order, reserved the jewellery, or started production. When confirmed pricing becomes available, the customer can compare it with their budget and decide whether to proceed." },
+    ],
+  },
+  {
+    heading: "What If the Confirmed Price Is Above Your Budget?",
+    content: [
+      { type: "paragraph", text: "You have four sensible options. You can choose a different design. You can reconsider a lower-priority specification. You can decide not to proceed. Or, if the extra amount buys something genuinely important to you and remains financially comfortable, you can consciously revise your maximum. What you should avoid is automatically raising the budget simply because the next product looks marginally better on paper." },
+    ],
+  },
+  {
+    heading: "What If the Product Is Well Below Your Budget?",
+    content: [
+      { type: "paragraph", text: "You do not need to upgrade it. If the piece satisfies: your design preference, size, diamond priorities, metal, and fit, there is no requirement to spend the remainder. A budget is permission to spend up to an amount. It is not an instruction to spend all of it." },
+    ],
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/set-budget-lab-grown-diamond-jewellery/4.jpg", alt: "Lab-grown diamond jewellery budget worksheet priorities spending decision", title: "A Practical Diamond Jewellery Budget Worksheet", caption: "The final two questions are the most important: what does paying more actually improve, and is that improvement important to you?", priority: false },
+    ],
+  },
+  {
+    heading: "A Practical Diamond Jewellery Budget Worksheet",
+    content: [
+      { type: "table", headers: ["Decision", "Your Answer"], rows: [["Jewellery purpose", ""], ["Jewellery category", ""], ["Comfortable total budget", ""], ["Absolute maximum", ""], ["Priority #1", ""], ["Priority #2", ""], ["Priority #3", ""], ["Preferred diamond shape", ""], ["Desired visible scale", ""], ["Colour range you are comfortable with", ""], ["Clarity range you are comfortable with", ""], ["Cut/visual-performance priority", ""], ["Preferred metal", ""], ["Fit/size requirement", ""], ["Ready-made or made-to-order preference", ""], ["Important deadline, if any", ""], ["Final product price", ""], ["Amount below/above comfortable budget", ""], ["What does paying more actually improve?", ""], ["Is that improvement important to me?", ""]] },
+      { type: "paragraph", text: "The final two questions are the most important. Do not ask only: \"Can I afford the higher-priced option?\" Ask: \"What am I receiving for the additional money, and do I care about that difference?\"" },
+    ],
+  },
+  {
+    heading: "Frequently Asked Questions",
+    content: [
+      { type: "faq", title: "Frequently Asked Questions", items: [
+        { question: "How much should I spend on lab-grown diamond jewellery?", answer: "There is no universal correct amount. Set a budget based on what you can comfortably spend and the type of jewellery you want." },
+        { question: "Is there a salary rule for buying diamond jewellery?", answer: "You do not need to follow one. A personal spending limit is more useful than an arbitrary income multiple." },
+        { question: "Should I spend my full jewellery budget?", answer: "No. Your maximum is a limit, not a target." },
+        { question: "Should I set my budget before choosing a diamond?", answer: "Usually yes. Otherwise small specification upgrades can continually increase the total spend." },
+        { question: "Should most of my budget go to the diamond?", answer: "Not necessarily. The right allocation depends on the jewellery category and your priorities." },
+        { question: "Should I use a fixed diamond-to-setting percentage?", answer: "Not as a universal rule. Different jewellery types have different cost structures." },
+        { question: "Should I prioritise carat?", answer: "Only if diamond weight or visible centre-stone presence is one of your main priorities." },
+        { question: "Does more carat always mean a visibly larger diamond?", answer: "No. Compare physical dimensions as well." },
+        { question: "Is carat a diamond quality grade?", answer: "No. Carat measures weight. GIA distinguishes it from cut, colour and clarity as a separate characteristic." },
+        { question: "Should I pay for the highest clarity I can afford?", answer: "Not automatically. Decide whether the higher clarity materially improves something you value." },
+        { question: "Should I always buy the highest colour grade?", answer: "No. Choose according to your preferences, design and budget." },
+        { question: "Is cut worth prioritising?", answer: "If light performance and sparkle are important to you, cut deserves serious consideration." },
+        { question: "Should I spend more for an IGI report?", answer: "A laboratory report and a higher price are separate questions. First determine whether appropriate independent documentation matters for that particular diamond and what the report actually covers." },
+        { question: "Should every small diamond have its own report?", answer: "No. Reporting practices differ, particularly for multi-stone jewellery and small accent stones." },
+        { question: "Should I budget for centre carat or total carat?", answer: "Understand both when relevant. They describe different things." },
+        { question: "Should I spend more for 18ct gold?", answer: "Do not make the decision from fineness alone. Compare the actual product, metal, design and your priorities." },
+        { question: "Is platinum always worth the extra cost?", answer: "There is no universal answer. Evaluate the actual metal choice and product rather than assuming one material must always be preferred." },
+        { question: "Does a more expensive piece automatically have a better diamond?", answer: "No." },
+        { question: "Does a cheaper piece automatically offer better value?", answer: "No. Value depends on what specifications and design matter to you." },
+        { question: "Why can two similar pieces have different prices?", answer: "Differences can come from the diamond, metal, dimensions, construction, design and other product factors. Use What Affects the Price of Lab-Grown Diamond Jewellery? for the detailed explanation." },
+        { question: "Can I use price per carat to compare finished jewellery?", answer: "It can be misleading because finished jewellery also contains metal, design, setting and other components." },
+        { question: "Should I increase my budget if I find a bigger diamond?", answer: "Only if the size increase matters enough to you and the new total remains comfortable." },
+        { question: "Should I increase my budget for VVS over VS?", answer: "Only after understanding what the difference means for the particular diamond and your priorities." },
+        { question: "Is unused budget wasted?", answer: "No." },
+        { question: "Can I budget before Aurelia publishes a product price?", answer: "You can establish your own maximum, but you cannot determine whether the product fits it until a confirmed price or quotation is provided." },
+        { question: "Does joining Aurelia's waitlist commit me to the price later?", answer: "It should not under the current proposed model. Joining should register interest only." },
+        { question: "Should Aurelia publish estimated prices if final prices are unavailable?", answer: "No unsupported product price should be invented." },
+        { question: "What is the best budgeting rule?", answer: "Spend according to your priorities rather than automatically maximising every specification." },
+      ]},
+    ],
+  },
+  {
+    heading: "Final Answer: How Should You Set a Budget for Lab-Grown Diamond Jewellery?",
+    content: [
+      { type: "paragraph", text: "Start with an amount you can comfortably spend. Set an absolute maximum and do not treat it as a target. Then choose the feature you care about most. It might be: the jewellery design, visible centre-diamond size, diamond coverage, cut and appearance, metal, or another characteristic. Protect that priority first." },
+      { type: "paragraph", text: "For the remaining specifications, establish levels that satisfy you instead of automatically moving upward until the budget is exhausted. Compare carat with dimensions. Separate centre-stone weight from total diamond weight. Consider the finished jewellery—not just the diamond. Check the actual metal and construction. And before paying more for one product, identify exactly what the additional money buys." },
+      { type: "paragraph", parts: [{ text: "If the question is why two pieces cost differently, continue with " }, { text: "What Affects the Price of Lab-Grown Diamond Jewellery?", href: "/blog/what-determines-price-lab-grown-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "If the question is which of two pieces gives you the better fit for your priorities, use " }, { text: "How to Compare Lab-Grown Diamond Jewellery Online", href: "/blog/compare-lab-grown-diamond-jewellery-online/" }] },
+      { type: "paragraph", parts: [{ text: "For carat and physical size, read " }, { text: "Diamond Carat Weight vs Size", href: "/blog/carat-weight-vs-visible-diamond-size/" }] },
+      { type: "paragraph", parts: [{ text: "For total diamond weight, read " }, { text: "Total Carat Weight Meaning in Diamond Jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "For finished jewellery measurements, use " }, { text: "How to Check Jewellery Dimensions and Weight Online", href: "/blog/check-jewellery-product-dimensions-weight/" }] },
+      { type: "paragraph", parts: [{ text: "For choosing your first piece, continue with " }, { text: "A First-Time Buyer's Guide to Lab-Grown Diamond Jewellery", href: "/blog/first-time-buyers-guide-lab-grown-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "For the final product specification check, use " }, { text: "What to Check Before Buying Lab-Grown Diamond Jewellery", href: "/blog/what-to-check-before-buying-lab-grown-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "Where an Aurelia Royale design currently has no approved direct-purchase price, " }, { text: "Join the Waitlist", href: "/contact/" }, { text: " or submit an enquiry. That should register interest only; it should not imply that a price has been accepted or an order has been created." }] },
+      { type: "cta-banner", title: "Explore Aurelia Royale Lab-Grown Diamond Jewellery", subtitle: "Set your budget first — then protect the priority that matters most to you.", shopHref: "/shop/", contactHref: "/contact/" },
+    ],
+  },
 ];
 
-export default function Page() {
+export default function BlogBudgetPage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
-      {/* Script injection for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Buying Lab-Grown Diamond Jewellery
-          </span>
-          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How to Set a Budget for Lab-Grown Diamond Jewellery
-          </h1>
-          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
-          </p>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">Lab-Grown Diamond Education</span>
+          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">How to Set a Budget for Lab-Grown Diamond Jewellery</h1>
+          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">Priorities, Trade-Offs and Spending Decisions Explained • Published September 10, 2026</p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
+      <RelatedArticles currentSlug="set-budget-lab-grown-diamond-jewellery" />
       <NewsletterSection />
     </main>
   );
 }
+

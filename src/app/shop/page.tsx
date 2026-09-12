@@ -93,7 +93,9 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
             <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#EDE8DF]">
                 <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-24 sm:py-28 ">
                     <h1 className="font-cormorant text-5xl font-medium text-deep sm:text-6xl md:text-7xl capitalize">
-                        SHOP
+                        {resolvedCategory && resolvedCategory !== "All"
+                            ? `${getCategoryDisplayLabel(resolvedCategory)} Collection`
+                            : "Fine Lab-Grown Diamond Jewellery"}
                     </h1>
                 </div>
             </section>

@@ -1,622 +1,263 @@
-import React from "react";
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
-import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
-// 1. SEO Metadata
+import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
+
 export const metadata: Metadata = {
   title: "How to Choose a Lab-Grown Diamond Necklace",
-  description: "Choose a lab-grown diamond necklace by design, length, diamond quality, carat distribution, chain, clasp, metal and certification.",
-  alternates: {
-    canonical: "https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-necklace/",
-  },
+  description: "Learn how to choose a lab-grown diamond necklace by comparing design, length, chain, pendant size, carat weight, clasp, metal, construction and diamond quality.",
+  alternates: { canonical: "https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-necklace/" },
 };
 
-// 2. JSON-LD Schema
-const schemaMarkup = {
-  "@context":"https://schema.org",
-  "@graph":[
-    {
-      "@type":"BlogPosting",
-      "@id":"https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-necklace/#article",
-      "mainEntityOfPage":{"@type":"WebPage","@id":"https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-necklace/"},
-      "headline":"How to Choose a Lab-Grown Diamond Necklace",
-      "description":"Choose a lab-grown diamond necklace by design, length, diamond quality, carat distribution, chain, clasp, metal and certification.",
-      "image":"https://www.aureliaroyale.com/images/blog/how-to-choose-lab-grown-diamond-necklace.webp",
-      "datePublished":"2026-07-16",
-      "dateModified":"2026-07-16",
-      "author":{"@type":"Organization","name":"Aurelia Royale","url":"https://www.aureliaroyale.com/"},
-      "publisher":{"@type":"Organization","name":"Aurelia Royale","url":"https://www.aureliaroyale.com/"},
-      "inLanguage":"en-GB",
-      "articleSection":"Product-Category Guides",
-      "keywords":["how to choose a lab-grown diamond necklace","lab-grown diamond necklace buying guide","lab diamond necklace"]
-    },
-    {
-      "@type":"BreadcrumbList",
-      "@id":"https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-necklace/#breadcrumb",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Home","item":"https://www.aureliaroyale.com/"},
-        {"@type":"ListItem","position":2,"name":"Journal","item":"https://www.aureliaroyale.com/blog/"},
-        {"@type":"ListItem","position":3,"name":"How to Choose a Lab-Grown Diamond Necklace","item":"https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-necklace/"}
-      ]
-    },
-    {
-      "@type":"FAQPage",
-      "@id":"https://www.aureliaroyale.com/blog/how-to-choose-lab-grown-diamond-necklace/#faq",
-      "mainEntity":[
-        {"@type":"Question","name":"What should I look for in a lab-grown diamond necklace?","acceptedAnswer":{"@type":"Answer","text":"Check construction, length, dimensions, carat distribution, diamond quality, chain, attachment points, clasp, metal and report scope."}},
-        {"@type":"Question","name":"Are lab-grown diamonds suitable for necklaces?","acceptedAnswer":{"@type":"Answer","text":"Yes. The diamonds are durable, while the chain, setting and clasp still require care and inspection."}},
-        {"@type":"Question","name":"What necklace length should I choose?","acceptedAnswer":{"@type":"Answer","text":"Choose by desired placement, neck measurement, pendant drop, clothing and layering plan rather than a universal label."}},
-        {"@type":"Question","name":"Is a diamond necklace the same as a diamond pendant?","acceptedAnswer":{"@type":"Answer","text":"Not always. A pendant is a suspended focal element; necklace covers pendant, station, line and other constructions."}},
-        {"@type":"Question","name":"What does total carat weight mean for a necklace?","acceptedAnswer":{"@type":"Answer","text":"It is the combined weight of all diamonds. Confirm centre, accent and total weights separately."}},
-        {"@type":"Question","name":"Should every necklace diamond have a certificate?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. A centre stone may have a report, while smaller stones may use a jewellery report or retailer specifications."}},
-        {"@type":"Question","name":"How do I know how large a diamond necklace will look?","acceptedAnswer":{"@type":"Answer","text":"Use pendant or diamond-section dimensions with credible on-body imagery, not carat weight alone."}},
-        {"@type":"Question","name":"Should a pendant be removable from its chain?","acceptedAnswer":{"@type":"Answer","text":"It depends on the design. Confirm bail dimensions, clasp passage and whether removal is intended."}},
-        {"@type":"Question","name":"Why does my pendant move off-centre?","acceptedAnswer":{"@type":"Answer","text":"Body movement, chain length, bail shape, pendant and clasp weight can cause shifting."}},
-        {"@type":"Question","name":"What clasp is best for a diamond necklace?","acceptedAnswer":{"@type":"Answer","text":"There is no universal best. It should suit the weight, engage positively and be manageable for the wearer."}},
-        {"@type":"Question","name":"Does a hallmark certify the necklace diamonds?","acceptedAnswer":{"@type":"Answer","text":"No. It concerns precious-metal fineness; diamond origin and quality need separate disclosure or reporting."}},
-        {"@type":"Question","name":"How should I store a diamond necklace?","acceptedAnswer":{"@type":"Answer","text":"Fasten it and store it separately, laid flat or gently supported, to reduce tangling, kinking and contact."}}
-      ]
-    }
-  ]
-};
-
-// 3. Article content sections
 const articleSections: ArticleSection[] = [
   {
     content: [
-      {
-        type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-necklace/68 (1).jpg",
-        alt: "How to choose a lab-grown diamond necklace - complete buying guide",
-        title: "How to Choose a Lab-Grown Diamond Necklace",
-        caption: "The right diamond necklace balances the stones with its chain, length, clasp and scale.",
-        priority: true
-      },
-      {
-        type: "paragraph",
-        text: "A lab-grown diamond necklace is more than its centre stone. Chain length determines placement, pendant dimensions determine visible scale, and the clasp and attachment points support the entire piece."
-      },
-      {
-        type: "paragraph",
-        text: "Choose the design as a complete system. A strong product page should explain where the diamonds sit, how their carat weight is distributed, how the necklace fastens and exactly what any laboratory report covers."
-      }
-    ]
+      { type: "image", src: "/images/blog/how-to-choose-lab-grown-diamond-necklace/68 (1).jpg", alt: "How to choose lab-grown diamond necklace design length chain pendant carat clasp metal", title: "How to Choose a Lab-Grown Diamond Necklace", caption: "A useful buying sequence: necklace design → focal placement → length → physical dimensions → diamond distribution → chain and construction → clasp → metal → diamond information → final product verification.", priority: true },
+      { type: "paragraph", text: "Choosing a lab-grown diamond necklace involves more than deciding how many carats you want. A solitaire pendant necklace, a station necklace and a continuous diamond line necklace can all contain laboratory-grown diamonds while looking and behaving completely differently. One concentrates the visual focus around a single centre point. Another spreads diamonds at intervals across a chain. Another creates a broad diamond line across the neckline." },
+      { type: "paragraph", text: "The chain itself also matters. Length determines where the jewellery sits. Chain construction affects movement and visual weight. The clasp affects usability and security. Pendant size changes how the same chain length appears. In a line necklace, weight distribution and articulation affect whether the necklace follows the neckline smoothly." },
+      { type: "paragraph", text: "A useful buying sequence is therefore: necklace design → focal placement → length → physical dimensions → diamond distribution → chain and construction → clasp → metal → diamond information → final product verification." },
+    ],
   },
   {
-    heading: "Quick answer: how should you choose a diamond necklace?",
+    heading: "Quick Answer: What Should You Check Before Buying a Lab-Grown Diamond Necklace?",
     content: [
-      {
-        type: "paragraph",
-        text: "Choose in this order:"
-      },
-      {
-        type: "numbered-list",
-        items: [
-          "Choose the construction: pendant, station, line, cluster or coloured-stone design.",
-          "Decide where the necklace should sit.",
-          "Check total length and every adjustable position.",
-          "Compare pendant or diamond-set-section dimensions in millimetres.",
-          "Separate centre-stone weight from total carat weight.",
-          "Assess diamond quality and consistency.",
-          "Review chain style, gauge, bail and connection points.",
-          "Inspect the clasp and any safety details.",
-          "Confirm metal, fineness and hallmark information.",
-          "Identify report type, issuer and exact coverage."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Do not buy from a close-up alone. Online images can communicate detail but not reliable scale or placement."
-      }
-    ]
+      { type: "paragraph", text: "Start by deciding what kind of necklace you actually want. A pendant necklace is usually the strongest choice when you want one clear focal element. A station necklace spreads individual diamonds around a visible chain. A diamond line necklace creates greater continuous diamond coverage across the neckline." },
+      { type: "paragraph", text: "Next, check the actual necklace length and the dimensions of the decorative elements. Do not judge size from an enlarged product photograph. Then understand how the diamond weight is distributed. After that, examine the chain or linked construction, clasp and overall weight distribution. Finally, verify the metal, applicable diamond documentation, availability and exactly what is included in the product." },
+    ],
   },
   {
-    heading: "1. Choose the necklace construction",
+    heading: "The Lab-Grown Diamond Necklace Buying Framework",
     content: [
-      {
-        type: "paragraph",
-        text: "Different necklace styles offer different looks and wearing experiences."
-      },
-      {
-        type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-necklace/68 (2).jpg",
-        alt: "Lab-grown diamond necklace styles - pendant, solitaire, station, line, cluster and coloured-stone",
-        title: "Diamond Necklace Styles Compared",
-        caption: "Different necklace constructions offer different diamond distribution, visibility and wearing experiences.",
-        priority: false
-      },
-      {
-        type: "table",
-        headers: ["Style", "Construction", "Main buying question"],
-        rows: [
-          ["Pendant necklace", "One focal element suspended or fixed to a chain", "Is the pendant removable, fixed or sliding?"],
-          ["Solitaire necklace", "One principal diamond, often in a minimal setting", "Are centre weight and dimensions clear?"],
-          ["Station necklace", "Diamonds spaced along a chain", "Do stations remain oriented and evenly spaced?"],
-          ["Line or rivière-style necklace", "Continuous or graduated diamond-set links", "Does it articulate and lie flat?"],
-          ["Cluster or motif necklace", "Several stones form a focal shape", "Is the headline weight distributed across many stones?"],
-          ["Coloured-stone necklace", "Coloured gems with diamond accents", "Are every stone's identity and treatment disclosed?"]
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Product names vary. Depend on construction details, not the label."
-      }
-    ]
+      { type: "table", headers: ["Stage", "Main Question"], rows: [["Design", "Pendant, station, line or another necklace structure?"], ["Focal placement", "One central focus or diamonds distributed across neckline?"], ["Length", "Where will the necklace sit?"], ["Dimensions", "How large is the pendant or diamond-set section?"], ["Diamond distribution", "One large diamond or many smaller diamonds?"], ["Chain/construction", "How does the necklace move and carry its weight?"], ["Clasp", "How does it fasten and remain secure?"], ["Metal", "What metal and fineness are actually used?"], ["Diamond information", "What do the carat, grade and documentation claims cover?"], ["Availability", "In stock, waitlist, made to order or another status?"], ["Verification", "Do the specifications and images tell one consistent story?"]] },
+    ],
   },
   {
-    heading: "2. Select placement before length",
+    heading: "Step 1: Choose the Necklace Design",
     content: [
-      {
-        type: "paragraph",
-        text: "The same chain length sits differently depending on neck circumference, body proportions, pendant weight, clothing and the chain's structure."
-      },
-      {
-        type: "paragraph",
-        text: "Decide whether the necklace should sit:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "close to the base of the neck;",
-          "around the collarbone;",
-          "on the upper chest; or",
-          "lower for layering or a longer pendant effect."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Measure an existing necklace that reaches the desired point, or use a non-stretch cord at the proposed length. Look in a mirror with the neckline you expect to wear."
-      },
-      {
-        type: "paragraph",
-        parts: [
-          { text: "The dedicated " },
-          { text: "necklace length guide", href: "/blog/select-right-necklace-length/" },
-          { text: " should own detailed measurement and placement guidance." }
-        ]
-      }
-    ]
+      { type: "paragraph", text: "The necklace structure is the first major decision because it determines where the diamonds sit and how the piece moves. For most buyers, three useful categories are pendant necklaces, station necklaces and diamond line necklaces. A pendant creates one main focal point. A station necklace distributes diamonds with visible spaces between them. A line necklace creates continuous or near-continuous diamond presence across a larger section of the neckline." },
+      { type: "table", headers: ["Factor", "Pendant Necklace", "Station Necklace", "Diamond Line Necklace"], rows: [["Primary focus", "One centre element", "Several spaced diamonds", "Broad diamond line"], ["Diamond distribution", "Concentrated", "Distributed", "Continuous/dense"], ["Chain visibility", "Usually high", "High between stations", "Usually lower across front"], ["Movement", "Chain + pendant movement", "Fluid", "More structured articulation"], ["Length sensitivity", "Very high", "High", "High"], ["Main scale check", "Pendant dimensions", "Station size + spacing", "Width + diamond-set coverage"]] },
+      { type: "paragraph", parts: [{ text: "If this is the part of the decision you are still working through, continue with " }, { text: "How to Compare Different Diamond Necklace Designs", href: "/blog/compare-diamond-necklace-designs/" }] },
+    ],
   },
   {
-    heading: "3. Check total and adjustable length",
+    heading: "Step 2: Understand the Difference Between a Necklace and a Pendant",
     content: [
-      {
-        type: "paragraph",
-        text: "The page should state:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "maximum closed length;",
-          "every shorter fastening position;",
-          "extension-chain length;",
-          "whether the pendant slides or is fixed;",
-          "drop below the chain where relevant; and",
-          "how length is measured."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "An \"adjustable 40–45 cm\" necklace should identify the exact fastening points, not merely the possible range. A sliding adjuster needs appropriate instructions and limits."
-      }
-    ]
+      { type: "paragraph", text: "A necklace is the complete neck-worn piece. A pendant is the decorative element suspended from or incorporated into the necklace. That distinction becomes commercially important because a product described as a diamond pendant does not always include the chain. There are three different situations a buyer may encounter: pendant only, pendant with chain, or: complete necklace without a separate pendant component." },
+      { type: "table", headers: ["Product Type", "Decorative Pendant", "Chain Included?", "Complete Necklace?"], rows: [["Pendant only", "Yes", "Not necessarily", "No"], ["Pendant with chain", "Yes", "Yes", "Yes"], ["Fixed-centre necklace", "Integrated into necklace", "Yes", "Yes"], ["Station necklace", "No separate pendant required", "Yes", "Yes"], ["Line necklace", "No separate pendant required", "Complete linked structure", "Yes"]] },
+      { type: "paragraph", parts: [{ text: "Use " }, { text: "Diamond Necklace vs Diamond Pendant: What Is the Difference?", href: "/blog/diamond-necklace-vs-diamond-pendant/" }, { text: " for the full terminology and chain-inclusion explanation." }] },
+    ],
   },
   {
-    heading: "4. Compare visible dimensions",
+    heading: "Step 3: Decide Where You Want the Visual Focus",
     content: [
-      {
-        type: "paragraph",
-        text: "Carat weight does not tell you how large the complete necklace looks. Check:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "pendant height and width;",
-          "whether height includes the bail;",
-          "setting depth;",
-          "diameter of a round solitaire setting;",
-          "length and width of the diamond-set section;",
-          "chain gauge; and",
-          "complete product weight."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Use millimetres and on-body imagery together. A macro photograph can make a delicate pendant fill the screen."
-      }
-    ]
+      { type: "paragraph", text: "A necklace changes the way the eye moves around the neckline. A solitaire pendant creates a single obvious focal point. A station necklace produces several smaller focal points. A line necklace makes the complete diamond-set section the focus. This matters because two necklaces with the same total diamond weight can create completely different visual impressions." },
+      { type: "table", headers: ["Diamond Placement", "Visual Effect"], rows: [["One central diamond", "Strong single focal point"], ["Centre diamond + accents", "Concentrated but wider decorative area"], ["Several spaced stations", "Repeated points of sparkle"], ["Graduated line", "Emphasis increases towards centre"], ["Continuous line", "Broad neckline coverage"]] },
+    ],
   },
   {
-    heading: "5. Understand total carat weight",
+    heading: "Step 4: Choose Necklace Length Carefully",
     content: [
-      {
-        type: "paragraph",
-        text: "For a solitaire, the centre-stone weight may form most or all of the total. For a halo, cluster, station or line necklace, the headline figure may combine many diamonds."
-      },
-      {
-        type: "paragraph",
-        text: "Confirm:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "centre or principal-diamond weight;",
-          "accent-diamond combined weight;",
-          "total carat weight;",
-          "diamond count;",
-          "size or weight range; and",
-          "whether values are exact, minimum or approximate."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "A longer line can distribute the same total across more, smaller stones.",
-        parts: [
-          { text: "Read " },
-          { text: "what total carat weight means", href: "/blog/total-carat-weight-diamond-jewellery/" },
-          { text: "." }
-        ]
-      }
-    ]
-  },
-  {
-    heading: "6. Assess diamond quality in context",
-    content: [
-      {
-        type: "paragraph",
-        text: "Cut, colour, clarity and carat weight describe different diamond qualities. For a principal diamond, compare the full report and face-up appearance. For a multi-stone design, consistency and matching across the necklace also matter."
-      },
-      {
-        type: "paragraph",
-        text: "Look for:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "compatible shape and measurements;",
-          "intentional graduation;",
-          "even colour appearance;",
-          "face-up clarity appropriate to the design;",
-          "balanced brightness; and",
-          "aligned settings."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "The highest individual grade is not automatically the best allocation of budget if the chain, construction or matching is weak."
-      }
-    ]
-  },
-  {
-    heading: "7. Inspect the setting",
-    content: [
-      {
-        type: "paragraph",
-        text: "Prongs expose more of the diamond's outline; bezels create a defined metal border; halos and clusters enlarge the finished footprint through additional stones."
-      },
-      {
-        type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-necklace/68 (3).jpg",
-        alt: "Diamond necklace setting types - prong, bezel, halo and cluster",
-        title: "Necklace Setting Types",
-        caption: "Different settings affect diamond visibility, protection and the overall necklace appearance.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "Review front, side and back views. Check that prongs are even, bezels are symmetrical, galleries are finished cleanly and settings do not present obvious sharp areas against skin or clothing."
-      },
-      {
-        type: "paragraph",
-        text: "For line necklaces, links should articulate smoothly and return to a natural curve without twisting."
-      }
-    ]
-  },
-  {
-    heading: "8. Evaluate the chain",
-    content: [
-      {
-        type: "paragraph",
-        text: "The chain carries the focal design and should be specified with equal care."
-      },
-      {
-        type: "paragraph",
-        text: "Check:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "chain style;",
-          "approximate gauge or width;",
-          "solid or otherwise disclosed construction where relevant;",
-          "metal and fineness;",
-          "adjustability;",
-          "attachment points; and",
-          "whether the pendant is removable."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "A heavy pendant on a visually fine chain is not automatically defective, but the maker should have engineered the proportions. Ask whether a replacement chain must match a minimum gauge and whether changing it affects warranty coverage."
-      }
-    ]
-  },
-  {
-    heading: "9. Check bail and attachment points",
-    content: [
-      {
-        type: "paragraph",
-        text: "A bail is the component through which a pendant chain passes. Some pendants use hidden loops, fixed side connections or sliding settings instead."
-      },
-      {
-        type: "paragraph",
-        text: "Confirm:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "internal bail dimensions;",
-          "whether the pendant can be removed;",
-          "whether the clasp passes through the bail;",
-          "soldered or articulated connections; and",
-          "whether a fixed pendant remains centred."
-        ]
-      },
-      {
-        type: "paragraph",
-        text: "Do not assume a removable-looking pendant will fit another chain."
-      }
-    ]
-  },
-  {
-    heading: "10. Inspect the clasp",
-    content: [
-      {
-        type: "paragraph",
-        text: "Common necklace closures include spring-ring, lobster-style, box and other integrated clasps. The closure should engage positively and suit the necklace's weight."
-      },
-      {
-        type: "paragraph",
-        text: "Check clasp dimensions, operating method, end tags and any secondary safety used on substantial line necklaces. Consider dexterity: a small clasp can be difficult to operate behind the neck."
-      },
-      {
-        type: "paragraph",
-        text: "No clasp is loss-proof. Inspect it regularly and stop wearing the necklace if closing action changes."
-      }
-    ]
-  },
-  {
-    heading: "11. Consider balance and rotation",
-    content: [
-      {
-        type: "paragraph",
-        text: "Pendant weight, chain gauge, bail shape and clasp weight influence whether the piece remains centred. Station settings can turn; line necklaces can roll if links, fit or weight distribution are unsuitable."
-      },
-      {
-        type: "paragraph",
-        text: "Ask for video showing the necklace on a person during gentle movement. No retailer should guarantee that a pendant never shifts, but the design should return to a natural position and not remain persistently inverted."
-      }
-    ]
-  },
-  {
-    heading: "12. Confirm precious-metal details",
-    content: [
-      {
-        type: "paragraph",
-        text: "Check metal type, fineness, plating, finish and whether chain, clasp and pendant use the same alloy. Metal colour alone is not a complete specification."
-      },
-      {
-        type: "paragraph",
-        text: "UK hallmarking rules apply to precious-metal articles above relevant exemption weights; other European markets have their own systems. A hallmark concerns metal fineness, not diamond grading."
-      }
-    ]
-  },
-  {
-    heading: "13. Understand certification",
-    content: [
-      {
-        type: "paragraph",
-        text: "A necklace may have an individual report for a significant centre diamond, a finished-jewellery report or retailer specifications for smaller stones."
-      },
-      {
-        type: "paragraph",
-        text: "IGI states that its finished jewellery reports can describe mounted gemstones and precious-metal content or purity stamps when present. Mounted centre-stone assessments may be limited by the setting."
-      },
-      {
-        type: "paragraph",
-        text: "Confirm issuer, report number, scope, laboratory-grown identification, grades or ranges, total weight and official verification. A report does not automatically certify the chain's durability, provide a valuation or act as a warranty."
-      }
-    ]
-  },
-  {
-    heading: "14. Compare online images correctly",
-    content: [
-      {
-        type: "paragraph",
-        text: "A useful image set includes:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "full necklace laid flat;",
-          "close-up of the focal section;",
-          "side and back views;",
-          "chain and connections;",
-          "clasp open and closed;",
-          "on-body views at each length; and",
-          "video showing movement."
-        ]
-      },
-      {
-        type: "image",
-        src: "/images/blog/how-to-choose-lab-grown-diamond-necklace/68 (4).jpg",
-        alt: "Lab-grown diamond necklace buying checklist",
-        title: "Diamond Necklace Buying Checklist",
-        caption: "Use this checklist to verify every component of a lab-grown diamond necklace before ordering.",
-        priority: false
-      },
-      {
-        type: "paragraph",
-        text: "Confirm whether imagery shows the exact item or a representative product."
-      }
-    ]
-  },
-  {
-    heading: "15. Plan layering and use",
-    content: [
-      {
-        type: "paragraph",
-        text: "For layering, compare actual lengths, pendant drops and chain thickness. Leave enough separation to reduce tangling and repeated contact between diamonds and metal."
-      },
-      {
-        type: "paragraph",
-        text: "For frequent wear, prioritise a workable clasp, suitable chain and manageable setting profile. For occasions, a longer or more diamond-intensive design may be practical if clothing and movement are considered."
-      }
-    ]
-  },
-  {
-    heading: "Necklace buying checklist",
-    content: [
-      {
-        type: "bullet-list",
-        items: [
-          "Construction and pendant removability are clear.",
-          "Total and adjustable lengths are stated.",
-          "Pendant or diamond-section dimensions are provided.",
-          "Centre, accent and total carat weights are separated.",
-          "Diamond count, grades and matching are disclosed.",
-          "Chain style, gauge and attachment points are shown.",
-          "Clasp is visible in operation.",
-          "Metal, fineness, plating and hallmark details are stated.",
-          "Report issuer and scope are verifiable.",
-          "Returns, warranty, care and delivery terms are saved."
-        ]
-      }
-    ]
-  },
-  {
-    heading: "Red flags",
-    content: [
-      {
-        type: "paragraph",
-        text: "Pause if the listing omits length or pendant dimensions, hides the chain and clasp, uses total weight as though it were the centre stone, describes metal only by colour, cannot explain whether the pendant is removable, or calls the whole necklace \"certified\" without defining report scope."
-      }
-    ]
-  },
-  {
-    heading: "What Aurelia Royale should disclose",
-    content: [
-      {
-        type: "paragraph",
-        text: "Every necklace page should provide construction, all lengths, complete dimensions, carat distribution, diamond count and grades, chain gauge, bail and connections, clasp, product weight, metal and hallmark information, report scope, real on-body scale, production time, returns, warranty, care and package contents."
-      }
-    ]
+      { type: "paragraph", text: "Necklace length is not just a number. It changes where the design sits on the body. The same pendant can look dramatically different on two chain lengths because the focal element falls at a different point relative to the collarbone, chest and clothing neckline. The same length can also sit differently on two wearers because neck circumference and body proportions vary. That means a necklace should never be selected only by reading a common label such as 16-inch, 18-inch or 20-inch without considering where it will actually fall." },
+      { type: "paragraph", text: "Pendant size changes how necklace length feels. A very small pendant on a longer chain can create a delicate, isolated focal point. A large pendant on the same chain may occupy significantly more visual space. A broad halo or decorative motif may also sit differently from a compact solitaire even if both use the same centre diamond weight. This is why necklace length and pendant dimensions should be evaluated together." },
+    ],
   },
   {
     content: [
-      {
-        type: "callout",
-        title: "Final verdict",
-        theme: "gold-border",
-        parts: [
-          { text: "Choose a lab-grown diamond necklace from the whole silhouette inward. First decide construction and placement; then compare length, dimensions, carat distribution, diamond quality, chain, clasp and documentation.\n\n" },
-          { text: "The diamond may be the focal point, but the necklace succeeds only when every component carries, centres and presents it properly." }
-        ]
-      },
-      {
-        type: "faq",
-        items: [
-          {
-            question: "What should I look for in a lab-grown diamond necklace?",
-            answer: "Check construction, length, dimensions, carat distribution, diamond quality, chain, attachment points, clasp, metal and report scope."
-          },
-          {
-            question: "Are lab-grown diamonds suitable for necklaces?",
-            answer: "Yes. The diamonds are durable, while the chain, setting and clasp still require appropriate wear, care and inspection."
-          },
-          {
-            question: "What necklace length should I choose?",
-            answer: "Choose by desired placement, neck measurement, pendant drop, clothing and layering plan rather than a universal label."
-          },
-          {
-            question: "Is a diamond necklace the same as a diamond pendant?",
-            answer: "Not always. A pendant is a suspended focal element; \"necklace\" covers pendant, station, line and other constructions."
-          },
-          {
-            question: "What does total carat weight mean for a necklace?",
-            answer: "It is the combined weight of all diamonds. Confirm centre, accent and total weights separately."
-          },
-          {
-            question: "Should every necklace diamond have a certificate?",
-            answer: "Not necessarily. A significant centre stone may have a report, while smaller stones may use a jewellery report or retailer specifications."
-          },
-          {
-            question: "How do I know how large a diamond necklace will look?",
-            answer: "Use pendant or diamond-section dimensions in millimetres together with credible on-body imagery, not carat weight alone."
-          },
-          {
-            question: "Should a pendant be removable from its chain?",
-            answer: "It depends on the design. Confirm bail dimensions, clasp passage and whether removal is intended before changing chains."
-          },
-          {
-            question: "Why does my pendant move off-centre?",
-            answer: "Body movement, chain length, bail shape, pendant and clasp weight can cause shifting. Persistent imbalance may need adjustment."
-          },
-          {
-            question: "What clasp is best for a diamond necklace?",
-            answer: "There is no universal best. It should suit the necklace weight, engage positively and be manageable for the wearer."
-          },
-          {
-            question: "Does a hallmark certify the necklace diamonds?",
-            answer: "No. A hallmark concerns precious-metal fineness; diamond origin and quality require separate disclosure or reporting."
-          },
-          {
-            question: "How should I store a diamond necklace?",
-            answer: "Fasten it and store it separately, laid flat or gently supported, to reduce tangling, kinking and contact with other jewellery."
-          }
-        ]
-      },
-      {
-        type: "cta-banner",
-        title: "Shop Lab-Grown Diamond Necklaces at Aurelia",
-        subtitle: "Browse our collection of lab-grown diamond necklaces with complete specifications, detailed chain information and transparent documentation.",
-        shopHref: "/shop/",
-        contactHref: "/contact/"
-      }
-    ]
-  }
+      { type: "image", src: "/images/blog/how-to-choose-lab-grown-diamond-necklace/68 (2).jpg", alt: "Pendant dimensions finished size vs diamond carat chain construction clasp weight", title: "Step 5: Check the Pendant's Finished Dimensions", caption: "Finished pendant dimensions often tell you more about visible scale than carat weight alone.", priority: false },
+    ],
+  },
+  {
+    heading: "Step 5: Check the Pendant's Finished Dimensions",
+    content: [
+      { type: "paragraph", text: "A pendant is larger than the diamond inside it. The setting, bail, metal frame, halo or accent diamonds all contribute to the finished dimensions. Suppose a pendant contains a 6 mm diamond. The completed jewellery might be substantially wider or taller depending on its construction. That means you need to distinguish: diamond dimensions from: finished pendant dimensions." },
+      { type: "table", headers: ["Measurement", "What It Describes"], rows: [["Diamond dimensions", "Physical size of the stone"], ["Pendant height", "Total top-to-bottom jewellery dimension"], ["Pendant width", "Full visible width"], ["Pendant depth", "Projection/thickness where relevant"], ["Bail dimensions", "Connection area for the chain"]] },
+    ],
+  },
+  {
+    heading: "Step 6: Understand Total Carat Weight",
+    content: [
+      { type: "paragraph", text: "Necklaces often contain more than one diamond. That makes total carat weight particularly easy to misunderstand. Suppose two fictional necklaces are both described as 3.00 ct total diamond weight. One may contain a 2.50 ct focal diamond and 0.50 ct of accents. Another may distribute the entire 3.00 ct across many small diamonds in a line necklace. The headline carat number is identical. The products are not remotely equivalent in appearance." },
+      { type: "table", headers: ["Fictional Necklace", "TCW", "Distribution", "Visual Effect"], rows: [["Pendant A", "3.00 ct", "Large centre + small accents", "One dominant stone"], ["Station B", "3.00 ct", "Seven spaced diamonds", "Repeated focal points"], ["Line C", "3.00 ct", "Many smaller stones", "Broad continuous sparkle"]] },
+      { type: "paragraph", parts: [{ text: "For the full terminology, use " }, { text: "Total Carat Weight Meaning in Diamond Jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" }] },
+    ],
+  },
+  {
+    heading: "Step 7: Check Diamond Distribution, Not Only Diamond Weight",
+    content: [
+      { type: "table", headers: ["Diamond Pattern", "Main Character"], rows: [["Single focal diamond", "Concentrated"], ["Halo/cluster", "Enlarged centre motif"], ["Spaced stations", "Airy"], ["Graduated diamonds", "Builds towards centre"], ["Equal continuous line", "Uniform coverage"]] },
+      { type: "paragraph", text: "Choose the pattern before assuming that a larger TCW represents the stronger option." },
+    ],
+  },
+  {
+    heading: "Step 8: Think About Weight Distribution",
+    content: [
+      { type: "table", headers: ["Design", "Where Weight Is Concentrated", "Common Behaviour"], rows: [["Pendant", "Centre/front", "Pendant can swing or shift"], ["Station", "Several points", "Fluid movement"], ["Line", "Distributed across front/neckline", "More structured drape"], ["Fixed-centre necklace", "Centre integrated into chain", "More controlled focal placement"]] },
+      { type: "paragraph", text: "A heavier necklace is not automatically better. A lighter necklace is not automatically lower quality. The important question is whether the weight suits the construction." },
+    ],
+  },
+  {
+    heading: "Step 9: Check Whether the Pendant Moves or Is Fixed",
+    content: [
+      { type: "paragraph", text: "Pendant construction affects both appearance and daily behaviour. A traditional pendant may slide freely along the chain through a bail. A pendant can also be fixed between two chain sections. A fixed centre generally remains in a more controlled position. A freely moving pendant can shift naturally along the chain. Neither system is universally better. If you want to move the pendant to another chain, do not assume that this is possible. Check the actual construction." },
+    ],
+  },
+  {
+    heading: "Step 10: Check the Bail",
+    content: [
+      { type: "paragraph", text: "The bail is the component through which many pendants connect to the chain. Its size and construction can affect whether the pendant moves freely and whether another chain could be used. A chain may physically fit through the bail itself but still fail to pass because its clasp or end fitting is too large. This is why pendant interchangeability needs to be verified rather than assumed. A product marketed as a necklace does not automatically mean that the pendant and chain can be separated." },
+    ],
+  },
+  {
+    heading: "Step 11: Evaluate the Chain as Part of the Jewellery",
+    content: [
+      { type: "paragraph", text: "The chain should not be treated as an invisible accessory. In a pendant or station necklace, it can form a substantial part of the product. Chain style affects: movement, visual texture, strength, and how noticeable the precious metal appears. A very fine chain makes the diamond element dominate. A more substantial chain creates a stronger metal presence. The correct chain is therefore partly structural and partly aesthetic. A pendant and chain should feel proportionate." },
+    ],
+  },
+  {
+    heading: "Step 12: Examine the Clasp",
+    content: [
+      { type: "paragraph", text: "The clasp has one job that matters enormously: keeping the necklace closed. It also affects how easily the wearer can put the necklace on and remove it. Different necklace weights and constructions can require different fastening systems. A very fine chain and a substantial diamond line necklace do not necessarily need the same closure." },
+      { type: "table", headers: ["Question", "Why It Matters"], rows: [["What clasp is used?", "Identifies actual fastening mechanism"], ["Is it proportionate to the necklace?", "Supports usability and balance"], ["Is it easy to operate?", "Affects everyday wear"], ["Does it close positively?", "Supports security"], ["Does the clasp pull the necklace off-centre?", "Can affect how the piece sits"], ["Is an extension chain included?", "Changes usable length if confirmed"]] },
+    ],
+  },
+  {
+    heading: "Step 13: Check Whether the Necklace Stays Centred",
+    content: [
+      { type: "paragraph", text: "A pendant necklace can rotate around the neck during wear. If the clasp gradually moves towards the front, weight distribution may be contributing. A heavier central pendant can sometimes help maintain orientation, while very light or uneven designs can behave differently. A line necklace can twist if its linked construction does not articulate properly. Some movement is normal. Constant unwanted repositioning is different." },
+      { type: "paragraph", text: "A line necklace is not simply a row of diamond settings placed side by side. The links need to articulate enough to follow the curve of the neck. Workmanship therefore becomes particularly important." },
+      { type: "paragraph", parts: [{ text: "For the full finished-piece quality assessment, use " }, { text: "What Makes Lab-Grown Diamond Jewellery High Quality?", href: "/blog/what-makes-lab-grown-diamond-jewellery-high-quality/" }] },
+    ],
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/how-to-choose-lab-grown-diamond-necklace/68 (3).jpg", alt: "Diamond necklace setting metal diamond quality documentation layering dimensions", title: "Step 15: Choose the Setting in Context", caption: "The setting needs to work with the entire necklace structure rather than simply holding one diamond.", priority: false },
+    ],
+  },
+  {
+    heading: "Step 15: Choose the Setting in Context",
+    content: [
+      { type: "table", headers: ["Setting", "Visual Character", "Metal Presence"], rows: [["Prong", "Open, diamond-forward", "Lower"], ["Bezel", "Clean, framed", "Higher"], ["Halo", "Enlarged centre motif", "Moderate"], ["Pavé", "Dense surface sparkle", "Fine visible metal"], ["Linked individual settings", "Repeated diamond line", "Varies"]] },
+      { type: "paragraph", text: "The setting needs to work with the entire necklace structure rather than simply holding one diamond." },
+    ],
+  },
+  {
+    heading: "Step 16: Consider Diamond Shape as Part of the Necklace Design",
+    content: [
+      { type: "paragraph", text: "Diamond shape has the strongest impact when the necklace contains one or several significant focal stones. A round brilliant creates a compact symmetrical focal point. Oval, pear and marquise shapes create more directional outlines. Emerald and radiant cuts introduce more geometric forms. In a line necklace made from many small diamonds, individual shape can become less visually dominant because the repeated pattern matters more. The importance of diamond shape therefore depends on the necklace architecture." },
+    ],
+  },
+  {
+    heading: "Step 18: Understand Current Lab-Grown Diamond Reporting",
+    content: [
+      { type: "paragraph", text: "Laboratory-grown diamond reporting should be checked according to the actual laboratory and report type. Do not assume all current GIA laboratory-grown diamonds use the same report format that older articles may describe. For qualifying loose colourless-to-near-colourless laboratory-grown diamonds, current GIA services use an overall Premium or Standard Laboratory-Grown Diamond Quality Assessment. This matters especially when a necklace contains one significant individually assessed focal diamond." },
+      { type: "paragraph", text: "A loose-diamond report can describe the stone identified by that document. It does not automatically verify: the chain, metal, clasp, pendant dimensions, accent stones, or: finished workmanship. This is a critical distinction. Diamond documentation and jewellery specifications need to be read together." },
+    ],
+  },
+  {
+    heading: "Step 19: Check the Metal Independently",
+    content: [
+      { type: "paragraph", text: "Laboratory-grown diamond origin tells you nothing about the metal. Verify the actual underlying metal and fineness. Do not infer metal from colour. White-coloured jewellery might be made from several possible materials. Yellow colour does not prove a specific gold fineness. For precious-metal jewellery sold in the UK, hallmarking requirements apply above the relevant legal exemption weights. A hallmark is evidence about the precious metal. It does not grade diamond colour, clarity, carat, origin, or: jewellery workmanship." },
+      { type: "paragraph", parts: [{ text: "For the full process, use " }, { text: "How to Check the Metal Used in Diamond Jewellery", href: "/blog/check-metal-used-diamond-jewellery/" }] },
+    ],
+  },
+  {
+    heading: "Step 20: Decide How You Intend to Wear the Necklace",
+    content: [
+      { type: "table", headers: ["Priority", "Design Worth Considering"], rows: [["One simple focal point", "Pendant"], ["Subtle distributed diamonds", "Station"], ["Strong diamond coverage", "Line"], ["Visible precious-metal chain", "Pendant / station"], ["Diamond-dominant neckline", "Line"], ["Easy focal layering", "Pendant"], ["Light layering element", "Station"], ["Standalone statement", "Line"]] },
+    ],
+  },
+  {
+    heading: "Step 22: Compare Finished Necklace Dimensions",
+    content: [
+      { type: "table", headers: ["Necklace", "Most Useful Measurements"], rows: [["Pendant", "Chain length + pendant height/width"], ["Station", "Chain length + station size/spacing"], ["Line", "Total length + diamond-set coverage + width"], ["Graduated necklace", "Total length + centre width + end width"], ["Fixed-centre design", "Necklace length + centre motif dimensions"]] },
+      { type: "paragraph", parts: [{ text: "For detailed measurement interpretation, use " }, { text: "How to Check Jewellery Dimensions and Weight Online", href: "/blog/check-jewellery-product-dimensions-weight/" }] },
+    ],
+  },
+  {
+    heading: "Step 24: Do Not Buy Based on Discount Percentage",
+    content: [
+      { type: "paragraph", text: "A discount does not tell you whether the necklace specifications suit you. A large percentage reduction can attract attention while leaving the core decision unanswered: What exactly am I buying? Understand the design, size, diamond distribution, metal and construction first. Then judge the final confirmed price." },
+      { type: "paragraph", parts: [{ text: "For the deeper explanation, use " }, { text: "What Determines the Price of Lab-Grown Diamond Jewellery?", href: "/blog/what-determines-price-lab-grown-diamond-jewellery/" }] },
+    ],
+  },
+  {
+    heading: "Step 28: Understand Availability",
+    content: [
+      { type: "paragraph", text: "A necklace can be: finished and available, on a waitlist, made after order, or another clearly defined status. These terms should not be blurred together. Joining the waitlist should mean: registering interest in the necklace. It should not automatically mean: a purchase has been made, a price has been accepted, the necklace has been reserved, or: production has started. A standard necklace design produced after an accepted order is not automatically a bespoke or personalised item. Those categories should remain distinct." },
+    ],
+  },
+  {
+    content: [
+      { type: "image", src: "/images/blog/how-to-choose-lab-grown-diamond-necklace/68 (4).jpg", alt: "Diamond necklace FAQ final answer guide design length chain dimensions metal", title: "Frequently Asked Questions", caption: "The biggest mistake: choosing from carat weight or close-up photography before understanding the design, physical dimensions, length and complete construction.", priority: false },
+    ],
+  },
+  {
+    heading: "Frequently Asked Questions",
+    content: [
+      { type: "faq", items: [
+        { question: "How do I choose a lab-grown diamond necklace?", answer: "Start with the necklace structure, then compare length, physical dimensions, diamond distribution, chain construction, clasp, metal, diamond information and product verification." },
+        { question: "What types of lab-grown diamond necklaces are there?", answer: "Common categories include pendant, station and continuous diamond line necklaces." },
+        { question: "Which diamond necklace type is best?", answer: "There is no universal best type. Choose according to whether you want one focal diamond, spaced sparkle or broader diamond coverage." },
+        { question: "What is a diamond pendant necklace?", answer: "It is a complete necklace where a pendant forms the main suspended decorative element." },
+        { question: "Is a pendant the same as a necklace?", answer: "No. A pendant is a component; the necklace is the complete neck-worn piece." },
+        { question: "Does a diamond pendant always include a chain?", answer: "No. Chain inclusion should be checked explicitly." },
+        { question: "How do I choose necklace length?", answer: "Choose length according to the wearer, pendant size and where you want the necklace to sit." },
+        { question: "Is 18 inches always the best necklace length?", answer: "No. There is no universal ideal length for every wearer and every design." },
+        { question: "Does pendant size affect necklace length?", answer: "Yes. Pendant scale changes how the same chain length appears." },
+        { question: "Is carat weight the same as necklace size?", answer: "No. Carat measures diamond weight." },
+        { question: "What does TCW mean on a diamond necklace?", answer: "It means total carat weight of the diamonds included within the stated scope." },
+        { question: "Is centre-stone carat the same as TCW?", answer: "No. TCW may include the centre diamond and all accent diamonds." },
+        { question: "Can two 3 ct necklaces look completely different?", answer: "Yes. One may use a large focal stone, while another distributes the weight across many smaller diamonds." },
+        { question: "Which necklace gives the most diamond coverage?", answer: "A line necklace generally has greater potential for continuous visible diamond coverage than a single pendant." },
+        { question: "Should I check pendant dimensions?", answer: "Yes. Finished pendant size is different from diamond size." },
+        { question: "Should I check chain thickness?", answer: "Yes. It affects the visual balance and physical construction of the necklace." },
+        { question: "Can every pendant be moved to another chain?", answer: "No. Bail size and product construction determine compatibility." },
+        { question: "What is a bail?", answer: "It is the connection through or by which many pendants attach to a necklace chain." },
+        { question: "Is a fixed pendant better than a sliding pendant?", answer: "Neither is universally better. They create different movement and positioning." },
+        { question: "Should I check the necklace clasp?", answer: "Yes. The closure should suit the necklace's weight and construction." },
+        { question: "Is a heavier necklace higher quality?", answer: "No. Finished mass is not a workmanship grade." },
+        { question: "Does every diamond need a laboratory report?", answer: "No. Reporting depends on the size and configuration of the diamonds." },
+        { question: "Does one diamond report certify the complete necklace?", answer: "No. A loose-diamond document does not verify the chain, metal, clasp or complete workmanship." },
+        { question: "Does a hallmark verify diamond quality?", answer: "No. Hallmarking concerns precious-metal fineness." },
+        { question: "Can I layer a lab-grown diamond necklace?", answer: "Yes, but necklace lengths and physical profiles should work together." },
+        { question: "Should I buy the necklace with the highest carat weight?", answer: "Not automatically. Consider diamond distribution, dimensions, fit, chain and construction first." },
+        { question: "What does the Aurelia waitlist mean?", answer: "Under the proposed Aurelia journey, it should mean registering interest in a design rather than placing an order." },
+        { question: "What is the biggest mistake when choosing a diamond necklace?", answer: "Choosing from carat weight or close-up photography before understanding the design, physical dimensions, length and complete construction." },
+      ]},
+    ],
+  },
+  {
+    heading: "Final Answer: How Should You Choose a Lab-Grown Diamond Necklace?",
+    content: [
+      { type: "paragraph", text: "Start with the necklace design. Choose a pendant when you want one strong focal point. Choose a station necklace when you want diamonds distributed along a visible chain. Choose a diamond line necklace when you want broader, more continuous diamond coverage. Next, choose the length. Think about where the necklace should sit on your body and how the pendant or diamond-set section changes that position." },
+      { type: "paragraph", text: "Then check the real physical dimensions. Use pendant height and width, necklace length and diamond-set coverage rather than relying on enlarged photography. Next, understand the diamond distribution. Separate centre-stone weight from total carat weight and determine whether the diamonds are concentrated or distributed across the necklace. Then evaluate the chain and weight distribution. After that, examine the clasp, setting and metal. Finally, verify the diamond information, documentation, availability and included components." },
+      { type: "paragraph", parts: [{ text: "If you are still comparing pendant, station and line designs, continue with " }, { text: "How to Compare Different Diamond Necklace Designs", href: "/blog/compare-diamond-necklace-designs/" }] },
+      { type: "paragraph", parts: [{ text: "If you are unsure whether a listing refers to a pendant or complete necklace, read " }, { text: "Diamond Necklace vs Diamond Pendant: What Is the Difference?", href: "/blog/diamond-necklace-vs-diamond-pendant/" }] },
+      { type: "paragraph", parts: [{ text: "For total carat weight, use " }, { text: "Total Carat Weight Meaning in Diamond Jewellery", href: "/blog/total-carat-weight-meaning-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "For metal verification, use " }, { text: "How to Check the Metal Used in Diamond Jewellery", href: "/blog/check-metal-used-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "For workmanship, read " }, { text: "What Makes Lab-Grown Diamond Jewellery High Quality?", href: "/blog/what-makes-lab-grown-diamond-jewellery-high-quality/" }] },
+      { type: "paragraph", parts: [{ text: "For the final specification audit, use " }, { text: "What to Check Before Buying Lab-Grown Diamond Jewellery", href: "/blog/what-to-check-before-buying-lab-grown-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "Where an Aurelia Royale necklace does not yet have an approved direct-purchase price, " }, { text: "Join the Waitlist", href: "/contact/" }, { text: " or submit an enquiry. This should register interest only and should not be presented as an order, reservation or preorder." }] },
+      { type: "cta-banner", title: "Explore Aurelia Royale Lab-Grown Diamond Necklaces", subtitle: "Design + length + dimensions + chain + construction — find the necklace that suits you.", shopHref: "/shop/", contactHref: "/contact/" },
+    ],
+  },
 ];
 
-export default function HowToChooseLabGrownDiamondNecklacePage() {
+export default function BlogNecklaceBuyingGuidePage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
-      {/* Script injection for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Product-Category Guides
-          </span>
-          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How to Choose a Lab-Grown Diamond Necklace
-          </h1>
-          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
-          </p>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">Lab-Grown Diamond Education</span>
+          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">How to Choose a Lab-Grown Diamond Necklace</h1>
+          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">Design, Length, Chain, Pendant Size, Carat and Clasp Explained • Published September 10, 2026</p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
+      <RelatedArticles currentSlug="how-to-choose-lab-grown-diamond-necklace" />
       <NewsletterSection />
     </main>
   );
 }
+

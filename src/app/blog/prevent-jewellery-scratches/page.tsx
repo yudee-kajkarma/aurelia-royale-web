@@ -1,479 +1,177 @@
-import React from "react";
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
-import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
-// 1. SEO Metadata for Search Engines
+import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
+import RelatedArticles from "@/components/shared/RelatedArticles";
+
 export const metadata: Metadata = {
   title: "How to Prevent Jewellery from Scratching",
-  description: "Prevent scratches on diamond, gold and coloured-stone jewellery with safer wearing, cleaning and storage habits—and learn when to seek repair.",
-  alternates: {
-    canonical: "https://www.aureliaroyale.com/blog/prevent-jewellery-scratches/",
-  },
+  description: "Learn how to prevent rings, bracelets, necklaces and diamond jewellery from scratching through better wear, stacking, storage and travel habits.",
+  alternates: { canonical: "https://www.aureliaroyale.com/blog/prevent-jewellery-scratches/" },
 };
 
-// 2. The exact JSON-LD Schema (Fixed dates)
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BlogPosting",
-      "@id": "https://www.aureliaroyale.com/blog/prevent-jewellery-scratches/#article",
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.aureliaroyale.com/blog/prevent-jewellery-scratches/" },
-      "headline": "How to Prevent Jewellery from Scratching",
-      "description": "Prevent scratches on diamond, gold and coloured-stone jewellery with safer wearing, cleaning and storage habits—and learn when to seek repair.",
-      "image": "https://www.aureliaroyale.com/images/blog/prevent-jewellery-scratches.webp",
-      "author": { "@type": "Organization", "name": "Aurelia Royale" },
-      "publisher": { "@type": "Organization", "name": "Aurelia Royale", "logo": { "@type": "ImageObject", "url": "https://www.aureliaroyale.com/images/logo.png" } },
-      "datePublished": "2026-07-16",
-      "dateModified": "2026-07-16",
-      "inLanguage": "en-GB",
-      "articleSection": "Jewellery Care and Maintenance",
-      "keywords": ["how to prevent jewellery from scratching", "prevent jewellery scratches", "protect diamond jewellery", "stop rings scratching"]
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.aureliaroyale.com/blog/prevent-jewellery-scratches/#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aureliaroyale.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aureliaroyale.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "How to Prevent Jewellery from Scratching", "item": "https://www.aureliaroyale.com/blog/prevent-jewellery-scratches/" }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.aureliaroyale.com/blog/prevent-jewellery-scratches/#faq",
-      "mainEntity": [
-        { "@type": "Question", "name": "Can diamond jewellery get scratched?", "acceptedAnswer": { "@type": "Answer", "text": "The diamond is highly scratch resistant, but another diamond can scratch it. Its metal, setting and any softer gemstones can be marked more easily." } },
-        { "@type": "Question", "name": "Can diamonds scratch gold or platinum?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Diamond is harder than jewellery metals and can mark them when the surfaces rub." } },
-        { "@type": "Question", "name": "How do I stop rings from scratching each other?", "acceptedAnswer": { "@type": "Answer", "text": "Check where stones, prongs and bands meet. Separate incompatible rings or ask a jeweller whether a suitable fitted spacer is appropriate." } },
-        { "@type": "Question", "name": "Does stacking rings cause scratches?", "acceptedAnswer": { "@type": "Answer", "text": "It can. Repeated contact may mark metal and wear settings, especially when diamonds or prongs touch a neighbouring band." } },
-        { "@type": "Question", "name": "Should I wear a diamond bracelet beside a watch?", "acceptedAnswer": { "@type": "Answer", "text": "Only if the pieces do not collide. A hard watch case or clasp may repeatedly contact the bracelet, so separate wrists are often safer." } },
-        { "@type": "Question", "name": "Can a polishing cloth remove jewellery scratches?", "acceptedAnswer": { "@type": "Answer", "text": "A standard clean cloth removes residue, not structural scratches. Treated cloths should be used only when approved for the specific finish." } },
-        { "@type": "Question", "name": "Does toothpaste remove scratches from jewellery?", "acceptedAnswer": { "@type": "Answer", "text": "Do not use it. Toothpaste can be abrasive and may damage metal, coatings, gemstones and settings." } },
-        { "@type": "Question", "name": "Is scratched gold jewellery normal?", "acceptedAnswer": { "@type": "Answer", "text": "Fine surface marks can develop through normal wear. Deep grooves, deformation or scratches near settings require assessment." } },
-        { "@type": "Question", "name": "Can scratched jewellery be polished repeatedly?", "acceptedAnswer": { "@type": "Answer", "text": "Repeated refinishing can change contours and remove surface material or plating, so a jeweller should decide when it is appropriate." } },
-        { "@type": "Question", "name": "How should jewellery be stored to prevent scratches?", "acceptedAnswer": { "@type": "Answer", "text": "Keep each piece in its own clean, padded compartment, fitted box or individual soft pouch so pieces cannot touch." } },
-        { "@type": "Question", "name": "Can dust scratch jewellery?", "acceptedAnswer": { "@type": "Answer", "text": "Dust or grit may contain hard mineral particles. Use clean tools and storage lining, and do not rub a visibly gritty surface." } },
-        { "@type": "Question", "name": "When should a scratched piece go to a jeweller?", "acceptedAnswer": { "@type": "Answer", "text": "Seek assessment when a mark is deep, affects a setting or clasp, accompanies deformation, or appears beside a loose or chipped stone." } }
-      ]
-    }
-  ]
-};
-
-// 3. Article content sections structured for DynamicArticle (Without images)
 const articleSections: ArticleSection[] = [
   {
     content: [
-      {
-        type: "paragraph",
-        text: "Fine jewellery is made to be worn, so a completely mark-free surface is not a realistic lifetime promise. Polished metals gradually develop signs of wear, while gemstones differ greatly in their resistance to scratching. The useful goal is to prevent avoidable damage without treating every minor surface mark as a defect."
-      },
-      {
-        type: "paragraph",
-        text: "The biggest improvements come from controlling contact: choose jewellery suited to the activity, prevent pieces from rubbing, keep grit away from cleaning cloths and give every item its own padded storage space."
-      }
-    ]
+      { type: "paragraph", text: "Fine jewellery is designed to be worn, so some surface marks can develop naturally over time. That does not mean every scratch is unavoidable. A large proportion of jewellery abrasion comes from predictable contact: one piece rubbing against another, a diamond touching softer metal, rings knocking against hard surfaces, bracelets colliding with watches, or jewellery being stored loose together. The most effective prevention is therefore not a coating, polishing routine or repair service. It is controlling unnecessary contact." },
+      { type: "paragraph", text: "A useful approach is: separate pieces in storage → avoid high-impact activities → check stacked jewellery for contact → protect pieces during travel → inspect settings after knocks." },
+    ],
   },
   {
-    heading: "Quick answer",
+    heading: "Quick Answer: How Do You Stop Jewellery from Scratching?",
     content: [
-      {
-        type: "paragraph",
-        text: "Prevent jewellery from scratching by removing it before exercise, gardening, cleaning, swimming and hands-on work; avoiding contact between rings and bracelets; handling pieces over a soft, clean surface; cleaning only with material-approved tools; and storing every item separately in a padded compartment or individual pouch. Diamonds can scratch metals, coloured stones and other diamonds, so never place diamond jewellery loose with other pieces. If a scratch is deep, catches a fingernail, affects a setting or accompanies a loose stone, ask a qualified jeweller to inspect it rather than polishing it at home."
-      }
-    ]
+      { type: "paragraph", text: "Store each piece separately or in divided, padded compartments. Do not allow diamond-set jewellery to rub repeatedly against other jewellery because diamond can scratch precious metals and can also damage other gemstones. Remove rings and bracelets before activities involving repeated contact with hard surfaces, tools, weights or abrasive materials. If you wear several rings together, check whether their settings or diamond edges rub against neighbouring bands. When travelling, use a jewellery case with separate compartments rather than placing several pieces together in one pouch. And remember: polishing can reduce or remove some metal scratches, but it also removes a small amount of metal, so it should not be treated as a routine response to every mark." },
+    ],
   },
   {
-    heading: "Why jewellery scratches",
+    heading: "Why Jewellery Scratches",
     content: [
-      {
-        type: "paragraph",
-        text: "Common causes of scratching include:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "rings rubbing against neighbouring rings;",
-          "bracelets contacting desks and watch cases;",
-          "diamonds touching gold, platinum or softer gemstones;",
-          "jewellery being dropped together in a dish or pouch;",
-          "grit trapped in cloths, brushes or storage lining;",
-          "abrasive household cleaners and improvised polishing methods; and",
-          "wearing delicate pieces during high-contact activities."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Scratching happens when one material moves across another with enough hardness and pressure to abrade the surface. The important point is that different parts of the same piece can have very different hardness. A diamond is much harder than gold, platinum or silver. That means the diamond may remain visually unchanged while the surrounding metal develops scratches. A diamond can also scratch the metal of another piece of jewellery. This is one reason fine jewellery should not simply be thrown together in a drawer or pouch." },
+      { type: "paragraph", text: "Diamond sits at 10 on the Mohs hardness scale. GIA specifically notes that diamond can scratch the precious metals commonly used in jewellery settings. That creates a practical risk when: a diamond edge rubs against another ring, a diamond bracelet contacts a metal watch, or diamond-set jewellery is stored against gold, platinum or silver pieces. Only another diamond can conventionally scratch a diamond, but that does not mean diamond jewellery should be stored touching other diamond jewellery — two pieces rubbing together can create surface abrasion, chips, damage to exposed edges, or damage to the metal settings holding the stones." },
+    ],
   },
   {
-    heading: "Hardness is not the same as toughness",
+    heading: "Scratching and Chipping Are Different",
     content: [
-      {
-        type: "table",
-        headers: ["Term", "What it means", "Why it matters"],
-        rows: [
-          ["Hardness", "Resistance to scratching and abrasion", "A harder gem can scratch a softer one"],
-          ["Toughness", "Resistance to breaking and chipping", "A hard stone may still be vulnerable to impact"],
-          ["Stability", "Response to heat, light and chemicals", "Care methods must suit the complete material set"]
-        ]
-      }
-    ]
+      { type: "paragraph", text: "A scratch affects a surface. A chip is a small fracture or loss of material. This distinction matters because diamonds are highly resistant to scratching but can still chip if struck hard enough in a vulnerable direction. GIA notes that pointed corners and exposed girdle areas can be particularly vulnerable to impact. That means avoiding hard knocks protects more than the jewellery's polish. It can also protect the stones and settings." },
+    ],
   },
   {
-    heading: "Can diamonds scratch other jewellery?",
+    heading: "Everyday Metal Scratches Are Normal",
     content: [
-      {
-        type: "paragraph",
-        text: "Diamonds can scratch other diamonds, metals and coloured gems. Keep exposed edges isolated."
-      }
-    ]
+      { type: "paragraph", text: "Gold and platinum can develop fine surface scratches through normal wear. Those marks do not automatically mean the jewellery is defective. Tiffany's care guidance notes that both gold and platinum can develop a patina of fine scratches over time. Some wearers prefer that natural surface character. Others prefer a more polished appearance. The important point is that normal micro-scratching and serious structural damage are not the same thing." },
+      { type: "table", headers: ["Appearance", "Likely Category", "Response"], rows: [["Very fine hairline marks", "Normal wear", "Usually cosmetic"], ["Light surface abrasion", "Wear/contact", "Monitor"], ["Deep groove in metal", "More significant contact", "Consider professional assessment"], ["Bent prong", "Structural issue", "Stop wearing / inspect"], ["Chipped diamond", "Stone damage", "Professional assessment"], ["Missing metal around setting", "Structural issue", "Stop wearing"], ["Surface mark after ring stack contact", "Friction", "Adjust how pieces are worn"]] },
+      { type: "paragraph", parts: [{ text: "If the issue involves the setting rather than just the surface, use " }, { text: "How to Check Diamond Jewellery for Loose Stones", href: "/blog/check-diamond-jewellery-loose-stones/" }] },
+    ],
   },
   {
-    heading: "1. Match the jewellery to the activity",
+    heading: "The Best Scratch Prevention Starts With Storage",
     content: [
-      {
-        type: "paragraph",
-        text: "Remove fine jewellery before:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "strength training, sport and exercise;",
-          "gardening and DIY;",
-          "moving furniture or luggage;",
-          "household cleaning;",
-          "cooking that involves hard tools, grease or dough;",
-          "showering, swimming and hot tubs; and",
-          "sleeping when the design can catch or rub."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Do not store jewellery loose in a drawer. Do not pile rings together. Do not place several diamond pieces into one small pouch where they can rub whenever the pouch moves. GIA recommends storing jewellery in separate boxes, pouches or padded compartments to reduce scratches and gem damage. That single habit can prevent a large amount of unnecessary abrasion." },
+      { type: "paragraph", text: "Ring settings often contain protruding diamonds, prongs and hard edges. Use individual ring slots, separate soft pouches, or separate compartments. For stud earrings, the front of one stud can contact the other diamond, the post, the earring back, or another piece of jewellery. Use a dedicated earring section or secure each pair so the diamond faces are not rubbing against another hard surface. Keep necklaces separate — diamond pendants can also rub against neighbouring chains and jewellery." },
+    ],
   },
   {
-    heading: "2. Prevent jewellery from rubbing against jewellery",
+    heading: "Do Not Store Jewellery Touching Watches",
     content: [
-      {
-        type: "paragraph",
-        parts: [{ text: "Ring stacks: ", bold: true }, { text: "Verify that bands or stone seats do not collide sideways when stacked." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Bracelets and watches: ", bold: true }, { text: "Avoid stacks that let links rub watch cases or clasps." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Necklaces: ", bold: true }, { text: "Keep layered chains separated to avoid knots or pendant rubbing." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Earrings: ", bold: true }, { text: "Audit layouts to ensure backs or ear cuffs do not touch adjacent settings." }]
-      }
-    ]
+      { type: "paragraph", text: "A watch combines metal, glass or crystal, clasp hardware and rigid edges. A diamond bracelet worn or stored directly against a watch can create abrasion on either piece. If you wear them together, monitor where they actually make contact. If they repeatedly collide or rub, increase the spacing or move one piece to the other wrist." },
+    ],
   },
   {
-    heading: "3. Handle jewellery over a soft, clean surface",
+    heading: "How to Prevent Rings from Scratching",
     content: [
-      {
-        type: "paragraph",
-        text: "Put on and remove items over dresser trays or soft towels. Avoid dropping on hard stone tiles."
-      }
-    ]
+      { type: "paragraph", text: "Rings experience more contact than most jewellery categories because the hands interact constantly with surfaces. Remove rings where practical before: cleaning, gardening, lifting weights, moving furniture, manual work, or other tasks involving hard repeated contact. This protects both the surface and the setting." },
+      { type: "paragraph", text: "Two rings worn together can contact each other thousands of times during ordinary hand movement. Check where rings actually touch — look from the side to see whether a diamond girdle touches the neighbouring ring, a prong rests against the band, a pavé edge contacts another setting, or a raised gallery rubs against metal. Repeated localised contact can create wear even when the overall stack looks correct. Even two plain bands can develop contact marks when worn together." },
+    ],
   },
   {
-    heading: "4. Keep grit away from cleaning tools",
+    heading: "Bracelets and Watches Can Scratch Each Other",
     content: [
-      {
-        type: "numbered-list",
-        items: [
-          "Inspect the piece for loose stones or lifted prongs.",
-          "Confirm the cloth and method suit every material.",
-          "Use a genuinely clean, lint-free or microfibre cloth.",
-          "Apply light pressure rather than repeated hard rubbing.",
-          "Stop if the cloth catches or the surface contains visible grit."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "A bracelet sliding repeatedly into a watch case or clasp can mark both pieces. Diamond-set bracelets introduce an additional risk because the diamonds are harder than watch metals. If you wear a tennis bracelet beside a watch, check where the bracelet sits during normal movement. A visually attractive stack can still create constant abrasive contact." },
+    ],
   },
   {
-    heading: "5. Put jewellery on last and remove it first",
+    heading: "Jewellery Can Scratch During Exercise and Other Activities",
     content: [
-      {
-        type: "paragraph",
-        text: "Apply skincare lotions and fragrances first. Put jewelry on last to avoid snagging threads."
-      }
-    ]
+      { type: "paragraph", text: "Gym equipment creates repeated contact with metal bars, dumbbells, machines, floors, and other hard surfaces. Rings are particularly vulnerable. The concern is not only scratches — impact and pressure can also distort a band or affect settings. Removing fine jewellery before weight training or contact sport is a sensible protective habit. GIA specifically recommends taking diamond jewellery off before gardening and other higher-risk activities." },
+      { type: "paragraph", text: "Household chores can expose jewellery to two separate problems: hard physical contact and: strong cleaning chemicals. Jewellery can also scratch through ordinary contact with: metal handbag hardware, zips, desk edges, door handles, and countertops. The practical goal is to notice repeated high-contact patterns." },
+    ],
   },
   {
-    heading: "6. Store every piece separately",
+    heading: "Travelling With Jewellery",
     content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Use individual slotted sections or anti-tarnish rolls. See guidelines at " },
-          { text: "how to store diamond jewellery properly", href: "/blog/store-diamond-jewellery/" },
-          { text: "." }
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Travel creates a high risk of pieces moving against each other. Use a case with separate compartments. Do not wrap several pieces together in one cloth. Do not place earrings, rings, necklaces and bracelets loose inside a handbag pocket. Tiffany and GIA both recommend individual or separated storage during travel to reduce scratching and tangling. Use ring rolls or individual compartments for rings. Fasten necklaces before storage where appropriate. Secure each earring pair in a dedicated section." },
+    ],
   },
   {
-    heading: "7. Protect jewellery while travelling",
+    heading: "Can Polishing Remove Scratches?",
     content: [
-      {
-        type: "paragraph",
-        text: "Use structured travel compartments. Before closing bags, ensure:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "chains and bracelets are fastened;",
-          "exposed earring posts are covered;",
-          "raised settings are supported;",
-          "dividers cannot shift; and",
-          "the case is kept in carry-on baggage."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Professional polishing can reduce or remove some scratches from metals such as gold and platinum. But polishing is not consequence-free. Tiffany specifically notes that polishing removes a small amount of metal and therefore recommends limiting the number of times it is performed over the life of a piece. This makes prevention preferable to repeated polishing. Fine surface marks are part of ordinary wear for many metals — reserve polishing for situations where the cosmetic result matters to you, the metal/finish is suitable, and a professional recommends it." },
+    ],
   },
   {
-    heading: "Scratch prevention by material",
+    heading: "Scratch Removal Is Different From Cleaning",
     content: [
-      {
-        type: "paragraph",
-        parts: [{ text: "Gold jewellery: ", bold: true }, { text: "Alloys protect gold, but scratches still occur. Limit excessive polishing." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Platinum jewellery: ", bold: true }, { text: "Platinum moves rather than wearing away, forming patinas. Seek professional polishing when desired." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Plated or coated jewellery: ", bold: true }, { text: "Avoid abrasive chemical cleansers to keep rhodium plating thick." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Diamond jewellery: ", bold: true }, { text: "Prevent diamonds from scraping adjacent stones or bands." }]
-      },
-      {
-        type: "paragraph",
-        parts: [{ text: "Coloured-stone jewellery: ", bold: true }, { text: "Sapphires, pearls, and opals are softer than diamonds. Protect them accordingly." }]
-      }
-    ]
+      { type: "table", headers: ["Process", "Main Purpose"], rows: [["Cleaning", "Remove residue"], ["Polishing", "Reduce some metal surface scratches"], ["Replating", "Restore a confirmed plated surface where appropriate"], ["Inspection", "Assess condition"], ["Repair", "Correct mechanical damage"]] },
+      { type: "paragraph", text: "Do not make home scratch removal a standard Aurelia recommendation. Metal-polishing compounds, abrasive cloths and jewellery pastes can alter surface finishes or remove material. Plated surfaces require even more caution. If a scratch genuinely needs removal, professional assessment is safer than experimenting on fine jewellery." },
+    ],
   },
   {
-    heading: "Are small surface marks normal?",
+    heading: "Can a Diamond Be Scratched?",
     content: [
-      {
-        type: "paragraph",
-        text: "Fine lines on shanks develop through daily wear. A tiny light mark is not a structural fault."
-      }
-    ]
+      { type: "paragraph", text: "Diamond is extremely resistant to scratching. Another diamond, however, can scratch it. More importantly, a diamond can still chip or fracture from a sufficiently strong impact. Do not translate \"hardest natural material\" into \"impossible to damage\". Pear, marquise, princess and other shapes with pointed corners or exposed vulnerable areas benefit from appropriate setting protection. If a setting around one of those points is damaged, the stone can become more exposed." },
+    ],
   },
   {
-    heading: "Can scratches be removed at home?",
+    heading: "Storing Different Gemstones Together",
     content: [
-      {
-        type: "paragraph",
-        text: "Avoid toothpaste or rotary wheels. A professional jeweller should decide whether to:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "take no action;",
-          "clean only;",
-          "perform controlled polishing or refinishing;",
-          "replate rhodium layerings;",
-          "conduct laser repair fillings;",
-          "assess stones; or",
-          "repair settings before cosmetic work."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Do not store harder gemstones directly against softer ones. GIA warns that diamonds can scratch many other gem materials. If a jewellery piece includes: pearls, opal, or other softer gems, keep it separated from diamond jewellery. Storage should protect the most vulnerable material. A matching necklace and earrings can still scratch each other — matching design does not change material hardness." },
+    ],
   },
   {
-    heading: "When a scratch needs professional assessment",
+    heading: "Scratches Near a Diamond Setting Need More Caution",
     content: [
-      {
-        type: "paragraph",
-        text: "Seek inspection immediately if:"
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "the mark catches a fingernail;",
-          "it crosses a prong, bezel, hinge or clasp;",
-          "a stone moves or rattles;",
-          "a diamond or coloured stone appears chipped;",
-          "plating has visibly broken;",
-          "the ring or bracelet has changed shape;",
-          "the piece snags after the incident; or",
-          "the material or treatment is unknown."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "A deep mark on the bottom of a plain band is different from damage near a prong or channel wall. If abrasion appears to have removed or deformed metal that helps secure a stone, check for stone security. GIA specifically notes that a diamond moving inside its setting can wear against and damage the softer precious metal around it. That is another reason a loose diamond should not continue to be worn." },
+      { type: "paragraph", parts: [{ text: "Use " }, { text: "How to Check Diamond Jewellery for Loose Stones", href: "/blog/check-diamond-jewellery-loose-stones/" }] },
+    ],
   },
   {
-    heading: "Common scratch-prevention mistakes",
+    heading: "A Simple Scratch-Prevention Routine",
     content: [
-      {
-        type: "bullet-list",
-        items: [
-          "Believing diamond jewellery cannot be damaged.",
-          "Wearing rings for weights, gardening or cleaning.",
-          "Letting a diamond ring rub against another band.",
-          "Stacking a bracelet beside a hard watch case.",
-          "Using one pouch for several pieces.",
-          "Wiping jewellery with a dusty cloth or clothing.",
-          "Using toothpaste or abrasive DIY remedies.",
-          "Over-polishing normal signs of wear.",
-          "Applying one care method to every coloured stone.",
-          "Ignoring a scratch near a setting or clasp."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "Before wear, ask whether the activity is likely to involve hard repeated contact. During wear, notice whether stacked jewellery is rubbing continuously. After wear, check for obvious new damage. When storing, separate each piece. When travelling, use individual padded compartments. That routine prevents far more damage than repeatedly polishing jewellery after scratches appear." },
+    ],
   },
   {
-    heading: "Daily scratch-prevention checklist",
+    heading: "Aurelia Service Claims Must Be Verified",
     content: [
-      {
-        type: "bullet-list",
-        items: [
-          "Choose jewellery suitable for today’s activity.",
-          "Check that stacked pieces do not touch destructively.",
-          "Put jewellery on after products have dried.",
-          "Remove it before physical, wet or chemical-heavy work.",
-          "Handle it over a clean, soft surface.",
-          "Use only clean, approved care tools.",
-          "Inspect settings before storage.",
-          "Give every piece its own padded space.",
-          "Seek professional advice for deep or structural marks."
-        ]
-      }
-    ]
+      { type: "paragraph", text: "This article should not state that Aurelia provides: rhodium replating at a London workshop, complimentary rhodium replating, claw tightening in London, free claw tightening, in-house workshop repairs, or: lifetime polishing or refinishing unless those services are formally confirmed by the client. A safer customer-facing statement is: If your jewellery has deep scratches, visible finish wear or damage near a diamond setting, contact Aurelia to ask what inspection or after-sales support is currently available for your specific piece." },
+    ],
   },
   {
-    heading: "The Aurelia Royale standard",
+    heading: "Frequently Asked Questions",
     content: [
-      {
-        type: "paragraph",
-        parts: [
-          { text: "Aurelia Royale specifies alloy structures and stone varieties clearly. Browse catalog at " },
-          { text: "Aurelia Royale jewellery", href: "/shop/" },
-          { text: " or " },
-          { text: "contact Aurelia Royale", href: "/contact/" },
-          { text: " to request specific specifications." }
-        ]
-      }
-    ]
+      { type: "faq", items: [
+        { question: "How can I stop jewellery from scratching?", answer: "Reduce unnecessary contact. Store pieces separately, remove them during high-impact activities and check whether stacked jewellery is rubbing continuously." },
+        { question: "Can diamonds scratch gold?", answer: "Yes. Diamond is much harder than gold and can scratch precious-metal settings and neighbouring jewellery." },
+        { question: "Can diamonds scratch platinum?", answer: "Yes. Diamond can scratch platinum and other precious metals used in jewellery." },
+        { question: "Can diamond jewellery scratch other diamonds?", answer: "Diamond can scratch diamond, and diamond-set pieces can also chip or damage each other if stored or worn in repeated contact." },
+        { question: "Is it normal for rings to get small scratches?", answer: "Yes. Fine surface scratches can develop through normal wear, particularly on gold and platinum." },
+        { question: "Should I polish every scratch out?", answer: "No. Polishing removes some metal, so it should not be used repeatedly for every minor mark." },
+        { question: "How do I stop stacked rings scratching each other?", answer: "Check whether diamond edges, prongs or metal surfaces are making repeated contact. Adjust the stack if necessary rather than relying only on appearance from above." },
+        { question: "Can a tennis bracelet scratch my watch?", answer: "Yes. Diamonds and metal settings can rub against a watch case or bracelet. Repeated contact can mark either piece." },
+        { question: "Should I store jewellery in separate pouches?", answer: "Yes. One piece per pouch or separate padded compartments reduces scratching and tangling." },
+        { question: "Can I remove scratches from jewellery at home?", answer: "Avoid making DIY scratch removal the default for fine jewellery. Abrasive products can remove metal or damage finishes and plating." },
+        { question: "Does white gold always need rhodium replating?", answer: "No. The actual metal and surface finish must be confirmed for the product. Do not assume all white-coloured jewellery uses the same construction." },
+        { question: "Does Aurelia offer rhodium replating or claw tightening?", answer: "Do not assume so. Those services should only be stated if Aurelia has formally confirmed them and their conditions." },
+      ]},
+    ],
   },
   {
+    heading: "Final Answer: How Do You Prevent Jewellery from Scratching?",
     content: [
-      {
-        type: "callout",
-        title: "Final verdict",
-        theme: "gold-border",
-        parts: [
-          {
-            text: "Most jewellery scratches arise from repeated contact—with other pieces, hard surfaces, grit or unsuitable cleaning materials.\n\n"
-          },
-          {
-            text: "These practical habits reduce avoidable wear. Match jewelry to physical tasks, avoid stack collisions, use clean microfibre cloths, and seek professional polishing."
-          }
-        ]
-      },
-      {
-        type: "faq",
-        items: [
-          {
-            question: "Can diamond jewellery get scratched?",
-            answer: "The diamond is highly scratch resistant, but another diamond can scratch it. Its metal, setting and any softer gemstones can be marked more easily."
-          },
-          {
-            question: "Can diamonds scratch gold or platinum?",
-            answer: "Yes. Diamond is harder than jewellery metals and can mark them when the surfaces rub."
-          },
-          {
-            question: "How do I stop rings from scratching each other?",
-            answer: "Check where stones, prongs and bands meet. Separate incompatible rings or ask a jeweller whether a suitable fitted spacer is appropriate."
-          },
-          {
-            question: "Does stacking rings cause scratches?",
-            answer: "It can. Repeated contact may mark metal and wear settings, especially when diamonds or prongs touch a neighbouring band."
-          },
-          {
-            question: "Should I wear a diamond bracelet beside a watch?",
-            answer: "Only if the pieces do not collide. A hard watch case or clasp may repeatedly contact the bracelet, so separate wrists are often safer."
-          },
-          {
-            question: "Can a polishing cloth remove jewellery scratches?",
-            answer: "A standard clean cloth removes residue, not structural scratches. Treated cloths should be used only when approved for the specific finish."
-          },
-          {
-            question: "Does toothpaste remove scratches from jewellery?",
-            answer: "Do not use it. Toothpaste can be abrasive and may damage metal, coatings, gemstones and settings."
-          },
-          {
-            question: "Is scratched gold jewellery normal?",
-            answer: "Fine surface marks can develop through normal wear. Deep grooves, deformation or scratches near settings require assessment."
-          },
-          {
-            question: "Can scratched jewellery be polished repeatedly?",
-            answer: "Repeated refinishing can change contours and remove surface material or plating, so a jeweller should decide when it is appropriate."
-          },
-          {
-            question: "How should jewellery be stored to prevent scratches?",
-            answer: "Keep each piece in its own clean, padded compartment, fitted box or individual soft pouch so pieces cannot touch."
-          },
-          {
-            question: "Can dust scratch jewellery?",
-            answer: "Dust or grit may contain hard mineral particles. Use clean tools and storage lining, and do not rub a visibly gritty surface."
-          },
-          {
-            question: "When should a scratched piece go to a jeweller?",
-            answer: "Seek assessment when a mark is deep, affects a setting or clasp, accompanies deformation, or appears beside a loose or chipped stone."
-          }
-        ]
-      },
-      {
-        type: "cta-banner",
-        title: "Restore Polished Finishes",
-        subtitle: "Aurelia Royale offers rhodium replating and structural claw tightenings at our london workshop. Contact our specialists.",
-        shopHref: "/shop/",
-        contactHref: "/contact/"
-      }
-    ]
-  }
+      { type: "paragraph", text: "Focus on preventing repeated contact. Store each piece separately. Do not let diamond jewellery rub against other jewellery in boxes or pouches. Check ring stacks for diamond-to-metal or prong-to-band contact. Avoid wearing rings and bracelets during gardening, weight training, manual work and other activities involving hard surfaces. Keep diamond bracelets from repeatedly colliding with watches. Use separated, padded storage when travelling. And do not treat professional polishing as routine maintenance for every small mark. Fine scratches can be part of normal wear, while polishing removes metal. If a mark is close to a setting, a prong looks damaged or a diamond appears loose, prioritise structural inspection over cosmetic polishing." },
+      { type: "paragraph", parts: [{ text: "For loose-stone warning signs, use " }, { text: "How to Check Diamond Jewellery for Loose Stones", href: "/blog/check-diamond-jewellery-loose-stones/" }] },
+      { type: "paragraph", parts: [{ text: "For storage, use " }, { text: "How to Store Diamond Jewellery Properly", href: "/blog/store-diamond-jewellery/" }] },
+      { type: "paragraph", parts: [{ text: "For cleaning, use " }, { text: "How to Clean Lab-Grown Diamond Jewellery at Home", href: "/blog/clean-lab-grown-diamond-jewellery/" }] },
+      { type: "cta-banner", title: "Explore Aurelia Royale Lab-Grown Diamond Jewellery", subtitle: "Separate, protect and avoid repeated contact — the simplest way to keep jewellery looking its best.", shopHref: "/shop/", contactHref: "/contact/" },
+    ],
+  },
 ];
 
-export default function Page() {
+export default function BlogScratchesPage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-sans overflow-x-clip">
-      {/* Script injection for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* Hero Header */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc] py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Jewellery Care and Maintenance
-          </span>
-          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">
-            How to Prevent Jewellery from Scratching
-          </h1>
-          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">
-            Journal • Published July 16, 2026
-          </p>
+          <span className="font-jost text-xs font-semibold uppercase tracking-[0.25em] text-gold">Lab-Grown Diamond Care</span>
+          <h1 className="mt-4 font-cormorant text-5xl md:text-6xl font-medium leading-tight text-foreground uppercase tracking-wide">How to Prevent Jewellery from Scratching</h1>
+          <p className="mt-6 font-jost text-sm font-light uppercase tracking-widest text-[#5a5a5a]">Wear, Stacking, Storage and Travel Habits Explained • Published September 10, 2026</p>
         </div>
       </section>
-
-      {/* Content Layout */}
       <DynamicArticle sections={articleSections} />
-
-      {/* Footer Newsletter Section */}
+      <RelatedArticles currentSlug="prevent-jewellery-scratches" />
       <NewsletterSection />
     </main>
   );
 }
+
