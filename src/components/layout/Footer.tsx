@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import logo from "../../../public/logo/Aurelia-Royale-Embossed-Logo.png";
+import logo from "../../../public/logo/Logo-1.png";
 
 const footerLinks = [
     { href: "/", label: "Home" },
