@@ -857,7 +857,7 @@ git commit -m "feat(i18n): add language switcher and localise header and footer"
 
 ### Task 5: Blog content extractor
 
-Converts 99 `page.tsx` files into `content/blogs/<slug>/en.json`. The hard requirement is that it never silently mangles content: it refuses anything that is not a literal, and every emitted file is proved equal to its source by a round-trip comparison.
+Converts 99 `page.tsx` files into `content/blogs/<slug>/en.json` (98 servable; one is a redirect source). The hard requirement is that it never silently mangles content: it refuses anything that is not a literal, and every emitted file is proved faithful to its source by two INDEPENDENT checks. Note what does not count as proof — re-running the extractor and comparing its output to itself establishes only determinism.
 
 **Files:**
 - Create: `scripts/i18n/lib/ast-literal.mjs`
@@ -1384,7 +1384,7 @@ asserting the two agree.
 export const EXCLUDED_SLUGS = ["advantages-of-lab-grown-diamonds"];
 ```
 
-- [ ] **Step 11: Write the extractor CLI with its round-trip gate**
+- [ ] **Step 11: Write the extractor CLI with its fidelity gate**
 
 ```js
 // scripts/i18n/extract-blogs.mjs
@@ -1425,13 +1425,12 @@ for (const slug of slugs) {
         const source = fs.readFileSync(file, "utf8");
         const content = extractBlog(source, { file, slug });
 
-        // Round-trip gate: JSON.stringify then parse must be identical, which
-        // catches undefined, NaN and anything else JSON cannot carry.
+        // Fidelity gate. Comparing a second extraction to the first would
+        // only prove determinism, so both checks here are independent of the
+        // extraction logic that produced `content`.
         const roundTripped = JSON.parse(JSON.stringify(content));
-        assert.deepStrictEqual(
-            roundTripped,
-            JSON.parse(JSON.stringify(extractBlog(source, { file, slug }))),
-        );
+        assertStringsAppearInSource(roundTripped, source, slug);
+        assertBlockCountMatchesSource(roundTripped, source, file, slug);
 
         results.push({ slug, content: roundTripped });
     } catch (error) {
