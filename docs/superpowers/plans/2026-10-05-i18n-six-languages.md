@@ -2794,13 +2794,25 @@ for(const l of ["fr","it","de","nl","es"]){
 console.log("filled missing keys in 5 locales");'
 ```
 
-- [ ] **Step 8: Verify no bare literals remain**
+- [ ] **Step 8: Verify no untranslated strings remain**
+
+Use the AST detector (`scripts/i18n/find-untranslated.mjs`, created in Task 4),
+not a grep. Regex over JSX misses two whole classes that bit Task 4: strings in
+expression position (ternaries, prop values) and multi-line JSX text, where the
+text does not sit between two angle brackets on one line. The detector walks the
+TypeScript AST, so it sees `JsxText` nodes and user-facing attribute literals
+(`aria-label`, `placeholder`, `alt`, `title`) wherever they appear.
 
 ```bash
-grep -rnP '>[A-Z][a-z]+( [A-Za-z,&\x27-]+){1,}<' src/app/\[locale\]/home src/app/\[locale\]/about src/app/\[locale\]/contact src/app/\[locale\]/shop src/components/home src/components/shop --include='*.tsx' | grep -v 't(' | head -20
+npm run i18n:untranslated -- src/app/\[locale\] src/components/home src/components/shop src/components/shared
 ```
 
-Expected: no output. Any hit is a literal that still needs a key.
+Expected: `0 untranslated string(s)`. Every hit is a literal that still needs a
+key. Do NOT scan `src/app/admin` — it is English-only by decision.
+
+If a hit is genuinely not translatable copy (a brand name, a product SKU, a
+single symbol), add it to the detector's `ALLOW` list with a comment saying why,
+rather than leaving the gate failing or weakening the pattern.
 
 - [ ] **Step 9: Verify and commit**
 
@@ -2850,6 +2862,15 @@ Re-run the fill script from Task 9, Step 6.
 - [ ] **Step 5: Verify**
 
 Run: `npm test && npx tsc --noEmit && npm run build`
+
+Then run the AST detector over this task's surface — a grep will not do, for the
+reasons in Task 9, Step 8:
+
+```bash
+npm run i18n:untranslated -- src/app/\[locale\] src/components/auth src/components/profile src/components/wishlist
+```
+
+Expected: `0 untranslated string(s)`.
 
 With `npm run dev`, walk `/es/login/`, `/es/register/` and `/es/profile/`, confirming no `[MISSING:` and that submitting an empty form shows validation messages.
 
