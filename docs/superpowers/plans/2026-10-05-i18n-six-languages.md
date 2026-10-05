@@ -2635,7 +2635,50 @@ git commit -m "feat(i18n): localise blog listing, cards and related articles"
 - Consumes: `getTranslations` / `useTranslations`; `Link` from `src/i18n/navigation.ts`.
 - Produces: `SHOP_CATEGORY_TILES` entries keyed by `labelKey: string` instead of `label: string`; `getCategoryLabelKey(category: string): string` replacing `getCategoryDisplayLabel`.
 
-- [ ] **Step 1: Write the failing category-label test**
+- [ ] **Step 1: Upgrade the detector to see strings in expression position**
+
+`scripts/i18n/find-untranslated.mjs` currently walks `JsxText` nodes and a fixed
+set of user-facing attributes. It is blind to string literals in EXPRESSION
+position — ternaries and values rendered inside `{...}` — which is a large part
+of this task's surface. Measured before starting: the detector reports 163
+strings across this task's areas, while cart and checkout alone hold roughly 20
+more that it cannot see, including `"Clear Cart"`, `"Removing..."`,
+`"Placing Order..."`, `"Place COD Order"`, `"Payment was not completed"` and
+`"Try Checkout Again"`. Without this upgrade the gate reports `0` on work that is
+not done.
+
+Add a third collector: a `ts.StringLiteral` whose ancestor chain includes a
+`JsxExpression`. Filter it to things that look like prose, because that position
+also holds genuine non-copy:
+
+```js
+/** Does this literal look like user-facing copy rather than an enum or id? */
+function looksLikeCopy(text) {
+    if (!/[a-z]/.test(text)) return false;        // ALL-CAPS: enum value, e.g. "ONLINE"
+    return /^[A-Z]/.test(text) || text.includes(" ");
+}
+```
+
+That keeps `"Clear Cart"`, `"Removing..."` and `"No email available"`, and
+correctly skips `"ONLINE"` (a payment-method value sent to the backend, which
+MUST NOT be translated) and `"success"`.
+
+Report the new hits with kind `jsx-expr` so they are distinguishable. Re-run the
+detector over this task's areas and record the new total before you change any
+component.
+
+**Known remaining blind spot — sweep by hand.** Module-level string arrays
+rendered via `.map()` are not inside a `JsxExpression` at their declaration, so
+no AST position test will find them. `src/components/shop/ComingSoonSignup.tsx`
+has exactly this shape (`"Early access"`, `"Launch updates"`,
+`"Exclusive offers"`, `"New collection announcements"`). Grep for module-level
+string arrays in this task's areas and translate them too:
+
+```bash
+grep -rnP '^\s*"[A-Z][^"]{4,}",?$' src/components src/app --include='*.tsx'
+```
+
+- [ ] **Step 2: Write the failing category-label test**
 
 Product titles stay English, but the category tile labels are frontend-side and from a fixed set, so they localise.
 
@@ -2673,12 +2716,12 @@ describe("category label keys", () => {
 });
 ```
 
-- [ ] **Step 2: Run the test to verify it fails**
+- [ ] **Step 3: Run the test to verify it fails**
 
 Run: `npm test -- src/services/products/product-category.test.ts`
 Expected: FAIL — `getCategoryLabelKey` is not exported.
 
-- [ ] **Step 3: Convert the tiles to message keys**
+- [ ] **Step 4: Convert the tiles to message keys**
 
 In `src/services/products/product-category.ts`, change the `ShopCategoryTile` type's `label: string` to `labelKey: string`, set each tile's key (`bracelets`, `earrings`, `necklaces`, `rings`, `pendants`, `sets`, …), and replace `getCategoryDisplayLabel` with:
 
@@ -2690,12 +2733,12 @@ export function getCategoryLabelKey(category: string): string {
 
 Add a `shopCategories` namespace to all six message files mapping each key to its English label, plus a `fallback` entry used when a key is unknown.
 
-- [ ] **Step 4: Run the test to verify it passes**
+- [ ] **Step 5: Run the test to verify it passes**
 
 Run: `npm test -- src/services/products/product-category.test.ts`
 Expected: 4 passed.
 
-- [ ] **Step 5: Extract the remaining storefront strings**
+- [ ] **Step 6: Extract the remaining storefront strings**
 
 Work file by file. For each page and component listed in **Files**, add a namespace named after it (`HomePage`, `AboutPage`, `ContactPage`, `ShopPage`, `ProductDetails`, `CartPage`, `CheckoutPage`, `Newsletter`, `Testimonials`, `ProductCard`, …), move every user-facing literal into `messages/en.json` under that namespace, and replace it with `t("key")`. Server components use `await getTranslations("Namespace")`; client components use `useTranslations("Namespace")`.
 
@@ -2758,7 +2801,7 @@ with `messages/en.json` gaining:
 
 A server component differs only in the two lines at the top: `const t = await getTranslations("ComingSoon");` with the import from `next-intl/server`.
 
-- [ ] **Step 6: Add canonical and hreflang to every storefront page**
+- [ ] **Step 7: Add canonical and hreflang to every storefront page**
 
 Spec section 5 requires `alternates.languages` on every page, not just blog pages. Each storefront page's `generateMetadata` gains the same two lines. Worked example for `src/app/[locale]/about/page.tsx`:
 
@@ -2789,7 +2832,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 Apply the same shape to `home` (path `/`), `contact` (`/contact`), `shop` (`/shop`), `blog/page.tsx` (`/blog`) and `shop-details/[slug]` (`/shop-details/<slug>`), each with its own namespace and path. Account and auth pages do not need hreflang — add `robots: { index: false, follow: false }` to those instead, since a locale-prefixed login page should not be indexed six times.
 
-- [ ] **Step 7: Copy the English keys into the other five files**
+- [ ] **Step 8: Copy the English keys into the other five files**
 
 Keep all six files structurally identical from the start, so `check-i18n` can compare shapes and the translator has a complete source.
 
@@ -2811,7 +2854,7 @@ for(const l of ["fr","it","de","nl","es"]){
 console.log("filled missing keys in 5 locales");'
 ```
 
-- [ ] **Step 8: Verify no untranslated strings remain**
+- [ ] **Step 9: Verify no untranslated strings remain**
 
 Use the AST detector (`scripts/i18n/find-untranslated.mjs`, created in Task 4),
 not a grep. Regex over JSX misses two whole classes that bit Task 4: strings in
@@ -2843,7 +2886,7 @@ grep -rn 'toast\.' src --include='*.tsx' | grep -v '/admin/' | grep -P 'toast\.\
 At the time of planning that found 8 hardcoded toast strings outside admin
 (in `orders/[id]`, `profile`, `register`). Admin toasts stay English.
 
-- [ ] **Step 9: Verify and commit**
+- [ ] **Step 10: Verify and commit**
 
 Run: `npm test && npx tsc --noEmit && npm run build`
 
