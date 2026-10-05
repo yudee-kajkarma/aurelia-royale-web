@@ -7,7 +7,7 @@ import { AuthGuard } from "@/components/auth/AuthGuard";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { useWishlist } from "@/providers/WishlistProvider";
 import { notifyError } from "@/utils/notify";
-import { ProductImage } from "../../components/shared/ProductImage";
+import { ProductImage } from "@/components/shared/ProductImage";
 
 export default function WishlistPage() {
   const { items, count, totalValue, clearAll, isLoading, removeItem } = useWishlist();

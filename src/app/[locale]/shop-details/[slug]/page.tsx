@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, Star } from "lucide-react";
 // import { DiscountedPrice } from "@/components/shared/DiscountedPrice";
 import { ProductImage } from "@/components/shared/ProductImage";
-import { ProductPurchasePanel } from "../../../components/shop/ProductPurchasePanel";
+import { ProductPurchasePanel } from "@/components/shop/ProductPurchasePanel";
 import { WishlistToggleButton } from "@/components/wishlist/WishlistToggleButton";
 import { ProductDetailsTabs } from "@/components/shop/ProductDetailsTabs";
 import { ComingSoonSignup } from "@/components/shop/ComingSoonSignup";

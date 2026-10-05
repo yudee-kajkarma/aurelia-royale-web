@@ -13,7 +13,7 @@ import { orderService } from "@/services/orders/order.service";
 import type { CreateOrderPayload, PaymentMethod } from "@/services/orders/order.types";
 import { useDiscount } from "@/services/family/useDiscount";
 import { notifyError } from "@/utils/notify";
-import { ProductImage } from "../../components/shared/ProductImage";
+import { ProductImage } from "@/components/shared/ProductImage";
 
 export default function CheckoutPage() {
   const router = useRouter();

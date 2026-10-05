@@ -8,7 +8,7 @@ import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { useCart } from "@/providers/CartProvider";
 import { useDiscount } from "@/services/family/useDiscount";
 import { notifyError } from "@/utils/notify";
-import { ProductImage } from "../../components/shared/ProductImage";
+import { ProductImage } from "@/components/shared/ProductImage";
 
 export default function CartPage() {
   const { items, count, totalValue, clearAll, isLoading, updateItemQuantity, removeItem } = useCart();
