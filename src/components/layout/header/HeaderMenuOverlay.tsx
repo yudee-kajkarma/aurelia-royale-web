@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { ShoppingBag, UserRound, X } from "lucide-react";
+import { Link, usePathname } from "@/i18n/navigation";
 import { HeaderLogo } from "@/components/layout/header/HeaderLogo";
 import { HeaderProfileMenu } from "@/components/layout/header/HeaderProfileMenu";
 import {
@@ -177,6 +177,7 @@ export function HeaderMenuOverlay({
     onLogout,
     onActivatePanel,
 }: HeaderMenuOverlayProps) {
+    const t = useTranslations("Header");
     const isAdmin = isAdminRole(user?.role);
     const listVariants = reduceMotion ? undefined : desktopListVariants;
     const mobileVariants = reduceMotion ? undefined : mobileListVariants;
@@ -185,12 +186,16 @@ export function HeaderMenuOverlay({
     const gridVariants = reduceMotion ? undefined : cardGridVariants;
     const tileVariants = reduceMotion ? undefined : cardItemVariants;
     const pathname = usePathname();
+    // Labels come from the shared `Header` namespace in sentence case; the
+    // visual capitals come from the `uppercase` Tailwind utility already on
+    // both lists below, not from the message value, so casing stays correct
+    // for every locale.
     const desktopSidebarItems = [
-        { href: "/", label: "HOME" },
-        { href: "/about", label: "ABOUT" },
-        { href: "/shop", label: "SHOP" },
-        { href: "/contact", label: "CONTACT" },
-        { href: "/blog", label: "BLOG" },
+        { href: "/", label: t("home") },
+        { href: "/about", label: t("about") },
+        { href: "/shop", label: t("shop") },
+        { href: "/contact", label: t("contact") },
+        { href: "/blog", label: t("blog") },
     ];
     const mobileAdminItems = isAdmin
         ? ADMIN_NAV_ITEMS.map((item) => ({
@@ -229,7 +234,7 @@ export function HeaderMenuOverlay({
                                 type="button"
                                 onClick={onCloseMenu}
                                 className="text-gold transition hover:text-[#e0c261]"
-                                aria-label="Close menu"
+                                aria-label={t("closeMenu")}
                             >
                                 <X size={32} strokeWidth={1.75} />
                             </button>
@@ -269,7 +274,7 @@ export function HeaderMenuOverlay({
                                 <button
                                     type="button"
                                     className="relative text-white/95 transition hover:text-gold"
-                                    aria-label="Shopping bag"
+                                    aria-label={t("shoppingBag")}
                                     onClick={onCartOpen}
                                 >
                                     <ShoppingBag size={29} strokeWidth={2} />
@@ -346,6 +351,7 @@ export function HeaderMenuOverlay({
                                                                         href={
                                                                             item.href
                                                                         }
+                                                                        locale="en"
                                                                         className="block text-base font-semibold uppercase tracking-[0.12em] text-[#153f35] transition hover:text-[#0f5f49]"
                                                                         onClick={
                                                                             onCloseMenu
@@ -515,6 +521,7 @@ export function HeaderMenuOverlay({
                                                         >
                                                             <Link
                                                                 href={item.href}
+                                                                locale="en"
                                                                 className="block border border-[#d6d6ca] bg-white/60 px-4 py-3 text-center transition hover:border-[#0e5b45] hover:text-[#0e5b45]"
                                                                 onClick={
                                                                     onCloseMenu

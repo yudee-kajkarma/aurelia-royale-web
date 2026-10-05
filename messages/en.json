@@ -9,10 +9,19 @@
     "contact": "Contact",
     "blog": "Blog",
     "openMenu": "Open menu",
+    "closeMenu": "Close menu",
     "openProfileMenu": "Open profile menu",
     "openAccountMenu": "Open account menu",
     "wishlist": "Wishlist",
     "shoppingBag": "Shopping bag"
+  },
+  "ProfileMenu": {
+    "signedIn": "Signed In",
+    "myProfile": "My Profile",
+    "role": "Role",
+    "adminDashboard": "Admin Dashboard",
+    "profile": "Profile",
+    "logout": "Logout"
   },
   "Footer": {
     "tagline": "Fine jewellery crafted for those who value beauty, heritage, and permanence above all.",

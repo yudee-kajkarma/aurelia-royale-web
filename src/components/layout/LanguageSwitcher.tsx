@@ -28,7 +28,7 @@ export function LanguageSwitcher() {
                     router.replace(pathname, { locale: next });
                 });
             }}
-            className="bg-transparent font-jost text-xs uppercase tracking-[0.2em] text-foreground outline-none"
+            className="bg-transparent font-jost text-xs uppercase tracking-[0.2em] text-white outline-none"
         >
             {routing.locales.map((value) => (
                 <option key={value} value={value}>

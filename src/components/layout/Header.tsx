@@ -9,8 +9,7 @@ import {
 import { Heart, Menu, ShoppingBag, UserRound } from "lucide-react";
 import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { usePathname, useRouter } from "next/navigation";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { HeaderLogo } from "@/components/layout/header/HeaderLogo";
 import { HeaderMenuOverlay } from "@/components/layout/header/HeaderMenuOverlay";
 import { HeaderProfileMenu } from "@/components/layout/header/HeaderProfileMenu";

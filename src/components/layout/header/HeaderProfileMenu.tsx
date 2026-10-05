@@ -1,6 +1,7 @@
-﻿import Link from "next/link";
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { LogOut, Shield, UserRound } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import type { AuthUser } from "@/services/auth/auth.types";
 import { isAdminRole } from "@/services/auth/auth.types";
 
@@ -21,9 +22,14 @@ export function HeaderProfileMenu({
   onNavigate,
   onLogout,
 }: HeaderProfileMenuProps) {
+  const t = useTranslations("ProfileMenu");
   const isDesktop = variant === "desktop";
   const isPanel = variant === "panel";
   const isAdmin = isAdminRole(user.role);
+  // `accountHref` is "/admin/products" for admins — the admin panel lives
+  // outside the locale tree and is always English, so that link must not
+  // pick up the current page's locale prefix (which would 404).
+  const isAdminHref = accountHref.startsWith("/admin");
 
   return (
     <motion.div
@@ -40,13 +46,13 @@ export function HeaderProfileMenu({
     >
       {isDesktop || isPanel ? (
         <div className="border-b border-white/10 bg-[linear-gradient(135deg,#05241d,#0f5d47)] px-5 py-4">
-          <p className="text-xs uppercase tracking-[0.18em] text-gold">Signed In</p>
+          <p className="text-xs uppercase tracking-[0.18em] text-gold">{t("signedIn")}</p>
           <p className="mt-2 text-base font-semibold">{user.username}</p>
           <p className="mt-1 text-sm text-white/70">{user.email}</p>
         </div>
       ) : (
         <>
-          <p className="text-xs uppercase tracking-[0.16em] text-gold">My Profile</p>
+          <p className="text-xs uppercase tracking-[0.16em] text-gold">{t("myProfile")}</p>
           <p className="mt-2 text-base font-semibold text-white">{user.username}</p>
           <p className="mt-1 text-sm text-white/70">{user.email}</p>
         </>
@@ -54,7 +60,7 @@ export function HeaderProfileMenu({
 
       <div className={isDesktop || isPanel ? "px-4 py-4" : "mt-4"}>
         <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm">
-          <span className="text-white/65">Role</span>
+          <span className="text-white/65">{t("role")}</span>
           <span className="inline-flex items-center gap-2 font-semibold text-gold">
             <Shield size={15} />
             {user.role}
@@ -64,6 +70,7 @@ export function HeaderProfileMenu({
         <div className="mt-4 grid gap-2">
           <Link
             href={accountHref}
+            locale={isAdminHref ? "en" : undefined}
             className={isDesktop || isPanel
               ? "inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold transition hover:border-gold hover:text-gold"
               : "inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold text-white transition hover:border-gold hover:text-gold"
@@ -71,7 +78,7 @@ export function HeaderProfileMenu({
             onClick={onNavigate}
           >
             <UserRound size={16} />
-            {isAdmin ? "Admin Dashboard" : "Profile"}
+            {isAdmin ? t("adminDashboard") : t("profile")}
           </Link>
           <button
             type="button"
@@ -79,7 +86,7 @@ export function HeaderProfileMenu({
             className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gold px-4 py-3 text-sm font-extrabold text-[#17120a] transition hover:bg-[#b89428]"
           >
             <LogOut size={16} />
-            Logout
+            {t("logout")}
           </button>
         </div>
       </div>
