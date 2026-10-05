@@ -18,7 +18,15 @@
     "shopByCategory": "Shop By Category",
     "shopByEdition": "Shop By Edition",
     "searchPlaceholder": "What are you looking for",
-    "language": "Language"
+    "language": "Language",
+    "admin": "Admin",
+    "profile": "Profile",
+    "guestProfilePrompt": "Sign in to see your account details here.",
+    "openLogin": "Open Login",
+    "welcome": "Welcome",
+    "guestWelcomePrompt": "Sign in to access your profile, orders, wishlist, and checkout history.",
+    "login": "Login",
+    "register": "Register"
   },
   "ProfileMenu": {
     "signedIn": "Signed In",

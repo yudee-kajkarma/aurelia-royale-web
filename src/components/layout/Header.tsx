@@ -269,11 +269,10 @@ export function Header({
                     }}
                   >
                     <p className="text-xs uppercase tracking-[0.18em] text-gold">
-                      Welcome
+                      {t("welcome")}
                     </p>
                     <p className="mt-2 text-sm leading-6 text-white/72">
-                      Sign in to access your profile, orders, wishlist, and
-                      checkout history.
+                      {t("guestWelcomePrompt")}
                     </p>
 
                     <div className="mt-5 grid gap-2">
@@ -282,14 +281,14 @@ export function Header({
                         onClick={() => handleGuestNavigate("/login")}
                         className="inline-flex items-center justify-center rounded-2xl bg-gold px-4 py-3 text-sm font-extrabold text-[#17120a] transition hover:bg-[#b89428]"
                       >
-                        Login
+                        {t("login")}
                       </button>
                       <button
                         type="button"
                         onClick={() => handleGuestNavigate("/register")}
                         className="inline-flex items-center justify-center rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold text-white transition hover:border-gold hover:text-gold"
                       >
-                        Register
+                        {t("register")}
                       </button>
                     </div>
                   </motion.div>

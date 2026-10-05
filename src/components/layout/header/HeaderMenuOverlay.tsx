@@ -336,7 +336,7 @@ export function HeaderMenuOverlay({
                                             <motion.li variants={itemVariants}>
                                                 <div className="mt-3 border-t border-[#d8d8cd] pt-6">
                                                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0f5f49]">
-                                                        Admin
+                                                        {t("admin")}
                                                     </p>
                                                     <ul className="mt-3 space-y-2">
                                                         {ADMIN_NAV_ITEMS.map(
@@ -471,18 +471,17 @@ export function HeaderMenuOverlay({
                                             variants={itemVariants}
                                         >
                                             <p className="text-xs uppercase tracking-[0.18em] text-gold">
-                                                Profile
+                                                {t("profile")}
                                             </p>
                                             <p className="mt-2 text-sm text-white/72">
-                                                Sign in to see your account
-                                                details here.
+                                                {t("guestProfilePrompt")}
                                             </p>
                                             <Link
                                                 href="/login"
                                                 className="mt-4 inline-flex rounded-full border border-white/25 px-5 py-2 text-sm font-semibold transition hover:border-gold hover:text-gold"
                                                 onClick={onCloseMenu}
                                             >
-                                                Open Login
+                                                {t("openLogin")}
                                             </Link>
                                         </motion.div>
                                     )}
@@ -490,7 +489,7 @@ export function HeaderMenuOverlay({
                                     {mobileAdminItems.length > 0 ? (
                                         <>
                                             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#0f5f49]">
-                                                Admin
+                                                {t("admin")}
                                             </p>
                                             <motion.ul
                                                 className="grid grid-cols-2 gap-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#153f35]"
