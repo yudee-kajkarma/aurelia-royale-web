@@ -33,7 +33,7 @@ Five failure modes the spec implies that no task's happy-path tests would exerci
 2. **A locale's blog JSON file is missing** because a translation run was interrupted. The route must fall back to English content, not throw a 500. (Task 7, Step 2)
 3. **A content `href` already carries a locale prefix or is external** (`/es/shop/`, `https://igi.org`). It must not become `/es/es/shop/`, and external links must be left alone. (Task 7, Step 6)
 4. **An old inbound link arrives locale-prefixed** (`/de/blog/total-carat-weight-diamond-jewellery/`). It must 308 to `/de/blog/total-carat-weight-meaning-diamond-jewellery/`, not 404 and not drop the locale. (Task 14, Step 1)
-5. **An unknown or wrong-case locale appears in the URL** (`/pt/about/`, `/EN/about/`). It must 404 cleanly, not render a page full of `[MISSING: …]`. (Task 3, Step 1)
+5. **An unknown locale appears in the URL** (`/pt/about/`). It must 404 cleanly, not render a page full of `[MISSING: …]`. A wrong-CASE locale (`/EN/about/`) is different: next-intl matches locales case-insensitively and redirects to the canonical `/en/about/`, which is the better outcome — it rescues typo'd and legacy URLs instead of 404ing them. (Task 3, Step 1)
 
 ---
 
@@ -605,7 +605,13 @@ const PATHS = [
 ];
 
 // An unknown locale must 404 rather than soft-render.
-const EXPECT_404 = ["/pt/about/", "/EN/about/"];
+const EXPECT_404 = ["/pt/about/"];
+
+// Locale CASE is normalised by next-intl's proxy, which matches locales
+// case-insensitively and redirects to the canonical form. This is deliberate
+// and better than a 404: it rescues typo'd and legacy uppercase URLs and avoids
+// duplicate content, while still never rendering a page full of [MISSING: ...].
+const EXPECT_REDIRECT = [{ path: "/EN/about/", to: "/en/about/" }];
 
 let failures = 0;
 
@@ -625,6 +631,16 @@ for (const path of EXPECT_404) {
     const ok = res.status === 404;
     if (!ok) failures++;
     console.log(`${ok ? "ok  " : "FAIL"} ${path} -> ${res.status} (want 404)`);
+}
+
+for (const { path, to } of EXPECT_REDIRECT) {
+    const res = await fetch(base + path, { redirect: "manual" });
+    const location = res.headers.get("location") ?? "";
+    const ok = [301, 307, 308].includes(res.status) && location.endsWith(to);
+    if (!ok) failures++;
+    console.log(
+        `${ok ? "ok  " : "FAIL"} ${path} -> ${res.status} ${location} (want redirect to ${to})`,
+    );
 }
 
 console.log(failures === 0 ? "\nall routes ok" : `\n${failures} failure(s)`);
