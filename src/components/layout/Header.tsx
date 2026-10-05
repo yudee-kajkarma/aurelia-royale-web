@@ -355,7 +355,7 @@ export function Header({
               <div className="bg-[#f5efe3] max-w-7xl mx-auto text-deep shadow-[0_24px_50px_rgba(0,0,0,0.18)]">
                 <div className="mx-auto max-w-7xl px-8 py-10 lg:px-12">
                   <h3 className="font-cormorant text-center text-4xl font-medium text-deep sm:text-5xl">
-                    Shop By Category
+                    {t("shopByCategory")}
                   </h3>
 
                   <motion.div

@@ -12,8 +12,13 @@
     "closeMenu": "Close menu",
     "openProfileMenu": "Open profile menu",
     "openAccountMenu": "Open account menu",
+    "goToLogin": "Go to login",
     "wishlist": "Wishlist",
-    "shoppingBag": "Shopping bag"
+    "shoppingBag": "Shopping bag",
+    "shopByCategory": "Shop By Category",
+    "shopByEdition": "Shop By Edition",
+    "searchPlaceholder": "What are you looking for",
+    "language": "Language"
   },
   "ProfileMenu": {
     "signedIn": "Signed In",

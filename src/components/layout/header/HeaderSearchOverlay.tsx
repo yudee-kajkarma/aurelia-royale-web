@@ -1,4 +1,5 @@
 ﻿import { AnimatePresence, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { Search, X } from "lucide-react";
 
 type HeaderSearchOverlayProps = {
@@ -12,6 +13,8 @@ export function HeaderSearchOverlay({
   reduceMotion,
   onClose,
 }: HeaderSearchOverlayProps) {
+  const t = useTranslations("Header");
+
   return (
     <AnimatePresence>
       {open && (
@@ -35,7 +38,7 @@ export function HeaderSearchOverlay({
             <input
               autoFocus
               type="text"
-              placeholder="What are you looking for"
+              placeholder={t("searchPlaceholder")}
               className="h-11 flex-1 bg-transparent text-white outline-none placeholder:text-white/55"
             />
             <button type="button" onClick={onClose} className="rounded border border-white/20 p-2 text-white/75">

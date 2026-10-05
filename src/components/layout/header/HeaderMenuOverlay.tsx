@@ -248,8 +248,8 @@ export function HeaderMenuOverlay({
                                         className="text-white/95 transition hover:text-gold"
                                         aria-label={
                                             isAuthenticated
-                                                ? "Open profile menu"
-                                                : "Go to login"
+                                                ? t("openProfileMenu")
+                                                : t("goToLogin")
                                         }
                                         onClick={onProfileTrigger}
                                     >
@@ -414,8 +414,8 @@ export function HeaderMenuOverlay({
                                     exit={reduceMotion ? undefined : "exit"}
                                 >
                                     {activePanel === "category"
-                                        ? "Shop By Category"
-                                        : "Shop By Edition"}
+                                        ? t("shopByCategory")
+                                        : t("shopByEdition")}
                                 </motion.h2>
 
                                 <motion.div
