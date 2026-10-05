@@ -58,6 +58,8 @@
   "BlogArticle": {
     "published": "Published {date}",
     "relatedArticles": "Related Articles",
-    "backToGuides": "← Back to all guides"
+    "backToGuides": "← Back to all guides",
+    "exploreCollection": "Explore Collection",
+    "consultAnExpert": "Consult an Expert"
   }
 }

@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { Check } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { isExternalHref, normalizeContentHref } from "@/lib/blogs/links";
 import ArticleInlineContent, { InlinePart } from "./ArticleInlineContent";
@@ -38,6 +39,7 @@ interface DynamicArticleProps {
 // --- MAIN BUILDER COMPONENT ---
 
 const DynamicArticle: React.FC<DynamicArticleProps> = ({ sections }) => {
+  const t = useTranslations("BlogArticle");
   return (
     <div className="mx-auto max-w-4xl px-6 py-16 md:py-24">
       {sections.map((section, idx) => (
@@ -237,14 +239,14 @@ const DynamicArticle: React.FC<DynamicArticleProps> = ({ sections }) => {
                           rel="noopener noreferrer"
                           className="inline-block bg-gold text-[#031b16] font-jost text-xs font-semibold uppercase tracking-[0.2em] px-8 py-4 rounded hover:bg-gold/90 transition-colors duration-300"
                         >
-                          Explore Collection
+                          {t("exploreCollection")}
                         </a>
                       ) : (
                         <Link
                           href={normalizeContentHref(block.shopHref)}
                           className="inline-block bg-gold text-[#031b16] font-jost text-xs font-semibold uppercase tracking-[0.2em] px-8 py-4 rounded hover:bg-gold/90 transition-colors duration-300"
                         >
-                          Explore Collection
+                          {t("exploreCollection")}
                         </Link>
                       )}
                       {isExternalHref(block.contactHref) ? (
@@ -254,14 +256,14 @@ const DynamicArticle: React.FC<DynamicArticleProps> = ({ sections }) => {
                           rel="noopener noreferrer"
                           className="inline-block border border-[#efefe8]/30 text-[#efefe8] font-jost text-xs font-semibold uppercase tracking-[0.2em] px-8 py-4 rounded hover:bg-[#efefe8] hover:text-[#031b16] transition-all duration-300"
                         >
-                          Consult an Expert
+                          {t("consultAnExpert")}
                         </a>
                       ) : (
                         <Link
                           href={normalizeContentHref(block.contactHref)}
                           className="inline-block border border-[#efefe8]/30 text-[#efefe8] font-jost text-xs font-semibold uppercase tracking-[0.2em] px-8 py-4 rounded hover:bg-[#efefe8] hover:text-[#031b16] transition-all duration-300"
                         >
-                          Consult an Expert
+                          {t("consultAnExpert")}
                         </Link>
                       )}
                     </div>
