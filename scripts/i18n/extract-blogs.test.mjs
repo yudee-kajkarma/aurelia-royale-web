@@ -59,6 +59,15 @@ const TRUNCATED_TITLE_SOURCE = SOURCE.replace(
     "<h1>An On Page</h1>",
 );
 
+// Same as SOURCE, but the <h1> has extra surrounding/internal whitespace and
+// an HTML entity (`&quot;`) wrapping one word — content.title (unchanged,
+// plain) must still normalise equal to this, proving normalisation handles
+// both without becoming so strict it rejects harmless source formatting.
+const WHITESPACE_AND_ENTITY_TITLE_SOURCE = SOURCE.replace(
+    "<h1>An On Page Title Present In Source</h1>",
+    "<h1>   An On Page Title &quot;Present&quot; In   Source   </h1>",
+);
+
 // Hand-written to match SOURCE exactly — not derived by running extractBlog,
 // so these tests exercise the assert* functions in isolation from the
 // extractor they are meant to check.
@@ -228,12 +237,53 @@ describe("extract-blogs fidelity checks", () => {
         );
     });
 
-    it("a truncated title fails assertMetadataFaithful", () => {
+    it("a <h1> truncated in SOURCE fails assertMetadataFaithful (content.title stays full-length)", () => {
         const content = clone(correctContent()); // title unchanged (full, correct)
 
         expect(() =>
             assertMetadataFaithful(content, TRUNCATED_TITLE_SOURCE, FILE, SLUG),
-        ).toThrow(/does not match source <h1>/);
+        ).toThrow(/does not equal source <h1>/);
+    });
+
+    it("a title truncated on the EXTRACTED side fails under equality (this passed under the previous substring comparison — see the adversarial harness report in Fix round 4)", () => {
+        const content = clone(correctContent());
+        const fullTitle = content.title;
+        // Truncate to ~50%, matching the adversarial harness's "title
+        // truncated to 50%" attack that the previous substring-based check
+        // let through: a truncated string is always a substring of the full
+        // one, so substring containment could never catch this.
+        content.title = fullTitle.slice(0, Math.ceil(fullTitle.length * 0.5));
+
+        expect(() => assertMetadataFaithful(content, SOURCE, FILE, SLUG)).toThrow(
+            /does not equal source <h1>/,
+        );
+    });
+
+    it("a subtitle truncated on the EXTRACTED side fails under equality", () => {
+        const content = clone(correctContent());
+        const fullSubtitle = content.subtitle;
+        content.subtitle = fullSubtitle.slice(0, Math.ceil(fullSubtitle.length * 0.5));
+
+        expect(() => assertMetadataFaithful(content, SOURCE, FILE, SLUG)).toThrow(
+            /does not equal source hero <p> subtitle portion/,
+        );
+    });
+
+    it("a title with different surrounding whitespace and an entity difference still passes (normalisation still works, check is not brittle)", () => {
+        const content = correctContent(); // title "An On Page Title Present In Source", unchanged
+
+        expect(() =>
+            assertMetadataFaithful(content, WHITESPACE_AND_ENTITY_TITLE_SOURCE, FILE, SLUG),
+        ).not.toThrow();
+    });
+
+    it("a subtitle equal to the left half of a hero line whose right half holds the published date passes (the bullet split works)", () => {
+        const content = correctContent();
+        // SOURCE's hero <p> is "A Subtitle Present In Source • Published
+        // January 1, 2026" — content.subtitle is only the left half. This
+        // is also exercised by the "passes all four checks" test above;
+        // this test isolates just the subtitle/bullet-split behavior.
+        expect(() => assertMetadataFaithful(content, SOURCE, FILE, SLUG)).not.toThrow();
     });
 
     it("a datePublished that is well-formed but absent from source fails assertMetadataFaithful", () => {

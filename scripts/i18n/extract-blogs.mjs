@@ -285,11 +285,23 @@ export function assertBlockCountMatchesSource(content, source, file, slug) {
  * nothing to do with any real extraction defect. This was caught by running
  * the literal "strip HTML entities" wording against real content before
  * trusting it — see the Fix round 3 section of the task report.
+ *
+ * Entity matching is done in a SINGLE combined regex (not a separate "&"
+ * pass followed by a separate "other entities" pass), because a bare `&`
+ * alternative tried first would match just the leading `&` of ANY entity
+ * (e.g. `&quot;`, `&nbsp;`) before a later "strip other entities" pass ever
+ * saw the rest of the token — consuming `&quot;Hello&quot;` as
+ * `andquotHelloandquot` instead of cleanly removing the quotes. No blog in
+ * this corpus uses any entity other than `&amp;` (verified directly), so
+ * this never affected real content, but it is still a real bug and is
+ * fixed here: the full named/numeric entity alternatives are tried before
+ * the bare `&` fallback in one pass, so `&quot;` matches as a whole token.
  */
 function normalizeForComparison(text) {
     return text
-        .replace(/&amp;|&/g, " and ")
-        .replace(/&\w+;|&#\d+;/g, "")
+        .replace(/&amp;|&#38;|&\w+;|&#\d+;|&/g, (match) =>
+            match === "&amp;" || match === "&#38;" || match === "&" ? " and " : "",
+        )
         .replace(/[^a-zA-Z0-9]/g, "")
         .toLowerCase();
 }
@@ -379,27 +391,38 @@ export function assertMetadataFaithful(content, source, file, slug) {
     const { eyebrowEl, titleEl, subtitleEl } = findHeroElements(sourceFile);
 
     // --- title ---------------------------------------------------------
+    // EQUALITY, not substring: a truncated title is always a substring of
+    // the correct one, so substring containment is structurally incapable
+    // of detecting truncation — the same defect the reviewer found in the
+    // forward containment check (assertStringsAppearInSource), reproduced
+    // here for the hero fields in fix round 3 and corrected in fix round 4.
     if (!titleEl) throw new Error(`${slug}: no <h1> found for metadata fidelity check`);
     const sourceTitleNormalized = normalizeForComparison(rawJsxTextOf(titleEl));
     const contentTitleNormalized = normalizeForComparison(content.title ?? "");
-    if (!contentTitleNormalized || !sourceTitleNormalized.includes(contentTitleNormalized)) {
+    if (!contentTitleNormalized || contentTitleNormalized !== sourceTitleNormalized) {
         throw new Error(
-            `${slug}: extracted title ${JSON.stringify(content.title)} does not match source <h1> ${JSON.stringify(rawJsxTextOf(titleEl))} after normalisation`,
+            `${slug}: extracted title ${JSON.stringify(content.title)} does not equal source <h1> ${JSON.stringify(rawJsxTextOf(titleEl))} after normalisation (extracted normalised: ${JSON.stringify(contentTitleNormalized)}, source normalised: ${JSON.stringify(sourceTitleNormalized)})`,
         );
     }
 
     // --- subtitle (optional) --------------------------------------------
+    // Also EQUALITY, against only the LEFT half of the hero <p>: that
+    // element holds "<subtitle> • Published <date>", and the extracted
+    // `subtitle` never contains the date half, so the date must be split
+    // off (on the bullet "•") before comparing — deliberately NOT symmetric
+    // with the whole <p> text.
     if (content.subtitle) {
         if (!subtitleEl) {
             throw new Error(
                 `${slug}: content has a subtitle but no tracking-widest <p> was found in source to verify it against`,
             );
         }
-        const sourceSubtitleNormalized = normalizeForComparison(rawJsxTextOf(subtitleEl));
+        const [rawSubtitlePart] = rawJsxTextOf(subtitleEl).split("•");
+        const sourceSubtitleNormalized = normalizeForComparison(rawSubtitlePart ?? "");
         const contentSubtitleNormalized = normalizeForComparison(content.subtitle);
-        if (!contentSubtitleNormalized || !sourceSubtitleNormalized.includes(contentSubtitleNormalized)) {
+        if (!contentSubtitleNormalized || contentSubtitleNormalized !== sourceSubtitleNormalized) {
             throw new Error(
-                `${slug}: extracted subtitle ${JSON.stringify(content.subtitle)} does not match source hero <p> ${JSON.stringify(rawJsxTextOf(subtitleEl))} after normalisation`,
+                `${slug}: extracted subtitle ${JSON.stringify(content.subtitle)} does not equal source hero <p> subtitle portion ${JSON.stringify(rawSubtitlePart)} after normalisation (extracted normalised: ${JSON.stringify(contentSubtitleNormalized)}, source normalised: ${JSON.stringify(sourceSubtitleNormalized)})`,
             );
         }
     }
