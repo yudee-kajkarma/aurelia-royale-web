@@ -2348,7 +2348,25 @@ console.log("blogCategories +", Object.keys(BLOG_CATEGORY_LABELS).length, "keys 
 
 Expected: `blogCategories + 7 keys and BlogArticle written for 6 locales`.
 
-- [ ] **Step 13: Delete the 99 blog folders**
+- [ ] **Step 13: Tag a recovery snapshot BEFORE deleting anything**
+
+The deletion happens in a commit, so git retains the content either way — but an
+explicit named tag turns recovery from archaeology into one command, and it does
+not depend on the extraction gate being perfect. Create it while all 99 folders
+are still present:
+
+```bash
+git tag -a pre-blog-folder-deletion -m "Last commit containing all 99 blog page.tsx folders, before the shared [locale]/blog/[slug] route replaced them. Recover a single blog with: git checkout pre-blog-folder-deletion -- 'src/app/[locale]/blog/<slug>'"
+git tag -n1 pre-blog-folder-deletion
+```
+
+Verify it resolves to a commit that still has the folders:
+
+```bash
+git ls-tree -d --name-only pre-blog-folder-deletion "src/app/[locale]/blog" | wc -l
+```
+
+- [ ] **Step 14: Delete the 99 blog folders**
 
 All 99 go, including the excluded redirect source — its content was deliberately not extracted, and its redirect in `next.config.ts` keeps the URL working.
 
@@ -2376,12 +2394,12 @@ Expected remaining entries: `[slug]`, `BlogFilters.tsx`, `blogUtils.ts`, `layout
 
 And `npm run build` must report static params for 98 slugs x 6 locales = 588 blog pages.
 
-- [ ] **Step 14: Verify**
+- [ ] **Step 15: Verify**
 
 Run: `npm test && npx tsc --noEmit && npm run build`
 Expected: all pass, and the build reports static params for 98 slugs × 6 locales.
 
-- [ ] **Step 15: Commit**
+- [ ] **Step 16: Commit**
 
 ```bash
 git add -A
