@@ -4,7 +4,20 @@
 
 import type { BlogPost } from "@/data/blogs.data";
 
-export function getCategory(post: BlogPost): string {
+/**
+ * Stable keys into the `blogFilters` message namespace. These are also the
+ * literal values used for the `?category=` query parameter, so a shared
+ * link (e.g. a Spanish visitor pasting a filtered URL into an English tab)
+ * keeps working — the key never changes with the active locale, only its
+ * translated label does.
+ */
+export type BlogCategoryKey =
+  | "diamondEducation"
+  | "sizingAndFit"
+  | "certificationAndQuality"
+  | "buyingGuides";
+
+export function getCategory(post: BlogPost): BlogCategoryKey {
   const slug = post.slug.toLowerCase();
   if (
     slug.includes("cut") ||
@@ -13,7 +26,7 @@ export function getCategory(post: BlogPost): string {
     slug.includes("carat") ||
     slug.includes("4cs")
   ) {
-    return "Diamond Education";
+    return "diamondEducation";
   }
   if (
     slug.includes("fit") ||
@@ -21,7 +34,7 @@ export function getCategory(post: BlogPost): string {
     slug.includes("wrist") ||
     slug.includes("measure")
   ) {
-    return "Sizing & Fit";
+    return "sizingAndFit";
   }
   if (
     slug.includes("certificate") ||
@@ -29,7 +42,7 @@ export function getCategory(post: BlogPost): string {
     slug.includes("verify") ||
     slug.includes("disclosure")
   ) {
-    return "Certification & Quality";
+    return "certificationAndQuality";
   }
-  return "Buying Guides";
+  return "buyingGuides";
 }

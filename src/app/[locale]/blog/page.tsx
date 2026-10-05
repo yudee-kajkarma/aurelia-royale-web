@@ -6,13 +6,15 @@
 
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { ChevronLeft, ChevronRight, BookOpen } from "lucide-react";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+import { assertLocale } from "@/i18n/locale-guard";
+import { localeAlternates, localeUrl } from "@/lib/i18n/paths";
 import { BLOGS_DATA } from "@/data/blogs.data";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import BlogFilters from "./BlogFilters";
 import { getCategory } from "./blogUtils";
-import { SITE_URL } from "@/config/site";
 
 const POSTS_PER_PAGE = 8;
 
@@ -38,6 +40,8 @@ function getSortedPosts() {
 }
 
 // Build the href for a pagination link, preserving any existing category param.
+// Deliberately UNPREFIXED: the locale-aware <Link> from "@/i18n/navigation"
+// adds the locale prefix itself, so prefixing here too would yield "/es/es/blog/".
 function pageHref(page: number, category?: string): string {
   const params = new URLSearchParams();
   if (page > 1) params.set("page", String(page));
@@ -47,6 +51,7 @@ function pageHref(page: number, category?: string): string {
 }
 
 interface PageProps {
+  params: Promise<{ locale: string }>;
   searchParams: Promise<{ page?: string; category?: string }>;
 }
 
@@ -57,31 +62,31 @@ interface PageProps {
 //   /blog/        → canonical: https://www.aureliaroyale.com/blog/
 //   /blog/?page=2 → canonical: https://www.aureliaroyale.com/blog/?page=2
 // ---------------------------------------------------------------------------
-export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: PageProps): Promise<Metadata> {
+  const { locale: raw } = await params;
+  const locale = assertLocale(raw);
   const { page: pageParam, category: categoryParam } = await searchParams;
   const page = parseInt(pageParam ?? "1", 10) || 1;
+
+  const t = await getTranslations({ locale, namespace: "BlogIndex" });
 
   const qs = new URLSearchParams();
   if (page > 1) qs.set("page", String(page));
   if (categoryParam && categoryParam !== "All") qs.set("category", categoryParam);
   const qsStr = qs.toString();
-  const canonical = qsStr ? `${SITE_URL}/blog/?${qsStr}` : `${SITE_URL}/blog/`;
+  const base = localeUrl(locale, "/blog");
+  const canonical = qsStr ? `${base}?${qsStr}` : base;
 
-  const title =
-    page > 1
-      ? `Lab-Grown Diamond Jewellery Guides — Page ${page} | Aurelia Royale`
-      : "Lab-Grown Diamond Jewellery Guides | Aurelia Royale";
+  const title = page > 1 ? t("titlePaged", { page }) : t("title");
 
   return {
     title,
-    description:
-      "Explore expert guides on lab-grown diamonds covering education, buying advice, sizing, certification, care and maintenance. Written for buyers of fine diamond jewellery.",
-    alternates: { canonical },
+    description: t("description"),
+    alternates: { canonical, languages: localeAlternates("/blog") },
     robots: { index: true, follow: true },
     openGraph: {
       title,
-      description:
-        "Explore expert guides on lab-grown diamonds covering education, buying advice, sizing, certification, care and maintenance.",
+      description: t("ogDescription"),
       url: canonical,
       siteName: "Aurelia Royale",
       type: "website",
@@ -89,7 +94,11 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
   };
 }
 
-export default async function BlogIndexPage({ searchParams }: PageProps) {
+export default async function BlogIndexPage({ params, searchParams }: PageProps) {
+  const { locale: raw } = await params;
+  const locale = assertLocale(raw);
+  setRequestLocale(locale);
+
   const { page: pageParam, category: categoryParam } = await searchParams;
 
   const currentPage = Math.max(1, parseInt(pageParam ?? "1", 10) || 1);
@@ -108,6 +117,10 @@ export default async function BlogIndexPage({ searchParams }: PageProps) {
   const start = (safePage - 1) * POSTS_PER_PAGE;
   const pagePosts = filtered.slice(start, start + POSTS_PER_PAGE);
 
+  const t = await getTranslations("BlogIndex");
+  const tFilters = await getTranslations("blogFilters");
+  const tCards = await getTranslations("blogCards");
+
   return (
     <div className="bg-[#efefe8] min-h-screen text-foreground font-jost">
       {/* Hero */}
@@ -115,14 +128,13 @@ export default async function BlogIndexPage({ searchParams }: PageProps) {
         <div className="absolute top-0 right-0 w-48 h-48 bg-gold/5 rounded-full blur-3xl" />
         <div className="max-w-4xl mx-auto">
           <span className="font-jost text-xs font-semibold uppercase tracking-[0.3em] text-gold">
-            Aurelia Journal
+            {t("eyebrow")}
           </span>
           <h1 className="mt-4 font-cormorant text-4xl md:text-5xl lg:text-6xl font-medium leading-tight text-white uppercase tracking-wide">
-            Guides &amp; Insights
+            {t("heading")}
           </h1>
           <p className="mt-6 font-jost text-base font-light text-[#efefe8]/70 max-w-xl mx-auto leading-relaxed">
-            Explore our collection of articles, expert guides, and sizing tips
-            to help you select and care for your lab-grown diamond jewellery.
+            {t("subheading")}
           </p>
         </div>
       </header>
@@ -136,6 +148,8 @@ export default async function BlogIndexPage({ searchParams }: PageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
             {pagePosts.map((post) => {
               const category = getCategory(post);
+              const title = tCards(`${post.slug}.title`);
+              const excerpt = tCards(`${post.slug}.excerpt`);
               return (
                 <article
                   key={post.slug}
@@ -145,7 +159,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps) {
                     {post.image ? (
                       <Image
                         src={post.image}
-                        alt={post.title}
+                        alt={title}
                         fill
                         className="object-cover group-hover:scale-103 transition-transform duration-500"
                         sizes="(max-width: 1280px) 50vw, 640px"
@@ -154,30 +168,30 @@ export default async function BlogIndexPage({ searchParams }: PageProps) {
                       <div className="w-full h-full flex flex-col items-center justify-center text-[#153f35]/30">
                         <BookOpen className="w-8 h-8 mb-1" strokeWidth={1.5} />
                         <span className="text-[10px] uppercase tracking-widest font-semibold">
-                          Aurelia Journal
+                          {t("eyebrow")}
                         </span>
                       </div>
                     )}
                     <span className="absolute top-3 left-3 bg-[#153f35] text-gold text-[0.6rem] font-semibold uppercase tracking-wider px-2 py-0.5 rounded shadow-sm">
-                      {category}
+                      {tFilters(category)}
                     </span>
                   </div>
 
                   <div className="flex flex-col flex-1 p-5 md:p-6">
                     <span className="text-[11px] font-light text-[#8a8a8a] mb-1.5">
-                      Aurelia Royale • {post.date}
+                      {t("byline", { date: post.date })}
                     </span>
                     <h2 className="font-cormorant text-xl md:text-2xl font-medium leading-snug text-[#153f35] mb-2.5 group-hover:text-gold transition-colors duration-300">
-                      <Link href={`/blog/${post.slug}/`}>{post.title}</Link>
+                      <Link href={`/blog/${post.slug}/`}>{title}</Link>
                     </h2>
                     <p className="text-xs font-light leading-relaxed text-[#5a5a5a] mb-5 grow line-clamp-2">
-                      {post.excerpt}
+                      {excerpt}
                     </p>
                     <Link
                       href={`/blog/${post.slug}/`}
                       className="inline-block border border-[#153f35]/30 text-[#153f35] hover:text-[#031b16] hover:bg-gold hover:border-gold px-4 py-2 text-[10px] font-semibold uppercase tracking-widest transition-all duration-300 w-fit rounded"
                     >
-                      Read Article
+                      {t("readArticle")}
                     </Link>
                   </div>
                 </article>
@@ -188,22 +202,22 @@ export default async function BlogIndexPage({ searchParams }: PageProps) {
           <div className="text-center py-20 bg-white border border-[#e2dfd5] rounded-md">
             <BookOpen className="w-16 h-16 text-[#153f35]/20 mx-auto mb-4" strokeWidth={1} />
             <h3 className="font-cormorant text-2xl text-[#153f35] font-medium">
-              No Articles Found
+              {t("noResultsHeading")}
             </h3>
             <p className="text-sm text-[#5a5a5a] font-light mt-2">
-              Try selecting a different category.
+              {t("noResultsBody")}
             </p>
           </div>
         )}
 
         {/* ----------------------------------------------------------------
             Crawlable pagination — every control is a real <a href=…> link.
-            A crawler following these links reaches all 99 articles without
+            A crawler following these links reaches every article without
             executing JavaScript.
         ---------------------------------------------------------------- */}
         {totalPages > 1 && (
           <nav
-            aria-label="Blog pagination"
+            aria-label={t("paginationLabel")}
             className="flex justify-center items-center gap-2 mt-16 pt-8 border-t border-[#e2dfd5]"
           >
             {/* Previous */}
@@ -211,7 +225,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps) {
               <Link
                 href={pageHref(safePage - 1, selectedCategory)}
                 className="p-2 border border-[#e2dfd5] rounded text-[#153f35] hover:bg-[#e8e5dc] transition-all duration-300"
-                aria-label="Previous page"
+                aria-label={t("previousPage")}
               >
                 <ChevronLeft className="w-5 h-5" />
               </Link>
@@ -219,7 +233,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps) {
               <span
                 className="p-2 border border-[#e2dfd5] rounded text-[#153f35] opacity-30 cursor-default"
                 aria-disabled="true"
-                aria-label="Previous page"
+                aria-label={t("previousPage")}
               >
                 <ChevronLeft className="w-5 h-5" />
               </span>
@@ -246,7 +260,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps) {
               <Link
                 href={pageHref(safePage + 1, selectedCategory)}
                 className="p-2 border border-[#e2dfd5] rounded text-[#153f35] hover:bg-[#e8e5dc] transition-all duration-300"
-                aria-label="Next page"
+                aria-label={t("nextPage")}
               >
                 <ChevronRight className="w-5 h-5" />
               </Link>
@@ -254,7 +268,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps) {
               <span
                 className="p-2 border border-[#e2dfd5] rounded text-[#153f35] opacity-30 cursor-default"
                 aria-disabled="true"
-                aria-label="Next page"
+                aria-label={t("nextPage")}
               >
                 <ChevronRight className="w-5 h-5" />
               </span>

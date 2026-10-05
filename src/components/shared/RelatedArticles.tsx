@@ -1,16 +1,17 @@
-// Server-compatible component — no "use client".
+// Server Component — no "use client".
 // Selects 6 related articles deterministically from BLOGS_DATA based on the
 // current article's slug so the output is stable across SSR and client
 // hydration (no Math.random() at render time).
-// All links are plain <a href=…> elements — crawlable without JavaScript.
+// All links are locale-aware <Link>s from "@/i18n/navigation" — crawlable
+// without JavaScript and correctly prefixed for every locale.
 
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { BLOGS_DATA } from "@/data/blogs.data";
 
 interface RelatedArticlesProps {
   /** The slug of the currently displayed article — excluded from results. */
   currentSlug: string;
-  heading?: string;
 }
 
 /**
@@ -39,26 +40,26 @@ function getRelatedArticles(currentSlug: string, count = 6) {
   return selected;
 }
 
-export default function RelatedArticles({
-  currentSlug,
-  heading = "Related Articles",
-}: RelatedArticlesProps) {
+export default async function RelatedArticles({ currentSlug }: RelatedArticlesProps) {
   const articles = getRelatedArticles(currentSlug);
 
   if (!articles.length) return null;
 
+  const tCards = await getTranslations("blogCards");
+  const t = await getTranslations("BlogArticle");
+
   return (
     <aside
-      aria-label="Related articles"
+      aria-label={t("relatedArticles")}
       className="mx-auto max-w-4xl px-6 pb-16 md:pb-24"
     >
       <div className="border-t border-[#e2dfd5] pt-12">
         <h2 className="mb-6 font-cormorant text-2xl md:text-3xl font-semibold leading-tight text-foreground uppercase tracking-wide">
-          {heading}
+          {t("relatedArticles")}
         </h2>
 
         <ul className="grid gap-3 sm:grid-cols-2">
-          {articles.map(({ slug, title }) => (
+          {articles.map(({ slug }) => (
             <li key={slug}>
               <Link
                 href={`/blog/${slug}/`}
@@ -68,7 +69,7 @@ export default function RelatedArticles({
                   className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"
                   aria-hidden="true"
                 />
-                <span className="leading-snug">{title}</span>
+                <span className="leading-snug">{tCards(`${slug}.title`)}</span>
               </Link>
             </li>
           ))}
@@ -80,7 +81,7 @@ export default function RelatedArticles({
             href="/blog/"
             className="inline-flex items-center gap-2 font-jost text-xs font-semibold uppercase tracking-[0.2em] text-[#153f35] underline decoration-[1px] underline-offset-4 hover:text-gold transition-colors duration-200"
           >
-            ← Back to all guides
+            {t("backToGuides")}
           </Link>
         </div>
       </div>
