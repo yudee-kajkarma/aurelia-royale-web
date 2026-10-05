@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { isExternalHref, normalizeContentHref } from "@/lib/blogs/links";
 
 export type InlinePart = {
   text: string;
@@ -27,8 +28,20 @@ export const ArticleInlineContent: React.FC<{ text?: string; parts?: InlinePart[
             element = <em className="italic">{element}</em>;
           }
           if (part.href) {
-            element = (
-              <Link href={part.href} className="text-gold hover:underline transition-colors duration-300">
+            element = isExternalHref(part.href) ? (
+              <a
+                href={part.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold underline decoration-[1px] underline-offset-4 hover:text-foreground"
+              >
+                {element}
+              </a>
+            ) : (
+              <Link
+                href={normalizeContentHref(part.href)}
+                className="text-gold underline decoration-[1px] underline-offset-4 hover:text-foreground"
+              >
                 {element}
               </Link>
             );

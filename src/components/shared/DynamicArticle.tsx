@@ -2,8 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Check } from "lucide-react";
+import { Link } from "@/i18n/navigation";
+import { isExternalHref, normalizeContentHref } from "@/lib/blogs/links";
 import ArticleInlineContent, { InlinePart } from "./ArticleInlineContent";
 import FAQSection, { FaqItem } from "./FAQSection";
 
@@ -81,17 +82,27 @@ const DynamicArticle: React.FC<DynamicArticleProps> = ({ sections }) => {
               }
 
               if (block.type === "cta-group") {
+                const ctaClassName =
+                  "inline-block bg-gold text-[#031b16] font-jost text-xs font-semibold uppercase tracking-[0.2em] px-8 py-4 rounded hover:bg-gold/90 transition-colors duration-300";
                 return (
                   <div key={bIdx} className="flex flex-wrap gap-4 my-6">
-                    {block.buttons.map((btn, i) => (
-                      <Link
-                        key={i}
-                        href={btn.href}
-                        className="inline-block bg-gold text-[#031b16] font-jost text-xs font-semibold uppercase tracking-[0.2em] px-8 py-4 rounded hover:bg-gold/90 transition-colors duration-300"
-                      >
-                        {btn.label}
-                      </Link>
-                    ))}
+                    {block.buttons.map((btn, i) =>
+                      isExternalHref(btn.href) ? (
+                        <a
+                          key={i}
+                          href={btn.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={ctaClassName}
+                        >
+                          {btn.label}
+                        </a>
+                      ) : (
+                        <Link key={i} href={normalizeContentHref(btn.href)} className={ctaClassName}>
+                          {btn.label}
+                        </Link>
+                      ),
+                    )}
                   </div>
                 );
               }
@@ -219,18 +230,40 @@ const DynamicArticle: React.FC<DynamicArticleProps> = ({ sections }) => {
                       {block.subtitle}
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
-                      <Link
-                        href={block.shopHref}
-                        className="inline-block bg-gold text-[#031b16] font-jost text-xs font-semibold uppercase tracking-[0.2em] px-8 py-4 rounded hover:bg-gold/90 transition-colors duration-300"
-                      >
-                        Explore Collection
-                      </Link>
-                      <Link
-                        href={block.contactHref}
-                        className="inline-block border border-[#efefe8]/30 text-[#efefe8] font-jost text-xs font-semibold uppercase tracking-[0.2em] px-8 py-4 rounded hover:bg-[#efefe8] hover:text-[#031b16] transition-all duration-300"
-                      >
-                        Consult an Expert
-                      </Link>
+                      {isExternalHref(block.shopHref) ? (
+                        <a
+                          href={block.shopHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block bg-gold text-[#031b16] font-jost text-xs font-semibold uppercase tracking-[0.2em] px-8 py-4 rounded hover:bg-gold/90 transition-colors duration-300"
+                        >
+                          Explore Collection
+                        </a>
+                      ) : (
+                        <Link
+                          href={normalizeContentHref(block.shopHref)}
+                          className="inline-block bg-gold text-[#031b16] font-jost text-xs font-semibold uppercase tracking-[0.2em] px-8 py-4 rounded hover:bg-gold/90 transition-colors duration-300"
+                        >
+                          Explore Collection
+                        </Link>
+                      )}
+                      {isExternalHref(block.contactHref) ? (
+                        <a
+                          href={block.contactHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block border border-[#efefe8]/30 text-[#efefe8] font-jost text-xs font-semibold uppercase tracking-[0.2em] px-8 py-4 rounded hover:bg-[#efefe8] hover:text-[#031b16] transition-all duration-300"
+                        >
+                          Consult an Expert
+                        </a>
+                      ) : (
+                        <Link
+                          href={normalizeContentHref(block.contactHref)}
+                          className="inline-block border border-[#efefe8]/30 text-[#efefe8] font-jost text-xs font-semibold uppercase tracking-[0.2em] px-8 py-4 rounded hover:bg-[#efefe8] hover:text-[#031b16] transition-all duration-300"
+                        >
+                          Consult an Expert
+                        </Link>
+                      )}
                     </div>
                   </div>
                 );

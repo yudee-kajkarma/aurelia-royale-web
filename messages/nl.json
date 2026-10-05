@@ -45,5 +45,19 @@
     "blog": "Blog",
     "contact": "Contact",
     "copyright": "Copyright 2026 Aurelia Royale. All rights reserved by Aurelia Royale."
+  },
+  "blogCategories": {
+    "labGrownDiamondEducation": "Lab-Grown Diamond Education",
+    "colouredStonesAndDiamonds": "Coloured Stones and Diamonds",
+    "labGrownDiamondCare": "Lab-Grown Diamond Care",
+    "certificationAndDiamondQuality": "Certification and Diamond Quality",
+    "buyingLabGrownDiamondJewellery": "Buying Lab-Grown Diamond Jewellery",
+    "productCategoryGuides": "Product-Category Guides",
+    "jewelleryCareAndMaintenance": "Jewellery Care and Maintenance"
+  },
+  "BlogArticle": {
+    "published": "Published {date}",
+    "relatedArticles": "Related Articles",
+    "backToGuides": "← Back to all guides"
   }
 }
