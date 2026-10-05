@@ -1716,7 +1716,7 @@ export function localeAlternates(path: string): Record<Locale, string> {
 - [ ] **Step 5: Run the path test to verify it passes**
 
 Run: `npm test -- src/lib/i18n/paths.test.ts`
-Expected: 7 passed.
+Expected: 6 passed.
 
 - [ ] **Step 6: Define the blog content type and URL helpers**
 
@@ -1876,7 +1876,7 @@ export function buildBlogSchema(
 - [ ] **Step 8: Run the test to verify it passes**
 
 Run: `npm test -- src/lib/blogs/schema.test.ts`
-Expected: 10 passed.
+Expected: 9 passed.
 
 - [ ] **Step 9: Diff the generated schema against the handwritten one**
 
