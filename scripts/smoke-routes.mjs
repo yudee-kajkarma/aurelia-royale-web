@@ -21,7 +21,13 @@ const PATHS = [
 ];
 
 // An unknown locale must 404 rather than soft-render.
-const EXPECT_404 = ["/pt/about/", "/EN/about/"];
+const EXPECT_404 = ["/pt/about/"];
+
+// Locale CASE is normalised by next-intl's proxy, which matches locales
+// case-insensitively and redirects to the canonical form. This is deliberate
+// and better than a 404: it rescues typo'd and legacy uppercase URLs and avoids
+// duplicate content, while still never rendering a page full of [MISSING: ...].
+const EXPECT_REDIRECT = [{ path: "/EN/about/", to: "/en/about/" }];
 
 let failures = 0;
 
@@ -41,6 +47,16 @@ for (const path of EXPECT_404) {
     const ok = res.status === 404;
     if (!ok) failures++;
     console.log(`${ok ? "ok  " : "FAIL"} ${path} -> ${res.status} (want 404)`);
+}
+
+for (const { path, to } of EXPECT_REDIRECT) {
+    const res = await fetch(base + path, { redirect: "manual" });
+    const location = res.headers.get("location") ?? "";
+    const ok = [301, 307, 308].includes(res.status) && location.endsWith(to);
+    if (!ok) failures++;
+    console.log(
+        `${ok ? "ok  " : "FAIL"} ${path} -> ${res.status} ${location} (want redirect to ${to})`,
+    );
 }
 
 console.log(failures === 0 ? "\nall routes ok" : `\n${failures} failure(s)`);
