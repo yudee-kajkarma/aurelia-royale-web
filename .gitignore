@@ -41,3 +41,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# i18n translation staging (local workspace, never committed)
+/scripts/i18n/staging/
