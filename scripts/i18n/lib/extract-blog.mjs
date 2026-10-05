@@ -85,7 +85,7 @@ export function parseEnglishDate(text) {
  * extracted: it is generated per locale at render time.
  */
 export function extractBlog(sourceText, { file, slug }) {
-    const clean = sourceText.replace(/^﻿/, "");
+    const clean = sourceText.replace(/^\uFEFF/, "");
     const sourceFile = ts.createSourceFile(file, clean, ts.ScriptTarget.Latest, true);
     const ctx = { file, sourceFile };
 

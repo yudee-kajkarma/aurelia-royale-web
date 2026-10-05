@@ -2,7 +2,7 @@
 import { describe, expect, it } from "vitest";
 import { extractBlog } from "./extract-blog.mjs";
 
-const FIXTURE = `﻿import React from "react";
+const FIXTURE = `\uFEFFimport React from "react";
 import { Metadata } from "next";
 import DynamicArticle, { ArticleSection } from "@/components/shared/DynamicArticle";
 
