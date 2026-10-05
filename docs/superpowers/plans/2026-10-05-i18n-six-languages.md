@@ -848,6 +848,7 @@ Converts 99 `page.tsx` files into `content/blogs/<slug>/en.json`. The hard requi
 - Create: `scripts/i18n/lib/extract-blog.mjs`
 - Create: `scripts/i18n/extract-blogs.mjs`
 - Create: `scripts/i18n/lib/blog-categories.mjs`
+- Create: `scripts/i18n/lib/excluded-slugs.mjs`
 - Test: `scripts/i18n/lib/ast-literal.test.mjs`
 - Test: `scripts/i18n/lib/extract-blog.test.mjs`
 
@@ -1293,6 +1294,16 @@ export function extractBlog(sourceText, { file, slug }) {
     if (!eyebrowEl) throw new Error(`${file}: no hero eyebrow span found`);
     if (!titleEl) throw new Error(`${file}: no <h1> found`);
 
+    // jsxTextOf collects only DIRECT JsxText children, so an <h1> wrapping a
+    // nested element would yield "". Fail loudly rather than ship a blank
+    // heading in six languages.
+    const title = jsxTextOf(titleEl);
+    if (!title) {
+        throw new Error(
+            `${file}: <h1> produced an empty title — it probably contains nested elements and needs a richer hero parser`,
+        );
+    }
+
     const eyebrow = jsxTextOf(eyebrowEl);
     const category = BLOG_CATEGORY_KEYS[eyebrow];
     if (!category) {
@@ -1320,7 +1331,7 @@ export function extractBlog(sourceText, { file, slug }) {
         metaTitle: metadata.title,
         metaDescription: metadata.description,
         category,
-        title: jsxTextOf(titleEl),
+        title,
         subtitle: subtitlePart || undefined,
         datePublished,
         dateModified,
@@ -1334,7 +1345,30 @@ export function extractBlog(sourceText, { file, slug }) {
 Run: `npm test -- scripts/i18n/lib/extract-blog.test.mjs`
 Expected: 9 passed.
 
-- [ ] **Step 10: Write the extractor CLI with its round-trip gate**
+- [ ] **Step 10: Declare the slugs that must not be extracted**
+
+`advantages-of-lab-grown-diamonds` has both a folder AND a permanent redirect
+pointing away from it in `next.config.ts` (under the "Content consolidation"
+comment). The redirect fires at the edge before routing, so that page is already
+unreachable: extracting it would translate six pages nobody can reach and put
+six redirecting URLs in the sitemap.
+
+The list lives here as plain data because this is a `.mjs` script and the
+TypeScript redirect table does not exist until Task 14 — which then adds a test
+asserting the two agree.
+
+```js
+// scripts/i18n/lib/excluded-slugs.mjs
+
+/**
+ * Blog slugs that are redirect SOURCES in next.config.ts, and so are not
+ * servable. Must stay equal to REDIRECTED_AWAY_SLUGS in
+ * src/lib/i18n/blogRedirects.ts — Task 14 adds a test that enforces it.
+ */
+export const EXCLUDED_SLUGS = ["advantages-of-lab-grown-diamonds"];
+```
+
+- [ ] **Step 11: Write the extractor CLI with its round-trip gate**
 
 ```js
 // scripts/i18n/extract-blogs.mjs
@@ -1347,6 +1381,7 @@ import fs from "node:fs";
 import path from "node:path";
 import assert from "node:assert/strict";
 import { extractBlog } from "./lib/extract-blog.mjs";
+import { EXCLUDED_SLUGS } from "./lib/excluded-slugs.mjs";
 
 const ROOT = path.resolve(import.meta.dirname, "../..");
 const BLOG_DIR = path.join(ROOT, "src/app/[locale]/blog");
@@ -1360,6 +1395,7 @@ const slugs = fs
     .readdirSync(BLOG_DIR, { withFileTypes: true })
     .filter((e) => e.isDirectory() && !e.name.startsWith("["))
     .map((e) => e.name)
+    .filter((s) => !EXCLUDED_SLUGS.includes(s))
     .filter((s) => !only || s === only)
     .sort();
 
@@ -1406,25 +1442,25 @@ for (const { slug, content } of results) {
 console.log(`extracted ${results.length} blog(s) to content/blogs/<slug>/en.json`);
 ```
 
-- [ ] **Step 11: Run the extractor over all 99 blogs**
+- [ ] **Step 12: Run the extractor over every servable blog**
 
 Run: `node scripts/i18n/extract-blogs.mjs`
-Expected: `extracted 99 blog(s) to content/blogs/<slug>/en.json`. If it reports failures, fix the extractor or add the missing category — do not hand-edit a blog to make it parse.
+Expected: `extracted 98 blog(s) to content/blogs/<slug>/en.json` — 99 folders minus the one excluded redirect source. If it reports failures, fix the extractor or add the missing category; never hand-edit a blog to make it parse.
 
-- [ ] **Step 12: Sanity-check the output**
+- [ ] **Step 13: Sanity-check the output**
 
 ```bash
 ls content/blogs | wc -l
 node -e "const c=require('./content/blogs/4cs-of-lab-grown-diamonds/en.json');console.log(c.title);console.log(c.category);console.log(c.datePublished);console.log('sections:',c.sections.length)"
 ```
 
-Expected: `99`; the 4Cs title, `labGrownDiamondEducation`, `2026-07-15`, and a non-zero section count.
+Expected: `98`; the 4Cs title, `labGrownDiamondEducation`, `2026-07-15`, and a non-zero section count.
 
-- [ ] **Step 13: Commit**
+- [ ] **Step 14: Commit**
 
 ```bash
 git add scripts/i18n content/blogs
-git commit -m "feat(i18n): extract 99 blog articles to per-locale JSON"
+git commit -m "feat(i18n): extract 98 servable blog articles to per-locale JSON"
 ```
 
 ---
@@ -1876,6 +1912,7 @@ Replaces all 99 blog folders with one route. Owns Review Focus 2 (missing locale
 - Produces:
   - `BLOG_SLUGS: readonly string[]` from `src/lib/blogs/registry.ts`.
   - `loadBlogContent(slug: string, locale: Locale): Promise<BlogContent | null>` from `src/lib/blogs/load.ts` — falls back to English when the locale file is absent, returns `null` only when English is absent too.
+  - `resolveBlogContent(localized: BlogContent | null, fallback: BlogContent | null, locale: Locale): BlogContent | null` from the same file — the pure fallback decision, so it is testable without depending on which locale files exist.
   - `normalizeContentHref(href: string): string` from `src/lib/blogs/links.ts`.
 
 - [ ] **Step 1: Generate the registry from the extracted content**
@@ -1902,23 +1939,50 @@ export type BlogSlug = (typeof BLOG_SLUGS)[number];
 console.log("wrote",slugs.length,"slugs");'
 ```
 
-Expected: `wrote 99 slugs`.
+Expected: `wrote 98 slugs` — the servable blogs, excluding the redirect source.
 
 - [ ] **Step 2: Write the failing loader test**
 
 Review Focus 2: an interrupted translation run leaves a locale file missing. That must degrade to English, not 500.
 
+The fallback behaviour is tested as a pure decision, NOT by comparing two real
+content files. An assertion like `expect(dutch.title).toBe(english.title)` passes
+today only because `nl.json` does not exist yet — it would invert and fail the
+moment Task 13 adds real Dutch content, turning a Review Focus guard into a
+broken test. So the decision is extracted and tested directly.
+
 ```ts
 // src/lib/blogs/load.test.ts
 import { describe, expect, it } from "vitest";
-import { loadBlogContent } from "@/lib/blogs/load";
+import { loadBlogContent, resolveBlogContent } from "@/lib/blogs/load";
 import { BLOG_SLUGS } from "@/lib/blogs/registry";
+import type { BlogContent } from "@/lib/blogs/content";
 
-const slug = BLOG_SLUGS[0];
+const english = { title: "English title" } as BlogContent;
+const dutch = { title: "Nederlandse titel" } as BlogContent;
+
+describe("resolveBlogContent", () => {
+    it("prefers the localised file when it exists", () => {
+        expect(resolveBlogContent(dutch, english, "nl")).toBe(dutch);
+    });
+
+    // Review Focus 2: an interrupted translation run must degrade to English.
+    it("falls back to English when the localised file is missing", () => {
+        expect(resolveBlogContent(null, english, "nl")).toBe(english);
+    });
+
+    it("returns null when English is missing too", () => {
+        expect(resolveBlogContent(null, null, "nl")).toBeNull();
+    });
+
+    it("never substitutes anything for a missing English file in English", () => {
+        expect(resolveBlogContent(null, english, "en")).toBeNull();
+    });
+});
 
 describe("loadBlogContent", () => {
     it("loads English content for a known slug", async () => {
-        const content = await loadBlogContent(slug, "en");
+        const content = await loadBlogContent(BLOG_SLUGS[0], "en");
         expect(content?.title).toBeTruthy();
         expect(Array.isArray(content?.sections)).toBe(true);
     });
@@ -1927,17 +1991,11 @@ describe("loadBlogContent", () => {
         expect(await loadBlogContent("no-such-blog", "en")).toBeNull();
     });
 
-    // Review Focus 2.
-    it("falls back to English when the locale file is missing", async () => {
-        const english = await loadBlogContent(slug, "en");
-        const dutch = await loadBlogContent(slug, "nl");
-        expect(dutch).not.toBeNull();
-        expect(dutch?.title).toBe(english?.title);
-    });
-
     it("never throws for any registered slug in any locale", async () => {
         for (const locale of ["en", "fr", "it", "de", "nl", "es"] as const) {
-            await expect(loadBlogContent(slug, locale)).resolves.not.toBeNull();
+            await expect(
+                loadBlogContent(BLOG_SLUGS[0], locale),
+            ).resolves.not.toBeNull();
         }
     });
 });
@@ -1973,6 +2031,23 @@ async function readContentFile(slug: string, locale: Locale) {
 }
 
 /**
+ * Decide which content to serve, given what was found on disk.
+ *
+ * Pure so it can be tested without depending on which locale files happen to
+ * exist — a filesystem-based test of this rule inverts as soon as the real
+ * translations land.
+ */
+export function resolveBlogContent(
+    localized: BlogContent | null,
+    fallback: BlogContent | null,
+    locale: Locale,
+): BlogContent | null {
+    if (localized) return localized;
+    if (locale === routing.defaultLocale) return null;
+    return fallback;
+}
+
+/**
  * Load one blog's content for one locale.
  *
  * Falls back to English when a locale file is absent — an interrupted or
@@ -1987,26 +2062,25 @@ export async function loadBlogContent(
     if (!(BLOG_SLUGS as readonly string[]).includes(slug)) return null;
 
     const localized = await readContentFile(slug, locale);
-    if (localized) return localized;
+    const fallback =
+        localized || locale === routing.defaultLocale
+            ? null
+            : await readContentFile(slug, routing.defaultLocale);
 
-    if (locale !== routing.defaultLocale) {
-        const fallback = await readContentFile(slug, routing.defaultLocale);
-        if (fallback) {
-            console.warn(
-                `[i18n] missing blog content for ${slug}/${locale}.json — served English`,
-            );
-            return fallback;
-        }
+    if (!localized && fallback) {
+        console.warn(
+            `[i18n] missing blog content for ${slug}/${locale}.json — served English`,
+        );
     }
 
-    return null;
+    return resolveBlogContent(localized, fallback, locale);
 }
 ```
 
 - [ ] **Step 5: Run the test to verify it passes**
 
 Run: `npm test -- src/lib/blogs/load.test.ts`
-Expected: 4 passed. The fallback test passes because only `en.json` exists yet — which is exactly the condition being tested.
+Expected: 7 passed. The fallback assertions are pure, so they stay valid after Task 13 adds real translations.
 
 - [ ] **Step 6: Write the failing href-normalisation test**
 
@@ -2229,28 +2303,39 @@ export default async function BlogArticlePage({ params }: PageProps) {
 }
 ```
 
-- [ ] **Step 12: Add the blogCategories and BlogArticle namespaces**
+- [ ] **Step 12: Generate the blogCategories namespace and add BlogArticle**
 
-Add to all six `messages/*.json` (English values everywhere for now):
+`blogCategories` is GENERATED from `BLOG_CATEGORY_LABELS`, not hand-written. The
+extractor already fails on any eyebrow missing from that map, so generating the
+namespace from the same constant means the 7 key/label pairs have exactly one
+source and cannot drift out of step with the extracted `category` values.
 
-```json
-"blogCategories": {
-  "labGrownDiamondEducation": "Lab-Grown Diamond Education",
-  "colouredStonesAndDiamonds": "Coloured Stones and Diamonds",
-  "labGrownDiamondCare": "Lab-Grown Diamond Care",
-  "certificationAndDiamondQuality": "Certification and Diamond Quality",
-  "buyingLabGrownDiamondJewellery": "Buying Lab-Grown Diamond Jewellery",
-  "productCategoryGuides": "Product-Category Guides",
-  "jewelleryCareAndMaintenance": "Jewellery Care and Maintenance"
-},
-"BlogArticle": {
-  "published": "Published {date}",
-  "relatedArticles": "Related Articles",
-  "backToGuides": "← Back to all guides"
+```bash
+node -e '
+const fs=require("fs");
+const { BLOG_CATEGORY_LABELS } = await import("./scripts/i18n/lib/blog-categories.mjs");
+const extra = {
+  published: "Published {date}",
+  relatedArticles: "Related Articles",
+  backToGuides: "← Back to all guides",
+};
+for (const l of ["en","fr","it","de","nl","es"]) {
+  const f = `messages/${l}.json`;
+  const m = JSON.parse(fs.readFileSync(f,"utf8"));
+  m.blogCategories = { ...BLOG_CATEGORY_LABELS };
+  m.BlogArticle = { ...extra, ...(m.BlogArticle ?? {}) };
+  fs.writeFileSync(f, JSON.stringify(m,null,2)+"
+");
 }
+console.log("blogCategories +", Object.keys(BLOG_CATEGORY_LABELS).length, "keys and BlogArticle written for 6 locales");
+' --input-type=module
 ```
 
+Expected: `blogCategories + 7 keys and BlogArticle written for 6 locales`.
+
 - [ ] **Step 13: Delete the 99 blog folders**
+
+All 99 go, including the excluded redirect source — its content was deliberately not extracted, and its redirect in `next.config.ts` keeps the URL working.
 
 The catch-all cannot serve a slug while a real folder exists. Delete in one commit after the route is proven on a single blog first.
 
@@ -2274,16 +2359,18 @@ ls "src/app/[locale]/blog"
 
 Expected remaining entries: `[slug]`, `BlogFilters.tsx`, `blogUtils.ts`, `layout.tsx`, `page.tsx`.
 
+And `npm run build` must report static params for 98 slugs x 6 locales = 588 blog pages.
+
 - [ ] **Step 14: Verify**
 
 Run: `npm test && npx tsc --noEmit && npm run build`
-Expected: all pass, and the build reports static params for 99 slugs × 6 locales.
+Expected: all pass, and the build reports static params for 98 slugs × 6 locales.
 
 - [ ] **Step 15: Commit**
 
 ```bash
 git add -A
-git commit -m "feat(i18n): serve all 99 blogs from one shared [locale]/blog/[slug] route"
+git commit -m "feat(i18n): serve all blogs from one shared [locale]/blog/[slug] route"
 ```
 
 ---
@@ -2305,7 +2392,11 @@ git commit -m "feat(i18n): serve all 99 blogs from one shared [locale]/blog/[slu
 
 - [ ] **Step 1: Write the failing data-integrity test**
 
-This pins the 100-vs-99 discrepancy the spec flagged: `blogs.data.ts` has 100 entries but there are 99 blogs, and `advantages-of-lab-grown-diamonds` has a permanent redirect pointing away from it.
+`blogs.data.ts` holds 99 entries, exactly matching the 99 folders — an earlier
+count of 100 was wrong, having also matched the `slug: string;` line of the
+`BlogPost` interface. What this test does pin is that the card set tracks the
+SERVABLE set: `advantages-of-lab-grown-diamonds` is a redirect source, so it has
+no content and must have no card, or `/blog` shows a card whose link 308s away.
 
 ```ts
 // src/data/blogs.data.test.ts
@@ -2391,7 +2482,7 @@ for(const l of ["en","fr","it","de","nl","es"]){
 console.log("blogCards written for 6 locales");'
 ```
 
-Expected: `kept 99 dropped [ 'advantages-of-lab-grown-diamonds' ]`. That slug is the one with a permanent redirect to `are-lab-grown-diamonds-worth-buying`, so dropping its card is correct.
+Expected: `kept 98 dropped [ 'advantages-of-lab-grown-diamonds' ]` — 99 entries in, one dropped because it has a permanent redirect to `are-lab-grown-diamonds-worth-buying` and so was never extracted.
 
 - [ ] **Step 4: Run the test to verify it passes**
 
@@ -3045,7 +3136,7 @@ Expected: a list of model IDs. Copy one into `OPENAI_MODEL`. There is deliberate
 - [ ] **Step 9: Dry-run every blog (free)**
 
 Run: `npm run i18n:dry`
-Expected: for each of the 99 blogs, a translatable-string count, a `held back` count, and no assertion failure. Confirm on a blog with a callout that `theme` appears in the held-back breakdown. If the Review Focus 1 assertion fires, fix `PROTECTED_KEYS` — never the content.
+Expected: for each of the 98 blogs, a translatable-string count, a `held back` count, and no assertion failure. Confirm on a blog with a callout that `theme` appears in the held-back breakdown. If the Review Focus 1 assertion fires, fix `PROTECTED_KEYS` — never the content.
 
 - [ ] **Step 10: Commit**
 
@@ -3284,7 +3375,7 @@ node scripts/i18n/translate.mjs merge Header --after Common
 # …once per namespace, using the preceding key as the anchor
 ```
 
-- [ ] **Step 4: Translate all 99 blogs**
+- [ ] **Step 4: Translate all 98 blogs**
 
 Resumable: finished blogs and locales are skipped, so an interruption costs nothing. Expect this to take a while.
 
@@ -3343,7 +3434,8 @@ Owns Review Focus 4.
 - Consumes: `routing`; `BLOG_SLUGS`; `BLOGS_DATA`; `localePath`, `blogPath` from `src/lib/blogs/content.ts`.
 - Produces:
   - `PREFIXED_LOCALES: readonly string[]` and `withLocaleVariants(rules: RedirectRule[]): RedirectRule[]` from `localeRedirects.ts`, where `RedirectRule` is `{ source: string; destination: string; permanent: boolean }`.
-  - `BLOG_REDIRECTS: RedirectRule[]` from `blogRedirects.ts` — the existing 20 rules, moved out of `next.config.ts`.
+  - `BLOG_REDIRECTS: RedirectRule[]` from `blogRedirects.ts` — the existing 16 rules, moved out of `next.config.ts`.
+  - `REDIRECTED_AWAY_SLUGS: readonly string[]` from `blogRedirects.ts` — blog slugs that are redirect sources, so no longer servable.
 
 - [ ] **Step 1: Write the failing redirect test**
 
@@ -3354,7 +3446,8 @@ Review Focus 4: an old inbound link arriving locale-prefixed must keep its local
 import { describe, expect, it } from "vitest";
 import { routing } from "@/i18n/routing";
 import { PREFIXED_LOCALES, withLocaleVariants } from "@/lib/i18n/localeRedirects";
-import { BLOG_REDIRECTS } from "@/lib/i18n/blogRedirects";
+import { BLOG_REDIRECTS, REDIRECTED_AWAY_SLUGS } from "@/lib/i18n/blogRedirects";
+import { BLOG_SLUGS } from "@/lib/blogs/registry";
 
 describe("PREFIXED_LOCALES", () => {
     it("is every locale except the unprefixed default", () => {
@@ -3409,14 +3502,33 @@ describe("withLocaleVariants", () => {
         expect(out).toHaveLength(rules.length * 6);
     });
 
-    it("expands the real redirect table to 120 rules", () => {
-        expect(BLOG_REDIRECTS).toHaveLength(20);
-        expect(withLocaleVariants(BLOG_REDIRECTS)).toHaveLength(120);
+    it("expands the real redirect table to 96 rules", () => {
+        expect(BLOG_REDIRECTS).toHaveLength(16);
+        expect(withLocaleVariants(BLOG_REDIRECTS)).toHaveLength(96);
     });
 
     it("produces no duplicate sources", () => {
         const sources = withLocaleVariants(BLOG_REDIRECTS).map((r) => r.source);
         expect(new Set(sources).size).toBe(sources.length);
+    });
+});
+
+describe("redirected-away slugs", () => {
+    it("matches the extractor's exclusion list", async () => {
+        const { EXCLUDED_SLUGS } = await import(
+            "../../../scripts/i18n/lib/excluded-slugs.mjs"
+        );
+        expect([...REDIRECTED_AWAY_SLUGS].sort()).toEqual([...EXCLUDED_SLUGS].sort());
+    });
+
+    it("never serves a slug that redirects away", () => {
+        for (const slug of REDIRECTED_AWAY_SLUGS) {
+            expect(BLOG_SLUGS).not.toContain(slug);
+        }
+    });
+
+    it("derives the list from the redirect table rather than restating it", () => {
+        expect(REDIRECTED_AWAY_SLUGS).toContain("advantages-of-lab-grown-diamonds");
     });
 });
 ```
@@ -3428,7 +3540,7 @@ Expected: FAIL — modules not found.
 
 - [ ] **Step 3: Move the redirect table out of next.config.ts**
 
-Create `src/lib/i18n/blogRedirects.ts` holding the 20 existing rules verbatim from `next.config.ts`, keeping each `source`, `destination` and `permanent: true` exactly as they are. Preserve the existing comment headers (`--- Content consolidation redirects ---`, `--- Batch 1: confirmed broken aliases from audit ---`, `--- Batch 2: additional broken links found by full codebase scan ---`) so the provenance of each rule survives the move.
+Create `src/lib/i18n/blogRedirects.ts` holding the 16 existing rules verbatim from `next.config.ts`, keeping each `source`, `destination` and `permanent: true` exactly as they are. Preserve the existing comment headers (`--- Content consolidation redirects ---`, `--- Batch 1: confirmed broken aliases from audit ---`, `--- Batch 2: additional broken links found by full codebase scan ---`) so the provenance of each rule survives the move.
 
 ```ts
 // src/lib/i18n/blogRedirects.ts
@@ -3445,8 +3557,20 @@ export const BLOG_REDIRECTS: RedirectRule[] = [
         destination: "/blog/are-lab-grown-diamonds-worth-buying/",
         permanent: true,
     },
-    // ... the remaining 19 rules, copied verbatim ...
+    // ... the remaining 15 rules, copied verbatim ...
 ];
+
+/**
+ * Blog slugs that are redirect SOURCES, derived so the list cannot drift from
+ * the table above. These are never servable, so they carry no content, no
+ * registry entry, no listing card and no sitemap entry.
+ */
+export const REDIRECTED_AWAY_SLUGS: readonly string[] = BLOG_REDIRECTS.flatMap(
+    (rule) => {
+        const match = rule.source.match(/^\/blog\/([^/]+)\/$/);
+        return match ? [match[1]] : [];
+    },
+);
 ```
 
 - [ ] **Step 4: Implement the locale expansion**
@@ -3472,8 +3596,8 @@ export const PREFIXED_LOCALES = ["fr", "it", "de", "nl", "es"] as const;
  * Expand each redirect into its locale variants.
  *
  * Without this, /de/blog/<old-slug>/ matches no rule and 404s, because the
- * original sources were written for unprefixed English URLs only. 20 rules in,
- * 120 out.
+ * original sources were written for unprefixed English URLs only. 16 rules in,
+ * 96 out.
  */
 export function withLocaleVariants(rules: RedirectRule[]): RedirectRule[] {
     return rules.flatMap((rule) => [
@@ -3490,7 +3614,7 @@ export function withLocaleVariants(rules: RedirectRule[]): RedirectRule[] {
 - [ ] **Step 5: Run the test to verify it passes**
 
 Run: `npm test -- src/lib/i18n/localeRedirects.test.ts`
-Expected: 7 passed.
+Expected: 10 passed.
 
 - [ ] **Step 6: Wire the generated redirects into next.config.ts**
 
@@ -3532,8 +3656,8 @@ describe("sitemap", () => {
         expect(urls.has("https://www.aureliaroyale.com/nl/blog/4cs-of-lab-grown-diamonds/")).toBe(true);
     });
 
-    it("emits 624 non-product entries: (4 static + 1 index + 99 blogs) x 6", () => {
-        expect(entries).toHaveLength(624);
+    it("emits 618 non-product entries: (4 static + 1 index + 98 blogs) x 6", () => {
+        expect(entries).toHaveLength(618);
     });
 
     it("gives every entry hreflang alternates for all six locales", () => {
@@ -3764,7 +3888,7 @@ if (failures.length) {
 console.log("all locales verified");
 ```
 
-If importing the `.ts` redirect table from a `.mjs` script proves awkward, read the generated redirect list from `.next/` build output or duplicate the 20 source/destination pairs into a small `.mjs` fixture — the assertion matters more than the import mechanism.
+If importing the `.ts` redirect table from a `.mjs` script proves awkward, read the generated redirect list from `.next/` build output or duplicate the 16 source/destination pairs into a small `.mjs` fixture — the assertion matters more than the import mechanism.
 
 - [ ] **Step 2: Run all four automated gates**
 
