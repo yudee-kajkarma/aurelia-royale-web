@@ -8,12 +8,14 @@ import {
 } from "framer-motion";
 import { Heart, Menu, ShoppingBag, UserRound } from "lucide-react";
 import { useRef, useState } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
+import { Link } from "@/i18n/navigation";
 import { HeaderLogo } from "@/components/layout/header/HeaderLogo";
 import { HeaderMenuOverlay } from "@/components/layout/header/HeaderMenuOverlay";
 import { HeaderProfileMenu } from "@/components/layout/header/HeaderProfileMenu";
 import { HeaderSearchOverlay } from "@/components/layout/header/HeaderSearchOverlay";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import {
   shopCategoryItems,
   shopEditionItems,
@@ -63,7 +65,12 @@ const shopCardVariants: Variants = {
   },
 };
 
-export function Header() {
+export function Header({
+  showLanguageSwitcher = true,
+}: {
+  showLanguageSwitcher?: boolean;
+}) {
+  const t = useTranslations("Header");
   const [openMenu, setOpenMenu] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
   const [openProfileMenu, setOpenProfileMenu] = useState(false);
@@ -159,11 +166,11 @@ export function Header() {
   }
 
   const primaryNavLinks: { href: string; label: string }[] = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/shop", label: "Shop" },
-    { href: "/contact", label: "Contact" },
-    { href: "/blog", label: "Blog" },
+    { href: "/", label: t("home") },
+    { href: "/about", label: t("about") },
+    { href: "/shop", label: t("shop") },
+    { href: "/contact", label: t("contact") },
+    { href: "/blog", label: t("blog") },
   ];
 
   function openShopDropdownNow() {
@@ -190,7 +197,7 @@ export function Header() {
         <div className="mx-auto grid h-24 max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-2 px-4 sm:h-28 sm:gap-4 sm:px-8 lg:grid-cols-3 lg:px-12">
           <nav className="hidden lg:flex items-center gap-9 text-[0.78rem] font-semibold uppercase tracking-[0.22em] text-gold">
             {primaryNavLinks.map((link) => {
-              const isShop = link.label === "Shop";
+              const isShop = link.href === "/shop";
               return (
                 <div
                   key={link.href}
@@ -212,7 +219,7 @@ export function Header() {
             type="button"
             onClick={() => setOpenMenu(true)}
             className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white transition hover:border-gold hover:text-gold sm:h-10 sm:w-10 lg:hidden"
-            aria-label="Open menu"
+            aria-label={t("openMenu")}
           >
             <Menu size={18} className="sm:size-5" />
           </button>
@@ -228,7 +235,7 @@ export function Header() {
                 onClick={handleProfileTrigger}
                 className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-gold/40 text-gold transition hover:border-gold hover:bg-gold/10 sm:h-11 sm:w-11"
                 aria-label={
-                  isAuthenticated ? "Open profile menu" : "Open account menu"
+                  isAuthenticated ? t("openProfileMenu") : t("openAccountMenu")
                 }
               >
                 <UserRound
@@ -304,7 +311,7 @@ export function Header() {
               type="button"
               onClick={handleWishlistOpen}
               className="relative inline-flex h-8 w-8 items-center justify-center rounded-full border border-gold/40 text-gold transition hover:border-gold hover:bg-gold/10 sm:h-11 sm:w-11"
-              aria-label="Wishlist"
+              aria-label={t("wishlist")}
             >
               <Heart size={16} strokeWidth={1.5} className="sm:size-4.5" />
               {count > 0 ? (
@@ -317,7 +324,7 @@ export function Header() {
               type="button"
               onClick={handleCartOpen}
               className="relative inline-flex h-8 w-8 items-center justify-center rounded-full border border-gold/40 text-gold transition hover:border-gold hover:bg-gold/10 sm:h-11 sm:w-11"
-              aria-label="Shopping bag"
+              aria-label={t("shoppingBag")}
             >
               <ShoppingBag
                 size={16}
@@ -330,6 +337,7 @@ export function Header() {
                 </span>
               ) : null}
             </button>
+            {showLanguageSwitcher ? <LanguageSwitcher /> : null}
           </div>
         </div>
 

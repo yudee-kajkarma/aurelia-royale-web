@@ -1,5 +1,27 @@
 {
   "Common": {
     "siteName": "Aurelia Royale"
+  },
+  "Header": {
+    "home": "Home",
+    "about": "About",
+    "shop": "Shop",
+    "contact": "Contact",
+    "blog": "Blog",
+    "openMenu": "Open menu",
+    "openProfileMenu": "Open profile menu",
+    "openAccountMenu": "Open account menu",
+    "wishlist": "Wishlist",
+    "shoppingBag": "Shopping bag"
+  },
+  "Footer": {
+    "tagline": "Fine jewellery crafted for those who value beauty, heritage, and permanence above all.",
+    "navLabel": "Footer",
+    "home": "Home",
+    "about": "About",
+    "shop": "Shop",
+    "blog": "Blog",
+    "contact": "Contact",
+    "copyright": "Copyright 2026 Aurelia Royale. All rights reserved by Aurelia Royale."
   }
 }

@@ -25,5 +25,9 @@ export default function AdminLayout({
 }: Readonly<{ children: React.ReactNode }>) {
     setRequestLocale("en");
 
-    return <SiteShell lang="en">{children}</SiteShell>;
+    return (
+        <SiteShell lang="en" localeSwitcher={false}>
+            {children}
+        </SiteShell>
+    );
 }

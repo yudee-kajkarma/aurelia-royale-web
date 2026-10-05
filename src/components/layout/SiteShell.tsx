@@ -23,9 +23,11 @@ import { fontClassNames } from "@/app/fonts";
  */
 export function SiteShell({
     lang,
+    localeSwitcher = true,
     children,
 }: {
     lang: string;
+    localeSwitcher?: boolean;
     children: React.ReactNode;
 }) {
     return (
@@ -47,7 +49,7 @@ export function SiteShell({
                     <AuthProvider>
                         <WishlistProvider>
                             <CartProvider>
-                                <Header />
+                                <Header showLanguageSwitcher={localeSwitcher} />
                                 <main className="flex-1">
                                     <PageTransition>{children}</PageTransition>
                                 </main>
