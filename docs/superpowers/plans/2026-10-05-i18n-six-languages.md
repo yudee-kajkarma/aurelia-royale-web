@@ -2814,6 +2814,18 @@ If a hit is genuinely not translatable copy (a brand name, a product SKU, a
 single symbol), add it to the detector's `ALLOW` list with a comment saying why,
 rather than leaving the gate failing or weakening the pattern.
 
+**Detector blind spot — check these separately.** It sees `JsxText` nodes and
+user-facing JSX attributes, NOT strings passed as function arguments. Toast
+messages and thrown errors are invisible to it, so a clean `0` does not mean the
+area is done. Sweep those by hand:
+
+```bash
+grep -rn 'toast\.' src --include='*.tsx' | grep -v '/admin/' | grep -P 'toast\.\w+\(\s*"'
+```
+
+At the time of planning that found 8 hardcoded toast strings outside admin
+(in `orders/[id]`, `profile`, `register`). Admin toasts stay English.
+
 - [ ] **Step 9: Verify and commit**
 
 Run: `npm test && npx tsc --noEmit && npm run build`
@@ -2871,6 +2883,18 @@ npm run i18n:untranslated -- src/app/\[locale\] src/components/auth src/componen
 ```
 
 Expected: `0 untranslated string(s)`.
+
+**Detector blind spot — check these separately.** It sees `JsxText` nodes and
+user-facing JSX attributes, NOT strings passed as function arguments. Toast
+messages and thrown errors are invisible to it, so a clean `0` does not mean the
+area is done. Sweep those by hand:
+
+```bash
+grep -rn 'toast\.' src --include='*.tsx' | grep -v '/admin/' | grep -P 'toast\.\w+\(\s*"'
+```
+
+At the time of planning that found 8 hardcoded toast strings outside admin
+(in `orders/[id]`, `profile`, `register`). Admin toasts stay English.
 
 With `npm run dev`, walk `/es/login/`, `/es/register/` and `/es/profile/`, confirming no `[MISSING:` and that submitting an empty form shows validation messages.
 
