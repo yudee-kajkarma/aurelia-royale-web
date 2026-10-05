@@ -3071,6 +3071,10 @@ Expected: FAIL — module not found.
  *   shopHref    — cta-banner link target
  *   contactHref — cta-banner link target
  *   category    — a blogCategories message key, not display text
+ *   siteName    — the brand name. Footer renders it via Common.siteName while
+ *                 HeaderLogo hardcodes it, so translating the key would show a
+ *                 translated brand in the footer and an English one in the
+ *                 header, on the same page, in five languages.
  */
 export const PROTECTED_KEYS = new Set([
     "type",
@@ -3087,6 +3091,7 @@ export const PROTECTED_KEYS = new Set([
     "shopHref",
     "contactHref",
     "category",
+    "siteName",
 ]);
 
 /** Values that are plainly not prose, whatever key they sit under. */
@@ -3157,7 +3162,7 @@ Then make these changes to `scripts/i18n/translate.mjs`:
 3. Add file-mode targets alongside namespace mode. A target of the form `blogs/<slug>` reads `content/blogs/<slug>/en.json` and writes `scripts/i18n/staging/<locale>/blogs/<slug>.json`; any other target keeps the existing `messages/*.json` namespace behaviour.
 4. Drop the `--after` requirement for blog merges — separate files have no ordering problem. Keep it for `messages/*.json` namespace merges.
 5. Add `translate blogs --all`, iterating every directory in `content/blogs/`, skipping blogs already fully staged, and printing per-blog progress plus a running character and estimated-cost tally.
-6. Extend the `--dry` output with a hard assertion for Review Focus 1: fail the run if any value under `theme`, `shopHref`, `contactHref` or `category` appears in the translatable set.
+6. Extend the `--dry` output with a hard assertion for Review Focus 1: fail the run if any value under `theme`, `shopHref`, `contactHref`, `category` or `siteName` appears in the translatable set.
 
 - [ ] **Step 6: Extend the glossary**
 
