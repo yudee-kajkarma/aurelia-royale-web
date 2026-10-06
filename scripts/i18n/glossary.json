@@ -1,0 +1,253 @@
+{
+  "note": [
+    "House terminology for machine translation and for auditing existing message/blog files.",
+    "Each target term is the wording already dominant in messages/<locale>.json — the counts",
+    "behind the choices were taken from the shipped copy, not invented. `avoid` lists variants",
+    "that exist in the codebase but lose to the house term, so `check` can flag them.",
+    "Seeded from the sister project uniglo-diamonds-web (diamond terminology carries over",
+    "directly) and extended with Aurelia's jewellery-construction vocabulary: bezel, pavé,",
+    "huggie, station necklace and hallmark. 'tennis bracelet' was already seeded from uniglo",
+    "(es: 'pulsera de tenis') so it was not duplicated with a second, conflicting Spanish",
+    "rendering — see the task-11 report for this call.",
+    "To research a new entry: node scripts/i18n/translate.mjs terms \"<english term>\""
+  ],
+  "terms": [
+    {
+      "en": "tennis bracelet",
+      "nl": "tennisarmband",
+      "fr": "bracelet tennis",
+      "de": "Tennisarmband",
+      "es": "pulsera tennis",
+      "it": "bracciale tennis",
+      "avoid": {
+        "fr": ["bracelet rivière", "bracelets rivière"],
+        "es": ["pulsera rivière", "pulseras rivière", "brazalete de tenis"]
+      }
+    },
+    {
+      "en": "tennis necklace",
+      "nl": "tenniscollier",
+      "fr": "collier tennis",
+      "de": "Tenniscollier",
+      "es": "collar de tenis",
+      "it": "collana tennis",
+      "avoid": {
+        "fr": ["collier rivière", "colliers rivière"],
+        "es": ["collar rivière", "collares rivière"]
+      }
+    },
+    {
+      "en": "clarity",
+      "nl": "helderheid",
+      "fr": "clarté",
+      "de": "Reinheit",
+      "es": "claridad",
+      "it": "purezza",
+      "avoid": {
+        "nl": ["zuiverheid", "zuiverheden"],
+        "fr": ["pureté", "puretés"],
+        "es": ["pureza", "purezas"]
+      }
+    },
+    {
+      "en": "cut",
+      "nl": "slijpkwaliteit",
+      "fr": "taille",
+      "de": "Schliff",
+      "es": "talla",
+      "it": "taglio"
+    },
+    {
+      "en": "carat",
+      "nl": "karaat",
+      "fr": "carat",
+      "de": "Karat",
+      "es": "quilate",
+      "it": "carato"
+    },
+    {
+      "en": "grading report",
+      "nl": "certificaat",
+      "fr": "certificat",
+      "de": "Zertifikat",
+      "es": "certificado",
+      "it": "certificato"
+    },
+    {
+      "en": "supplier",
+      "nl": "leverancier",
+      "fr": "fournisseur",
+      "de": "Lieferant",
+      "es": "proveedor",
+      "it": "fornitore"
+    },
+    {
+      "en": "buyer",
+      "nl": "inkoper",
+      "fr": "acheteur",
+      "de": "Einkäufer",
+      "es": "comprador",
+      "it": "buyer"
+    },
+    {
+      "en": "retailer",
+      "nl": "retailer",
+      "fr": "détaillant",
+      "de": "Einzelhändler",
+      "es": "minorista",
+      "it": "dettagliante"
+    },
+    {
+      "en": "jeweller",
+      "nl": "juwelier",
+      "fr": "bijoutier",
+      "de": "Juwelier",
+      "es": "joyero",
+      "it": "gioielliere"
+    },
+    {
+      "en": "lab-grown diamond",
+      "nl": "labgrown diamant",
+      "fr": "diamant de laboratoire",
+      "de": "laborgezüchteter Diamant",
+      "es": "diamante de laboratorio",
+      "it": "diamante di laboratorio"
+    },
+    {
+      "en": "natural diamond",
+      "nl": "natuurlijke diamant",
+      "fr": "diamant naturel",
+      "de": "natürlicher Diamant",
+      "es": "diamante natural",
+      "it": "diamante naturale"
+    },
+    {
+      "en": "loose diamonds",
+      "nl": "losse diamanten",
+      "fr": "diamants sur papier",
+      "de": "lose Diamanten",
+      "es": "diamantes sueltos",
+      "it": "diamanti sfusi"
+    },
+    {
+      "en": "engagement ring",
+      "nl": "verlovingsring",
+      "fr": "bague de fiançailles",
+      "de": "Verlobungsring",
+      "es": "anillo de compromiso",
+      "it": "anello di fidanzamento"
+    },
+    {
+      "en": "bridal jewellery",
+      "nl": "bruidsjuwelen",
+      "fr": "bijoux nuptiaux",
+      "de": "Brautschmuck",
+      "es": "joyería nupcial",
+      "it": "gioielleria bridal"
+    },
+    {
+      "en": "fine jewellery",
+      "nl": "fijne juwelen",
+      "fr": "joaillerie fine",
+      "de": "Feinschmuck",
+      "es": "alta joyería",
+      "it": "alta gioielleria"
+    },
+    {
+      "en": "trade show",
+      "nl": "vakbeurs",
+      "fr": "salon professionnel",
+      "de": "Fachmesse",
+      "es": "feria profesional",
+      "it": "fiera di settore",
+      "avoid": {
+        "fr": ["foire commerciale"],
+        "es": ["feria comercial"],
+        "it": ["fiera commerciale"]
+      }
+    },
+    {
+      "en": "stand",
+      "nl": "stand",
+      "fr": "stand",
+      "de": "Stand",
+      "es": "stand",
+      "it": "stand",
+      "avoid": {
+        "es": ["puesto"]
+      }
+    },
+    {
+      "en": "exhibitor",
+      "nl": "exposant",
+      "fr": "exposant",
+      "de": "Aussteller",
+      "es": "expositor",
+      "it": "espositore"
+    },
+    {
+      "en": "sourcing",
+      "nl": "inkoop",
+      "fr": "approvisionnement",
+      "de": "Beschaffung",
+      "es": "aprovisionamiento",
+      "it": "approvvigionamento"
+    },
+    {
+      "en": "assortment",
+      "nl": "assortiment",
+      "fr": "assortiment",
+      "de": "Sortiment",
+      "es": "surtido",
+      "it": "assortimento"
+    },
+    {
+      "en": "Antwerp",
+      "nl": "Antwerpen",
+      "fr": "Anvers",
+      "de": "Antwerpen",
+      "es": "Amberes",
+      "it": "Anversa"
+    },
+    {
+      "en": "bezel",
+      "fr": "serti clos",
+      "it": "montatura a castone",
+      "de": "Zargenfassung",
+      "nl": "kastzetting",
+      "es": "engaste bisel"
+    },
+    {
+      "en": "pavé",
+      "fr": "pavage",
+      "it": "pavé",
+      "de": "Pavé",
+      "nl": "pavé",
+      "es": "pavé"
+    },
+    {
+      "en": "huggie",
+      "fr": "créole huggie",
+      "it": "cerchio huggie",
+      "de": "Huggie-Creole",
+      "nl": "huggie-oorring",
+      "es": "aro huggie"
+    },
+    {
+      "en": "station necklace",
+      "fr": "collier à stations",
+      "it": "collana station",
+      "de": "Stationskette",
+      "nl": "station-collier",
+      "es": "collar de estaciones"
+    },
+    {
+      "en": "hallmark",
+      "fr": "poinçon",
+      "it": "punzone",
+      "de": "Feingehaltsstempel",
+      "nl": "keurmerk",
+      "es": "contraste"
+    }
+  ]
+}
