@@ -1,7 +1,8 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 import { LockKeyhole, MapPinHouse, Plus, UserRound, X } from "lucide-react";
 import { AuthGuard } from "@/components/auth/AuthGuard";
 import { FamilySection } from "@/components/profile/family/FamilySection";
@@ -38,6 +39,9 @@ function SectionMessage({ message, tone }: { message: string; tone: "success" | 
 }
 
 export default function ProfilePage() {
+  const t = useTranslations("ProfilePage");
+  const tValidation = useTranslations("Validation");
+  const tToasts = useTranslations("Toasts");
   const { user } = useAuth();
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [firstName, setFirstName] = useState("");
@@ -146,7 +150,7 @@ export default function ProfilePage() {
           return;
         }
 
-        notifyError(error, "Unable to load profile right now. You can still edit and save manually.");
+        notifyError(error, t("unableToLoadProfile"));
       } finally {
         if (isMounted) {
           setIsProfileLoading(false);
@@ -159,6 +163,7 @@ export default function ProfilePage() {
     return () => {
       isMounted = false;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function handleAddressChange(id: string, field: keyof UserProfileAddressPayload, value: string | boolean) {
@@ -244,7 +249,7 @@ export default function ProfilePage() {
       setLastName(draftLastName.trim());
       setPhoneNumber(draftPhoneNumber.trim());
       setCountryCode(draftCountryCode.trim());
-      setSuccessMessage(result.message || "Profile details updated successfully.");
+      setSuccessMessage(result.message || t("profileDetailsUpdatedSuccess"));
       setIsEditProfileOpen(false);
 
       try {
@@ -254,7 +259,7 @@ export default function ProfilePage() {
         // Preserve local state if a refresh fails.
       }
     } catch (error) {
-      notifyError(error, "Unable to update profile details right now. Please try again.");
+      notifyError(error, t("unableToUpdateProfileDetails"));
     } finally {
       setIsSavingProfileDetails(false);
     }
@@ -313,7 +318,7 @@ export default function ProfilePage() {
         await profileService.setDefaultUserAddress(selectedDefaultAddress.apiId);
       }
 
-      setSuccessMessage("Addresses updated successfully.");
+      setSuccessMessage(t("addressesUpdatedSuccess"));
 
       try {
         await refreshProfile();
@@ -321,7 +326,7 @@ export default function ProfilePage() {
         // Keep current form values if refresh fails.
       }
     } catch (error) {
-      notifyError(error, "Unable to update profile right now. Please try again.");
+      notifyError(error, t("unableToUpdateProfile"));
     } finally {
       setIsSavingAddresses(false);
     }
@@ -332,12 +337,12 @@ export default function ProfilePage() {
     setSuccessMessage("");
 
     if (!oldPassword || !newPassword || !confirmPassword) {
-      toast.error("Please fill old password, new password, and confirm password.");
+      toast.error(tToasts("changePasswordFieldsRequired"));
       return;
     }
 
     if (newPassword !== confirmPassword) {
-      toast.error("New password and confirm password do not match.");
+      toast.error(tValidation("passwordsDoNotMatch"));
       return;
     }
 
@@ -356,36 +361,36 @@ export default function ProfilePage() {
       setOldPassword("");
       setNewPassword("");
       setConfirmPassword("");
-      setSuccessMessage(result.message || "Password changed successfully.");
+      setSuccessMessage(result.message || t("passwordChangedSuccess"));
       setIsChangePasswordOpen(false);
     } catch (error) {
-      notifyError(error, "Unable to change password right now. Please try again.");
+      notifyError(error, t("unableToChangePassword"));
     } finally {
       setIsChangingPassword(false);
     }
   }
 
-  const profileTitle = [firstName, lastName].filter(Boolean).join(" ") || profile?.username || user?.username || "Your Profile";
+  const profileTitle = [firstName, lastName].filter(Boolean).join(" ") || profile?.username || user?.username || t("yourProfileFallback");
 
   return (
     <AuthGuard allowedRoles={["USER", "ADMIN"]}>
       <main className="mx-auto min-h-[70vh] w-full max-w-[1480px] px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-foreground/45">Profile</p>
-            <h1 className="display-font mt-3 text-4xl text-deep sm:text-5xl">Manage Your Account Details</h1>
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-foreground/45">{t("eyebrow")}</p>
+            <h1 className="display-font mt-3 text-4xl text-deep sm:text-5xl">{t("heading")}</h1>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-foreground/65">
-              Update your personal details, maintain delivery addresses, and manage password security from one place.
+              {t("subtitle")}
             </p>
           </div>
 
           <div className="rounded-[24px] border border-gold/20 bg-white/70 px-5 py-4 text-sm text-foreground/72 shadow-[0_10px_30px_rgba(55,31,10,0.05)]">
-            Signed in as <span className="font-semibold text-deep">{user?.email || profile?.email || "Customer"}</span>
+            {t("signedInAs")} <span className="font-semibold text-deep">{user?.email || profile?.email || t("customerFallback")}</span>
           </div>
         </div>
 
         <section className="mt-8 rounded-[34px] border border-foreground/10 bg-white/90 p-6 shadow-[0_20px_60px_rgba(55,31,10,0.06)] backdrop-blur-sm sm:p-8">
-          {isProfileLoading ? <p className="mb-5 text-sm font-medium text-foreground/60">Loading profile...</p> : null}
+          {isProfileLoading ? <p className="mb-5 text-sm font-medium text-foreground/60">{t("loadingProfile")}</p> : null}
 
           <div className="rounded-[28px] border border-foreground/10 bg-[linear-gradient(135deg,#fdfbf7_0%,#f5f0e8_100%)] p-5 sm:p-6">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -394,10 +399,10 @@ export default function ProfilePage() {
                   <UserRound className="h-6 w-6" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-foreground/45">Profile Details</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-foreground/45">{t("profileDetailsEyebrow")}</p>
                   <h2 className="mt-1 text-2xl font-bold tracking-[-0.03em] text-deep">{profileTitle}</h2>
-                  <p className="mt-2 text-sm text-foreground/62">{profile?.email || user?.email || "No email available"}</p>
-                  <p className="mt-1 text-sm text-foreground/62">{countryCode} {phoneNumber || "No phone number saved"}</p>
+                  <p className="mt-2 text-sm text-foreground/62">{profile?.email || user?.email || t("noEmailAvailable")}</p>
+                  <p className="mt-1 text-sm text-foreground/62">{countryCode} {phoneNumber || t("noPhoneNumberSaved")}</p>
                 </div>
               </div>
 
@@ -406,7 +411,7 @@ export default function ProfilePage() {
                 onClick={openEditProfilePopup}
                 className="rounded-full border border-gold/35 bg-white px-5 py-3 text-xs font-bold uppercase tracking-[0.08em] text-deep transition hover:border-deep hover:bg-deep hover:text-white"
               >
-                Edit Profile
+                {t("editProfileButton")}
               </button>
             </div>
           </div>
@@ -416,7 +421,7 @@ export default function ProfilePage() {
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex items-center gap-3 text-deep">
                   <MapPinHouse className="h-5 w-5" />
-                  <h2 className="text-xl font-bold">Addresses</h2>
+                  <h2 className="text-xl font-bold">{t("addressesHeading")}</h2>
                 </div>
                 <button
                   type="button"
@@ -424,7 +429,7 @@ export default function ProfilePage() {
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-gold/35 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-deep transition hover:border-deep hover:bg-deep hover:!text-white"
                 >
                   <Plus className="h-3.5 w-3.5" />
-                  Add Address
+                  {t("addAddressButton")}
                 </button>
               </div>
 
@@ -432,7 +437,7 @@ export default function ProfilePage() {
                 {addresses.map((address, index) => (
                   <article key={address.id} className="rounded-[24px] border border-foreground/10 bg-surface p-4 sm:p-5">
                     <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                      <p className="text-sm font-bold uppercase tracking-[0.12em] text-foreground/52">Address {index + 1}</p>
+                      <p className="text-sm font-bold uppercase tracking-[0.12em] text-foreground/52">{t("addressLabel", { number: index + 1 })}</p>
                       <div className="flex items-center gap-3">
                         <label className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.1em] text-foreground/55">
                           <input
@@ -441,7 +446,7 @@ export default function ProfilePage() {
                             checked={address.isDefault}
                             onChange={() => setDefaultAddress(address.id)}
                           />
-                          Default
+                          {t("defaultLabel")}
                         </label>
                         <button
                           type="button"
@@ -449,14 +454,14 @@ export default function ProfilePage() {
                           disabled={!canRemoveAddress}
                           className="rounded-full border border-rose-200 px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-rose-600 transition enabled:hover:bg-rose-600 enabled:hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
                         >
-                          Remove
+                          {t("removeButton")}
                         </button>
                       </div>
                     </div>
 
                     <div className="grid gap-4 md:grid-cols-2">
                       <label className="flex flex-col gap-2 text-sm font-semibold text-foreground/88">
-                        Street
+                        {t("streetLabel")}
                         <input
                           type="text"
                           value={address.street}
@@ -466,7 +471,7 @@ export default function ProfilePage() {
                         />
                       </label>
                       <label className="flex flex-col gap-2 text-sm font-semibold text-foreground/88">
-                        City
+                        {t("cityLabel")}
                         <input
                           type="text"
                           value={address.city}
@@ -476,7 +481,7 @@ export default function ProfilePage() {
                         />
                       </label>
                       <label className="flex flex-col gap-2 text-sm font-semibold text-foreground/88">
-                        State
+                        {t("stateLabel")}
                         <input
                           type="text"
                           value={address.state}
@@ -486,7 +491,7 @@ export default function ProfilePage() {
                         />
                       </label>
                       <label className="flex flex-col gap-2 text-sm font-semibold text-foreground/88">
-                        Postal Code
+                        {t("postalCodeLabel")}
                         <input
                           type="text"
                           value={address.postalCode}
@@ -496,7 +501,7 @@ export default function ProfilePage() {
                         />
                       </label>
                       <label className="flex flex-col gap-2 text-sm font-semibold text-foreground/88">
-                        Country
+                        {t("countryLabel")}
                         <input
                           type="text"
                           value={address.country}
@@ -506,15 +511,15 @@ export default function ProfilePage() {
                         />
                       </label>
                       <label className="flex flex-col gap-2 text-sm font-semibold text-foreground/88">
-                        Address Type
+                        {t("addressTypeLabel")}
                         <select
                           value={address.addressType}
                           onChange={(event) => handleAddressChange(address.id, "addressType", event.target.value)}
                           className="h-11 rounded-xl border border-foreground/12 bg-white px-4 text-sm font-medium text-deep outline-none transition focus:border-deep"
                         >
-                          <option value="home">Home</option>
-                          <option value="work">Work</option>
-                          <option value="other">Other</option>
+                          <option value="home">{t("addressTypeHome")}</option>
+                          <option value="work">{t("addressTypeWork")}</option>
+                          <option value="other">{t("addressTypeOther")}</option>
                         </select>
                       </label>
                     </div>
@@ -531,7 +536,7 @@ export default function ProfilePage() {
                 disabled={isSavingAddresses}
                 className="cta-sweep border border-deep bg-deep px-7 py-3 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:border-gold hover:text-deep focus-visible:border-gold focus-visible:text-deep disabled:opacity-70"
               >
-                <span className="relative z-10">{isSavingAddresses ? "Saving..." : "Save Addresses"}</span>
+                <span className="relative z-10">{isSavingAddresses ? t("saving") : t("saveAddresses")}</span>
               </button>
             </div>
           </form>
@@ -547,9 +552,9 @@ export default function ProfilePage() {
                   <LockKeyhole className="h-6 w-6" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-foreground/45">Security</p>
-                  <h2 className="mt-1 text-2xl font-bold tracking-[-0.03em] text-deep">Change Password</h2>
-                  <p className="mt-2 text-sm text-foreground/62">Update your account password securely from a dedicated popup form.</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-foreground/45">{t("securityEyebrow")}</p>
+                  <h2 className="mt-1 text-2xl font-bold tracking-[-0.03em] text-deep">{t("changePasswordHeading")}</h2>
+                  <p className="mt-2 text-sm text-foreground/62">{t("changePasswordDescription")}</p>
                 </div>
               </div>
 
@@ -558,7 +563,7 @@ export default function ProfilePage() {
                 onClick={openChangePasswordPopup}
                 className="rounded-full border border-gold/35 bg-white px-5 py-3 text-xs font-bold uppercase tracking-[0.08em] text-deep transition hover:border-deep hover:bg-deep hover:text-white"
               >
-                Open Change Password
+                {t("openChangePasswordButton")}
               </button>
             </div>
           </div>
@@ -569,14 +574,14 @@ export default function ProfilePage() {
             <div className="w-full max-w-2xl rounded-[30px] border border-foreground/10 bg-white p-6 shadow-[0_30px_80px_rgba(55,31,10,0.2)] sm:p-8">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h2 className="display-font text-3xl text-deep">Edit Profile Details</h2>
-                  <p className="mt-2 text-sm text-foreground/58">Update first name, last name, phone number, and country code.</p>
+                  <h2 className="display-font text-3xl text-deep">{t("editProfileDetailsHeading")}</h2>
+                  <p className="mt-2 text-sm text-foreground/58">{t("editProfileDetailsDescription")}</p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setIsEditProfileOpen(false)}
                   className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-foreground/12 text-deep transition hover:bg-deep hover:text-white"
-                  aria-label="Close edit profile"
+                  aria-label={t("closeEditProfileAriaLabel")}
                 >
                   <X className="h-4 w-4" />
                 </button>
@@ -584,7 +589,7 @@ export default function ProfilePage() {
 
               <form className="mt-6 grid gap-4 md:grid-cols-2" onSubmit={handleSaveProfileDetails}>
                 <label className="flex flex-col gap-2 text-sm font-semibold text-foreground/88">
-                  First Name
+                  {t("firstNameLabel")}
                   <input
                     type="text"
                     value={draftFirstName}
@@ -594,7 +599,7 @@ export default function ProfilePage() {
                   />
                 </label>
                 <label className="flex flex-col gap-2 text-sm font-semibold text-foreground/88">
-                  Last Name
+                  {t("lastNameLabel")}
                   <input
                     type="text"
                     value={draftLastName}
@@ -604,7 +609,7 @@ export default function ProfilePage() {
                   />
                 </label>
                 <label className="flex flex-col gap-2 text-sm font-semibold text-foreground/88">
-                  Country Code
+                  {t("countryCodeLabel")}
                   <input
                     type="text"
                     value={draftCountryCode}
@@ -614,7 +619,7 @@ export default function ProfilePage() {
                   />
                 </label>
                 <label className="flex flex-col gap-2 text-sm font-semibold text-foreground/88">
-                  Phone Number
+                  {t("phoneNumberLabel")}
                   <input
                     type="tel"
                     value={draftPhoneNumber}
@@ -630,14 +635,14 @@ export default function ProfilePage() {
                     onClick={() => setIsEditProfileOpen(false)}
                     className="rounded-full border border-gold/35 bg-white px-5 py-2 text-xs font-bold uppercase tracking-[0.08em] text-deep transition hover:border-deep hover:bg-deep hover:text-white"
                   >
-                    Cancel
+                    {t("cancelButton")}
                   </button>
                   <button
                     type="submit"
                     disabled={isSavingProfileDetails}
                     className="cta-sweep border border-deep bg-deep px-6 py-2 text-xs font-bold uppercase tracking-[0.08em] text-white transition hover:border-gold hover:text-deep focus-visible:border-gold focus-visible:text-deep disabled:opacity-70"
                   >
-                    <span className="relative z-10">{isSavingProfileDetails ? "Saving..." : "Save Profile Details"}</span>
+                    <span className="relative z-10">{isSavingProfileDetails ? t("saving") : t("saveProfileDetailsButton")}</span>
                   </button>
                 </div>
               </form>
@@ -650,14 +655,14 @@ export default function ProfilePage() {
             <div className="w-full max-w-2xl rounded-[30px] border border-foreground/10 bg-white p-6 shadow-[0_30px_80px_rgba(55,31,10,0.2)] sm:p-8">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h2 className="display-font text-3xl text-deep">Change Password</h2>
-                  <p className="mt-2 text-sm text-foreground/58">Enter your old password and choose a new password.</p>
+                  <h2 className="display-font text-3xl text-deep">{t("changePasswordHeading")}</h2>
+                  <p className="mt-2 text-sm text-foreground/58">{t("changePasswordModalDescription")}</p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setIsChangePasswordOpen(false)}
                   className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-foreground/12 text-deep transition hover:bg-deep hover:text-white"
-                  aria-label="Close change password"
+                  aria-label={t("closeChangePasswordAriaLabel")}
                 >
                   <X className="h-4 w-4" />
                 </button>
@@ -665,7 +670,7 @@ export default function ProfilePage() {
 
               <form className="mt-6 grid gap-4 md:grid-cols-3" onSubmit={handleChangePassword}>
                 <label className="md:col-span-3 flex flex-col gap-2 text-sm font-semibold text-foreground/88">
-                  Old Password
+                  {t("oldPasswordLabel")}
                   <input
                     type="password"
                     value={oldPassword}
@@ -675,7 +680,7 @@ export default function ProfilePage() {
                   />
                 </label>
                 <label className="flex flex-col gap-2 text-sm font-semibold text-foreground/88">
-                  New Password
+                  {t("newPasswordLabel")}
                   <input
                     type="password"
                     value={newPassword}
@@ -685,7 +690,7 @@ export default function ProfilePage() {
                   />
                 </label>
                 <label className="md:col-span-2 flex flex-col gap-2 text-sm font-semibold text-foreground/88">
-                  Confirm Password
+                  {t("confirmPasswordLabel")}
                   <input
                     type="password"
                     value={confirmPassword}
@@ -701,14 +706,14 @@ export default function ProfilePage() {
                     onClick={() => setIsChangePasswordOpen(false)}
                     className="rounded-full border border-gold/35 bg-white px-5 py-2 text-xs font-bold uppercase tracking-[0.08em] text-deep transition hover:border-deep hover:bg-deep hover:text-white"
                   >
-                    Cancel
+                    {t("cancelButton")}
                   </button>
                   <button
                     type="submit"
                     disabled={isChangingPassword}
                     className="cta-sweep border border-deep bg-deep px-6 py-2 text-xs font-bold uppercase tracking-[0.08em] text-white transition hover:border-gold hover:text-deep focus-visible:border-gold focus-visible:text-deep disabled:opacity-70"
                   >
-                    <span className="relative z-10">{isChangingPassword ? "Updating..." : "Change Password"}</span>
+                    <span className="relative z-10">{isChangingPassword ? t("updating") : t("changePasswordHeading")}</span>
                   </button>
                 </div>
               </form>
