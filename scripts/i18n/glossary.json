@@ -1,14 +1,33 @@
 {
   "note": [
     "House terminology for machine translation and for auditing existing message/blog files.",
-    "Each target term is the wording already dominant in messages/<locale>.json — the counts",
-    "behind the choices were taken from the shipped copy, not invented. `avoid` lists variants",
-    "that exist in the codebase but lose to the house term, so `check` can flag them.",
-    "Seeded from the sister project uniglo-diamonds-web (diamond terminology carries over",
-    "directly) and extended with Aurelia's jewellery-construction vocabulary: bezel, pavé,",
-    "huggie, station necklace and hallmark. 'tennis bracelet' was already seeded from uniglo",
-    "(es: 'pulsera de tenis') so it was not duplicated with a second, conflicting Spanish",
-    "rendering — see the task-11 report for this call.",
+    "`avoid` lists variants that lose to the house term, so `check` can flag them.",
+    "",
+    "Provenance differs by term. The 22 terms through 'Antwerp' are uniglo-diamonds-web's",
+    "own house terms, taken from ITS shipped, human-translated messages/<locale>.json —",
+    "real dominant usage, not invented.",
+    "",
+    "The 6 terms from 'bezel' onward are Aurelia-specific additions. Aurelia's own",
+    "messages/*.json cannot serve as evidence for them: every locale file is still entirely",
+    "English (translation has not run yet), so there is no shipped Aurelia copy to count.",
+    "Instead each was checked against uniglo's shipped corpus (same jewellery domain, real",
+    "human translations) by searching for the candidate AND plausible alternatives and",
+    "reading the surrounding sentence — raw substring counts alone are misleading (e.g. a",
+    "false-friend word can outnumber the real one). Where that corpus gave a clear,",
+    "contextually-confirmed jewellery-sense rendering, it was used, with the occurrence count",
+    "recorded in the task-11 report's \"Fix round 1\" section. 'tennis bracelet' is the one",
+    "exception seeded alongside them: it duplicated an already-seeded uniglo term, so instead",
+    "of a second conflicting entry, the uniglo value was kept (and, after a round-1 review",
+    "fix, actually restored — an earlier draft of this file briefly had the wrong, invented",
+    "Spanish value here; see the report).",
+    "",
+    "Terms not found in the reference corpus; to be confirmed by a native speaker:",
+    "  - 'station necklace' (es): the ONLY 'station chain' sentence in uniglo's entire",
+    "    corpus was translated into Spanish by avoiding the concept entirely ('cadena de",
+    "    diamantes espaciada' — no 'station' word at all). fr/it/de/nl values for this term",
+    "    rest on that same single parallel sentence (N=1) — real translator output, but thin",
+    "    evidence, not a dominant pattern. Marked via `unvalidated` below.",
+    "",
     "To research a new entry: node scripts/i18n/translate.mjs terms \"<english term>\""
   ],
   "terms": [
@@ -17,11 +36,11 @@
       "nl": "tennisarmband",
       "fr": "bracelet tennis",
       "de": "Tennisarmband",
-      "es": "pulsera tennis",
+      "es": "pulsera de tenis",
       "it": "bracciale tennis",
       "avoid": {
         "fr": ["bracelet rivière", "bracelets rivière"],
-        "es": ["pulsera rivière", "pulseras rivière", "brazalete de tenis"]
+        "es": ["pulsera rivière", "pulseras rivière", "brazalete de tenis", "pulsera tennis"]
       }
     },
     {
@@ -212,14 +231,14 @@
     {
       "en": "bezel",
       "fr": "serti clos",
-      "it": "montatura a castone",
+      "it": "castone",
       "de": "Zargenfassung",
-      "nl": "kastzetting",
-      "es": "engaste bisel"
+      "nl": "omlijsting",
+      "es": "engaste de bisel"
     },
     {
       "en": "pavé",
-      "fr": "pavage",
+      "fr": "pavé",
       "it": "pavé",
       "de": "Pavé",
       "nl": "pavé",
@@ -227,27 +246,32 @@
     },
     {
       "en": "huggie",
-      "fr": "créole huggie",
+      "fr": "cerceau huggie",
       "it": "cerchio huggie",
       "de": "Huggie-Creole",
-      "nl": "huggie-oorring",
+      "nl": "Huggie-hoepel",
       "es": "aro huggie"
     },
     {
       "en": "station necklace",
-      "fr": "collier à stations",
-      "it": "collana station",
+      "fr": "chaîne de station",
+      "it": "catena di stazioni",
       "de": "Stationskette",
-      "nl": "station-collier",
-      "es": "collar de estaciones"
+      "nl": "stationsketting",
+      "es": "collar de estaciones",
+      "unvalidated": ["es"]
     },
     {
       "en": "hallmark",
       "fr": "poinçon",
       "it": "punzone",
-      "de": "Feingehaltsstempel",
+      "de": "Stempel",
       "nl": "keurmerk",
-      "es": "contraste"
+      "es": "sello",
+      "avoid": {
+        "es": ["contraste"],
+        "de": ["Markenzeichen"]
+      }
     }
   ]
 }
