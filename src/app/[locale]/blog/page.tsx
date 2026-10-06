@@ -121,6 +121,20 @@ export default async function BlogIndexPage({ params, searchParams }: PageProps)
   const tFilters = await getTranslations("blogFilters");
   const tCards = await getTranslations("blogCards");
 
+  // Card bylines are formatted per request locale, exactly as the article page
+  // formats `content.datePublished`. BLOGS_DATA.date is a plain ISO calendar
+  // date (YYYY-MM-DD) and must never be a pre-formatted English string —
+  // interpolating one of those into `byline` shipped "July 16, 2026" to all
+  // six locales. `timeZone: "UTC"` pins the rendered day to the calendar date
+  // in the data: `new Date("2026-07-16")` is UTC midnight, so formatting it in
+  // a behind-UTC server timezone would otherwise print the 15th.
+  const dateFormatter = new Intl.DateTimeFormat(locale, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+
   return (
     <div className="bg-[#efefe8] min-h-screen text-foreground font-jost">
       {/* Hero */}
@@ -179,7 +193,9 @@ export default async function BlogIndexPage({ params, searchParams }: PageProps)
 
                   <div className="flex flex-col flex-1 p-5 md:p-6">
                     <span className="text-[11px] font-light text-[#8a8a8a] mb-1.5">
-                      {t("byline", { date: post.date })}
+                      {t("byline", {
+                        date: dateFormatter.format(new Date(post.date)),
+                      })}
                     </span>
                     <h2 className="font-cormorant text-xl md:text-2xl font-medium leading-snug text-[#153f35] mb-2.5 group-hover:text-gold transition-colors duration-300">
                       <Link href={`/blog/${post.slug}/`}>{title}</Link>
