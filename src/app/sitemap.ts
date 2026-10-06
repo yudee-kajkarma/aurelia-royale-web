@@ -1,14 +1,11 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "@/config/site";
 import { getAllProducts } from "@/services/products/product.service";
 import { BLOGS_DATA } from "@/data/blogs.data";
+import { routing } from "@/i18n/routing";
+import { localeAlternates, localeUrl as url } from "@/lib/i18n/paths";
 
-// Trailing slash to match next.config `trailingSlash: true`.
-function url(path: string) {
-    const clean = path.replace(/^\/+|\/+$/g, "");
-    return clean ? `${SITE_URL}/${clean}/` : `${SITE_URL}/`;
-}
-
+/** hreflang block: the same page in all six locales. */
+const languages = localeAlternates;
 
 function parseBlogDate(dateStr: string): Date | undefined {
     if (!dateStr) return undefined;
@@ -16,16 +13,16 @@ function parseBlogDate(dateStr: string): Date | undefined {
     return isNaN(parsed.getTime()) ? undefined : parsed;
 }
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    // Static pages use fixed dates that reflect when those pages last had
-    // meaningful content changes — not the time the sitemap is generated.
-    const staticEntries: MetadataRoute.Sitemap = [
-        { url: url("/"), lastModified: new Date("2026-07-25"), changeFrequency: "weekly", priority: 1 },
-        { url: url("/shop"), lastModified: new Date("2026-07-25"), changeFrequency: "daily", priority: 0.9 },
-        { url: url("/about"), lastModified: new Date("2026-07-25"), changeFrequency: "monthly", priority: 0.6 },
-        { url: url("/contact"), lastModified: new Date("2026-07-25"), changeFrequency: "monthly", priority: 0.6 },
-    ];
+// Static pages use fixed dates that reflect when those pages last had
+// meaningful content changes — not the time the sitemap is generated.
+const STATIC_PAGES = [
+    { path: "/", changeFrequency: "weekly" as const, priority: 1, lastModified: new Date("2026-07-25") },
+    { path: "/shop", changeFrequency: "daily" as const, priority: 0.9, lastModified: new Date("2026-07-25") },
+    { path: "/about", changeFrequency: "monthly" as const, priority: 0.6, lastModified: new Date("2026-07-25") },
+    { path: "/contact", changeFrequency: "monthly" as const, priority: 0.6, lastModified: new Date("2026-07-25") },
+];
 
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Blog index — as fresh as the most recently published article.
     const latestBlogDate = BLOGS_DATA.reduce<Date | undefined>((latest, post) => {
         const d = parseBlogDate(post.date);
@@ -33,40 +30,55 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         return !latest || d > latest ? d : latest;
     }, undefined);
 
-    const blogIndexEntry: MetadataRoute.Sitemap = [
-        {
-            url: url("/blog"),
+    const entries: MetadataRoute.Sitemap = [];
+
+    for (const locale of routing.locales) {
+        for (const page of STATIC_PAGES) {
+            entries.push({
+                url: url(locale, page.path),
+                lastModified: page.lastModified,
+                changeFrequency: page.changeFrequency,
+                priority: page.priority,
+                alternates: { languages: languages(page.path) },
+            });
+        }
+
+        entries.push({
+            url: url(locale, "/blog"),
             lastModified: latestBlogDate ?? new Date("2026-07-25"),
             changeFrequency: "weekly",
             priority: 0.8,
-        },
-    ];
+            alternates: { languages: languages("/blog") },
+        });
 
-    // Individual blog articles — one entry per published post.
-   
-    const blogEntries: MetadataRoute.Sitemap = BLOGS_DATA.map((post) => ({
-        url: url(`/blog/${post.slug}`),
-        lastModified: parseBlogDate(post.date),
-        changeFrequency: "monthly" as const,
-        priority: 0.7,
-    }));
-
-    // Product pages — fetched from the live API so the sitemap always reflects
-    // the current catalogue without requiring a code change.
-    let productEntries: MetadataRoute.Sitemap = [];
-    try {
-        const products = await getAllProducts();
-        productEntries = products.map((product) => ({
-            url: url(`/shop-details/${product.slug}`),
-            lastModified: new Date("2026-07-25"),
-            changeFrequency: "weekly" as const,
-            priority: 0.8,
-        }));
-    } catch {
-        // If the product API is unreachable at build time, emit a valid sitemap
-        // covering all static and blog pages rather than failing the whole route.
-        productEntries = [];
+        for (const post of BLOGS_DATA) {
+            const path = `/blog/${post.slug}`;
+            entries.push({
+                url: url(locale, path),
+                lastModified: parseBlogDate(post.date),
+                changeFrequency: "monthly",
+                priority: 0.7,
+                alternates: { languages: languages(path) },
+            });
+        }
     }
 
-    return [...staticEntries, ...blogIndexEntry, ...blogEntries, ...productEntries];
+    // Product pages: English only, since product content is not localised.
+    try {
+        const products = await getAllProducts();
+        for (const product of products) {
+            const path = `/shop-details/${product.slug}`;
+            entries.push({
+                url: url("en", path),
+                lastModified: new Date("2026-07-25"),
+                changeFrequency: "weekly",
+                priority: 0.8,
+                alternates: { languages: languages(path) },
+            });
+        }
+    } catch {
+        // A sitemap covering every static and blog page beats failing the route.
+    }
+
+    return entries;
 }
