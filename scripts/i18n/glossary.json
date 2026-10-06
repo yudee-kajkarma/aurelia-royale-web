@@ -30,11 +30,16 @@
     "    English 'bail' leaves (es anilla 41 occ / asa 30 / argolla 26; fr bélière 103;",
     "    it anellino 30 / contromaglia 12; de Öse 56 / Anhängeröse 30; nl hangoog 47 /",
     "    hangeroog 23) — machine output, so evidence of consistency, not of correctness.",
-    "    The `avoid` list is deliberately limited to 'reasa', which is not a Spanish word at",
-    "    all (a hallucination this row exists to prevent recurring). The real-word variants",
-    "    'asa' and 'argolla' are NOT banned: they are defensible Spanish, banning them would",
-    "    make `check` report ~50 violations nobody has reviewed, and a bad glossary row gets",
-    "    ENFORCED by `check` rather than caught. Marked `unvalidated` for all five.",
+    "    The `avoid` list bans 'reasa' (not a Spanish word at all — the hallucination this",
+    "    row exists to stop recurring) plus 'asa' and 'presilla', which were normalised onto",
+    "    'anilla' across the corpus: inside leaves whose English says 'bail' they only ever",
+    "    rendered the bail, so banning them is safe. Verified empirically with the",
+    "    source-conditioned glossaryViolations() over blogs AND messages: adding them leaves",
+    "    the corpus-wide violation count unchanged.",
+    "    'argolla' is deliberately NOT banned even though it was also normalised, because",
+    "    'argolla de unión' is the house rendering of JUMP RING and legitimately appears in",
+    "    the same leaves as a bail; banning 'argolla' adds 7 false positives (measured).",
+    "    Marked `unvalidated` for all five.",
     "  - 'station necklace' (es): the ONLY 'station chain' sentence in uniglo's entire",
     "    corpus was translated into Spanish by avoiding the concept entirely ('cadena de",
     "    diamantes espaciada' — no 'station' word at all). fr/it/de/nl values for this term",
@@ -249,7 +254,7 @@
       "nl": "hangoog",
       "es": "anilla",
       "avoid": {
-        "es": ["reasa", "reasas"]
+        "es": ["reasa", "reasas", "asa", "asas", "presilla", "presillas"]
       },
       "unvalidated": ["fr", "it", "de", "nl", "es"]
     },
