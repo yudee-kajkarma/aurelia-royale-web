@@ -6,6 +6,7 @@ import { ArrowLeft, ChevronDown, Eye, EyeOff } from "lucide-react";
 import { Link, useRouter } from "@/i18n/navigation";
 import RegisterImg from "@/assets/Register-img.png";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 import { authService } from "@/services/auth/auth.service";
 import type { RegisterRequest } from "@/services/auth/auth.types";
 import {
@@ -15,69 +16,71 @@ import {
 } from "@/utils/location";
 import { notifyError } from "@/utils/notify";
 
-const COUNTRY_CODE_OPTIONS: ReadonlyArray<{ code: string; label: string }> = [
-    { code: "+1", label: "United States (+1)" },
-    { code: "+1", label: "Canada (+1)" },
-    { code: "+52", label: "Mexico (+52)" },
-    { code: "+54", label: "Argentina (+54)" },
-    { code: "+591", label: "Bolivia (+591)" },
-    { code: "+55", label: "Brazil (+55)" },
-    { code: "+56", label: "Chile (+56)" },
-    { code: "+57", label: "Colombia (+57)" },
-    { code: "+506", label: "Costa Rica (+506)" },
-    { code: "+53", label: "Cuba (+53)" },
-    { code: "+1", label: "Dominican Republic (+1)" },
-    { code: "+593", label: "Ecuador (+593)" },
-    { code: "+503", label: "El Salvador (+503)" },
-    { code: "+502", label: "Guatemala (+502)" },
-    { code: "+592", label: "Guyana (+592)" },
-    { code: "+509", label: "Haiti (+509)" },
-    { code: "+504", label: "Honduras (+504)" },
-    { code: "+1", label: "Jamaica (+1)" },
-    { code: "+505", label: "Nicaragua (+505)" },
-    { code: "+507", label: "Panama (+507)" },
-    { code: "+595", label: "Paraguay (+595)" },
-    { code: "+51", label: "Peru (+51)" },
-    { code: "+1", label: "Puerto Rico (+1)" },
-    { code: "+597", label: "Suriname (+597)" },
-    { code: "+1", label: "Trinidad and Tobago (+1)" },
-    { code: "+598", label: "Uruguay (+598)" },
-    { code: "+58", label: "Venezuela (+58)" },
-    { code: "+501", label: "Belize (+501)" },
-    { code: "+43", label: "Austria (+43)" },
-    { code: "+32", label: "Belgium (+32)" },
-    { code: "+359", label: "Bulgaria (+359)" },
-    { code: "+385", label: "Croatia (+385)" },
-    { code: "+357", label: "Cyprus (+357)" },
-    { code: "+420", label: "Czech Republic (+420)" },
-    { code: "+45", label: "Denmark (+45)" },
-    { code: "+372", label: "Estonia (+372)" },
-    { code: "+358", label: "Finland (+358)" },
-    { code: "+33", label: "France (+33)" },
-    { code: "+49", label: "Germany (+49)" },
-    { code: "+30", label: "Greece (+30)" },
-    { code: "+36", label: "Hungary (+36)" },
-    { code: "+354", label: "Iceland (+354)" },
-    { code: "+353", label: "Ireland (+353)" },
-    { code: "+39", label: "Italy (+39)" },
-    { code: "+371", label: "Latvia (+371)" },
-    { code: "+423", label: "Liechtenstein (+423)" },
-    { code: "+370", label: "Lithuania (+370)" },
-    { code: "+352", label: "Luxembourg (+352)" },
-    { code: "+356", label: "Malta (+356)" },
-    { code: "+377", label: "Monaco (+377)" },
-    { code: "+31", label: "Netherlands (+31)" },
-    { code: "+47", label: "Norway (+47)" },
-    { code: "+48", label: "Poland (+48)" },
-    { code: "+351", label: "Portugal (+351)" },
-    { code: "+40", label: "Romania (+40)" },
-    { code: "+378", label: "San Marino (+378)" },
-    { code: "+421", label: "Slovakia (+421)" },
-    { code: "+386", label: "Slovenia (+386)" },
-    { code: "+34", label: "Spain (+34)" },
-    { code: "+46", label: "Sweden (+46)" },
-    { code: "+41", label: "Switzerland (+41)" },
-    { code: "+44", label: "United Kingdom (+44)" },
+// Labels are translated at render time via RegisterPage.countryCodeOptions.<slug>.
+// `code` is the dial code submitted to the backend as `countryCode` — never translate it.
+const COUNTRY_CODE_OPTIONS: ReadonlyArray<{ code: string; slug: string }> = [
+    { code: "+1", slug: "unitedStates" },
+    { code: "+1", slug: "canada" },
+    { code: "+52", slug: "mexico" },
+    { code: "+54", slug: "argentina" },
+    { code: "+591", slug: "bolivia" },
+    { code: "+55", slug: "brazil" },
+    { code: "+56", slug: "chile" },
+    { code: "+57", slug: "colombia" },
+    { code: "+506", slug: "costaRica" },
+    { code: "+53", slug: "cuba" },
+    { code: "+1", slug: "dominicanRepublic" },
+    { code: "+593", slug: "ecuador" },
+    { code: "+503", slug: "elSalvador" },
+    { code: "+502", slug: "guatemala" },
+    { code: "+592", slug: "guyana" },
+    { code: "+509", slug: "haiti" },
+    { code: "+504", slug: "honduras" },
+    { code: "+1", slug: "jamaica" },
+    { code: "+505", slug: "nicaragua" },
+    { code: "+507", slug: "panama" },
+    { code: "+595", slug: "paraguay" },
+    { code: "+51", slug: "peru" },
+    { code: "+1", slug: "puertoRico" },
+    { code: "+597", slug: "suriname" },
+    { code: "+1", slug: "trinidadAndTobago" },
+    { code: "+598", slug: "uruguay" },
+    { code: "+58", slug: "venezuela" },
+    { code: "+501", slug: "belize" },
+    { code: "+43", slug: "austria" },
+    { code: "+32", slug: "belgium" },
+    { code: "+359", slug: "bulgaria" },
+    { code: "+385", slug: "croatia" },
+    { code: "+357", slug: "cyprus" },
+    { code: "+420", slug: "czechRepublic" },
+    { code: "+45", slug: "denmark" },
+    { code: "+372", slug: "estonia" },
+    { code: "+358", slug: "finland" },
+    { code: "+33", slug: "france" },
+    { code: "+49", slug: "germany" },
+    { code: "+30", slug: "greece" },
+    { code: "+36", slug: "hungary" },
+    { code: "+354", slug: "iceland" },
+    { code: "+353", slug: "ireland" },
+    { code: "+39", slug: "italy" },
+    { code: "+371", slug: "latvia" },
+    { code: "+423", slug: "liechtenstein" },
+    { code: "+370", slug: "lithuania" },
+    { code: "+352", slug: "luxembourg" },
+    { code: "+356", slug: "malta" },
+    { code: "+377", slug: "monaco" },
+    { code: "+31", slug: "netherlands" },
+    { code: "+47", slug: "norway" },
+    { code: "+48", slug: "poland" },
+    { code: "+351", slug: "portugal" },
+    { code: "+40", slug: "romania" },
+    { code: "+378", slug: "sanMarino" },
+    { code: "+421", slug: "slovakia" },
+    { code: "+386", slug: "slovenia" },
+    { code: "+34", slug: "spain" },
+    { code: "+46", slug: "sweden" },
+    { code: "+41", slug: "switzerland" },
+    { code: "+44", slug: "unitedKingdom" },
 ];
 
 const initialForm: RegisterRequest = {
@@ -107,6 +110,8 @@ const fieldInput =
 const fieldSelect = `${fieldInput} cursor-pointer appearance-none pr-8`;
 
 export default function RegisterPage() {
+    const t = useTranslations("RegisterPage");
+    const tValidation = useTranslations("Validation");
     const router = useRouter();
     const [form, setForm] = useState<RegisterRequest>(initialForm);
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -180,7 +185,7 @@ export default function RegisterPage() {
         event.preventDefault();
 
         if (form.password !== form.confirmPassword) {
-            toast.error("Password and confirm password must match.");
+            toast.error(tValidation("passwordsDoNotMatch"));
             return;
         }
 
@@ -222,7 +227,7 @@ export default function RegisterPage() {
                 <div className="relative hidden md:block">
                     <Image
                         src={RegisterImg}
-                        alt="Model wearing Aurelia Royale jewellery"
+                        alt={t("heroImageAlt")}
                         fill
                         sizes="50vw"
                         className="object-cover object-center"
@@ -239,7 +244,7 @@ export default function RegisterPage() {
                             className="inline-flex items-center gap-2 font-[family-name:var(--font-jost)] text-xs font-semibold uppercase tracking-[0.16em] text-[#2a2a2a] transition hover:text-foreground"
                         >
                             <ArrowLeft size={16} />
-                            Back to Home
+                            {t("backToHome")}
                         </Link>
 
                         <div className="inline-flex border border-black/12">
@@ -247,10 +252,10 @@ export default function RegisterPage() {
                                 href="/login"
                                 className="bg-white px-5 py-2.5 font-[family-name:var(--font-jost)] text-[11px] font-semibold uppercase tracking-[0.16em] text-[#2a2a2a] transition hover:text-foreground"
                             >
-                                Sign In
+                                {t("signInTab")}
                             </Link>
                             <span className="bg-[#1f4a37] px-5 py-2.5 font-[family-name:var(--font-jost)] text-[11px] font-semibold uppercase tracking-[0.16em] text-white">
-                                Register
+                                {t("registerTab")}
                             </span>
                         </div>
                     </div>
@@ -260,17 +265,16 @@ export default function RegisterPage() {
                         <div className="flex items-center gap-3">
                             <span className="h-px w-10 bg-gold" />
                             <p className="font-[family-name:var(--font-jost)] text-xs font-semibold uppercase tracking-[0.3em] text-gold">
-                                Join The Circle
+                                {t("eyebrow")}
                             </p>
                         </div>
 
                         <h1 className="mt-5 font-[family-name:var(--font-cormorant)] text-6xl font-medium leading-[1.05] text-foreground">
-                            Create Your Account.
+                            {t("title")}
                         </h1>
 
                         <p className="mt-5 font-[family-name:var(--font-jost)] text-[0.95rem] font-light leading-[1.7] text-[#5a5a5a]">
-                            Create your jewellery account, add your default
-                            address, then verify the OTP sent to your email.
+                            {t("subtitle")}
                         </p>
 
                         <form className="mt-10" onSubmit={handleSubmit}>
@@ -280,7 +284,7 @@ export default function RegisterPage() {
                                         htmlFor="username"
                                         className={fieldLabel}
                                     >
-                                        Username
+                                        {t("usernameLabel")}
                                     </label>
                                     <input
                                         id="username"
@@ -293,7 +297,7 @@ export default function RegisterPage() {
                                                 event.target.value,
                                             )
                                         }
-                                        placeholder="Your username"
+                                        placeholder={t("usernamePlaceholder")}
                                         className={fieldInput}
                                     />
                                 </div>
@@ -303,7 +307,7 @@ export default function RegisterPage() {
                                         htmlFor="email"
                                         className={fieldLabel}
                                     >
-                                        Email Address
+                                        {t("emailLabel")}
                                     </label>
                                     <input
                                         id="email"
@@ -316,7 +320,7 @@ export default function RegisterPage() {
                                                 event.target.value,
                                             )
                                         }
-                                        placeholder="you@example.com"
+                                        placeholder={t("emailPlaceholder")}
                                         autoComplete="email"
                                         className={fieldInput}
                                     />
@@ -327,7 +331,7 @@ export default function RegisterPage() {
                                         htmlFor="firstName"
                                         className={fieldLabel}
                                     >
-                                        First Name
+                                        {t("firstNameLabel")}
                                     </label>
                                     <input
                                         id="firstName"
@@ -340,7 +344,7 @@ export default function RegisterPage() {
                                                 event.target.value,
                                             )
                                         }
-                                        placeholder="First name"
+                                        placeholder={t("firstNamePlaceholder")}
                                         className={fieldInput}
                                     />
                                 </div>
@@ -350,7 +354,7 @@ export default function RegisterPage() {
                                         htmlFor="lastName"
                                         className={fieldLabel}
                                     >
-                                        Last Name
+                                        {t("lastNameLabel")}
                                     </label>
                                     <input
                                         id="lastName"
@@ -363,7 +367,7 @@ export default function RegisterPage() {
                                                 event.target.value,
                                             )
                                         }
-                                        placeholder="Last name"
+                                        placeholder={t("lastNamePlaceholder")}
                                         className={fieldInput}
                                     />
                                 </div>
@@ -373,7 +377,7 @@ export default function RegisterPage() {
                                         htmlFor="password"
                                         className={fieldLabel}
                                     >
-                                        Password
+                                        {t("passwordLabel")}
                                     </label>
                                     <div className="relative">
                                         <input
@@ -391,7 +395,9 @@ export default function RegisterPage() {
                                                     event.target.value,
                                                 )
                                             }
-                                            placeholder="Your password"
+                                            placeholder={t(
+                                                "passwordPlaceholder",
+                                            )}
                                             className={`${fieldInput} pr-10`}
                                         />
                                         <button
@@ -403,8 +409,8 @@ export default function RegisterPage() {
                                             }
                                             aria-label={
                                                 showPassword
-                                                    ? "Hide password"
-                                                    : "Show password"
+                                                    ? t("hidePassword")
+                                                    : t("showPassword")
                                             }
                                             className="absolute bottom-3 right-0 inline-flex items-center justify-center text-[#66707c] transition hover:text-foreground"
                                         >
@@ -422,7 +428,7 @@ export default function RegisterPage() {
                                         htmlFor="confirmPassword"
                                         className={fieldLabel}
                                     >
-                                        Confirm Password
+                                        {t("confirmPasswordLabel")}
                                     </label>
                                     <div className="relative">
                                         <input
@@ -440,7 +446,9 @@ export default function RegisterPage() {
                                                     event.target.value,
                                                 )
                                             }
-                                            placeholder="Re-enter password"
+                                            placeholder={t(
+                                                "confirmPasswordPlaceholder",
+                                            )}
                                             className={`${fieldInput} pr-10`}
                                         />
                                         <button
@@ -452,8 +460,12 @@ export default function RegisterPage() {
                                             }
                                             aria-label={
                                                 showConfirmPassword
-                                                    ? "Hide confirm password"
-                                                    : "Show confirm password"
+                                                    ? t(
+                                                          "hideConfirmPassword",
+                                                      )
+                                                    : t(
+                                                          "showConfirmPassword",
+                                                      )
                                             }
                                             className="absolute bottom-3 right-0 inline-flex items-center justify-center text-[#66707c] transition hover:text-foreground"
                                         >
@@ -471,7 +483,7 @@ export default function RegisterPage() {
                                         htmlFor="countryCode"
                                         className={fieldLabel}
                                     >
-                                        Country Code
+                                        {t("countryCodeLabel")}
                                     </label>
                                     <div className="relative">
                                         <select
@@ -487,15 +499,17 @@ export default function RegisterPage() {
                                             className={fieldSelect}
                                         >
                                             <option value="">
-                                                Select country code
+                                                {t("selectCountryCode")}
                                             </option>
                                             {COUNTRY_CODE_OPTIONS.map(
                                                 (option) => (
                                                     <option
-                                                        key={option.label}
+                                                        key={option.slug}
                                                         value={option.code}
                                                     >
-                                                        {option.label}
+                                                        {t(
+                                                            `countryCodeOptions.${option.slug}`,
+                                                        )}
                                                     </option>
                                                 ),
                                             )}
@@ -512,7 +526,7 @@ export default function RegisterPage() {
                                         htmlFor="phoneNumber"
                                         className={fieldLabel}
                                     >
-                                        Phone Number
+                                        {t("phoneNumberLabel")}
                                     </label>
                                     <input
                                         id="phoneNumber"
@@ -525,14 +539,16 @@ export default function RegisterPage() {
                                                 event.target.value,
                                             )
                                         }
-                                        placeholder="Phone number"
+                                        placeholder={t(
+                                            "phoneNumberPlaceholder",
+                                        )}
                                         className={fieldInput}
                                     />
                                 </div>
                             </div>
 
                             <h2 className="mt-14 font-[family-name:var(--font-cormorant)] text-3xl font-medium text-foreground">
-                                Default Address
+                                {t("addressHeading")}
                             </h2>
 
                             <div className="mt-7 grid gap-x-8 gap-y-7 sm:grid-cols-2">
@@ -541,7 +557,7 @@ export default function RegisterPage() {
                                         htmlFor="country"
                                         className={fieldLabel}
                                     >
-                                        Country
+                                        {t("countryLabel")}
                                     </label>
                                     <div className="relative">
                                         <select
@@ -559,7 +575,7 @@ export default function RegisterPage() {
                                             className={fieldSelect}
                                         >
                                             <option value="">
-                                                Select country
+                                                {t("selectCountry")}
                                             </option>
                                             {countryOptions.map((country) => (
                                                 <option
@@ -582,7 +598,7 @@ export default function RegisterPage() {
                                         htmlFor="state"
                                         className={fieldLabel}
                                     >
-                                        State
+                                        {t("stateLabel")}
                                     </label>
                                     <div className="relative">
                                         <select
@@ -621,7 +637,7 @@ export default function RegisterPage() {
                                             className={fieldSelect}
                                         >
                                             <option value="">
-                                                Select state
+                                                {t("selectState")}
                                             </option>
                                             {stateOptions.map((state) => (
                                                 <option
@@ -644,7 +660,7 @@ export default function RegisterPage() {
                                         htmlFor="street"
                                         className={fieldLabel}
                                     >
-                                        Street
+                                        {t("streetLabel")}
                                     </label>
                                     <input
                                         id="street"
@@ -657,7 +673,7 @@ export default function RegisterPage() {
                                                 event.target.value,
                                             )
                                         }
-                                        placeholder="Street address"
+                                        placeholder={t("streetPlaceholder")}
                                         className={fieldInput}
                                     />
                                 </div>
@@ -667,7 +683,7 @@ export default function RegisterPage() {
                                         htmlFor="city"
                                         className={fieldLabel}
                                     >
-                                        City
+                                        {t("cityLabel")}
                                     </label>
                                     <div
                                         ref={cityFieldRef}
@@ -692,17 +708,15 @@ export default function RegisterPage() {
                                                     setIsCityListOpen(true);
                                                 }
                                             }}
-                                            placeholder={
-                                                cityOptions.length > 0
-                                                    ? "Select or type a city"
-                                                    : "Select or type a city"
-                                            }
+                                            placeholder={t("cityPlaceholder")}
                                             className={`${fieldInput} pr-8`}
                                         />
                                         {cityOptions.length > 0 && (
                                             <button
                                                 type="button"
-                                                aria-label="Toggle city options"
+                                                aria-label={t(
+                                                    "toggleCityOptions",
+                                                )}
                                                 onClick={() =>
                                                     setIsCityListOpen(
                                                         (previous) => !previous,
@@ -761,7 +775,7 @@ export default function RegisterPage() {
                                         htmlFor="postalCode"
                                         className={fieldLabel}
                                     >
-                                        Postal Code
+                                        {t("postalCodeLabel")}
                                     </label>
                                     <input
                                         id="postalCode"
@@ -774,7 +788,9 @@ export default function RegisterPage() {
                                                 event.target.value,
                                             )
                                         }
-                                        placeholder="Postal code"
+                                        placeholder={t(
+                                            "postalCodePlaceholder",
+                                        )}
                                         className={fieldInput}
                                     />
                                 </div>
@@ -786,18 +802,18 @@ export default function RegisterPage() {
                                 className="mt-10 w-full bg-[#1f4a37] py-4 font-[family-name:var(--font-jost)] text-sm font-semibold uppercase tracking-[0.2em] text-gold transition hover:bg-[#173a2b] disabled:opacity-60"
                             >
                                 {isSubmitting
-                                    ? "Creating Account..."
-                                    : "Register"}
+                                    ? t("submitting")
+                                    : t("submit")}
                             </button>
                         </form>
 
                         <p className="mt-7 text-center font-[family-name:var(--font-jost)] text-base font-medium text-[#1f242b]">
-                            Already have an account?{" "}
+                            {t("haveAccountText")}{" "}
                             <Link
                                 href="/login"
                                 className="font-bold text-foreground underline underline-offset-4"
                             >
-                                Sign in
+                                {t("signInLink")}
                             </Link>
                         </p>
                     </div>
@@ -806,11 +822,11 @@ export default function RegisterPage() {
                     <div>
                         <div className="h-px w-full bg-black/10" />
                         <div className="mt-5 flex flex-col items-center gap-3 font-[family-name:var(--font-jost)] text-xs text-[#9a9a9a] sm:flex-row sm:justify-between">
-                            <span>© 2025 Aurelia Royale</span>
+                            <span>{t("copyright")}</span>
                             <span className="flex gap-6">
-                                <span>Privacy</span>
-                                <span>Terms</span>
-                                <span>Support</span>
+                                <span>{t("privacy")}</span>
+                                <span>{t("terms")}</span>
+                                <span>{t("support")}</span>
                             </span>
                         </div>
                     </div>
