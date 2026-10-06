@@ -1,7 +1,8 @@
 ﻿"use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { LoaderCircle, Minus, Plus, Trash2 } from "lucide-react";
 import { AuthGuard } from "@/components/auth/AuthGuard";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
@@ -11,6 +12,7 @@ import { notifyError } from "@/utils/notify";
 import { ProductImage } from "@/components/shared/ProductImage";
 
 export default function CartPage() {
+  const t = useTranslations("CartPage");
   const { items, count, totalValue, clearAll, isLoading, updateItemQuantity, removeItem } = useCart();
   const { discountPercent } = useDiscount();
   const payableTotal = totalValue * (1 - discountPercent / 100);
@@ -25,7 +27,7 @@ export default function CartPage() {
     try {
       await clearAll();
     } catch (error) {
-      notifyError(error, "Unable to clear your cart.");
+      notifyError(error, t("unableToClearCart"));
     } finally {
       setIsClearing(false);
     }
@@ -37,7 +39,7 @@ export default function CartPage() {
     try {
       await removeItem(productId);
     } catch (error) {
-      notifyError(error, "Unable to remove this item.");
+      notifyError(error, t("unableToRemoveItem"));
     } finally {
       setRemovingProductId(null);
     }
@@ -49,7 +51,7 @@ export default function CartPage() {
     try {
       await updateItemQuantity(productId, quantity);
     } catch (error) {
-      notifyError(error, "Unable to update the quantity.");
+      notifyError(error, t("unableToUpdateQuantity"));
     } finally {
       setUpdatingProductId(null);
     }
@@ -60,10 +62,10 @@ export default function CartPage() {
       <main className="mx-auto min-h-[70vh] w-full max-w-[1480px] px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-foreground/45">Cart</p>
-            <h1 className="display-font mt-3 text-4xl text-deep sm:text-5xl">Your Shopping Bag</h1>
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-foreground/45">{t("eyebrow")}</p>
+            <h1 className="display-font mt-3 text-4xl text-deep sm:text-5xl">{t("title")}</h1>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-foreground/65">
-              Review your selected products, adjust quantities, and continue shopping with the Aurelia Royale collection.
+              {t("subtitle")}
             </p>
           </div>
 
@@ -75,26 +77,26 @@ export default function CartPage() {
               className="inline-flex items-center gap-2 rounded-full border border-gold/35 bg-white px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-deep transition hover:border-deep hover:bg-deep hover:text-white disabled:opacity-60"
             >
               {isClearing ? <LoaderCircle size={16} className="animate-spin" /> : <Trash2 size={16} />}
-              {isClearing ? "Clearing..." : "Clear Cart"}
+              {isClearing ? t("clearing") : t("clearCart")}
             </button>
           ) : null}
         </div>
 
         <div className="mt-8 grid gap-8 xl:grid-cols-[1fr_360px]">
           <section className="rounded-[34px] border border-foreground/10 bg-white/90 p-6 shadow-[0_20px_60px_rgba(55,31,10,0.06)] backdrop-blur-sm sm:p-8">
-            {isLoading ? <p className="text-sm font-medium text-foreground/60">Loading cart...</p> : null}
+            {isLoading ? <p className="text-sm font-medium text-foreground/60">{t("loading")}</p> : null}
 
             {!isLoading && count === 0 ? (
               <div className="rounded-[28px] border border-dashed border-gold/35 bg-surface px-6 py-12 text-center">
-                <h2 className="display-font text-3xl text-deep">Your cart is empty</h2>
+                <h2 className="display-font text-3xl text-deep">{t("emptyTitle")}</h2>
                 <p className="mt-3 text-sm leading-7 text-foreground/65">
-                  Add a product from the shop or product details page and it will appear here.
+                  {t("emptyBody")}
                 </p>
                 <Link
                   href="/shop"
                   className="cta-sweep mt-6 inline-flex items-center justify-center border border-deep bg-deep px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:border-gold hover:text-deep focus-visible:border-gold focus-visible:text-deep"
                 >
-                  <span className="relative z-10">Continue Shopping</span>
+                  <span className="relative z-10">{t("continueShopping")}</span>
                 </Link>
               </div>
             ) : null}
@@ -112,9 +114,9 @@ export default function CartPage() {
 
                     <div>
                       <h2 className="text-xl font-semibold text-deep">{item.title}</h2>
-                      <p className="mt-1 text-sm text-foreground/55">SKU {item.sku}</p>
+                      <p className="mt-1 text-sm text-foreground/55">{t("sku", { sku: item.sku })}</p>
                       <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-foreground/62">
-                        <span>Quantity: {item.quantity}</span>
+                        <span>{t("quantity", { quantity: item.quantity })}</span>
                         {/* <PriceDisplay value={item.price} className="text-lg font-bold text-gold" /> */}
                       </div>
                     </div>
@@ -126,7 +128,7 @@ export default function CartPage() {
                           onClick={() => void handleUpdateQuantity(item.productId, Math.max(1, item.quantity - 1))}
                           disabled={isMutating}
                           className="inline-flex h-11 w-11 items-center justify-center text-deep transition hover:bg-deep hover:text-white disabled:opacity-60"
-                          aria-label={`Decrease quantity for ${item.title}`}
+                          aria-label={t("decreaseQuantityFor", { title: item.title })}
                         >
                           {updatingProductId === item.productId ? <LoaderCircle size={16} className="animate-spin" /> : <Minus size={16} />}
                         </button>
@@ -138,7 +140,7 @@ export default function CartPage() {
                           onClick={() => void handleUpdateQuantity(item.productId, item.quantity + 1)}
                           disabled={isMutating}
                           className="inline-flex h-11 w-11 items-center justify-center text-deep transition hover:bg-deep hover:text-white disabled:opacity-60"
-                          aria-label={`Increase quantity for ${item.title}`}
+                          aria-label={t("increaseQuantityFor", { title: item.title })}
                         >
                           {updatingProductId === item.productId ? <LoaderCircle size={16} className="animate-spin" /> : <Plus size={16} />}
                         </button>
@@ -151,7 +153,7 @@ export default function CartPage() {
                         className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.08em] text-red-700 transition hover:text-red-800 disabled:opacity-60"
                       >
                         {removingProductId === item.productId ? <LoaderCircle size={15} className="animate-spin" /> : <Trash2 size={15} />}
-                        {removingProductId === item.productId ? "Removing..." : "Remove"}
+                        {removingProductId === item.productId ? t("removing") : t("remove")}
                       </button>
                     </div>
                   </article>
@@ -161,10 +163,10 @@ export default function CartPage() {
           </section>
 
           <aside className="rounded-[34px] border border-foreground/10 bg-white/90 p-6 shadow-[0_20px_60px_rgba(55,31,10,0.06)] backdrop-blur-sm sm:p-8">
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-foreground/45">Summary</p>
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-foreground/45">{t("summary")}</p>
             <div className="mt-6 space-y-4 text-sm text-foreground/68">
               <div className="flex items-center justify-between">
-                <span>Total items</span>
+                <span>{t("totalItems")}</span>
                 <span className="font-semibold text-deep">{count}</span>
               </div>
               {/* <div className="flex items-center justify-between">
@@ -172,13 +174,13 @@ export default function CartPage() {
                 <PriceDisplay value={payableTotal} className="font-semibold text-deep" />
               </div> */}
               <div className="flex items-center justify-between">
-                <span>Shipping</span>
-                <span className="font-semibold text-deep">Free</span>
+                <span>{t("shipping")}</span>
+                <span className="font-semibold text-deep">{t("free")}</span>
               </div>
             </div>
 
             <div className="mt-6 rounded-[24px] border border-gold/20 bg-surface p-4 text-sm leading-7 text-foreground/62">
-              Your selected pieces are reserved in this bag while you continue exploring the collection.
+              {t("reservedNotice")}
             </div>
 
             <div className="mt-6 border-t border-foreground/10 pt-6">
@@ -191,11 +193,11 @@ export default function CartPage() {
                 href="/checkout"
                 className="cta-sweep mt-6 inline-flex w-full items-center justify-center border border-deep bg-deep px-6 py-4 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:border-gold hover:text-deep focus-visible:border-gold focus-visible:text-deep hover:!text-white"
               >
-                <span className="relative z-10">Proceed to Checkout</span>
+                <span className="relative z-10">{t("proceedToCheckout")}</span>
               </Link>
 
               <p className="mt-4 text-center text-xs uppercase tracking-[0.14em] text-foreground/42">
-                Review shipping and payment details on the next step
+                {t("reviewNextStep")}
               </p>
             </div>
           </aside>

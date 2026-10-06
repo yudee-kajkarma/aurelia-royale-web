@@ -1,8 +1,8 @@
 ﻿"use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Link, useRouter } from "@/i18n/navigation";
 import { CreditCard, ShieldCheck, ShoppingBag, Truck } from "lucide-react";
 import { AuthGuard } from "@/components/auth/AuthGuard";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
@@ -16,6 +16,7 @@ import { notifyError } from "@/utils/notify";
 import { ProductImage } from "@/components/shared/ProductImage";
 
 export default function CheckoutPage() {
+  const t = useTranslations("CheckoutPage");
   const router = useRouter();
   const { user } = useAuth();
   const { items, count, totalValue, isLoading, refresh } = useCart();
@@ -65,7 +66,7 @@ export default function CheckoutPage() {
         const checkoutUrl = result.checkoutSession?.url;
 
         if (!checkoutUrl) {
-          throw new Error("Missing checkout session URL.");
+          throw new Error(t("missingCheckoutUrl"));
         }
 
         const checkoutWindow = window.open(
@@ -75,7 +76,7 @@ export default function CheckoutPage() {
         );
 
         if (!checkoutWindow) {
-          throw new Error("Popup was blocked by your browser. Please allow popups and try again.");
+          throw new Error(t("popupBlocked"));
         }
 
         checkoutWindow.focus();
@@ -84,7 +85,7 @@ export default function CheckoutPage() {
 
       router.push("/checkout/status?payment=success");
     } catch (checkoutError) {
-      notifyError(checkoutError, "Unable to place this order right now.");
+      notifyError(checkoutError, t("unableToPlaceOrder"));
     } finally {
       setIsSubmitting(false);
     }
@@ -95,10 +96,10 @@ export default function CheckoutPage() {
       <main className="mx-auto min-h-[70vh] w-full max-w-[1480px] px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-foreground/45">Checkout</p>
-            <h1 className="display-font mt-3 text-4xl text-deep sm:text-5xl">Review and Place Your Order</h1>
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-foreground/45">{t("eyebrow")}</p>
+            <h1 className="display-font mt-3 text-4xl text-deep sm:text-5xl">{t("title")}</h1>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-foreground/65">
-              Confirm your bag contents and review delivery details before finalizing your Aurelia Royale order.
+              {t("subtitle")}
             </p>
           </div>
 
@@ -106,25 +107,25 @@ export default function CheckoutPage() {
             href="/cart"
             className="inline-flex items-center justify-center rounded-full border border-gold/35 bg-white px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-deep transition hover:border-deep hover:bg-deep hover:text-white"
           >
-            Back to Cart
+            {t("backToCart")}
           </Link>
         </div>
 
         <div className="mt-8 grid gap-8 xl:grid-cols-[1fr_380px]">
           <section className="space-y-6 rounded-[34px] border border-foreground/10 bg-white/90 p-6 shadow-[0_20px_60px_rgba(55,31,10,0.06)] backdrop-blur-sm sm:p-8">
-            {isLoading ? <p className="text-sm font-medium text-foreground/60">Loading checkout...</p> : null}
+            {isLoading ? <p className="text-sm font-medium text-foreground/60">{t("loading")}</p> : null}
 
             {!isLoading && items.length === 0 ? (
               <div className="rounded-[28px] border border-dashed border-gold/35 bg-surface px-6 py-12 text-center">
-                <h2 className="display-font text-3xl text-deep">Nothing to checkout yet</h2>
+                <h2 className="display-font text-3xl text-deep">{t("emptyTitle")}</h2>
                 <p className="mt-3 text-sm leading-7 text-foreground/65">
-                  Add products to your cart before moving to checkout.
+                  {t("emptyBody")}
                 </p>
                 <Link
                   href="/shop"
                   className="cta-sweep mt-6 inline-flex items-center justify-center border border-deep bg-deep px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:border-gold hover:text-deep focus-visible:border-gold focus-visible:text-deep"
                 >
-                  <span className="relative z-10">Continue Shopping</span>
+                  <span className="relative z-10">{t("continueShopping")}</span>
                 </Link>
               </div>
             ) : null}
@@ -134,7 +135,7 @@ export default function CheckoutPage() {
                 <div className="rounded-[28px] border border-foreground/10 bg-surface p-5">
                   <div className="flex items-center gap-3 text-deep">
                     <ShoppingBag className="h-5 w-5" />
-                    <h2 className="text-xl font-bold">Order Items</h2>
+                    <h2 className="text-xl font-bold">{t("orderItems")}</h2>
                   </div>
 
                   <div className="mt-5 space-y-4">
@@ -149,8 +150,8 @@ export default function CheckoutPage() {
 
                         <div>
                           <h3 className="text-lg font-bold text-deep">{item.title}</h3>
-                          <p className="mt-1 text-sm text-foreground/55">SKU {item.sku}</p>
-                          <p className="mt-1 text-sm text-foreground/55">Quantity: {item.quantity}</p>
+                          <p className="mt-1 text-sm text-foreground/55">{t("sku", { sku: item.sku })}</p>
+                          <p className="mt-1 text-sm text-foreground/55">{t("quantity", { quantity: item.quantity })}</p>
                         </div>
 
                         {/* <PriceDisplay value={item.price * item.quantity} className="text-lg font-bold text-deep" /> */}
@@ -163,20 +164,20 @@ export default function CheckoutPage() {
                   <div className="rounded-[28px] border border-foreground/10 bg-surface p-5">
                     <div className="flex items-center gap-3 text-deep">
                       <Truck className="h-5 w-5" />
-                      <h2 className="text-xl font-bold">Customer Details</h2>
+                      <h2 className="text-xl font-bold">{t("customerDetails")}</h2>
                     </div>
 
                     <div className="mt-5 rounded-[22px] border border-foreground/10 bg-white p-4 text-sm leading-7 text-foreground/68">
-                      <p className="font-semibold text-deep">{user?.username ?? "Aurelia Royale Customer"}</p>
-                      <p>{user?.email ?? "No email available"}</p>
-                      <p className="mt-3">`addressId` is supported in the order payload interface, but it is optional and is not sent until address selection is added.</p>
+                      <p className="font-semibold text-deep">{user?.username ?? t("defaultCustomerName")}</p>
+                      <p>{user?.email ?? t("noEmailAvailable")}</p>
+                      <p className="mt-3">{t("addressNote")}</p>
                     </div>
                   </div>
 
                   <div className="rounded-[28px] border border-foreground/10 bg-surface p-5">
                     <div className="flex items-center gap-3 text-deep">
                       <CreditCard className="h-5 w-5" />
-                      <h2 className="text-xl font-bold">Payment Method</h2>
+                      <h2 className="text-xl font-bold">{t("paymentMethod")}</h2>
                     </div>
 
                     <div className="mt-5 space-y-3">
@@ -190,8 +191,8 @@ export default function CheckoutPage() {
                           className="mt-1 h-4 w-4 border-foreground/20 text-deep"
                         />
                         <div>
-                          <p className="font-bold text-deep">Online payment</p>
-                          <p className="mt-1 text-sm leading-6 text-foreground/60">A Stripe checkout popup opens after order creation and returns to the status page.</p>
+                          <p className="font-bold text-deep">{t("onlinePayment")}</p>
+                          <p className="mt-1 text-sm leading-6 text-foreground/60">{t("onlinePaymentDescription")}</p>
                         </div>
                       </label>
                       <label className={`flex cursor-pointer items-start gap-4 rounded-[22px] border px-4 py-4 transition ${paymentMethod === "COD" ? "border-deep bg-white" : "border-foreground/10 bg-white/70 hover:border-gold/45"}`}>
@@ -204,8 +205,8 @@ export default function CheckoutPage() {
                           className="mt-1 h-4 w-4 border-foreground/20 text-deep"
                         />
                         <div>
-                          <p className="font-bold text-deep">Cash on delivery</p>
-                          <p className="mt-1 text-sm leading-6 text-foreground/60">The order is created immediately and you are redirected to the local success screen.</p>
+                          <p className="font-bold text-deep">{t("cashOnDelivery")}</p>
+                          <p className="mt-1 text-sm leading-6 text-foreground/60">{t("cashOnDeliveryDescription")}</p>
                         </div>
                       </label>
                     </div>
@@ -216,10 +217,10 @@ export default function CheckoutPage() {
           </section>
 
           <aside className="rounded-[34px] border border-foreground/10 bg-white/90 p-6 shadow-[0_20px_60px_rgba(55,31,10,0.06)] backdrop-blur-sm sm:p-8">
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-foreground/45">Order Summary</p>
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-foreground/45">{t("orderSummary")}</p>
             <div className="mt-6 space-y-4 text-sm text-foreground/68">
               <div className="flex items-center justify-between">
-                <span>Items</span>
+                <span>{t("items")}</span>
                 <span className="font-semibold text-deep">{count}</span>
               </div>
               {/* <div className="flex items-center justify-between">
@@ -227,8 +228,8 @@ export default function CheckoutPage() {
                 <PriceDisplay value={payableTotal} className="font-semibold text-deep" />
               </div> */}
               <div className="flex items-center justify-between">
-                <span>Shipping</span>
-                <span className="font-semibold text-deep">Free</span>
+                <span>{t("shipping")}</span>
+                <span className="font-semibold text-deep">{t("free")}</span>
               </div>
             </div>
 
@@ -236,7 +237,7 @@ export default function CheckoutPage() {
               <div className="flex items-start gap-3 text-sm leading-6 text-foreground/62">
                 <ShieldCheck className="mt-0.5 h-4 w-4 text-deep" />
                 <p>
-                  The order request is now integrated with `POST /orders`. Online payment opens the returned checkout session in a popup window.
+                  {t("integrationNotice")}
                 </p>
               </div>
             </div>
@@ -254,12 +255,12 @@ export default function CheckoutPage() {
                 className="cta-sweep mt-6 inline-flex w-full items-center justify-center border border-deep bg-deep px-6 py-4 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:border-gold hover:text-deep focus-visible:border-gold focus-visible:text-deep disabled:opacity-60 hover:!text-white"
               >
                 <span className="relative z-10">
-                  {isSubmitting ? "Placing Order..." : paymentMethod === "ONLINE" ? "Place Order and Pay Online" : "Place COD Order"}
+                  {isSubmitting ? t("placingOrder") : paymentMethod === "ONLINE" ? t("placeOrderOnline") : t("placeCodOrder")}
                 </span>
               </button>
 
               <p className="mt-4 text-center text-xs uppercase tracking-[0.14em] text-foreground/42 ">
-                {paymentMethod === "ONLINE" ? "Popup checkout opens after the order is created" : "Cash on delivery completes inside this website"}
+                {paymentMethod === "ONLINE" ? t("popupNotice") : t("codNotice")}
               </p>
             </div>
           </aside>

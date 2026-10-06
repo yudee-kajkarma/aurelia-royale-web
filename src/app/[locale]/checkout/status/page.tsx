@@ -1,7 +1,8 @@
 ﻿"use client";
 
 import { Suspense, useEffect, useMemo, useState } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { useSearchParams } from "next/navigation";
 import { CheckCircle2, RotateCcw, ShoppingBag, XCircle } from "lucide-react";
 import { AuthGuard } from "@/components/auth/AuthGuard";
@@ -9,6 +10,7 @@ import { useCart } from "@/providers/CartProvider";
 import { clearPendingOrderStatus, getPendingOrderStatus } from "@/services/orders/checkout.storage";
 
 function CheckoutStatusContent() {
+  const t = useTranslations("CheckoutStatusPage");
   const searchParams = useSearchParams();
   const { refresh } = useCart();
   const paymentResult = searchParams.get("payment") === "cancel" ? "cancel" : "success";
@@ -24,7 +26,7 @@ function CheckoutStatusContent() {
         await refresh();
       } catch {
         if (isMounted) {
-          setSyncError("Order status was updated, but cart synchronization needs another refresh.");
+          setSyncError(t("syncErrorMessage"));
         }
       } finally {
         clearPendingOrderStatus();
@@ -50,9 +52,9 @@ function CheckoutStatusContent() {
             <div className="flex items-center gap-4">
               {paymentResult === "success" ? <CheckCircle2 className="h-10 w-10" /> : <XCircle className="h-10 w-10" />}
               <div>
-                <p className="text-sm font-bold uppercase tracking-[0.22em] text-white/70">Checkout Status</p>
+                <p className="text-sm font-bold uppercase tracking-[0.22em] text-white/70">{t("statusLabel")}</p>
                 <h1 className="mt-2 text-3xl font-extrabold tracking-[-0.04em]">
-                  {paymentResult === "success" ? "Your order was placed successfully" : "Payment was not completed"}
+                  {paymentResult === "success" ? t("successTitle") : t("failureTitle")}
                 </h1>
               </div>
             </div>
@@ -62,17 +64,17 @@ function CheckoutStatusContent() {
             <div className="rounded-[28px] border border-foreground/10 bg-surface p-5 text-sm leading-7 text-foreground/68">
               {pendingOrder?.orderNumber ? (
                 <p>
-                  Order number: <span className="font-bold text-deep">{pendingOrder.orderNumber}</span>
+                  {t("orderNumberLabel")} <span className="font-bold text-deep">{pendingOrder.orderNumber}</span>
                 </p>
               ) : null}
               <p>
                 {paymentResult === "success"
                   ? pendingOrder?.paymentMethod === "ONLINE"
-                    ? "Payment completed and the website return flow finished successfully."
-                    : "Cash on delivery order was created successfully."
-                  : "You returned from the payment flow without completing payment. You can retry checkout when ready."}
+                    ? t("onlineSuccessMessage")
+                    : t("codSuccessMessage")
+                  : t("failureMessage")}
               </p>
-              {isSyncing ? <p className="mt-3 text-foreground/55">Syncing your cart and checkout state...</p> : null}
+              {isSyncing ? <p className="mt-3 text-foreground/55">{t("syncing")}</p> : null}
               {syncError ? <p className="mt-3 text-red-700">{syncError}</p> : null}
             </div>
 
@@ -83,7 +85,7 @@ function CheckoutStatusContent() {
               >
                 <span className="relative z-10 inline-flex items-center gap-2">
                   <ShoppingBag className="h-4 w-4" />
-                  Continue Shopping
+                  {t("continueShopping")}
                 </span>
               </Link>
 
@@ -92,7 +94,7 @@ function CheckoutStatusContent() {
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-gold/35 px-6 py-4 text-sm font-bold uppercase tracking-[0.08em] text-deep transition hover:bg-deep hover:text-white"
               >
                 <RotateCcw className="h-4 w-4" />
-                {paymentResult === "success" ? "View Profile" : "Try Checkout Again"}
+                {paymentResult === "success" ? t("viewProfile") : t("tryCheckoutAgain")}
               </Link>
             </div>
           </div>
@@ -103,12 +105,13 @@ function CheckoutStatusContent() {
 }
 
 function CheckoutStatusFallback() {
+  const t = useTranslations("CheckoutStatusPage");
   return (
     <main className="grid min-h-[60vh] place-items-center px-6 py-16 text-center">
       <div>
-        <p className="display-font text-3xl text-foreground">Loading checkout status</p>
+        <p className="display-font text-3xl text-foreground">{t("loadingStatus")}</p>
         <p className="mt-3 text-sm uppercase tracking-[0.2em] text-foreground/65">
-          Preparing your order details
+          {t("preparingDetails")}
         </p>
       </div>
     </main>
