@@ -10,6 +10,7 @@
  *   node scripts/i18n/translate.mjs translate blogs/<slug> [--locales nl,fr] [--force] [--dry]
  *   node scripts/i18n/translate.mjs translate blogs --all [--force] [--dry]
  *   node scripts/i18n/translate.mjs check [namespace]
+ *   node scripts/i18n/translate.mjs scan-lengths
  *   node scripts/i18n/translate.mjs merge <namespace> --after <existingKey>
  *   node scripts/i18n/translate.mjs merge messages --all
  *   node scripts/i18n/translate.mjs merge blogs/<slug>
@@ -80,6 +81,23 @@ const LOCALE_NAMES = {
 const BATCH_CHARS = 6000;
 const BATCH_ITEMS = 50;
 const MAX_ATTEMPTS = 3;
+
+/**
+ * Length-ratio review aid (Task 15 Fix C). The one dropped clause found
+ * during translation was caught only because it happened to contain "IGI",
+ * a verbatimTokens() hit — shape, untranslated and link checks all stay
+ * silent on a clause or sentence dropped from the middle of a paragraph.
+ * A translated leaf far shorter than its English source is a cheap, if
+ * noisy, proxy for "something is missing".
+ *
+ * Thresholds are deliberately loose: flag only when the source is long
+ * enough that normal phrasing variance can't explain a 45%+ shortfall, and
+ * even then this is advisory — German compounds routinely run LONGER than
+ * English, and some languages are legitimately terser, so false positives
+ * in both directions are expected. Never treat a hit as a gate.
+ */
+const LENGTH_RATIO_MIN = 0.55;
+const LENGTH_SOURCE_MIN_CHARS = 60;
 
 /**
  * translateTarget() used to translate one locale's batches at a time (up to
@@ -438,6 +456,19 @@ function validate(locale, leaves, source, translated, glossary) {
             problems.push({ kind: "untranslated", where, detail: src.slice(0, 70) });
         }
 
+        // Review aid, not a gate (see LENGTH_RATIO_MIN above): catches a
+        // dropped clause/sentence that happens to avoid every flagged
+        // acronym, at the cost of expected false positives both ways.
+        if (src.length > LENGTH_SOURCE_MIN_CHARS && out.length < src.length * LENGTH_RATIO_MIN) {
+            problems.push({
+                kind: "length",
+                where,
+                detail: `source ${src.length} chars, translated ${out.length} chars (${Math.round(
+                    (out.length / src.length) * 100
+                )}%)`,
+            });
+        }
+
         // The shipped copy uses curly apostrophes; a straight one is a visible
         // inconsistency in rendered text.
         if (/\p{L}'\p{L}/u.test(out)) {
@@ -591,6 +622,79 @@ function cmdCheck(namespaceFilter) {
     }
     console.log(`\ntotal violations: ${total}`);
     if (total) process.exitCode = 1;
+}
+
+/**
+ * `scan-lengths` — Task 15 Fix C. Re-runs the length-ratio check (see
+ * LENGTH_RATIO_MIN above) over content ALREADY merged on disk, with no API
+ * calls and no staging involved: just content/blogs/<slug>/<locale>.json
+ * read straight off disk and compared leaf-by-leaf against the matching
+ * content/blogs/<slug>/en.json. This is what lets the check run once over
+ * the full corpus after the fact, instead of only ever applying to a fresh
+ * `translate` run.
+ *
+ * Deliberately advisory: always exits 0. Flags concision as readily as a
+ * real drop — a human has to triage every hit (see task-15-report.md).
+ */
+function cmdScanLengths() {
+    const slugs = fs
+        .readdirSync(BLOGS_DIR, { withFileTypes: true })
+        .filter((d) => d.isDirectory())
+        .map((d) => d.name)
+        .sort();
+
+    let filesScanned = 0;
+    const hits = [];
+
+    for (const slug of slugs) {
+        const enPath = path.join(BLOGS_DIR, slug, "en.json");
+        if (!fs.existsSync(enPath)) continue;
+        const en = readJson(enPath);
+        const enLeaves = collectLeaves(en);
+
+        for (const locale of TARGET_LOCALES) {
+            const locPath = path.join(BLOGS_DIR, slug, `${locale}.json`);
+            if (!fs.existsSync(locPath)) continue;
+            filesScanned++;
+
+            const loc = readJson(locPath);
+            const locByPath = new Map(collectLeaves(loc).map((l) => [l.path.join("."), l.value]));
+
+            for (const leaf of enLeaves) {
+                const where = leaf.path.join(".");
+                const src = leaf.value;
+                const out = locByPath.get(where);
+                if (typeof out !== "string") continue; // shape drift is check-i18n's job, not this one's
+
+                if (src.length > LENGTH_SOURCE_MIN_CHARS && out.length < src.length * LENGTH_RATIO_MIN) {
+                    hits.push({
+                        slug,
+                        locale,
+                        where,
+                        src,
+                        out,
+                        ratio: out.length / src.length,
+                    });
+                }
+            }
+        }
+    }
+
+    console.log(`scanned ${filesScanned} file(s) across ${slugs.length} blog(s) x ${TARGET_LOCALES.length} locale(s)`);
+    console.log(
+        `${hits.length} length-ratio flag(s) — translated < ${Math.round(
+            LENGTH_RATIO_MIN * 100
+        )}% of English length, English source > ${LENGTH_SOURCE_MIN_CHARS} chars\n`
+    );
+
+    for (const h of hits) {
+        console.log(`[${h.slug}] ${h.locale} ${h.where} — ${h.src.length} -> ${h.out.length} chars (${Math.round(h.ratio * 100)}%)`);
+        console.log(`   en: ${h.src.slice(0, 160)}`);
+        console.log(`   ${h.locale}: ${h.out.slice(0, 160)}`);
+    }
+
+    console.log(`\ntotal flags: ${hits.length} (advisory — triage each by hand, see brief)`);
+    // Always exits 0: this is a review aid, not a gate.
 }
 
 /**
@@ -1143,6 +1247,9 @@ try {
         case "check":
             cmdCheck(arg);
             break;
+        case "scan-lengths":
+            cmdScanLengths();
+            break;
         case "translate":
             await cmdTranslate(arg, opts);
             break;
@@ -1160,6 +1267,7 @@ try {
                     "  node scripts/i18n/translate.mjs translate blogs/<slug> [--locales nl,fr] [--force] [--dry]",
                     "  node scripts/i18n/translate.mjs translate blogs --all [--force] [--dry]",
                     "  node scripts/i18n/translate.mjs check [namespace]",
+                    "  node scripts/i18n/translate.mjs scan-lengths",
                     "  node scripts/i18n/translate.mjs merge <namespace> --after <existingKey>",
                     "  node scripts/i18n/translate.mjs merge messages --all",
                     "  node scripts/i18n/translate.mjs merge blogs/<slug>",
