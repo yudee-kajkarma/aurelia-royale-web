@@ -11,6 +11,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { assertLocale } from "@/i18n/locale-guard";
 import { localeAlternates, localeUrl } from "@/lib/i18n/paths";
+import { SITE_NAME } from "@/config/site";
 import { BLOGS_DATA } from "@/data/blogs.data";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import BlogFilters from "./BlogFilters";
@@ -61,6 +62,11 @@ interface PageProps {
 // lives here rather than in the layout.
 //   /blog/        → canonical: https://www.aureliaroyale.com/blog/
 //   /blog/?page=2 → canonical: https://www.aureliaroyale.com/blog/?page=2
+//   /es/blog/     → canonical: https://www.aureliaroyale.com/es/blog/
+// This is the ONLY source of the listing's metadata: blog/layout.tsx exports
+// none, because a static object there cannot see the locale (see its header
+// comment). Everything below is derived from the request locale — the
+// translated `BlogIndex` strings and localeUrl(locale, "/blog").
 // ---------------------------------------------------------------------------
 export async function generateMetadata({ params, searchParams }: PageProps): Promise<Metadata> {
   const { locale: raw } = await params;
@@ -88,7 +94,7 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
       title,
       description: t("ogDescription"),
       url: canonical,
-      siteName: "Aurelia Royale",
+      siteName: SITE_NAME,
       type: "website",
     },
   };

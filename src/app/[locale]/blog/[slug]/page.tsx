@@ -10,6 +10,7 @@ import { BLOG_SLUGS } from "@/lib/blogs/registry";
 import { loadBlogContent } from "@/lib/blogs/load";
 import { blogPathFor, blogUrl } from "@/lib/blogs/content";
 import { localeAlternates } from "@/lib/i18n/paths";
+import { SITE_NAME } from "@/config/site";
 import { buildBlogSchema } from "@/lib/blogs/schema";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
@@ -34,6 +35,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             languages: localeAlternates(blogPathFor(slug)),
         },
         robots: { index: true, follow: true },
+        // Articles used to inherit `openGraph` from blog/layout.tsx, which was
+        // a static English object — so /es/blog/<slug>/ shipped an English
+        // og:title/og:description and an og:url of SITE_URL + "/blog/": the
+        // wrong language AND the wrong page. That export is gone; these come
+        // from the per-locale content file and the locale-aware blogUrl().
+        openGraph: {
+            title: content.metaTitle,
+            description: content.metaDescription,
+            url: blogUrl(slug, locale),
+            siteName: SITE_NAME,
+            type: "article",
+            publishedTime: content.datePublished,
+            modifiedTime: content.dateModified,
+        },
     };
 }
 
