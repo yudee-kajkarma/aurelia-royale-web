@@ -51,6 +51,7 @@ function getStatusClass(status: string) {
 
 export default function TicketsPage() {
   const t = useTranslations("TicketsPage");
+  const tEnums = useTranslations("TicketEnums");
   const tToasts = useTranslations("Toasts");
   const format = useFormatter();
   const [tickets, setTickets] = useState<Ticket[]>([]);
@@ -167,15 +168,15 @@ export default function TicketsPage() {
                         </Link>
                         <p className="mt-2 text-sm text-foreground/58">
                           {t("categoryPriority", {
-                            category: resolveEnumLabel(t, "category", ticket.category),
-                            priority: resolveEnumLabel(t, "priority", ticket.priority),
+                            category: resolveEnumLabel(tEnums, "category", ticket.category),
+                            priority: resolveEnumLabel(tEnums, "priority", ticket.priority),
                           })}
                         </p>
                       </div>
 
                       <div className="flex flex-wrap gap-2 sm:justify-end">
                         <span className={`inline-flex rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] ${getStatusClass(ticket.status)}`}>
-                          {resolveEnumLabel(t, "status", ticket.status)}
+                          {resolveEnumLabel(tEnums, "status", ticket.status)}
                         </span>
                         {ticket.isEscalated ? (
                           <span className="inline-flex rounded-full border border-rose-200 bg-rose-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-rose-700">
@@ -232,11 +233,11 @@ export default function TicketsPage() {
                     onChange={(event) => setForm((current) => ({ ...current, category: event.target.value }))}
                     className="mt-2 h-12 w-full rounded-xl border border-foreground/12 bg-white px-4 text-sm text-deep outline-none transition focus:border-deep"
                   >
-                    <option value="delivery">{t("category.delivery")}</option>
-                    <option value="order">{t("category.order")}</option>
-                    <option value="payment">{t("category.payment")}</option>
-                    <option value="product">{t("category.product")}</option>
-                    <option value="general">{t("category.general")}</option>
+                    <option value="delivery">{tEnums("category.delivery")}</option>
+                    <option value="order">{tEnums("category.order")}</option>
+                    <option value="payment">{tEnums("category.payment")}</option>
+                    <option value="product">{tEnums("category.product")}</option>
+                    <option value="general">{tEnums("category.general")}</option>
                   </select>
                 </label>
 
@@ -247,10 +248,10 @@ export default function TicketsPage() {
                     onChange={(event) => setForm((current) => ({ ...current, priority: event.target.value }))}
                     className="mt-2 h-12 w-full rounded-xl border border-foreground/12 bg-white px-4 text-sm text-deep outline-none transition focus:border-deep"
                   >
-                    <option value="low">{t("priority.low")}</option>
-                    <option value="medium">{t("priority.medium")}</option>
-                    <option value="high">{t("priority.high")}</option>
-                    <option value="urgent">{t("priority.urgent")}</option>
+                    <option value="low">{tEnums("priority.low")}</option>
+                    <option value="medium">{tEnums("priority.medium")}</option>
+                    <option value="high">{tEnums("priority.high")}</option>
+                    <option value="urgent">{tEnums("priority.urgent")}</option>
                   </select>
                 </label>
               </div>

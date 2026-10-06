@@ -85,6 +85,8 @@ function canRegeneratePayment(order: Order) {
 
 export default function OrderDetailPage() {
   const t = useTranslations("OrderDetailPage");
+  const tEnums = useTranslations("OrderEnums");
+  const tCheckout = useTranslations("CheckoutPage");
   const format = useFormatter();
   const params = useParams<{ id: string | string[] }>();
   const orderId = typeof params.id === "string" ? params.id : "";
@@ -179,7 +181,7 @@ export default function OrderDetailPage() {
       const checkoutUrl = response.data.url;
 
       if (!checkoutUrl) {
-        throw new Error(t("missingCheckoutSessionUrl"));
+        throw new Error(tCheckout("missingCheckoutUrl"));
       }
 
       const checkoutWindow = window.open(
@@ -189,7 +191,7 @@ export default function OrderDetailPage() {
       );
 
       if (!checkoutWindow) {
-        toast.error(t("popupBlocked"));
+        toast.error(tCheckout("popupBlocked"));
         return;
       }
 
@@ -255,10 +257,10 @@ export default function OrderDetailPage() {
 
                 <div className="flex flex-wrap gap-2">
                   <span className={`inline-flex rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] ${getOrderStatusClass(order.orderStatus)}`}>
-                    {resolveEnumLabel(t, "orderStatus", order.orderStatus)}
+                    {resolveEnumLabel(tEnums, "orderStatus", order.orderStatus)}
                   </span>
                   <span className={`inline-flex rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] ${getPaymentStatusClass(order.paymentStatus)}`}>
-                    {resolveEnumLabel(t, "paymentStatus", order.paymentStatus)}
+                    {resolveEnumLabel(tEnums, "paymentStatus", order.paymentStatus)}
                   </span>
                 </div>
               </div>
@@ -289,8 +291,8 @@ export default function OrderDetailPage() {
                     <h2 className="text-xl font-bold">{t("paymentHeading")}</h2>
                   </div>
                   <div className="mt-4 space-y-2 text-sm text-foreground/62">
-                    <p>{t("methodLabel")} <span className="font-semibold text-deep">{resolvePaymentMethodLabel(t, order.paymentMethod)}</span></p>
-                    <p>{t("statusLabel")} <span className="font-semibold text-deep">{resolveEnumLabel(t, "paymentStatus", order.paymentStatus)}</span></p>
+                    <p>{t("methodLabel")} <span className="font-semibold text-deep">{resolvePaymentMethodLabel(tEnums, order.paymentMethod)}</span></p>
+                    <p>{t("statusLabel")} <span className="font-semibold text-deep">{resolveEnumLabel(tEnums, "paymentStatus", order.paymentStatus)}</span></p>
                     {/* <p>Total: <PriceDisplay value={order.totalAmount} className="font-semibold text-deep" /></p> */}
                   </div>
                 </div>

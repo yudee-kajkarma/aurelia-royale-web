@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useCallback, useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useFormatter, useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useAuth } from "@/providers/AuthProvider";
 import { reviewService } from "@/services/reviews/review.service";
@@ -17,13 +17,11 @@ type TabKey = "details" | "specifications" | "reviews";
 
 const TAB_KEYS: TabKey[] = ["details", "specifications", "reviews"];
 
-function formatReviewDate(value: string) {
-    return new Intl.DateTimeFormat("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-    }).format(new Date(value));
-}
+const REVIEW_DATE_FORMAT_OPTIONS = {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+} as const;
 
 function Stars({ rating, label }: { rating: number; label: string }) {
     return (
@@ -71,6 +69,7 @@ export function ProductDetailsTabs({
     initialReviews,
 }: ProductDetailsTabsProps) {
     const t = useTranslations("ProductDetailsTabs");
+    const format = useFormatter();
     const pathname = usePathname();
     const router = useRouter();
     const { isAuthenticated, isReady } = useAuth();
@@ -459,8 +458,9 @@ export function ProductDetailsTabs({
                                                     {review.reviewerName}
                                                 </p>
                                                 <p className="font-jost mt-1 text-[0.7rem] uppercase tracking-[0.22em] text-deep/55">
-                                                    {formatReviewDate(
-                                                        review.createdAt,
+                                                    {format.dateTime(
+                                                        new Date(review.createdAt),
+                                                        REVIEW_DATE_FORMAT_OPTIONS,
                                                     )}
                                                 </p>
                                             </div>

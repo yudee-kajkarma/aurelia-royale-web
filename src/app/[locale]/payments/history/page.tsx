@@ -65,6 +65,7 @@ function getOrderStatusClass(status: string) {
 
 export default function PaymentHistoryPage() {
   const t = useTranslations("PaymentsHistoryPage");
+  const tEnums = useTranslations("OrderEnums");
   const format = useFormatter();
   const [payments, setPayments] = useState<PaymentHistoryItem[]>([]);
   const [pagination, setPagination] = useState<OrdersPagination | null>(null);
@@ -173,17 +174,17 @@ export default function PaymentHistoryPage() {
                         </span>
                         <span className="inline-flex items-center gap-1">
                           <CreditCard className="h-4 w-4" />
-                          {resolvePaymentMethodLabel(t, payment.paymentMethod)}
+                          {resolvePaymentMethodLabel(tEnums, payment.paymentMethod)}
                         </span>
                       </div>
                     </div>
 
                     <div className="flex flex-wrap gap-2 sm:justify-end">
                       <span className={`inline-flex rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] ${getPaymentStatusClass(payment.paymentStatus)}`}>
-                        {resolveEnumLabel(t, "paymentStatus", payment.paymentStatus)}
+                        {resolveEnumLabel(tEnums, "paymentStatus", payment.paymentStatus)}
                       </span>
                       <span className={`inline-flex rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] ${getOrderStatusClass(payment.orderStatus)}`}>
-                        {resolveEnumLabel(t, "orderStatus", payment.orderStatus)}
+                        {resolveEnumLabel(tEnums, "orderStatus", payment.orderStatus)}
                       </span>
                     </div>
                   </div>

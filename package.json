@@ -10,7 +10,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "i18n:untranslated": "node scripts/i18n/find-untranslated.mjs",
-    "i18n:check-nav": "node scripts/i18n/check-locale-navigation.mjs"
+    "i18n:check-nav": "node scripts/i18n/check-locale-navigation.mjs",
+    "i18n:check-dates": "node scripts/i18n/check-date-formatting.mjs"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.2",

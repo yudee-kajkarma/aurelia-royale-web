@@ -1206,22 +1206,7 @@
     "verifyFailedFallback": "OTP verification failed",
     "genericRequestFailed": "Something went wrong. Please try again."
   },
-  "OrdersPage": {
-    "eyebrow": "Orders",
-    "heading": "Your Order History",
-    "subtitle": "Track placed orders, payment status, and shipping progress from one place.",
-    "continueShopping": "Continue Shopping",
-    "loading": "Loading orders...",
-    "loadError": "We couldn't load your orders. Please try again.",
-    "emptyTitle": "No orders yet",
-    "emptyBody": "Place your first order from the cart or buy directly from a product page.",
-    "shopNow": "Shop Now",
-    "orderForItems": "Order for {count, plural, one {# item} other {# items}}",
-    "defaultItemLabel": "Default item",
-    "qty": "Qty {quantity}",
-    "viewDetails": "View Details",
-    "paginationSummary": "Showing page {currentPage} of {totalPages} · {totalRecords, plural, one {# order} other {# orders}}",
-    "unableToLoadOrders": "Unable to load orders right now.",
+  "OrderEnums": {
     "orderStatus": {
       "pending": "Pending",
       "confirmed": "Confirmed",
@@ -1246,6 +1231,23 @@
       "COD": "Cash on Delivery",
       "fallback": "{method}"
     }
+  },
+  "OrdersPage": {
+    "eyebrow": "Orders",
+    "heading": "Your Order History",
+    "subtitle": "Track placed orders, payment status, and shipping progress from one place.",
+    "continueShopping": "Continue Shopping",
+    "loading": "Loading orders...",
+    "loadError": "We couldn't load your orders. Please try again.",
+    "emptyTitle": "No orders yet",
+    "emptyBody": "Place your first order from the cart or buy directly from a product page.",
+    "shopNow": "Shop Now",
+    "orderForItems": "Order for {count, plural, one {# item} other {# items}}",
+    "defaultItemLabel": "Default item",
+    "qty": "Qty {quantity}",
+    "viewDetails": "View Details",
+    "paginationSummary": "Showing page {currentPage} of {totalPages} · {totalRecords, plural, one {# order} other {# orders}}",
+    "unableToLoadOrders": "Unable to load orders right now."
   },
   "OrderDetailPage": {
     "loading": "Loading order...",
@@ -1277,38 +1279,12 @@
     "unableToLoadOrder": "Unable to load this order right now.",
     "unableToCancelOrder": "Unable to cancel this order right now.",
     "unableToStartPayment": "Unable to start payment right now. Please try again.",
-    "missingCheckoutSessionUrl": "Missing checkout session URL.",
-    "popupBlocked": "Popup was blocked by your browser. Please allow popups and try again.",
-    "orderStatus": {
-      "pending": "Pending",
-      "confirmed": "Confirmed",
-      "shipped": "Shipped",
-      "shipping": "Shipping",
-      "out_for_delivery": "Out for Delivery",
-      "delivered": "Delivered",
-      "cancelled": "Cancelled",
-      "canceled": "Cancelled",
-      "fallback": "{status}"
-    },
-    "paymentStatus": {
-      "pending": "Pending",
-      "processing": "Processing",
-      "paid": "Paid",
-      "refunded": "Refunded",
-      "failed": "Failed",
-      "fallback": "{status}"
-    },
     "refundStatus": {
       "none": "None",
       "pending": "Pending",
       "completed": "Completed",
       "failed": "Failed",
       "fallback": "{status}"
-    },
-    "paymentMethod": {
-      "ONLINE": "Online",
-      "COD": "Cash on Delivery",
-      "fallback": "{method}"
     }
   },
   "PaymentsHistoryPage": {
@@ -1327,30 +1303,28 @@
     "notAvailableYet": "Not available yet",
     "updatedOn": "Updated {date}",
     "viewOrder": "View Order",
-    "paginationSummary": "Showing page {currentPage} of {totalPages} · {totalRecords, plural, one {# payment record} other {# payment records}}",
-    "paymentStatus": {
-      "pending": "Pending",
-      "processing": "Processing",
-      "paid": "Paid",
-      "refunded": "Refunded",
-      "failed": "Failed",
+    "paginationSummary": "Showing page {currentPage} of {totalPages} · {totalRecords, plural, one {# payment record} other {# payment records}}"
+  },
+  "TicketEnums": {
+    "status": {
+      "open": "Open",
+      "closed": "Closed",
       "fallback": "{status}"
     },
-    "orderStatus": {
-      "pending": "Pending",
-      "confirmed": "Confirmed",
-      "shipped": "Shipped",
-      "shipping": "Shipping",
-      "out_for_delivery": "Out for Delivery",
-      "delivered": "Delivered",
-      "cancelled": "Cancelled",
-      "canceled": "Cancelled",
+    "priority": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "urgent": "Urgent",
       "fallback": "{status}"
     },
-    "paymentMethod": {
-      "ONLINE": "Online",
-      "COD": "Cash on Delivery",
-      "fallback": "{method}"
+    "category": {
+      "delivery": "Delivery",
+      "order": "Order",
+      "payment": "Payment",
+      "product": "Product",
+      "general": "General",
+      "fallback": "{status}"
     }
   },
   "TicketsPage": {
@@ -1379,27 +1353,7 @@
     "messagePlaceholder": "Describe your issue and include your order number if available.",
     "creating": "Creating...",
     "createTicketButton": "Create Ticket",
-    "ticketCreatedSuccess": "Support ticket created successfully.",
-    "status": {
-      "open": "Open",
-      "closed": "Closed",
-      "fallback": "{status}"
-    },
-    "priority": {
-      "low": "Low",
-      "medium": "Medium",
-      "high": "High",
-      "urgent": "Urgent",
-      "fallback": "{status}"
-    },
-    "category": {
-      "delivery": "Delivery",
-      "order": "Order",
-      "payment": "Payment",
-      "product": "Product",
-      "general": "General",
-      "fallback": "{status}"
-    }
+    "ticketCreatedSuccess": "Support ticket created successfully."
   },
   "TicketDetailPage": {
     "breadcrumbTickets": "Support Tickets",
@@ -1417,27 +1371,7 @@
     "replySentSuccess": "Reply sent successfully.",
     "createdDate": "Created {date}",
     "lastUpdatedDate": "Last updated {date}",
-    "threadNotice": "Keep all order-related communication in this thread so the support team can resolve issues faster.",
-    "status": {
-      "open": "Open",
-      "closed": "Closed",
-      "fallback": "{status}"
-    },
-    "priority": {
-      "low": "Low",
-      "medium": "Medium",
-      "high": "High",
-      "urgent": "Urgent",
-      "fallback": "{status}"
-    },
-    "category": {
-      "delivery": "Delivery",
-      "order": "Order",
-      "payment": "Payment",
-      "product": "Product",
-      "general": "General",
-      "fallback": "{status}"
-    }
+    "threadNotice": "Keep all order-related communication in this thread so the support team can resolve issues faster."
   },
   "WishlistPage": {
     "eyebrow": "Wishlist",

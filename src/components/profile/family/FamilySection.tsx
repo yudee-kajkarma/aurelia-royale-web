@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useFormatter, useTranslations } from "next-intl";
 import { Users, Plus, X, BadgePercent, ShieldCheck } from "lucide-react";
 import {
     familyService,
@@ -15,6 +15,12 @@ import type {
 import { FAMILY_RELATIONS } from "@/services/family/family.types";
 
 type Step = "search" | "relation" | "otp";
+
+const FAMILY_MEMBER_DATE_FORMAT_OPTIONS = {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+} as const;
 
 function formatRelation(rel: string) {
     return rel.charAt(0).toUpperCase() + rel.slice(1);
@@ -53,6 +59,7 @@ function Banner({
 
 export function FamilySection() {
     const t = useTranslations("FamilySection");
+    const format = useFormatter();
     const [overview, setOverview] = useState<FamilyOverview | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [loadError, setLoadError] = useState("");
@@ -296,9 +303,10 @@ export function FamilySection() {
                                             )}{" "}
                                             •{" "}
                                             {t("addedOnLabel", {
-                                                date: new Date(
-                                                    m.addedAt,
-                                                ).toLocaleDateString(),
+                                                date: format.dateTime(
+                                                    new Date(m.addedAt),
+                                                    FAMILY_MEMBER_DATE_FORMAT_OPTIONS,
+                                                ),
                                             })}
                                         </p>
                                     </div>

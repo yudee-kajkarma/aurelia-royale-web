@@ -45,6 +45,7 @@ function getStatusClass(status: string) {
 
 export default function TicketDetailPage() {
   const t = useTranslations("TicketDetailPage");
+  const tEnums = useTranslations("TicketEnums");
   const tToasts = useTranslations("Toasts");
   const format = useFormatter();
   const params = useParams<{ id: string | string[] }>();
@@ -128,15 +129,15 @@ export default function TicketDetailPage() {
                   <h1 className="display-font mt-3 text-4xl text-deep">{ticket.subject}</h1>
                   <p className="mt-3 text-sm text-foreground/58">
                     {t("categoryPriority", {
-                      category: resolveEnumLabel(t, "category", ticket.category),
-                      priority: resolveEnumLabel(t, "priority", ticket.priority),
+                      category: resolveEnumLabel(tEnums, "category", ticket.category),
+                      priority: resolveEnumLabel(tEnums, "priority", ticket.priority),
                     })}
                   </p>
                 </div>
 
                 <div className="flex flex-wrap gap-2">
                   <span className={`inline-flex rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] ${getStatusClass(ticket.status)}`}>
-                    {resolveEnumLabel(t, "status", ticket.status)}
+                    {resolveEnumLabel(tEnums, "status", ticket.status)}
                   </span>
                   {ticket.isEscalated ? (
                     <span className="inline-flex rounded-full border border-rose-200 bg-rose-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-rose-700">
