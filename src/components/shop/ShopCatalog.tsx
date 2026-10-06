@@ -1,8 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, X } from "lucide-react";
 import { ProductImage } from "@/components/shared/ProductImage";
@@ -14,20 +15,6 @@ import type {
     ProductCardModel,
     ProductsPagination,
 } from "@/services/products/product.types";
-
-// Minimal, non-translated fallback used only at this compile-fix call site
-// (this component's own string extraction is owned by a later i18n slice).
-// `getCategoryLabelKey` now returns a lowercase message key (e.g.
-// "bracelets") instead of the old English display label, so this
-// reconstructs the same title-cased text the key previously carried.
-function titleCaseCategoryLabel(category: string) {
-    const key = getCategoryLabelKey(category);
-    return key
-        .split(/\s+/)
-        .filter(Boolean)
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-        .join(" ");
-}
 
 type ShopCatalogProps = {
     products: ProductCardModel[];
@@ -75,6 +62,8 @@ export function ShopCatalog({
     maxAllowedPrice,
     initialSortBy,
 }: ShopCatalogProps) {
+    const t = useTranslations("ShopCatalog");
+    const tCategories = useTranslations("shopCategories");
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
@@ -142,9 +131,11 @@ export function ShopCatalog({
         <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
             <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
                 <p className="font-jost text-sm font-semibold uppercase tracking-[0.2em] text-deep">
-                    Showing {String(resultStart).padStart(2, "0")} -{" "}
-                    {String(resultEnd).padStart(2, "0")} Of{" "}
-                    {String(pagination.totalRecords).padStart(2, "0")} Results
+                    {t("resultsSummary", {
+                        start: String(resultStart).padStart(2, "0"),
+                        end: String(resultEnd).padStart(2, "0"),
+                        total: String(pagination.totalRecords).padStart(2, "0"),
+                    })}
                 </p>
 
                 <button
@@ -152,7 +143,7 @@ export function ShopCatalog({
                     onClick={() => setFilterOpen(true)}
                     className="font-jost inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.28em] text-gold transition hover:text-[#a8862c]"
                 >
-                    Filter
+                    {t("filter")}
                     <ChevronDown size={16} strokeWidth={2} />
                 </button>
             </div>
@@ -192,7 +183,7 @@ export function ShopCatalog({
 
             {visibleProducts.length === 0 ? (
                 <div className="mt-10 border border-dashed border-deep/15 bg-white/40 px-6 py-10 text-center font-jost text-sm font-semibold uppercase tracking-[0.18em] text-deep/60">
-                    No products match the current filters.
+                    {t("noProductsMatch")}
                 </div>
             ) : null}
 
@@ -238,16 +229,16 @@ export function ShopCatalog({
                             }}
                             role="dialog"
                             aria-modal="true"
-                            aria-label="Filter products"
+                            aria-label={t("filterProductsLabel")}
                         >
                             <div className="flex items-center justify-between px-8 pt-8">
                                 <h2 className="font-cormorant text-4xl font-medium uppercase tracking-[0.04em] text-deep">
-                                    Filter
+                                    {t("filter")}
                                 </h2>
                                 <button
                                     type="button"
                                     onClick={() => setFilterOpen(false)}
-                                    aria-label="Close filter"
+                                    aria-label={t("closeFilter")}
                                     className="text-deep transition hover:text-gold"
                                 >
                                     <X size={28} strokeWidth={1.5} />
@@ -258,13 +249,18 @@ export function ShopCatalog({
 
                             <div className="px-8 pb-12 pt-8">
                                 <h3 className="font-jost text-base font-semibold uppercase tracking-[0.28em] text-deep">
-                                    Product Type
+                                    {t("productType")}
                                 </h3>
 
                                 <ul className="mt-6 space-y-4">
                                     {productCategories.map((category) => {
-                                        const label =
-                                            titleCaseCategoryLabel(category);
+                                        const labelKey =
+                                            getCategoryLabelKey(category);
+                                        const label = tCategories.has(labelKey)
+                                            ? tCategories(labelKey)
+                                            : tCategories("fallback", {
+                                                  category,
+                                              });
                                         const checked =
                                             categoryDraft === category;
                                         return (
@@ -362,7 +358,7 @@ export function ShopCatalog({
                                         onClick={applyFilters}
                                         className="font-jost inline-flex items-center justify-center border-2 border-deep bg-deep px-12 py-4 text-xs font-semibold uppercase tracking-[0.32em] text-gold transition hover:bg-[#0a2e28]"
                                     >
-                                        View Results
+                                        {t("viewResults")}
                                     </button>
                                 </div>
                             </div>

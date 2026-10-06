@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Minus, Plus } from "lucide-react";
 import { AddToCartButton } from "@/components/cart/AddToCartButton";
 
@@ -9,6 +10,7 @@ type ProductPurchasePanelProps = {
 };
 
 export function ProductPurchasePanel({ productId }: ProductPurchasePanelProps) {
+    const t = useTranslations("ProductPurchasePanel");
     const [quantity, setQuantity] = useState(1);
 
     function decreaseQuantity() {
@@ -28,7 +30,7 @@ export function ProductPurchasePanel({ productId }: ProductPurchasePanelProps) {
                         onClick={decreaseQuantity}
                         disabled={quantity === 1}
                         className="inline-flex w-14 items-center justify-center text-deep transition hover:bg-deep hover:text-gold disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-deep"
-                        aria-label="Decrease quantity"
+                        aria-label={t("decreaseQuantity")}
                     >
                         <Minus size={16} strokeWidth={1.75} />
                     </button>
@@ -39,7 +41,7 @@ export function ProductPurchasePanel({ productId }: ProductPurchasePanelProps) {
                         type="button"
                         onClick={increaseQuantity}
                         className="inline-flex w-14 items-center justify-center text-deep transition hover:bg-deep hover:text-gold"
-                        aria-label="Increase quantity"
+                        aria-label={t("increaseQuantity")}
                     >
                         <Plus size={16} strokeWidth={1.75} />
                     </button>
@@ -49,7 +51,7 @@ export function ProductPurchasePanel({ productId }: ProductPurchasePanelProps) {
                     productId={productId}
                     quantity={quantity}
                     className="font-jost inline-flex h-14 w-full items-center justify-center bg-deep text-xs font-semibold uppercase tracking-[0.32em] text-gold transition hover:bg-[#0a2e28]"
-                    label="Add To Cart"
+                    label={t("addToCart")}
                 />
             </div>
 

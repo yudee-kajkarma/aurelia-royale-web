@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { ArrowRight, Star } from "lucide-react";
+import { Link } from "@/i18n/navigation";
+import { assertLocale } from "@/i18n/locale-guard";
 // import { DiscountedPrice } from "@/components/shared/DiscountedPrice";
 import { ProductImage } from "@/components/shared/ProductImage";
 import { ProductPurchasePanel } from "@/components/shop/ProductPurchasePanel";
@@ -20,17 +22,19 @@ import {
 import { reviewService } from "@/services/reviews/review.service";
 
 type ShopDetailsPageProps = {
-    params: Promise<{ slug: string }>;
+    params: Promise<{ locale: string; slug: string }>;
 };
 
 export async function generateMetadata({
     params,
 }: ShopDetailsPageProps): Promise<Metadata> {
-    const { slug } = await params;
+    const { locale: raw, slug } = await params;
+    const locale = assertLocale(raw);
     const response = await getProductBySlug(slug);
+    const t = await getTranslations({ locale, namespace: "ShopDetailsPage" });
 
     if (!response) {
-        return { title: "Product Not Found" };
+        return { title: t("productNotFound") };
     }
 
     const { product } = response;
@@ -41,9 +45,7 @@ export async function generateMetadata({
 
     return {
         title: product.title,
-        description:
-            description ||
-            `Discover ${product.title} — fine lab-grown diamond jewelry by Aurelia Royale.`,
+        description: description || t("metaDescriptionFallback", { title: product.title }),
         alternates: { canonical: `/shop-details/${product.slug}/` },
     };
 }
@@ -52,6 +54,7 @@ export default async function ShopDetailsBySlugPage({
     params,
 }: ShopDetailsPageProps) {
     const { slug } = await params;
+    const t = await getTranslations("ShopDetailsPage");
     const response = await getProductBySlug(slug);
 
     if (!response) {
@@ -178,8 +181,8 @@ export default async function ShopDetailsBySlugPage({
         <main className="min-h-screen overflow-x-clip bg-background">
             <JsonLd
                 data={breadcrumbSchema([
-                    { name: "Home", url: `${SITE_URL}/` },
-                    { name: "Shop", url: `${SITE_URL}/shop/` },
+                    { name: t("breadcrumbHome"), url: `${SITE_URL}/` },
+                    { name: t("breadcrumbShop"), url: `${SITE_URL}/shop/` },
                     {
                         name: product.title,
                         url: `${SITE_URL}/shop-details/${product.slug}/`,
@@ -193,17 +196,17 @@ export default async function ShopDetailsBySlugPage({
                     </h1>
                     <p className="font-jost text-xs font-semibold uppercase tracking-[0.28em] text-deep/55">
                         <Link href="/" className="transition hover:text-gold">
-                            Home
+                            {t("breadcrumbHome")}
                         </Link>
                         <span className="mx-2 text-gold">/</span>
                         <Link
                             href="/shop"
                             className="transition hover:text-gold"
                         >
-                            Shop
+                            {t("breadcrumbShop")}
                         </Link>
                         <span className="mx-2 text-gold">/</span>
-                        <span className="text-deep">Details</span>
+                        <span className="text-deep">{t("breadcrumbDetails")}</span>
                     </p>
                 </div>
             </section>
@@ -221,7 +224,9 @@ export default async function ShopDetailsBySlugPage({
                         <div className="flex items-center gap-3">
                             <div
                                 className="flex items-center gap-0.5 text-gold"
-                                aria-label={`Rated ${averageRating.toFixed(1)} out of 5`}
+                                aria-label={t("ratedOutOf5", {
+                                    rating: averageRating.toFixed(1),
+                                })}
                             >
                                 {Array.from({ length: 5 }).map((_, i) => {
                                     const filled =
@@ -241,8 +246,8 @@ export default async function ShopDetailsBySlugPage({
                             <p className="font-jost text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-deep/60">
                                 {averageRating.toFixed(1)}
                                 <span className="mx-2 text-deep/30">·</span>
-                                {reviewCount} Review
-                                {reviewCount === 1 ? "" : "s"}
+                                {reviewCount}{" "}
+                                {reviewCount === 1 ? t("review") : t("reviews")}
                             </p>
                         </div>
                     ) : (
@@ -297,7 +302,7 @@ export default async function ShopDetailsBySlugPage({
                     {productDetails.length > 0 ? (
                         <div className="mt-12">
                             <h3 className="font-jost text-lg font-medium uppercase tracking-[0.2em] text-deep">
-                                Product Details
+                                {t("productDetails")}
                             </h3>
                             <div className="mt-3 h-px w-full bg-gold/60 to-transparent" />
 
@@ -356,17 +361,17 @@ export default async function ShopDetailsBySlugPage({
                                     className="inline-block h-px w-8 bg-gold"
                                     aria-hidden="true"
                                 />
-                                Highly Recommend
+                                {t("highlyRecommend")}
                             </p>
                             <h2 className="font-cormorant mt-4 text-5xl font-medium text-deep sm:text-6xl">
-                                Top Related Products
+                                {t("topRelatedProducts")}
                             </h2>
                         </div>
                         <Link
                             href="/shop"
                             className="group inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.28em] text-gold underline decoration-[1px] underline-offset-[6px] transition hover:text-[#a8862c]"
                         >
-                            View All Pieces
+                            {t("viewAllPieces")}
                             <ArrowRight
                                 size={18}
                                 className="transition group-hover:translate-x-1"

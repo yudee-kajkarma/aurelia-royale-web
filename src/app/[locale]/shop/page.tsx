@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import { assertLocale } from "@/i18n/locale-guard";
 import { ShopCatalog } from "@/components/shop/ShopCatalog";
 import {
     getCategoryLabelKey,
@@ -11,21 +13,23 @@ import {
     toProductCardModel,
 } from "@/services/products/product.service";
 
-// Minimal, non-translated fallback used only at this compile-fix call site
-// (this page's own string extraction is owned by a later i18n slice).
-// `getCategoryLabelKey` now returns a lowercase message key (e.g.
-// "bracelets") instead of the old English display label, so this
-// reconstructs the same title-cased text the key previously carried.
-function titleCaseCategoryLabel(category: string) {
-    const key = getCategoryLabelKey(category);
-    return key
-        .split(/\s+/)
-        .filter(Boolean)
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-        .join(" ");
+// Resolves a backend category value to its translated display label via the
+// `shopCategories` namespace, falling back to the raw category (interpolated
+// into the namespace's `fallback` entry) for anything outside the curated
+// `SHOP_CATEGORY_TILES` set.
+async function resolveCategoryLabel(locale: string, category: string) {
+    const tCategories = await getTranslations({
+        locale,
+        namespace: "shopCategories",
+    });
+    const labelKey = getCategoryLabelKey(category);
+    return tCategories.has(labelKey)
+        ? tCategories(labelKey)
+        : tCategories("fallback", { category });
 }
 
 type ShopPageProps = {
+    params: Promise<{ locale: string }>;
     searchParams: Promise<{
         page?: string;
         category?: string;
@@ -36,16 +40,22 @@ type ShopPageProps = {
 };
 
 export async function generateMetadata({
+    params,
     searchParams,
 }: ShopPageProps): Promise<Metadata> {
-    const params = await searchParams;
-    const category = params.category;
+    const { locale: raw } = await params;
+    const locale = assertLocale(raw);
+    const sp = await searchParams;
+    const category = sp.category;
+    const t = await getTranslations({ locale, namespace: "ShopPage" });
 
     if (category) {
-        const label = titleCaseCategoryLabel(category);
+        const label = await resolveCategoryLabel(locale, category);
         return {
-            title: `${label} Jewelry`,
-            description: `Shop Aurelia Royale ${label.toLowerCase()} — fine lab-grown diamond ${label.toLowerCase()} crafted for timeless, sustainable elegance.`,
+            title: t("metaTitleCategory", { category: label }),
+            description: t("metaDescriptionCategory", {
+                category: label.toLowerCase(),
+            }),
             alternates: {
                 canonical: `/shop/?category=${encodeURIComponent(category)}`,
             },
@@ -53,29 +63,35 @@ export async function generateMetadata({
     }
 
     return {
-        title: "Shop Fine Jewelry",
-        description:
-            "Browse the full Aurelia Royale collection of lab-grown diamond rings, earrings, necklaces, bracelets, pendants and sets.",
+        title: t("metaTitleDefault"),
+        description: t("metaDescriptionDefault"),
         alternates: { canonical: "/shop/" },
     };
 }
 
-export default async function ShopPage({ searchParams }: ShopPageProps) {
-    const params = await searchParams;
-    const page = Math.max(1, Number(params.page) || 1);
-    const selectedSort = params.sort ?? "top-rating";
+export default async function ShopPage({ params, searchParams }: ShopPageProps) {
+    const { locale: raw } = await params;
+    const locale = assertLocale(raw);
+    const t = await getTranslations("ShopPage");
+    const sp = await searchParams;
+    const page = Math.max(1, Number(sp.page) || 1);
+    const selectedSort = sp.sort ?? "top-rating";
     const filterOptions = await getAllProductFilters();
     const resolvedCategory = resolveCategoryValue(
-        params.category,
+        sp.category,
         filterOptions.categories,
     );
-    const selectedMinPrice = params.minPrice
-        ? Number(params.minPrice)
+    const selectedMinPrice = sp.minPrice
+        ? Number(sp.minPrice)
         : filterOptions.priceRange.min;
-    const selectedMaxPrice = params.maxPrice
-        ? Number(params.maxPrice)
+    const selectedMaxPrice = sp.maxPrice
+        ? Number(sp.maxPrice)
         : filterOptions.priceRange.max;
     const selectedCategory = resolvedCategory ?? "All";
+    const categoryHeadingLabel =
+        resolvedCategory && resolvedCategory !== "All"
+            ? await resolveCategoryLabel(locale, resolvedCategory)
+            : null;
 
     const result = await getProducts({
         page,
@@ -107,9 +123,11 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
             <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#EDE8DF]">
                 <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-24 sm:py-28 ">
                     <h1 className="font-cormorant text-5xl font-medium text-deep sm:text-6xl md:text-7xl capitalize">
-                        {resolvedCategory && resolvedCategory !== "All"
-                            ? `${titleCaseCategoryLabel(resolvedCategory)} Collection`
-                            : "Fine Lab-Grown Diamond Jewellery"}
+                        {categoryHeadingLabel
+                            ? t("headingCategory", {
+                                  category: categoryHeadingLabel,
+                              })
+                            : t("headingDefault")}
                     </h1>
                 </div>
             </section>

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Play } from "lucide-react";
 
 type GalleryItem =
@@ -17,6 +18,7 @@ export function ProductMediaGallery({
     title,
     items,
 }: ProductMediaGalleryProps) {
+    const t = useTranslations("ProductMediaGallery");
     const [activeId, setActiveId] = useState(items[0]?.id ?? "");
 
     const activeItem =
@@ -29,7 +31,7 @@ export function ProductMediaGallery({
                     <iframe
                         key={activeItem.id}
                         src={activeItem.src}
-                        title={`${title} 360° view`}
+                        title={t("view360", { title })}
                         className="h-full w-full border-0"
                         allow="accelerometer; autoplay; fullscreen; gyroscope; xr-spatial-tracking"
                         allowFullScreen
@@ -59,8 +61,8 @@ export function ProductMediaGallery({
                                 type="button"
                                 aria-label={
                                     item.kind === "video"
-                                        ? `Show ${title} 360° view`
-                                        : `Show ${title} image`
+                                        ? t("showView360", { title })
+                                        : t("showImage", { title })
                                 }
                                 onClick={() => setActiveId(item.id)}
                                 className={`relative flex aspect-square items-center justify-center overflow-hidden bg-[#f3eee5] p-2 transition ${
@@ -74,7 +76,7 @@ export function ProductMediaGallery({
                                         src={thumbSrc}
                                         alt={
                                             item.kind === "video"
-                                                ? `${title} 360° view`
+                                                ? t("view360", { title })
                                                 : title
                                         }
                                         width={220}

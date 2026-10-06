@@ -1,7 +1,8 @@
 "use client";
 
 import { FormEvent, useCallback, useEffect, useState } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { usePathname, useRouter } from "next/navigation";
 import { useAuth } from "@/providers/AuthProvider";
 import { reviewService } from "@/services/reviews/review.service";
@@ -15,11 +16,7 @@ type ProductDetailsTabsProps = {
 
 type TabKey = "details" | "specifications" | "reviews";
 
-const tabs: Array<{ key: TabKey; label: string }> = [
-    { key: "details", label: "Product Details" },
-    { key: "specifications", label: "Specifications" },
-    { key: "reviews", label: "Review" },
-];
+const TAB_KEYS: TabKey[] = ["details", "specifications", "reviews"];
 
 function formatReviewDate(value: string) {
     return new Intl.DateTimeFormat("en-US", {
@@ -29,11 +26,11 @@ function formatReviewDate(value: string) {
     }).format(new Date(value));
 }
 
-function Stars({ rating }: { rating: number }) {
+function Stars({ rating, label }: { rating: number; label: string }) {
     return (
         <div
             className="flex items-center gap-1 text-gold"
-            aria-label={`Rating ${rating} out of 5`}
+            aria-label={label}
         >
             {Array.from({ length: 5 }, (_, index) => {
                 const fill = Math.max(0, Math.min(1, rating - index));
@@ -74,6 +71,7 @@ export function ProductDetailsTabs({
     product,
     initialReviews,
 }: ProductDetailsTabsProps) {
+    const t = useTranslations("ProductDetailsTabs");
     const pathname = usePathname();
     const router = useRouter();
     const { isAuthenticated, isReady } = useAuth();
@@ -101,12 +99,12 @@ export function ProductDetailsTabs({
             setReviewsError(
                 error instanceof Error
                     ? error.message
-                    : "Unable to load reviews.",
+                    : t("unableToLoadReviews"),
             );
         } finally {
             setIsLoadingReviews(false);
         }
-    }, [product.id]);
+    }, [product.id, t]);
 
     useEffect(() => {
         void loadReviews();
@@ -167,12 +165,12 @@ export function ProductDetailsTabs({
             numericRating < 1 ||
             numericRating > 5
         ) {
-            setReviewsError("Rating must be between 1 and 5.");
+            setReviewsError(t("ratingRangeError"));
             return;
         }
 
         if (!comment.trim()) {
-            setReviewsError("Comment is required.");
+            setReviewsError(t("commentRequired"));
             return;
         }
 
@@ -187,9 +185,7 @@ export function ProductDetailsTabs({
                 });
             } else {
                 if (hasOwnReview) {
-                    setReviewsError(
-                        "You have already reviewed this product.",
-                    );
+                    setReviewsError(t("alreadyReviewed"));
                     return;
                 }
 
@@ -205,7 +201,7 @@ export function ProductDetailsTabs({
             setReviewsError(
                 error instanceof Error
                     ? error.message
-                    : "Unable to save review.",
+                    : t("unableToSaveReview"),
             );
         } finally {
             setIsSubmitting(false);
@@ -224,7 +220,7 @@ export function ProductDetailsTabs({
             setReviewsError(
                 error instanceof Error
                     ? error.message
-                    : "Unable to delete review.",
+                    : t("unableToDeleteReview"),
             );
         } finally {
             setIsSubmitting(false);
@@ -238,28 +234,34 @@ export function ProductDetailsTabs({
         <div>
             <div
                 role="tablist"
-                aria-label="Product information sections"
+                aria-label={t("sectionsLabel")}
                 className="flex flex-wrap items-center gap-x-10 gap-y-3 border-b border-deep/15 pb-3"
             >
-                {tabs.map((tab) => {
-                    const isActive = activeTab === tab.key;
+                {TAB_KEYS.map((key) => {
+                    const isActive = activeTab === key;
+                    const label =
+                        key === "details"
+                            ? t("tabDetails")
+                            : key === "specifications"
+                              ? t("tabSpecifications")
+                              : t("tabReviews");
 
                     return (
                         <button
-                            key={tab.key}
+                            key={key}
                             type="button"
                             role="tab"
                             aria-selected={isActive}
-                            onClick={() => setActiveTab(tab.key)}
+                            onClick={() => setActiveTab(key)}
                             className={`font-jost relative -mb-3 pb-3 text-[0.78rem] font-semibold uppercase tracking-[0.22em] transition ${
                                 isActive
                                     ? "text-gold after:absolute after:inset-x-0 after:-bottom-px after:h-[2px] after:bg-gold"
                                     : "text-deep/70 hover:text-deep"
                             }`}
                         >
-                            {tab.key === "reviews"
-                                ? `${tab.label} (${reviewCount})`
-                                : tab.label}
+                            {key === "reviews"
+                                ? `${label} (${reviewCount})`
+                                : label}
                         </button>
                     );
                 })}
@@ -268,19 +270,19 @@ export function ProductDetailsTabs({
             {activeTab === "details" ? (
                 <div className="pt-10">
                     <h3 className="font-cormorant text-3xl font-medium text-deep sm:text-4xl">
-                        Product Overview
+                        {t("productOverview")}
                     </h3>
                     <p className="font-jost mt-6 max-w-4xl text-[0.95rem] leading-7 text-deep/75 sm:text-base">
                         {product.description}
                     </p>
 
                     <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                        <MetaCard label="Vendor" value={product.vendor} />
+                        <MetaCard label={t("vendor")} value={product.vendor} />
                         <MetaCard
-                            label="Category"
+                            label={t("category")}
                             value={product.category}
                         />
-                        <MetaCard label="SKU" value={product.sku} />
+                        <MetaCard label={t("sku")} value={product.sku} />
                     </div>
 
                     {product.videoUrls.length > 0 ||
@@ -289,7 +291,7 @@ export function ProductDetailsTabs({
                             {product.videoUrls.length > 0 ? (
                                 <div className="border border-deep/10 bg-[#f8f3e7] p-5">
                                     <p className="font-jost text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-gold">
-                                        Product Video
+                                        {t("productVideo")}
                                     </p>
                                     <a
                                         href={product.videoUrls[0]}
@@ -297,14 +299,14 @@ export function ProductDetailsTabs({
                                         rel="noreferrer"
                                         className="font-jost mt-3 inline-block text-sm font-semibold uppercase tracking-[0.08em] text-deep underline decoration-gold underline-offset-4 hover:text-gold"
                                     >
-                                        View product video
+                                        {t("viewProductVideo")}
                                     </a>
                                 </div>
                             ) : null}
                             {product.certificateUrls.length > 0 ? (
                                 <div className="border border-deep/10 bg-[#f8f3e7] p-5">
                                     <p className="font-jost text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-gold">
-                                        Certificate File
+                                        {t("certificateFile")}
                                     </p>
                                     <a
                                         href={product.certificateUrls[0]}
@@ -312,7 +314,7 @@ export function ProductDetailsTabs({
                                         rel="noreferrer"
                                         className="font-jost mt-3 inline-block text-sm font-semibold uppercase tracking-[0.08em] text-deep underline decoration-gold underline-offset-4 hover:text-gold"
                                     >
-                                        Open certificate
+                                        {t("openCertificate")}
                                     </a>
                                 </div>
                             ) : null}
@@ -337,7 +339,7 @@ export function ProductDetailsTabs({
             {activeTab === "specifications" ? (
                 <div className="pt-10">
                     <h3 className="font-cormorant text-3xl font-medium text-deep sm:text-4xl">
-                        Why Choose This Product?
+                        {t("whyChooseThisProduct")}
                     </h3>
                     <p className="font-jost mt-6 max-w-4xl text-[0.95rem] leading-7 text-deep/75 sm:text-base">
                         {product.details}
@@ -346,74 +348,74 @@ export function ProductDetailsTabs({
                     <ul className="font-jost mt-10 grid gap-x-10 gap-y-3 border-y border-deep/10 py-6 text-sm text-deep/80 sm:grid-cols-2 lg:grid-cols-4">
                         <li>
                             <span className="font-semibold uppercase tracking-[0.18em] text-deep/55">
-                                Stone:
+                                {t("stone")}
                             </span>{" "}
                             {product.stoneType}
                         </li>
                         <li>
                             <span className="font-semibold uppercase tracking-[0.18em] text-deep/55">
-                                Color:
+                                {t("colour")}
                             </span>{" "}
                             {product.color}
                         </li>
                         <li>
                             <span className="font-semibold uppercase tracking-[0.18em] text-deep/55">
-                                Shape:
+                                {t("shape")}
                             </span>{" "}
                             {product.shape}
                         </li>
                         <li>
                             <span className="font-semibold uppercase tracking-[0.18em] text-deep/55">
-                                Carat:
+                                {t("carat")}
                             </span>{" "}
                             {product.carat}
                         </li>
                         <li>
                             <span className="font-semibold uppercase tracking-[0.18em] text-deep/55">
-                                Treatment:
+                                {t("treatment")}
                             </span>{" "}
                             {product.treatment}
                         </li>
                         <li>
                             <span className="font-semibold uppercase tracking-[0.18em] text-deep/55">
-                                Diamond Pieces:
+                                {t("diamondPieces")}
                             </span>{" "}
                             {product.diamondPcs}
                         </li>
                         <li>
                             <span className="font-semibold uppercase tracking-[0.18em] text-deep/55">
-                                Stock:
+                                {t("stock")}
                             </span>{" "}
                             {product.stock}
                         </li>
                         <li>
                             <span className="font-semibold uppercase tracking-[0.18em] text-deep/55">
-                                Featured:
+                                {t("featured")}
                             </span>{" "}
-                            {product.is_featured ? "Yes" : "No"}
+                            {product.is_featured ? t("yes") : t("no")}
                         </li>
                     </ul>
 
                     <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                         <MetaCard
-                            label="Certificate"
+                            label={t("certificate")}
                             value={product.certificate}
                         />
                         <MetaCard
-                            label="Measurement"
+                            label={t("measurement")}
                             value={product.measurement}
                         />
-                        <MetaCard label="Origin" value={product.origin} />
+                        <MetaCard label={t("origin")} value={product.origin} />
                         <MetaCard
-                            label="Treatment"
+                            label={t("treatment")}
                             value={product.treatment}
                         />
                         <MetaCard
-                            label="Stone & Shape"
+                            label={t("stoneAndShape")}
                             value={`${product.stoneType} • ${product.shape}`}
                         />
                         <MetaCard
-                            label="Color & Carat"
+                            label={t("colourAndCarat")}
                             value={`${product.color} • ${product.carat} Ct`}
                         />
                     </div>
@@ -425,12 +427,12 @@ export function ProductDetailsTabs({
                     <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
                         <div>
                             <h3 className="font-cormorant text-3xl font-medium text-deep sm:text-4xl">
-                                Customer Reviews
+                                {t("customerReviews")}
                             </h3>
 
                             {isLoadingReviews ? (
                                 <p className="font-jost mt-6 text-sm text-deep/65">
-                                    Loading reviews...
+                                    {t("loadingReviews")}
                                 </p>
                             ) : null}
 
@@ -442,8 +444,7 @@ export function ProductDetailsTabs({
 
                             {!isLoadingReviews && reviews.length === 0 ? (
                                 <p className="font-jost mt-6 text-sm text-deep/65">
-                                    No reviews yet. Be the first to review
-                                    this product.
+                                    {t("noReviewsYet")}
                                 </p>
                             ) : null}
 
@@ -464,7 +465,12 @@ export function ProductDetailsTabs({
                                                     )}
                                                 </p>
                                             </div>
-                                            <Stars rating={review.rating} />
+                                            <Stars
+                                                rating={review.rating}
+                                                label={t("ratingOutOf5", {
+                                                    rating: review.rating,
+                                                })}
+                                            />
                                         </div>
                                         <p className="font-jost mt-4 text-[0.95rem] leading-7 text-deep/80">
                                             {review.comment}
@@ -478,7 +484,7 @@ export function ProductDetailsTabs({
                                                     }
                                                     className="font-jost inline-flex items-center justify-center border border-gold px-5 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-gold transition hover:bg-gold/10"
                                                 >
-                                                    Edit
+                                                    {t("edit")}
                                                 </button>
                                                 <button
                                                     type="button"
@@ -490,7 +496,7 @@ export function ProductDetailsTabs({
                                                     }
                                                     className="font-jost inline-flex items-center justify-center border border-red-500/40 px-5 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-red-600 transition hover:bg-red-50 disabled:opacity-60"
                                                 >
-                                                    Delete
+                                                    {t("delete")}
                                                 </button>
                                             </div>
                                         ) : null}
@@ -502,28 +508,27 @@ export function ProductDetailsTabs({
                         <div className="border border-deep/10 bg-[#f8f3e7] p-6">
                             <h3 className="font-cormorant text-3xl font-medium text-deep">
                                 {editingReviewId
-                                    ? "Edit Your Review"
-                                    : "Write A Review"}
+                                    ? t("editYourReview")
+                                    : t("writeAReview")}
                             </h3>
 
                             {!isReady ? (
                                 <p className="font-jost mt-4 text-sm text-deep/65">
-                                    Checking session...
+                                    {t("checkingSession")}
                                 </p>
                             ) : null}
 
                             {isReady && !isAuthenticated ? (
                                 <div className="mt-4 space-y-4">
                                     <p className="font-jost text-sm leading-7 text-deep/75">
-                                        You need to log in before you can
-                                        review this product.
+                                        {t("needLoginToReview")}
                                     </p>
                                     <button
                                         type="button"
                                         onClick={handleRequireLogin}
                                         className="font-jost inline-flex h-12 items-center justify-center bg-deep px-6 text-xs font-semibold uppercase tracking-[0.28em] text-gold transition hover:bg-[#0a2e28]"
                                     >
-                                        Login First
+                                        {t("loginFirst")}
                                     </button>
                                 </div>
                             ) : null}
@@ -532,14 +537,11 @@ export function ProductDetailsTabs({
                                 <>
                                     {!editingReviewId && hasOwnReview ? (
                                         <p className="font-jost mt-4 text-sm leading-7 text-deep/75">
-                                            You can keep only one review for
-                                            this product. Use edit to update
-                                            your existing review.
+                                            {t("oneReviewOnly")}
                                         </p>
                                     ) : (
                                         <p className="font-jost mt-4 text-sm leading-7 text-deep/75">
-                                            Share your experience with this
-                                            product.
+                                            {t("shareExperience")}
                                         </p>
                                     )}
 
@@ -551,7 +553,7 @@ export function ProductDetailsTabs({
                                     >
                                         <label className="grid gap-2">
                                             <span className="font-jost text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-deep/55">
-                                                Rating
+                                                {t("rating")}
                                             </span>
                                             <select
                                                 value={rating}
@@ -581,7 +583,7 @@ export function ProductDetailsTabs({
                                         </label>
                                         <label className="grid gap-2">
                                             <span className="font-jost text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-deep/55">
-                                                Comment
+                                                {t("comment")}
                                             </span>
                                             <textarea
                                                 value={comment}
@@ -596,7 +598,9 @@ export function ProductDetailsTabs({
                                                     hasOwnReview
                                                 }
                                                 className={`${fieldClasses} py-3 leading-7 disabled:opacity-60`}
-                                                placeholder="Write your review here"
+                                                placeholder={t(
+                                                    "writeYourReviewPlaceholder",
+                                                )}
                                             />
                                         </label>
 
@@ -611,10 +615,10 @@ export function ProductDetailsTabs({
                                                 className="font-jost inline-flex h-12 items-center justify-center bg-deep px-6 text-xs font-semibold uppercase tracking-[0.28em] text-gold transition hover:bg-[#0a2e28] disabled:opacity-60"
                                             >
                                                 {isSubmitting
-                                                    ? "Saving..."
+                                                    ? t("saving")
                                                     : editingReviewId
-                                                    ? "Update Review"
-                                                    : "Submit Review"}
+                                                    ? t("updateReview")
+                                                    : t("submitReview")}
                                             </button>
                                             {editingReviewId ? (
                                                 <button
@@ -622,7 +626,7 @@ export function ProductDetailsTabs({
                                                     onClick={resetForm}
                                                     className="font-jost inline-flex h-12 items-center justify-center border border-deep/30 px-6 text-xs font-semibold uppercase tracking-[0.28em] text-deep transition hover:border-gold hover:text-gold"
                                                 >
-                                                    Cancel
+                                                    {t("cancel")}
                                                 </button>
                                             ) : null}
                                         </div>
@@ -632,12 +636,12 @@ export function ProductDetailsTabs({
 
                             {isReady && !isAuthenticated ? (
                                 <p className="font-jost mt-4 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-deep/55">
-                                    Need an account?{" "}
+                                    {t("needAccount")}{" "}
                                     <Link
                                         href="/login"
                                         className="text-gold hover:underline"
                                     >
-                                        Login
+                                        {t("login")}
                                     </Link>
                                 </p>
                             ) : null}

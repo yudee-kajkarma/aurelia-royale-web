@@ -70,6 +70,7 @@ export function Header({
   showLanguageSwitcher?: boolean;
 }) {
   const t = useTranslations("Header");
+  const tShopCategories = useTranslations("shopCategories");
   const [openMenu, setOpenMenu] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
   const [openProfileMenu, setOpenProfileMenu] = useState(false);
@@ -85,8 +86,16 @@ export function Header({
   const { count: cartCount } = useCart();
   const { count } = useWishlist();
 
+  // `shopCategoryItems` carries a `labelKey` (see header.data.ts, which is a
+  // plain data module with no request scope of its own); resolve it against
+  // the `shopCategories` namespace here, at the point of render.
+  const resolvedShopCategoryItems = shopCategoryItems.map((item) => ({
+    href: item.href,
+    label: tShopCategories(item.labelKey),
+    imageUrl: item.imageUrl,
+  }));
   const activeShopItems =
-    activePanel === "category" ? shopCategoryItems : shopEditionItems;
+    activePanel === "category" ? resolvedShopCategoryItems : shopEditionItems;
   // Profile button destination — admins land on the admin dashboard,
   // normal users on their profile page. (Distinct from the post-login
   // default route, which sends normal users to "/".)
@@ -364,7 +373,7 @@ export function Header({
                     animate={reduceMotion ? undefined : "visible"}
                     exit={reduceMotion ? undefined : "exit"}
                   >
-                    {shopCategoryItems.map((item) => (
+                    {resolvedShopCategoryItems.map((item) => (
                       <motion.div
                         key={item.href}
                         variants={reduceMotion ? undefined : shopCardVariants}

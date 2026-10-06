@@ -1,16 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Check } from "lucide-react";
 
-const PERKS = [
-    "Early access",
-    "Launch updates",
-    "Exclusive offers",
-    "New collection announcements",
-];
+const PERK_KEYS = [
+    "perkEarlyAccess",
+    "perkLaunchUpdates",
+    "perkExclusiveOffers",
+    "perkNewCollection",
+] as const;
 
 export function ComingSoonSignup() {
+    const t = useTranslations("ComingSoonSignup");
     const [email, setEmail] = useState("");
 
     function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -25,31 +27,31 @@ export function ComingSoonSignup() {
                     className="inline-block h-px w-8 bg-gold"
                     aria-hidden="true"
                 />
-                Coming Soon
+                {t("eyebrow")}
             </p>
             <h3 className="font-cormorant mt-4 text-3xl font-medium text-deep sm:text-4xl">
-                A New Era of Luxury is Coming
+                {t("heading")}
             </h3>
             <div className="font-jost mt-5 space-y-1 text-[0.95rem] leading-7 text-deep/75">
-                <p>Exceptional craftsmanship.</p>
-                <p>Timeless design.</p>
-                <p>Sustainably created diamonds.</p>
+                <p>{t("craftsmanship")}</p>
+                <p>{t("timelessDesign")}</p>
+                <p>{t("sustainableDiamonds")}</p>
             </div>
             <p className="font-jost mt-5 text-[0.95rem] leading-7 text-deep/75">
-                Our first collection will be unveiled soon.
+                {t("collectionUnveil")}
             </p>
 
             <div className="mt-10 border border-gold/30 bg-[#f5efe3] p-6 sm:p-8">
                 <h4 className="font-cormorant text-2xl font-medium text-deep sm:text-3xl">
-                    Be the First to Know
+                    {t("beFirstToKnow")}
                 </h4>
                 <p className="font-jost mt-2 text-sm italic text-deep/70">
-                    Our exclusive collections are arriving soon
+                    {t("exclusiveArriving")}
                 </p>
 
                 <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                    {PERKS.map((perk) => (
-                        <li key={perk} className="flex items-center gap-3">
+                    {PERK_KEYS.map((perkKey) => (
+                        <li key={perkKey} className="flex items-center gap-3">
                             <Check
                                 size={16}
                                 strokeWidth={2.5}
@@ -57,14 +59,14 @@ export function ComingSoonSignup() {
                                 aria-hidden="true"
                             />
                             <span className="font-jost text-[0.95rem] text-deep/80">
-                                {perk}
+                                {t(perkKey)}
                             </span>
                         </li>
                     ))}
                 </ul>
 
                 <p className="font-jost mt-6 text-sm text-deep/70">
-                    Enter your email to receive priority access.
+                    {t("priorityAccess")}
                 </p>
 
                 <form
@@ -76,15 +78,15 @@ export function ComingSoonSignup() {
                         required
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
-                        placeholder="Your E-Mail Address"
-                        aria-label="Email address"
+                        placeholder={t("emailPlaceholder")}
+                        aria-label={t("emailLabel")}
                         className="font-jost h-11 min-w-0 flex-1 bg-transparent px-3 text-xs text-deep placeholder:text-deep/45 focus:outline-none sm:h-14 sm:px-5 sm:text-sm"
                     />
                     <button
                         type="submit"
                         className="font-jost inline-flex h-11 shrink-0 items-center justify-center whitespace-nowrap bg-deep px-4 text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#0a2e28] sm:h-14 sm:px-8 sm:text-xs sm:tracking-[0.24em]"
                     >
-                        Notify Me
+                        {t("notifyMe")}
                     </button>
                 </form>
             </div>

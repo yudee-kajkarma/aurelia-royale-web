@@ -6,9 +6,6 @@ import { HeaderLogo } from "@/components/layout/header/HeaderLogo";
 import { HeaderProfileMenu } from "@/components/layout/header/HeaderProfileMenu";
 import {
     ADMIN_NAV_ITEMS,
-    aboutItems,
-    navItems,
-    shopCategoryItems,
     type HeaderVisualLinkItem,
 } from "@/components/layout/header/header.data";
 import type { AuthUser } from "@/services/auth/auth.types";

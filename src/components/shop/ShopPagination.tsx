@@ -1,4 +1,7 @@
-import Link from "next/link";
+"use client";
+
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type ShopPaginationProps = {
@@ -35,6 +38,8 @@ export function ShopPagination({
     hrefForPage,
     className = "",
 }: ShopPaginationProps) {
+    const t = useTranslations("ShopPagination");
+
     if (totalPages <= 1) {
         return null;
     }
@@ -48,7 +53,7 @@ export function ShopPagination({
 
     return (
         <nav
-            aria-label="Pagination"
+            aria-label={t("pagination")}
             className={`mt-14 flex flex-wrap items-center justify-center gap-2 ${className}`}
         >
             {canGoPrev ? (
@@ -56,7 +61,7 @@ export function ShopPagination({
                     href={hrefForPage(currentPage - 1)}
                     rel="prev"
                     className={`${baseTile} w-11 border border-deep/30 text-deep hover:border-gold hover:text-gold`}
-                    aria-label="Previous page"
+                    aria-label={t("previousPage")}
                 >
                     <ChevronLeft size={16} strokeWidth={1.75} />
                 </Link>
@@ -93,7 +98,7 @@ export function ShopPagination({
                                 ? `${baseTile} bg-deep text-gold`
                                 : `${baseTile} text-deep/70 hover:text-gold`
                         }
-                        aria-label={`Page ${item}`}
+                        aria-label={t("page", { page: item })}
                         aria-current={active ? "page" : undefined}
                     >
                         {String(item).padStart(2, "0")}
@@ -106,7 +111,7 @@ export function ShopPagination({
                     href={hrefForPage(currentPage + 1)}
                     rel="next"
                     className={`${baseTile} w-11 border border-deep/30 text-deep hover:border-gold hover:text-gold`}
-                    aria-label="Next page"
+                    aria-label={t("nextPage")}
                 >
                     <ChevronRight size={16} strokeWidth={1.75} />
                 </Link>

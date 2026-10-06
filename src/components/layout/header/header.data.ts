@@ -1,14 +1,5 @@
 import { SHOP_CATEGORY_TILES } from "@/services/products/product-category";
 
-// Minimal, non-translated fallback used only at this compile-fix call site
-// (the header's own string extraction is owned by a later i18n slice).
-// `tile.labelKey` is now a lowercase message key (e.g. "bracelets") instead
-// of the old English display label, so this reconstructs the same
-// title-cased text the removed `label` field previously carried.
-function titleCaseCategoryLabel(labelKey: string) {
-  return labelKey.charAt(0).toUpperCase() + labelKey.slice(1).toLowerCase();
-}
-
 export type HeaderLinkItem = {
   key?: string;
   href: string;
@@ -19,11 +10,33 @@ export type HeaderVisualLinkItem = HeaderLinkItem & {
   imageUrl: string;
 };
 
-export const navItems: HeaderLinkItem[] = [
-  { href: "/", label: "Home" },
-  { href: "/contact", label: "Contact" },
+// This is a plain `.ts` data module: it has no component tree and no request
+// scope, so it cannot call `useTranslations` (needs a component) or
+// `getTranslations` (needs a request). So storefront entries carry a stable
+// `labelKey` instead of English text, and the consuming component resolves
+// it against a message namespace at render time — the same split `getCategory`
+// uses for blog filters. Admin entries are the exception: the admin panel is
+// English-only by decision, so `ADMIN_NAV_ITEMS` keeps a literal `label` and
+// is never looked up against a namespace.
+export type HeaderKeyedLinkItem = {
+  key?: string;
+  href: string;
+  labelKey: string;
+};
+
+export type HeaderVisualKeyedLinkItem = HeaderKeyedLinkItem & {
+  imageUrl: string;
+};
+
+// `labelKey` resolves against the `Header` namespace (see Header.tsx /
+// HeaderMenuOverlay.tsx).
+export const navItems: HeaderKeyedLinkItem[] = [
+  { href: "/", labelKey: "home" },
+  { href: "/contact", labelKey: "contact" },
 ];
 
+// Admin menu stays English by explicit product decision - do not add
+// message keys for these.
 export const ADMIN_NAV_ITEMS: HeaderLinkItem[] = [
   { key: "product_management", href: "/admin/products", label: "Product Management" },
   { key: "orders_all", href: "/admin/orders", label: "All Orders" },
@@ -32,15 +45,19 @@ export const ADMIN_NAV_ITEMS: HeaderLinkItem[] = [
   { key: "tickets_all", href: "/admin/support", label: "Support Tickets" },
 ];
 
-export const aboutItems: HeaderLinkItem[] = [
-  { href: "/about#introduction", label: "Introduction" },
-  { href: "/about#what-we-do", label: "What We Do" },
-  { href: "/about#why-special", label: "Why Our Design is Special" },
+// `labelKey` resolves against the `Header` namespace (see Header.tsx /
+// HeaderMenuOverlay.tsx).
+export const aboutItems: HeaderKeyedLinkItem[] = [
+  { href: "/about#introduction", labelKey: "aboutIntroduction" },
+  { href: "/about#what-we-do", labelKey: "aboutWhatWeDo" },
+  { href: "/about#why-special", labelKey: "aboutWhySpecial" },
 ];
 
-export const shopCategoryItems: HeaderVisualLinkItem[] = SHOP_CATEGORY_TILES.map((tile) => ({
+// `labelKey` here is `tile.labelKey` off `SHOP_CATEGORY_TILES`, which
+// resolves against the `shopCategories` namespace (see Header.tsx).
+export const shopCategoryItems: HeaderVisualKeyedLinkItem[] = SHOP_CATEGORY_TILES.map((tile) => ({
   href: `/shop?category=${encodeURIComponent(tile.queryValue)}`,
-  label: titleCaseCategoryLabel(tile.labelKey),
+  labelKey: tile.labelKey,
   imageUrl: tile.imageUrl,
 }));
 
