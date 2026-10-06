@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Users, Plus, X, BadgePercent, ShieldCheck } from "lucide-react";
 import {
     familyService,
     FamilyApiError,
+    FAMILY_REQUEST_FAILED,
 } from "@/services/family/family.service";
 import type {
     FamilyOverview,
@@ -18,9 +20,15 @@ function formatRelation(rel: string) {
     return rel.charAt(0).toUpperCase() + rel.slice(1);
 }
 
-function relationLabel(rel?: string) {
-    if (!rel) return "Member";
+function relationLabel(rel: string | undefined, memberFallback: string) {
+    if (!rel) return memberFallback;
     return formatRelation(rel);
+}
+
+// Family member roles are data (FAMILY_RELATIONS), never translated — only
+// this generic "unspecified relation" fallback word is UI copy.
+function resolveFamilyMessage(message: string, genericFallback: string) {
+    return message === FAMILY_REQUEST_FAILED ? genericFallback : message;
 }
 
 function Banner({
@@ -44,6 +52,7 @@ function Banner({
 }
 
 export function FamilySection() {
+    const t = useTranslations("FamilySection");
     const [overview, setOverview] = useState<FamilyOverview | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [loadError, setLoadError] = useState("");
@@ -67,8 +76,11 @@ export function FamilySection() {
         } catch (error) {
             const message =
                 error instanceof Error
-                    ? error.message
-                    : "Failed to load family info";
+                    ? resolveFamilyMessage(
+                          error.message,
+                          t("genericRequestFailed"),
+                      )
+                    : t("loadFailedFallback");
             setLoadError(message);
         } finally {
             setIsLoading(false);
@@ -108,8 +120,11 @@ export function FamilySection() {
         } catch (error) {
             const message =
                 error instanceof FamilyApiError
-                    ? error.message
-                    : "Search failed";
+                    ? resolveFamilyMessage(
+                          error.message,
+                          t("genericRequestFailed"),
+                      )
+                    : t("searchFailedFallback");
             setModalError(message);
         } finally {
             setIsWorking(false);
@@ -123,14 +138,17 @@ export function FamilySection() {
         try {
             await familyService.sendInvite(verifiedEmail, relation);
             setModalSuccess(
-                `OTP sent to ${verifiedEmail}. Ask them for the code to complete the link.`,
+                t("otpSentNotice", { email: verifiedEmail }),
             );
             setStep("otp");
         } catch (error) {
             const message =
                 error instanceof FamilyApiError
-                    ? error.message
-                    : "Failed to send invitation";
+                    ? resolveFamilyMessage(
+                          error.message,
+                          t("genericRequestFailed"),
+                      )
+                    : t("inviteFailedFallback");
             setModalError(message);
         } finally {
             setIsWorking(false);
@@ -151,8 +169,11 @@ export function FamilySection() {
         } catch (error) {
             const message =
                 error instanceof FamilyApiError
-                    ? error.message
-                    : "OTP verification failed";
+                    ? resolveFamilyMessage(
+                          error.message,
+                          t("genericRequestFailed"),
+                      )
+                    : t("verifyFailedFallback");
             setModalError(message);
         } finally {
             setIsWorking(false);
@@ -169,15 +190,13 @@ export function FamilySection() {
                         </div>
                         <div>
                             <p className="text-xs font-bold uppercase tracking-[0.12em] text-foreground/45">
-                                Family
+                                {t("eyebrow")}
                             </p>
                             <h2 className="mt-1 text-2xl font-bold tracking-[-0.03em] text-deep">
-                                Family & Discount
+                                {t("heading")}
                             </h2>
                             <p className="mt-2 max-w-xl text-sm text-foreground/62">
-                                Every account starts with a 5% discount. Add
-                                family members to earn +2% per member, up to 4
-                                members. Once added, a member cannot be removed.
+                                {t("description")}
                             </p>
                         </div>
                     </div>
@@ -187,7 +206,7 @@ export function FamilySection() {
                             <BadgePercent className="h-5 w-5 text-deep" />
                             <div>
                                 <p className="text-xs font-bold uppercase tracking-[0.1em] text-foreground/55">
-                                    Your Discount
+                                    {t("yourDiscountLabel")}
                                 </p>
                                 <p className="text-2xl font-bold text-deep">
                                     {overview.discountPercent}%
@@ -200,7 +219,7 @@ export function FamilySection() {
 
             {isLoading ? (
                 <p className="mt-5 text-sm font-medium text-foreground/60">
-                    Loading family info...
+                    {t("loadingFamilyInfo")}
                 </p>
             ) : loadError ? (
                 <div className="mt-5">
@@ -211,19 +230,22 @@ export function FamilySection() {
                     <div className="flex items-center gap-3 text-deep">
                         <ShieldCheck className="h-5 w-5" />
                         <h3 className="text-lg font-bold">
-                            You're part of a family
+                            {t("partOfFamilyHeading")}
                         </h3>
                     </div>
                     <p className="text-sm text-foreground/70">
-                        You're a{" "}
-                        <span className="font-semibold text-deep">
-                            {relationLabel(overview.relationToHead)}
-                        </span>{" "}
-                        in{" "}
-                        <span className="font-semibold text-deep">
-                            {overview.head?.email}
-                        </span>
-                        's family.
+                        {t.rich("memberOfFamily", {
+                            relation: relationLabel(
+                                overview.relationToHead,
+                                t("memberFallback"),
+                            ),
+                            email: overview.head?.email ?? "",
+                            bold: (chunks) => (
+                                <span className="font-semibold text-deep">
+                                    {chunks}
+                                </span>
+                            ),
+                        })}
                     </p>
                     {/* <p className="text-sm text-foreground/70">
             Because you're already a member, you cannot add other people to your account.
@@ -233,11 +255,15 @@ export function FamilySection() {
                 <div className="mt-6 space-y-4">
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                         <p className="text-sm text-foreground/65">
-                            Members added:{" "}
-                            <span className="font-semibold text-deep">
-                                {overview?.memberCount ?? 0}
-                            </span>{" "}
-                            / {overview?.maxMembers ?? 4}
+                            {t.rich("membersAddedLabel", {
+                                count: overview?.memberCount ?? 0,
+                                max: overview?.maxMembers ?? 4,
+                                bold: (chunks) => (
+                                    <span className="font-semibold text-deep">
+                                        {chunks}
+                                    </span>
+                                ),
+                            })}
                         </p>
                         <button
                             type="button"
@@ -246,7 +272,7 @@ export function FamilySection() {
                             className="inline-flex items-center justify-center gap-2 rounded-full border border-gold/35 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-deep transition enabled:hover:border-deep enabled:hover:bg-deep enabled:hover:!text-white disabled:cursor-not-allowed disabled:opacity-50"
                         >
                             <Plus className="h-3.5 w-3.5" />
-                            Add Family Member
+                            {t("addFamilyMemberLabel")}
                         </button>
                     </div>
 
@@ -264,22 +290,27 @@ export function FamilySection() {
                                             {m.email}
                                         </p>
                                         <p className="text-xs uppercase tracking-[0.1em] text-foreground/55">
-                                            {relationLabel(m.relation)} • Added{" "}
-                                            {new Date(
-                                                m.addedAt,
-                                            ).toLocaleDateString()}
+                                            {relationLabel(
+                                                m.relation,
+                                                t("memberFallback"),
+                                            )}{" "}
+                                            •{" "}
+                                            {t("addedOnLabel", {
+                                                date: new Date(
+                                                    m.addedAt,
+                                                ).toLocaleDateString(),
+                                            })}
                                         </p>
                                     </div>
                                     <span className="rounded-full border border-gold/30 bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-deep">
-                                        Permanent
+                                        {t("permanentBadge")}
                                     </span>
                                 </article>
                             ))}
                         </div>
                     ) : (
                         <p className="rounded-[20px] border border-dashed border-foreground/15 bg-surface px-5 py-6 text-center text-sm text-foreground/55">
-                            No family members yet. Add one to earn +2% more
-                            discount.
+                            {t("noMembersYet")}
                         </p>
                     )}
                 </div>
@@ -291,14 +322,14 @@ export function FamilySection() {
                         <div className="flex items-start justify-between gap-4">
                             <div>
                                 <h2 className="display-font text-3xl text-deep">
-                                    Add Family Member
+                                    {t("addFamilyMemberLabel")}
                                 </h2>
                                 <p className="mt-2 text-sm text-foreground/58">
                                     {step === "search"
-                                        ? "Find the user by their registered email."
+                                        ? t("stepSearchDescription")
                                         : step === "relation"
-                                          ? "Pick the relation. An OTP will be sent to their email."
-                                          : "Enter the OTP shared by your invitee to complete the link."}
+                                          ? t("stepRelationDescription")
+                                          : t("stepOtpDescription")}
                                 </p>
                             </div>
                             <button
@@ -306,7 +337,7 @@ export function FamilySection() {
                                 onClick={closeModal}
                                 disabled={isWorking}
                                 className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-foreground/12 text-deep transition hover:bg-deep hover:text-white disabled:opacity-60"
-                                aria-label="Close"
+                                aria-label={t("closeAriaLabel")}
                             >
                                 <X className="h-4 w-4" />
                             </button>
@@ -330,7 +361,7 @@ export function FamilySection() {
                                 onSubmit={handleSearch}
                             >
                                 <label className="flex flex-col gap-2 text-sm font-semibold text-foreground/88">
-                                    Email address
+                                    {t("emailAddressLabel")}
                                     <input
                                         type="email"
                                         value={emailDraft}
@@ -338,7 +369,7 @@ export function FamilySection() {
                                             setEmailDraft(event.target.value)
                                         }
                                         className="h-11 rounded-xl border border-foreground/12 bg-white px-4 text-sm font-medium text-deep outline-none transition focus:border-deep"
-                                        placeholder="member@example.com"
+                                        placeholder={t("emailPlaceholder")}
                                         required
                                     />
                                 </label>
@@ -349,7 +380,7 @@ export function FamilySection() {
                                         disabled={isWorking}
                                         className=" border border-gold/35 bg-deep  px-5 py-2 text-xs font-bold uppercase tracking-[0.08em] text-white transition hover:border-deep hover:bg-white hover:text-deep disabled:opacity-60"
                                     >
-                                        Cancel
+                                        {t("cancelButton")}
                                     </button>
                                     <button
                                         type="submit"
@@ -360,8 +391,8 @@ export function FamilySection() {
                                     >
                                         <span className="relative z-10">
                                             {isWorking
-                                                ? "Checking..."
-                                                : "Continue"}
+                                                ? t("checkingLabel")
+                                                : t("continueButton")}
                                         </span>
                                     </button>
                                 </div>
@@ -372,13 +403,17 @@ export function FamilySection() {
                                 onSubmit={handleSendInvite}
                             >
                                 <div className="rounded-[20px] border border-foreground/10 bg-surface px-4 py-3 text-sm text-foreground/70">
-                                    Inviting{" "}
-                                    <span className="font-semibold text-deep">
-                                        {verifiedEmail}
-                                    </span>
+                                    {t.rich("invitingLabel", {
+                                        email: verifiedEmail,
+                                        bold: (chunks) => (
+                                            <span className="font-semibold text-deep">
+                                                {chunks}
+                                            </span>
+                                        ),
+                                    })}
                                 </div>
                                 <label className="flex flex-col gap-2 text-sm font-semibold text-foreground/88">
-                                    Relation
+                                    {t("relationFieldLabel")}
                                     <select
                                         value={relation}
                                         onChange={(event) =>
@@ -403,7 +438,7 @@ export function FamilySection() {
                                         disabled={isWorking}
                                         className="rounded-full border border-gold/35 bg-white px-5 py-2 text-xs font-bold uppercase tracking-[0.08em] text-deep transition hover:border-deep hover:bg-deep hover:text-white disabled:opacity-60"
                                     >
-                                        Back
+                                        {t("backButton")}
                                     </button>
                                     <button
                                         type="submit"
@@ -412,8 +447,8 @@ export function FamilySection() {
                                     >
                                         <span className="relative z-10">
                                             {isWorking
-                                                ? "Sending OTP..."
-                                                : "Send OTP"}
+                                                ? t("sendingOtpLabel")
+                                                : t("sendOtpButton")}
                                         </span>
                                     </button>
                                 </div>
@@ -424,7 +459,7 @@ export function FamilySection() {
                                 onSubmit={handleVerify}
                             >
                                 <label className="flex flex-col gap-2 text-sm font-semibold text-foreground/88">
-                                    OTP
+                                    {t("otpFieldLabel")}
                                     <input
                                         type="text"
                                         value={otp}
@@ -434,20 +469,20 @@ export function FamilySection() {
                                         inputMode="numeric"
                                         maxLength={6}
                                         className="h-11 rounded-xl border border-foreground/12 bg-white px-4 text-sm font-medium tracking-[0.4em] text-deep outline-none transition focus:border-deep"
-                                        placeholder="••••"
+                                        placeholder={t("otpPlaceholder")}
                                         required
                                     />
                                 </label>
                                 <p className="text-xs text-foreground/55">
-                                    Once verified,{" "}
-                                    <span className="font-semibold text-deep">
-                                        {verifiedEmail}
-                                    </span>{" "}
-                                    will be permanently linked as your{" "}
-                                    <span className="font-semibold text-deep">
-                                        {formatRelation(relation)}
-                                    </span>
-                                    . This cannot be undone.
+                                    {t.rich("onceVerifiedNotice", {
+                                        email: verifiedEmail,
+                                        relation: formatRelation(relation),
+                                        bold: (chunks) => (
+                                            <span className="font-semibold text-deep">
+                                                {chunks}
+                                            </span>
+                                        ),
+                                    })}
                                 </p>
                                 <div className="flex justify-end gap-3 pt-1">
                                     <button
@@ -456,7 +491,7 @@ export function FamilySection() {
                                         disabled={isWorking}
                                         className="rounded-full border border-gold/35 bg-white px-5 py-2 text-xs font-bold uppercase tracking-[0.08em] text-deep transition hover:border-deep hover:bg-deep hover:text-white disabled:opacity-60"
                                     >
-                                        Back
+                                        {t("backButton")}
                                     </button>
                                     <button
                                         type="submit"
@@ -467,8 +502,8 @@ export function FamilySection() {
                                     >
                                         <span className="relative z-10">
                                             {isWorking
-                                                ? "Verifying..."
-                                                : "Verify & Add"}
+                                                ? t("verifyingLabel")
+                                                : t("verifyAndAddButton")}
                                         </span>
                                     </button>
                                 </div>
