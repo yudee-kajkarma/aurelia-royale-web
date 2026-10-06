@@ -2,9 +2,8 @@
 
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowLeft, ChevronDown, Eye, EyeOff } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import RegisterImg from "@/assets/Register-img.png";
 import { toast } from "sonner";
 import { authService } from "@/services/auth/auth.service";

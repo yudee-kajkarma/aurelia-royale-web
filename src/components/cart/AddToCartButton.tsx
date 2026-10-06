@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ShoppingBag } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import { useAuth } from "@/providers/AuthProvider";
 import { useCart } from "@/providers/CartProvider";
 import { setPendingCartItem } from "@/services/cart/cart.pending";

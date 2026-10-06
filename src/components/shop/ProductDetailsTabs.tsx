@@ -2,8 +2,7 @@
 
 import { FormEvent, useCallback, useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
-import { usePathname, useRouter } from "next/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useAuth } from "@/providers/AuthProvider";
 import { reviewService } from "@/services/reviews/review.service";
 import type { ProductReview } from "@/services/reviews/review.types";

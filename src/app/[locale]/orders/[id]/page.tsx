@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useParams } from "next/navigation";
 import { Ban, CreditCard, MapPinHouse, Package } from "lucide-react";
 import { AuthGuard } from "@/components/auth/AuthGuard";

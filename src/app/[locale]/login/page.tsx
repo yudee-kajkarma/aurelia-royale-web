@@ -2,9 +2,9 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowLeft, Eye, EyeOff } from "lucide-react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import LoginImage from "@/assets/login-image.png";
 import { useAuth } from "@/providers/AuthProvider";
 import { getSafeAuthRedirect } from "@/services/auth/auth.types";

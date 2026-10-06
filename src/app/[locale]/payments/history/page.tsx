@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Clock3, CreditCard, ReceiptText } from "lucide-react";
 import { AuthGuard } from "@/components/auth/AuthGuard";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";

@@ -1,9 +1,8 @@
 ﻿"use client";
 
 import { FormEvent, useState } from "react";
-import Link from "next/link";
 import { Eye, EyeOff } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import { toast } from "sonner";
 import { BrandWordmark } from "@/components/brand/BrandWordmark";
 import { authService } from "@/services/auth/auth.service";

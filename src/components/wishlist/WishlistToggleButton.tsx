@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Heart } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import { useAuth } from "@/providers/AuthProvider";
 import { useWishlist } from "@/providers/WishlistProvider";
 import { setPendingWishlistProduct } from "@/services/wishlist/wishlist.pending";

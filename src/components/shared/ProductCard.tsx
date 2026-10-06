@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+﻿import { Link } from "@/i18n/navigation";
 import { AddToCartButton } from "@/components/cart/AddToCartButton";
 import { ProductImage } from "./ProductImage";
 // import { DiscountedPrice } from "@/components/shared/DiscountedPrice";

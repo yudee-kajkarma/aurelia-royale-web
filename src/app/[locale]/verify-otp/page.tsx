@@ -1,8 +1,8 @@
 ﻿"use client";
 
 import { FormEvent, Suspense, useEffect, useState } from "react";
-import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import { BrandWordmark } from "@/components/brand/BrandWordmark";
 import { authService } from "@/services/auth/auth.service";
 import { notifyError } from "@/utils/notify";
