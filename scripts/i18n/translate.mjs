@@ -79,8 +79,26 @@ const LOCALE_NAMES = {
 
 const BATCH_CHARS = 6000;
 const BATCH_ITEMS = 50;
-const CONCURRENCY = 4;
 const MAX_ATTEMPTS = 3;
+
+/**
+ * translateTarget() used to translate one locale's batches at a time (up to
+ * a fixed concurrency of 4 in flight), then move to the next locale — so
+ * with 5 target locales, at most 1/5th of the possible parallelism was ever
+ * used even though every locale's work is fully independent.
+ * globalConcurrency() caps how many (locale, batch) pairs run at once across
+ * ALL locales combined.
+ * A function, not a top-level const, for the same reason model() is one:
+ * it must read process.env AFTER loadEnv() has populated it from
+ * .env.local, and loadEnv() only runs right before command dispatch, well
+ * after top-level consts in this file would have already evaluated.
+ * Tunable via OPENAI_CONCURRENCY without a code edit (e.g. to back off if a
+ * higher value starts producing 429s). Default of 16 was picked empirically:
+ * re-translating the same blog at 10 took 49.2s and at 16 took 38.4s with
+ * zero 429s at either setting (both against a 128.2s sequential-locales
+ * baseline) — see task-13-report.md for the full measurement.
+ */
+const globalConcurrency = () => Number(process.env.OPENAI_CONCURRENCY) || 16;
 
 /* Review Focus 1: these keys must NEVER reach the model. collectLeaves()
    already filters them out via PROTECTED_KEYS, so under correct code this
@@ -628,38 +646,74 @@ async function translateTarget(resolved, source, opts, glossary, { quiet = false
     const batches = toBatches(leaves);
     const wrote = [];
 
+    // Skip-if-already-staged stays PER LOCALE and happens up front, exactly
+    // as before — only locales that actually need work enter the pool below,
+    // so resuming a partially-staged target still costs nothing for the
+    // locales already done.
+    const localesToTranslate = [];
     for (const locale of locales) {
         const outFile = resolved.stagingPath(locale);
         if (fs.existsSync(outFile) && !opts.force) {
             if (!quiet) console.log(`${locale}: staged file exists, skipping (use --force to redo)`);
             continue;
         }
+        localesToTranslate.push(locale);
+    }
 
-        const done = await pool(batches, CONCURRENCY, (batch) => translateBatch(locale, batch, glossary));
-        const flat = done.flat();
+    if (localesToTranslate.length) {
+        // Every (locale, batch) pair is independent work, so flatten them all
+        // into ONE list and feed ONE pool with a global cap — instead of
+        // finishing all of one locale's batches before starting the next,
+        // which left 4/5 of the available concurrency idle whenever there
+        // were 5 target locales. The locale tag travels on each work item
+        // and is threaded straight through to the result, so regrouping
+        // below is keyed on that tag, not on call order or completion
+        // timing (pool() already preserves each item's input index in its
+        // result array regardless of which finishes first).
+        const work = [];
+        for (const locale of localesToTranslate) {
+            for (const batch of batches) work.push({ locale, batch });
+        }
 
-        const translated = JSON.parse(JSON.stringify(source));
-        for (const leaf of flat) setAtPath(translated, leaf.path, leaf.translated);
+        const settled = await pool(work, globalConcurrency(), ({ locale, batch }) =>
+            translateBatch(locale, batch, glossary).then((result) => ({ locale, result }))
+        );
 
-        const problems = validate(locale, flat, source, translated, glossary);
+        const byLocale = new Map(localesToTranslate.map((l) => [l, []]));
+        for (const { locale, result } of settled) {
+            byLocale.get(locale).push(...result);
+        }
 
-        fs.mkdirSync(path.dirname(outFile), { recursive: true });
-        fs.writeFileSync(outFile, JSON.stringify(translated, null, 2) + "\n", "utf8");
-        wrote.push({ locale, problems });
+        for (const locale of localesToTranslate) {
+            const outFile = resolved.stagingPath(locale);
+            const flat = byLocale.get(locale);
 
-        if (!quiet) {
-            const byKind = problems.reduce((acc, p) => {
-                acc[p.kind] = (acc[p.kind] || 0) + 1;
-                return acc;
-            }, {});
-            console.log(
-                `${locale}: wrote ${path.relative(ROOT, outFile)} — ` +
-                    (problems.length ? `${problems.length} flag(s) ${JSON.stringify(byKind)}` : "clean")
-            );
-            for (const p of problems.slice(0, 12)) {
-                console.log(`   [${p.kind}] ${p.where ?? ""} ${p.detail}`);
+            // Fresh clone PER LOCALE — never shared or reused across
+            // locales — with every value written back through setAtPath at
+            // its own recorded path, exactly as in the sequential version.
+            const translated = JSON.parse(JSON.stringify(source));
+            for (const leaf of flat) setAtPath(translated, leaf.path, leaf.translated);
+
+            const problems = validate(locale, flat, source, translated, glossary);
+
+            fs.mkdirSync(path.dirname(outFile), { recursive: true });
+            fs.writeFileSync(outFile, JSON.stringify(translated, null, 2) + "\n", "utf8");
+            wrote.push({ locale, problems });
+
+            if (!quiet) {
+                const byKind = problems.reduce((acc, p) => {
+                    acc[p.kind] = (acc[p.kind] || 0) + 1;
+                    return acc;
+                }, {});
+                console.log(
+                    `${locale}: wrote ${path.relative(ROOT, outFile)} — ` +
+                        (problems.length ? `${problems.length} flag(s) ${JSON.stringify(byKind)}` : "clean")
+                );
+                for (const p of problems.slice(0, 12)) {
+                    console.log(`   [${p.kind}] ${p.where ?? ""} ${p.detail}`);
+                }
+                if (problems.length > 12) console.log(`   …${problems.length - 12} more`);
             }
-            if (problems.length > 12) console.log(`   …${problems.length - 12} more`);
         }
     }
 
