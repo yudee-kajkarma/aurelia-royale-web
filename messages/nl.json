@@ -5,7 +5,7 @@
   "Header": {
     "home": "Startpagina",
     "about": "Over ons",
-    "shop": "Winkelen",
+    "shop": "Winkel",
     "contact": "Contact",
     "blog": "Blog",
     "openMenu": "Menu openen",
@@ -608,7 +608,7 @@
       "certified": "Gecertificeerd"
     },
     "headingLine1": "WORN WITH",
-    "headingLine2": "INTENTIE.",
+    "headingLine2": "INTENTION.",
     "body": "Elk sieraad is een fluistering van erfgoed, vormgegeven door ambachtslieden die al tientallen jaren de taal van edelmetaal en edelsteen perfectioneren.",
     "cta": "Shop nu"
   },
@@ -744,7 +744,7 @@
     "sectionsLabel": "Productinformatieonderdelen",
     "productOverview": "Productoverzicht",
     "vendor": "Verkoper",
-    "category": "Category",
+    "category": "Categorie",
     "sku": "SKU",
     "productVideo": "Productvideo",
     "viewProductVideo": "Productvideo bekijken",
