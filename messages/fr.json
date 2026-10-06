@@ -568,8 +568,8 @@
     }
   },
   "BlogIndex": {
-    "title": "Guides sur les bijoux en diamants de laboratoire | Aurelia Royale",
-    "titlePaged": "Guides sur les bijoux en diamants de laboratoire — Page {page} | Aurelia Royale",
+    "title": "Guides sur les bijoux en diamants de laboratoire",
+    "titlePaged": "Guides sur les bijoux en diamants de laboratoire — Page {page}",
     "description": "Découvrez nos guides d’experts sur les diamants de laboratoire : informations, conseils d’achat, tailles, certification, entretien et conservation. Rédigés pour les acheteurs de bijoux raffinés en diamants.",
     "ogDescription": "Découvrez nos guides d’experts sur les diamants de laboratoire : informations, conseils d’achat, tailles, certification, entretien et conservation.",
     "eyebrow": "Journal Aurelia",

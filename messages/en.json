@@ -568,8 +568,8 @@
     }
   },
   "BlogIndex": {
-    "title": "Lab-Grown Diamond Jewellery Guides | Aurelia Royale",
-    "titlePaged": "Lab-Grown Diamond Jewellery Guides — Page {page} | Aurelia Royale",
+    "title": "Lab-Grown Diamond Jewellery Guides",
+    "titlePaged": "Lab-Grown Diamond Jewellery Guides — Page {page}",
     "description": "Explore expert guides on lab-grown diamonds covering education, buying advice, sizing, certification, care and maintenance. Written for buyers of fine diamond jewellery.",
     "ogDescription": "Explore expert guides on lab-grown diamonds covering education, buying advice, sizing, certification, care and maintenance.",
     "eyebrow": "Aurelia Journal",

@@ -46,7 +46,15 @@
     "    rest on that same single parallel sentence (N=1) — real translator output, but thin",
     "    evidence, not a dominant pattern. Marked via `unvalidated` below.",
     "",
-    "To research a new entry: node scripts/i18n/translate.mjs terms \"<english term>\""
+    "To research a new entry: node scripts/i18n/translate.mjs terms \"<english term>\"",
+    "",
+    "LIMITATION — `avoid` matching is WHOLE-WORD, so an avoided term compounded into a",
+    "longer word is invisible to it: Dutch 'zuiverheidsbeoordeling' is not a whole-word",
+    "hit for 'zuiverheid', which once let one paragraph go on mixing both words while",
+    "`check` read zero. Verified at zero such occurrences corpus-wide. The matcher stays",
+    "whole-word deliberately — a prefix match would produce false positives. If this",
+    "recurs, fix the avoid matcher, not the prose. Compounding locales (nl, de) are the",
+    "exposure; 'helderheidsgraad'/'zuiverheidsgraad' is the pair to watch."
   ],
   "terms": [
     {
@@ -293,6 +301,16 @@
     },
     {
       "en": "hallmark",
+      "note": [
+        "SENSE-DEPENDENT in Spanish; this row covers only ONE sense. The MARK on the piece",
+        "is 'sello'. HALLMARKING AS A SYSTEM is 'contraste' — uniglo ships 'los requisitos",
+        "de contraste' and 'por qué el contraste es más importante'; corpus-wide contraste 60",
+        "vs sello 19. The es avoid entry is therefore safe ONLY because hasSourceTerm's",
+        "optional 's' does not match the English 'hallmarking', so a leaf about the system",
+        "never triggers this row. That is load-bearing BY ACCIDENT: do not add 'hallmarking'",
+        "as a key, and do not loosen the source match, without first splitting this into two",
+        "rows — otherwise check will start demanding 'sello' where 'contraste' is correct."
+      ],
       "fr": "poinçon",
       "it": "punzone",
       "de": "Stempel",
