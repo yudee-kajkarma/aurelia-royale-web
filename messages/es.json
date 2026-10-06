@@ -2,6 +2,12 @@
   "Common": {
     "siteName": "Aurelia Royale"
   },
+  "NotFound": {
+    "eyebrow": "Error 404",
+    "heading": "No se encuentra esta página",
+    "body": "La página que buscas se ha trasladado, cambiado de nombre o nunca existió. Nuestras colecciones y guías siguen estando a solo un clic.",
+    "backHome": "Volver al inicio"
+  },
   "Header": {
     "home": "Inicio",
     "about": "Acerca de",
@@ -283,7 +289,7 @@
     "how-to-choose-lab-grown-diamond-pendant": {
       "title": "Cómo elegir un colgante de diamantes de laboratorio",
       "author": "Aurelia Royale",
-      "excerpt": "Elige un colgante de diamantes de laboratorio comprobando el tamaño de la presilla, la compatibilidad con la cadena, si se puede quitar, las dimensiones del colgante, el peso de los diamantes y exactamente qué incluye."
+      "excerpt": "Elige un colgante de diamantes de laboratorio comprobando el tamaño de la anilla, la compatibilidad con la cadena, si se puede quitar, las dimensiones del colgante, el peso de los diamantes y exactamente qué incluye."
     },
     "how-to-choose-lab-grown-diamond-ring": {
       "title": "Cómo elegir un anillo de diamantes de laboratorio",

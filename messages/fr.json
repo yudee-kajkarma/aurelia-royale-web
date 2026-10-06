@@ -2,6 +2,12 @@
   "Common": {
     "siteName": "Aurelia Royale"
   },
+  "NotFound": {
+    "eyebrow": "Erreur 404",
+    "heading": "Cette page est introuvable",
+    "body": "La page que vous recherchez a été déplacée, renommée ou n’a jamais existé. Nos collections et nos guides sont toujours à portée de clic.",
+    "backHome": "Retour à l’accueil"
+  },
   "Header": {
     "home": "Accueil",
     "about": "À propos",

@@ -2,6 +2,12 @@
   "Common": {
     "siteName": "Aurelia Royale"
   },
+  "NotFound": {
+    "eyebrow": "Error 404",
+    "heading": "This Page Cannot Be Found",
+    "body": "The page you are looking for has been moved, renamed, or never existed. Our collections and guides are still only a click away.",
+    "backHome": "Back to Home"
+  },
   "Header": {
     "home": "Home",
     "about": "About",

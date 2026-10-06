@@ -2,6 +2,12 @@
   "Common": {
     "siteName": "Aurelia Royale"
   },
+  "NotFound": {
+    "eyebrow": "Fout 404",
+    "heading": "Deze pagina kan niet worden gevonden",
+    "body": "De pagina die u zoekt, is verplaatst, heeft een andere naam gekregen of heeft nooit bestaan. Onze collecties en gidsen zijn nog steeds maar één klik verwijderd.",
+    "backHome": "Terug naar de homepage"
+  },
   "Header": {
     "home": "Startpagina",
     "about": "Over ons",
