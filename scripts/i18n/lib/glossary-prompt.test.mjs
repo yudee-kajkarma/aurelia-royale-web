@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { glossaryFor, hasSourceTerm, hasTerm, systemPrompt } from "./glossary-prompt.mjs";
+import { glossaryFor, glossaryViolations, hasSourceTerm, hasTerm, systemPrompt } from "./glossary-prompt.mjs";
 
 // Minimal glossary fixture mirroring the real shape (scripts/i18n/glossary.json):
 // a term with an `avoid` list for the locale under test (hallmark/contraste,
@@ -113,5 +113,53 @@ describe("hasTerm / hasSourceTerm", () => {
         expect(hasSourceTerm("our retailers", "retailer")).toBe(true);
         expect(hasSourceTerm("our retailer", "retailer")).toBe(true);
         expect(hasSourceTerm("caratage", "carat")).toBe(false);
+    });
+});
+
+describe("glossaryViolations", () => {
+    it("flags a banned rendering when the English leaf really uses the term", () => {
+        const v = glossaryViolations("es", glossary, "Every piece carries a hallmark.", "Cada pieza lleva un contraste.");
+        expect(v).toEqual([{ en: "hallmark", used: "contraste", house: "sello" }]);
+    });
+
+    // The two false positives that actually shipped. `check` reported them as
+    // violations with full confidence, and because `check` ENFORCES the
+    // glossary rather than validating it, they pressured the next run to
+    // replace correct Spanish with wrong Spanish.
+    it("does not flag the banned word when the English never uses the term", () => {
+        // Prose about visual contrast. "hallmark" appears nowhere in the source,
+        // so the hallmark -> sello rule has no business firing.
+        expect(
+            glossaryViolations("es", glossary, "The photo has strong contrast.", "La foto tiene mucho contraste."),
+        ).toEqual([]);
+    });
+
+    it("does not flag a correct word that another term happens to ban", () => {
+        // Metal FINENESS, where "pureza" is the right Spanish word. The
+        // clarity -> claridad row bans "pureza", but "clarity" is absent here.
+        const g = { terms: [{ en: "clarity", es: "claridad", avoid: { es: ["pureza", "purezas"] } }] };
+        expect(glossaryViolations("es", g, "Hallmarks, fineness and plating explained.", "Sellos, pureza y chapado.")).toEqual([]);
+        // ...but it still fires when the English genuinely says clarity.
+        expect(glossaryViolations("es", g, "Cut, colour, clarity and carat.", "Talla, color, pureza y quilate.")).toEqual([
+            { en: "clarity", used: "pureza", house: "claridad" },
+        ]);
+    });
+
+    it("matches a plural English source term, like the prompt side does", () => {
+        const v = glossaryViolations("es", glossary, "Hallmarks are stamped inside.", "Los contraste van dentro.");
+        expect(v).toHaveLength(1);
+        expect(v[0].en).toBe("hallmark");
+    });
+
+    it("never fires for a term with no avoid list in this locale", () => {
+        // "carat" has no avoid list at all, and the hallmark row has none for fr.
+        expect(glossaryViolations("es", glossary, "Two carat total weight.", "Dos quilates en total.")).toEqual([]);
+        expect(glossaryViolations("fr", glossary, "Every piece carries a hallmark.", "Chaque piece porte un contraste.")).toEqual([]);
+    });
+
+    it("reports every distinct banned rendering present in one leaf", () => {
+        const g = { terms: [{ en: "clarity", es: "claridad", avoid: { es: ["pureza", "purezas"] } }] };
+        const v = glossaryViolations("es", g, "Clarity matters.", "La pureza y las purezas importan.");
+        expect(v.map((x) => x.used)).toEqual(["pureza", "purezas"]);
     });
 });

@@ -55,7 +55,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { collectAll, collectLeaves, setAtPath } from "./lib/leaves.mjs";
-import { hasTerm, hasSourceTerm, glossaryFor, systemPrompt } from "./lib/glossary-prompt.mjs";
+import { hasTerm, hasSourceTerm, glossaryFor, glossaryViolations, systemPrompt } from "./lib/glossary-prompt.mjs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "../..");
@@ -536,9 +536,19 @@ function cmdTerms(term) {
     }
 }
 
+/** Read one value out of a nested object by the path collectLeaves reported. */
+const getAtPath = (root, segments) =>
+    segments.reduce((node, key) => (node == null ? undefined : node[key]), root);
+
 function cmdCheck(namespaceFilter) {
     const glossary = readJson(GLOSSARY_PATH);
+    // The English leaf is what makes an `avoid` rule meaningful: the rule bans
+    // a rendering OF A TERM, not a word outright. Without the source side this
+    // check reports false positives — see glossaryViolations in
+    // ./lib/glossary-prompt.mjs for the two that shipped.
+    const source = readJson(path.join(MESSAGES, `${SOURCE_LOCALE}.json`));
     let total = 0;
+    let orphans = 0;
     for (const locale of TARGET_LOCALES) {
         const msgs = readJson(path.join(MESSAGES, `${locale}.json`));
         const scope = namespaceFilter ? { [namespaceFilter]: msgs[namespaceFilter] } : msgs;
@@ -548,19 +558,29 @@ function cmdCheck(namespaceFilter) {
         }
         const found = [];
         for (const leaf of collectLeaves(scope)) {
-            for (const entry of glossary.terms) {
-                for (const bad of entry.avoid?.[locale] || []) {
-                    if (hasTerm(String(leaf.value), bad)) {
-                        found.push(`  ${leaf.path.join(".")}\n     used "${bad}" — house term is "${entry[locale]}"`);
-                    }
-                }
+            // leaf.path is rooted at `scope`, which is either `msgs` itself or
+            // { [ns]: ... } — in both cases a valid path into messages/en.json.
+            const sourceText = getAtPath(source, leaf.path);
+            if (typeof sourceText !== "string") {
+                orphans++;
+                continue;
+            }
+            for (const v of glossaryViolations(locale, glossary, sourceText, String(leaf.value))) {
+                found.push(
+                    `  ${leaf.path.join(".")}
+     used "${v.used}" — house term for "${v.en}" is "${v.house}"`,
+                );
             }
         }
         total += found.length;
         console.log(`== ${locale}: ${found.length} glossary violation(s)`);
         found.slice(0, 25).forEach((f) => console.log(f));
     }
-    console.log(`\ntotal violations: ${total}`);
+    console.log(`
+total violations: ${total}`);
+    if (orphans) {
+        console.log(`note: ${orphans} target leaf/leaves had no English counterpart and were not glossary-checked`);
+    }
     if (total) process.exitCode = 1;
 }
 

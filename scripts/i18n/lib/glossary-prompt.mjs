@@ -31,6 +31,14 @@
  *    literally has no way to interpret it as an output-wide ban.
  * 3. `systemPrompt` additionally states, once, that every rule below is
  *    scoped to its named ids and must not be generalised.
+ * 4. `glossaryViolations` applies the SAME scoping on the validation side.
+ *    Fixing only the prompt left `cmdCheck` scanning target leaves for
+ *    avoided words with no reference to the English at all, which is the
+ *    identical mis-scoping one layer down: it turned every `avoid` row into
+ *    an output-wide ban and reported confident false positives (see that
+ *    function's own note). Because `check` ENFORCES the glossary rather than
+ *    validating it, those false positives actively pressured later runs to
+ *    replace correct words with wrong ones.
  */
 
 const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -116,4 +124,39 @@ export function systemPrompt(locale, localeName, glossaryRows, keepVerbatim) {
     ]
         .filter(Boolean)
         .join("\n");
+}
+
+/**
+ * The `check` counterpart to `glossaryFor`: which `avoid` rules does one
+ * translated leaf genuinely violate?
+ *
+ * Source-conditioned on purpose. An `avoid` entry means "when the English
+ * says X, do not render it as Y". It is NOT a blanket ban on Y appearing
+ * anywhere in the locale. Judging the target text alone — what this check did
+ * originally — collapses the first into the second and yields false positives
+ * that read as authoritative:
+ *
+ *   - `clarity -> claridad, avoid: pureza` fired on an article about metal
+ *     FINENESS, where "pureza" is the correct Spanish word and the English
+ *     leaf never mentions clarity at all.
+ *   - `hallmark -> sello, avoid: contraste` fired on prose about visual
+ *     contrast, for the same reason.
+ *
+ * Requiring the English leaf to actually contain the term (plural-tolerant,
+ * via `hasSourceTerm`) makes the rule say what the glossary means. A row with
+ * no `avoid` list for this locale can never fire.
+ */
+export function glossaryViolations(locale, glossary, sourceText, targetText) {
+    const violations = [];
+    for (const entry of glossary.terms) {
+        const avoid = entry.avoid?.[locale] || [];
+        if (!avoid.length) continue;
+        if (!hasSourceTerm(sourceText, entry.en)) continue;
+        for (const bad of avoid) {
+            if (hasTerm(targetText, bad)) {
+                violations.push({ en: entry.en, used: bad, house: entry[locale] });
+            }
+        }
+    }
+    return violations;
 }
