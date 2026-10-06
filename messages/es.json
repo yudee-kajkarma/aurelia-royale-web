@@ -1438,5 +1438,43 @@
       "general": "General",
       "fallback": "{status}"
     }
+  },
+  "WishlistPage": {
+    "eyebrow": "Wishlist",
+    "heading": "Saved Pieces You Love",
+    "subtitle": "Keep track of the jewellery you want to revisit, compare, and move into your cart later.",
+    "clearWishlist": "Clear Wishlist",
+    "clearing": "Clearing...",
+    "loading": "Loading wishlist...",
+    "emptyTitle": "Your wishlist is empty",
+    "emptyBody": "Save products from the shop or product details page and they will appear here.",
+    "exploreShop": "Explore Shop",
+    "savedCollection": "Saved Collection",
+    "savedOn": "Saved {date}",
+    "viewShop": "View Shop",
+    "remove": "Remove",
+    "removing": "Removing...",
+    "summaryEyebrow": "Summary",
+    "savedItemsLabel": "Saved items",
+    "readyToShopLabel": "Ready to shop",
+    "yes": "Yes",
+    "no": "No",
+    "asideHint": "Open any saved piece from the shop to review its details and move it into your cart when you are ready.",
+    "continueShopping": "Continue Shopping",
+    "footerNote": "Curate your next Aurelia Royale order from your saved favourites",
+    "unableToClearWishlist": "Unable to clear your wishlist.",
+    "unableToRemoveItem": "Unable to remove this item."
+  },
+  "WishlistToggleButton": {
+    "addAriaLabel": "Add to wishlist",
+    "removeAriaLabel": "Remove from wishlist",
+    "addLabel": "Add To Wishlist",
+    "wishlistedLabel": "Wishlisted",
+    "unableToUpdate": "Unable to update your wishlist."
+  },
+  "AddToCartButton": {
+    "defaultLabel": "Add to Cart",
+    "adding": "Adding...",
+    "unableToAddItem": "Unable to add this item to your cart."
   }
 }

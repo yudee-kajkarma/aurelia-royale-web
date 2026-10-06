@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { ShoppingBag } from "lucide-react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { useAuth } from "@/providers/AuthProvider";
@@ -22,9 +23,11 @@ export function AddToCartButton({
   quantity = 1,
   className = "",
   iconOnly = false,
-  label = "Add to Cart",
+  label,
   redirectToCart = false,
 }: AddToCartButtonProps) {
+  const t = useTranslations("AddToCartButton");
+  const buttonLabel = label ?? t("defaultLabel");
   const pathname = usePathname();
   const router = useRouter();
   const { isAuthenticated, isReady } = useAuth();
@@ -55,7 +58,7 @@ export function AddToCartButton({
         router.push("/cart");
       }
     } catch (error) {
-      notifyError(error, "Unable to add this item to your cart.");
+      notifyError(error, t("unableToAddItem"));
     } finally {
       setIsSubmitting(false);
     }
@@ -67,10 +70,10 @@ export function AddToCartButton({
       onClick={(event) => void handleClick(event)}
       disabled={isSubmitting}
       className={className || "inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/90 px-3 py-2 text-sm font-bold text-deep shadow-sm transition hover:border-gold hover:text-gold disabled:opacity-60"}
-      aria-label={label}
+      aria-label={buttonLabel}
     >
       {/* <ShoppingBag size={18} /> */}
-      {iconOnly ? null : isSubmitting ? "Adding..." : label}
+      {iconOnly ? null : isSubmitting ? t("adding") : buttonLabel}
     </button>
   );
 }

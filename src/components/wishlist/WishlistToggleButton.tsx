@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Heart } from "lucide-react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { useAuth } from "@/providers/AuthProvider";
@@ -15,6 +16,7 @@ type WishlistToggleButtonProps = {
 };
 
 export function WishlistToggleButton({ productId, className = "", iconOnly = false }: WishlistToggleButtonProps) {
+  const t = useTranslations("WishlistToggleButton");
   const pathname = usePathname();
   const router = useRouter();
   const { isAuthenticated, isReady } = useAuth();
@@ -46,7 +48,7 @@ export function WishlistToggleButton({ productId, className = "", iconOnly = fal
         await addItem(productId);
       }
     } catch (error) {
-      notifyError(error, "Unable to update your wishlist.");
+      notifyError(error, t("unableToUpdate"));
     } finally {
       setIsSubmitting(false);
     }
@@ -57,11 +59,11 @@ export function WishlistToggleButton({ productId, className = "", iconOnly = fal
       type="button"
       onClick={(event) => void handleClick(event)}
       disabled={isSubmitting}
-      aria-label={inWishlist ? "Remove from wishlist" : "Add to wishlist"}
+      aria-label={inWishlist ? t("removeAriaLabel") : t("addAriaLabel")}
       className={className || "inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/90 px-3 py-2 text-sm font-bold text-deep shadow-sm transition hover:border-gold hover:text-gold disabled:opacity-60"}
     >
       <Heart size={18} className={inWishlist ? "fill-current text-gold" : ""} />
-      {iconOnly ? null : inWishlist ? "Wishlisted" : "Add To Wishlist"}
+      {iconOnly ? null : inWishlist ? t("wishlistedLabel") : t("addLabel")}
     </button>
   );
 }
