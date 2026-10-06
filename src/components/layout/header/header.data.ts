@@ -61,28 +61,30 @@ export const shopCategoryItems: HeaderVisualKeyedLinkItem[] = SHOP_CATEGORY_TILE
   imageUrl: tile.imageUrl,
 }));
 
-export const shopEditionItems: HeaderVisualLinkItem[] = [
+// `labelKey` resolves against the `Header` namespace (see Header.tsx /
+// HeaderMenuOverlay.tsx).
+export const shopEditionItems: HeaderVisualKeyedLinkItem[] = [
   {
     href: "/shop?edition=classic",
-    label: "Classic",
+    labelKey: "editionClassic",
     imageUrl:
       "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1000&q=80",
   },
   {
     href: "/shop?edition=limited",
-    label: "Limited Edition",
+    labelKey: "editionLimited",
     imageUrl:
       "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1000&q=80",
   },
   {
     href: "/shop?edition=rare",
-    label: "Rare",
+    labelKey: "editionRare",
     imageUrl:
       "https://images.unsplash.com/photo-1464863979621-258859e62245?auto=format&fit=crop&w=1000&q=80",
   },
   {
     href: "/shop?edition=timeless",
-    label: "Timeless",
+    labelKey: "editionTimeless",
     imageUrl:
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80",
   },

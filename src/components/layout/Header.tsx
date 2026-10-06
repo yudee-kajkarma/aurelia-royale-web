@@ -86,16 +86,24 @@ export function Header({
   const { count: cartCount } = useCart();
   const { count } = useWishlist();
 
-  // `shopCategoryItems` carries a `labelKey` (see header.data.ts, which is a
-  // plain data module with no request scope of its own); resolve it against
-  // the `shopCategories` namespace here, at the point of render.
+  // `shopCategoryItems`/`shopEditionItems` carry a `labelKey` (see
+  // header.data.ts, which is a plain data module with no request scope of
+  // its own); resolve them against the `shopCategories`/`Header` namespaces
+  // here, at the point of render.
   const resolvedShopCategoryItems = shopCategoryItems.map((item) => ({
     href: item.href,
     label: tShopCategories(item.labelKey),
     imageUrl: item.imageUrl,
   }));
+  const resolvedShopEditionItems = shopEditionItems.map((item) => ({
+    href: item.href,
+    label: t(item.labelKey),
+    imageUrl: item.imageUrl,
+  }));
   const activeShopItems =
-    activePanel === "category" ? resolvedShopCategoryItems : shopEditionItems;
+    activePanel === "category"
+      ? resolvedShopCategoryItems
+      : resolvedShopEditionItems;
   // Profile button destination — admins land on the admin dashboard,
   // normal users on their profile page. (Distinct from the post-login
   // default route, which sends normal users to "/".)

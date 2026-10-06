@@ -29,7 +29,11 @@
     "register": "Register",
     "aboutIntroduction": "Introduction",
     "aboutWhatWeDo": "What We Do",
-    "aboutWhySpecial": "Why Our Design is Special"
+    "aboutWhySpecial": "Why Our Design is Special",
+    "editionClassic": "Classic",
+    "editionLimited": "Limited Edition",
+    "editionRare": "Rare",
+    "editionTimeless": "Timeless"
   },
   "ProfileMenu": {
     "signedIn": "Signed In",
