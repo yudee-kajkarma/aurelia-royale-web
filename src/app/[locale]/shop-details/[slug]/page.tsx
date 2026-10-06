@@ -13,6 +13,7 @@ import { ComingSoonSignup } from "@/components/shop/ComingSoonSignup";
 import { ProductMediaGallery } from "@/components/shop/ProductMediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { SITE_URL } from "@/config/site";
+import { localeAlternates, localeUrl } from "@/lib/i18n/paths";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import {
     getProductBySlug,
@@ -43,10 +44,16 @@ export async function generateMetadata({
         .trim()
         .slice(0, 155);
 
+    const path = `/shop-details/${product.slug}`;
+
     return {
         title: product.title,
         description: description || t("metaDescriptionFallback", { title: product.title }),
-        alternates: { canonical: `/shop-details/${product.slug}/` },
+        alternates: {
+            canonical: localeUrl(locale, path),
+            languages: localeAlternates(path),
+        },
+        robots: { index: true, follow: true },
     };
 }
 

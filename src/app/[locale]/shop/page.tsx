@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { assertLocale } from "@/i18n/locale-guard";
+import { localeAlternates, localeUrl } from "@/lib/i18n/paths";
 import { ShopCatalog } from "@/components/shop/ShopCatalog";
 import {
     getCategoryLabelKey,
@@ -51,21 +52,28 @@ export async function generateMetadata({
 
     if (category) {
         const label = await resolveCategoryLabel(locale, category);
+        const canonical = `${localeUrl(locale, "/shop")}?category=${encodeURIComponent(category)}`;
         return {
             title: t("metaTitleCategory", { category: label }),
             description: t("metaDescriptionCategory", {
                 category: label.toLowerCase(),
             }),
             alternates: {
-                canonical: `/shop/?category=${encodeURIComponent(category)}`,
+                canonical,
+                languages: localeAlternates("/shop"),
             },
+            robots: { index: true, follow: true },
         };
     }
 
     return {
         title: t("metaTitleDefault"),
         description: t("metaDescriptionDefault"),
-        alternates: { canonical: "/shop/" },
+        alternates: {
+            canonical: localeUrl(locale, "/shop"),
+            languages: localeAlternates("/shop"),
+        },
+        robots: { index: true, follow: true },
     };
 }
 

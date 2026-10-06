@@ -1,4 +1,5 @@
-﻿import { ArrowRight } from "lucide-react";
+﻿import type { Metadata } from "next";
+import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Hero } from "@/components/home/Hero";
@@ -9,6 +10,8 @@ import { ShopByCategory } from "@/components/home/ShopByCategory";
 import { TestimonialSlider } from "@/components/home/TestimonialSlider";
 import { ProductImage } from "@/components/shared/ProductImage";
 // import { DiscountedPrice } from "@/components/shared/DiscountedPrice";
+import { assertLocale } from "@/i18n/locale-guard";
+import { localeAlternates, localeUrl } from "@/lib/i18n/paths";
 import {
     getAllProductFilters,
     getAllProducts,
@@ -20,6 +23,21 @@ import {
     getPrimaryShopCategories,
     getStorefrontCategories,
 } from "@/services/products/product-category";
+
+type PageProps = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { locale: raw } = await params;
+    const locale = assertLocale(raw);
+
+    return {
+        alternates: {
+            canonical: localeUrl(locale, "/"),
+            languages: localeAlternates("/"),
+        },
+        robots: { index: true, follow: true },
+    };
+}
 
 export default async function HomePage() {
     const t = await getTranslations("HomePage");

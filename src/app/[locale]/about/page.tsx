@@ -1,27 +1,70 @@
-﻿import Image from "next/image";
+import Image from "next/image";
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import AboutHero from "@/assets/About-Hero.png";
 import Vector1 from "@/assets/vector-1.png";
 import Vector2 from "@/assets/vector-2.png";
 import Vector3 from "@/assets/vector-3.png";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import { TestimonialSlider } from "@/components/home/TestimonialSlider";
-import type { Metadata } from "next";
+import { assertLocale } from "@/i18n/locale-guard";
+import { localeAlternates, localeUrl } from "@/lib/i18n/paths";
 
-export const metadata: Metadata = {
-    title: "About Us",
-    description:
-        "Discover the Aurelia Royale story — our craftsmanship, heritage, and commitment to sustainable lab-grown diamond jewelry.",
-    alternates: { canonical: "/about/" },
-};
+type PageProps = { params: Promise<{ locale: string }> };
 
-export default function AboutPage() {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { locale: raw } = await params;
+    const locale = assertLocale(raw);
+    const t = await getTranslations({ locale, namespace: "AboutPage" });
+
+    return {
+        title: t("metaTitle"),
+        description: t("metaDescription"),
+        alternates: {
+            canonical: localeUrl(locale, "/about"),
+            languages: localeAlternates("/about"),
+        },
+        robots: { index: true, follow: true },
+    };
+}
+
+export default async function AboutPage() {
+    const t = await getTranslations("AboutPage");
+
+    const stats = [
+        { value: "5+", label: t("statYearsLabel") },
+        { value: "850+", label: t("statDesignsLabel") },
+        { value: "1500+", label: t("statLoversLabel") },
+    ];
+
+    const philosophyItems = [
+        {
+            no: "01",
+            title: t("qualityTitle"),
+            body: t("qualityBody"),
+            icon: Vector1,
+        },
+        {
+            no: "02",
+            title: t("ethicalTitle"),
+            body: t("ethicalBody"),
+            icon: Vector2,
+        },
+        {
+            no: "03",
+            title: t("timelessTitle"),
+            body: t("timelessBody"),
+            icon: Vector3,
+        },
+    ];
+
     return (
         <main className="min-h-screen overflow-x-clip bg-background">
             {/* Hero banner */}
             <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#e8e5dc]">
                 <div className="mx-auto flex h-[300px] max-w-7xl items-center justify-center px-6">
                     <h1 className="font-[family-name:var(--font-cormorant)] text-7xl font-semibold uppercase tracking-[0.04em] text-foreground sm:text-8xl">
-                        About Us
+                        {t("heroTitle")}
                     </h1>
                 </div>
             </section>
@@ -32,42 +75,21 @@ export default function AboutPage() {
                     <div className="flex items-center gap-4">
                         <span className="h-px w-12 bg-gold" />
                         <p className="font-[family-name:var(--font-jost)] text-xs font-semibold uppercase tracking-[0.3em] text-gold">
-                            About Us
+                            {t("introEyebrow")}
                         </p>
                     </div>
 
                     <h2 className="mt-6 font-[family-name:var(--font-cormorant)] text-6xl font-medium leading-[1.05] text-foreground sm:text-6xl">
-                        A Legacy Of Fine Craft.
+                        {t("introHeading")}
                     </h2>
 
                     <div className="mt-8 space-y-6 font-[family-name:var(--font-jost)] text-[1.05rem] font-light  text-[#3b3b3b]">
-                        <p>
-                            At Aurelia Royale, elegance is more than a style — it
-                            is a statement of timeless sophistication. Our
-                            collection is crafted to celebrate modern luxury
-                            through finely designed jewellery pieces that blend
-                            contemporary artistry with classic charm. Every
-                            detail reflects grace, confidence, and refined
-                            beauty for those who appreciate exclusivity.
-                        </p>
-                        <p>
-                            We believe jewellery should feel personal,
-                            memorable, and effortlessly luxurious. From dazzling
-                            statement rings to delicate necklaces and radiant
-                            earrings, Aurelia Royale brings together
-                            craftsmanship and premium aesthetics to create
-                            pieces that elevate every occasion. Designed for the
-                            modern muse, our creations embody luxury with a
-                            minimalist touch.
-                        </p>
+                        <p>{t("introParagraph1")}</p>
+                        <p>{t("introParagraph2")}</p>
                     </div>
 
                     <div className="mt-11 flex justify-between  gap-x-7 gap-y-8">
-                        {[
-                            { value: "5+", label: "Year's Of Expertise" },
-                            { value: "850+", label: "Exclusive Designs" },
-                            { value: "1500+", label: "Jewelry Lovers" },
-                        ].map((stat) => (
+                        {stats.map((stat) => (
                             <div key={stat.label}>
                                 <p className="font-[family-name:var(--font-cormorant)] text-6xl font-semibold leading-none text-gold">
                                     {stat.value}
@@ -83,7 +105,7 @@ export default function AboutPage() {
                 <div className="relative h-140 w-full">
                     <Image
                         src={AboutHero}
-                        alt="Model wearing Aurelia Royale jewellery"
+                        alt={t("heroImageAlt")}
                         fill
                         sizes="(min-width: 1024px) 50vw, 100vw"
                         className="object-cover object-center"
@@ -98,37 +120,17 @@ export default function AboutPage() {
                     <div className="flex items-center gap-4">
                         <span className="h-px w-12 bg-gold" />
                         <p className="font-[family-name:var(--font-jost)] text-xs font-semibold uppercase tracking-[0.3em] text-gold">
-                            Our Philosophy
+                            {t("philosophyEyebrow")}
                         </p>
                     </div>
 
                     <h2 className="mt-7 max-w-3xl font-[family-name:var(--font-cormorant)] text-5xl font-medium leading-[1.12] text-[#f3f1e4] sm:text-6xl">
-                        We Believe Jewellery Is Not Decoration{" "}
-                        <span className="text-gold">—</span> It Is Memory Made
-                        Permanent.
+                        {t("philosophyHeadingPart1")}{" "}
+                        <span className="text-gold">—</span> {t("philosophyHeadingPart2")}
                     </h2>
 
                     <div className="mt-20 grid gap-14 sm:grid-cols-3 sm:gap-10">
-                        {[
-                            {
-                                no: "01",
-                                title: "Uncompromising Quality",
-                                body: "Every gemstone is hand-selected by our master gemmologist. Every metal is tested and hallmarked. We accept only what is genuinely extraordinary.",
-                                icon: Vector1,
-                            },
-                            {
-                                no: "02",
-                                title: "Ethical Provenance",
-                                body: "Our supply chain is independently audited to ensure no conflict minerals or exploitative practices are ever part of your piece.",
-                                icon: Vector2,
-                            },
-                            {
-                                no: "03",
-                                title: "Timeless Design",
-                                body: "We resist trend. Our pieces are designed to be worn by your daughter and her daughter — forms that feel as relevant in fifty years as they do today.",
-                                icon: Vector3,
-                            },
-                        ].map((item) => (
+                        {philosophyItems.map((item) => (
                             <div key={item.no}>
                                 <div className="flex items-center justify-between md: gap-10">
                                     <span className="font-[family-name:var(--font-cormorant)] text-6xl font-medium leading-none text-white/30">
