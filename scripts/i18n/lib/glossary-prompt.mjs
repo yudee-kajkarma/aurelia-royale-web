@@ -152,9 +152,21 @@ export function glossaryViolations(locale, glossary, sourceText, targetText) {
         const avoid = entry.avoid?.[locale] || [];
         if (!avoid.length) continue;
         if (!hasSourceTerm(sourceText, entry.en)) continue;
+        // A leaf is often a whole paragraph covering several concepts, so
+        // source-conditioning at leaf level is still too coarse on its own.
+        // One paragraph legitimately says "laboratory CLARITY grade" and
+        // "precious-metal FINENESS", and its Spanish correctly says both
+        // "claridad" and "pureza" — the clarity row would flag "pureza" even
+        // though the translator used the house term for the concept the rule
+        // is about. So: if the house term is already present, the avoided word
+        // is serving some OTHER concept in the same leaf and is not a
+        // violation. A real mistranslation shows up as the avoided word
+        // WITHOUT the house term anywhere.
+        const house = entry[locale];
+        if (house && hasSourceTerm(targetText, house)) continue;
         for (const bad of avoid) {
             if (hasTerm(targetText, bad)) {
-                violations.push({ en: entry.en, used: bad, house: entry[locale] });
+                violations.push({ en: entry.en, used: bad, house });
             }
         }
     }

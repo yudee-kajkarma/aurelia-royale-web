@@ -163,3 +163,45 @@ describe("glossaryViolations", () => {
         expect(v.map((x) => x.used)).toEqual(["pureza", "purezas"]);
     });
 });
+
+describe("glossaryViolations — multi-concept leaves", () => {
+    const g = { terms: [{ en: "clarity", es: "claridad", avoid: { es: ["pureza", "purezas"] } }] };
+
+    // A leaf is usually a whole paragraph. This one legitimately covers two
+    // different concepts, and its Spanish is correct for both: "claridad" for
+    // diamond clarity, "pureza" for metal fineness. Leaf-level
+    // source-conditioning alone still flagged it, because the English does
+    // contain "clarity" and the Spanish does contain "pureza" — just about
+    // different things. 24 of the corpus's 26 flags were this shape.
+    it("does not flag an avoided word when the house term is also present", () => {
+        const en = "A rotating view cannot establish: laboratory clarity grade; precious-metal fineness.";
+        const es = "Una vista giratoria no puede establecer: el grado de claridad del laboratorio; la pureza del metal.";
+        expect(glossaryViolations("es", g, en, es)).toEqual([]);
+    });
+
+    it("still flags the avoided word when the house term is absent entirely", () => {
+        // Here "pureza" really is standing in for the clarity grade.
+        const en = 'A broad statement such as "Never buy SI clarity" would be too simplistic.';
+        const es = 'Una afirmación general como "Nunca compres un diamante de pureza SI" sería demasiado simplista.';
+        expect(glossaryViolations("es", g, en, es)).toEqual([
+            { en: "clarity", used: "pureza", house: "claridad" },
+        ]);
+    });
+
+    it("tolerates a plural house term when suppressing", () => {
+        const g2 = { terms: [{ en: "hallmark", es: "sello", avoid: { es: ["contraste"] } }] };
+        const en = "A recognised hallmark provides assurance; hallmarking rules differ.";
+        const es = "Los sellos reconocidos dan garantía; las normas de marcado de contraste difieren.";
+        expect(glossaryViolations("es", g2, en, es)).toEqual([]);
+    });
+
+    it("does not let a shared word-prefix count as the house term", () => {
+        // "bracelet rivière" must not be suppressed by the house term
+        // "bracelet tennis" merely sharing the word "bracelet" — a stem-prefix
+        // test would wrongly swallow this one.
+        const g3 = { terms: [{ en: "tennis bracelet", fr: "bracelet tennis", avoid: { fr: ["bracelet rivière"] } }] };
+        const en = "A tennis bracelet is a flexible line of individually set stones.";
+        const fr = "Un bracelet rivière est une ligne souple de pierres serties individuellement.";
+        expect(glossaryViolations("fr", g3, en, fr)).toHaveLength(1);
+    });
+});

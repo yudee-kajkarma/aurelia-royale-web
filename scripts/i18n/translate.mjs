@@ -419,16 +419,19 @@ function validate(locale, leaves, source, translated, glossary) {
             });
         }
 
+        // Source-conditioned, exactly like cmdCheck: an `avoid` row bans a
+        // rendering OF A TERM, not a word outright. Judging `out` alone made
+        // every row an output-wide ban and flagged correct prose — note the
+        // `glossary-miss` check immediately below already gated on
+        // hasSourceTerm(src, ...), so the two sat one line apart disagreeing.
+        for (const v of glossaryViolations(locale, glossary, src, out)) {
+            problems.push({
+                kind: "glossary",
+                where,
+                detail: `used "${v.used}", expected "${v.house}" for "${v.en}"`,
+            });
+        }
         for (const entry of glossary.terms) {
-            for (const bad of entry.avoid?.[locale] || []) {
-                if (hasTerm(out, bad)) {
-                    problems.push({
-                        kind: "glossary",
-                        where,
-                        detail: `used "${bad}", expected "${entry[locale]}"`,
-                    });
-                }
-            }
             // Advisory only: the stem test cannot model every inflection, so a
             // hit here means "read this one", not "this is wrong".
             const stem = entry[locale]?.toLowerCase().slice(0, 6);
@@ -572,9 +575,35 @@ function cmdCheck(namespaceFilter) {
                 );
             }
         }
+        // The blog corpus is ~98 articles per locale and was never scanned
+        // here at all, so `check` could report a clean messages/ tree while the
+        // bulk of the shipped prose went unexamined. Same source-conditioned
+        // rule, read straight off disk.
+        for (const slug of fs.existsSync(BLOGS_DIR) ? fs.readdirSync(BLOGS_DIR) : []) {
+            const targetPath = path.join(BLOGS_DIR, slug, `${locale}.json`);
+            const sourcePath = path.join(BLOGS_DIR, slug, `${SOURCE_LOCALE}.json`);
+            if (!fs.existsSync(targetPath) || !fs.existsSync(sourcePath)) continue;
+            const targetDoc = readJson(targetPath);
+            const sourceDoc = readJson(sourcePath);
+            for (const leaf of collectLeaves(targetDoc)) {
+                const sourceText = getAtPath(sourceDoc, leaf.path);
+                if (typeof sourceText !== "string") {
+                    orphans++;
+                    continue;
+                }
+                for (const v of glossaryViolations(locale, glossary, sourceText, String(leaf.value))) {
+                    found.push(
+                        `  blogs/${slug}:${leaf.path.join(".")}
+     used "${v.used}" — house term for "${v.en}" is "${v.house}"`,
+                    );
+                }
+            }
+        }
+
         total += found.length;
         console.log(`== ${locale}: ${found.length} glossary violation(s)`);
         found.slice(0, 25).forEach((f) => console.log(f));
+        if (found.length > 25) console.log(`  ... and ${found.length - 25} more`);
     }
     console.log(`
 total violations: ${total}`);
