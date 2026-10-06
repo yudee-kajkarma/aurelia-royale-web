@@ -3,1041 +3,1030 @@
     "siteName": "Aurelia Royale"
   },
   "Header": {
-    "home": "Home",
-    "about": "About",
-    "shop": "Shop",
+    "home": "Startpagina",
+    "about": "Over ons",
+    "shop": "Winkelen",
     "contact": "Contact",
     "blog": "Blog",
-    "openMenu": "Open menu",
-    "closeMenu": "Close menu",
-    "openProfileMenu": "Open profile menu",
-    "openAccountMenu": "Open account menu",
-    "goToLogin": "Go to login",
-    "wishlist": "Wishlist",
-    "shoppingBag": "Shopping bag",
-    "shopByCategory": "Shop By Category",
-    "shopByEdition": "Shop By Edition",
-    "searchPlaceholder": "What are you looking for",
-    "language": "Language",
-    "admin": "Admin",
-    "profile": "Profile",
-    "guestProfilePrompt": "Sign in to see your account details here.",
-    "openLogin": "Open Login",
-    "welcome": "Welcome",
-    "guestWelcomePrompt": "Sign in to access your profile, orders, wishlist, and checkout history.",
-    "login": "Login",
-    "register": "Register",
-    "aboutIntroduction": "Introduction",
-    "aboutWhatWeDo": "What We Do",
-    "aboutWhySpecial": "Why Our Design is Special",
-    "editionClassic": "Classic",
-    "editionLimited": "Limited Edition",
-    "editionRare": "Rare",
-    "editionTimeless": "Timeless"
+    "openMenu": "Menu openen",
+    "closeMenu": "Menu sluiten",
+    "openProfileMenu": "Profielmenu openen",
+    "openAccountMenu": "Accountmenu openen",
+    "goToLogin": "Naar inloggen",
+    "wishlist": "Verlanglijst",
+    "shoppingBag": "Winkelmandje",
+    "shopByCategory": "Winkelen op categorie",
+    "shopByEdition": "Winkelen op editie",
+    "searchPlaceholder": "Waar bent u naar op zoek?",
+    "language": "Taal",
+    "admin": "Beheer",
+    "profile": "Profiel",
+    "guestProfilePrompt": "Meld u aan om hier uw accountgegevens te bekijken.",
+    "openLogin": "Inlogvenster openen",
+    "welcome": "Welkom",
+    "guestWelcomePrompt": "Meld u aan om toegang te krijgen tot uw profiel, bestellingen, verlanglijst en afrekeningsgeschiedenis.",
+    "login": "Inloggen",
+    "register": "Registreren",
+    "aboutIntroduction": "Introductie",
+    "aboutWhatWeDo": "Wat we doen",
+    "aboutWhySpecial": "Waarom ons ontwerp bijzonder is",
+    "editionClassic": "Klassiek",
+    "editionLimited": "Gelimiteerde editie",
+    "editionRare": "Zeldzaam",
+    "editionTimeless": "Tijdloos"
   },
   "ProfileMenu": {
-    "signedIn": "Signed In",
-    "myProfile": "My Profile",
-    "role": "Role",
-    "adminDashboard": "Admin Dashboard",
-    "profile": "Profile",
-    "logout": "Logout"
+    "signedIn": "Ingelogd",
+    "myProfile": "Mijn profiel",
+    "role": "Rol",
+    "adminDashboard": "Beheerdersdashboard",
+    "profile": "Profiel",
+    "logout": "Uitloggen"
   },
   "Footer": {
-    "tagline": "Fine jewellery crafted for those who value beauty, heritage, and permanence above all.",
-    "navLabel": "Footer",
-    "home": "Home",
-    "about": "About",
-    "shop": "Shop",
+    "tagline": "Fijne juwelen, vervaardigd voor wie schoonheid, erfgoed en bestendigheid boven alles waardeert.",
+    "navLabel": "Voettekst",
+    "home": "Startpagina",
+    "about": "Over ons",
+    "shop": "Winkel",
     "blog": "Blog",
     "contact": "Contact",
-    "copyright": "Copyright 2026 Aurelia Royale. All rights reserved by Aurelia Royale."
+    "copyright": "Copyright 2026 Aurelia Royale. Alle rechten voorbehouden aan Aurelia Royale."
   },
   "blogCategories": {
-    "labGrownDiamondEducation": "Lab-Grown Diamond Education",
-    "colouredStonesAndDiamonds": "Coloured Stones and Diamonds",
-    "labGrownDiamondCare": "Lab-Grown Diamond Care",
-    "certificationAndDiamondQuality": "Certification and Diamond Quality",
-    "buyingLabGrownDiamondJewellery": "Buying Lab-Grown Diamond Jewellery",
-    "productCategoryGuides": "Product-Category Guides",
-    "jewelleryCareAndMaintenance": "Jewellery Care and Maintenance"
+    "labGrownDiamondEducation": "Informatie over labgrown diamanten",
+    "colouredStonesAndDiamonds": "Gekleurde edelstenen en diamanten",
+    "labGrownDiamondCare": "Verzorging van labgrown diamanten",
+    "certificationAndDiamondQuality": "Certificering en diamantkwaliteit",
+    "buyingLabGrownDiamondJewellery": "Labgrown diamanten sieraden kopen",
+    "productCategoryGuides": "Gidsen voor productcategorieën",
+    "jewelleryCareAndMaintenance": "Verzorging en onderhoud van sieraden"
   },
   "BlogArticle": {
-    "published": "Published {date}",
-    "relatedArticles": "Related Articles",
-    "backToGuides": "← Back to all guides",
-    "exploreCollection": "Explore Collection",
-    "consultAnExpert": "Consult an Expert"
+    "published": "Gepubliceerd op {date}",
+    "relatedArticles": "Gerelateerde artikelen",
+    "backToGuides": "← Terug naar alle gidsen",
+    "exploreCollection": "Ontdek de collectie",
+    "consultAnExpert": "Overleg met een expert"
   },
   "blogCards": {
     "360-degree-jewellery-product-views": {
-      "title": "How 360-Degree Jewellery Views Help Online Buyers",
+      "title": "Hoe 360-gradenweergaven van juwelen online inkopers helpen",
       "author": "Aurelia Royale",
-      "excerpt": "Learn what 360-degree jewellery views reveal about settings, proportions, clasps and construction—and what buyers must still verify separately."
+      "excerpt": "Ontdek wat 360-gradenweergaven van juwelen laten zien over zettingen, verhoudingen, sluitingen en constructie — en wat inkopers nog afzonderlijk moeten controleren."
     },
     "4cs-of-lab-grown-diamonds": {
-      "title": "Lab-Grown Diamond 4Cs: Cut, Colour, Clarity & Carat",
+      "title": "De 4 C’s van labgrown diamanten: slijpkwaliteit, kleur, helderheid en karaat",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how cut, colour, clarity and carat affect a lab-grown diamond, how to balance the 4Cs, and how diamond grading reports can differ."
+      "excerpt": "Ontdek hoe slijpkwaliteit, kleur, helderheid en karaat een labgrown diamant beïnvloeden, hoe je de 4 C’s in balans brengt en hoe diamantcertificaten van elkaar kunnen verschillen."
     },
     "are-lab-grown-diamonds-more-affordable": {
-      "title": "Are Lab-Grown Diamonds Cheaper Than Natural? Price Guide",
+      "title": "Zijn labgrown diamanten goedkoper dan natuurlijke diamanten? Prijsgids",
       "author": "Aurelia Royale",
-      "excerpt": "Why are lab-grown diamonds cheaper than natural diamonds? Learn what drives the price gap, how to compare loose stones and what affects jewellery cost."
+      "excerpt": "Waarom zijn labgrown diamanten goedkoper dan natuurlijke diamanten? Ontdek waardoor het prijsverschil ontstaat, hoe je losse stenen vergelijkt en wat de kosten van juwelen beïnvloedt."
     },
     "are-lab-grown-diamonds-real": {
-      "title": "Are Lab-Grown Diamonds Real? Real vs Fake Explained",
+      "title": "Zijn labgrown diamanten echt? Echt versus nep uitgelegd",
       "author": "Aurelia Royale",
-      "excerpt": "Are lab-grown diamonds real diamonds? Learn what they are made of, how they differ from natural diamonds and how experts identify lab-grown origin."
+      "excerpt": "Zijn labgrown diamanten echte diamanten? Ontdek waar ze van gemaakt zijn, hoe ze verschillen van natuurlijke diamanten en hoe experts de labgrown oorsprong vaststellen."
     },
     "are-lab-grown-diamonds-suitable-for-fine-jewellery": {
-      "title": "Are Lab-Grown Diamonds Suitable for Fine Jewellery?",
+      "title": "Zijn labgrown diamanten geschikt voor fijne juwelen?",
       "author": "Aurelia Royale",
-      "excerpt": "Can lab-grown diamonds be used in fine jewellery? Learn why diamond origin does not determine quality, durability or the craftsmanship of a finished piece."
+      "excerpt": "Kunnen labgrown diamanten worden gebruikt in fijne juwelen? Ontdek waarom de oorsprong van een diamant niet bepalend is voor de kwaliteit, duurzaamheid of het vakmanschap van een afgewerkt sieraad."
     },
     "are-lab-grown-diamonds-suitable-for-regular-wear": {
-      "title": "Can You Wear Lab-Grown Diamonds Every Day?",
+      "title": "Kun je labgrown diamanten elke dag dragen?",
       "author": "Aurelia Royale",
-      "excerpt": "Can you wear lab-grown diamonds every day? Learn about durability, settings, rings, earrings, swimming, showering, exercise and when jewellery should be removed."
+      "excerpt": "Kun je labgrown diamanten elke dag dragen? Ontdek meer over duurzaamheid, zettingen, ringen, oorbellen, zwemmen, douchen, sporten en wanneer je juwelen beter af kunt doen."
     },
     "are-lab-grown-diamonds-worth-buying": {
-      "title": "Are Lab-Grown Diamonds Worth It? Pros & Cons Guide",
+      "title": "Zijn labgrown diamanten het waard? Gids met voor- en nadelen",
       "author": "Aurelia Royale",
-      "excerpt": "Are lab-grown diamonds worth buying? Explore their advantages, price flexibility, durability and quality alongside resale and sustainability trade-offs."
+      "excerpt": "Zijn labgrown diamanten het waard om te kopen? Ontdek de voordelen, flexibele prijzen, duurzaamheid en kwaliteit, naast de afwegingen rond doorverkoop en duurzaamheid."
     },
     "buy-certified-lab-grown-diamond-jewellery-online": {
-      "title": "How to Buy Lab-Grown Diamond Jewellery Online Safely",
+      "title": "Zo koop je veilig online juwelen met labgrown diamanten",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to buy lab-grown diamond jewellery online by checking the seller, diamond specifications, reports, pricing, returns, delivery and what to inspect when it arrives."
+      "excerpt": "Ontdek hoe je online juwelen met labgrown diamanten koopt door de verkoper, diamantspecificaties, certificaten, prijzen, retourvoorwaarden en levering te controleren, en te weten waarop je moet letten bij ontvangst."
     },
     "buying-fine-jewellery-as-gift": {
-      "title": "Fine Jewellery Gift Guide: How to Choose the Right Piece",
+      "title": "Cadeaugids voor fijne juwelen: zo kies je het juiste sieraad",
       "author": "Aurelia Royale",
-      "excerpt": "Buying fine jewellery as a gift? Learn how to choose the right style, metal, jewellery type and size, manage surprise-gift uncertainty and check exchange and delivery terms."
+      "excerpt": "Koop je fijne juwelen als cadeau? Ontdek hoe je de juiste stijl, het metaal, het soort sieraad en de maat kiest, onzekerheid bij een verrassingscadeau aanpakt en de ruil- en leveringsvoorwaarden controleert."
     },
     "can-lab-grown-diamonds-become-cloudy": {
-      "title": "Do Lab-Grown Diamonds Get Cloudy? Causes & Fixes",
+      "title": "Worden labgrown diamanten troebel? Oorzaken en oplossingen",
       "author": "Aurelia Royale",
-      "excerpt": "Learn why a lab-grown diamond may look cloudy, how to distinguish surface residue from internal haze or damage, and whether cleaning can restore it."
+      "excerpt": "Ontdek waarom een labgrown diamant er troebel uit kan zien, hoe je oppervlakteresten onderscheidt van interne waas of schade, en of reinigen de diamant weer helder kan maken."
     },
     "can-you-tell-lab-grown-from-natural-diamond": {
-      "title": "Can You Tell Lab-Grown vs Natural Diamonds Apart?",
+      "title": "Kun je labgrown en natuurlijke diamanten van elkaar onderscheiden?",
       "author": "Aurelia Royale",
-      "excerpt": "Can you tell a lab-grown diamond from a natural one? Compare visual inspection, diamond testers, laser inscriptions and professional laboratory testing."
+      "excerpt": "Kun je een labgrown diamant onderscheiden van een natuurlijke diamant? Vergelijk visuele inspectie, diamanttesters, laserinscripties en professionele laboratoriumtests."
     },
     "carat-weight-vs-visible-diamond-size": {
-      "title": "Diamond Carat Weight vs Size: Carat-to-MM Guide",
+      "title": "Gewicht in karaat versus grootte van een diamant: gids van karaat naar MM",
       "author": "Aurelia Royale",
-      "excerpt": "Carat measures diamond weight, not visible size. Compare approximate diamond dimensions in mm and learn why equal-carat stones can look different face-up."
+      "excerpt": "Karaat meet het gewicht van een diamant, niet de zichtbare grootte. Vergelijk de geschatte afmetingen van diamanten in mm en ontdek waarom stenen met hetzelfde karaatgewicht er van bovenaf anders uit kunnen zien."
     },
     "certified-lab-grown-diamond-jewellery-meaning": {
-      "title": "Certified Lab-Grown Diamond Jewellery: What It Means",
+      "title": "Gecertificeerde juwelen met labgrown diamanten: wat betekent dat?",
       "author": "Aurelia Royale",
-      "excerpt": "What does certified lab-grown diamond jewellery mean? Learn the difference between diamond reports, finished-jewellery reports, IGI verification, GIA assessments and UK hallmarks."
+      "excerpt": "Wat betekent gecertificeerde juwelen met labgrown diamanten? Ontdek het verschil tussen diamantcertificaten, certificaten voor afgewerkte juwelen, IGI-verificatie, beoordelingen door GIA en Britse keurmerken."
     },
     "check-diamond-information-is-complete": {
-      "title": "Diamond Information Checklist: Is Anything Missing?",
+      "title": "Checklist voor diamantgegevens: ontbreekt er iets?",
       "author": "Aurelia Royale",
-      "excerpt": "Use this diamond information checklist to find missing details, compare a product page with its grading report and resolve contradictions before buying."
+      "excerpt": "Gebruik deze checklist voor diamantgegevens om ontbrekende details te vinden, een productpagina met het diamantcertificaat te vergelijken en tegenstrijdigheden op te lossen voordat je iets koopt."
     },
     "check-jewellery-product-dimensions-weight": {
-      "title": "How to Check Jewellery Dimensions and Weight Online",
+      "title": "Zo controleer je online de afmetingen en het gewicht van juwelen",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to read jewellery dimensions online, including ring width and height, earring diameter, pendant size, necklace and bracelet length, diamond millimetres and carat weight."
+      "excerpt": "Ontdek hoe je online afmetingen van juwelen leest, zoals de breedte en hoogte van een ring, de diameter van een oorbel, de grootte van een hanger, de lengte van een ketting en armband, de millimeters van een diamant en het karaatgewicht."
     },
     "check-metal-used-diamond-jewellery": {
-      "title": "How to Check the Metal Used in Diamond Jewellery",
+      "title": "Zo controleer je welk metaal is gebruikt in juwelen met diamanten",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to identify gold, silver and platinum in diamond jewellery, read UK hallmarks and fineness marks, and distinguish solid, hollow and plated construction."
+      "excerpt": "Ontdek hoe je goud, zilver en platina in juwelen met diamanten herkent, Britse keurmerken en gehaltemerken leest en massieve, holle en vergulde constructies onderscheidt."
     },
     "choose-diamond-jewellery-without-seeing-in-person": {
-      "title": "How to Buy Diamond Jewellery Online Without Seeing It",
+      "title": "Zo koop je online juwelen met diamanten zonder ze eerst te zien",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to evaluate diamond jewellery online using 360° views, photos, dimensions, diamond reports and specifications—and what cannot be verified from images alone."
+      "excerpt": "Ontdek hoe je diamanten juwelen online beoordeelt aan de hand van 360°-weergaven, foto’s, afmetingen, diamant rapporten en specificaties — en wat je niet alleen op basis van afbeeldingen kunt controleren."
     },
     "choose-lab-grown-diamond-earrings-gift": {
-      "title": "How to Choose Lab-Grown Diamond Earrings as a Gift",
+      "title": "Hoe kies je labgrown diamanten oorbellen als cadeau?",
       "author": "Aurelia Royale",
-      "excerpt": "Choose lab-grown diamond earrings as a gift by checking piercing type, fastening, size, diamond weight, metal, everyday style and exchange flexibility."
+      "excerpt": "Kies labgrown diamanten oorbellen als cadeau door te letten op het type oorpiercing, de sluiting, de grootte, het diamantgewicht, het metaal, de stijl voor dagelijks gebruik en de mogelijkheden om te ruilen."
     },
     "choose-trustworthy-online-diamond-jeweller": {
-      "title": "How to Choose a Trustworthy Online Diamond Jeweller",
+      "title": "Hoe kies je een betrouwbare online juwelier voor diamanten?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to check whether an online diamond jeweller is trustworthy by verifying diamond reports, product claims, pricing, reviews, policies, business details and lab-grown disclosures."
+      "excerpt": "Ontdek hoe je controleert of een online juwelier voor diamanten betrouwbaar is door diamant rapporten, productclaims, prijzen, beoordelingen, beleid, bedrijfsgegevens en informatie over labgrown diamanten te verifiëren."
     },
     "common-myths-about-lab-grown-diamonds": {
-      "title": "15 Lab-Grown Diamond Myths Debunked: Facts vs Fiction",
+      "title": "15 mythes over labgrown diamanten ontkracht: feiten en fictie",
       "author": "Aurelia Royale",
-      "excerpt": "Are lab-grown diamonds fake, fragile or worthless? We fact-check 15 common lab-grown diamond myths about quality, durability, grading, value and more."
+      "excerpt": "Zijn labgrown diamanten nep, kwetsbaar of waardeloos? We toetsen 15 veelvoorkomende mythes over labgrown diamanten aan de feiten, over kwaliteit, duurzaamheid, gradatie, waarde en meer."
     },
     "compare-lab-grown-diamond-jewellery-online": {
-      "title": "How to Compare Lab-Grown Diamond Jewellery Online",
+      "title": "Hoe vergelijk je labgrown diamanten juwelen online?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to compare lab-grown diamond jewellery online using centre-stone weight, total carat weight, dimensions, reports, metal, construction and price."
+      "excerpt": "Ontdek hoe je labgrown diamanten juwelen online vergelijkt aan de hand van het karaatgewicht van de centrale steen, het totale karaatgewicht, de afmetingen, rapporten, het metaal, de constructie en de prijs."
     },
     "cvd-vs-hpht-lab-grown-diamonds": {
-      "title": "CVD vs HPHT Lab-Grown Diamonds: Key Differences",
+      "title": "CVD- versus HPHT-labgrown diamanten: de belangrijkste verschillen",
       "author": "Aurelia Royale",
-      "excerpt": "Compare CVD and HPHT lab-grown diamonds, including how they are made, quality, appearance, price, treatments and which option is better to buy."
+      "excerpt": "Vergelijk CVD- en HPHT-labgrown diamanten, waaronder hoe ze worden gemaakt en de verschillen in kwaliteit, uiterlijk, prijs en behandelingen, en ontdek welke optie je het beste kunt kopen."
     },
     "diamond-certification-vs-jewellery-certification": {
-      "title": "Diamond vs Jewellery Certification: Key Differences",
+      "title": "Diamantcertificering versus juwelencertificering: de belangrijkste verschillen",
       "author": "Aurelia Royale",
-      "excerpt": "Learn the difference between a diamond report, finished-jewellery report, hallmark, valuation and authenticity card before buying fine jewellery."
+      "excerpt": "Ontdek het verschil tussen een diamant rapport, een rapport van een afgewerkt juweel, een keurmerk, een waardebepaling en een echtheidskaart voordat je fijne juwelen koopt."
     },
     "diamond-details-product-page": {
-      "title": "Diamond Product Page Details: Complete Checklist",
+      "title": "Gegevens op een productpagina voor diamanten: complete checklist",
       "author": "Aurelia Royale",
-      "excerpt": "Learn which diamond, metal, certification, sizing, price, delivery and return details a trustworthy jewellery product page should clearly disclose."
+      "excerpt": "Ontdek welke informatie over diamanten, metaal, certificering, maten, prijs, levering en retourneren een betrouwbare productpagina voor juwelen duidelijk moet vermelden."
     },
     "diamond-jewellery-product-specifications-checklist": {
-      "title": "Diamond Jewellery Product Specifications Checklist",
+      "title": "Checklist met productspecificaties voor diamanten juwelen",
       "author": "Aurelia Royale",
-      "excerpt": "Check the essential diamond, metal, size, construction, certification and order details every jewellery product page should provide before checkout."
+      "excerpt": "Controleer vóór het afrekenen de essentiële informatie over diamanten, metaal, maat, constructie, certificering en bestelling die elke productpagina voor juwelen moet vermelden."
     },
     "diamond-laser-inscription": {
-      "title": "What Is a Diamond Laser Inscription?",
+      "title": "Wat is een laserinscriptie op een diamant?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn what a diamond laser inscription is, where to find it, how report numbers help identify a diamond, and what to do when an inscription does not match its report."
+      "excerpt": "Ontdek wat een laserinscriptie op een diamant is, waar je die kunt vinden, hoe rapportnummers helpen een diamant te identificeren en wat je moet doen als een inscriptie niet overeenkomt met het bijbehorende rapport."
     },
     "diamond-necklace-vs-diamond-pendant": {
-      "title": "Diamond Necklace vs Pendant: What Is the Difference?",
+      "title": "Diamanten halsketting versus hanger: wat is het verschil?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn the difference between a diamond necklace and diamond pendant, whether a chain is included, and how pendant-only, pendant-with-chain and necklace products differ."
+      "excerpt": "Ontdek het verschil tussen een diamanten halsketting en een diamanten hanger, of een ketting is inbegrepen en hoe producten met alleen een hanger, een hanger met ketting en een halsketting van elkaar verschillen."
     },
     "do-lab-grown-diamonds-have-resale-value": {
-      "title": "Do Lab-Grown Diamonds Have Resale Value? Honest Guide",
+      "title": "Hebben labgrown diamanten doorverkoopwaarde? Een eerlijke gids",
       "author": "Aurelia Royale",
-      "excerpt": "Lab-grown diamonds can be resold, but offers may be far below retail. Learn how market prices, metal, reports, condition and selling method affect value."
+      "excerpt": "Labgrown diamanten kunnen worden doorverkocht, maar biedingen kunnen veel lager liggen dan de winkelprijs. Ontdek hoe marktprijzen, het metaal, rapporten, de staat en de verkoopmethode de waarde beïnvloeden."
     },
     "do-lab-grown-diamonds-last-forever": {
-      "title": "Do Lab-Grown Diamonds Last Forever? Durability Guide",
+      "title": "Gaan labgrown diamanten eeuwig mee? Gids over duurzaamheid",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how long lab-grown diamonds last, whether they deteriorate, fade, scratch or chip, and how settings and maintenance affect their longevity."
+      "excerpt": "Ontdek hoe lang labgrown diamanten meegaan, of ze verslechteren, verkleuren, krassen of chippen, en hoe zettingen en onderhoud hun levensduur beïnvloeden."
     },
     "do-lab-grown-diamonds-lose-their-sparkle": {
-      "title": "Do Lab-Grown Diamonds Lose Their Sparkle?",
+      "title": "Verliezen labgrown diamanten hun schittering?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn why lab-grown diamonds can look dull, whether they permanently lose brilliance and how cleaning, cut, lighting and maintenance restore sparkle."
+      "excerpt": "Ontdek waarom labgrown diamanten er dof uit kunnen zien, of ze hun schittering blijvend verliezen en hoe reiniging, slijpkwaliteit, belichting en onderhoud de schittering kunnen herstellen."
     },
     "do-lab-grown-diamonds-need-certification": {
-      "title": "Does Every Lab-Grown Diamond Need Certification?",
+      "title": "Moet elke labgrown diamant gecertificeerd zijn?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn when a lab-grown diamond certificate is important, why small accent diamonds are rarely graded individually and what to check without a report."
+      "excerpt": "Ontdek wanneer een certificaat voor een labgrown diamant belangrijk is, waarom kleine accentdiamanten zelden afzonderlijk worden beoordeeld en waar je op moet letten als er geen rapport is."
     },
     "first-time-buyers-guide-lab-grown-diamond-jewellery": {
-      "title": "Lab-Grown Diamond Jewellery Buying Guide for Beginners",
+      "title": "Koopgids voor labgrown diamanten juwelen voor beginners",
       "author": "Aurelia Royale",
-      "excerpt": "Buying lab-grown diamond jewellery for the first time? Choose your first piece by purpose, jewellery type, budget, design, diamond priorities, metal, size and fit."
+      "excerpt": "Koop je voor het eerst juwelen met labgrown diamanten? Kies je eerste sieraad op basis van het doel, het type juweel, je budget, het ontwerp, je prioriteiten voor de diamant, het metaal, de maat en de pasvorm."
     },
     "high-quality-jewellery-product-images": {
-      "title": "How to Evaluate Jewellery Product Images Before Buying",
+      "title": "Productafbeeldingen van juwelen beoordelen vóór aankoop",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to assess jewellery product images, 360° views, scale, lighting, renderings and detail shots before buying diamond jewellery online."
+      "excerpt": "Ontdek hoe je productafbeeldingen van juwelen, 360°-weergaven, schaal, belichting, renders en detailfoto’s beoordeelt voordat je online diamanten juwelen koopt."
     },
     "how-are-lab-grown-diamonds-made": {
-      "title": "How Are Lab-Grown Diamonds Made? CVD & HPHT Guide",
+      "title": "Hoe worden labgrown diamanten gemaakt? Gids over CVD en HPHT",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how lab-grown diamonds are made using CVD and HPHT, from the original diamond seed through crystal growth, cutting, polishing and certification."
+      "excerpt": "Ontdek hoe labgrown diamanten worden gemaakt met CVD en HPHT, van de oorspronkelijke diamantkiem tot kristalgroei, slijpen, polijsten en certificering."
     },
     "how-lab-grown-diamonds-are-graded": {
-      "title": "How Are Lab-Grown Diamonds Graded? IGI vs GIA",
+      "title": "Hoe worden labgrown diamanten beoordeeld? IGI versus GIA",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how lab-grown diamonds are graded, from origin testing and carat measurements to colour, clarity, cut, polish and symmetry, plus current IGI and GIA reporting differences."
+      "excerpt": "Ontdek hoe labgrown diamanten worden beoordeeld, van herkomstonderzoek en karaatmetingen tot kleur, helderheid, slijpkwaliteit, polijsting en symmetrie, plus de huidige verschillen tussen IGI- en GIA-rapporten."
     },
     "how-lab-grown-diamonds-should-be-disclosed": {
-      "title": "Lab-Grown Diamond Disclosure: Clear Terms Explained",
+      "title": "Informatie over labgrown diamanten: heldere termen uitgelegd",
       "author": "Aurelia Royale",
-      "excerpt": "How should lab-grown diamonds be described? Learn which terms are clear or ambiguous in the US and UK, including lab-grown, laboratory-created and synthetic diamond."
+      "excerpt": "Hoe moeten labgrown diamanten worden omschreven? Ontdek welke termen duidelijk of dubbelzinnig zijn in de US en het VK, waaronder labgrown, in het laboratorium gecreëerde en synthetische diamant."
     },
     "how-should-diamond-bracelet-fit": {
-      "title": "How Should a Diamond Bracelet Fit? Fit Guide",
+      "title": "Hoe hoort een diamanten armband te zitten? Pasvormgids",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how a diamond bracelet should fit, with clear too-tight, secure and too-loose signs for tennis, chain, station, bangle and cuff styles."
+      "excerpt": "Ontdek hoe een diamanten armband hoort te zitten, met duidelijke kenmerken voor te strak, goed aansluitend en te los bij tennisarmbanden, schakelarmbanden, armbanden met stenen op vaste afstanden, bangles en manchetten."
     },
     "how-should-diamond-ring-fit": {
-      "title": "How Should a Diamond Ring Fit? Ring Fit Guide",
+      "title": "Hoe hoort een diamanten ring te zitten? Pasvormgids",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how a diamond ring should fit, including knuckle resistance, spinning, pressure, band width, swelling and signs a ring is too tight or too loose."
+      "excerpt": "Ontdek hoe een diamanten ring hoort te zitten, met aandacht voor weerstand bij de knokkel, draaien, druk, bandbreedte, zwelling en tekenen dat een ring te strak of te los zit."
     },
     "how-to-choose-lab-grown-diamond-bracelet": {
-      "title": "How to Choose a Lab-Grown Diamond Bracelet",
+      "title": "Een labgrown diamanten armband kiezen",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to choose a lab-grown diamond bracelet by comparing design, diamond weight, setting, fit, wrist size, metal, clasp, construction and product information."
+      "excerpt": "Ontdek hoe je een labgrown diamanten armband kiest door ontwerp, diamantgewicht, zetting, pasvorm, polsmaat, metaal, sluiting, constructie en productinformatie te vergelijken."
     },
     "how-to-choose-lab-grown-diamond-drop-earrings": {
-      "title": "How to Choose Lab-Grown Diamond Drop Earrings",
+      "title": "Labgrown diamanten oorhangers kiezen",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to choose lab-grown diamond drop earrings by comparing drop length, movement, articulation, weight, balance, fastening, diamond size and setting."
+      "excerpt": "Ontdek hoe je labgrown diamanten oorhangers kiest door hanglengte, beweging, beweeglijkheid, gewicht, balans, sluiting, diamantformaat en zetting te vergelijken."
     },
     "how-to-choose-lab-grown-diamond-earrings": {
-      "title": "How to Choose Lab-Grown Diamond Earrings",
+      "title": "Labgrown diamanten oorbellen kiezen",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to choose lab-grown diamond earrings by comparing studs, hoops and drops, size, carat weight, fastening, comfort, metal and diamond quality."
+      "excerpt": "Ontdek hoe je labgrown diamanten oorbellen kiest door oorknopjes, creolen en oorhangers, formaat, karaatgewicht, sluiting, draagcomfort, metaal en diamantkwaliteit te vergelijken."
     },
     "how-to-choose-lab-grown-diamond-necklace": {
-      "title": "How to Choose a Lab-Grown Diamond Necklace",
+      "title": "Een labgrown diamanten collier kiezen",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to choose a lab-grown diamond necklace by comparing design, length, chain, pendant size, carat weight, clasp, metal, construction and diamond quality."
+      "excerpt": "Ontdek hoe je een labgrown diamanten collier kiest door ontwerp, lengte, ketting, hangerformaat, karaatgewicht, sluiting, metaal, constructie en diamantkwaliteit te vergelijken."
     },
     "how-to-choose-lab-grown-diamond-pendant": {
-      "title": "How to Choose a Lab-Grown Diamond Pendant",
+      "title": "Een labgrown diamanten hanger kiezen",
       "author": "Aurelia Royale",
-      "excerpt": "Choose a lab-grown diamond pendant by checking bail size, chain compatibility, removability, pendant dimensions, diamond weight and exactly what is included."
+      "excerpt": "Kies een labgrown diamanten hanger door de grootte van het hangeroog, compatibiliteit met een ketting, afneembaarheid, afmetingen van de hanger, diamantgewicht en precies wat is inbegrepen te controleren."
     },
     "how-to-choose-lab-grown-diamond-ring": {
-      "title": "How to Choose a Lab-Grown Diamond Ring",
+      "title": "Een labgrown diamanten ring kiezen",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to choose a lab-grown diamond ring by purpose, ring style, setting, diamond size, band width, metal, ring size, fit and product verification."
+      "excerpt": "Ontdek hoe je een labgrown diamanten ring kiest op basis van het doel, de ringstijl, zetting, diamantformaat, bandbreedte, metaal, ringmaat, pasvorm en productverificatie."
     },
     "how-to-choose-lab-grown-diamond-stud-earrings": {
-      "title": "How to Choose Lab-Grown Diamond Stud Earrings",
+      "title": "Labgrown diamanten oorknopjes kiezen",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to choose lab-grown diamond stud earrings by pair matching, per-ear carat weight, size, setting, backing, comfort, metal and diamond quality."
+      "excerpt": "Ontdek hoe je labgrown diamanten oorknopjes kiest door de overeenstemming van het paar, karaatgewicht per oor, formaat, zetting, achterkant, draagcomfort, metaal en diamantkwaliteit te vergelijken."
     },
     "how-to-compare-certified-lab-grown-diamonds": {
-      "title": "How to Compare Two Certified Lab-Grown Diamonds",
+      "title": "Twee gecertificeerde labgrown diamanten vergelijken",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to compare two lab-grown diamonds using reports, carat, measurements, colour, clarity, cut, polish and symmetry—and separate facts from visual assumptions."
+      "excerpt": "Ontdek hoe je twee labgrown diamanten vergelijkt aan de hand van rapporten, karaat, afmetingen, kleur, helderheid, slijpkwaliteit, polijsting en symmetrie — en feiten onderscheidt van visuele aannames."
     },
     "how-to-measure-ring-size": {
-      "title": "How to Measure Ring Size: UK, EU & US Chart",
+      "title": "Ringmaat opmeten: UK-, EU- en US-maattabel",
       "author": "Aurelia Royale",
-      "excerpt": "Measure your ring size accurately using an existing ring or your finger, then convert UK, EU and US sizes with diameter and circumference measurements."
+      "excerpt": "Meet je ringmaat nauwkeurig met een bestaande ring of je vinger en zet daarna UK-, EU- en US-maten om met behulp van diameter- en omtrekmetingen."
     },
     "how-to-read-lab-grown-diamond-certificate": {
-      "title": "How to Read a Lab-Grown Diamond Certificate or Report",
+      "title": "Een certificaat of rapport van een labgrown diamant lezen",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to read a lab-grown diamond report, including report number, carat, measurements, colour, clarity, cut, fluorescence, inscription, growth method and treatment."
+      "excerpt": "Ontdek hoe je een rapport van een labgrown diamant leest, met onder meer rapportnummer, karaat, afmetingen, kleur, helderheid, slijpkwaliteit, fluorescentie, inscriptie, groeimethode en behandeling."
     },
     "igi-certificate-for-lab-grown-diamond": {
-      "title": "IGI Certificate for Lab-Grown Diamonds: What It Means",
+      "title": "IGI-certificaat voor labgrown diamanten: wat het betekent",
       "author": "Aurelia Royale",
-      "excerpt": "Learn what an IGI lab-grown diamond report means, what information it contains, how loose-diamond and jewellery reports differ, and what IGI certification does not guarantee."
+      "excerpt": "Ontdek wat een IGI-rapport van een labgrown diamant betekent, welke informatie het bevat, hoe rapporten voor losse diamanten verschillen van sieradenrapporten en wat een IGI-certificering niet garandeert."
     },
     "jewellery-availability-production-time": {
-      "title": "Jewellery Availability & Production Time Explained",
+      "title": "Beschikbaarheid en productietijd van sieraden uitgelegd",
       "author": "Aurelia Royale",
-      "excerpt": "Learn the difference between in-stock, waitlist, preorder and made-to-order jewellery, how production time differs from delivery time, and what to confirm before ordering."
+      "excerpt": "Ontdek het verschil tussen sieraden uit voorraad, sieraden op de wachtlijst, pre-orders en sieraden op bestelling, hoe de productietijd verschilt van de levertijd en wat je vóór het bestellen moet controleren."
     },
     "lab-grown-diamond-carat-weight-explained": {
-      "title": "Lab-Grown Diamond Carat Weight Explained: Carats & Points",
+      "title": "Karaatgewicht van labgrown diamanten uitgelegd: karaat en punten",
       "author": "Aurelia Royale",
-      "excerpt": "Learn what diamond carat weight means, how many grams are in one carat, how diamond points work and how lab-grown diamonds are precisely weighed."
+      "excerpt": "Ontdek wat het karaatgewicht van een diamant betekent, hoeveel gram één karaat is, hoe diamantpunten werken en hoe labgrown diamanten nauwkeurig worden gewogen."
     },
     "lab-grown-diamond-clarity-grades-explained": {
-      "title": "Lab-Grown Diamond Clarity Grades Explained",
+      "title": "Helderheidsgradaties van labgrown diamanten uitgelegd",
       "author": "Aurelia Royale",
-      "excerpt": "Understand lab-grown diamond clarity grades, including IF, VVS, VS, SI and I, what eye-clean means and how shape, size and inclusions affect what you see."
+      "excerpt": "Ontdek de helderheidsgradaties van labgrown diamanten, waaronder IF, VVS, VS, SI en I, wat ‘eye-clean’ betekent en hoe vorm, grootte en insluitsels van invloed zijn op wat u ziet."
     },
     "lab-grown-diamond-colour-grades-explained": {
-      "title": "Lab-Grown Diamond Colour Grades: D–Z Scale Explained",
+      "title": "Kleurgradaties van labgrown diamanten: de D–Z-schaal uitgelegd",
       "author": "Aurelia Royale",
-      "excerpt": "Understand lab-grown diamond colour grades from D to Z, what colourless and near-colourless mean, and how size, shape and setting affect the colour you see."
+      "excerpt": "Ontdek de kleurgradaties van labgrown diamanten van D tot Z, wat kleurloos en bijna kleurloos betekent en hoe grootte, vorm en zetting de kleur beïnvloeden die u ziet."
     },
     "lab-grown-diamond-cut-explained": {
-      "title": "Lab-Grown Diamond Cut: Grades & Light Performance",
+      "title": "Slijpkwaliteit van labgrown diamanten: gradaties en lichtprestaties",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how lab-grown diamond cut affects brightness, fire and scintillation, how round cut grades work, how fancy shapes are assessed, and what polish and symmetry mean."
+      "excerpt": "Ontdek hoe de slijpkwaliteit van labgrown diamanten de helderheid, het vuur en de schittering beïnvloedt, hoe slijpkwaliteitsgradaties voor ronde diamanten werken, hoe fantasievormen worden beoordeeld en wat polijsting en symmetrie betekenen."
     },
     "lab-grown-diamond-vs-cubic-zirconia": {
-      "title": "Lab-Grown Diamond vs Cubic Zirconia: Key Differences",
+      "title": "Labgrown diamant versus cubic zirconia: de belangrijkste verschillen",
       "author": "Aurelia Royale",
-      "excerpt": "Compare lab-grown diamonds vs cubic zirconia by material, hardness, sparkle, weight, durability and appearance—and learn why cubic zirconia is not zircon."
+      "excerpt": "Vergelijk labgrown diamanten met cubic zirconia op materiaal, hardheid, schittering, gewicht, duurzaamheid en uiterlijk—and ontdek waarom cubic zirconia geen zirkoon is."
     },
     "lab-grown-diamond-vs-moissanite": {
-      "title": "Lab-Grown Diamond vs Moissanite: Which Is Better?",
+      "title": "Labgrown diamant versus moissaniet: wat is beter?",
       "author": "Aurelia Royale",
-      "excerpt": "Compare lab-grown diamond vs moissanite by sparkle, rainbow fire, hardness, durability, size, carat weight, testing, documentation and everyday wear."
+      "excerpt": "Vergelijk labgrown diamanten met moissaniet op schittering, regenboogvuur, hardheid, duurzaamheid, grootte, karaatgewicht, tests, documentatie en dagelijks gebruik."
     },
     "lab-grown-vs-natural-diamonds": {
-      "title": "Lab-Grown vs Natural Diamonds: Key Differences Explained",
+      "title": "Labgrown diamanten versus natuurlijke diamanten: de belangrijkste verschillen uitgelegd",
       "author": "Aurelia Royale",
-      "excerpt": "Compare lab-grown vs natural diamonds by origin, appearance, durability, quality, price, resale, grading, sourcing and engagement-ring suitability."
+      "excerpt": "Vergelijk labgrown diamanten met natuurlijke diamanten op herkomst, uiterlijk, duurzaamheid, kwaliteit, prijs, doorverkoopwaarde, beoordeling, inkoop en geschiktheid voor verlovingsringen."
     },
     "measure-wrist-for-bracelet": {
-      "title": "How to Measure Your Wrist for a Bracelet",
+      "title": "Zo meet u uw pols voor een armband",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to measure your wrist for chain, tennis, bangle and cuff bracelets, convert cm and inches, and understand wrist size versus bracelet length."
+      "excerpt": "Ontdek hoe u uw pols meet voor schakelarmbanden, tennisarmbanden, bangles en cuffarmbanden, hoe u cm en inches omrekent en wat het verschil is tussen polsomtrek en armbandlengte."
     },
     "mistakes-buying-lab-grown-diamond-jewellery-online": {
-      "title": "15 Lab-Grown Diamond Buying Mistakes to Avoid Online",
+      "title": "15 fouten die u online beter vermijdt bij het kopen van labgrown diamanten",
       "author": "Aurelia Royale",
-      "excerpt": "Avoid 15 common mistakes when buying lab-grown diamond jewellery online, from carat and reports to sizing, metal, images, availability, returns and seller claims."
+      "excerpt": "Vermijd 15 veelgemaakte fouten bij het online kopen van sieraden met labgrown diamanten, van karaat en rapporten tot maat, metaal, afbeeldingen, beschikbaarheid, retouren en claims van verkopers."
     },
     "questions-to-ask-before-buying-lab-grown-diamond": {
-      "title": "25 Questions to Ask Before Buying a Lab-Grown Diamond",
+      "title": "25 vragen om te stellen voordat u een labgrown diamant koopt",
       "author": "Aurelia Royale",
-      "excerpt": "Use these 25 questions to check a lab-grown diamond’s quality, report, treatment, carat weight, metal, hallmark, returns, warranty and total price."
+      "excerpt": "Gebruik deze 25 vragen om de kwaliteit van een labgrown diamant, het rapport, eventuele behandelingen, het karaatgewicht, het metaal, het keurmerk, retouren, de garantie en de totaalprijs te controleren."
     },
     "ready-made-vs-made-to-order-diamond-jewellery": {
-      "title": "Ready-Made vs Made-to-Order Diamond Jewellery",
+      "title": "Kant-en-klare versus op bestelling gemaakte diamanten sieraden",
       "author": "Aurelia Royale",
-      "excerpt": "Compare ready-made and made-to-order diamond jewellery by availability, sizing, design certainty, production time, customisation and cancellation considerations."
+      "excerpt": "Vergelijk kant-en-klare en op bestelling gemaakte diamanten sieraden op beschikbaarheid, maat, zekerheid over het ontwerp, productietijd, personalisatiemogelijkheden en aandachtspunten bij annuleren."
     },
     "select-right-necklace-length": {
-      "title": "Necklace Length Guide: Inches, CM & Placement",
+      "title": "Halskettinglengtes: inches, CM en draaghoogte",
       "author": "Aurelia Royale",
-      "excerpt": "Compare necklace lengths in inches and centimetres, see approximate placement, and learn how neck size, pendant dimensions, layering and design affect fit."
+      "excerpt": "Vergelijk halskettinglengtes in inches en centimeters, bekijk de geschatte draaghoogte en ontdek hoe nekomvang, afmetingen van de hanger, laagjes en het ontwerp de pasvorm beïnvloeden."
     },
     "select-right-size-diamond-earrings": {
-      "title": "Diamond Earring Size Guide: Carat, MM & Pair Weight",
+      "title": "Maattabel voor diamanten oorbellen: karaat, MM en gewicht per paar",
       "author": "Aurelia Royale",
-      "excerpt": "Compare diamond earring sizes by pair-total carat, per-ear weight and approximate round-diamond diameter, with guidance for studs, halos, clusters and other shapes."
+      "excerpt": "Vergelijk de maten van diamanten oorbellen op basis van het totale karaatgewicht per paar, het gewicht per oor en de geschatte diameter van ronde diamanten, met advies voor oorknopjes, halo’s, clusters en andere vormen."
     },
     "set-budget-lab-grown-diamond-jewellery": {
-      "title": "How to Set a Budget for Lab-Grown Diamond Jewellery",
+      "title": "Zo stelt u een budget vast voor sieraden met labgrown diamanten",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to budget for lab-grown diamond jewellery by prioritising design, visible size, diamond quality, metal and fit without overspending on specifications you do not need."
+      "excerpt": "Ontdek hoe u een budget vaststelt voor sieraden met labgrown diamanten door prioriteit te geven aan ontwerp, zichtbare grootte, diamantkwaliteit, metaal en pasvorm, zonder te veel uit te geven aan specificaties die u niet nodig hebt."
     },
     "total-carat-weight-meaning-diamond-jewellery": {
-      "title": "Total Carat Weight Meaning: TCW & CTTW Explained",
+      "title": "Betekenis van totaal karaatgewicht: TCW en CTTW uitgelegd",
       "author": "Aurelia Royale",
-      "excerpt": "Learn what total carat weight means in diamond jewellery, how TCW, CTW and CTTW differ from a single diamond's carat weight, with earrings, rings and bracelet examples."
+      "excerpt": "Ontdek wat totaal karaatgewicht betekent bij diamanten sieraden, hoe TCW, CTW en CTTW verschillen van het karaatgewicht van één enkele diamant, met voorbeelden van oorbellen, ringen en armbanden."
     },
     "transparency-buying-diamond-jewellery": {
-      "title": "Why Diamond Jewellery Transparency Matters",
+      "title": "Waarom transparantie over diamanten sieraden belangrijk is",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how transparent diamond origin, quality, certification, pricing and sourcing claims help you compare jewellery and buy with greater confidence."
+      "excerpt": "Ontdek hoe transparante informatie over de herkomst, kwaliteit, certificering, prijzen en inkoop van diamanten u helpt sieraden te vergelijken en met meer vertrouwen te kopen."
     },
     "verify-igi-certificate-number": {
-      "title": "How to Verify an IGI Certificate Number Online",
+      "title": "Zo controleert u online een IGI-certificaatnummer",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to verify an IGI diamond report number online, compare the official IGI record with the diamond, check laser inscriptions and handle a report that cannot be found."
+      "excerpt": "Leer hoe u online een IGI-diamantrapportnummer kunt verifiëren, het officiële IGI-record met de diamant kunt vergelijken, laserinscripties kunt controleren en kunt handelen als een rapport niet kan worden gevonden."
     },
     "what-are-lab-grown-diamonds": {
-      "title": "What Are Lab-Grown Diamonds? Complete Guide",
+      "title": "Wat zijn labgrown diamanten? Complete gids",
       "author": "Aurelia Royale",
-      "excerpt": "Learn what lab-grown diamonds are, how CVD and HPHT diamonds are made, whether they are real, how they compare with natural diamonds and how quality is assessed."
+      "excerpt": "Ontdek wat labgrown diamanten zijn, hoe CVD- en HPHT-diamanten worden gemaakt, of ze echt zijn, hoe ze zich verhouden tot natuurlijke diamanten en hoe de kwaliteit wordt beoordeeld."
     },
     "what-determines-price-lab-grown-diamond-jewellery": {
-      "title": "What Determines Lab-Grown Diamond Jewellery Prices?",
+      "title": "Wat bepaalt de prijzen van labgrown diamanten sieraden?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn what affects lab-grown diamond jewellery prices, including carat, cut, colour, clarity, total diamond weight, metal, design, construction and reports."
+      "excerpt": "Ontdek welke factoren van invloed zijn op de prijzen van labgrown diamanten sieraden, waaronder karaat, slijpkwaliteit, kleur, helderheid, totaal diamantgewicht, metaal, ontwerp, constructie en rapporten."
     },
     "what-included-certified-diamond-jewellery": {
-      "title": "What Comes with Certified Diamond Jewellery?",
+      "title": "Wat ontvangt u bij gecertificeerde diamanten sieraden?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn which documents may come with certified diamond jewellery, including laboratory reports, order records, hallmarking, warranties, appraisals and optional care information."
+      "excerpt": "Ontdek welke documenten bij gecertificeerde diamanten sieraden kunnen worden geleverd, waaronder laboratoriumrapporten, bestelgegevens, keurmerken, garanties, taxaties en optionele verzorgingsinformatie."
     },
     "what-makes-lab-grown-diamond-jewellery-high-quality": {
-      "title": "What Makes Lab-Grown Diamond Jewellery High Quality?",
+      "title": "Waaraan herkent u labgrown diamanten sieraden van hoge kwaliteit?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to judge high-quality lab-grown diamond jewellery by its diamond, metal, stone setting, prongs, finishing, construction, clasps, proportions and workmanship."
+      "excerpt": "Ontdek hoe u labgrown diamanten sieraden van hoge kwaliteit beoordeelt aan de hand van de diamant, het metaal, de zetting, de pootjes, de afwerking, de constructie, de sluitingen, de verhoudingen en het vakmanschap."
     },
     "what-makes-lab-grown-diamonds-different": {
-      "title": "Are All Lab-Grown Diamonds the Same? Key Differences Explained",
+      "title": "Zijn alle labgrown diamanten hetzelfde? De belangrijkste verschillen uitgelegd",
       "author": "Aurelia Royale",
-      "excerpt": "Are all lab-grown diamonds the same? No. Learn how CVD vs HPHT growth, colour, clarity, cut, carat, proportions, fluorescence and treatments make each diamond different."
+      "excerpt": "Zijn alle labgrown diamanten hetzelfde? Nee. Ontdek hoe groei via CVD of HPHT, kleur, helderheid, slijpkwaliteit, karaat, verhoudingen, fluorescentie en behandelingen elke diamant anders maken."
     },
     "what-to-check-before-buying-lab-grown-diamond-jewellery": {
-      "title": "What to Check Before Buying Lab-Grown Diamond Jewellery",
+      "title": "Waarop letten voordat u labgrown diamanten sieraden koopt",
       "author": "Aurelia Royale",
-      "excerpt": "Check lab-grown diamond jewellery properly: origin, carat, size, colour, clarity, cut, reports, metal, total weight and whether specifications are exact or approximate."
+      "excerpt": "Controleer labgrown diamanten sieraden zorgvuldig: herkomst, karaat, afmetingen, kleur, helderheid, slijpkwaliteit, rapporten, metaal, totaalgewicht en of specificaties exact of bij benadering zijn."
     },
     "how-to-choose-lab-grown-diamond-jewellery-set": {
-      "title": "How to Choose a Lab-Grown Diamond Jewellery Set",
+      "title": "Een set labgrown diamanten sieraden kiezen",
       "author": "Aurelia Royale",
-      "excerpt": "Choose a lab-grown diamond jewellery set by checking included pieces, design matching, carat allocation, dimensions, metal, reports and set-specific terms."
+      "excerpt": "Kies een set labgrown diamanten sieraden door te controleren welke sieraden zijn inbegrepen, of het ontwerp op elkaar is afgestemd, hoe de karaatgewichten zijn verdeeld, wat de afmetingen zijn, welk metaal is gebruikt, welke rapporten beschikbaar zijn en welke voorwaarden specifiek voor de set gelden."
     },
     "buying-necklace-earring-set": {
-      "title": "Buying a Necklace and Earring Set: What to Check",
+      "title": "Een ketting- en oorbellenset kopen: waarop letten",
       "author": "Aurelia Royale",
-      "excerpt": "A necklace and earring set should coordinate in scale, spacing and quality while remaining practical as two separate purchases. Use this complete buying checklist."
+      "excerpt": "Een ketting- en oorbellenset moet qua schaal, tussenruimte en kwaliteit op elkaar zijn afgestemd en tegelijk praktisch blijven als twee afzonderlijke aankopen. Gebruik deze complete checklist voor uw aankoop."
     },
     "compare-diamond-earring-designs": {
-      "title": "Diamond Earring Designs: Studs, Hoops & Drops Compared",
+      "title": "Ontwerpen voor diamanten oorbellen: stekers, ringen en hangers vergeleken",
       "author": "Aurelia Royale",
-      "excerpt": "Compare diamond studs, hoops and drop earrings by comfort, movement, size, fastening, diamond coverage and everyday or occasion wear."
+      "excerpt": "Vergelijk diamanten stekers, ringoorbellen en hangers op draagcomfort, beweging, grootte, sluiting, diamantbedekking en geschiktheid voor dagelijks gebruik of speciale gelegenheden."
     },
     "compare-diamond-bracelet-designs": {
-      "title": "Diamond Bracelet Designs: 5 Styles Compared",
+      "title": "Ontwerpen voor diamanten armbanden: 5 stijlen vergeleken",
       "author": "Aurelia Royale",
-      "excerpt": "Compare tennis, station, chain, bangle and cuff diamond bracelets by movement, fit, fastening, diamond coverage, comfort and everyday wear."
+      "excerpt": "Vergelijk tennisarmbanden, stationarmbanden, schakelarmbanden, stijve armbanden en manchetten met diamanten op beweging, pasvorm, sluiting, diamantbedekking, draagcomfort en geschiktheid voor dagelijks gebruik."
     },
     "compare-diamond-necklace-designs": {
-      "title": "Diamond Necklace Designs: Pendant, Station & Line",
+      "title": "Ontwerpen voor diamanten halskettingen: hanger, station en lijn",
       "author": "Aurelia Royale",
-      "excerpt": "Compare pendant, station and line diamond necklaces by diamond coverage, focal placement, movement, length, scale, layering and everyday wear."
+      "excerpt": "Vergelijk diamanten halskettingen met een hanger, stations en een lijnontwerp op diamantbedekking, plaatsing van het middelpunt, beweging, lengte, schaal, combineren in laagjes en geschiktheid voor dagelijks gebruik."
     },
     "coloured-stones-lab-grown-diamonds": {
-      "title": "Coloured Stones and Lab-Grown Diamonds Together",
+      "title": "Gekleurde edelstenen en labgrown diamanten samen",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how coloured centre stones and lab-grown diamond accents work together through contrast, proportion, setting, disclosure, durability and care."
+      "excerpt": "Ontdek hoe gekleurde middenstenen en accenten van labgrown diamanten elkaar aanvullen door contrast, verhoudingen, zetting, informatie over herkomst, duurzaamheid en verzorging."
     },
     "buying-coloured-stone-diamond-jewellery": {
-      "title": "Buying Coloured-Stone Diamond Jewellery: Checklist",
+      "title": "Diamanten sieraden met gekleurde edelstenen kopen: checklist",
       "author": "Aurelia Royale",
-      "excerpt": "Check gemstone identity, natural or laboratory-created status, treatments, colour, dimensions, diamond accents, metal, reports and care before buying."
+      "excerpt": "Controleer vóór aankoop de identiteit van de edelsteen, of deze natuurlijk of in een laboratorium is gemaakt, eventuele behandelingen, kleur, afmetingen, diamantaccenten, het metaal, rapporten en verzorging."
     },
     "care-coloured-stones-diamonds": {
-      "title": "How to Care for Coloured Stones and Diamonds",
+      "title": "Gekleurde edelstenen en diamanten verzorgen",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to clean, wear and store coloured-stone and diamond jewellery safely by following the needs of its most sensitive component."
+      "excerpt": "Ontdek hoe u sieraden met gekleurde edelstenen en diamanten veilig reinigt, draagt en opbergt door rekening te houden met de behoeften van het meest kwetsbare onderdeel."
     },
     "coloured-centre-stones-vs-colourless-diamonds": {
-      "title": "Coloured Centre Stone vs Colourless Diamond",
+      "title": "Gekleurde middensteen of kleurloze diamant",
       "author": "Aurelia Royale",
-      "excerpt": "Compare coloured centre stones and colourless diamond designs by colour, light, scale, metal, versatility, care and product transparency."
+      "excerpt": "Vergelijk ontwerpen met gekleurde middenstenen en kleurloze diamanten op kleur, licht, schaal, metaal, veelzijdigheid, verzorging en transparantie over het product."
     },
     "diamond-accents-meaning": {
-      "title": "What Are Diamond Accents in Jewellery?",
+      "title": "Wat zijn diamantaccenten in sieraden?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn what diamond accents are, how they differ from centre and side stones, and which origin, carat-weight and quality details to check."
+      "excerpt": "Ontdek wat diamantaccenten zijn, hoe ze verschillen van midden- en zijstenen en welke informatie over herkomst, karaatgewicht en kwaliteit u moet controleren."
     },
     "diamond-accents-jewellery-design": {
-      "title": "How Diamond Accents Affect Jewellery Design",
+      "title": "De invloed van diamantaccenten op het sieradenontwerp",
       "author": "Aurelia Royale",
-      "excerpt": "See how halos, side accents, pavé and diamond lines change brightness, contrast, outline, movement and the apparent scale of jewellery."
+      "excerpt": "Ontdek hoe halo’s, zijstenen, pavé en diamantlijnen de schittering, het contrast, de omtrek, de beweging en de schijnbare grootte van sieraden veranderen."
     },
     "check-coloured-stone-natural-treated-lab-created": {
-      "title": "Is a Gemstone Natural, Treated or Lab-Created?",
+      "title": "Is een edelsteen natuurlijk, behandeld of in een laboratorium gemaakt?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to verify whether a coloured stone is natural, treated, laboratory-created or an imitation using disclosures and laboratory reports."
+      "excerpt": "Ontdek hoe u met informatieverstrekking en laboratoriumrapporten kunt nagaan of een gekleurde steen natuurlijk, behandeld, in een laboratorium gemaakt of een imitatie is."
     },
     "coloured-stone-information-disclosure": {
-      "title": "Why Coloured-Stone Information Must Be Clear",
+      "title": "Waarom informatie over gekleurde stenen duidelijk moet zijn",
       "author": "Aurelia Royale",
-      "excerpt": "Learn why gemstone identity, natural or laboratory-created status, treatments, dimensions, care and report scope should be disclosed clearly."
+      "excerpt": "Ontdek waarom duidelijk moet worden vermeld om welke edelsteen het gaat, of deze natuurlijk of in een laboratorium gemaakt is, welke behandelingen zijn toegepast, wat de afmetingen zijn, hoe u de steen verzorgt en wat het rapport omvat."
     },
     "evaluate-coloured-stone-diamond-jewellery-online": {
-      "title": "How to Evaluate Coloured-Stone and Diamond Jewellery Online",
+      "title": "Hoe u online sieraden met gekleurde stenen en diamanten beoordeelt",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to assess coloured-stone and diamond jewellery online using specifications, accurate images, reports, scale, returns and seller checks."
+      "excerpt": "Ontdek hoe u online sieraden met gekleurde stenen en diamanten beoordeelt aan de hand van specificaties, nauwkeurige afbeeldingen, rapporten, schaal, retourmogelijkheden en controles van de verkoper."
     },
     "questions-coloured-stone-diamond-jewellery": {
-      "title": "25 Questions Before Buying Gemstone Jewellery",
+      "title": "25 vragen voordat u sieraden met edelstenen koopt",
       "author": "Aurelia Royale",
-      "excerpt": "Ask these 25 questions about gemstone identity, treatments, diamonds, dimensions, reports, images, care, delivery, returns and warranty."
+      "excerpt": "Stel deze 25 vragen over de identiteit van de edelsteen, behandelingen, diamanten, afmetingen, rapporten, afbeeldingen, verzorging, levering, retourmogelijkheden en garantie."
     },
     "clean-lab-grown-diamond-jewellery": {
-      "title": "How to Clean Lab-Grown Diamond Jewellery at Home",
+      "title": "Labgrown diamanten sieraden thuis schoonmaken",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to clean lab-grown diamond rings, earrings, necklaces and bracelets safely at home, what to avoid and when jewellery needs professional inspection."
+      "excerpt": "Ontdek hoe u ringen, oorbellen, halskettingen en armbanden met labgrown diamanten thuis veilig schoonmaakt, wat u moet vermijden en wanneer sieraden professioneel moeten worden gecontroleerd."
     },
     "how-often-clean-diamond-jewellery": {
-      "title": "How Often Should You Clean Diamond Jewellery?",
+      "title": "Hoe vaak moet u diamanten sieraden schoonmaken?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how often to clean diamond rings, earrings, necklaces and bracelets, when home cleaning is enough, and when professional inspection is more important."
+      "excerpt": "Ontdek hoe vaak u diamanten ringen, oorbellen, halskettingen en armbanden moet schoonmaken, wanneer thuis schoonmaken volstaat en wanneer een professionele controle belangrijker is."
     },
     "keep-lab-grown-diamond-jewellery-sparkling": {
-      "title": "How to Keep Lab-Grown Diamonds Sparkling",
+      "title": "Zo houdt u labgrown diamanten schitterend",
       "author": "Aurelia Royale",
-      "excerpt": "Keep lab-grown diamond jewellery sparkling by preventing oil and product build-up, handling it correctly, cleaning safely and checking the setting."
+      "excerpt": "Houd sieraden met labgrown diamanten schitterend door ophoping van olie en producten te voorkomen, ze op de juiste manier te hanteren, ze veilig schoon te maken en de zetting te controleren."
     },
     "store-diamond-jewellery": {
-      "title": "How to Store Diamond Jewellery Properly",
+      "title": "Diamanten sieraden op de juiste manier opbergen",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to store diamond rings, earrings, necklaces and bracelets safely to reduce scratching, chain tangling, impact damage and unnecessary wear."
+      "excerpt": "Ontdek hoe u diamanten ringen, oorbellen, halskettingen en armbanden veilig opbergt om krassen, in de knoop rakende kettingen, schade door stoten en onnodige slijtage te beperken."
     },
     "prevent-jewellery-scratches": {
-      "title": "How to Prevent Jewellery from Scratching",
+      "title": "Zo voorkomt u krassen op sieraden",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to prevent rings, bracelets, necklaces and diamond jewellery from scratching through better wear, stacking, storage and travel habits."
+      "excerpt": "Ontdek hoe u krassen op ringen, armbanden, halskettingen en diamanten sieraden voorkomt met betere gewoonten bij het dragen, combineren, opbergen en reizen."
     },
     "wear-diamond-jewellery-in-shower": {
-      "title": "Can You Wear Diamond Jewellery in the Shower?",
+      "title": "Kunt u diamanten sieraden dragen onder de douche?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn whether diamond rings, earrings and necklaces should be worn in the shower, how soap and hair products affect jewellery, and what to do after accidental exposure."
+      "excerpt": "Ontdek of u diamanten ringen, oorbellen en halskettingen onder de douche moet dragen, hoe zeep en haarproducten sieraden beïnvloeden en wat u moet doen na onbedoelde blootstelling."
     },
     "swim-wearing-diamond-jewellery": {
-      "title": "Can You Swim Wearing Diamond Jewellery?",
+      "title": "Kunt u diamanten sieraden dragen tijdens het zwemmen?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn whether you should wear diamond rings, earrings, necklaces or bracelets in pools or the sea, what chlorine and salt water can affect, and what to do after accidental exposure."
+      "excerpt": "Ontdek of u diamanten ringen, oorbellen, halskettingen of armbanden in een zwembad of in zee moet dragen, wat chloor en zout water kunnen aantasten en wat u moet doen na onbedoelde blootstelling."
     },
     "perfume-skincare-diamond-jewellery": {
-      "title": "Can You Wear Perfume with Diamond Jewellery?",
+      "title": "Kunt u parfum dragen met diamanten sieraden?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how perfume, skincare, lotion, make-up and hairspray affect diamond jewellery, when residue is cosmetic and when metals or other materials need extra care."
+      "excerpt": "Ontdek hoe parfum, huidverzorgingsproducten, lotion, make-up en haarlak diamanten sieraden beïnvloeden, wanneer resten alleen cosmetisch zijn en wanneer metalen of andere materialen extra zorg nodig hebben."
     },
     "check-diamond-jewellery-loose-stones": {
-      "title": "How to Check Diamond Jewellery for Loose Stones",
+      "title": "Zo controleert u diamanten sieraden op losse stenen",
       "author": "Aurelia Royale",
-      "excerpt": "Learn the warning signs of a loose diamond, how to inspect prongs, bezels and pavé safely, when to stop wearing jewellery and when to seek professional repair."
+      "excerpt": "Ontdek de waarschuwingssignalen van een losse diamant, hoe u pootjes, omlijstingen en pavé veilig controleert, wanneer u moet stoppen met het dragen van sieraden en wanneer u professionele reparatie moet inschakelen."
     },
     "professional-diamond-jewellery-inspection": {
-      "title": "When Should Diamond Jewellery Be Inspected?",
+      "title": "Wanneer moeten diamanten sieraden worden gecontroleerd?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn when diamond rings, earrings, necklaces and bracelets need professional inspection, what a jeweller should check and which warning signs need immediate attention."
+      "excerpt": "Ontdek wanneer diamanten ringen, oorbellen, halskettingen en armbanden professioneel moeten worden gecontroleerd, wat een juwelier moet nakijken en welke waarschuwingssignalen onmiddellijke aandacht vereisen."
     }
   },
   "BlogIndex": {
-    "title": "Lab-Grown Diamond Jewellery Guides | Aurelia Royale",
-    "titlePaged": "Lab-Grown Diamond Jewellery Guides — Page {page} | Aurelia Royale",
-    "description": "Explore expert guides on lab-grown diamonds covering education, buying advice, sizing, certification, care and maintenance. Written for buyers of fine diamond jewellery.",
-    "ogDescription": "Explore expert guides on lab-grown diamonds covering education, buying advice, sizing, certification, care and maintenance.",
+    "title": "Gidsen over labgrown diamanten sieraden | Aurelia Royale",
+    "titlePaged": "Gidsen over labgrown diamanten sieraden — pagina {page} | Aurelia Royale",
+    "description": "Ontdek deskundige gidsen over labgrown diamanten, met informatie, aankoopadvies, tips voor de juiste maat, certificering, verzorging en onderhoud. Geschreven voor inkopers van verfijnde diamanten sieraden.",
+    "ogDescription": "Ontdek deskundige gidsen over labgrown diamanten, met informatie, aankoopadvies, tips voor de juiste maat, certificering, verzorging en onderhoud.",
     "eyebrow": "Aurelia Journal",
-    "heading": "Guides & Insights",
-    "subheading": "Explore our collection of articles, expert guides, and sizing tips to help you select and care for your lab-grown diamond jewellery.",
+    "heading": "Gidsen & inzichten",
+    "subheading": "Ontdek onze collectie artikelen, deskundige gidsen en tips voor de juiste maat, zodat je je labgrown diamanten sieraden kunt kiezen en verzorgen.",
     "byline": "Aurelia Royale • {date}",
-    "readArticle": "Read Article",
-    "noResultsHeading": "No Articles Found",
-    "noResultsBody": "Try selecting a different category.",
-    "paginationLabel": "Blog pagination",
-    "previousPage": "Previous page",
-    "nextPage": "Next page"
+    "readArticle": "Artikel lezen",
+    "noResultsHeading": "Geen artikelen gevonden",
+    "noResultsBody": "Probeer een andere categorie te selecteren.",
+    "paginationLabel": "Blogpaginering",
+    "previousPage": "Vorige pagina",
+    "nextPage": "Volgende pagina"
   },
   "blogFilters": {
-    "all": "All",
-    "diamondEducation": "Diamond Education",
-    "sizingAndFit": "Sizing & Fit",
-    "certificationAndQuality": "Certification & Quality",
-    "buyingGuides": "Buying Guides",
-    "searchPlaceholder": "Search articles..."
+    "all": "Alles",
+    "diamondEducation": "Diamantkennis",
+    "sizingAndFit": "Maat & pasvorm",
+    "certificationAndQuality": "Certificering & kwaliteit",
+    "buyingGuides": "Koopgidsen",
+    "searchPlaceholder": "Zoek artikelen..."
   },
   "shopCategories": {
-    "bracelets": "Bracelets",
-    "earrings": "Earrings",
-    "necklaces": "Necklaces",
-    "rings": "Rings",
-    "pendants": "Pendants",
+    "bracelets": "Armbanden",
+    "earrings": "Oorbellen",
+    "necklaces": "Kettingen",
+    "rings": "Ringen",
+    "pendants": "Hangers",
     "sets": "Sets",
     "fallback": "{category}"
   },
   "HomePage": {
-    "findNewIn": "Find New In",
-    "topTrending": "Top Trending",
-    "viewAllPieces": "View All Pieces"
+    "findNewIn": "Ontdek nieuw binnen",
+    "topTrending": "Populairste items",
+    "viewAllPieces": "Bekijk alle sieraden"
   },
   "Hero": {
     "marqueeItems": {
-      "worldwideShipping": "Worldwide Shipping",
-      "labGrownDiamond": "Lab-Grown Diamond",
-      "fineJewelry": "Fine Jewellery",
-      "handCrafted": "Hand Crafted",
-      "certified": "Certified"
+      "worldwideShipping": "Wereldwijde verzending",
+      "labGrownDiamond": "Labgrown diamant",
+      "fineJewelry": "Fijne juwelen",
+      "handCrafted": "Handgemaakt",
+      "certified": "Gecertificeerd"
     },
     "headingLine1": "WORN WITH",
-    "headingLine2": "INTENTION.",
-    "body": "Each piece is a whisper of heritage, shaped by artisans who have spent decades perfecting the language of fine metal and stone.",
-    "cta": "Shop Now"
+    "headingLine2": "INTENTIE.",
+    "body": "Elk sieraad is een fluistering van erfgoed, vormgegeven door ambachtslieden die al tientallen jaren de taal van edelmetaal en edelsteen perfectioneren.",
+    "cta": "Shop nu"
   },
   "Newsletter": {
-    "eyebrow": "Stay Connected",
-    "heading": "Get Our Latest Updates",
-    "body": "Be first to discover new collections, exclusive events, and the quiet privileges reserved for our inner circle.",
-    "emailPlaceholder": "Your E-Mail Address",
-    "emailLabel": "Email address",
-    "submit": "Subscribe"
+    "eyebrow": "Blijf op de hoogte",
+    "heading": "Ontvang ons laatste nieuws",
+    "body": "Ontdek als eerste nieuwe collecties, exclusieve evenementen en de bijzondere privileges die zijn voorbehouden aan onze besloten kring.",
+    "emailPlaceholder": "Uw e-mailadres",
+    "emailLabel": "E-mailadres",
+    "submit": "Abonneren"
   },
   "ShopByCategory": {
-    "eyebrow": "Our Categories",
-    "heading": "Shop By Category",
-    "shopAriaLabel": "Shop {label}"
+    "eyebrow": "Onze categorieën",
+    "heading": "Shop op categorie",
+    "shopAriaLabel": "Bekijk {label}"
   },
   "TestimonialSlider": {
-    "eyebrow": "Client Testimonial",
-    "heading": "Our Happy Clients",
-    "ratingAriaLabel": "{rating} out of 5 stars",
-    "tabsAriaLabel": "Testimonials",
-    "showTestimonialAria": "Show testimonial from {name}",
+    "eyebrow": "Klantbeoordeling",
+    "heading": "Onze tevreden klanten",
+    "ratingAriaLabel": "{rating} van de 5 sterren",
+    "tabsAriaLabel": "Klantbeoordelingen",
+    "showTestimonialAria": "Toon de beoordeling van {name}",
     "items": {
       "isabelle": {
         "name": "Isabelle Laurent",
-        "location": "Paris, France",
-        "quote": "The earrings I received were beyond anything I had imagined — flawlessly crafted, packaged like a dream. Aurelia Royale feels genuinely couture."
+        "location": "Parijs, Frankrijk",
+        "quote": "De oorbellen die ik ontving, overtroffen alles wat ik me had voorgesteld — perfect vervaardigd en verpakt als een droom. Aurelia Royale voelt oprecht couture."
       },
       "alexander": {
         "name": "Alexander Lee",
-        "location": "London, UK",
-        "quote": "Premium service and elegant finishing made every order memorable. Their design language feels timeless while still modern and wearable."
+        "location": "Londen, VK",
+        "quote": "De hoogwaardige service en elegante afwerking maakten elke bestelling onvergetelijk. Hun designtaal voelt tijdloos, maar is toch modern en draagbaar."
       }
     }
   },
   "ShopByEdition": {
-    "eyebrow": "Curated For You",
-    "heading": "Shop By Edition",
-    "editionsAriaLabel": "Choose a jewellery edition",
-    "categoryFilterAriaLabel": "Filter by category",
-    "emptyState": "No pieces available in this category yet.",
-    "viewAllPieces": "View All Pieces",
+    "eyebrow": "Speciaal voor jou geselecteerd",
+    "heading": "Shop per editie",
+    "editionsAriaLabel": "Kies een sieradeneditie",
+    "categoryFilterAriaLabel": "Filter op categorie",
+    "emptyState": "Er zijn nog geen sieraden beschikbaar in deze categorie.",
+    "viewAllPieces": "Bekijk alle sieraden",
     "editions": {
       "classic": {
-        "tag": "Timeless",
-        "title": "Classic Edition",
-        "description": "Timeless diamond jewellery crafted for effortless elegance."
+        "tag": "Tijdloos",
+        "title": "Klassieke editie",
+        "description": "Tijdloze diamanten sieraden, gemaakt voor moeiteloze elegantie."
       },
       "limited": {
-        "tag": "Exclusive",
+        "tag": "Exclusief",
         "title": "Limited Edition",
-        "description": "Individually numbered creations. Once sold, never reproduced."
+        "description": "Individueel genummerde creaties. Eenmaal verkocht, worden ze nooit opnieuw gemaakt."
       },
       "rare": {
-        "tag": "Signature",
-        "title": "Rare Edition",
-        "description": "One-of-a-kind masterpieces featuring our finest lab-grown diamonds."
+        "tag": "Signatuur",
+        "title": "Zeldzame editie",
+        "description": "Unieke meesterwerken met onze mooiste labgrown diamanten."
       }
     },
     "categories": {
-      "all": "All",
-      "bracelet": "Bracelet",
-      "earring": "Earring",
-      "necklace": "Necklace",
-      "pendant": "Pendant",
+      "all": "Alles",
+      "bracelet": "Armband",
+      "earring": "Oorbel",
+      "necklace": "Ketting",
+      "pendant": "Hanger",
       "ring": "Ring",
       "set": "Set"
     }
   },
   "BestSellingTabs": {
-    "eyebrow": "Best Selling",
-    "heading": "Signature Collection",
-    "viewAll": "View All",
-    "filterAriaLabel": "Filter products by category",
-    "allTab": "All",
-    "viewAllPieces": "View All Pieces"
+    "eyebrow": "Bestsellers",
+    "heading": "Signature-collectie",
+    "viewAll": "Alles bekijken",
+    "filterAriaLabel": "Producten filteren op categorie",
+    "allTab": "Alle",
+    "viewAllPieces": "Bekijk alle sieraden"
   },
   "ShopPage": {
-    "metaTitleDefault": "Shop Fine Jewellery",
-    "metaDescriptionDefault": "Browse the full Aurelia Royale collection of lab-grown diamond rings, earrings, necklaces, bracelets, pendants and sets.",
-    "metaTitleCategory": "{category} Jewellery",
-    "metaDescriptionCategory": "Shop Aurelia Royale {category} — fine lab-grown diamond {category} crafted for timeless, sustainable elegance.",
-    "headingDefault": "Fine Lab-Grown Diamond Jewellery",
-    "headingCategory": "{category} Collection"
+    "metaTitleDefault": "Shop fijne juwelen",
+    "metaDescriptionDefault": "Bekijk de volledige Aurelia Royale-collectie labgrown diamanten ringen, oorbellen, halskettingen, armbanden, hangers en sets.",
+    "metaTitleCategory": "{category}-juwelen",
+    "metaDescriptionCategory": "Shop Aurelia Royale {category} — fijne juwelen met labgrown diamanten, vervaardigd voor tijdloze, duurzame elegantie.",
+    "headingDefault": "Fijne juwelen met labgrown diamanten",
+    "headingCategory": "{category}-collectie"
   },
   "ShopCatalog": {
-    "resultsSummary": "Showing {start} - {end} Of {total} Results",
+    "resultsSummary": "Weergegeven {start} - {end} van {total} resultaten",
     "filter": "Filter",
-    "closeFilter": "Close filter",
-    "filterProductsLabel": "Filter products",
-    "productType": "Product Type",
-    "viewResults": "View Results",
-    "noProductsMatch": "No products match the current filters."
+    "closeFilter": "Filter sluiten",
+    "filterProductsLabel": "Producten filteren",
+    "productType": "Producttype",
+    "viewResults": "Resultaten bekijken",
+    "noProductsMatch": "Geen producten voldoen aan de huidige filters."
   },
   "ComingSoonSignup": {
-    "eyebrow": "Coming Soon",
-    "heading": "A New Era of Luxury is Coming",
-    "craftsmanship": "Exceptional craftsmanship.",
-    "timelessDesign": "Timeless design.",
-    "sustainableDiamonds": "Sustainably created diamonds.",
-    "collectionUnveil": "Our first collection will be unveiled soon.",
-    "beFirstToKnow": "Be the First to Know",
-    "exclusiveArriving": "Our exclusive collections are arriving soon",
-    "perkEarlyAccess": "Early access",
-    "perkLaunchUpdates": "Launch updates",
-    "perkExclusiveOffers": "Exclusive offers",
-    "perkNewCollection": "New collection announcements",
-    "priorityAccess": "Enter your email to receive priority access.",
-    "emailPlaceholder": "Your E-Mail Address",
-    "emailLabel": "Email address",
-    "notifyMe": "Notify Me"
+    "eyebrow": "Binnenkort beschikbaar",
+    "heading": "Een nieuw tijdperk van luxe komt eraan",
+    "craftsmanship": "Uitzonderlijk vakmanschap.",
+    "timelessDesign": "Tijdloos design.",
+    "sustainableDiamonds": "Duurzaam geproduceerde diamanten.",
+    "collectionUnveil": "Onze eerste collectie wordt binnenkort onthuld.",
+    "beFirstToKnow": "Wees als eerste op de hoogte",
+    "exclusiveArriving": "Onze exclusieve collecties zijn binnenkort verkrijgbaar",
+    "perkEarlyAccess": "Vroege toegang",
+    "perkLaunchUpdates": "Updates over de lancering",
+    "perkExclusiveOffers": "Exclusieve aanbiedingen",
+    "perkNewCollection": "Aankondigingen van nieuwe collecties",
+    "priorityAccess": "Vul uw e-mailadres in voor toegang met voorrang.",
+    "emailPlaceholder": "Uw e-mailadres",
+    "emailLabel": "E-mailadres",
+    "notifyMe": "Breng me op de hoogte"
   },
   "ProductMediaGallery": {
-    "view360": "{title} 360° view",
-    "showView360": "Show {title} 360° view",
-    "showImage": "Show {title} image"
+    "view360": "360°-weergave van {title}",
+    "showView360": "Toon de 360°-weergave van {title}",
+    "showImage": "Toon de afbeelding van {title}"
   },
   "ProductPurchasePanel": {
-    "decreaseQuantity": "Decrease quantity",
-    "increaseQuantity": "Increase quantity",
-    "addToCart": "Add To Cart"
+    "decreaseQuantity": "Aantal verlagen",
+    "increaseQuantity": "Aantal verhogen",
+    "addToCart": "Toevoegen aan winkelwagen"
   },
   "ShopPagination": {
-    "pagination": "Pagination",
-    "previousPage": "Previous page",
-    "nextPage": "Next page",
-    "page": "Page {page}"
+    "pagination": "Paginering",
+    "previousPage": "Vorige pagina",
+    "nextPage": "Volgende pagina",
+    "page": "Pagina {page}"
   },
   "ProductDetailsTabs": {
-    "tabDetails": "Product Details",
-    "tabSpecifications": "Specifications",
-    "tabReviews": "Review",
-    "sectionsLabel": "Product information sections",
-    "productOverview": "Product Overview",
-    "vendor": "Vendor",
+    "tabDetails": "Productdetails",
+    "tabSpecifications": "Specificaties",
+    "tabReviews": "Beoordeling",
+    "sectionsLabel": "Productinformatieonderdelen",
+    "productOverview": "Productoverzicht",
+    "vendor": "Verkoper",
     "category": "Category",
     "sku": "SKU",
-    "productVideo": "Product Video",
-    "viewProductVideo": "View product video",
-    "certificateFile": "Certificate File",
-    "openCertificate": "Open certificate",
-    "whyChooseThisProduct": "Why Choose This Product?",
-    "stone": "Stone:",
-    "colour": "Colour:",
-    "shape": "Shape:",
-    "carat": "Carat:",
-    "treatment": "Treatment:",
-    "diamondPieces": "Diamond Pieces:",
-    "stock": "Stock:",
-    "featured": "Featured:",
-    "yes": "Yes",
-    "no": "No",
-    "certificate": "Certificate",
-    "measurement": "Measurement",
-    "origin": "Origin",
-    "stoneAndShape": "Stone & Shape",
-    "colourAndCarat": "Colour & Carat",
-    "customerReviews": "Customer Reviews",
-    "loadingReviews": "Loading reviews...",
-    "noReviewsYet": "No reviews yet. Be the first to review this product.",
-    "edit": "Edit",
-    "delete": "Delete",
-    "editYourReview": "Edit Your Review",
-    "writeAReview": "Write A Review",
-    "checkingSession": "Checking session...",
-    "needLoginToReview": "You need to log in before you can review this product.",
-    "loginFirst": "Login First",
-    "oneReviewOnly": "You can keep only one review for this product. Use edit to update your existing review.",
-    "shareExperience": "Share your experience with this product.",
-    "rating": "Rating",
-    "comment": "Comment",
-    "writeYourReviewPlaceholder": "Write your review here",
-    "saving": "Saving...",
-    "updateReview": "Update Review",
-    "submitReview": "Submit Review",
-    "cancel": "Cancel",
-    "needAccount": "Need an account?",
-    "login": "Login",
-    "ratingOutOf5": "Rating {rating} out of 5",
-    "unableToLoadReviews": "Unable to load reviews.",
-    "ratingRangeError": "Rating must be between 1 and 5.",
-    "commentRequired": "Comment is required.",
-    "alreadyReviewed": "You have already reviewed this product.",
-    "unableToSaveReview": "Unable to save review.",
-    "unableToDeleteReview": "Unable to delete review."
+    "productVideo": "Productvideo",
+    "viewProductVideo": "Productvideo bekijken",
+    "certificateFile": "Certificaatbestand",
+    "openCertificate": "Certificaat openen",
+    "whyChooseThisProduct": "Waarom kiezen voor dit product?",
+    "stone": "Edelsteen:",
+    "colour": "Kleur:",
+    "shape": "Vorm:",
+    "carat": "Karaat:",
+    "treatment": "Behandeling:",
+    "diamondPieces": "Aantal diamanten:",
+    "stock": "Voorraad:",
+    "featured": "Uitgelicht:",
+    "yes": "Ja",
+    "no": "Nee",
+    "certificate": "Certificaat",
+    "measurement": "Afmetingen",
+    "origin": "Herkomst",
+    "stoneAndShape": "Edelsteen & vorm",
+    "colourAndCarat": "Kleur & karaat",
+    "customerReviews": "Klantbeoordelingen",
+    "loadingReviews": "Beoordelingen laden...",
+    "noReviewsYet": "Nog geen beoordelingen. Schrijf als eerste een beoordeling voor dit product.",
+    "edit": "Bewerken",
+    "delete": "Verwijderen",
+    "editYourReview": "Je beoordeling bewerken",
+    "writeAReview": "Een beoordeling schrijven",
+    "checkingSession": "Sessie controleren...",
+    "needLoginToReview": "Je moet inloggen voordat je dit product kunt beoordelen.",
+    "loginFirst": "Eerst inloggen",
+    "oneReviewOnly": "Je kunt maar één beoordeling voor dit product plaatsen. Bewerk je bestaande beoordeling om deze bij te werken.",
+    "shareExperience": "Deel je ervaring met dit product.",
+    "rating": "Beoordeling",
+    "comment": "Opmerking",
+    "writeYourReviewPlaceholder": "Schrijf hier je beoordeling",
+    "saving": "Opslaan...",
+    "updateReview": "Beoordeling bijwerken",
+    "submitReview": "Beoordeling verzenden",
+    "cancel": "Annuleren",
+    "needAccount": "Heb je nog geen account?",
+    "login": "Inloggen",
+    "ratingOutOf5": "Beoordeling {rating} van de 5",
+    "unableToLoadReviews": "Beoordelingen kunnen niet worden geladen.",
+    "ratingRangeError": "De beoordeling moet tussen 1 en 5 liggen.",
+    "commentRequired": "Een opmerking is verplicht.",
+    "alreadyReviewed": "U heeft dit product al beoordeeld.",
+    "unableToSaveReview": "De beoordeling kan niet worden opgeslagen.",
+    "unableToDeleteReview": "De beoordeling kan niet worden verwijderd."
   },
   "ShopDetailsPage": {
-    "productNotFound": "Product Not Found",
-    "metaDescriptionFallback": "Discover {title} — fine lab-grown diamond jewellery by Aurelia Royale.",
+    "productNotFound": "Product niet gevonden",
+    "metaDescriptionFallback": "Ontdek {title} — verfijnde labgrown diamanten sieraden van Aurelia Royale.",
     "breadcrumbHome": "Home",
-    "breadcrumbShop": "Shop",
+    "breadcrumbShop": "Winkelen",
     "breadcrumbDetails": "Details",
-    "ratedOutOf5": "Rated {rating} out of 5",
-    "review": "Review",
-    "reviews": "Reviews",
-    "productDetails": "Product Details",
-    "highlyRecommend": "Highly Recommend",
-    "topRelatedProducts": "Top Related Products",
-    "viewAllPieces": "View All Pieces"
+    "ratedOutOf5": "Beoordeeld met {rating} van de 5",
+    "review": "Beoordeling",
+    "reviews": "Beoordelingen",
+    "productDetails": "Productdetails",
+    "highlyRecommend": "Beveel ik ten zeerste aan",
+    "topRelatedProducts": "Top gerelateerde producten",
+    "viewAllPieces": "Bekijk alle sieraden"
   },
   "CartPage": {
-    "eyebrow": "Cart",
-    "title": "Your Shopping Bag",
-    "subtitle": "Review your selected products, adjust quantities, and continue shopping with the Aurelia Royale collection.",
-    "clearing": "Clearing...",
-    "clearCart": "Clear Cart",
-    "loading": "Loading cart...",
-    "emptyTitle": "Your cart is empty",
-    "emptyBody": "Add a product from the shop or product details page and it will appear here.",
-    "continueShopping": "Continue Shopping",
+    "eyebrow": "Winkelwagen",
+    "title": "Je winkelwagen",
+    "subtitle": "Bekijk je geselecteerde producten, pas de aantallen aan en shop verder in de collectie van Aurelia Royale.",
+    "clearing": "Wordt leeggemaakt...",
+    "clearCart": "Winkelwagen legen",
+    "loading": "Winkelwagen wordt geladen...",
+    "emptyTitle": "Je winkelwagen is leeg",
+    "emptyBody": "Voeg een product toe vanuit de winkel of de productpagina. Het verschijnt dan hier.",
+    "continueShopping": "Verder winkelen",
     "sku": "SKU {sku}",
-    "quantity": "Quantity: {quantity}",
-    "decreaseQuantityFor": "Decrease quantity for {title}",
-    "increaseQuantityFor": "Increase quantity for {title}",
-    "removing": "Removing...",
-    "remove": "Remove",
-    "summary": "Summary",
-    "totalItems": "Total items",
-    "shipping": "Shipping",
-    "free": "Free",
-    "reservedNotice": "Your selected pieces are reserved in this bag while you continue exploring the collection.",
-    "proceedToCheckout": "Proceed to Checkout",
-    "reviewNextStep": "Review shipping and payment details on the next step",
-    "unableToClearCart": "Unable to clear your cart.",
-    "unableToRemoveItem": "Unable to remove this item.",
-    "unableToUpdateQuantity": "Unable to update the quantity."
+    "quantity": "Aantal: {quantity}",
+    "decreaseQuantityFor": "Aantal voor {title} verlagen",
+    "increaseQuantityFor": "Aantal voor {title} verhogen",
+    "removing": "Wordt verwijderd...",
+    "remove": "Verwijderen",
+    "summary": "Overzicht",
+    "totalItems": "Totaal aantal artikelen",
+    "shipping": "Verzending",
+    "free": "Gratis",
+    "reservedNotice": "Je geselecteerde sieraden zijn in deze winkelwagen gereserveerd terwijl je de collectie verder bekijkt.",
+    "proceedToCheckout": "Doorgaan naar afrekenen",
+    "reviewNextStep": "Bekijk de verzend- en betaalgegevens in de volgende stap",
+    "unableToClearCart": "Je winkelwagen kan niet worden leeggemaakt.",
+    "unableToRemoveItem": "Dit artikel kan niet worden verwijderd.",
+    "unableToUpdateQuantity": "Het aantal kan niet worden bijgewerkt."
   },
   "CheckoutPage": {
-    "eyebrow": "Checkout",
-    "title": "Review and Place Your Order",
-    "subtitle": "Confirm your bag contents and review delivery details before finalizing your Aurelia Royale order.",
-    "backToCart": "Back to Cart",
-    "loading": "Loading checkout...",
-    "emptyTitle": "Nothing to checkout yet",
-    "emptyBody": "Add products to your cart before moving to checkout.",
-    "continueShopping": "Continue Shopping",
-    "orderItems": "Order Items",
+    "eyebrow": "Afrekenen",
+    "title": "Controleer en plaats je bestelling",
+    "subtitle": "Controleer de inhoud van je winkelmandje en de bezorggegevens voordat je je bestelling bij Aurelia Royale afrondt.",
+    "backToCart": "Terug naar winkelmandje",
+    "loading": "Afrekenen wordt geladen...",
+    "emptyTitle": "Er is nog niets om af te rekenen",
+    "emptyBody": "Voeg producten toe aan je winkelmandje voordat je verdergaat naar afrekenen.",
+    "continueShopping": "Verder winkelen",
+    "orderItems": "Bestelde artikelen",
     "sku": "SKU {sku}",
-    "quantity": "Quantity: {quantity}",
-    "customerDetails": "Customer Details",
-    "defaultCustomerName": "Aurelia Royale Customer",
-    "noEmailAvailable": "No email available",
-    "addressNote": "`addressId` is supported in the order payload interface, but it is optional and is not sent until address selection is added.",
-    "paymentMethod": "Payment Method",
-    "onlinePayment": "Online payment",
-    "onlinePaymentDescription": "A Stripe checkout popup opens after order creation and returns to the status page.",
-    "cashOnDelivery": "Cash on delivery",
-    "cashOnDeliveryDescription": "The order is created immediately and you are redirected to the local success screen.",
-    "orderSummary": "Order Summary",
-    "items": "Items",
-    "shipping": "Shipping",
-    "free": "Free",
-    "integrationNotice": "The order request is now integrated with `POST /orders`. Online payment opens the returned checkout session in a popup window.",
-    "placingOrder": "Placing Order...",
-    "placeOrderOnline": "Place Order and Pay Online",
-    "placeCodOrder": "Place COD Order",
-    "popupNotice": "Popup checkout opens after the order is created",
-    "codNotice": "Cash on delivery completes inside this website",
-    "missingCheckoutUrl": "Missing checkout session URL.",
-    "popupBlocked": "Popup was blocked by your browser. Please allow popups and try again.",
-    "unableToPlaceOrder": "Unable to place this order right now."
+    "quantity": "Aantal: {quantity}",
+    "customerDetails": "Klantgegevens",
+    "defaultCustomerName": "Aurelia Royale-klant",
+    "noEmailAvailable": "Geen e-mailadres beschikbaar",
+    "addressNote": "`addressId` wordt ondersteund in de interface voor de bestelpayload, maar is optioneel en wordt pas verzonden wanneer adresselectie is toegevoegd.",
+    "paymentMethod": "Betaalmethode",
+    "onlinePayment": "Online betalen",
+    "onlinePaymentDescription": "Na het plaatsen van de bestelling wordt een Stripe-betaalvenster geopend en keer je terug naar de statuspagina.",
+    "cashOnDelivery": "Contant betalen bij levering",
+    "cashOnDeliveryDescription": "De bestelling wordt direct aangemaakt en je wordt doorgestuurd naar het lokale bevestigingsscherm.",
+    "orderSummary": "Besteloverzicht",
+    "items": "Artikelen",
+    "shipping": "Verzending",
+    "free": "Gratis",
+    "integrationNotice": "Het bestelverzoek is nu geïntegreerd met `POST /orders`. Bij online betalen wordt de ontvangen betaalsessie geopend in een pop-upvenster.",
+    "placingOrder": "Bestelling wordt geplaatst...",
+    "placeOrderOnline": "Bestelling plaatsen en online betalen",
+    "placeCodOrder": "Bestelling plaatsen onder rembours",
+    "popupNotice": "Na het plaatsen van de bestelling wordt het betaalvenster geopend",
+    "codNotice": "Contant betalen bij levering gebeurt op deze website",
+    "missingCheckoutUrl": "URL van de betaalsessie ontbreekt.",
+    "popupBlocked": "De pop-up is door je browser geblokkeerd. Sta pop-ups toe en probeer het opnieuw.",
+    "unableToPlaceOrder": "Je bestelling kan op dit moment niet worden geplaatst."
   },
   "CheckoutStatusPage": {
-    "syncErrorMessage": "Order status was updated, but cart synchronization needs another refresh.",
-    "statusLabel": "Checkout Status",
-    "successTitle": "Your order was placed successfully",
-    "failureTitle": "Payment was not completed",
-    "orderNumberLabel": "Order number:",
-    "onlineSuccessMessage": "Payment completed and the website return flow finished successfully.",
-    "codSuccessMessage": "Cash on delivery order was created successfully.",
-    "failureMessage": "You returned from the payment flow without completing payment. You can retry checkout when ready.",
-    "syncing": "Syncing your cart and checkout state...",
-    "continueShopping": "Continue Shopping",
-    "viewProfile": "View Profile",
-    "tryCheckoutAgain": "Try Checkout Again",
-    "loadingStatus": "Loading checkout status",
-    "preparingDetails": "Preparing your order details"
+    "syncErrorMessage": "De bestelstatus is bijgewerkt, maar de synchronisatie van de winkelwagen moet nogmaals worden vernieuwd.",
+    "statusLabel": "Afrekenstatus",
+    "successTitle": "Je bestelling is succesvol geplaatst",
+    "failureTitle": "De betaling is niet voltooid",
+    "orderNumberLabel": "Bestelnummer:",
+    "onlineSuccessMessage": "De betaling is voltooid en het terugkeerproces naar de website is succesvol afgerond.",
+    "codSuccessMessage": "De bestelling onder rembours is succesvol aangemaakt.",
+    "failureMessage": "Je bent teruggekeerd uit het betaalproces zonder de betaling te voltooien. Je kunt het afrekenen hervatten wanneer je er klaar voor bent.",
+    "syncing": "Winkelwagen en afrekenstatus worden gesynchroniseerd...",
+    "continueShopping": "Verder winkelen",
+    "viewProfile": "Profiel bekijken",
+    "tryCheckoutAgain": "Opnieuw proberen af te rekenen",
+    "loadingStatus": "Afrekenstatus wordt geladen",
+    "preparingDetails": "Je bestelgegevens worden voorbereid"
   },
   "AboutPage": {
-    "metaTitle": "About Us",
-    "metaDescription": "Discover the Aurelia Royale story — our craftsmanship, heritage, and commitment to sustainable lab-grown diamond jewellery.",
-    "heroTitle": "About Us",
-    "introEyebrow": "About Us",
-    "introHeading": "A Legacy Of Fine Craft.",
-    "introParagraph1": "At Aurelia Royale, elegance is more than a style — it is a statement of timeless sophistication. Our collection is crafted to celebrate modern luxury through finely designed jewellery pieces that blend contemporary artistry with classic charm. Every detail reflects grace, confidence, and refined beauty for those who appreciate exclusivity.",
-    "introParagraph2": "We believe jewellery should feel personal, memorable, and effortlessly luxurious. From dazzling statement rings to delicate necklaces and radiant earrings, Aurelia Royale brings together craftsmanship and premium aesthetics to create pieces that elevate every occasion. Designed for the modern muse, our creations embody luxury with a minimalist touch.",
-    "statYearsLabel": "Year's Of Expertise",
-    "statDesignsLabel": "Exclusive Designs",
-    "statLoversLabel": "Jewellery Lovers",
-    "heroImageAlt": "Model wearing Aurelia Royale jewellery",
-    "philosophyEyebrow": "Our Philosophy",
-    "philosophyHeadingPart1": "We Believe Jewellery Is Not Decoration",
-    "philosophyHeadingPart2": "It Is Memory Made Permanent.",
-    "qualityTitle": "Uncompromising Quality",
-    "qualityBody": "Every gemstone is hand-selected by our master gemmologist. Every metal is tested and hallmarked. We accept only what is genuinely extraordinary.",
-    "ethicalTitle": "Ethical Provenance",
-    "ethicalBody": "Our supply chain is independently audited to ensure no conflict minerals or exploitative practices are ever part of your piece.",
-    "timelessTitle": "Timeless Design",
-    "timelessBody": "We resist trend. Our pieces are designed to be worn by your daughter and her daughter — forms that feel as relevant in fifty years as they do today."
+    "metaTitle": "Over ons",
+    "metaDescription": "Ontdek het verhaal van Aurelia Royale — ons vakmanschap, onze traditie en onze toewijding aan duurzame sieraden met labgrown diamanten.",
+    "heroTitle": "Over ons",
+    "introEyebrow": "Over ons",
+    "introHeading": "Een traditie van verfijnd vakmanschap.",
+    "introParagraph1": "Bij Aurelia Royale is elegantie meer dan een stijl — het is een uiting van tijdloze verfijning. Onze collectie is gemaakt om moderne luxe te vieren met verfijnd ontworpen sieraden die eigentijdse kunstzinnigheid combineren met klassieke charme. Elk detail weerspiegelt gratie, zelfvertrouwen en verfijnde schoonheid voor wie exclusiviteit waardeert.",
+    "introParagraph2": "Wij geloven dat sieraden persoonlijk, memorabel en moeiteloos luxueus moeten aanvoelen. Van schitterende statementringen tot verfijnde kettingen en stralende oorbellen: Aurelia Royale brengt vakmanschap en hoogwaardige esthetiek samen in sieraden die elke gelegenheid naar een hoger niveau tillen. Onze creaties zijn ontworpen voor de moderne muze en belichamen luxe met een minimalistische toets.",
+    "statYearsLabel": "Jaar ervaring",
+    "statDesignsLabel": "Exclusieve ontwerpen",
+    "statLoversLabel": "Sieradenliefhebbers",
+    "heroImageAlt": "Model met sieraden van Aurelia Royale",
+    "philosophyEyebrow": "Onze filosofie",
+    "philosophyHeadingPart1": "Wij geloven dat sieraden geen versiering zijn",
+    "philosophyHeadingPart2": "Ze maken herinneringen blijvend.",
+    "qualityTitle": "Compromisloze kwaliteit",
+    "qualityBody": "Elke edelsteen wordt met de hand geselecteerd door onze meester-edelsteenkundige. Elk metaal wordt getest en voorzien van een keurmerk. We accepteren alleen wat werkelijk uitzonderlijk is.",
+    "ethicalTitle": "Ethische herkomst",
+    "ethicalBody": "Onze toeleveringsketen wordt onafhankelijk gecontroleerd om te garanderen dat conflicterende mineralen of uitbuitende praktijken nooit deel uitmaken van uw sieraad.",
+    "timelessTitle": "Tijdloos ontwerp",
+    "timelessBody": "Wij laten ons niet leiden door trends. Onze sieraden zijn ontworpen om door uw dochter en haar dochter te worden gedragen — vormen die over vijftig jaar nog net zo relevant aanvoelen als vandaag."
   },
   "ContactPage": {
-    "metaTitle": "Contact Us",
-    "metaDescription": "Get in touch with Aurelia Royale for enquiries about our fine lab-grown diamond jewellery, bespoke pieces, and client care.",
-    "heroTitle": "Contact Us",
+    "metaTitle": "Neem contact op",
+    "metaDescription": "Neem contact op met Aurelia Royale voor vragen over onze fijne sieraden met labgrown diamanten, sieraden op maat en klantenzorg.",
+    "heroTitle": "Neem contact op",
     "breadcrumbHome": "Home",
-    "breadcrumbCurrent": "Contact Us",
-    "infoEyebrow": "Contact Info",
-    "infoHeading": "Get In Touch",
-    "namePlaceholder": "Your Name *",
-    "lastNamePlaceholder": "Last Name *",
-    "emailPlaceholder": "Email Address",
-    "phonePlaceholder": "Phone *",
-    "messagePlaceholder": "Type Your Message",
-    "submitButton": "Submit Now",
-    "findUsEyebrow": "Find Us",
-    "locationHeading": "Location Map",
-    "mapTitle": "Aurelia Royale Location Map"
+    "breadcrumbCurrent": "Neem contact op",
+    "infoEyebrow": "Contactgegevens",
+    "infoHeading": "Neem contact op",
+    "namePlaceholder": "Uw voornaam *",
+    "lastNamePlaceholder": "Uw achternaam *",
+    "emailPlaceholder": "E-mailadres",
+    "phonePlaceholder": "Telefoonnummer *",
+    "messagePlaceholder": "Typ uw bericht",
+    "submitButton": "Nu verzenden",
+    "findUsEyebrow": "Vind ons",
+    "locationHeading": "Locatiekaart",
+    "mapTitle": "Locatiekaart van Aurelia Royale"
   },
   "LoginPage": {
-    "heroImageAlt": "Model wearing Aurelia Royale jewellery",
-    "backToHome": "Back to Home",
-    "signInTab": "Sign In",
-    "registerTab": "Register",
-    "welcomeBack": "Welcome Back",
-    "title": "Sign Into Your Account.",
-    "subtitle": "Access your collection, track orders, and manage your bespoke commissions in one place.",
-    "emailLabel": "Email Address",
+    "heroImageAlt": "Model met sieraden van Aurelia Royale",
+    "backToHome": "Terug naar home",
+    "signInTab": "Aanmelden",
+    "registerTab": "Registreren",
+    "welcomeBack": "Welkom terug",
+    "title": "Meld u aan bij uw account.",
+    "subtitle": "Krijg toegang tot uw collectie, volg bestellingen en beheer uw opdrachten op maat op één plek.",
+    "emailLabel": "E-mailadres",
     "emailPlaceholder": "you@example.com",
-    "passwordLabel": "Password",
-    "passwordPlaceholder": "Your Password",
-    "hidePassword": "Hide password",
-    "showPassword": "Show password",
-    "forgotPassword": "Forgot Password?",
-    "submitting": "Signing In...",
-    "submit": "Sign In",
-    "noAccountText": "Don't have an account?",
-    "createOne": "Create one",
+    "passwordLabel": "Wachtwoord",
+    "passwordPlaceholder": "Uw wachtwoord",
+    "hidePassword": "Wachtwoord verbergen",
+    "showPassword": "Wachtwoord tonen",
+    "forgotPassword": "Wachtwoord vergeten?",
+    "submitting": "Bezig met aanmelden...",
+    "submit": "Aanmelden",
+    "noAccountText": "Heeft u nog geen account?",
+    "createOne": "Maak een account aan",
     "copyright": "© 2025 Aurelia Royale"
   },
   "VerifyOtpPage": {
-    "heroTitle": "One Final Verification",
-    "heroSubtitle": "Enter the OTP sent to your email and complete your account setup.",
-    "registerLink": "Register",
-    "title": "Verify OTP",
-    "subtitle": "Confirm your account using the OTP from your registration email, then continue by signing in.",
-    "emailPlaceholder": "Email",
-    "otpPlaceholder": "Enter OTP",
-    "submitting": "Verifying...",
-    "submitButton": "Verify OTP",
-    "needAnotherAccount": "Need another account?",
-    "registerAgain": "Register again"
+    "heroTitle": "Eén laatste verificatie",
+    "heroSubtitle": "Voer de OTP in die naar je e-mailadres is gestuurd en voltooi het instellen van je account.",
+    "registerLink": "Registreren",
+    "title": "OTP verifiëren",
+    "subtitle": "Bevestig je account met de OTP uit je registratie-e-mail en ga daarna verder door in te loggen.",
+    "emailPlaceholder": "E-mailadres",
+    "otpPlaceholder": "Voer OTP in",
+    "submitting": "Bezig met verifiëren...",
+    "submitButton": "OTP verifiëren",
+    "needAnotherAccount": "Nog een account nodig?",
+    "registerAgain": "Opnieuw registreren"
   },
   "ResetPasswordPage": {
-    "heroTitle": "Recover Your Account",
-    "heroSubtitle": "Send an email OTP, verify it here, and set a new password securely.",
-    "backToLogin": "Back to Login",
-    "title": "Reset Password",
-    "subtitle": "Send an OTP to your email, then use it here with your new password to restore account access.",
-    "emailLabel": "Email Address",
-    "emailPlaceholder": "Enter your email",
-    "sendingOtp": "Sending...",
-    "sendOtp": "Send OTP",
-    "otpLabel": "OTP Code",
-    "otpPlaceholder": "Enter OTP",
-    "newPasswordLabel": "New Password",
-    "newPasswordPlaceholder": "Enter new password",
-    "hidePassword": "Hide password",
-    "showPassword": "Show password",
-    "resetting": "Resetting...",
-    "submit": "Reset Password",
-    "backToSignIn": "Back to sign in?",
-    "loginHere": "Login here",
-    "otpSentFallback": "OTP sent to your email.",
-    "resetSuccessFallback": "Password reset successful. You can sign in now."
-  },
-  "AuthGuard": {
-    "checkingAccess": "Checking access",
-    "preparingSession": "Preparing your session"
-  },
-  "Toasts": {
-    "emailRequiredForOtp": "Enter your email first.",
-    "resetPasswordFieldsRequired": "Email, OTP, and new password are required.",
-    "changePasswordFieldsRequired": "Please fill old password, new password, and confirm password.",
-    "ticketSubjectAndMessageRequired": "Subject and message are required.",
-    "ticketReplyRequired": "Reply message is required."
+    "heroTitle": "Herstel je account",
+    "heroSubtitle": "Ontvang een OTP per e-mail, verifieer deze hier en stel veilig een nieuw wachtwoord in.",
+    "backToLogin": "Terug naar inloggen",
+    "title": "Wachtwoord resetten",
+    "subtitle": "Ontvang een OTP per e-mail en gebruik deze hier samen met je nieuwe wachtwoord om weer toegang tot je account te krijgen.",
+    "emailLabel": "E-mailadres",
+    "emailPlaceholder": "Voer je e-mailadres in",
+    "sendingOtp": "Bezig met verzenden...",
+    "sendOtp": "OTP verzenden",
+    "otpLabel": "OTP-code",
+    "otpPlaceholder": "Voer de OTP in",
+    "newPasswordLabel": "Nieuw wachtwoord",
+    "newPasswordPlaceholder": "Voer een nieuw wachtwoord in",
+    "hidePassword": "Wachtwoord verbergen",
+    "showPassword": "Wachtwoord tonen",
+    "resetting": "Bezig met resetten...",
+    "submit": "Wachtwoord resetten",
+    "backToSignIn": "Terug naar inloggen?",
+    "loginHere": "Log hier in",
+    "otpSentFallback": "De OTP is naar je e-mailadres verzonden.",
+    "resetSuccessFallback": "Je wachtwoord is opnieuw ingesteld. Je kunt nu inloggen."
   },
   "RegisterPage": {
-    "heroImageAlt": "Model wearing Aurelia Royale jewellery",
-    "backToHome": "Back to Home",
-    "signInTab": "Sign In",
-    "registerTab": "Register",
-    "eyebrow": "Join The Circle",
-    "title": "Create Your Account.",
-    "subtitle": "Create your jewellery account, add your default address, then verify the OTP sent to your email.",
-    "usernameLabel": "Username",
-    "usernamePlaceholder": "Your username",
-    "emailLabel": "Email Address",
+    "heroImageAlt": "Model met sieraden van Aurelia Royale",
+    "backToHome": "Terug naar home",
+    "signInTab": "Inloggen",
+    "registerTab": "Registreren",
+    "eyebrow": "Word lid van The Circle",
+    "title": "Maak je account aan.",
+    "subtitle": "Maak je sieradenaccount aan, voeg je standaardadres toe en verifieer vervolgens de OTP die naar je e-mailadres is gestuurd.",
+    "usernameLabel": "Gebruikersnaam",
+    "usernamePlaceholder": "Je gebruikersnaam",
+    "emailLabel": "E-mailadres",
     "emailPlaceholder": "you@example.com",
-    "firstNameLabel": "First Name",
-    "firstNamePlaceholder": "First name",
-    "lastNameLabel": "Last Name",
-    "lastNamePlaceholder": "Last name",
-    "passwordLabel": "Password",
-    "passwordPlaceholder": "Your password",
-    "hidePassword": "Hide password",
-    "showPassword": "Show password",
-    "confirmPasswordLabel": "Confirm Password",
-    "confirmPasswordPlaceholder": "Re-enter password",
-    "hideConfirmPassword": "Hide confirm password",
-    "showConfirmPassword": "Show confirm password",
-    "countryCodeLabel": "Country Code",
-    "selectCountryCode": "Select country code",
+    "firstNameLabel": "Voornaam",
+    "firstNamePlaceholder": "Voornaam",
+    "lastNameLabel": "Achternaam",
+    "lastNamePlaceholder": "Achternaam",
+    "passwordLabel": "Wachtwoord",
+    "passwordPlaceholder": "Je wachtwoord",
+    "hidePassword": "Wachtwoord verbergen",
+    "showPassword": "Wachtwoord tonen",
+    "confirmPasswordLabel": "Wachtwoord bevestigen",
+    "confirmPasswordPlaceholder": "Voer je wachtwoord opnieuw in",
+    "hideConfirmPassword": "Bevestigingswachtwoord verbergen",
+    "showConfirmPassword": "Bevestigingswachtwoord tonen",
+    "countryCodeLabel": "Landcode",
+    "selectCountryCode": "Selecteer een landcode",
     "countryCodeOptions": {
-      "unitedStates": "United States (+1)",
+      "unitedStates": "Verenigde Staten (+1)",
       "canada": "Canada (+1)",
       "mexico": "Mexico (+52)",
-      "argentina": "Argentina (+54)",
+      "argentina": "Argentinië (+54)",
       "bolivia": "Bolivia (+591)",
-      "brazil": "Brazil (+55)",
-      "chile": "Chile (+56)",
+      "brazil": "Brazilië (+55)",
+      "chile": "Chili (+56)",
       "colombia": "Colombia (+57)",
       "costaRica": "Costa Rica (+506)",
       "cuba": "Cuba (+53)",
-      "dominicanRepublic": "Dominican Republic (+1)",
+      "dominicanRepublic": "Dominicaanse Republiek (+1)",
       "ecuador": "Ecuador (+593)",
       "elSalvador": "El Salvador (+503)",
       "guatemala": "Guatemala (+502)",
       "guyana": "Guyana (+592)",
-      "haiti": "Haiti (+509)",
+      "haiti": "Haïti (+509)",
       "honduras": "Honduras (+504)",
       "jamaica": "Jamaica (+1)",
       "nicaragua": "Nicaragua (+505)",
@@ -1046,369 +1035,380 @@
       "peru": "Peru (+51)",
       "puertoRico": "Puerto Rico (+1)",
       "suriname": "Suriname (+597)",
-      "trinidadAndTobago": "Trinidad and Tobago (+1)",
+      "trinidadAndTobago": "Trinidad en Tobago (+1)",
       "uruguay": "Uruguay (+598)",
       "venezuela": "Venezuela (+58)",
       "belize": "Belize (+501)",
-      "austria": "Austria (+43)",
-      "belgium": "Belgium (+32)",
-      "bulgaria": "Bulgaria (+359)",
-      "croatia": "Croatia (+385)",
+      "austria": "Oostenrijk (+43)",
+      "belgium": "België (+32)",
+      "bulgaria": "Bulgarije (+359)",
+      "croatia": "Kroatië (+385)",
       "cyprus": "Cyprus (+357)",
-      "czechRepublic": "Czech Republic (+420)",
-      "denmark": "Denmark (+45)",
-      "estonia": "Estonia (+372)",
+      "czechRepublic": "Tsjechië (+420)",
+      "denmark": "Denemarken (+45)",
+      "estonia": "Estland (+372)",
       "finland": "Finland (+358)",
-      "france": "France (+33)",
-      "germany": "Germany (+49)",
-      "greece": "Greece (+30)",
-      "hungary": "Hungary (+36)",
-      "iceland": "Iceland (+354)",
-      "ireland": "Ireland (+353)",
-      "italy": "Italy (+39)",
-      "latvia": "Latvia (+371)",
+      "france": "Frankrijk (+33)",
+      "germany": "Duitsland (+49)",
+      "greece": "Griekenland (+30)",
+      "hungary": "Hongarije (+36)",
+      "iceland": "IJsland (+354)",
+      "ireland": "Ierland (+353)",
+      "italy": "Italië (+39)",
+      "latvia": "Letland (+371)",
       "liechtenstein": "Liechtenstein (+423)",
-      "lithuania": "Lithuania (+370)",
-      "luxembourg": "Luxembourg (+352)",
+      "lithuania": "Litouwen (+370)",
+      "luxembourg": "Luxemburg (+352)",
       "malta": "Malta (+356)",
       "monaco": "Monaco (+377)",
-      "netherlands": "Netherlands (+31)",
-      "norway": "Norway (+47)",
-      "poland": "Poland (+48)",
+      "netherlands": "Nederland (+31)",
+      "norway": "Noorwegen (+47)",
+      "poland": "Polen (+48)",
       "portugal": "Portugal (+351)",
-      "romania": "Romania (+40)",
+      "romania": "Roemenië (+40)",
       "sanMarino": "San Marino (+378)",
-      "slovakia": "Slovakia (+421)",
-      "slovenia": "Slovenia (+386)",
-      "spain": "Spain (+34)",
-      "sweden": "Sweden (+46)",
-      "switzerland": "Switzerland (+41)",
-      "unitedKingdom": "United Kingdom (+44)"
+      "slovakia": "Slowakije (+421)",
+      "slovenia": "Slovenië (+386)",
+      "spain": "Spanje (+34)",
+      "sweden": "Zweden (+46)",
+      "switzerland": "Zwitserland (+41)",
+      "unitedKingdom": "Verenigd Koninkrijk (+44)"
     },
-    "phoneNumberLabel": "Phone Number",
-    "phoneNumberPlaceholder": "Phone number",
-    "addressHeading": "Default Address",
-    "countryLabel": "Country",
-    "selectCountry": "Select country",
-    "stateLabel": "State",
-    "selectState": "Select state",
-    "streetLabel": "Street",
-    "streetPlaceholder": "Street address",
-    "cityLabel": "City",
-    "cityPlaceholder": "Select or type a city",
-    "toggleCityOptions": "Toggle city options",
-    "postalCodeLabel": "Postal Code",
-    "postalCodePlaceholder": "Postal code",
-    "submitting": "Creating Account...",
-    "submit": "Register",
-    "haveAccountText": "Already have an account?",
-    "signInLink": "Sign in",
+    "phoneNumberLabel": "Telefoonnummer",
+    "phoneNumberPlaceholder": "Telefoonnummer",
+    "addressHeading": "Standaardadres",
+    "countryLabel": "Land",
+    "selectCountry": "Selecteer een land",
+    "stateLabel": "Provincie",
+    "selectState": "Selecteer een provincie",
+    "streetLabel": "Straat",
+    "streetPlaceholder": "Straat en huisnummer",
+    "cityLabel": "Stad",
+    "cityPlaceholder": "Selecteer of typ een stad",
+    "toggleCityOptions": "Stadsopties weergeven",
+    "postalCodeLabel": "Postcode",
+    "postalCodePlaceholder": "Postcode",
+    "submitting": "Account aanmaken...",
+    "submit": "Registreren",
+    "haveAccountText": "Heeft u al een account?",
+    "signInLink": "Inloggen",
     "copyright": "© 2025 Aurelia Royale",
     "privacy": "Privacy",
-    "terms": "Terms",
-    "support": "Support"
+    "terms": "Voorwaarden",
+    "support": "Ondersteuning"
   },
   "ProfilePage": {
-    "eyebrow": "Profile",
-    "heading": "Manage Your Account Details",
-    "subtitle": "Update your personal details, maintain delivery addresses, and manage password security from one place.",
-    "signedInAs": "Signed in as",
-    "customerFallback": "Customer",
-    "loadingProfile": "Loading profile...",
-    "profileDetailsEyebrow": "Profile Details",
-    "noEmailAvailable": "No email available",
-    "noPhoneNumberSaved": "No phone number saved",
-    "editProfileButton": "Edit Profile",
-    "addressesHeading": "Addresses",
-    "addAddressButton": "Add Address",
-    "addressLabel": "Address {number}",
-    "defaultLabel": "Default",
-    "removeButton": "Remove",
-    "streetLabel": "Street",
-    "cityLabel": "City",
-    "stateLabel": "State",
-    "postalCodeLabel": "Postal Code",
-    "countryLabel": "Country",
-    "addressTypeLabel": "Address Type",
-    "addressTypeHome": "Home",
-    "addressTypeWork": "Work",
-    "addressTypeOther": "Other",
-    "saving": "Saving...",
-    "saveAddresses": "Save Addresses",
-    "securityEyebrow": "Security",
-    "changePasswordHeading": "Change Password",
-    "changePasswordDescription": "Update your account password securely from a dedicated popup form.",
-    "openChangePasswordButton": "Open Change Password",
-    "editProfileDetailsHeading": "Edit Profile Details",
-    "editProfileDetailsDescription": "Update first name, last name, phone number, and country code.",
-    "closeEditProfileAriaLabel": "Close edit profile",
-    "firstNameLabel": "First Name",
-    "lastNameLabel": "Last Name",
-    "countryCodeLabel": "Country Code",
-    "phoneNumberLabel": "Phone Number",
-    "cancelButton": "Cancel",
-    "saveProfileDetailsButton": "Save Profile Details",
-    "changePasswordModalDescription": "Enter your old password and choose a new password.",
-    "closeChangePasswordAriaLabel": "Close change password",
-    "oldPasswordLabel": "Old Password",
-    "newPasswordLabel": "New Password",
-    "confirmPasswordLabel": "Confirm Password",
-    "updating": "Updating...",
-    "yourProfileFallback": "Your Profile",
-    "unableToLoadProfile": "Unable to load profile right now. You can still edit and save manually.",
-    "profileDetailsUpdatedSuccess": "Profile details updated successfully.",
-    "unableToUpdateProfileDetails": "Unable to update profile details right now. Please try again.",
-    "addressesUpdatedSuccess": "Addresses updated successfully.",
-    "unableToUpdateProfile": "Unable to update profile right now. Please try again.",
-    "unableToChangePassword": "Unable to change password right now. Please try again.",
-    "passwordChangedSuccess": "Password changed successfully."
+    "eyebrow": "Profiel",
+    "heading": "Beheer uw accountgegevens",
+    "subtitle": "Werk uw persoonlijke gegevens bij, beheer uw bezorgadressen en wijzig uw wachtwoordbeveiliging op één plek.",
+    "signedInAs": "Aangemeld als",
+    "customerFallback": "Klant",
+    "loadingProfile": "Profiel laden...",
+    "profileDetailsEyebrow": "Profielgegevens",
+    "noEmailAvailable": "Geen e-mailadres beschikbaar",
+    "noPhoneNumberSaved": "Geen telefoonnummer opgeslagen",
+    "editProfileButton": "Profiel bewerken",
+    "addressesHeading": "Adressen",
+    "addAddressButton": "Adres toevoegen",
+    "addressLabel": "Adres {number}",
+    "defaultLabel": "Standaard",
+    "removeButton": "Verwijderen",
+    "streetLabel": "Straat",
+    "cityLabel": "Plaats",
+    "stateLabel": "Provincie",
+    "postalCodeLabel": "Postcode",
+    "countryLabel": "Land",
+    "addressTypeLabel": "Adrestype",
+    "addressTypeHome": "Thuis",
+    "addressTypeWork": "Werk",
+    "addressTypeOther": "Anders",
+    "saving": "Opslaan...",
+    "saveAddresses": "Adressen opslaan",
+    "securityEyebrow": "Beveiliging",
+    "changePasswordHeading": "Wachtwoord wijzigen",
+    "changePasswordDescription": "Werk het wachtwoord van uw account veilig bij via een speciaal pop-upformulier.",
+    "openChangePasswordButton": "Wachtwoord wijzigen openen",
+    "editProfileDetailsHeading": "Profielgegevens bewerken",
+    "editProfileDetailsDescription": "Werk uw voornaam, achternaam, telefoonnummer en landcode bij.",
+    "closeEditProfileAriaLabel": "Profiel bewerken sluiten",
+    "firstNameLabel": "Voornaam",
+    "lastNameLabel": "Achternaam",
+    "countryCodeLabel": "Landcode",
+    "phoneNumberLabel": "Telefoonnummer",
+    "cancelButton": "Annuleren",
+    "saveProfileDetailsButton": "Profielgegevens opslaan",
+    "changePasswordModalDescription": "Voer uw oude wachtwoord in en kies een nieuw wachtwoord.",
+    "closeChangePasswordAriaLabel": "Wachtwoord wijzigen sluiten",
+    "oldPasswordLabel": "Oud wachtwoord",
+    "newPasswordLabel": "Nieuw wachtwoord",
+    "confirmPasswordLabel": "Wachtwoord bevestigen",
+    "updating": "Bijwerken...",
+    "yourProfileFallback": "Uw profiel",
+    "unableToLoadProfile": "Uw profiel kan momenteel niet worden geladen. U kunt het nog steeds handmatig bewerken en opslaan.",
+    "profileDetailsUpdatedSuccess": "Profielgegevens zijn bijgewerkt.",
+    "unableToUpdateProfileDetails": "Profielgegevens kunnen momenteel niet worden bijgewerkt. Probeer het opnieuw.",
+    "addressesUpdatedSuccess": "Adressen zijn bijgewerkt.",
+    "unableToUpdateProfile": "Kan het profiel momenteel niet bijwerken. Probeer het opnieuw.",
+    "unableToChangePassword": "Kan het wachtwoord momenteel niet wijzigen. Probeer het opnieuw.",
+    "passwordChangedSuccess": "Wachtwoord succesvol gewijzigd."
+  },
+  "AuthGuard": {
+    "checkingAccess": "Toegang controleren",
+    "preparingSession": "Je sessie voorbereiden"
   },
   "Validation": {
-    "passwordsDoNotMatch": "Password and confirm password must match."
+    "passwordsDoNotMatch": "Wachtwoord en wachtwoordbevestiging moeten overeenkomen."
+  },
+  "Toasts": {
+    "emailRequiredForOtp": "Vul eerst je e-mailadres in.",
+    "resetPasswordFieldsRequired": "E-mailadres, OTP en nieuw wachtwoord zijn verplicht.",
+    "changePasswordFieldsRequired": "Vul je oude wachtwoord, nieuwe wachtwoord en bevestig wachtwoord in.",
+    "ticketSubjectAndMessageRequired": "Onderwerp en bericht zijn verplicht.",
+    "ticketReplyRequired": "Een antwoordbericht is verplicht."
   },
   "FamilySection": {
-    "eyebrow": "Family",
-    "heading": "Family & Discount",
-    "description": "Every account starts with a 5% discount. Add family members to earn +2% per member, up to 4 members. Once added, a member cannot be removed.",
-    "yourDiscountLabel": "Your Discount",
-    "loadingFamilyInfo": "Loading family info...",
-    "partOfFamilyHeading": "You're part of a family",
-    "memberOfFamily": "You're a <bold>{relation}</bold> in <bold>{email}</bold>'s family.",
-    "membersAddedLabel": "Members added: <bold>{count}</bold> / {max}",
-    "addFamilyMemberLabel": "Add Family Member",
-    "addedOnLabel": "Added {date}",
+    "eyebrow": "Familie",
+    "heading": "Familie en korting",
+    "description": "Elk account begint met 5% korting. Voeg familieleden toe en ontvang +2% korting per lid, tot maximaal 4 leden. Eenmaal toegevoegd, kan een lid niet meer worden verwijderd.",
+    "yourDiscountLabel": "Je korting",
+    "loadingFamilyInfo": "Familiegegevens laden...",
+    "partOfFamilyHeading": "Je maakt deel uit van een familie",
+    "memberOfFamily": "Je bent een <bold>{relation}</bold> in de familie van <bold>{email}</bold>.",
+    "membersAddedLabel": "Toegevoegde leden: <bold>{count}</bold> / {max}",
+    "addFamilyMemberLabel": "Familielid toevoegen",
+    "addedOnLabel": "Toegevoegd op {date}",
     "permanentBadge": "Permanent",
-    "noMembersYet": "No family members yet. Add one to earn +2% more discount.",
-    "stepSearchDescription": "Find the user by their registered email.",
-    "stepRelationDescription": "Pick the relation. An OTP will be sent to their email.",
-    "stepOtpDescription": "Enter the OTP shared by your invitee to complete the link.",
-    "closeAriaLabel": "Close",
-    "emailAddressLabel": "Email address",
+    "noMembersYet": "Er zijn nog geen familieleden. Voeg er een toe voor +2% extra korting.",
+    "stepSearchDescription": "Zoek de gebruiker op basis van het geregistreerde e-mailadres.",
+    "stepRelationDescription": "Kies de relatie. Er wordt een OTP naar diens e-mailadres gestuurd.",
+    "stepOtpDescription": "Voer de OTP in die je uitnodigde met je heeft gedeeld om de koppeling te voltooien.",
+    "closeAriaLabel": "Sluiten",
+    "emailAddressLabel": "E-mailadres",
     "emailPlaceholder": "member@example.com",
-    "cancelButton": "Cancel",
-    "checkingLabel": "Checking...",
-    "continueButton": "Continue",
-    "invitingLabel": "Inviting <bold>{email}</bold>",
-    "relationFieldLabel": "Relation",
-    "backButton": "Back",
-    "sendingOtpLabel": "Sending OTP...",
-    "sendOtpButton": "Send OTP",
+    "cancelButton": "Annuleren",
+    "checkingLabel": "Controleren...",
+    "continueButton": "Doorgaan",
+    "invitingLabel": "<bold>{email}</bold> uitnodigen",
+    "relationFieldLabel": "Relatie",
+    "backButton": "Terug",
+    "sendingOtpLabel": "OTP verzenden...",
+    "sendOtpButton": "OTP verzenden",
     "otpFieldLabel": "OTP",
     "otpPlaceholder": "••••",
-    "onceVerifiedNotice": "Once verified, <bold>{email}</bold> will be permanently linked as your <bold>{relation}</bold>. This cannot be undone.",
-    "verifyingLabel": "Verifying...",
-    "verifyAndAddButton": "Verify & Add",
-    "memberFallback": "Member",
-    "loadFailedFallback": "Failed to load family info",
-    "searchFailedFallback": "Search failed",
-    "otpSentNotice": "OTP sent to {email}. Ask them for the code to complete the link.",
-    "inviteFailedFallback": "Failed to send invitation",
-    "verifyFailedFallback": "OTP verification failed",
-    "genericRequestFailed": "Something went wrong. Please try again."
+    "onceVerifiedNotice": "Na verificatie wordt <bold>{email}</bold> permanent gekoppeld als jouw <bold>{relation}</bold>. Dit kan niet ongedaan worden gemaakt.",
+    "verifyingLabel": "Verifiëren...",
+    "verifyAndAddButton": "Verifiëren en toevoegen",
+    "memberFallback": "Lid",
+    "loadFailedFallback": "Familiegegevens laden mislukt",
+    "searchFailedFallback": "Zoeken mislukt",
+    "otpSentNotice": "OTP verzonden naar {email}. Vraag diegene om de code om de koppeling te voltooien.",
+    "inviteFailedFallback": "Uitnodiging verzenden mislukt",
+    "verifyFailedFallback": "OTP-verificatie mislukt",
+    "genericRequestFailed": "Er is iets misgegaan. Probeer het opnieuw."
   },
   "OrderEnums": {
     "orderStatus": {
-      "pending": "Pending",
-      "confirmed": "Confirmed",
-      "shipped": "Shipped",
-      "shipping": "Shipping",
-      "out_for_delivery": "Out for Delivery",
-      "delivered": "Delivered",
-      "cancelled": "Cancelled",
-      "canceled": "Cancelled",
+      "pending": "In afwachting",
+      "confirmed": "Bevestigd",
+      "shipped": "Verzonden",
+      "shipping": "Onderweg",
+      "out_for_delivery": "Bezorging onderweg",
+      "delivered": "Afgeleverd",
+      "cancelled": "Geannuleerd",
+      "canceled": "Geannuleerd",
       "fallback": "{status}"
     },
     "paymentStatus": {
-      "pending": "Pending",
-      "processing": "Processing",
-      "paid": "Paid",
-      "refunded": "Refunded",
-      "failed": "Failed",
+      "pending": "In afwachting",
+      "processing": "In behandeling",
+      "paid": "Betaald",
+      "refunded": "Terugbetaald",
+      "failed": "Mislukt",
       "fallback": "{status}"
     },
     "paymentMethod": {
       "ONLINE": "Online",
-      "COD": "Cash on Delivery",
+      "COD": "Contant bij aflevering",
       "fallback": "{method}"
     }
   },
   "OrdersPage": {
-    "eyebrow": "Orders",
-    "heading": "Your Order History",
-    "subtitle": "Track placed orders, payment status, and shipping progress from one place.",
-    "continueShopping": "Continue Shopping",
-    "loading": "Loading orders...",
-    "loadError": "We couldn't load your orders. Please try again.",
-    "emptyTitle": "No orders yet",
-    "emptyBody": "Place your first order from the cart or buy directly from a product page.",
-    "shopNow": "Shop Now",
-    "orderForItems": "Order for {count, plural, one {# item} other {# items}}",
-    "defaultItemLabel": "Default item",
-    "qty": "Qty {quantity}",
-    "viewDetails": "View Details",
-    "paginationSummary": "Showing page {currentPage} of {totalPages} · {totalRecords, plural, one {# order} other {# orders}}",
-    "unableToLoadOrders": "Unable to load orders right now."
+    "eyebrow": "Bestellingen",
+    "heading": "Uw bestelgeschiedenis",
+    "subtitle": "Volg uw geplaatste bestellingen, betalingsstatus en verzendvoortgang op één plek.",
+    "continueShopping": "Verder winkelen",
+    "loading": "Bestellingen laden...",
+    "loadError": "Uw bestellingen konden niet worden geladen. Probeer het opnieuw.",
+    "emptyTitle": "Nog geen bestellingen",
+    "emptyBody": "Plaats uw eerste bestelling vanuit de winkelwagen of koop rechtstreeks vanaf een productpagina.",
+    "shopNow": "Nu winkelen",
+    "orderForItems": "Bestelling van {count, plural, one {# artikel} other {# artikelen}}",
+    "defaultItemLabel": "Standaardartikel",
+    "qty": "Aantal {quantity}",
+    "viewDetails": "Details bekijken",
+    "paginationSummary": "Pagina {currentPage} van {totalPages} · {totalRecords, plural, one {# bestelling} other {# bestellingen}}",
+    "unableToLoadOrders": "Bestellingen kunnen momenteel niet worden geladen."
   },
   "OrderDetailPage": {
-    "loading": "Loading order...",
-    "loadError": "We couldn't load this order. Please try again.",
-    "breadcrumbOrders": "Orders",
-    "heading": "Order Details",
-    "placedOn": "Placed {date}",
-    "paymentHeading": "Payment",
-    "methodLabel": "Method:",
+    "loading": "Bestelling wordt geladen...",
+    "loadError": "We konden deze bestelling niet laden. Probeer het opnieuw.",
+    "breadcrumbOrders": "Bestellingen",
+    "heading": "Bestelgegevens",
+    "placedOn": "Geplaatst op {date}",
+    "paymentHeading": "Betaling",
+    "methodLabel": "Methode:",
     "statusLabel": "Status:",
-    "shippingAddressHeading": "Shipping Address",
-    "noShippingAddress": "No shipping address available.",
-    "orderSummaryHeading": "Order Summary",
-    "itemsLabel": "Items:",
-    "updatedLabel": "Updated:",
-    "refundStatusLabel": "Refund status:",
-    "defaultItemLabel": "Default item",
+    "shippingAddressHeading": "Verzendadres",
+    "noShippingAddress": "Geen verzendadres beschikbaar.",
+    "orderSummaryHeading": "Besteloverzicht",
+    "itemsLabel": "Artikelen:",
+    "updatedLabel": "Bijgewerkt:",
+    "refundStatusLabel": "Terugbetalingsstatus:",
+    "defaultItemLabel": "Standaardartikel",
     "skuLabel": "SKU: {sku}",
-    "notAvailable": "N/A",
-    "quantityLabel": "Quantity: {quantity}",
-    "openingPayment": "Opening Payment...",
-    "regeneratePayment": "Regenerate Payment",
-    "cancelling": "Cancelling...",
-    "cancelOrder": "Cancel Order",
-    "cannotCancelNotice": "This order can no longer be cancelled after it reaches shipped or delivered status.",
-    "orderCancelledSuccess": "Order cancelled successfully.",
-    "paymentCompletedSuccess": "Payment completed successfully. Order status has been updated.",
-    "paymentNotCompleted": "Payment was not completed. You can retry payment or cancel this order.",
-    "unableToLoadOrder": "Unable to load this order right now.",
-    "unableToCancelOrder": "Unable to cancel this order right now.",
-    "unableToStartPayment": "Unable to start payment right now. Please try again.",
+    "notAvailable": "N.v.t.",
+    "quantityLabel": "Aantal: {quantity}",
+    "openingPayment": "Betaling wordt geopend...",
+    "regeneratePayment": "Betaling opnieuw genereren",
+    "cancelling": "Annuleren...",
+    "cancelOrder": "Bestelling annuleren",
+    "cannotCancelNotice": "Deze bestelling kan niet meer worden geannuleerd zodra de status is gewijzigd in verzonden of bezorgd.",
+    "orderCancelledSuccess": "Bestelling succesvol geannuleerd.",
+    "paymentCompletedSuccess": "Betaling succesvol afgerond. De bestelstatus is bijgewerkt.",
+    "paymentNotCompleted": "De betaling is niet afgerond. Je kunt de betaling opnieuw proberen of deze bestelling annuleren.",
+    "unableToLoadOrder": "Deze bestelling kan momenteel niet worden geladen.",
+    "unableToCancelOrder": "Deze bestelling kan momenteel niet worden geannuleerd.",
+    "unableToStartPayment": "De betaling kan momenteel niet worden gestart. Probeer het opnieuw.",
     "refundStatus": {
-      "none": "None",
-      "pending": "Pending",
-      "completed": "Completed",
-      "failed": "Failed",
+      "none": "Geen",
+      "pending": "In behandeling",
+      "completed": "Voltooid",
+      "failed": "Mislukt",
       "fallback": "{status}"
     }
   },
   "PaymentsHistoryPage": {
-    "eyebrow": "Payments",
-    "heading": "Your Payment History",
-    "subtitle": "Review payment sessions, status updates, and linked orders in one place.",
-    "viewOrders": "View Orders",
-    "loading": "Loading payment history...",
-    "loadError": "Unable to load payment history right now.",
-    "emptyTitle": "No Payment History Yet",
-    "emptyBody": "Online payment attempts and completed payments will appear here after checkout.",
-    "shopNow": "Shop Now",
-    "paymentForOrder": "Payment for order {orderNumber}",
-    "sessionIdLabel": "Session ID",
-    "transactionIdLabel": "Transaction ID",
-    "notAvailableYet": "Not available yet",
-    "updatedOn": "Updated {date}",
-    "viewOrder": "View Order",
-    "paginationSummary": "Showing page {currentPage} of {totalPages} · {totalRecords, plural, one {# payment record} other {# payment records}}"
+    "eyebrow": "Betalingen",
+    "heading": "Uw betaalgeschiedenis",
+    "subtitle": "Bekijk betaalsessies, statusupdates en gekoppelde bestellingen op één plek.",
+    "viewOrders": "Bestellingen bekijken",
+    "loading": "Betaalgeschiedenis laden...",
+    "loadError": "De betaalgeschiedenis kan op dit moment niet worden geladen.",
+    "emptyTitle": "Nog geen betaalgeschiedenis",
+    "emptyBody": "Online betaalpogingen en voltooide betalingen verschijnen hier na het afrekenen.",
+    "shopNow": "Nu winkelen",
+    "paymentForOrder": "Betaling voor bestelling {orderNumber}",
+    "sessionIdLabel": "Sessie-ID",
+    "transactionIdLabel": "Transactie-ID",
+    "notAvailableYet": "Nog niet beschikbaar",
+    "updatedOn": "Bijgewerkt op {date}",
+    "viewOrder": "Bestelling bekijken",
+    "paginationSummary": "Pagina {currentPage} van {totalPages} · {totalRecords, plural, one {# betaaltransactie} other {# betaaltransacties}}"
   },
   "TicketEnums": {
     "status": {
       "open": "Open",
-      "closed": "Closed",
+      "closed": "Gesloten",
       "fallback": "{status}"
     },
     "priority": {
-      "low": "Low",
-      "medium": "Medium",
-      "high": "High",
+      "low": "Laag",
+      "medium": "Gemiddeld",
+      "high": "Hoog",
       "urgent": "Urgent",
       "fallback": "{status}"
     },
     "category": {
-      "delivery": "Delivery",
-      "order": "Order",
-      "payment": "Payment",
+      "delivery": "Levering",
+      "order": "Bestelling",
+      "payment": "Betaling",
       "product": "Product",
-      "general": "General",
+      "general": "Algemeen",
       "fallback": "{status}"
     }
   },
   "TicketsPage": {
-    "eyebrow": "Support",
-    "heading": "Your Support Tickets",
-    "subtitle": "Track issues, delivery requests, payment concerns, and support replies in one place.",
-    "viewOrders": "View Orders",
-    "loading": "Loading tickets...",
-    "loadError": "Unable to load support tickets right now.",
-    "emptyTitle": "No Tickets Yet",
-    "emptyBody": "Create your first support ticket using the form on the right.",
-    "categoryPriority": "{category} · {priority} priority",
-    "escalatedBadge": "Escalated",
-    "noMessageAvailable": "No message available.",
-    "messageCount": "{count, plural, one {# message} other {# messages}}",
-    "updatedDate": "Updated {date}",
-    "paginationSummary": "Showing page {currentPage} of {totalPages} · {totalRecords, plural, one {# ticket} other {# tickets}}",
-    "createTicketEyebrow": "Create Ticket",
-    "createTicketHeading": "Need Help With an Order?",
-    "createTicketSubtitle": "Share the issue and your support thread will be created immediately.",
-    "subjectLabel": "Subject",
-    "subjectPlaceholder": "Order not delivered",
-    "categoryLabel": "Category",
-    "priorityLabel": "Priority",
-    "messageLabel": "Message",
-    "messagePlaceholder": "Describe your issue and include your order number if available.",
-    "creating": "Creating...",
-    "createTicketButton": "Create Ticket",
-    "ticketCreatedSuccess": "Support ticket created successfully."
+    "eyebrow": "Ondersteuning",
+    "heading": "Je supporttickets",
+    "subtitle": "Volg problemen, bezorgverzoeken, vragen over betalingen en reacties van onze klantenservice op één plek.",
+    "viewOrders": "Bestellingen bekijken",
+    "loading": "Tickets laden...",
+    "loadError": "Supporttickets kunnen momenteel niet worden geladen.",
+    "emptyTitle": "Nog geen tickets",
+    "emptyBody": "Maak je eerste supportticket aan met het formulier rechts.",
+    "categoryPriority": "{category} · prioriteit: {priority}",
+    "escalatedBadge": "Geëscaleerd",
+    "noMessageAvailable": "Geen bericht beschikbaar.",
+    "messageCount": "{count, plural, one {# bericht} other {# berichten}}",
+    "updatedDate": "Bijgewerkt op {date}",
+    "paginationSummary": "Pagina {currentPage} van {totalPages} · {totalRecords, plural, one {# ticket} other {# tickets}}",
+    "createTicketEyebrow": "Ticket aanmaken",
+    "createTicketHeading": "Hulp nodig met een bestelling?",
+    "createTicketSubtitle": "Deel het probleem en je supportgesprek wordt direct aangemaakt.",
+    "subjectLabel": "Onderwerp",
+    "subjectPlaceholder": "Bestelling niet bezorgd",
+    "categoryLabel": "Categorie",
+    "priorityLabel": "Prioriteit",
+    "messageLabel": "Bericht",
+    "messagePlaceholder": "Beschrijf je probleem en vermeld indien mogelijk je bestelnummer.",
+    "creating": "Wordt aangemaakt...",
+    "createTicketButton": "Ticket aanmaken",
+    "ticketCreatedSuccess": "Supportticket succesvol aangemaakt."
   },
   "TicketDetailPage": {
-    "breadcrumbTickets": "Support Tickets",
-    "loading": "Loading ticket...",
-    "loadError": "Unable to load this support ticket right now.",
-    "categoryPriority": "{category} · {priority} priority",
-    "escalatedBadge": "Escalated",
-    "replyEyebrow": "Reply",
-    "replyHeading": "Send a Message",
-    "replySubtitle": "Add more details or respond to the support team from here.",
-    "messageLabel": "Message",
-    "messagePlaceholder": "Thanks for the quick response. Please expedite.",
-    "sending": "Sending...",
-    "sendReplyButton": "Send Reply",
-    "replySentSuccess": "Reply sent successfully.",
-    "createdDate": "Created {date}",
-    "lastUpdatedDate": "Last updated {date}",
-    "threadNotice": "Keep all order-related communication in this thread so the support team can resolve issues faster."
+    "breadcrumbTickets": "Supportverzoeken",
+    "loading": "Supportticket wordt geladen...",
+    "loadError": "Dit supportticket kan momenteel niet worden geladen.",
+    "categoryPriority": "{category} · prioriteit {priority}",
+    "escalatedBadge": "Geëscaleerd",
+    "replyEyebrow": "Reageren",
+    "replyHeading": "Een bericht sturen",
+    "replySubtitle": "Voeg hier meer details toe of reageer op het supportteam.",
+    "messageLabel": "Bericht",
+    "messagePlaceholder": "Bedankt voor de snelle reactie. Graag met spoed behandelen.",
+    "sending": "Verzenden...",
+    "sendReplyButton": "Reactie versturen",
+    "replySentSuccess": "Reactie succesvol verzonden.",
+    "createdDate": "Aangemaakt op {date}",
+    "lastUpdatedDate": "Laatst bijgewerkt op {date}",
+    "threadNotice": "Houd alle communicatie over de bestelling in deze thread, zodat het supportteam problemen sneller kan oplossen."
   },
   "WishlistPage": {
-    "eyebrow": "Wishlist",
-    "heading": "Saved Pieces You Love",
-    "subtitle": "Keep track of the jewellery you want to revisit, compare, and move into your cart later.",
-    "clearWishlist": "Clear Wishlist",
-    "clearing": "Clearing...",
-    "loading": "Loading wishlist...",
-    "emptyTitle": "Your wishlist is empty",
-    "emptyBody": "Save products from the shop or product details page and they will appear here.",
-    "exploreShop": "Explore Shop",
-    "savedCollection": "Saved Collection",
-    "savedOn": "Saved {date}",
-    "viewShop": "View Shop",
-    "remove": "Remove",
-    "removing": "Removing...",
-    "summaryEyebrow": "Summary",
-    "savedItemsLabel": "Saved items",
-    "readyToShopLabel": "Ready to shop",
-    "yes": "Yes",
-    "no": "No",
-    "asideHint": "Open any saved piece from the shop to review its details and move it into your cart when you are ready.",
-    "continueShopping": "Continue Shopping",
-    "footerNote": "Curate your next Aurelia Royale order from your saved favourites",
-    "unableToClearWishlist": "Unable to clear your wishlist.",
-    "unableToRemoveItem": "Unable to remove this item."
+    "eyebrow": "Verlanglijst",
+    "heading": "Jouw favoriete sieraden bewaren",
+    "subtitle": "Houd bij welke sieraden je later opnieuw wilt bekijken, vergelijken en aan je winkelwagen wilt toevoegen.",
+    "clearWishlist": "Verlanglijst wissen",
+    "clearing": "Wordt gewist...",
+    "loading": "Verlanglijst laden...",
+    "emptyTitle": "Je verlanglijst is leeg",
+    "emptyBody": "Bewaar producten vanuit de winkel of de productdetailpagina; ze verschijnen dan hier.",
+    "exploreShop": "Ontdek de winkel",
+    "savedCollection": "Bewaarde collectie",
+    "savedOn": "Bewaard op {date}",
+    "viewShop": "Naar de winkel",
+    "remove": "Verwijderen",
+    "removing": "Wordt verwijderd...",
+    "summaryEyebrow": "Overzicht",
+    "savedItemsLabel": "Bewaarde items",
+    "readyToShopLabel": "Klaar om te winkelen",
+    "yes": "Ja",
+    "no": "Nee",
+    "asideHint": "Open een bewaard sieraad vanuit de winkel om de details te bekijken en het aan je winkelwagen toe te voegen wanneer je er klaar voor bent.",
+    "continueShopping": "Verder winkelen",
+    "footerNote": "Stel je volgende Aurelia Royale-bestelling samen met je bewaarde favorieten",
+    "unableToClearWishlist": "Je verlanglijst kan niet worden gewist.",
+    "unableToRemoveItem": "Dit item kan niet worden verwijderd."
   },
   "WishlistToggleButton": {
-    "addAriaLabel": "Add to wishlist",
-    "removeAriaLabel": "Remove from wishlist",
-    "addLabel": "Add To Wishlist",
-    "wishlistedLabel": "Wishlisted",
-    "unableToUpdate": "Unable to update your wishlist."
+    "addAriaLabel": "Toevoegen aan verlanglijst",
+    "removeAriaLabel": "Verwijderen uit verlanglijst",
+    "addLabel": "Toevoegen aan verlanglijst",
+    "wishlistedLabel": "Toegevoegd aan verlanglijst",
+    "unableToUpdate": "Je verlanglijst kan niet worden bijgewerkt."
   },
   "AddToCartButton": {
-    "defaultLabel": "Add to Cart",
-    "adding": "Adding...",
-    "unableToAddItem": "Unable to add this item to your cart."
+    "defaultLabel": "Toevoegen aan winkelwagen",
+    "adding": "Toevoegen...",
+    "unableToAddItem": "Dit artikel kan niet aan je winkelwagen worden toegevoegd."
   }
 }

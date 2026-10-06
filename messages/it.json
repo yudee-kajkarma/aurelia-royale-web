@@ -4,1023 +4,1012 @@
   },
   "Header": {
     "home": "Home",
-    "about": "About",
-    "shop": "Shop",
-    "contact": "Contact",
+    "about": "Chi siamo",
+    "shop": "Acquista",
+    "contact": "Contatti",
     "blog": "Blog",
-    "openMenu": "Open menu",
-    "closeMenu": "Close menu",
-    "openProfileMenu": "Open profile menu",
-    "openAccountMenu": "Open account menu",
-    "goToLogin": "Go to login",
-    "wishlist": "Wishlist",
-    "shoppingBag": "Shopping bag",
-    "shopByCategory": "Shop By Category",
-    "shopByEdition": "Shop By Edition",
-    "searchPlaceholder": "What are you looking for",
-    "language": "Language",
-    "admin": "Admin",
-    "profile": "Profile",
-    "guestProfilePrompt": "Sign in to see your account details here.",
-    "openLogin": "Open Login",
-    "welcome": "Welcome",
-    "guestWelcomePrompt": "Sign in to access your profile, orders, wishlist, and checkout history.",
+    "openMenu": "Apri menu",
+    "closeMenu": "Chiudi menu",
+    "openProfileMenu": "Apri menu del profilo",
+    "openAccountMenu": "Apri menu dell’account",
+    "goToLogin": "Vai al login",
+    "wishlist": "Lista dei desideri",
+    "shoppingBag": "Borsa",
+    "shopByCategory": "Acquista per categoria",
+    "shopByEdition": "Acquista per edizione",
+    "searchPlaceholder": "Che cosa stai cercando",
+    "language": "Lingua",
+    "admin": "Amministrazione",
+    "profile": "Profilo",
+    "guestProfilePrompt": "Accedi per visualizzare qui i dettagli del tuo account.",
+    "openLogin": "Apri il login",
+    "welcome": "Benvenuto",
+    "guestWelcomePrompt": "Accedi per consultare il tuo profilo, gli ordini, la lista dei desideri e la cronologia degli acquisti.",
     "login": "Login",
-    "register": "Register",
-    "aboutIntroduction": "Introduction",
-    "aboutWhatWeDo": "What We Do",
-    "aboutWhySpecial": "Why Our Design is Special",
-    "editionClassic": "Classic",
-    "editionLimited": "Limited Edition",
-    "editionRare": "Rare",
-    "editionTimeless": "Timeless"
+    "register": "Registrati",
+    "aboutIntroduction": "Introduzione",
+    "aboutWhatWeDo": "Cosa facciamo",
+    "aboutWhySpecial": "Perché il nostro design è speciale",
+    "editionClassic": "Classico",
+    "editionLimited": "Edizione limitata",
+    "editionRare": "Raro",
+    "editionTimeless": "Intramontabile"
   },
   "ProfileMenu": {
-    "signedIn": "Signed In",
-    "myProfile": "My Profile",
-    "role": "Role",
-    "adminDashboard": "Admin Dashboard",
-    "profile": "Profile",
-    "logout": "Logout"
+    "signedIn": "Accesso effettuato",
+    "myProfile": "Il mio profilo",
+    "role": "Ruolo",
+    "adminDashboard": "Pannello di amministrazione",
+    "profile": "Profilo",
+    "logout": "Esci"
   },
   "Footer": {
-    "tagline": "Fine jewellery crafted for those who value beauty, heritage, and permanence above all.",
-    "navLabel": "Footer",
+    "tagline": "Alta gioielleria realizzata per chi apprezza la bellezza, la tradizione e la durevolezza sopra ogni cosa.",
+    "navLabel": "Piè di pagina",
     "home": "Home",
-    "about": "About",
-    "shop": "Shop",
+    "about": "Chi siamo",
+    "shop": "Acquista",
     "blog": "Blog",
-    "contact": "Contact",
-    "copyright": "Copyright 2026 Aurelia Royale. All rights reserved by Aurelia Royale."
+    "contact": "Contatti",
+    "copyright": "Copyright 2026 Aurelia Royale. Tutti i diritti riservati ad Aurelia Royale."
   },
   "blogCategories": {
-    "labGrownDiamondEducation": "Lab-Grown Diamond Education",
-    "colouredStonesAndDiamonds": "Coloured Stones and Diamonds",
-    "labGrownDiamondCare": "Lab-Grown Diamond Care",
-    "certificationAndDiamondQuality": "Certification and Diamond Quality",
-    "buyingLabGrownDiamondJewellery": "Buying Lab-Grown Diamond Jewellery",
-    "productCategoryGuides": "Product-Category Guides",
-    "jewelleryCareAndMaintenance": "Jewellery Care and Maintenance"
+    "labGrownDiamondEducation": "Informazioni sui diamanti di laboratorio",
+    "colouredStonesAndDiamonds": "Pietre colorate e diamanti",
+    "labGrownDiamondCare": "Cura dei diamanti di laboratorio",
+    "certificationAndDiamondQuality": "Certificazione e qualità dei diamanti",
+    "buyingLabGrownDiamondJewellery": "Acquistare gioielli con diamanti di laboratorio",
+    "productCategoryGuides": "Guide alle categorie di prodotto",
+    "jewelleryCareAndMaintenance": "Cura e manutenzione dei gioielli"
   },
   "BlogArticle": {
-    "published": "Published {date}",
-    "relatedArticles": "Related Articles",
-    "backToGuides": "← Back to all guides",
-    "exploreCollection": "Explore Collection",
-    "consultAnExpert": "Consult an Expert"
+    "published": "Pubblicato il {date}",
+    "relatedArticles": "Articoli correlati",
+    "backToGuides": "← Torna a tutte le guide",
+    "exploreCollection": "Esplora la collezione",
+    "consultAnExpert": "Consulta un esperto"
   },
   "blogCards": {
     "360-degree-jewellery-product-views": {
-      "title": "How 360-Degree Jewellery Views Help Online Buyers",
+      "title": "Come le visualizzazioni a 360 gradi dei gioielli aiutano i buyer online",
       "author": "Aurelia Royale",
-      "excerpt": "Learn what 360-degree jewellery views reveal about settings, proportions, clasps and construction—and what buyers must still verify separately."
+      "excerpt": "Scopri cosa rivelano le visualizzazioni a 360 gradi di un gioiello su montature, proporzioni, chiusure e lavorazione, e cosa i buyer devono comunque verificare separatamente."
     },
     "4cs-of-lab-grown-diamonds": {
-      "title": "Lab-Grown Diamond 4Cs: Cut, Colour, Clarity & Carat",
+      "title": "Le 4C dei diamanti di laboratorio: taglio, colore, purezza e carato",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how cut, colour, clarity and carat affect a lab-grown diamond, how to balance the 4Cs, and how diamond grading reports can differ."
+      "excerpt": "Scopri come taglio, colore, purezza e carato influiscono su un diamante di laboratorio, come trovare il giusto equilibrio tra le 4C e perché i certificati di classificazione dei diamanti possono differire."
     },
     "are-lab-grown-diamonds-more-affordable": {
-      "title": "Are Lab-Grown Diamonds Cheaper Than Natural? Price Guide",
+      "title": "I diamanti di laboratorio costano meno dei diamanti naturali? Guida ai prezzi",
       "author": "Aurelia Royale",
-      "excerpt": "Why are lab-grown diamonds cheaper than natural diamonds? Learn what drives the price gap, how to compare loose stones and what affects jewellery cost."
+      "excerpt": "Perché i diamanti di laboratorio costano meno dei diamanti naturali? Scopri cosa determina il divario di prezzo, come confrontare le pietre sciolte e cosa incide sul costo dei gioielli."
     },
     "are-lab-grown-diamonds-real": {
-      "title": "Are Lab-Grown Diamonds Real? Real vs Fake Explained",
+      "title": "I diamanti di laboratorio sono veri? Veri e falsi a confronto",
       "author": "Aurelia Royale",
-      "excerpt": "Are lab-grown diamonds real diamonds? Learn what they are made of, how they differ from natural diamonds and how experts identify lab-grown origin."
+      "excerpt": "I diamanti di laboratorio sono veri diamanti? Scopri di cosa sono fatti, in cosa differiscono dai diamanti naturali e come gli esperti ne identificano l’origine di laboratorio."
     },
     "are-lab-grown-diamonds-suitable-for-fine-jewellery": {
-      "title": "Are Lab-Grown Diamonds Suitable for Fine Jewellery?",
+      "title": "I diamanti di laboratorio sono adatti all’alta gioielleria?",
       "author": "Aurelia Royale",
-      "excerpt": "Can lab-grown diamonds be used in fine jewellery? Learn why diamond origin does not determine quality, durability or the craftsmanship of a finished piece."
+      "excerpt": "I diamanti di laboratorio possono essere utilizzati nell’alta gioielleria? Scopri perché l’origine del diamante non ne determina la qualità, la durabilità o la maestria artigianale di un gioiello finito."
     },
     "are-lab-grown-diamonds-suitable-for-regular-wear": {
-      "title": "Can You Wear Lab-Grown Diamonds Every Day?",
+      "title": "Si possono indossare i diamanti di laboratorio tutti i giorni?",
       "author": "Aurelia Royale",
-      "excerpt": "Can you wear lab-grown diamonds every day? Learn about durability, settings, rings, earrings, swimming, showering, exercise and when jewellery should be removed."
+      "excerpt": "Si possono indossare i diamanti di laboratorio tutti i giorni? Scopri di più su durabilità, montature, anelli, orecchini, nuoto, doccia, attività fisica e quando è opportuno togliere i gioielli."
     },
     "are-lab-grown-diamonds-worth-buying": {
-      "title": "Are Lab-Grown Diamonds Worth It? Pros & Cons Guide",
+      "title": "I diamanti di laboratorio valgono la pena? Guida a pro e contro",
       "author": "Aurelia Royale",
-      "excerpt": "Are lab-grown diamonds worth buying? Explore their advantages, price flexibility, durability and quality alongside resale and sustainability trade-offs."
+      "excerpt": "Vale la pena acquistare diamanti di laboratorio? Scopri i vantaggi, la flessibilità dei prezzi, la durabilità e la qualità, insieme ai compromessi in termini di rivendita e sostenibilità."
     },
     "buy-certified-lab-grown-diamond-jewellery-online": {
-      "title": "How to Buy Lab-Grown Diamond Jewellery Online Safely",
+      "title": "Come acquistare online gioielli con diamanti di laboratorio in sicurezza",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to buy lab-grown diamond jewellery online by checking the seller, diamond specifications, reports, pricing, returns, delivery and what to inspect when it arrives."
+      "excerpt": "Scopri come acquistare online gioielli con diamanti di laboratorio verificando il venditore, le specifiche dei diamanti, i certificati, i prezzi, i resi, la consegna e cosa controllare al momento della ricezione."
     },
     "buying-fine-jewellery-as-gift": {
-      "title": "Fine Jewellery Gift Guide: How to Choose the Right Piece",
+      "title": "Guida ai regali di alta gioielleria: come scegliere il gioiello giusto",
       "author": "Aurelia Royale",
-      "excerpt": "Buying fine jewellery as a gift? Learn how to choose the right style, metal, jewellery type and size, manage surprise-gift uncertainty and check exchange and delivery terms."
+      "excerpt": "Acquisti un gioiello di alta gioielleria da regalare? Scopri come scegliere lo stile, il metallo, il tipo di gioiello e la misura giusti, gestire l’incertezza di un regalo a sorpresa e verificare le condizioni di cambio e consegna."
     },
     "can-lab-grown-diamonds-become-cloudy": {
-      "title": "Do Lab-Grown Diamonds Get Cloudy? Causes & Fixes",
+      "title": "I diamanti di laboratorio diventano opachi? Cause e soluzioni",
       "author": "Aurelia Royale",
-      "excerpt": "Learn why a lab-grown diamond may look cloudy, how to distinguish surface residue from internal haze or damage, and whether cleaning can restore it."
+      "excerpt": "Scopri perché un diamante di laboratorio può apparire velato, come distinguere i residui superficiali da un’opacità interna o da un danno e se la pulizia può restituirgli la brillantezza."
     },
     "can-you-tell-lab-grown-from-natural-diamond": {
-      "title": "Can You Tell Lab-Grown vs Natural Diamonds Apart?",
+      "title": "Si riesce a distinguere un diamante di laboratorio da uno naturale?",
       "author": "Aurelia Royale",
-      "excerpt": "Can you tell a lab-grown diamond from a natural one? Compare visual inspection, diamond testers, laser inscriptions and professional laboratory testing."
+      "excerpt": "Si riesce a distinguere un diamante di laboratorio da uno naturale? Confronta l’ispezione visiva, i tester per diamanti, le incisioni laser e i test eseguiti da laboratori professionali."
     },
     "carat-weight-vs-visible-diamond-size": {
-      "title": "Diamond Carat Weight vs Size: Carat-to-MM Guide",
+      "title": "Peso in carati e dimensioni del diamante: guida da carati a MM",
       "author": "Aurelia Royale",
-      "excerpt": "Carat measures diamond weight, not visible size. Compare approximate diamond dimensions in mm and learn why equal-carat stones can look different face-up."
+      "excerpt": "Il carato misura il peso del diamante, non la dimensione visibile. Confronta le dimensioni approssimative dei diamanti in MM e scopri perché pietre dello stesso peso in carati possono apparire diverse viste dall’alto."
     },
     "certified-lab-grown-diamond-jewellery-meaning": {
-      "title": "Certified Lab-Grown Diamond Jewellery: What It Means",
+      "title": "Gioielli con diamanti di laboratorio certificati: cosa significa",
       "author": "Aurelia Royale",
-      "excerpt": "What does certified lab-grown diamond jewellery mean? Learn the difference between diamond reports, finished-jewellery reports, IGI verification, GIA assessments and UK hallmarks."
+      "excerpt": "Cosa significa che un gioiello con diamante di laboratorio è certificato? Scopri la differenza tra i certificati dei diamanti, i certificati dei gioielli finiti, le verifiche IGI, le valutazioni GIA e i punzoni britannici."
     },
     "check-diamond-information-is-complete": {
-      "title": "Diamond Information Checklist: Is Anything Missing?",
+      "title": "Lista di controllo delle informazioni sui diamanti: manca qualcosa?",
       "author": "Aurelia Royale",
-      "excerpt": "Use this diamond information checklist to find missing details, compare a product page with its grading report and resolve contradictions before buying."
+      "excerpt": "Usa questa lista di controllo delle informazioni sui diamanti per individuare i dettagli mancanti, confrontare la pagina di un prodotto con il relativo certificato e chiarire eventuali contraddizioni prima dell’acquisto."
     },
     "check-jewellery-product-dimensions-weight": {
-      "title": "How to Check Jewellery Dimensions and Weight Online",
+      "title": "Come verificare online dimensioni e peso dei gioielli",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to read jewellery dimensions online, including ring width and height, earring diameter, pendant size, necklace and bracelet length, diamond millimetres and carat weight."
+      "excerpt": "Scopri come leggere online le dimensioni dei gioielli, tra cui larghezza e altezza degli anelli, diametro degli orecchini, dimensioni dei pendenti, lunghezza di collane e bracciali, millimetri dei diamanti e peso in carati."
     },
     "check-metal-used-diamond-jewellery": {
-      "title": "How to Check the Metal Used in Diamond Jewellery",
+      "title": "Come verificare il metallo utilizzato nei gioielli con diamanti",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to identify gold, silver and platinum in diamond jewellery, read UK hallmarks and fineness marks, and distinguish solid, hollow and plated construction."
+      "excerpt": "Scopri come identificare oro, argento e platino nei gioielli con diamanti, leggere i punzoni e i marchi di titolo britannici e distinguere le lavorazioni in metallo massiccio, cavo e placcato."
     },
     "choose-diamond-jewellery-without-seeing-in-person": {
-      "title": "How to Buy Diamond Jewellery Online Without Seeing It",
+      "title": "Come acquistare online gioielli con diamanti senza vederli",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to evaluate diamond jewellery online using 360° views, photos, dimensions, diamond reports and specifications—and what cannot be verified from images alone."
+      "excerpt": "Scopri come valutare online i gioielli con diamanti usando viste a 360°, foto, dimensioni, report dei diamanti e specifiche, e cosa non è possibile verificare dalle sole immagini."
     },
     "choose-lab-grown-diamond-earrings-gift": {
-      "title": "How to Choose Lab-Grown Diamond Earrings as a Gift",
+      "title": "Come scegliere orecchini con diamanti di laboratorio da regalare",
       "author": "Aurelia Royale",
-      "excerpt": "Choose lab-grown diamond earrings as a gift by checking piercing type, fastening, size, diamond weight, metal, everyday style and exchange flexibility."
+      "excerpt": "Scegli orecchini con diamanti di laboratorio da regalare controllando il tipo di foro, la chiusura, le dimensioni, il peso del diamante, il metallo, lo stile quotidiano e la flessibilità del cambio."
     },
     "choose-trustworthy-online-diamond-jeweller": {
-      "title": "How to Choose a Trustworthy Online Diamond Jeweller",
+      "title": "Come scegliere un gioielliere online affidabile per i diamanti",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to check whether an online diamond jeweller is trustworthy by verifying diamond reports, product claims, pricing, reviews, policies, business details and lab-grown disclosures."
+      "excerpt": "Scopri come verificare se un gioielliere online specializzato in diamanti è affidabile controllando i report dei diamanti, le dichiarazioni sui prodotti, i prezzi, le recensioni, le politiche, i dati aziendali e le informazioni sui diamanti di laboratorio."
     },
     "common-myths-about-lab-grown-diamonds": {
-      "title": "15 Lab-Grown Diamond Myths Debunked: Facts vs Fiction",
+      "title": "15 miti sui diamanti di laboratorio sfatati: fatti e falsi miti",
       "author": "Aurelia Royale",
-      "excerpt": "Are lab-grown diamonds fake, fragile or worthless? We fact-check 15 common lab-grown diamond myths about quality, durability, grading, value and more."
+      "excerpt": "I diamanti di laboratorio sono falsi, fragili o senza valore? Verifichiamo i fatti su 15 miti comuni riguardanti qualità, durata, classificazione, valore e altro ancora."
     },
     "compare-lab-grown-diamond-jewellery-online": {
-      "title": "How to Compare Lab-Grown Diamond Jewellery Online",
+      "title": "Come confrontare online i gioielli con diamanti di laboratorio",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to compare lab-grown diamond jewellery online using centre-stone weight, total carat weight, dimensions, reports, metal, construction and price."
+      "excerpt": "Scopri come confrontare online i gioielli con diamanti di laboratorio valutando il peso della pietra centrale, il peso totale in carati, le dimensioni, i report, il metallo, la lavorazione e il prezzo."
     },
     "cvd-vs-hpht-lab-grown-diamonds": {
-      "title": "CVD vs HPHT Lab-Grown Diamonds: Key Differences",
+      "title": "Diamanti di laboratorio CVD e HPHT: differenze principali",
       "author": "Aurelia Royale",
-      "excerpt": "Compare CVD and HPHT lab-grown diamonds, including how they are made, quality, appearance, price, treatments and which option is better to buy."
+      "excerpt": "Confronta i diamanti di laboratorio CVD e HPHT, scoprendo come vengono creati e le differenze in termini di qualità, aspetto, prezzo, trattamenti e quale opzione conviene acquistare."
     },
     "diamond-certification-vs-jewellery-certification": {
-      "title": "Diamond vs Jewellery Certification: Key Differences",
+      "title": "Certificazione del diamante e del gioiello: differenze principali",
       "author": "Aurelia Royale",
-      "excerpt": "Learn the difference between a diamond report, finished-jewellery report, hallmark, valuation and authenticity card before buying fine jewellery."
+      "excerpt": "Scopri la differenza tra report del diamante, report del gioiello finito, punzone, valutazione e certificato di autenticità prima di acquistare alta gioielleria."
     },
     "diamond-details-product-page": {
-      "title": "Diamond Product Page Details: Complete Checklist",
+      "title": "Dettagli della pagina prodotto di un diamante: checklist completa",
       "author": "Aurelia Royale",
-      "excerpt": "Learn which diamond, metal, certification, sizing, price, delivery and return details a trustworthy jewellery product page should clearly disclose."
+      "excerpt": "Scopri quali informazioni su diamante, metallo, certificazione, misure, prezzo, consegna e resi dovrebbe indicare chiaramente la pagina prodotto di una gioielleria affidabile."
     },
     "diamond-jewellery-product-specifications-checklist": {
-      "title": "Diamond Jewellery Product Specifications Checklist",
+      "title": "Checklist delle specifiche dei gioielli con diamanti",
       "author": "Aurelia Royale",
-      "excerpt": "Check the essential diamond, metal, size, construction, certification and order details every jewellery product page should provide before checkout."
+      "excerpt": "Controlla le informazioni essenziali su diamante, metallo, dimensioni, lavorazione, certificazione e ordine che ogni pagina prodotto di gioielleria dovrebbe fornire prima del pagamento."
     },
     "diamond-laser-inscription": {
-      "title": "What Is a Diamond Laser Inscription?",
+      "title": "Che cos’è un’iscrizione laser sul diamante?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn what a diamond laser inscription is, where to find it, how report numbers help identify a diamond, and what to do when an inscription does not match its report."
+      "excerpt": "Scopri che cos’è un’iscrizione laser sul diamante, dove trovarla, come i numeri dei report aiutano a identificare un diamante e cosa fare quando l’iscrizione non corrisponde al report."
     },
     "diamond-necklace-vs-diamond-pendant": {
-      "title": "Diamond Necklace vs Pendant: What Is the Difference?",
+      "title": "Collana con diamante o ciondolo: qual è la differenza?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn the difference between a diamond necklace and diamond pendant, whether a chain is included, and how pendant-only, pendant-with-chain and necklace products differ."
+      "excerpt": "Scopri la differenza tra una collana con diamante e un ciondolo con diamante, se la catena è inclusa e in cosa differiscono i prodotti con solo ciondolo, ciondolo con catena e collana."
     },
     "do-lab-grown-diamonds-have-resale-value": {
-      "title": "Do Lab-Grown Diamonds Have Resale Value? Honest Guide",
+      "title": "I diamanti di laboratorio hanno valore di rivendita? Una guida onesta",
       "author": "Aurelia Royale",
-      "excerpt": "Lab-grown diamonds can be resold, but offers may be far below retail. Learn how market prices, metal, reports, condition and selling method affect value."
+      "excerpt": "I diamanti di laboratorio si possono rivendere, ma le offerte possono essere molto inferiori al prezzo al dettaglio. Scopri come i prezzi di mercato, il metallo, i report, le condizioni e il metodo di vendita influiscono sul valore."
     },
     "do-lab-grown-diamonds-last-forever": {
-      "title": "Do Lab-Grown Diamonds Last Forever? Durability Guide",
+      "title": "I diamanti di laboratorio durano per sempre? Guida alla durata",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how long lab-grown diamonds last, whether they deteriorate, fade, scratch or chip, and how settings and maintenance affect their longevity."
+      "excerpt": "Scopri quanto durano i diamanti di laboratorio, se si deteriorano, sbiadiscono, si graffiano o si scheggiano e come le montature e la manutenzione ne influenzano la durata."
     },
     "do-lab-grown-diamonds-lose-their-sparkle": {
-      "title": "Do Lab-Grown Diamonds Lose Their Sparkle?",
+      "title": "I diamanti di laboratorio perdono la loro brillantezza?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn why lab-grown diamonds can look dull, whether they permanently lose brilliance and how cleaning, cut, lighting and maintenance restore sparkle."
+      "excerpt": "Scopri perché i diamanti di laboratorio possono apparire opachi, se perdono brillantezza in modo permanente e come pulizia, taglio, illuminazione e manutenzione possono ravvivarne la luce."
     },
     "do-lab-grown-diamonds-need-certification": {
-      "title": "Does Every Lab-Grown Diamond Need Certification?",
+      "title": "Ogni diamante di laboratorio deve essere certificato?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn when a lab-grown diamond certificate is important, why small accent diamonds are rarely graded individually and what to check without a report."
+      "excerpt": "Scopri quando è importante il certificato di un diamante di laboratorio, perché i piccoli diamanti d’accento raramente vengono classificati singolarmente e cosa controllare in assenza di un report."
     },
     "first-time-buyers-guide-lab-grown-diamond-jewellery": {
-      "title": "Lab-Grown Diamond Jewellery Buying Guide for Beginners",
+      "title": "Guida all’acquisto di gioielli con diamanti di laboratorio per principianti",
       "author": "Aurelia Royale",
-      "excerpt": "Buying lab-grown diamond jewellery for the first time? Choose your first piece by purpose, jewellery type, budget, design, diamond priorities, metal, size and fit."
+      "excerpt": "Acquisti gioielli con diamanti di laboratorio per la prima volta? Scegli il tuo primo gioiello in base all’occasione, al tipo di gioiello, al budget, al design, alle caratteristiche del diamante che contano per te, al metallo, alle dimensioni e alla vestibilità."
     },
     "high-quality-jewellery-product-images": {
-      "title": "How to Evaluate Jewellery Product Images Before Buying",
+      "title": "Come valutare le immagini dei prodotti di gioielleria prima dell’acquisto",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to assess jewellery product images, 360° views, scale, lighting, renderings and detail shots before buying diamond jewellery online."
+      "excerpt": "Scopri come valutare immagini dei prodotti di gioielleria, viste a 360°, proporzioni, illuminazione, rendering e foto dei dettagli prima di acquistare online gioielli con diamanti."
     },
     "how-are-lab-grown-diamonds-made": {
-      "title": "How Are Lab-Grown Diamonds Made? CVD & HPHT Guide",
+      "title": "Come vengono creati i diamanti di laboratorio? Guida a CVD e HPHT",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how lab-grown diamonds are made using CVD and HPHT, from the original diamond seed through crystal growth, cutting, polishing and certification."
+      "excerpt": "Scopri come vengono realizzati i diamanti di laboratorio con CVD e HPHT, dal seme originale del diamante alla crescita del cristallo, fino al taglio, alla lucidatura e alla certificazione."
     },
     "how-lab-grown-diamonds-are-graded": {
-      "title": "How Are Lab-Grown Diamonds Graded? IGI vs GIA",
+      "title": "Come vengono classificati i diamanti di laboratorio? IGI vs GIA",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how lab-grown diamonds are graded, from origin testing and carat measurements to colour, clarity, cut, polish and symmetry, plus current IGI and GIA reporting differences."
+      "excerpt": "Scopri come vengono classificati i diamanti di laboratorio, dai test di origine e dalle misure in carati a colore, purezza, taglio, lucidatura e simmetria, oltre alle attuali differenze nei report IGI e GIA."
     },
     "how-lab-grown-diamonds-should-be-disclosed": {
-      "title": "Lab-Grown Diamond Disclosure: Clear Terms Explained",
+      "title": "Informativa sui diamanti di laboratorio: spiegazione chiara dei termini",
       "author": "Aurelia Royale",
-      "excerpt": "How should lab-grown diamonds be described? Learn which terms are clear or ambiguous in the US and UK, including lab-grown, laboratory-created and synthetic diamond."
+      "excerpt": "Come vanno descritti i diamanti di laboratorio? Scopri quali termini sono chiari o ambigui negli US e nel Regno Unito, tra cui diamante di laboratorio, creato in laboratorio e diamante sintetico."
     },
     "how-should-diamond-bracelet-fit": {
-      "title": "How Should a Diamond Bracelet Fit? Fit Guide",
+      "title": "Come deve calzare un bracciale con diamanti? Guida alla vestibilità",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how a diamond bracelet should fit, with clear too-tight, secure and too-loose signs for tennis, chain, station, bangle and cuff styles."
+      "excerpt": "Scopri come deve calzare un bracciale con diamanti, con indicazioni chiare per riconoscere una vestibilità troppo stretta, sicura o troppo larga nei modelli tennis, a catena, con pietre intervallate, rigidi e a fascia."
     },
     "how-should-diamond-ring-fit": {
-      "title": "How Should a Diamond Ring Fit? Ring Fit Guide",
+      "title": "Come deve calzare un anello con diamanti? Guida alla vestibilità",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how a diamond ring should fit, including knuckle resistance, spinning, pressure, band width, swelling and signs a ring is too tight or too loose."
+      "excerpt": "Scopri come deve calzare un anello con diamanti, considerando la resistenza sulle nocche, la rotazione, la pressione, la larghezza della fascia, il gonfiore e i segnali che indicano che un anello è troppo stretto o troppo largo."
     },
     "how-to-choose-lab-grown-diamond-bracelet": {
-      "title": "How to Choose a Lab-Grown Diamond Bracelet",
+      "title": "Come scegliere un bracciale con diamanti di laboratorio",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to choose a lab-grown diamond bracelet by comparing design, diamond weight, setting, fit, wrist size, metal, clasp, construction and product information."
+      "excerpt": "Scopri come scegliere un bracciale con diamanti di laboratorio confrontando design, peso dei diamanti, montatura, vestibilità, misura del polso, metallo, chiusura, lavorazione e informazioni sul prodotto."
     },
     "how-to-choose-lab-grown-diamond-drop-earrings": {
-      "title": "How to Choose Lab-Grown Diamond Drop Earrings",
+      "title": "Come scegliere orecchini pendenti con diamanti di laboratorio",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to choose lab-grown diamond drop earrings by comparing drop length, movement, articulation, weight, balance, fastening, diamond size and setting."
+      "excerpt": "Scopri come scegliere orecchini pendenti con diamanti di laboratorio confrontando lunghezza, movimento, articolazione, peso, equilibrio, chiusura, dimensione dei diamanti e montatura."
     },
     "how-to-choose-lab-grown-diamond-earrings": {
-      "title": "How to Choose Lab-Grown Diamond Earrings",
+      "title": "Come scegliere orecchini con diamanti di laboratorio",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to choose lab-grown diamond earrings by comparing studs, hoops and drops, size, carat weight, fastening, comfort, metal and diamond quality."
+      "excerpt": "Scopri come scegliere orecchini con diamanti di laboratorio confrontando modelli a bottone, a cerchio e pendenti, dimensioni, peso in carati, chiusura, comfort, metallo e qualità dei diamanti."
     },
     "how-to-choose-lab-grown-diamond-necklace": {
-      "title": "How to Choose a Lab-Grown Diamond Necklace",
+      "title": "Come scegliere una collana con diamanti di laboratorio",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to choose a lab-grown diamond necklace by comparing design, length, chain, pendant size, carat weight, clasp, metal, construction and diamond quality."
+      "excerpt": "Scopri come scegliere una collana con diamanti di laboratorio confrontando design, lunghezza, catena, dimensione del pendente, peso in carati, chiusura, metallo, lavorazione e qualità dei diamanti."
     },
     "how-to-choose-lab-grown-diamond-pendant": {
-      "title": "How to Choose a Lab-Grown Diamond Pendant",
+      "title": "Come scegliere un pendente con diamanti di laboratorio",
       "author": "Aurelia Royale",
-      "excerpt": "Choose a lab-grown diamond pendant by checking bail size, chain compatibility, removability, pendant dimensions, diamond weight and exactly what is included."
+      "excerpt": "Scegli un pendente con diamanti di laboratorio controllando le dimensioni del passante, la compatibilità con la catena, la possibilità di rimuoverlo, le dimensioni del pendente, il peso dei diamanti e cosa è esattamente incluso."
     },
     "how-to-choose-lab-grown-diamond-ring": {
-      "title": "How to Choose a Lab-Grown Diamond Ring",
+      "title": "Come scegliere un anello con diamanti di laboratorio",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to choose a lab-grown diamond ring by purpose, ring style, setting, diamond size, band width, metal, ring size, fit and product verification."
+      "excerpt": "Scopri come scegliere un anello con diamanti di laboratorio in base all’occasione, allo stile, alla montatura, alla dimensione dei diamanti, alla larghezza della fascia, al metallo, alla misura, alla vestibilità e alla verifica del prodotto."
     },
     "how-to-choose-lab-grown-diamond-stud-earrings": {
-      "title": "How to Choose Lab-Grown Diamond Stud Earrings",
+      "title": "Come scegliere orecchini a bottone con diamanti di laboratorio",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to choose lab-grown diamond stud earrings by pair matching, per-ear carat weight, size, setting, backing, comfort, metal and diamond quality."
+      "excerpt": "Scopri come scegliere orecchini a bottone con diamanti di laboratorio confrontando la corrispondenza della coppia, il peso in carati per orecchio, le dimensioni, la montatura, la chiusura, il comfort, il metallo e la qualità dei diamanti."
     },
     "how-to-compare-certified-lab-grown-diamonds": {
-      "title": "How to Compare Two Certified Lab-Grown Diamonds",
+      "title": "Come confrontare due diamanti di laboratorio certificati",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to compare two lab-grown diamonds using reports, carat, measurements, colour, clarity, cut, polish and symmetry—and separate facts from visual assumptions."
+      "excerpt": "Scopri come confrontare due diamanti di laboratorio usando i report, i carati, le misure, il colore, la purezza, il taglio, la lucidatura e la simmetria, distinguendo i dati dalle supposizioni visive."
     },
     "how-to-measure-ring-size": {
-      "title": "How to Measure Ring Size: UK, EU & US Chart",
+      "title": "Come misurare la misura dell’anello: tabella UK, EU e US",
       "author": "Aurelia Royale",
-      "excerpt": "Measure your ring size accurately using an existing ring or your finger, then convert UK, EU and US sizes with diameter and circumference measurements."
+      "excerpt": "Misura con precisione la misura del tuo anello usando un anello che possiedi già o misurando il dito, quindi converti le taglie UK, EU e US con le misure del diametro e della circonferenza."
     },
     "how-to-read-lab-grown-diamond-certificate": {
-      "title": "How to Read a Lab-Grown Diamond Certificate or Report",
+      "title": "Come leggere un certificato o report di un diamante di laboratorio",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to read a lab-grown diamond report, including report number, carat, measurements, colour, clarity, cut, fluorescence, inscription, growth method and treatment."
+      "excerpt": "Scopri come leggere un report di un diamante di laboratorio, inclusi numero del report, carati, misure, colore, purezza, taglio, fluorescenza, iscrizione, metodo di crescita e trattamento."
     },
     "igi-certificate-for-lab-grown-diamond": {
-      "title": "IGI Certificate for Lab-Grown Diamonds: What It Means",
+      "title": "Certificato IGI per diamanti di laboratorio: cosa significa",
       "author": "Aurelia Royale",
-      "excerpt": "Learn what an IGI lab-grown diamond report means, what information it contains, how loose-diamond and jewellery reports differ, and what IGI certification does not guarantee."
+      "excerpt": "Scopri cosa significa un report IGI per un diamante di laboratorio, quali informazioni contiene, in cosa differiscono i report per diamanti sciolti e gioielli e cosa la certificazione IGI non garantisce."
     },
     "jewellery-availability-production-time": {
-      "title": "Jewellery Availability & Production Time Explained",
+      "title": "Disponibilità dei gioielli e tempi di produzione: spiegazione",
       "author": "Aurelia Royale",
-      "excerpt": "Learn the difference between in-stock, waitlist, preorder and made-to-order jewellery, how production time differs from delivery time, and what to confirm before ordering."
+      "excerpt": "Scopri la differenza tra gioielli disponibili in magazzino, in lista d’attesa, in preordine e realizzati su ordinazione, come i tempi di produzione differiscono da quelli di consegna e cosa verificare prima di ordinare."
     },
     "lab-grown-diamond-carat-weight-explained": {
-      "title": "Lab-Grown Diamond Carat Weight Explained: Carats & Points",
+      "title": "Peso in carati dei diamanti di laboratorio: carati e punti spiegati",
       "author": "Aurelia Royale",
-      "excerpt": "Learn what diamond carat weight means, how many grams are in one carat, how diamond points work and how lab-grown diamonds are precisely weighed."
+      "excerpt": "Scopri cosa indica il peso in carati di un diamante, quanti grammi corrispondono a un carato, come funzionano i punti e come vengono pesati con precisione i diamanti di laboratorio."
     },
     "lab-grown-diamond-clarity-grades-explained": {
-      "title": "Lab-Grown Diamond Clarity Grades Explained",
+      "title": "Gradi di purezza dei diamanti di laboratorio: spiegazione",
       "author": "Aurelia Royale",
-      "excerpt": "Understand lab-grown diamond clarity grades, including IF, VVS, VS, SI and I, what eye-clean means and how shape, size and inclusions affect what you see."
+      "excerpt": "Scopri i gradi di purezza dei diamanti di laboratorio, inclusi IF, VVS, VS, SI e I, il significato di «pulito a occhio nudo» e come forma, dimensione e inclusioni influiscono sull’aspetto."
     },
     "lab-grown-diamond-colour-grades-explained": {
-      "title": "Lab-Grown Diamond Colour Grades: D–Z Scale Explained",
+      "title": "Gradi di colore dei diamanti di laboratorio: spiegazione della scala D–Z",
       "author": "Aurelia Royale",
-      "excerpt": "Understand lab-grown diamond colour grades from D to Z, what colourless and near-colourless mean, and how size, shape and setting affect the colour you see."
+      "excerpt": "Scopri i gradi di colore dei diamanti di laboratorio dalla D alla Z, il significato di incolore e quasi incolore e come dimensione, forma e montatura influiscono sul colore percepito."
     },
     "lab-grown-diamond-cut-explained": {
-      "title": "Lab-Grown Diamond Cut: Grades & Light Performance",
+      "title": "Taglio dei diamanti di laboratorio: gradi e resa della luce",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how lab-grown diamond cut affects brightness, fire and scintillation, how round cut grades work, how fancy shapes are assessed, and what polish and symmetry mean."
+      "excerpt": "Scopri come il taglio di un diamante di laboratorio influisce su brillantezza, fuoco e scintillio, come si determinano i gradi di taglio dei diamanti rotondi, come si valutano le forme fantasia e cosa significano lucidatura e simmetria."
     },
     "lab-grown-diamond-vs-cubic-zirconia": {
-      "title": "Lab-Grown Diamond vs Cubic Zirconia: Key Differences",
+      "title": "Diamante di laboratorio o zircone cubico: differenze principali",
       "author": "Aurelia Royale",
-      "excerpt": "Compare lab-grown diamonds vs cubic zirconia by material, hardness, sparkle, weight, durability and appearance—and learn why cubic zirconia is not zircon."
+      "excerpt": "Confronta i diamanti di laboratorio e gli zirconi cubici per materiale, durezza, brillantezza, peso, resistenza e aspetto, e scopri perché lo zircone cubico non è zircone."
     },
     "lab-grown-diamond-vs-moissanite": {
-      "title": "Lab-Grown Diamond vs Moissanite: Which Is Better?",
+      "title": "Diamante di laboratorio o moissanite: qual è il migliore?",
       "author": "Aurelia Royale",
-      "excerpt": "Compare lab-grown diamond vs moissanite by sparkle, rainbow fire, hardness, durability, size, carat weight, testing, documentation and everyday wear."
+      "excerpt": "Confronta i diamanti di laboratorio e la moissanite per brillantezza, fuoco arcobaleno, durezza, resistenza, dimensione, peso in carati, test, documentazione e uso quotidiano."
     },
     "lab-grown-vs-natural-diamonds": {
-      "title": "Lab-Grown vs Natural Diamonds: Key Differences Explained",
+      "title": "Diamanti di laboratorio o naturali: differenze principali spiegate",
       "author": "Aurelia Royale",
-      "excerpt": "Compare lab-grown vs natural diamonds by origin, appearance, durability, quality, price, resale, grading, sourcing and engagement-ring suitability."
+      "excerpt": "Confronta i diamanti di laboratorio e i diamanti naturali per origine, aspetto, resistenza, qualità, prezzo, rivendita, classificazione, approvvigionamento e idoneità per un anello di fidanzamento."
     },
     "measure-wrist-for-bracelet": {
-      "title": "How to Measure Your Wrist for a Bracelet",
+      "title": "Come misurare il polso per un bracciale",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to measure your wrist for chain, tennis, bangle and cuff bracelets, convert cm and inches, and understand wrist size versus bracelet length."
+      "excerpt": "Scopri come misurare il polso per bracciali a catena, tennis, rigidi e a fascia, convertire cm e pollici e comprendere la differenza tra circonferenza del polso e lunghezza del bracciale."
     },
     "mistakes-buying-lab-grown-diamond-jewellery-online": {
-      "title": "15 Lab-Grown Diamond Buying Mistakes to Avoid Online",
+      "title": "15 errori da evitare quando acquisti online gioielli con diamanti di laboratorio",
       "author": "Aurelia Royale",
-      "excerpt": "Avoid 15 common mistakes when buying lab-grown diamond jewellery online, from carat and reports to sizing, metal, images, availability, returns and seller claims."
+      "excerpt": "Evita 15 errori comuni quando acquisti online gioielli con diamanti di laboratorio: dai carati ai certificati, passando per taglia, metallo, immagini, disponibilità, resi e dichiarazioni del venditore."
     },
     "questions-to-ask-before-buying-lab-grown-diamond": {
-      "title": "25 Questions to Ask Before Buying a Lab-Grown Diamond",
+      "title": "25 domande da fare prima di acquistare un diamante di laboratorio",
       "author": "Aurelia Royale",
-      "excerpt": "Use these 25 questions to check a lab-grown diamond’s quality, report, treatment, carat weight, metal, hallmark, returns, warranty and total price."
+      "excerpt": "Usa queste 25 domande per verificare la qualità, il certificato, i trattamenti, il peso in carati, il metallo, il punzone, i resi, la garanzia e il prezzo totale di un diamante di laboratorio."
     },
     "ready-made-vs-made-to-order-diamond-jewellery": {
-      "title": "Ready-Made vs Made-to-Order Diamond Jewellery",
+      "title": "Gioielli con diamanti pronti o su ordinazione",
       "author": "Aurelia Royale",
-      "excerpt": "Compare ready-made and made-to-order diamond jewellery by availability, sizing, design certainty, production time, customisation and cancellation considerations."
+      "excerpt": "Confronta i gioielli con diamanti pronti e quelli su ordinazione per disponibilità, taglie, certezza del design, tempi di produzione, personalizzazione e possibilità di annullamento."
     },
     "select-right-necklace-length": {
-      "title": "Necklace Length Guide: Inches, CM & Placement",
+      "title": "Guida alle lunghezze delle collane: pollici, CM e vestibilità",
       "author": "Aurelia Royale",
-      "excerpt": "Compare necklace lengths in inches and centimetres, see approximate placement, and learn how neck size, pendant dimensions, layering and design affect fit."
+      "excerpt": "Confronta le lunghezze delle collane in pollici e centimetri, scopri dove arrivano indicativamente e come circonferenza del collo, dimensioni del pendente, sovrapposizione e design influiscono sulla vestibilità."
     },
     "select-right-size-diamond-earrings": {
-      "title": "Diamond Earring Size Guide: Carat, MM & Pair Weight",
+      "title": "Guida alle dimensioni degli orecchini con diamanti: carati, MM e peso della coppia",
       "author": "Aurelia Royale",
-      "excerpt": "Compare diamond earring sizes by pair-total carat, per-ear weight and approximate round-diamond diameter, with guidance for studs, halos, clusters and other shapes."
+      "excerpt": "Confronta le dimensioni degli orecchini con diamanti in base al peso in carati della coppia, al peso di ciascun orecchino e al diametro approssimativo dei diamanti rotondi, con consigli per modelli a bottone, con aureola, a grappolo e altre forme."
     },
     "set-budget-lab-grown-diamond-jewellery": {
-      "title": "How to Set a Budget for Lab-Grown Diamond Jewellery",
+      "title": "Come stabilire un budget per i gioielli con diamanti di laboratorio",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to budget for lab-grown diamond jewellery by prioritising design, visible size, diamond quality, metal and fit without overspending on specifications you do not need."
+      "excerpt": "Scopri come stabilire un budget per i gioielli con diamanti di laboratorio dando priorità a design, dimensione percepita, qualità del diamante, metallo e vestibilità, senza spendere troppo per caratteristiche che non ti servono."
     },
     "total-carat-weight-meaning-diamond-jewellery": {
-      "title": "Total Carat Weight Meaning: TCW & CTTW Explained",
+      "title": "Significato del peso totale in carati: TCW e CTTW spiegati",
       "author": "Aurelia Royale",
-      "excerpt": "Learn what total carat weight means in diamond jewellery, how TCW, CTW and CTTW differ from a single diamond's carat weight, with earrings, rings and bracelet examples."
+      "excerpt": "Scopri cosa significa peso totale in carati nei gioielli con diamanti, in che modo TCW, CTW e CTTW differiscono dal peso in carati di un singolo diamante e leggi gli esempi con orecchini, anelli e bracciali."
     },
     "transparency-buying-diamond-jewellery": {
-      "title": "Why Diamond Jewellery Transparency Matters",
+      "title": "Perché la trasparenza nei gioielli con diamanti è importante",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how transparent diamond origin, quality, certification, pricing and sourcing claims help you compare jewellery and buy with greater confidence."
+      "excerpt": "Scopri come la trasparenza sull’origine, la qualità, la certificazione, i prezzi e le dichiarazioni sull’approvvigionamento dei diamanti ti aiuta a confrontare i gioielli e ad acquistare con maggiore sicurezza."
     },
     "verify-igi-certificate-number": {
-      "title": "How to Verify an IGI Certificate Number Online",
+      "title": "Come verificare online il numero di un certificato IGI",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to verify an IGI diamond report number online, compare the official IGI record with the diamond, check laser inscriptions and handle a report that cannot be found."
+      "excerpt": "Scopri come verificare online il numero di un report IGI, confrontare il record ufficiale IGI con il diamante, controllare le iscrizioni laser e gestire un report non reperibile."
     },
     "what-are-lab-grown-diamonds": {
-      "title": "What Are Lab-Grown Diamonds? Complete Guide",
+      "title": "Cosa sono i diamanti di laboratorio? Guida completa",
       "author": "Aurelia Royale",
-      "excerpt": "Learn what lab-grown diamonds are, how CVD and HPHT diamonds are made, whether they are real, how they compare with natural diamonds and how quality is assessed."
+      "excerpt": "Scopri cosa sono i diamanti di laboratorio, come vengono creati i diamanti CVD e HPHT, se sono veri, come si confrontano con i diamanti naturali e come se ne valuta la qualità."
     },
     "what-determines-price-lab-grown-diamond-jewellery": {
-      "title": "What Determines Lab-Grown Diamond Jewellery Prices?",
+      "title": "Cosa determina il prezzo dei gioielli con diamanti di laboratorio?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn what affects lab-grown diamond jewellery prices, including carat, cut, colour, clarity, total diamond weight, metal, design, construction and reports."
+      "excerpt": "Scopri cosa incide sul prezzo dei gioielli con diamanti di laboratorio, tra cui carato, taglio, colore, purezza, peso totale dei diamanti, metallo, design, manifattura e report."
     },
     "what-included-certified-diamond-jewellery": {
-      "title": "What Comes with Certified Diamond Jewellery?",
+      "title": "Cosa accompagna i gioielli con diamanti certificati?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn which documents may come with certified diamond jewellery, including laboratory reports, order records, hallmarking, warranties, appraisals and optional care information."
+      "excerpt": "Scopri quali documenti possono accompagnare i gioielli con diamanti certificati, tra cui report di laboratorio, registrazioni dell’ordine, punzonatura, garanzie, perizie e informazioni facoltative sulla cura."
     },
     "what-makes-lab-grown-diamond-jewellery-high-quality": {
-      "title": "What Makes Lab-Grown Diamond Jewellery High Quality?",
+      "title": "Cosa rende di alta qualità i gioielli con diamanti di laboratorio?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to judge high-quality lab-grown diamond jewellery by its diamond, metal, stone setting, prongs, finishing, construction, clasps, proportions and workmanship."
+      "excerpt": "Scopri come valutare la qualità dei gioielli con diamanti di laboratorio considerando il diamante, il metallo, l’incastonatura, le griffe, le finiture, la struttura, le chiusure, le proporzioni e la lavorazione."
     },
     "what-makes-lab-grown-diamonds-different": {
-      "title": "Are All Lab-Grown Diamonds the Same? Key Differences Explained",
+      "title": "I diamanti di laboratorio sono tutti uguali? Le differenze principali",
       "author": "Aurelia Royale",
-      "excerpt": "Are all lab-grown diamonds the same? No. Learn how CVD vs HPHT growth, colour, clarity, cut, carat, proportions, fluorescence and treatments make each diamond different."
+      "excerpt": "I diamanti di laboratorio sono tutti uguali? No. Scopri come la crescita CVD o HPHT, il colore, la purezza, il taglio, il carato, le proporzioni, la fluorescenza e i trattamenti rendono ogni diamante diverso."
     },
     "what-to-check-before-buying-lab-grown-diamond-jewellery": {
-      "title": "What to Check Before Buying Lab-Grown Diamond Jewellery",
+      "title": "Cosa controllare prima di acquistare gioielli con diamanti di laboratorio",
       "author": "Aurelia Royale",
-      "excerpt": "Check lab-grown diamond jewellery properly: origin, carat, size, colour, clarity, cut, reports, metal, total weight and whether specifications are exact or approximate."
+      "excerpt": "Valuta attentamente i gioielli con diamanti di laboratorio: origine, carato, dimensioni, colore, purezza, taglio, report, metallo, peso totale e indicazione se le specifiche sono esatte o approssimative."
     },
     "how-to-choose-lab-grown-diamond-jewellery-set": {
-      "title": "How to Choose a Lab-Grown Diamond Jewellery Set",
+      "title": "Come scegliere un set di gioielli con diamanti di laboratorio",
       "author": "Aurelia Royale",
-      "excerpt": "Choose a lab-grown diamond jewellery set by checking included pieces, design matching, carat allocation, dimensions, metal, reports and set-specific terms."
+      "excerpt": "Scegli un set di gioielli con diamanti di laboratorio controllando i pezzi inclusi, la coerenza del design, la distribuzione dei carati, le dimensioni, il metallo, i report e le condizioni specifiche del set."
     },
     "buying-necklace-earring-set": {
-      "title": "Buying a Necklace and Earring Set: What to Check",
+      "title": "Acquistare un set di collana e orecchini: cosa controllare",
       "author": "Aurelia Royale",
-      "excerpt": "A necklace and earring set should coordinate in scale, spacing and quality while remaining practical as two separate purchases. Use this complete buying checklist."
+      "excerpt": "Un set di collana e orecchini dovrebbe essere coordinato per proporzioni, spaziatura e qualità, pur risultando pratico anche come due acquisti separati. Segui questa guida completa all’acquisto."
     },
     "compare-diamond-earring-designs": {
-      "title": "Diamond Earring Designs: Studs, Hoops & Drops Compared",
+      "title": "Modelli di orecchini con diamanti: confronto tra punti luce, cerchi e pendenti",
       "author": "Aurelia Royale",
-      "excerpt": "Compare diamond studs, hoops and drop earrings by comfort, movement, size, fastening, diamond coverage and everyday or occasion wear."
+      "excerpt": "Confronta gli orecchini a punto luce, a cerchio e pendenti con diamanti in base a comfort, movimento, dimensioni, chiusura, presenza dei diamanti e uso quotidiano o per le occasioni speciali."
     },
     "compare-diamond-bracelet-designs": {
-      "title": "Diamond Bracelet Designs: 5 Styles Compared",
+      "title": "Modelli di bracciali con diamanti: confronto tra 5 stili",
       "author": "Aurelia Royale",
-      "excerpt": "Compare tennis, station, chain, bangle and cuff diamond bracelets by movement, fit, fastening, diamond coverage, comfort and everyday wear."
+      "excerpt": "Confronta i bracciali tennis, rivière, a catena, rigidi e a fascia con diamanti in base a movimento, vestibilità, chiusura, presenza dei diamanti, comfort e uso quotidiano."
     },
     "compare-diamond-necklace-designs": {
-      "title": "Diamond Necklace Designs: Pendant, Station & Line",
+      "title": "Modelli di collane con diamanti: pendente, rivière e punto luce",
       "author": "Aurelia Royale",
-      "excerpt": "Compare pendant, station and line diamond necklaces by diamond coverage, focal placement, movement, length, scale, layering and everyday wear."
+      "excerpt": "Confronta le collane con diamanti a pendente, rivière e punto luce in base alla presenza dei diamanti, alla posizione del motivo centrale, al movimento, alla lunghezza, alle proporzioni, alla possibilità di sovrapporle e all’uso quotidiano."
     },
     "coloured-stones-lab-grown-diamonds": {
-      "title": "Coloured Stones and Lab-Grown Diamonds Together",
+      "title": "Pietre colorate e diamanti di laboratorio insieme",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how coloured centre stones and lab-grown diamond accents work together through contrast, proportion, setting, disclosure, durability and care."
+      "excerpt": "Scopri come le pietre centrali colorate e gli accenti di diamanti di laboratorio si valorizzano a vicenda attraverso contrasto, proporzioni, incastonatura, trasparenza sulle caratteristiche, durabilità e cura."
     },
     "buying-coloured-stone-diamond-jewellery": {
-      "title": "Buying Coloured-Stone Diamond Jewellery: Checklist",
+      "title": "Acquistare gioielli con diamanti e pietre colorate: checklist",
       "author": "Aurelia Royale",
-      "excerpt": "Check gemstone identity, natural or laboratory-created status, treatments, colour, dimensions, diamond accents, metal, reports and care before buying."
+      "excerpt": "Prima dell’acquisto, verifica l’identità della gemma, se è naturale o creata in laboratorio, gli eventuali trattamenti, il colore, le dimensioni, gli accenti di diamanti, il metallo, i report e le indicazioni per la cura."
     },
     "care-coloured-stones-diamonds": {
-      "title": "How to Care for Coloured Stones and Diamonds",
+      "title": "Come prendersi cura delle pietre colorate e dei diamanti",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to clean, wear and store coloured-stone and diamond jewellery safely by following the needs of its most sensitive component."
+      "excerpt": "Scopri come pulire, indossare e conservare in sicurezza i gioielli con pietre colorate e diamanti, rispettando le esigenze del loro componente più delicato."
     },
     "coloured-centre-stones-vs-colourless-diamonds": {
-      "title": "Coloured Centre Stone vs Colourless Diamond",
+      "title": "Pietra centrale colorata o diamante incolore",
       "author": "Aurelia Royale",
-      "excerpt": "Compare coloured centre stones and colourless diamond designs by colour, light, scale, metal, versatility, care and product transparency."
+      "excerpt": "Confronta i design con pietre centrali colorate e quelli con diamanti incolori in base a colore, luce, dimensioni, metallo, versatilità, cura e trasparenza del prodotto."
     },
     "diamond-accents-meaning": {
-      "title": "What Are Diamond Accents in Jewellery?",
+      "title": "Cosa sono gli accenti di diamanti nei gioielli?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn what diamond accents are, how they differ from centre and side stones, and which origin, carat-weight and quality details to check."
+      "excerpt": "Scopri cosa sono gli accenti di diamanti, in cosa differiscono dalle pietre centrali e laterali e quali dettagli su origine, peso in carati e qualità controllare."
     },
     "diamond-accents-jewellery-design": {
-      "title": "How Diamond Accents Affect Jewellery Design",
+      "title": "Come gli accenti di diamanti influenzano il design dei gioielli",
       "author": "Aurelia Royale",
-      "excerpt": "See how halos, side accents, pavé and diamond lines change brightness, contrast, outline, movement and the apparent scale of jewellery."
+      "excerpt": "Scopri come aloni, dettagli laterali, pavé e file di diamanti modificano luminosità, contrasto, profilo, movimento e dimensioni apparenti dei gioielli."
     },
     "check-coloured-stone-natural-treated-lab-created": {
-      "title": "Is a Gemstone Natural, Treated or Lab-Created?",
+      "title": "Una gemma è naturale, trattata o creata in laboratorio?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to verify whether a coloured stone is natural, treated, laboratory-created or an imitation using disclosures and laboratory reports."
+      "excerpt": "Scopri come verificare, tramite le dichiarazioni e i rapporti di laboratorio, se una pietra colorata è naturale, trattata, creata in laboratorio o un’imitazione."
     },
     "coloured-stone-information-disclosure": {
-      "title": "Why Coloured-Stone Information Must Be Clear",
+      "title": "Perché le informazioni sulle pietre colorate devono essere chiare",
       "author": "Aurelia Royale",
-      "excerpt": "Learn why gemstone identity, natural or laboratory-created status, treatments, dimensions, care and report scope should be disclosed clearly."
+      "excerpt": "Scopri perché è importante dichiarare chiaramente l’identità della gemma, la sua origine naturale o di laboratorio, i trattamenti, le dimensioni, le cure necessarie e l’ambito del rapporto."
     },
     "evaluate-coloured-stone-diamond-jewellery-online": {
-      "title": "How to Evaluate Coloured-Stone and Diamond Jewellery Online",
+      "title": "Come valutare online i gioielli con pietre colorate e diamanti",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to assess coloured-stone and diamond jewellery online using specifications, accurate images, reports, scale, returns and seller checks."
+      "excerpt": "Scopri come valutare online i gioielli con pietre colorate e diamanti, considerando specifiche, immagini accurate, rapporti, proporzioni, resi e verifiche del venditore."
     },
     "questions-coloured-stone-diamond-jewellery": {
-      "title": "25 Questions Before Buying Gemstone Jewellery",
+      "title": "25 domande da fare prima di acquistare un gioiello con gemme",
       "author": "Aurelia Royale",
-      "excerpt": "Ask these 25 questions about gemstone identity, treatments, diamonds, dimensions, reports, images, care, delivery, returns and warranty."
+      "excerpt": "Fai queste 25 domande sull’identità delle gemme, i trattamenti, i diamanti, le dimensioni, i rapporti, le immagini, la cura, la consegna, i resi e la garanzia."
     },
     "clean-lab-grown-diamond-jewellery": {
-      "title": "How to Clean Lab-Grown Diamond Jewellery at Home",
+      "title": "Come pulire a casa i gioielli con diamanti di laboratorio",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to clean lab-grown diamond rings, earrings, necklaces and bracelets safely at home, what to avoid and when jewellery needs professional inspection."
+      "excerpt": "Scopri come pulire in sicurezza a casa anelli, orecchini, collane e bracciali con diamanti di laboratorio, cosa evitare e quando è necessario un controllo professionale."
     },
     "how-often-clean-diamond-jewellery": {
-      "title": "How Often Should You Clean Diamond Jewellery?",
+      "title": "Con quale frequenza pulire i gioielli con diamanti?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how often to clean diamond rings, earrings, necklaces and bracelets, when home cleaning is enough, and when professional inspection is more important."
+      "excerpt": "Scopri con quale frequenza pulire anelli, orecchini, collane e bracciali con diamanti, quando basta la pulizia a casa e quando è più importante un controllo professionale."
     },
     "keep-lab-grown-diamond-jewellery-sparkling": {
-      "title": "How to Keep Lab-Grown Diamonds Sparkling",
+      "title": "Come mantenere brillanti i diamanti di laboratorio",
       "author": "Aurelia Royale",
-      "excerpt": "Keep lab-grown diamond jewellery sparkling by preventing oil and product build-up, handling it correctly, cleaning safely and checking the setting."
+      "excerpt": "Mantieni brillanti i gioielli con diamanti di laboratorio prevenendo l’accumulo di oli e prodotti, maneggiandoli correttamente, pulendoli in sicurezza e controllando la montatura."
     },
     "store-diamond-jewellery": {
-      "title": "How to Store Diamond Jewellery Properly",
+      "title": "Come conservare correttamente i gioielli con diamanti",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to store diamond rings, earrings, necklaces and bracelets safely to reduce scratching, chain tangling, impact damage and unnecessary wear."
+      "excerpt": "Scopri come conservare in sicurezza anelli, orecchini, collane e bracciali con diamanti per ridurre graffi, nodi nelle catene, danni da urti e usura inutile."
     },
     "prevent-jewellery-scratches": {
-      "title": "How to Prevent Jewellery from Scratching",
+      "title": "Come evitare che i gioielli si graffino",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how to prevent rings, bracelets, necklaces and diamond jewellery from scratching through better wear, stacking, storage and travel habits."
+      "excerpt": "Scopri come evitare che anelli, bracciali, collane e gioielli con diamanti si graffino, adottando abitudini migliori quando li indossi, li abbini, li conservi e viaggi."
     },
     "wear-diamond-jewellery-in-shower": {
-      "title": "Can You Wear Diamond Jewellery in the Shower?",
+      "title": "Si possono indossare gioielli con diamanti sotto la doccia?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn whether diamond rings, earrings and necklaces should be worn in the shower, how soap and hair products affect jewellery, and what to do after accidental exposure."
+      "excerpt": "Scopri se è consigliabile indossare anelli, orecchini e collane con diamanti sotto la doccia, come sapone e prodotti per capelli influiscono sui gioielli e cosa fare dopo un’esposizione accidentale."
     },
     "swim-wearing-diamond-jewellery": {
-      "title": "Can You Swim Wearing Diamond Jewellery?",
+      "title": "Si può nuotare indossando gioielli con diamanti?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn whether you should wear diamond rings, earrings, necklaces or bracelets in pools or the sea, what chlorine and salt water can affect, and what to do after accidental exposure."
+      "excerpt": "Scopri se è consigliabile indossare anelli, orecchini, collane o bracciali con diamanti in piscina o al mare, quali effetti possono avere il cloro e l’acqua salata e cosa fare dopo un’esposizione accidentale."
     },
     "perfume-skincare-diamond-jewellery": {
-      "title": "Can You Wear Perfume with Diamond Jewellery?",
+      "title": "Si può usare il profumo con i gioielli con diamanti?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn how perfume, skincare, lotion, make-up and hairspray affect diamond jewellery, when residue is cosmetic and when metals or other materials need extra care."
+      "excerpt": "Scopri come profumo, prodotti per la cura della pelle, lozione, trucco e lacca influiscono sui gioielli con diamanti, quando i residui sono solo un problema estetico e quando metalli o altri materiali richiedono maggiore attenzione."
     },
     "check-diamond-jewellery-loose-stones": {
-      "title": "How to Check Diamond Jewellery for Loose Stones",
+      "title": "Come verificare che le pietre dei gioielli con diamanti non siano allentate",
       "author": "Aurelia Royale",
-      "excerpt": "Learn the warning signs of a loose diamond, how to inspect prongs, bezels and pavé safely, when to stop wearing jewellery and when to seek professional repair."
+      "excerpt": "Scopri quali sono i segnali di un diamante allentato, come controllare in sicurezza griffe, castoni e pavé, quando smettere di indossare il gioiello e quando rivolgersi a un professionista per la riparazione."
     },
     "professional-diamond-jewellery-inspection": {
-      "title": "When Should Diamond Jewellery Be Inspected?",
+      "title": "Quando far controllare i gioielli con diamanti?",
       "author": "Aurelia Royale",
-      "excerpt": "Learn when diamond rings, earrings, necklaces and bracelets need professional inspection, what a jeweller should check and which warning signs need immediate attention."
+      "excerpt": "Scopri quando anelli, orecchini, collane e bracciali con diamanti richiedono un controllo professionale, cosa dovrebbe verificare un gioielliere e quali segnali richiedono attenzione immediata."
     }
   },
   "BlogIndex": {
-    "title": "Lab-Grown Diamond Jewellery Guides | Aurelia Royale",
-    "titlePaged": "Lab-Grown Diamond Jewellery Guides — Page {page} | Aurelia Royale",
-    "description": "Explore expert guides on lab-grown diamonds covering education, buying advice, sizing, certification, care and maintenance. Written for buyers of fine diamond jewellery.",
-    "ogDescription": "Explore expert guides on lab-grown diamonds covering education, buying advice, sizing, certification, care and maintenance.",
+    "title": "Guide ai gioielli con diamanti di laboratorio | Aurelia Royale",
+    "titlePaged": "Guide ai gioielli con diamanti di laboratorio — Pagina {page} | Aurelia Royale",
+    "description": "Scopri le guide degli esperti sui diamanti di laboratorio: approfondimenti, consigli per l’acquisto, informazioni sulle misure, certificazioni, cura e manutenzione. Pensate per i buyer di gioielli raffinati con diamanti.",
+    "ogDescription": "Scopri le guide degli esperti sui diamanti di laboratorio: approfondimenti, consigli per l’acquisto, informazioni sulle misure, certificazioni, cura e manutenzione.",
     "eyebrow": "Aurelia Journal",
-    "heading": "Guides & Insights",
-    "subheading": "Explore our collection of articles, expert guides, and sizing tips to help you select and care for your lab-grown diamond jewellery.",
+    "heading": "Guide e approfondimenti",
+    "subheading": "Scopri la nostra raccolta di articoli, guide degli esperti e consigli sulle misure per scegliere e prenderti cura dei tuoi gioielli con diamanti di laboratorio.",
     "byline": "Aurelia Royale • {date}",
-    "readArticle": "Read Article",
-    "noResultsHeading": "No Articles Found",
-    "noResultsBody": "Try selecting a different category.",
-    "paginationLabel": "Blog pagination",
-    "previousPage": "Previous page",
-    "nextPage": "Next page"
+    "readArticle": "Leggi l’articolo",
+    "noResultsHeading": "Nessun articolo trovato",
+    "noResultsBody": "Prova a selezionare una categoria diversa.",
+    "paginationLabel": "Paginazione del blog",
+    "previousPage": "Pagina precedente",
+    "nextPage": "Pagina successiva"
   },
   "blogFilters": {
-    "all": "All",
-    "diamondEducation": "Diamond Education",
-    "sizingAndFit": "Sizing & Fit",
-    "certificationAndQuality": "Certification & Quality",
-    "buyingGuides": "Buying Guides",
-    "searchPlaceholder": "Search articles..."
+    "all": "Tutti",
+    "diamondEducation": "Guida ai diamanti",
+    "sizingAndFit": "Misure e vestibilità",
+    "certificationAndQuality": "Certificazione e qualità",
+    "buyingGuides": "Guide all’acquisto",
+    "searchPlaceholder": "Cerca articoli..."
   },
   "shopCategories": {
-    "bracelets": "Bracelets",
-    "earrings": "Earrings",
-    "necklaces": "Necklaces",
-    "rings": "Rings",
-    "pendants": "Pendants",
-    "sets": "Sets",
+    "bracelets": "Bracciali",
+    "earrings": "Orecchini",
+    "necklaces": "Collane",
+    "rings": "Anelli",
+    "pendants": "Ciondoli",
+    "sets": "Set",
     "fallback": "{category}"
   },
   "HomePage": {
-    "findNewIn": "Find New In",
-    "topTrending": "Top Trending",
-    "viewAllPieces": "View All Pieces"
+    "findNewIn": "Scopri le novità",
+    "topTrending": "I più richiesti",
+    "viewAllPieces": "Visualizza tutti i gioielli"
   },
   "Hero": {
     "marqueeItems": {
-      "worldwideShipping": "Worldwide Shipping",
-      "labGrownDiamond": "Lab-Grown Diamond",
-      "fineJewelry": "Fine Jewellery",
-      "handCrafted": "Hand Crafted",
-      "certified": "Certified"
+      "worldwideShipping": "Spedizione in tutto il mondo",
+      "labGrownDiamond": "Diamante di laboratorio",
+      "fineJewelry": "Alta gioielleria",
+      "handCrafted": "Realizzato a mano",
+      "certified": "Certificato"
     },
     "headingLine1": "WORN WITH",
     "headingLine2": "INTENTION.",
-    "body": "Each piece is a whisper of heritage, shaped by artisans who have spent decades perfecting the language of fine metal and stone.",
-    "cta": "Shop Now"
+    "body": "Ogni creazione è un sussurro di tradizione, plasmata da artigiani che da decenni perfezionano il linguaggio dei metalli pregiati e delle pietre.",
+    "cta": "Acquista ora"
   },
   "Newsletter": {
-    "eyebrow": "Stay Connected",
-    "heading": "Get Our Latest Updates",
-    "body": "Be first to discover new collections, exclusive events, and the quiet privileges reserved for our inner circle.",
-    "emailPlaceholder": "Your E-Mail Address",
-    "emailLabel": "Email address",
-    "submit": "Subscribe"
+    "eyebrow": "Rimani in contatto",
+    "heading": "Ricevi i nostri ultimi aggiornamenti",
+    "body": "Sii tra i primi a scoprire nuove collezioni, eventi esclusivi e i privilegi discreti riservati alla nostra cerchia più ristretta.",
+    "emailPlaceholder": "Il tuo indirizzo e-mail",
+    "emailLabel": "Indirizzo e-mail",
+    "submit": "Iscriviti"
   },
   "ShopByCategory": {
-    "eyebrow": "Our Categories",
-    "heading": "Shop By Category",
-    "shopAriaLabel": "Shop {label}"
+    "eyebrow": "Le nostre categorie",
+    "heading": "Acquista per categoria",
+    "shopAriaLabel": "Acquista {label}"
   },
   "TestimonialSlider": {
-    "eyebrow": "Client Testimonial",
-    "heading": "Our Happy Clients",
-    "ratingAriaLabel": "{rating} out of 5 stars",
-    "tabsAriaLabel": "Testimonials",
-    "showTestimonialAria": "Show testimonial from {name}",
+    "eyebrow": "Testimonianza di un cliente",
+    "heading": "I nostri clienti soddisfatti",
+    "ratingAriaLabel": "{rating} su 5 stelle",
+    "tabsAriaLabel": "Testimonianze",
+    "showTestimonialAria": "Mostra la testimonianza di {name}",
     "items": {
       "isabelle": {
         "name": "Isabelle Laurent",
         "location": "Paris, France",
-        "quote": "The earrings I received were beyond anything I had imagined — flawlessly crafted, packaged like a dream. Aurelia Royale feels genuinely couture."
+        "quote": "Gli orecchini che ho ricevuto hanno superato ogni mia aspettativa: realizzati alla perfezione e confezionati come un sogno. Aurelia Royale trasmette un’autentica eleganza couture."
       },
       "alexander": {
         "name": "Alexander Lee",
         "location": "London, UK",
-        "quote": "Premium service and elegant finishing made every order memorable. Their design language feels timeless while still modern and wearable."
+        "quote": "Il servizio premium e le finiture eleganti hanno reso memorabile ogni ordine. Il loro stile è intramontabile, ma al tempo stesso moderno e facile da indossare."
       }
     }
   },
   "ShopByEdition": {
-    "eyebrow": "Curated For You",
-    "heading": "Shop By Edition",
-    "editionsAriaLabel": "Choose a jewellery edition",
-    "categoryFilterAriaLabel": "Filter by category",
-    "emptyState": "No pieces available in this category yet.",
-    "viewAllPieces": "View All Pieces",
+    "eyebrow": "Una selezione per te",
+    "heading": "Acquista per edizione",
+    "editionsAriaLabel": "Scegli un’edizione di gioielli",
+    "categoryFilterAriaLabel": "Filtra per categoria",
+    "emptyState": "Nessun gioiello disponibile in questa categoria.",
+    "viewAllPieces": "Visualizza tutti i gioielli",
     "editions": {
       "classic": {
-        "tag": "Timeless",
-        "title": "Classic Edition",
-        "description": "Timeless diamond jewellery crafted for effortless elegance."
+        "tag": "Senza tempo",
+        "title": "Edizione Classica",
+        "description": "Gioielli con diamanti senza tempo, realizzati per un’eleganza naturale."
       },
       "limited": {
-        "tag": "Exclusive",
-        "title": "Limited Edition",
-        "description": "Individually numbered creations. Once sold, never reproduced."
+        "tag": "Esclusiva",
+        "title": "Edizione Limitata",
+        "description": "Creazioni numerate singolarmente. Una volta vendute, non saranno mai riprodotte."
       },
       "rare": {
-        "tag": "Signature",
-        "title": "Rare Edition",
-        "description": "One-of-a-kind masterpieces featuring our finest lab-grown diamonds."
+        "tag": "Distintiva",
+        "title": "Edizione Rara",
+        "description": "Capolavori unici che presentano i nostri diamanti di laboratorio più pregiati."
       }
     },
     "categories": {
-      "all": "All",
-      "bracelet": "Bracelet",
-      "earring": "Earring",
-      "necklace": "Necklace",
-      "pendant": "Pendant",
-      "ring": "Ring",
-      "set": "Set"
+      "all": "Tutti",
+      "bracelet": "Bracciale",
+      "earring": "Orecchino",
+      "necklace": "Collana",
+      "pendant": "Ciondolo",
+      "ring": "Anello",
+      "set": "Parure"
     }
   },
   "BestSellingTabs": {
-    "eyebrow": "Best Selling",
-    "heading": "Signature Collection",
-    "viewAll": "View All",
-    "filterAriaLabel": "Filter products by category",
-    "allTab": "All",
-    "viewAllPieces": "View All Pieces"
+    "eyebrow": "Più venduti",
+    "heading": "Collezione Signature",
+    "viewAll": "Visualizza tutti",
+    "filterAriaLabel": "Filtra i prodotti per categoria",
+    "allTab": "Tutti",
+    "viewAllPieces": "Visualizza tutti i gioielli"
   },
   "ShopPage": {
-    "metaTitleDefault": "Shop Fine Jewellery",
-    "metaDescriptionDefault": "Browse the full Aurelia Royale collection of lab-grown diamond rings, earrings, necklaces, bracelets, pendants and sets.",
-    "metaTitleCategory": "{category} Jewellery",
-    "metaDescriptionCategory": "Shop Aurelia Royale {category} — fine lab-grown diamond {category} crafted for timeless, sustainable elegance.",
-    "headingDefault": "Fine Lab-Grown Diamond Jewellery",
-    "headingCategory": "{category} Collection"
+    "metaTitleDefault": "Acquista alta gioielleria",
+    "metaDescriptionDefault": "Esplora la collezione completa Aurelia Royale di anelli, orecchini, collane, bracciali, pendenti e set con diamanti di laboratorio.",
+    "metaTitleCategory": "Gioielli {category}",
+    "metaDescriptionCategory": "Acquista i gioielli {category} di Aurelia Royale — gioielli {category} in alta gioielleria con diamanti di laboratorio, realizzati per un’eleganza senza tempo e sostenibile.",
+    "headingDefault": "Alta gioielleria con diamanti di laboratorio",
+    "headingCategory": "Collezione {category}"
   },
   "ShopCatalog": {
-    "resultsSummary": "Showing {start} - {end} Of {total} Results",
-    "filter": "Filter",
-    "closeFilter": "Close filter",
-    "filterProductsLabel": "Filter products",
-    "productType": "Product Type",
-    "viewResults": "View Results",
-    "noProductsMatch": "No products match the current filters."
+    "resultsSummary": "Mostrando {start} - {end} di {total} risultati",
+    "filter": "Filtra",
+    "closeFilter": "Chiudi filtro",
+    "filterProductsLabel": "Filtra prodotti",
+    "productType": "Tipologia di prodotto",
+    "viewResults": "Visualizza risultati",
+    "noProductsMatch": "Nessun prodotto corrisponde ai filtri attuali."
   },
   "ComingSoonSignup": {
-    "eyebrow": "Coming Soon",
-    "heading": "A New Era of Luxury is Coming",
-    "craftsmanship": "Exceptional craftsmanship.",
-    "timelessDesign": "Timeless design.",
-    "sustainableDiamonds": "Sustainably created diamonds.",
-    "collectionUnveil": "Our first collection will be unveiled soon.",
-    "beFirstToKnow": "Be the First to Know",
-    "exclusiveArriving": "Our exclusive collections are arriving soon",
-    "perkEarlyAccess": "Early access",
-    "perkLaunchUpdates": "Launch updates",
-    "perkExclusiveOffers": "Exclusive offers",
-    "perkNewCollection": "New collection announcements",
-    "priorityAccess": "Enter your email to receive priority access.",
-    "emailPlaceholder": "Your E-Mail Address",
-    "emailLabel": "Email address",
-    "notifyMe": "Notify Me"
+    "eyebrow": "In arrivo",
+    "heading": "Sta arrivando una nuova era del lusso",
+    "craftsmanship": "Eccellenza artigianale.",
+    "timelessDesign": "Design senza tempo.",
+    "sustainableDiamonds": "Diamanti creati in modo sostenibile.",
+    "collectionUnveil": "La nostra prima collezione sarà svelata presto.",
+    "beFirstToKnow": "Scoprilo in anteprima",
+    "exclusiveArriving": "Le nostre collezioni esclusive arriveranno presto",
+    "perkEarlyAccess": "Accesso anticipato",
+    "perkLaunchUpdates": "Aggiornamenti sul lancio",
+    "perkExclusiveOffers": "Offerte esclusive",
+    "perkNewCollection": "Annunci delle nuove collezioni",
+    "priorityAccess": "Inserisci la tua email per ricevere accesso prioritario.",
+    "emailPlaceholder": "Il tuo indirizzo e-mail",
+    "emailLabel": "Indirizzo email",
+    "notifyMe": "Avvisami"
   },
   "ProductMediaGallery": {
-    "view360": "{title} 360° view",
-    "showView360": "Show {title} 360° view",
-    "showImage": "Show {title} image"
+    "view360": "Vista a 360° di {title}",
+    "showView360": "Mostra la vista a 360° di {title}",
+    "showImage": "Mostra l’immagine di {title}"
   },
   "ProductPurchasePanel": {
-    "decreaseQuantity": "Decrease quantity",
-    "increaseQuantity": "Increase quantity",
-    "addToCart": "Add To Cart"
+    "decreaseQuantity": "Riduci la quantità",
+    "increaseQuantity": "Aumenta la quantità",
+    "addToCart": "Aggiungi al carrello"
   },
   "ShopPagination": {
-    "pagination": "Pagination",
-    "previousPage": "Previous page",
-    "nextPage": "Next page",
-    "page": "Page {page}"
+    "pagination": "Paginazione",
+    "previousPage": "Pagina precedente",
+    "nextPage": "Pagina successiva",
+    "page": "Pagina {page}"
   },
   "ProductDetailsTabs": {
-    "tabDetails": "Product Details",
-    "tabSpecifications": "Specifications",
-    "tabReviews": "Review",
-    "sectionsLabel": "Product information sections",
-    "productOverview": "Product Overview",
-    "vendor": "Vendor",
+    "tabDetails": "Dettagli del prodotto",
+    "tabSpecifications": "Specifiche",
+    "tabReviews": "Recensione",
+    "sectionsLabel": "Sezioni delle informazioni sul prodotto",
+    "productOverview": "Panoramica del prodotto",
+    "vendor": "Venditore",
     "category": "Category",
     "sku": "SKU",
-    "productVideo": "Product Video",
-    "viewProductVideo": "View product video",
-    "certificateFile": "Certificate File",
-    "openCertificate": "Open certificate",
-    "whyChooseThisProduct": "Why Choose This Product?",
-    "stone": "Stone:",
-    "colour": "Colour:",
-    "shape": "Shape:",
-    "carat": "Carat:",
-    "treatment": "Treatment:",
-    "diamondPieces": "Diamond Pieces:",
-    "stock": "Stock:",
-    "featured": "Featured:",
-    "yes": "Yes",
+    "productVideo": "Video del prodotto",
+    "viewProductVideo": "Guarda il video del prodotto",
+    "certificateFile": "File del certificato",
+    "openCertificate": "Apri il certificato",
+    "whyChooseThisProduct": "Perché scegliere questo prodotto?",
+    "stone": "Pietra:",
+    "colour": "Colore:",
+    "shape": "Forma:",
+    "carat": "Carato:",
+    "treatment": "Trattamento:",
+    "diamondPieces": "Numero di diamanti:",
+    "stock": "Disponibilità:",
+    "featured": "In evidenza:",
+    "yes": "Sì",
     "no": "No",
-    "certificate": "Certificate",
-    "measurement": "Measurement",
-    "origin": "Origin",
-    "stoneAndShape": "Stone & Shape",
-    "colourAndCarat": "Colour & Carat",
-    "customerReviews": "Customer Reviews",
-    "loadingReviews": "Loading reviews...",
-    "noReviewsYet": "No reviews yet. Be the first to review this product.",
-    "edit": "Edit",
-    "delete": "Delete",
-    "editYourReview": "Edit Your Review",
-    "writeAReview": "Write A Review",
-    "checkingSession": "Checking session...",
-    "needLoginToReview": "You need to log in before you can review this product.",
-    "loginFirst": "Login First",
-    "oneReviewOnly": "You can keep only one review for this product. Use edit to update your existing review.",
-    "shareExperience": "Share your experience with this product.",
-    "rating": "Rating",
-    "comment": "Comment",
-    "writeYourReviewPlaceholder": "Write your review here",
-    "saving": "Saving...",
-    "updateReview": "Update Review",
-    "submitReview": "Submit Review",
-    "cancel": "Cancel",
-    "needAccount": "Need an account?",
-    "login": "Login",
-    "ratingOutOf5": "Rating {rating} out of 5",
-    "unableToLoadReviews": "Unable to load reviews.",
-    "ratingRangeError": "Rating must be between 1 and 5.",
-    "commentRequired": "Comment is required.",
-    "alreadyReviewed": "You have already reviewed this product.",
-    "unableToSaveReview": "Unable to save review.",
-    "unableToDeleteReview": "Unable to delete review."
+    "certificate": "Certificato",
+    "measurement": "Misura",
+    "origin": "Origine",
+    "stoneAndShape": "Pietra e forma",
+    "colourAndCarat": "Colore e carato",
+    "customerReviews": "Recensioni dei clienti",
+    "loadingReviews": "Caricamento delle recensioni...",
+    "noReviewsYet": "Ancora nessuna recensione. Sii il primo a recensire questo prodotto.",
+    "edit": "Modifica",
+    "delete": "Elimina",
+    "editYourReview": "Modifica la tua recensione",
+    "writeAReview": "Scrivi una recensione",
+    "checkingSession": "Verifica della sessione...",
+    "needLoginToReview": "Devi accedere prima di poter recensire questo prodotto.",
+    "loginFirst": "Accedi prima",
+    "oneReviewOnly": "Puoi lasciare una sola recensione per questo prodotto. Usa Modifica per aggiornare la recensione esistente.",
+    "shareExperience": "Condividi la tua esperienza con questo prodotto.",
+    "rating": "Valutazione",
+    "comment": "Commento",
+    "writeYourReviewPlaceholder": "Scrivi qui la tua recensione",
+    "saving": "Salvataggio...",
+    "updateReview": "Aggiorna recensione",
+    "submitReview": "Invia recensione",
+    "cancel": "Annulla",
+    "needAccount": "Hai bisogno di un account?",
+    "login": "Accedi",
+    "ratingOutOf5": "Valutazione {rating} su 5",
+    "unableToLoadReviews": "Impossibile caricare le recensioni.",
+    "ratingRangeError": "La valutazione deve essere compresa tra 1 e 5.",
+    "commentRequired": "Il commento è obbligatorio.",
+    "alreadyReviewed": "Hai già recensito questo prodotto.",
+    "unableToSaveReview": "Impossibile salvare la recensione.",
+    "unableToDeleteReview": "Impossibile eliminare la recensione."
   },
   "ShopDetailsPage": {
-    "productNotFound": "Product Not Found",
-    "metaDescriptionFallback": "Discover {title} — fine lab-grown diamond jewellery by Aurelia Royale.",
+    "productNotFound": "Prodotto non trovato",
+    "metaDescriptionFallback": "Scopri {title} — gioielli raffinati con diamanti di laboratorio firmati Aurelia Royale.",
     "breadcrumbHome": "Home",
-    "breadcrumbShop": "Shop",
-    "breadcrumbDetails": "Details",
-    "ratedOutOf5": "Rated {rating} out of 5",
-    "review": "Review",
-    "reviews": "Reviews",
-    "productDetails": "Product Details",
-    "highlyRecommend": "Highly Recommend",
-    "topRelatedProducts": "Top Related Products",
-    "viewAllPieces": "View All Pieces"
+    "breadcrumbShop": "Acquista",
+    "breadcrumbDetails": "Dettagli",
+    "ratedOutOf5": "Valutazione: {rating} su 5",
+    "review": "Recensione",
+    "reviews": "Recensioni",
+    "productDetails": "Dettagli del prodotto",
+    "highlyRecommend": "Altamente consigliato",
+    "topRelatedProducts": "I migliori prodotti correlati",
+    "viewAllPieces": "Scopri tutti i gioielli"
   },
   "CartPage": {
-    "eyebrow": "Cart",
-    "title": "Your Shopping Bag",
-    "subtitle": "Review your selected products, adjust quantities, and continue shopping with the Aurelia Royale collection.",
-    "clearing": "Clearing...",
-    "clearCart": "Clear Cart",
-    "loading": "Loading cart...",
-    "emptyTitle": "Your cart is empty",
-    "emptyBody": "Add a product from the shop or product details page and it will appear here.",
-    "continueShopping": "Continue Shopping",
+    "eyebrow": "Carrello",
+    "title": "Il tuo carrello",
+    "subtitle": "Rivedi i prodotti selezionati, modifica le quantità e continua a fare acquisti con la collezione Aurelia Royale.",
+    "clearing": "Svuotamento...",
+    "clearCart": "Svuota il carrello",
+    "loading": "Caricamento del carrello...",
+    "emptyTitle": "Il carrello è vuoto",
+    "emptyBody": "Aggiungi un prodotto dal negozio o dalla pagina dei dettagli del prodotto e apparirà qui.",
+    "continueShopping": "Continua gli acquisti",
     "sku": "SKU {sku}",
-    "quantity": "Quantity: {quantity}",
-    "decreaseQuantityFor": "Decrease quantity for {title}",
-    "increaseQuantityFor": "Increase quantity for {title}",
-    "removing": "Removing...",
-    "remove": "Remove",
-    "summary": "Summary",
-    "totalItems": "Total items",
-    "shipping": "Shipping",
-    "free": "Free",
-    "reservedNotice": "Your selected pieces are reserved in this bag while you continue exploring the collection.",
-    "proceedToCheckout": "Proceed to Checkout",
-    "reviewNextStep": "Review shipping and payment details on the next step",
-    "unableToClearCart": "Unable to clear your cart.",
-    "unableToRemoveItem": "Unable to remove this item.",
-    "unableToUpdateQuantity": "Unable to update the quantity."
+    "quantity": "Quantità: {quantity}",
+    "decreaseQuantityFor": "Diminuisci la quantità di {title}",
+    "increaseQuantityFor": "Aumenta la quantità di {title}",
+    "removing": "Rimozione...",
+    "remove": "Rimuovi",
+    "summary": "Riepilogo",
+    "totalItems": "Articoli totali",
+    "shipping": "Spedizione",
+    "free": "Gratuita",
+    "reservedNotice": "I prodotti selezionati sono riservati in questo carrello mentre continui a esplorare la collezione.",
+    "proceedToCheckout": "Procedi al checkout",
+    "reviewNextStep": "Rivedi i dettagli di spedizione e pagamento nel passaggio successivo",
+    "unableToClearCart": "Impossibile svuotare il carrello.",
+    "unableToRemoveItem": "Impossibile rimuovere questo articolo.",
+    "unableToUpdateQuantity": "Impossibile aggiornare la quantità."
   },
   "CheckoutPage": {
-    "eyebrow": "Checkout",
-    "title": "Review and Place Your Order",
-    "subtitle": "Confirm your bag contents and review delivery details before finalizing your Aurelia Royale order.",
-    "backToCart": "Back to Cart",
-    "loading": "Loading checkout...",
-    "emptyTitle": "Nothing to checkout yet",
-    "emptyBody": "Add products to your cart before moving to checkout.",
-    "continueShopping": "Continue Shopping",
-    "orderItems": "Order Items",
+    "eyebrow": "Pagamento",
+    "title": "Rivedi e inoltra il tuo ordine",
+    "subtitle": "Controlla il contenuto del carrello e verifica i dettagli di consegna prima di finalizzare il tuo ordine Aurelia Royale.",
+    "backToCart": "Torna al carrello",
+    "loading": "Caricamento del pagamento...",
+    "emptyTitle": "Non ci sono ancora articoli da acquistare",
+    "emptyBody": "Aggiungi prodotti al carrello prima di procedere al pagamento.",
+    "continueShopping": "Continua gli acquisti",
+    "orderItems": "Articoli dell’ordine",
     "sku": "SKU {sku}",
-    "quantity": "Quantity: {quantity}",
-    "customerDetails": "Customer Details",
-    "defaultCustomerName": "Aurelia Royale Customer",
-    "noEmailAvailable": "No email available",
-    "addressNote": "`addressId` is supported in the order payload interface, but it is optional and is not sent until address selection is added.",
-    "paymentMethod": "Payment Method",
-    "onlinePayment": "Online payment",
-    "onlinePaymentDescription": "A Stripe checkout popup opens after order creation and returns to the status page.",
-    "cashOnDelivery": "Cash on delivery",
-    "cashOnDeliveryDescription": "The order is created immediately and you are redirected to the local success screen.",
-    "orderSummary": "Order Summary",
-    "items": "Items",
-    "shipping": "Shipping",
-    "free": "Free",
-    "integrationNotice": "The order request is now integrated with `POST /orders`. Online payment opens the returned checkout session in a popup window.",
-    "placingOrder": "Placing Order...",
-    "placeOrderOnline": "Place Order and Pay Online",
-    "placeCodOrder": "Place COD Order",
-    "popupNotice": "Popup checkout opens after the order is created",
-    "codNotice": "Cash on delivery completes inside this website",
-    "missingCheckoutUrl": "Missing checkout session URL.",
-    "popupBlocked": "Popup was blocked by your browser. Please allow popups and try again.",
-    "unableToPlaceOrder": "Unable to place this order right now."
+    "quantity": "Quantità: {quantity}",
+    "customerDetails": "Dettagli cliente",
+    "defaultCustomerName": "Cliente Aurelia Royale",
+    "noEmailAvailable": "Email non disponibile",
+    "addressNote": "`addressId` è supportato nell’interfaccia del payload dell’ordine, ma è facoltativo e non viene inviato finché non sarà possibile selezionare un indirizzo.",
+    "paymentMethod": "Metodo di pagamento",
+    "onlinePayment": "Pagamento online",
+    "onlinePaymentDescription": "Dopo la creazione dell’ordine si apre una finestra popup di pagamento Stripe, che reindirizza alla pagina di stato.",
+    "cashOnDelivery": "Pagamento in contanti alla consegna",
+    "cashOnDeliveryDescription": "L’ordine viene creato immediatamente e verrai reindirizzato alla schermata locale di conferma.",
+    "orderSummary": "Riepilogo dell’ordine",
+    "items": "Articoli",
+    "shipping": "Spedizione",
+    "free": "Gratuita",
+    "integrationNotice": "La richiesta dell’ordine è ora integrata con `POST /orders`. Per il pagamento online, la sessione di checkout restituita si apre in una finestra popup.",
+    "placingOrder": "Invio dell’ordine...",
+    "placeOrderOnline": "Invia l’ordine e paga online",
+    "placeCodOrder": "Invia l’ordine con pagamento COD",
+    "popupNotice": "Il checkout popup si apre dopo la creazione dell’ordine",
+    "codNotice": "Il pagamento in contanti alla consegna viene completato su questo sito",
+    "missingCheckoutUrl": "URL della sessione di checkout mancante.",
+    "popupBlocked": "Il popup è stato bloccato dal browser. Consenti i popup e riprova.",
+    "unableToPlaceOrder": "Impossibile inoltrare l’ordine in questo momento."
   },
   "CheckoutStatusPage": {
-    "syncErrorMessage": "Order status was updated, but cart synchronization needs another refresh.",
-    "statusLabel": "Checkout Status",
-    "successTitle": "Your order was placed successfully",
-    "failureTitle": "Payment was not completed",
-    "orderNumberLabel": "Order number:",
-    "onlineSuccessMessage": "Payment completed and the website return flow finished successfully.",
-    "codSuccessMessage": "Cash on delivery order was created successfully.",
-    "failureMessage": "You returned from the payment flow without completing payment. You can retry checkout when ready.",
-    "syncing": "Syncing your cart and checkout state...",
-    "continueShopping": "Continue Shopping",
-    "viewProfile": "View Profile",
-    "tryCheckoutAgain": "Try Checkout Again",
-    "loadingStatus": "Loading checkout status",
-    "preparingDetails": "Preparing your order details"
+    "syncErrorMessage": "Lo stato dell’ordine è stato aggiornato, ma la sincronizzazione del carrello richiede un ulteriore aggiornamento.",
+    "statusLabel": "Stato della procedura di pagamento",
+    "successTitle": "Il tuo ordine è stato effettuato correttamente",
+    "failureTitle": "Il pagamento non è stato completato",
+    "orderNumberLabel": "Numero d’ordine:",
+    "onlineSuccessMessage": "Il pagamento è stato completato e il flusso di ritorno al sito si è concluso correttamente.",
+    "codSuccessMessage": "L’ordine con pagamento in contrassegno è stato creato correttamente.",
+    "failureMessage": "Sei tornato dalla procedura di pagamento senza completare il pagamento. Puoi riprovare a completare l’ordine quando vuoi.",
+    "syncing": "Sincronizzazione del carrello e dello stato della procedura di pagamento...",
+    "continueShopping": "Continua gli acquisti",
+    "viewProfile": "Visualizza il profilo",
+    "tryCheckoutAgain": "Riprova a completare l’ordine",
+    "loadingStatus": "Caricamento dello stato della procedura di pagamento",
+    "preparingDetails": "Preparazione dei dettagli dell’ordine"
   },
   "AboutPage": {
-    "metaTitle": "About Us",
-    "metaDescription": "Discover the Aurelia Royale story — our craftsmanship, heritage, and commitment to sustainable lab-grown diamond jewellery.",
-    "heroTitle": "About Us",
-    "introEyebrow": "About Us",
-    "introHeading": "A Legacy Of Fine Craft.",
-    "introParagraph1": "At Aurelia Royale, elegance is more than a style — it is a statement of timeless sophistication. Our collection is crafted to celebrate modern luxury through finely designed jewellery pieces that blend contemporary artistry with classic charm. Every detail reflects grace, confidence, and refined beauty for those who appreciate exclusivity.",
-    "introParagraph2": "We believe jewellery should feel personal, memorable, and effortlessly luxurious. From dazzling statement rings to delicate necklaces and radiant earrings, Aurelia Royale brings together craftsmanship and premium aesthetics to create pieces that elevate every occasion. Designed for the modern muse, our creations embody luxury with a minimalist touch.",
-    "statYearsLabel": "Year's Of Expertise",
-    "statDesignsLabel": "Exclusive Designs",
-    "statLoversLabel": "Jewellery Lovers",
-    "heroImageAlt": "Model wearing Aurelia Royale jewellery",
-    "philosophyEyebrow": "Our Philosophy",
-    "philosophyHeadingPart1": "We Believe Jewellery Is Not Decoration",
-    "philosophyHeadingPart2": "It Is Memory Made Permanent.",
-    "qualityTitle": "Uncompromising Quality",
-    "qualityBody": "Every gemstone is hand-selected by our master gemmologist. Every metal is tested and hallmarked. We accept only what is genuinely extraordinary.",
-    "ethicalTitle": "Ethical Provenance",
-    "ethicalBody": "Our supply chain is independently audited to ensure no conflict minerals or exploitative practices are ever part of your piece.",
-    "timelessTitle": "Timeless Design",
-    "timelessBody": "We resist trend. Our pieces are designed to be worn by your daughter and her daughter — forms that feel as relevant in fifty years as they do today."
+    "metaTitle": "Chi siamo",
+    "metaDescription": "Scopri la storia di Aurelia Royale: la nostra maestria artigianale, la nostra tradizione e il nostro impegno per una gioielleria sostenibile con diamanti di laboratorio.",
+    "heroTitle": "Chi siamo",
+    "introEyebrow": "Chi siamo",
+    "introHeading": "Una tradizione di raffinata maestria artigianale.",
+    "introParagraph1": "Per Aurelia Royale, l’eleganza è più di uno stile: è una dichiarazione di raffinatezza senza tempo. La nostra collezione celebra il lusso moderno attraverso gioielli dal design ricercato, che fondono arte contemporanea e fascino classico. Ogni dettaglio esprime grazia, sicurezza e bellezza raffinata, per chi apprezza l’esclusività.",
+    "introParagraph2": "Crediamo che i gioielli debbano essere personali, memorabili e lussuosi con naturalezza. Dagli anelli importanti e scintillanti alle collane delicate e agli orecchini luminosi, Aurelia Royale unisce maestria artigianale ed estetica ricercata per creare gioielli che valorizzano ogni occasione. Pensate per la musa moderna, le nostre creazioni incarnano il lusso con un tocco minimalista.",
+    "statYearsLabel": "Anni di esperienza",
+    "statDesignsLabel": "Design esclusivi",
+    "statLoversLabel": "Amanti dei gioielli",
+    "heroImageAlt": "Modella che indossa gioielli Aurelia Royale",
+    "philosophyEyebrow": "La nostra filosofia",
+    "philosophyHeadingPart1": "Crediamo che i gioielli non siano decorazione",
+    "philosophyHeadingPart2": "Ma ricordi resi eterni.",
+    "qualityTitle": "Qualità senza compromessi",
+    "qualityBody": "Ogni pietra preziosa è selezionata a mano dal nostro gemmologo esperto. Ogni metallo viene testato e punzonato. Accettiamo solo ciò che è davvero straordinario.",
+    "ethicalTitle": "Provenienza etica",
+    "ethicalBody": "La nostra catena di approvvigionamento viene sottoposta a verifiche indipendenti per garantire che i minerali provenienti da zone di conflitto e le pratiche di sfruttamento non entrino mai a far parte dei nostri gioielli.",
+    "timelessTitle": "Design senza tempo",
+    "timelessBody": "Non seguiamo le mode. I nostri gioielli sono pensati per essere indossati da tua figlia e da sua figlia: forme attuali oggi come lo saranno tra cinquant’anni."
   },
   "ContactPage": {
-    "metaTitle": "Contact Us",
-    "metaDescription": "Get in touch with Aurelia Royale for enquiries about our fine lab-grown diamond jewellery, bespoke pieces, and client care.",
-    "heroTitle": "Contact Us",
+    "metaTitle": "Contattaci",
+    "metaDescription": "Contatta Aurelia Royale per informazioni sui nostri raffinati gioielli con diamanti di laboratorio, sulle creazioni su misura e sull’assistenza clienti.",
+    "heroTitle": "Contattaci",
     "breadcrumbHome": "Home",
-    "breadcrumbCurrent": "Contact Us",
-    "infoEyebrow": "Contact Info",
-    "infoHeading": "Get In Touch",
-    "namePlaceholder": "Your Name *",
-    "lastNamePlaceholder": "Last Name *",
-    "emailPlaceholder": "Email Address",
-    "phonePlaceholder": "Phone *",
-    "messagePlaceholder": "Type Your Message",
-    "submitButton": "Submit Now",
-    "findUsEyebrow": "Find Us",
-    "locationHeading": "Location Map",
-    "mapTitle": "Aurelia Royale Location Map"
+    "breadcrumbCurrent": "Contattaci",
+    "infoEyebrow": "Informazioni di contatto",
+    "infoHeading": "Mettiti in contatto",
+    "namePlaceholder": "Nome *",
+    "lastNamePlaceholder": "Cognome *",
+    "emailPlaceholder": "Indirizzo email",
+    "phonePlaceholder": "Telefono *",
+    "messagePlaceholder": "Scrivi il tuo messaggio",
+    "submitButton": "Invia ora",
+    "findUsEyebrow": "Dove siamo",
+    "locationHeading": "Mappa della sede",
+    "mapTitle": "Mappa della sede di Aurelia Royale"
   },
   "LoginPage": {
-    "heroImageAlt": "Model wearing Aurelia Royale jewellery",
-    "backToHome": "Back to Home",
-    "signInTab": "Sign In",
-    "registerTab": "Register",
-    "welcomeBack": "Welcome Back",
-    "title": "Sign Into Your Account.",
-    "subtitle": "Access your collection, track orders, and manage your bespoke commissions in one place.",
-    "emailLabel": "Email Address",
+    "heroImageAlt": "Modella che indossa gioielli Aurelia Royale",
+    "backToHome": "Torna alla home",
+    "signInTab": "Accedi",
+    "registerTab": "Registrati",
+    "welcomeBack": "Bentornato",
+    "title": "Accedi al tuo account.",
+    "subtitle": "Accedi alla tua collezione, segui gli ordini e gestisci le tue creazioni su misura in un unico posto.",
+    "emailLabel": "Indirizzo email",
     "emailPlaceholder": "you@example.com",
     "passwordLabel": "Password",
-    "passwordPlaceholder": "Your Password",
-    "hidePassword": "Hide password",
-    "showPassword": "Show password",
-    "forgotPassword": "Forgot Password?",
-    "submitting": "Signing In...",
-    "submit": "Sign In",
-    "noAccountText": "Don't have an account?",
-    "createOne": "Create one",
+    "passwordPlaceholder": "La tua password",
+    "hidePassword": "Nascondi password",
+    "showPassword": "Mostra password",
+    "forgotPassword": "Hai dimenticato la password?",
+    "submitting": "Accesso in corso...",
+    "submit": "Accedi",
+    "noAccountText": "Non hai un account?",
+    "createOne": "Creane uno",
     "copyright": "© 2025 Aurelia Royale"
   },
   "VerifyOtpPage": {
-    "heroTitle": "One Final Verification",
-    "heroSubtitle": "Enter the OTP sent to your email and complete your account setup.",
-    "registerLink": "Register",
-    "title": "Verify OTP",
-    "subtitle": "Confirm your account using the OTP from your registration email, then continue by signing in.",
+    "heroTitle": "Un’ultima verifica",
+    "heroSubtitle": "Inserisci l’OTP inviato alla tua email e completa la configurazione del tuo account.",
+    "registerLink": "Registrati",
+    "title": "Verifica OTP",
+    "subtitle": "Conferma il tuo account usando l’OTP ricevuto nell’email di registrazione, quindi continua accedendo.",
     "emailPlaceholder": "Email",
-    "otpPlaceholder": "Enter OTP",
-    "submitting": "Verifying...",
-    "submitButton": "Verify OTP",
-    "needAnotherAccount": "Need another account?",
-    "registerAgain": "Register again"
+    "otpPlaceholder": "Inserisci OTP",
+    "submitting": "Verifica in corso...",
+    "submitButton": "Verifica OTP",
+    "needAnotherAccount": "Hai bisogno di un altro account?",
+    "registerAgain": "Registrati di nuovo"
   },
   "ResetPasswordPage": {
-    "heroTitle": "Recover Your Account",
-    "heroSubtitle": "Send an email OTP, verify it here, and set a new password securely.",
-    "backToLogin": "Back to Login",
-    "title": "Reset Password",
-    "subtitle": "Send an OTP to your email, then use it here with your new password to restore account access.",
-    "emailLabel": "Email Address",
-    "emailPlaceholder": "Enter your email",
-    "sendingOtp": "Sending...",
-    "sendOtp": "Send OTP",
-    "otpLabel": "OTP Code",
-    "otpPlaceholder": "Enter OTP",
-    "newPasswordLabel": "New Password",
-    "newPasswordPlaceholder": "Enter new password",
-    "hidePassword": "Hide password",
-    "showPassword": "Show password",
-    "resetting": "Resetting...",
-    "submit": "Reset Password",
-    "backToSignIn": "Back to sign in?",
-    "loginHere": "Login here",
-    "otpSentFallback": "OTP sent to your email.",
-    "resetSuccessFallback": "Password reset successful. You can sign in now."
-  },
-  "AuthGuard": {
-    "checkingAccess": "Checking access",
-    "preparingSession": "Preparing your session"
-  },
-  "Toasts": {
-    "emailRequiredForOtp": "Enter your email first.",
-    "resetPasswordFieldsRequired": "Email, OTP, and new password are required.",
-    "changePasswordFieldsRequired": "Please fill old password, new password, and confirm password.",
-    "ticketSubjectAndMessageRequired": "Subject and message are required.",
-    "ticketReplyRequired": "Reply message is required."
+    "heroTitle": "Recupera il tuo account",
+    "heroSubtitle": "Invia un OTP via email, verificalo qui e imposta una nuova password in sicurezza.",
+    "backToLogin": "Torna al login",
+    "title": "Reimposta la password",
+    "subtitle": "Invia un OTP al tuo indirizzo email, poi inseriscilo qui insieme alla nuova password per ripristinare l’accesso al tuo account.",
+    "emailLabel": "Indirizzo email",
+    "emailPlaceholder": "Inserisci il tuo indirizzo email",
+    "sendingOtp": "Invio in corso...",
+    "sendOtp": "Invia OTP",
+    "otpLabel": "Codice OTP",
+    "otpPlaceholder": "Inserisci l’OTP",
+    "newPasswordLabel": "Nuova password",
+    "newPasswordPlaceholder": "Inserisci la nuova password",
+    "hidePassword": "Nascondi password",
+    "showPassword": "Mostra password",
+    "resetting": "Reimpostazione in corso...",
+    "submit": "Reimposta la password",
+    "backToSignIn": "Vuoi tornare alla pagina di accesso?",
+    "loginHere": "Accedi qui",
+    "otpSentFallback": "OTP inviato al tuo indirizzo email.",
+    "resetSuccessFallback": "Password reimpostata correttamente. Ora puoi accedere."
   },
   "RegisterPage": {
-    "heroImageAlt": "Model wearing Aurelia Royale jewellery",
-    "backToHome": "Back to Home",
-    "signInTab": "Sign In",
-    "registerTab": "Register",
-    "eyebrow": "Join The Circle",
-    "title": "Create Your Account.",
-    "subtitle": "Create your jewellery account, add your default address, then verify the OTP sent to your email.",
-    "usernameLabel": "Username",
-    "usernamePlaceholder": "Your username",
-    "emailLabel": "Email Address",
+    "heroImageAlt": "Modella con gioielli Aurelia Royale",
+    "backToHome": "Torna alla home",
+    "signInTab": "Accedi",
+    "registerTab": "Registrati",
+    "eyebrow": "Entra nel Circolo",
+    "title": "Crea il tuo account.",
+    "subtitle": "Crea il tuo account per i gioielli, aggiungi il tuo indirizzo predefinito e verifica l’OTP inviato alla tua email.",
+    "usernameLabel": "Nome utente",
+    "usernamePlaceholder": "Il tuo nome utente",
+    "emailLabel": "Indirizzo email",
     "emailPlaceholder": "you@example.com",
-    "firstNameLabel": "First Name",
-    "firstNamePlaceholder": "First name",
-    "lastNameLabel": "Last Name",
-    "lastNamePlaceholder": "Last name",
+    "firstNameLabel": "Nome",
+    "firstNamePlaceholder": "Nome",
+    "lastNameLabel": "Cognome",
+    "lastNamePlaceholder": "Cognome",
     "passwordLabel": "Password",
-    "passwordPlaceholder": "Your password",
-    "hidePassword": "Hide password",
-    "showPassword": "Show password",
-    "confirmPasswordLabel": "Confirm Password",
-    "confirmPasswordPlaceholder": "Re-enter password",
-    "hideConfirmPassword": "Hide confirm password",
-    "showConfirmPassword": "Show confirm password",
-    "countryCodeLabel": "Country Code",
-    "selectCountryCode": "Select country code",
+    "passwordPlaceholder": "La tua password",
+    "hidePassword": "Nascondi password",
+    "showPassword": "Mostra password",
+    "confirmPasswordLabel": "Conferma password",
+    "confirmPasswordPlaceholder": "Inserisci nuovamente la password",
+    "hideConfirmPassword": "Nascondi conferma password",
+    "showConfirmPassword": "Mostra conferma password",
+    "countryCodeLabel": "Prefisso internazionale",
+    "selectCountryCode": "Seleziona il prefisso internazionale",
     "countryCodeOptions": {
       "unitedStates": "United States (+1)",
       "canada": "Canada (+1)",
@@ -1051,364 +1040,375 @@
       "venezuela": "Venezuela (+58)",
       "belize": "Belize (+501)",
       "austria": "Austria (+43)",
-      "belgium": "Belgium (+32)",
+      "belgium": "Belgio (+32)",
       "bulgaria": "Bulgaria (+359)",
-      "croatia": "Croatia (+385)",
-      "cyprus": "Cyprus (+357)",
-      "czechRepublic": "Czech Republic (+420)",
-      "denmark": "Denmark (+45)",
+      "croatia": "Croazia (+385)",
+      "cyprus": "Cipro (+357)",
+      "czechRepublic": "Repubblica Ceca (+420)",
+      "denmark": "Danimarca (+45)",
       "estonia": "Estonia (+372)",
-      "finland": "Finland (+358)",
-      "france": "France (+33)",
-      "germany": "Germany (+49)",
-      "greece": "Greece (+30)",
-      "hungary": "Hungary (+36)",
-      "iceland": "Iceland (+354)",
-      "ireland": "Ireland (+353)",
-      "italy": "Italy (+39)",
-      "latvia": "Latvia (+371)",
+      "finland": "Finlandia (+358)",
+      "france": "Francia (+33)",
+      "germany": "Germania (+49)",
+      "greece": "Grecia (+30)",
+      "hungary": "Ungheria (+36)",
+      "iceland": "Islanda (+354)",
+      "ireland": "Irlanda (+353)",
+      "italy": "Italia (+39)",
+      "latvia": "Lettonia (+371)",
       "liechtenstein": "Liechtenstein (+423)",
-      "lithuania": "Lithuania (+370)",
-      "luxembourg": "Luxembourg (+352)",
+      "lithuania": "Lituania (+370)",
+      "luxembourg": "Lussemburgo (+352)",
       "malta": "Malta (+356)",
       "monaco": "Monaco (+377)",
-      "netherlands": "Netherlands (+31)",
-      "norway": "Norway (+47)",
-      "poland": "Poland (+48)",
-      "portugal": "Portugal (+351)",
+      "netherlands": "Paesi Bassi (+31)",
+      "norway": "Norvegia (+47)",
+      "poland": "Polonia (+48)",
+      "portugal": "Portogallo (+351)",
       "romania": "Romania (+40)",
       "sanMarino": "San Marino (+378)",
-      "slovakia": "Slovakia (+421)",
+      "slovakia": "Slovacchia (+421)",
       "slovenia": "Slovenia (+386)",
-      "spain": "Spain (+34)",
-      "sweden": "Sweden (+46)",
-      "switzerland": "Switzerland (+41)",
-      "unitedKingdom": "United Kingdom (+44)"
+      "spain": "Spagna (+34)",
+      "sweden": "Svezia (+46)",
+      "switzerland": "Svizzera (+41)",
+      "unitedKingdom": "Regno Unito (+44)"
     },
-    "phoneNumberLabel": "Phone Number",
-    "phoneNumberPlaceholder": "Phone number",
-    "addressHeading": "Default Address",
-    "countryLabel": "Country",
-    "selectCountry": "Select country",
-    "stateLabel": "State",
-    "selectState": "Select state",
-    "streetLabel": "Street",
-    "streetPlaceholder": "Street address",
-    "cityLabel": "City",
-    "cityPlaceholder": "Select or type a city",
-    "toggleCityOptions": "Toggle city options",
-    "postalCodeLabel": "Postal Code",
-    "postalCodePlaceholder": "Postal code",
-    "submitting": "Creating Account...",
-    "submit": "Register",
-    "haveAccountText": "Already have an account?",
-    "signInLink": "Sign in",
+    "phoneNumberLabel": "Numero di telefono",
+    "phoneNumberPlaceholder": "Numero di telefono",
+    "addressHeading": "Indirizzo predefinito",
+    "countryLabel": "Paese",
+    "selectCountry": "Seleziona un paese",
+    "stateLabel": "Stato/Provincia",
+    "selectState": "Seleziona uno stato",
+    "streetLabel": "Via",
+    "streetPlaceholder": "Indirizzo",
+    "cityLabel": "Città",
+    "cityPlaceholder": "Seleziona o digita una città",
+    "toggleCityOptions": "Mostra/nascondi opzioni città",
+    "postalCodeLabel": "CAP",
+    "postalCodePlaceholder": "Codice postale",
+    "submitting": "Creazione dell’account...",
+    "submit": "Registrati",
+    "haveAccountText": "Hai già un account?",
+    "signInLink": "Accedi",
     "copyright": "© 2025 Aurelia Royale",
     "privacy": "Privacy",
-    "terms": "Terms",
-    "support": "Support"
+    "terms": "Termini",
+    "support": "Assistenza"
   },
   "ProfilePage": {
-    "eyebrow": "Profile",
-    "heading": "Manage Your Account Details",
-    "subtitle": "Update your personal details, maintain delivery addresses, and manage password security from one place.",
-    "signedInAs": "Signed in as",
-    "customerFallback": "Customer",
-    "loadingProfile": "Loading profile...",
-    "profileDetailsEyebrow": "Profile Details",
-    "noEmailAvailable": "No email available",
-    "noPhoneNumberSaved": "No phone number saved",
-    "editProfileButton": "Edit Profile",
-    "addressesHeading": "Addresses",
-    "addAddressButton": "Add Address",
-    "addressLabel": "Address {number}",
-    "defaultLabel": "Default",
-    "removeButton": "Remove",
-    "streetLabel": "Street",
-    "cityLabel": "City",
-    "stateLabel": "State",
-    "postalCodeLabel": "Postal Code",
-    "countryLabel": "Country",
-    "addressTypeLabel": "Address Type",
-    "addressTypeHome": "Home",
-    "addressTypeWork": "Work",
-    "addressTypeOther": "Other",
-    "saving": "Saving...",
-    "saveAddresses": "Save Addresses",
-    "securityEyebrow": "Security",
-    "changePasswordHeading": "Change Password",
-    "changePasswordDescription": "Update your account password securely from a dedicated popup form.",
-    "openChangePasswordButton": "Open Change Password",
-    "editProfileDetailsHeading": "Edit Profile Details",
-    "editProfileDetailsDescription": "Update first name, last name, phone number, and country code.",
-    "closeEditProfileAriaLabel": "Close edit profile",
-    "firstNameLabel": "First Name",
-    "lastNameLabel": "Last Name",
-    "countryCodeLabel": "Country Code",
-    "phoneNumberLabel": "Phone Number",
-    "cancelButton": "Cancel",
-    "saveProfileDetailsButton": "Save Profile Details",
-    "changePasswordModalDescription": "Enter your old password and choose a new password.",
-    "closeChangePasswordAriaLabel": "Close change password",
-    "oldPasswordLabel": "Old Password",
-    "newPasswordLabel": "New Password",
-    "confirmPasswordLabel": "Confirm Password",
-    "updating": "Updating...",
-    "yourProfileFallback": "Your Profile",
-    "unableToLoadProfile": "Unable to load profile right now. You can still edit and save manually.",
-    "profileDetailsUpdatedSuccess": "Profile details updated successfully.",
-    "unableToUpdateProfileDetails": "Unable to update profile details right now. Please try again.",
-    "addressesUpdatedSuccess": "Addresses updated successfully.",
-    "unableToUpdateProfile": "Unable to update profile right now. Please try again.",
-    "unableToChangePassword": "Unable to change password right now. Please try again.",
-    "passwordChangedSuccess": "Password changed successfully."
+    "eyebrow": "Profilo",
+    "heading": "Gestisci i dettagli del tuo account",
+    "subtitle": "Aggiorna i tuoi dati personali, gestisci gli indirizzi di consegna e proteggi la password, tutto da un unico posto.",
+    "signedInAs": "Accesso effettuato come",
+    "customerFallback": "Cliente",
+    "loadingProfile": "Caricamento del profilo...",
+    "profileDetailsEyebrow": "Dettagli del profilo",
+    "noEmailAvailable": "Nessun indirizzo email disponibile",
+    "noPhoneNumberSaved": "Nessun numero di telefono salvato",
+    "editProfileButton": "Modifica profilo",
+    "addressesHeading": "Indirizzi",
+    "addAddressButton": "Aggiungi indirizzo",
+    "addressLabel": "Indirizzo {number}",
+    "defaultLabel": "Predefinito",
+    "removeButton": "Rimuovi",
+    "streetLabel": "Via",
+    "cityLabel": "Città",
+    "stateLabel": "Stato",
+    "postalCodeLabel": "Codice postale",
+    "countryLabel": "Paese",
+    "addressTypeLabel": "Tipo di indirizzo",
+    "addressTypeHome": "Casa",
+    "addressTypeWork": "Lavoro",
+    "addressTypeOther": "Altro",
+    "saving": "Salvataggio...",
+    "saveAddresses": "Salva gli indirizzi",
+    "securityEyebrow": "Sicurezza",
+    "changePasswordHeading": "Cambia password",
+    "changePasswordDescription": "Aggiorna in modo sicuro la password del tuo account tramite un apposito modulo popup.",
+    "openChangePasswordButton": "Apri la modifica della password",
+    "editProfileDetailsHeading": "Modifica i dettagli del profilo",
+    "editProfileDetailsDescription": "Aggiorna nome, cognome, numero di telefono e prefisso internazionale.",
+    "closeEditProfileAriaLabel": "Chiudi la modifica del profilo",
+    "firstNameLabel": "Nome",
+    "lastNameLabel": "Cognome",
+    "countryCodeLabel": "Prefisso internazionale",
+    "phoneNumberLabel": "Numero di telefono",
+    "cancelButton": "Annulla",
+    "saveProfileDetailsButton": "Salva i dettagli del profilo",
+    "changePasswordModalDescription": "Inserisci la vecchia password e scegli una nuova password.",
+    "closeChangePasswordAriaLabel": "Chiudi la modifica della password",
+    "oldPasswordLabel": "Vecchia password",
+    "newPasswordLabel": "Nuova password",
+    "confirmPasswordLabel": "Conferma password",
+    "updating": "Aggiornamento...",
+    "yourProfileFallback": "Il tuo profilo",
+    "unableToLoadProfile": "Impossibile caricare il profilo al momento. Puoi comunque modificarlo e salvarlo manualmente.",
+    "profileDetailsUpdatedSuccess": "Dettagli del profilo aggiornati correttamente.",
+    "unableToUpdateProfileDetails": "Impossibile aggiornare i dettagli del profilo al momento. Riprova.",
+    "addressesUpdatedSuccess": "Indirizzi aggiornati correttamente.",
+    "unableToUpdateProfile": "Impossibile aggiornare il profilo al momento. Riprova.",
+    "unableToChangePassword": "Impossibile modificare la password al momento. Riprova.",
+    "passwordChangedSuccess": "Password modificata correttamente."
+  },
+  "AuthGuard": {
+    "checkingAccess": "Verifica dell’accesso",
+    "preparingSession": "Preparazione della sessione"
   },
   "Validation": {
-    "passwordsDoNotMatch": "Password and confirm password must match."
+    "passwordsDoNotMatch": "La password e la conferma della password devono corrispondere."
+  },
+  "Toasts": {
+    "emailRequiredForOtp": "Inserisci prima il tuo indirizzo email.",
+    "resetPasswordFieldsRequired": "Email, OTP e nuova password sono obbligatori.",
+    "changePasswordFieldsRequired": "Inserisci la vecchia password, la nuova password e conferma la password.",
+    "ticketSubjectAndMessageRequired": "Oggetto e messaggio sono obbligatori.",
+    "ticketReplyRequired": "Il messaggio di risposta è obbligatorio."
   },
   "FamilySection": {
-    "eyebrow": "Family",
-    "heading": "Family & Discount",
-    "description": "Every account starts with a 5% discount. Add family members to earn +2% per member, up to 4 members. Once added, a member cannot be removed.",
-    "yourDiscountLabel": "Your Discount",
-    "loadingFamilyInfo": "Loading family info...",
-    "partOfFamilyHeading": "You're part of a family",
-    "memberOfFamily": "You're a <bold>{relation}</bold> in <bold>{email}</bold>'s family.",
-    "membersAddedLabel": "Members added: <bold>{count}</bold> / {max}",
-    "addFamilyMemberLabel": "Add Family Member",
-    "addedOnLabel": "Added {date}",
-    "permanentBadge": "Permanent",
-    "noMembersYet": "No family members yet. Add one to earn +2% more discount.",
-    "stepSearchDescription": "Find the user by their registered email.",
-    "stepRelationDescription": "Pick the relation. An OTP will be sent to their email.",
-    "stepOtpDescription": "Enter the OTP shared by your invitee to complete the link.",
-    "closeAriaLabel": "Close",
-    "emailAddressLabel": "Email address",
+    "eyebrow": "Famiglia",
+    "heading": "Famiglia e sconto",
+    "description": "Ogni account parte da uno sconto del 5%. Aggiungi membri della famiglia per ottenere un +2% per ogni membro, fino a un massimo di 4 membri. Una volta aggiunto, un membro non può essere rimosso.",
+    "yourDiscountLabel": "Il tuo sconto",
+    "loadingFamilyInfo": "Caricamento delle informazioni sulla famiglia...",
+    "partOfFamilyHeading": "Fai parte di una famiglia",
+    "memberOfFamily": "Sei <bold>{relation}</bold> nella famiglia di <bold>{email}</bold>.",
+    "membersAddedLabel": "Membri aggiunti: <bold>{count}</bold> / {max}",
+    "addFamilyMemberLabel": "Aggiungi un membro della famiglia",
+    "addedOnLabel": "Aggiunto il {date}",
+    "permanentBadge": "Permanente",
+    "noMembersYet": "Non ci sono ancora membri della famiglia. Aggiungine uno per ottenere un ulteriore sconto del +2%.",
+    "stepSearchDescription": "Trova l’utente tramite l’indirizzo email registrato.",
+    "stepRelationDescription": "Scegli il grado di parentela. Verrà inviato un OTP al suo indirizzo email.",
+    "stepOtpDescription": "Inserisci l’OTP condiviso dalla persona che ti ha invitato per completare il collegamento.",
+    "closeAriaLabel": "Chiudi",
+    "emailAddressLabel": "Indirizzo email",
     "emailPlaceholder": "member@example.com",
-    "cancelButton": "Cancel",
-    "checkingLabel": "Checking...",
-    "continueButton": "Continue",
-    "invitingLabel": "Inviting <bold>{email}</bold>",
-    "relationFieldLabel": "Relation",
-    "backButton": "Back",
-    "sendingOtpLabel": "Sending OTP...",
-    "sendOtpButton": "Send OTP",
+    "cancelButton": "Annulla",
+    "checkingLabel": "Verifica in corso...",
+    "continueButton": "Continua",
+    "invitingLabel": "Invito di <bold>{email}</bold> in corso",
+    "relationFieldLabel": "Grado di parentela",
+    "backButton": "Indietro",
+    "sendingOtpLabel": "Invio dell’OTP in corso...",
+    "sendOtpButton": "Invia OTP",
     "otpFieldLabel": "OTP",
     "otpPlaceholder": "••••",
-    "onceVerifiedNotice": "Once verified, <bold>{email}</bold> will be permanently linked as your <bold>{relation}</bold>. This cannot be undone.",
-    "verifyingLabel": "Verifying...",
-    "verifyAndAddButton": "Verify & Add",
-    "memberFallback": "Member",
-    "loadFailedFallback": "Failed to load family info",
-    "searchFailedFallback": "Search failed",
-    "otpSentNotice": "OTP sent to {email}. Ask them for the code to complete the link.",
-    "inviteFailedFallback": "Failed to send invitation",
-    "verifyFailedFallback": "OTP verification failed",
-    "genericRequestFailed": "Something went wrong. Please try again."
+    "onceVerifiedNotice": "Una volta verificato, <bold>{email}</bold> sarà collegato permanentemente a te come <bold>{relation}</bold>. Questa azione non può essere annullata.",
+    "verifyingLabel": "Verifica in corso...",
+    "verifyAndAddButton": "Verifica e aggiungi",
+    "memberFallback": "Membro",
+    "loadFailedFallback": "Impossibile caricare le informazioni sulla famiglia",
+    "searchFailedFallback": "Ricerca non riuscita",
+    "otpSentNotice": "OTP inviato a {email}. Chiedi il codice per completare il collegamento.",
+    "inviteFailedFallback": "Impossibile inviare l’invito",
+    "verifyFailedFallback": "Verifica dell’OTP non riuscita",
+    "genericRequestFailed": "Si è verificato un errore. Riprova."
   },
   "OrderEnums": {
     "orderStatus": {
-      "pending": "Pending",
-      "confirmed": "Confirmed",
-      "shipped": "Shipped",
-      "shipping": "Shipping",
-      "out_for_delivery": "Out for Delivery",
-      "delivered": "Delivered",
-      "cancelled": "Cancelled",
-      "canceled": "Cancelled",
+      "pending": "In attesa",
+      "confirmed": "Confermato",
+      "shipped": "Spedito",
+      "shipping": "In spedizione",
+      "out_for_delivery": "In consegna",
+      "delivered": "Consegnato",
+      "cancelled": "Annullato",
+      "canceled": "Annullato",
       "fallback": "{status}"
     },
     "paymentStatus": {
-      "pending": "Pending",
-      "processing": "Processing",
-      "paid": "Paid",
-      "refunded": "Refunded",
-      "failed": "Failed",
+      "pending": "In attesa",
+      "processing": "In elaborazione",
+      "paid": "Pagato",
+      "refunded": "Rimborsato",
+      "failed": "Non riuscito",
       "fallback": "{status}"
     },
     "paymentMethod": {
       "ONLINE": "Online",
-      "COD": "Cash on Delivery",
+      "COD": "Contrassegno",
       "fallback": "{method}"
     }
   },
   "OrdersPage": {
-    "eyebrow": "Orders",
-    "heading": "Your Order History",
-    "subtitle": "Track placed orders, payment status, and shipping progress from one place.",
-    "continueShopping": "Continue Shopping",
-    "loading": "Loading orders...",
-    "loadError": "We couldn't load your orders. Please try again.",
-    "emptyTitle": "No orders yet",
-    "emptyBody": "Place your first order from the cart or buy directly from a product page.",
-    "shopNow": "Shop Now",
-    "orderForItems": "Order for {count, plural, one {# item} other {# items}}",
-    "defaultItemLabel": "Default item",
-    "qty": "Qty {quantity}",
-    "viewDetails": "View Details",
-    "paginationSummary": "Showing page {currentPage} of {totalPages} · {totalRecords, plural, one {# order} other {# orders}}",
-    "unableToLoadOrders": "Unable to load orders right now."
+    "eyebrow": "Ordini",
+    "heading": "Cronologia ordini",
+    "subtitle": "Monitora gli ordini effettuati, lo stato dei pagamenti e l’avanzamento della spedizione da un unico posto.",
+    "continueShopping": "Continua gli acquisti",
+    "loading": "Caricamento degli ordini...",
+    "loadError": "Non è stato possibile caricare i tuoi ordini. Riprova.",
+    "emptyTitle": "Non hai ancora effettuato ordini",
+    "emptyBody": "Effettua il tuo primo ordine dal carrello oppure acquista direttamente dalla pagina di un prodotto.",
+    "shopNow": "Acquista ora",
+    "orderForItems": "Ordine con {count, plural, one {# articolo} other {# articoli}}",
+    "defaultItemLabel": "Articolo predefinito",
+    "qty": "Qtà {quantity}",
+    "viewDetails": "Visualizza i dettagli",
+    "paginationSummary": "Pagina {currentPage} di {totalPages} · {totalRecords, plural, one {# ordine} other {# ordini}}",
+    "unableToLoadOrders": "Al momento non è possibile caricare gli ordini."
   },
   "OrderDetailPage": {
-    "loading": "Loading order...",
-    "loadError": "We couldn't load this order. Please try again.",
-    "breadcrumbOrders": "Orders",
-    "heading": "Order Details",
-    "placedOn": "Placed {date}",
-    "paymentHeading": "Payment",
-    "methodLabel": "Method:",
-    "statusLabel": "Status:",
-    "shippingAddressHeading": "Shipping Address",
-    "noShippingAddress": "No shipping address available.",
-    "orderSummaryHeading": "Order Summary",
-    "itemsLabel": "Items:",
-    "updatedLabel": "Updated:",
-    "refundStatusLabel": "Refund status:",
-    "defaultItemLabel": "Default item",
+    "loading": "Caricamento dell’ordine...",
+    "loadError": "Non è stato possibile caricare questo ordine. Riprova.",
+    "breadcrumbOrders": "Ordini",
+    "heading": "Dettagli dell’ordine",
+    "placedOn": "Effettuato il {date}",
+    "paymentHeading": "Pagamento",
+    "methodLabel": "Metodo:",
+    "statusLabel": "Stato:",
+    "shippingAddressHeading": "Indirizzo di spedizione",
+    "noShippingAddress": "Nessun indirizzo di spedizione disponibile.",
+    "orderSummaryHeading": "Riepilogo dell’ordine",
+    "itemsLabel": "Articoli:",
+    "updatedLabel": "Aggiornato:",
+    "refundStatusLabel": "Stato del rimborso:",
+    "defaultItemLabel": "Articolo predefinito",
     "skuLabel": "SKU: {sku}",
-    "notAvailable": "N/A",
-    "quantityLabel": "Quantity: {quantity}",
-    "openingPayment": "Opening Payment...",
-    "regeneratePayment": "Regenerate Payment",
-    "cancelling": "Cancelling...",
-    "cancelOrder": "Cancel Order",
-    "cannotCancelNotice": "This order can no longer be cancelled after it reaches shipped or delivered status.",
-    "orderCancelledSuccess": "Order cancelled successfully.",
-    "paymentCompletedSuccess": "Payment completed successfully. Order status has been updated.",
-    "paymentNotCompleted": "Payment was not completed. You can retry payment or cancel this order.",
-    "unableToLoadOrder": "Unable to load this order right now.",
-    "unableToCancelOrder": "Unable to cancel this order right now.",
-    "unableToStartPayment": "Unable to start payment right now. Please try again.",
+    "notAvailable": "N/D",
+    "quantityLabel": "Quantità: {quantity}",
+    "openingPayment": "Apertura del pagamento...",
+    "regeneratePayment": "Rigenera il pagamento",
+    "cancelling": "Annullamento in corso...",
+    "cancelOrder": "Annulla ordine",
+    "cannotCancelNotice": "Non è più possibile annullare questo ordine una volta che risulta spedito o consegnato.",
+    "orderCancelledSuccess": "Ordine annullato correttamente.",
+    "paymentCompletedSuccess": "Pagamento completato correttamente. Lo stato dell’ordine è stato aggiornato.",
+    "paymentNotCompleted": "Il pagamento non è stato completato. Puoi riprovare a pagare o annullare questo ordine.",
+    "unableToLoadOrder": "Al momento non è possibile caricare questo ordine.",
+    "unableToCancelOrder": "Al momento non è possibile annullare questo ordine.",
+    "unableToStartPayment": "Al momento non è possibile avviare il pagamento. Riprova.",
     "refundStatus": {
-      "none": "None",
-      "pending": "Pending",
-      "completed": "Completed",
-      "failed": "Failed",
+      "none": "Nessuno",
+      "pending": "In sospeso",
+      "completed": "Completato",
+      "failed": "Non riuscito",
       "fallback": "{status}"
     }
   },
   "PaymentsHistoryPage": {
-    "eyebrow": "Payments",
-    "heading": "Your Payment History",
-    "subtitle": "Review payment sessions, status updates, and linked orders in one place.",
-    "viewOrders": "View Orders",
-    "loading": "Loading payment history...",
-    "loadError": "Unable to load payment history right now.",
-    "emptyTitle": "No Payment History Yet",
-    "emptyBody": "Online payment attempts and completed payments will appear here after checkout.",
-    "shopNow": "Shop Now",
-    "paymentForOrder": "Payment for order {orderNumber}",
-    "sessionIdLabel": "Session ID",
-    "transactionIdLabel": "Transaction ID",
-    "notAvailableYet": "Not available yet",
-    "updatedOn": "Updated {date}",
-    "viewOrder": "View Order",
-    "paginationSummary": "Showing page {currentPage} of {totalPages} · {totalRecords, plural, one {# payment record} other {# payment records}}"
+    "eyebrow": "Pagamenti",
+    "heading": "La cronologia dei pagamenti",
+    "subtitle": "Consulta in un unico luogo le sessioni di pagamento, gli aggiornamenti sullo stato e gli ordini collegati.",
+    "viewOrders": "Visualizza gli ordini",
+    "loading": "Caricamento della cronologia dei pagamenti...",
+    "loadError": "Impossibile caricare la cronologia dei pagamenti al momento.",
+    "emptyTitle": "Ancora nessuna cronologia dei pagamenti",
+    "emptyBody": "I tentativi di pagamento online e i pagamenti completati appariranno qui dopo il checkout.",
+    "shopNow": "Acquista ora",
+    "paymentForOrder": "Pagamento per l’ordine {orderNumber}",
+    "sessionIdLabel": "ID sessione",
+    "transactionIdLabel": "ID transazione",
+    "notAvailableYet": "Non ancora disponibile",
+    "updatedOn": "Aggiornato {date}",
+    "viewOrder": "Visualizza l’ordine",
+    "paginationSummary": "Pagina {currentPage} di {totalPages} · {totalRecords, plural, one {# registrazione di pagamento} other {# registrazioni di pagamento}}"
   },
   "TicketEnums": {
     "status": {
-      "open": "Open",
-      "closed": "Closed",
+      "open": "Aperto",
+      "closed": "Chiuso",
       "fallback": "{status}"
     },
     "priority": {
-      "low": "Low",
-      "medium": "Medium",
-      "high": "High",
-      "urgent": "Urgent",
+      "low": "Bassa",
+      "medium": "Media",
+      "high": "Alta",
+      "urgent": "Urgente",
       "fallback": "{status}"
     },
     "category": {
-      "delivery": "Delivery",
-      "order": "Order",
-      "payment": "Payment",
-      "product": "Product",
-      "general": "General",
+      "delivery": "Consegna",
+      "order": "Ordine",
+      "payment": "Pagamento",
+      "product": "Prodotto",
+      "general": "Generale",
       "fallback": "{status}"
     }
   },
   "TicketsPage": {
-    "eyebrow": "Support",
-    "heading": "Your Support Tickets",
-    "subtitle": "Track issues, delivery requests, payment concerns, and support replies in one place.",
-    "viewOrders": "View Orders",
-    "loading": "Loading tickets...",
-    "loadError": "Unable to load support tickets right now.",
-    "emptyTitle": "No Tickets Yet",
-    "emptyBody": "Create your first support ticket using the form on the right.",
-    "categoryPriority": "{category} · {priority} priority",
-    "escalatedBadge": "Escalated",
-    "noMessageAvailable": "No message available.",
-    "messageCount": "{count, plural, one {# message} other {# messages}}",
-    "updatedDate": "Updated {date}",
-    "paginationSummary": "Showing page {currentPage} of {totalPages} · {totalRecords, plural, one {# ticket} other {# tickets}}",
-    "createTicketEyebrow": "Create Ticket",
-    "createTicketHeading": "Need Help With an Order?",
-    "createTicketSubtitle": "Share the issue and your support thread will be created immediately.",
-    "subjectLabel": "Subject",
-    "subjectPlaceholder": "Order not delivered",
-    "categoryLabel": "Category",
-    "priorityLabel": "Priority",
-    "messageLabel": "Message",
-    "messagePlaceholder": "Describe your issue and include your order number if available.",
-    "creating": "Creating...",
-    "createTicketButton": "Create Ticket",
-    "ticketCreatedSuccess": "Support ticket created successfully."
+    "eyebrow": "Assistenza",
+    "heading": "I tuoi ticket di assistenza",
+    "subtitle": "Monitora in un unico posto problemi, richieste di consegna, questioni di pagamento e risposte dell’assistenza.",
+    "viewOrders": "Visualizza ordini",
+    "loading": "Caricamento dei ticket...",
+    "loadError": "Impossibile caricare i ticket di assistenza al momento.",
+    "emptyTitle": "Nessun ticket ancora",
+    "emptyBody": "Crea il tuo primo ticket di assistenza usando il modulo a destra.",
+    "categoryPriority": "{category} · priorità {priority}",
+    "escalatedBadge": "Inoltrato a un livello superiore",
+    "noMessageAvailable": "Nessun messaggio disponibile.",
+    "messageCount": "{count, plural, one {# messaggio} other {# messaggi}}",
+    "updatedDate": "Aggiornato il {date}",
+    "paginationSummary": "Pagina {currentPage} di {totalPages} · {totalRecords, plural, one {# ticket} other {# ticket}}",
+    "createTicketEyebrow": "Crea ticket",
+    "createTicketHeading": "Hai bisogno di aiuto con un ordine?",
+    "createTicketSubtitle": "Descrivi il problema e la tua conversazione con l’assistenza verrà creata subito.",
+    "subjectLabel": "Oggetto",
+    "subjectPlaceholder": "Ordine non consegnato",
+    "categoryLabel": "Categoria",
+    "priorityLabel": "Priorità",
+    "messageLabel": "Messaggio",
+    "messagePlaceholder": "Descrivi il problema e, se disponibile, includi il numero dell’ordine.",
+    "creating": "Creazione in corso...",
+    "createTicketButton": "Crea ticket",
+    "ticketCreatedSuccess": "Ticket di assistenza creato correttamente."
   },
   "TicketDetailPage": {
-    "breadcrumbTickets": "Support Tickets",
-    "loading": "Loading ticket...",
-    "loadError": "Unable to load this support ticket right now.",
-    "categoryPriority": "{category} · {priority} priority",
-    "escalatedBadge": "Escalated",
-    "replyEyebrow": "Reply",
-    "replyHeading": "Send a Message",
-    "replySubtitle": "Add more details or respond to the support team from here.",
-    "messageLabel": "Message",
-    "messagePlaceholder": "Thanks for the quick response. Please expedite.",
-    "sending": "Sending...",
-    "sendReplyButton": "Send Reply",
-    "replySentSuccess": "Reply sent successfully.",
-    "createdDate": "Created {date}",
-    "lastUpdatedDate": "Last updated {date}",
-    "threadNotice": "Keep all order-related communication in this thread so the support team can resolve issues faster."
+    "breadcrumbTickets": "Richieste di assistenza",
+    "loading": "Caricamento della richiesta...",
+    "loadError": "Impossibile caricare questa richiesta di assistenza al momento.",
+    "categoryPriority": "{category} · priorità {priority}",
+    "escalatedBadge": "Escalato",
+    "replyEyebrow": "Rispondi",
+    "replyHeading": "Invia un messaggio",
+    "replySubtitle": "Aggiungi altri dettagli o rispondi al team di assistenza da qui.",
+    "messageLabel": "Messaggio",
+    "messagePlaceholder": "Grazie per la rapida risposta. Vi prego di accelerare.",
+    "sending": "Invio...",
+    "sendReplyButton": "Invia risposta",
+    "replySentSuccess": "Risposta inviata correttamente.",
+    "createdDate": "Creata il {date}",
+    "lastUpdatedDate": "Ultimo aggiornamento {date}",
+    "threadNotice": "Mantieni tutte le comunicazioni relative all’ordine in questa conversazione, così il team di assistenza potrà risolvere i problemi più rapidamente."
   },
   "WishlistPage": {
-    "eyebrow": "Wishlist",
-    "heading": "Saved Pieces You Love",
-    "subtitle": "Keep track of the jewellery you want to revisit, compare, and move into your cart later.",
-    "clearWishlist": "Clear Wishlist",
-    "clearing": "Clearing...",
-    "loading": "Loading wishlist...",
-    "emptyTitle": "Your wishlist is empty",
-    "emptyBody": "Save products from the shop or product details page and they will appear here.",
-    "exploreShop": "Explore Shop",
-    "savedCollection": "Saved Collection",
-    "savedOn": "Saved {date}",
-    "viewShop": "View Shop",
-    "remove": "Remove",
-    "removing": "Removing...",
-    "summaryEyebrow": "Summary",
-    "savedItemsLabel": "Saved items",
-    "readyToShopLabel": "Ready to shop",
-    "yes": "Yes",
+    "eyebrow": "Lista dei desideri",
+    "heading": "I gioielli che ami, salvati",
+    "subtitle": "Tieni traccia dei gioielli che vuoi rivedere, confrontare e aggiungere al carrello in un secondo momento.",
+    "clearWishlist": "Svuota la lista dei desideri",
+    "clearing": "Svuotamento in corso...",
+    "loading": "Caricamento della lista dei desideri...",
+    "emptyTitle": "La tua lista dei desideri è vuota",
+    "emptyBody": "Salva i prodotti dal negozio o dalla pagina dei dettagli del prodotto: appariranno qui.",
+    "exploreShop": "Esplora il negozio",
+    "savedCollection": "Collezione salvata",
+    "savedOn": "Salvato il {date}",
+    "viewShop": "Vai al negozio",
+    "remove": "Rimuovi",
+    "removing": "Rimozione in corso...",
+    "summaryEyebrow": "Riepilogo",
+    "savedItemsLabel": "Articoli salvati",
+    "readyToShopLabel": "Pronti per l’acquisto",
+    "yes": "Sì",
     "no": "No",
-    "asideHint": "Open any saved piece from the shop to review its details and move it into your cart when you are ready.",
-    "continueShopping": "Continue Shopping",
-    "footerNote": "Curate your next Aurelia Royale order from your saved favourites",
-    "unableToClearWishlist": "Unable to clear your wishlist.",
-    "unableToRemoveItem": "Unable to remove this item."
+    "asideHint": "Apri un gioiello salvato dal negozio per rivederne i dettagli e aggiungerlo al carrello quando vuoi.",
+    "continueShopping": "Continua gli acquisti",
+    "footerNote": "Prepara il tuo prossimo ordine Aurelia Royale partendo dai tuoi preferiti salvati",
+    "unableToClearWishlist": "Impossibile svuotare la lista dei desideri.",
+    "unableToRemoveItem": "Impossibile rimuovere questo articolo."
   },
   "WishlistToggleButton": {
-    "addAriaLabel": "Add to wishlist",
-    "removeAriaLabel": "Remove from wishlist",
-    "addLabel": "Add To Wishlist",
-    "wishlistedLabel": "Wishlisted",
-    "unableToUpdate": "Unable to update your wishlist."
+    "addAriaLabel": "Aggiungi alla lista dei desideri",
+    "removeAriaLabel": "Rimuovi dalla lista dei desideri",
+    "addLabel": "Aggiungi alla lista dei desideri",
+    "wishlistedLabel": "Nella lista dei desideri",
+    "unableToUpdate": "Impossibile aggiornare la tua lista dei desideri."
   },
   "AddToCartButton": {
-    "defaultLabel": "Add to Cart",
-    "adding": "Adding...",
-    "unableToAddItem": "Unable to add this item to your cart."
+    "defaultLabel": "Aggiungi al carrello",
+    "adding": "Aggiunta in corso...",
+    "unableToAddItem": "Impossibile aggiungere questo articolo al carrello."
   }
 }
