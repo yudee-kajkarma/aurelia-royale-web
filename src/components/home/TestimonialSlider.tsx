@@ -2,39 +2,36 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Star } from "lucide-react";
 import TestimonialImg from "@/assets/Testimonial-Img.png";
 
 type Testimonial = {
-    name: string;
-    location: string;
+    id: "isabelle" | "alexander";
     rating: number;
-    quote: string;
     avatarUrl: string;
 };
 
 const testimonials: Testimonial[] = [
     {
-        name: "Isabelle Laurent",
-        location: "Paris, France",
+        id: "isabelle",
         rating: 5,
-        quote: "The earrings I received were beyond anything I had imagined — flawlessly crafted, packaged like a dream. Aurelia Royale feels genuinely couture.",
         avatarUrl:
             "https://jewellery-bay-two.vercel.app/assets/our_image/tstimonal/1.jpg",
     },
     {
-        name: "Alexander Lee",
-        location: "London, UK",
+        id: "alexander",
         rating: 5,
-        quote: "Premium service and elegant finishing made every order memorable. Their design language feels timeless while still modern and wearable.",
         avatarUrl:
             "https://jewellery-bay-two.vercel.app/assets/our_image/tstimonal/1.jpg",
     },
 ];
 
 export function TestimonialSlider() {
+    const t = useTranslations("TestimonialSlider");
     const [index, setIndex] = useState(0);
     const current = testimonials[index];
+    const currentName = t(`items.${current.id}.name`);
 
     useEffect(() => {
         if (testimonials.length <= 1) return;
@@ -66,10 +63,10 @@ export function TestimonialSlider() {
                             className="inline-block h-px w-8 bg-gold"
                             aria-hidden="true"
                         />
-                        Client Testimonial
+                        {t("eyebrow")}
                     </p>
                     <h2 className="font-cormorant mt-4 text-5xl font-medium text-deep sm:text-6xl">
-                        Our Happy Clients
+                        {t("heading")}
                     </h2>
 
                     <div className="mt-10 flex items-center">
@@ -78,7 +75,7 @@ export function TestimonialSlider() {
                             style={{
                                 backgroundImage: `url(${current.avatarUrl})`,
                             }}
-                            aria-label={current.name}
+                            aria-label={currentName}
                         />
                         <span
                             className="mx-5 h-px w-32 bg-gold sm:w-48"
@@ -86,7 +83,7 @@ export function TestimonialSlider() {
                         />
                         <div
                             className="flex items-center gap-1.5 text-gold"
-                            aria-label={`${current.rating} out of 5 stars`}
+                            aria-label={t("ratingAriaLabel", { rating: current.rating })}
                         >
                             {Array.from({ length: current.rating }).map(
                                 (_, i) => (
@@ -103,32 +100,34 @@ export function TestimonialSlider() {
 
                     <div className="mt-1">
                         <p className="font-jost text-[0.95rem] font-semibold uppercase tracking-[0.18em] text-deep sm:text-base">
-                            {current.name}
+                            {currentName}
                         </p>
                         <p className="font-jost mt-1 text-[0.72rem] uppercase tracking-[0.22em] text-deep/55 sm:text-[0.78rem]">
-                            {current.location}
+                            {t(`items.${current.id}.location`)}
                         </p>
                     </div>
 
                     <div className="mt-1 h-px w-full max-w-md bg-gold/70" />
 
                     <p className="font-jost mt-1 max-w-md text-[0.95rem] italic  text-deep sm:text-base ">
-                        &quot;{current.quote}&quot;
+                        &quot;{t(`items.${current.id}.quote`)}&quot;
                     </p>
 
                     {testimonials.length > 1 ? (
                         <div
                             className="mt-8 flex items-center gap-2"
                             role="tablist"
-                            aria-label="Testimonials"
+                            aria-label={t("tabsAriaLabel")}
                         >
-                            {testimonials.map((t, i) => (
+                            {testimonials.map((item, i) => (
                                 <button
-                                    key={t.name}
+                                    key={item.id}
                                     type="button"
                                     role="tab"
                                     aria-selected={i === index}
-                                    aria-label={`Show testimonial from ${t.name}`}
+                                    aria-label={t("showTestimonialAria", {
+                                        name: t(`items.${item.id}.name`),
+                                    })}
                                     onClick={() => setIndex(i)}
                                     className={`h-1.5 rounded-full transition-all ${
                                         i === index

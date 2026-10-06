@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 
 type CategoryTile = {
     name: string;
@@ -10,7 +11,9 @@ type ShopByCategoryProps = {
     categories: CategoryTile[];
 };
 
-export function ShopByCategory({ categories }: ShopByCategoryProps) {
+export async function ShopByCategory({ categories }: ShopByCategoryProps) {
+    const t = await getTranslations("ShopByCategory");
+
     if (categories.length === 0) {
         return null;
     }
@@ -24,10 +27,10 @@ export function ShopByCategory({ categories }: ShopByCategoryProps) {
                             className="inline-block h-px w-8 bg-gold"
                             aria-hidden="true"
                         />
-                        Our Categories
+                        {t("eyebrow")}
                     </p>
                     <h2 className="font-cormorant mt-4 text-5xl font-medium text-deep sm:text-6xl">
-                        Shop By Category
+                        {t("heading")}
                     </h2>
                 </div>
 
@@ -37,7 +40,7 @@ export function ShopByCategory({ categories }: ShopByCategoryProps) {
                             key={category.name}
                             href={`/shop?category=${encodeURIComponent(category.name)}`}
                             className="group relative block aspect-[3/5] overflow-hidden bg-[#e9e4d8]"
-                            aria-label={`Shop ${category.label}`}
+                            aria-label={t("shopAriaLabel", { label: category.label })}
                         >
                             <div
                                 className="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-105"

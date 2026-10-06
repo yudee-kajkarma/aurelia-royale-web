@@ -1,11 +1,17 @@
 "use client";
 
-import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { ProductImage } from "@/components/shared/ProductImage";
 // import { DiscountedPrice } from "@/components/shared/DiscountedPrice";
 import type { ProductCardModel } from "@/services/products/product.types";
+
+// Sentinel tab value. Compared with `===` against `activeTab` and never
+// rendered as-is (the "All" display text always comes from the `allTab`
+// message key), so it stays an untranslated English constant.
+const ALL_TAB = "All";
 
 type BestSellingTabsProps = {
     products: ProductCardModel[];
@@ -16,17 +22,18 @@ export function BestSellingTabs({
     products,
     categories,
 }: BestSellingTabsProps) {
+    const t = useTranslations("BestSellingTabs");
     const tabNames = useMemo(() => {
         const availableCategories = categories.filter((category) =>
             products.some((item) => item.category === category),
         );
-        return ["All", ...availableCategories];
+        return [ALL_TAB, ...availableCategories];
     }, [categories, products]);
 
-    const [activeTab, setActiveTab] = useState(tabNames[0] ?? "All");
+    const [activeTab, setActiveTab] = useState(tabNames[0] ?? ALL_TAB);
 
     const visibleProducts =
-        activeTab === "All"
+        activeTab === ALL_TAB
             ? products
             : products.filter((item) => item.category === activeTab);
 
@@ -39,17 +46,17 @@ export function BestSellingTabs({
                             className="inline-block h-px w-8 bg-gold"
                             aria-hidden="true"
                         />
-                        Best Selling
+                        {t("eyebrow")}
                     </p>
                     <h2 className="font-cormorant mt-4 text-5xl font-medium text-deep sm:text-6xl">
-                        Signature Collection
+                        {t("heading")}
                     </h2>
                 </div>
                 <Link
                     href="/shop"
                     className="group inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.28em] text-gold underline decoration-[1px] underline-offset-[6px] transition hover:text-[#a8862c]"
                 >
-                    View All
+                    {t("viewAll")}
                     <ArrowRight
                         size={18}
                         className="transition group-hover:translate-x-1"
@@ -59,7 +66,7 @@ export function BestSellingTabs({
 
             <div
                 role="tablist"
-                aria-label="Filter products by category"
+                aria-label={t("filterAriaLabel")}
                 className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3 border-b border-deep/15 pb-3 sm:gap-x-12"
             >
                 {tabNames.map((tab) => {
@@ -77,7 +84,7 @@ export function BestSellingTabs({
                                     : "text-deep/70 hover:text-deep"
                             }`}
                         >
-                            {tab}
+                            {tab === ALL_TAB ? t("allTab") : tab}
                         </button>
                     );
                 })}
@@ -121,7 +128,7 @@ export function BestSellingTabs({
                     href="/shop"
                     className="font-jost inline-flex items-center justify-center border border-deep/40 px-12 py-4 text-sm font-semibold uppercase tracking-[0.28em] text-deep transition hover:border-deep hover:bg-deep hover:text-white"
                 >
-                    View All Pieces
+                    {t("viewAllPieces")}
                 </Link>
             </div>
         </section>

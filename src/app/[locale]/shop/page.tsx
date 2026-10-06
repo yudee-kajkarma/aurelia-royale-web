@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ShopCatalog } from "@/components/shop/ShopCatalog";
 import {
-    getCategoryDisplayLabel,
+    getCategoryLabelKey,
     getPrimaryShopCategories,
     resolveCategoryValue,
 } from "@/services/products/product-category";
@@ -10,6 +10,20 @@ import {
     getProducts,
     toProductCardModel,
 } from "@/services/products/product.service";
+
+// Minimal, non-translated fallback used only at this compile-fix call site
+// (this page's own string extraction is owned by a later i18n slice).
+// `getCategoryLabelKey` now returns a lowercase message key (e.g.
+// "bracelets") instead of the old English display label, so this
+// reconstructs the same title-cased text the key previously carried.
+function titleCaseCategoryLabel(category: string) {
+    const key = getCategoryLabelKey(category);
+    return key
+        .split(/\s+/)
+        .filter(Boolean)
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(" ");
+}
 
 type ShopPageProps = {
     searchParams: Promise<{
@@ -28,7 +42,7 @@ export async function generateMetadata({
     const category = params.category;
 
     if (category) {
-        const label = getCategoryDisplayLabel(category);
+        const label = titleCaseCategoryLabel(category);
         return {
             title: `${label} Jewelry`,
             description: `Shop Aurelia Royale ${label.toLowerCase()} — fine lab-grown diamond ${label.toLowerCase()} crafted for timeless, sustainable elegance.`,
@@ -94,7 +108,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
                 <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-24 sm:py-28 ">
                     <h1 className="font-cormorant text-5xl font-medium text-deep sm:text-6xl md:text-7xl capitalize">
                         {resolvedCategory && resolvedCategory !== "All"
-                            ? `${getCategoryDisplayLabel(resolvedCategory)} Collection`
+                            ? `${titleCaseCategoryLabel(resolvedCategory)} Collection`
                             : "Fine Lab-Grown Diamond Jewellery"}
                     </h1>
                 </div>

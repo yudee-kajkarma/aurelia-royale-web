@@ -577,5 +577,106 @@
     "certificationAndQuality": "Certification & Quality",
     "buyingGuides": "Buying Guides",
     "searchPlaceholder": "Search articles..."
+  },
+  "shopCategories": {
+    "bracelets": "Bracelets",
+    "earrings": "Earrings",
+    "necklaces": "Necklaces",
+    "rings": "Rings",
+    "pendants": "Pendants",
+    "sets": "Sets",
+    "fallback": "{category}"
+  },
+  "HomePage": {
+    "findNewIn": "Find New In",
+    "topTrending": "Top Trending",
+    "viewAllPieces": "View All Pieces"
+  },
+  "Hero": {
+    "marqueeItems": {
+      "worldwideShipping": "Worldwide Shipping",
+      "labGrownDiamond": "Lab-Grown Diamond",
+      "fineJewelry": "Fine Jewellery",
+      "handCrafted": "Hand Crafted",
+      "certified": "Certified"
+    },
+    "headingLine1": "WORN WITH",
+    "headingLine2": "INTENTION.",
+    "body": "Each piece is a whisper of heritage, shaped by artisans who have spent decades perfecting the language of fine metal and stone.",
+    "cta": "Shop Now"
+  },
+  "Newsletter": {
+    "eyebrow": "Stay Connected",
+    "heading": "Get Our Latest Updates",
+    "body": "Be first to discover new collections, exclusive events, and the quiet privileges reserved for our inner circle.",
+    "emailPlaceholder": "Your E-Mail Address",
+    "emailLabel": "Email address",
+    "submit": "Subscribe"
+  },
+  "ShopByCategory": {
+    "eyebrow": "Our Categories",
+    "heading": "Shop By Category",
+    "shopAriaLabel": "Shop {label}"
+  },
+  "TestimonialSlider": {
+    "eyebrow": "Client Testimonial",
+    "heading": "Our Happy Clients",
+    "ratingAriaLabel": "{rating} out of 5 stars",
+    "tabsAriaLabel": "Testimonials",
+    "showTestimonialAria": "Show testimonial from {name}",
+    "items": {
+      "isabelle": {
+        "name": "Isabelle Laurent",
+        "location": "Paris, France",
+        "quote": "The earrings I received were beyond anything I had imagined — flawlessly crafted, packaged like a dream. Aurelia Royale feels genuinely couture."
+      },
+      "alexander": {
+        "name": "Alexander Lee",
+        "location": "London, UK",
+        "quote": "Premium service and elegant finishing made every order memorable. Their design language feels timeless while still modern and wearable."
+      }
+    }
+  },
+  "ShopByEdition": {
+    "eyebrow": "Curated For You",
+    "heading": "Shop By Edition",
+    "editionsAriaLabel": "Choose a jewellery edition",
+    "categoryFilterAriaLabel": "Filter by category",
+    "emptyState": "No pieces available in this category yet.",
+    "viewAllPieces": "View All Pieces",
+    "editions": {
+      "classic": {
+        "tag": "Timeless",
+        "title": "Classic Edition",
+        "description": "Timeless diamond jewellery crafted for effortless elegance."
+      },
+      "limited": {
+        "tag": "Exclusive",
+        "title": "Limited Edition",
+        "description": "Individually numbered creations. Once sold, never reproduced."
+      },
+      "rare": {
+        "tag": "Signature",
+        "title": "Rare Edition",
+        "description": "One-of-a-kind masterpieces featuring our finest lab-grown diamonds."
+      }
+    },
+    "categories": {
+      "all": "All",
+      "bracelet": "Bracelet",
+      "earring": "Earring",
+      "necklace": "Necklace",
+      "pendant": "Pendant",
+      "ring": "Ring",
+      "set": "Set"
+    }
+  },
+  "BestSellingTabs": {
+    "eyebrow": "Best Selling",
+    "heading": "Signature Collection",
+    "viewAll": "View All",
+    "filterAriaLabel": "Filter products by category",
+    "allTab": "All",
+    "viewAllPieces": "View All Pieces"
   }
 }

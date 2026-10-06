@@ -1,7 +1,7 @@
 const DEFAULT_CATEGORY_IMAGE = "/category/Necklace.png";
 
 type ShopCategoryTile = {
-  label: string;
+  labelKey: string;
   queryValue: string;
   imageUrl: string;
   aliases: string[];
@@ -15,37 +15,37 @@ const EXCLUDED_CATEGORY_ALIASES = ["watches", "watch"];
 
 export const SHOP_CATEGORY_TILES: ShopCategoryTile[] = [
   {
-    label: "Bracelets",
+    labelKey: "bracelets",
     queryValue: "bracelets",
     imageUrl: "/category/Bracelete.png",
     aliases: ["bracelets", "bracelet"],
   },
   {
-    label: "Earrings",
+    labelKey: "earrings",
     queryValue: "earrings",
     imageUrl: "/category/Earring.png",
     aliases: ["earrings", "earring", "ear rings", "ear ring"],
   },
   {
-    label: "Necklaces",
+    labelKey: "necklaces",
     queryValue: "necklaces",
     imageUrl: "/category/Necklace.png",
     aliases: ["necklaces", "necklace"],
   },
   {
-    label: "Rings",
+    labelKey: "rings",
     queryValue: "rings",
     imageUrl: "/category/Ring.png",
     aliases: ["rings", "ring"],
   },
   {
-    label: "Pendants",
+    labelKey: "pendants",
     queryValue: "pendants",
     imageUrl: "/category/Pendant.png",
     aliases: ["pendants", "pendant"],
   },
   {
-    label: "Sets",
+    labelKey: "sets",
     queryValue: "sets",
     imageUrl: "/category/SET.png",
     aliases: ["sets", "set", "necklace + earring", "necklace+earring", "matching sets"],
@@ -54,14 +54,6 @@ export const SHOP_CATEGORY_TILES: ShopCategoryTile[] = [
 
 function normalizeCategory(value: string) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
-}
-
-function titleCase(value: string) {
-  return value
-    .split(/\s+/)
-    .filter(Boolean)
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
-    .join(" ");
 }
 
 function isExcludedCategory(value: string) {
@@ -128,8 +120,8 @@ export function getPrimaryShopCategories(availableCategories: string[]) {
   return selected.slice(0, SHOP_CATEGORY_LIMIT);
 }
 
-export function getCategoryDisplayLabel(category: string) {
-  return getTileByCategory(category)?.label ?? titleCase(category);
+export function getCategoryLabelKey(category: string): string {
+  return getTileByCategory(category)?.labelKey ?? category;
 }
 
 export function getCategoryImage(category: string) {

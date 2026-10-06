@@ -1,5 +1,6 @@
-﻿import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+﻿import { ArrowRight } from "lucide-react";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { Hero } from "@/components/home/Hero";
 import { BestSellingTabs } from "@/components/home/BestSellingTabs";
 import { ShopByEdition } from "@/components/home/ShopByEdition";
@@ -14,13 +15,15 @@ import {
     toProductCardModel,
 } from "@/services/products/product.service";
 import {
-    getCategoryDisplayLabel,
     getCategoryImage,
+    getCategoryLabelKey,
     getPrimaryShopCategories,
     getStorefrontCategories,
 } from "@/services/products/product-category";
 
 export default async function HomePage() {
+    const t = await getTranslations("HomePage");
+    const tCategories = await getTranslations("shopCategories");
     const [products, filterOptions] = await Promise.all([
         getAllProducts()
             .then((items) => items.map(toProductCardModel))
@@ -45,11 +48,16 @@ export default async function HomePage() {
     const featuredProducts = products.slice(0, 4);
     const categoryTiles = getPrimaryShopCategories(
         filterOptions.categories,
-    ).map((category) => ({
-        name: category,
-        label: getCategoryDisplayLabel(category),
-        imageUrl: getCategoryImage(category),
-    }));
+    ).map((category) => {
+        const labelKey = getCategoryLabelKey(category);
+        return {
+            name: category,
+            label: tCategories.has(labelKey)
+                ? tCategories(labelKey)
+                : tCategories("fallback", { category }),
+            imageUrl: getCategoryImage(category),
+        };
+    });
 
     return (
         <>
@@ -64,17 +72,17 @@ export default async function HomePage() {
                                     className="inline-block h-px w-8 bg-gold"
                                     aria-hidden="true"
                                 />
-                                Find New In
+                                {t("findNewIn")}
                             </p>
                             <h2 className="font-cormorant mt-4 text-5xl font-medium text-deep sm:text-6xl">
-                                Top Trending
+                                {t("topTrending")}
                             </h2>
                         </div>
                         <Link
                             href="/shop"
                             className="group inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.28em] text-gold underline decoration-[1px] underline-offset-[6px] transition hover:text-[#a8862c]"
                         >
-                            View All Pieces
+                            {t("viewAllPieces")}
                             <ArrowRight
                                 size={18}
                                 className="transition group-hover:translate-x-1"

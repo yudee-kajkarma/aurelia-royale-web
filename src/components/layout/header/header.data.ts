@@ -1,5 +1,14 @@
 import { SHOP_CATEGORY_TILES } from "@/services/products/product-category";
 
+// Minimal, non-translated fallback used only at this compile-fix call site
+// (the header's own string extraction is owned by a later i18n slice).
+// `tile.labelKey` is now a lowercase message key (e.g. "bracelets") instead
+// of the old English display label, so this reconstructs the same
+// title-cased text the removed `label` field previously carried.
+function titleCaseCategoryLabel(labelKey: string) {
+  return labelKey.charAt(0).toUpperCase() + labelKey.slice(1).toLowerCase();
+}
+
 export type HeaderLinkItem = {
   key?: string;
   href: string;
@@ -31,7 +40,7 @@ export const aboutItems: HeaderLinkItem[] = [
 
 export const shopCategoryItems: HeaderVisualLinkItem[] = SHOP_CATEGORY_TILES.map((tile) => ({
   href: `/shop?category=${encodeURIComponent(tile.queryValue)}`,
-  label: tile.label,
+  label: titleCaseCategoryLabel(tile.labelKey),
   imageUrl: tile.imageUrl,
 }));
 

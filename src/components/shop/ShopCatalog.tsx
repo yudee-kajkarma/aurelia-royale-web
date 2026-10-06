@@ -9,11 +9,25 @@ import { ProductImage } from "@/components/shared/ProductImage";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
 // import { DiscountedPrice } from "@/components/shared/DiscountedPrice";
 import { ShopPagination } from "@/components/shop/ShopPagination";
-import { getCategoryDisplayLabel } from "@/services/products/product-category";
+import { getCategoryLabelKey } from "@/services/products/product-category";
 import type {
     ProductCardModel,
     ProductsPagination,
 } from "@/services/products/product.types";
+
+// Minimal, non-translated fallback used only at this compile-fix call site
+// (this component's own string extraction is owned by a later i18n slice).
+// `getCategoryLabelKey` now returns a lowercase message key (e.g.
+// "bracelets") instead of the old English display label, so this
+// reconstructs the same title-cased text the key previously carried.
+function titleCaseCategoryLabel(category: string) {
+    const key = getCategoryLabelKey(category);
+    return key
+        .split(/\s+/)
+        .filter(Boolean)
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(" ");
+}
 
 type ShopCatalogProps = {
     products: ProductCardModel[];
@@ -250,7 +264,7 @@ export function ShopCatalog({
                                 <ul className="mt-6 space-y-4">
                                     {productCategories.map((category) => {
                                         const label =
-                                            getCategoryDisplayLabel(category);
+                                            titleCaseCategoryLabel(category);
                                         const checked =
                                             categoryDraft === category;
                                         return (

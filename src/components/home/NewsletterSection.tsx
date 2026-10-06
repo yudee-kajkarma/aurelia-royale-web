@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import NewsletterImg from "@/assets/Newsletter-Img.png";
 
 export function NewsletterSection() {
+    const t = useTranslations("Newsletter");
     const [email, setEmail] = useState("");
 
     function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -32,14 +34,13 @@ export function NewsletterSection() {
                             className="inline-block h-px w-8 bg-gold"
                             aria-hidden="true"
                         />
-                        Stay Connected
+                        {t("eyebrow")}
                     </p>
                     <h2 className="font-cormorant mt-4 text-5xl font-medium leading-[1.05] text-deep sm:text-6xl">
-                        Get Our Latest Updates
+                        {t("heading")}
                     </h2>
                     <p className="font-jost mt-6 max-w-md text-[0.95rem] leading-7 text-deep/70 sm:text-base">
-                        Be first to discover new collections, exclusive events,
-                        and the quiet privileges reserved for our inner circle.
+                        {t("body")}
                     </p>
 
                     <form
@@ -51,15 +52,15 @@ export function NewsletterSection() {
                             required
                             value={email}
                             onChange={(event) => setEmail(event.target.value)}
-                            placeholder="Your E-Mail Address"
-                            aria-label="Email address"
+                            placeholder={t("emailPlaceholder")}
+                            aria-label={t("emailLabel")}
                             className="font-jost h-14 flex-1 bg-transparent px-5 text-sm text-deep placeholder:text-deep/45 focus:outline-none"
                         />
                         <button
                             type="submit"
                             className="font-jost inline-flex h-14 shrink-0 items-center justify-center bg-deep px-7 text-xs font-semibold uppercase tracking-[0.28em] text-white transition hover:bg-[#0a2e28] sm:px-10 sm:text-sm"
                         >
-                            Subscribe
+                            {t("submit")}
                         </button>
                     </form>
                 </div>

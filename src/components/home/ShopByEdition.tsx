@@ -1,73 +1,46 @@
 "use client";
 
-import Link from "next/link";
 import { useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { ProductImage } from "@/components/shared/ProductImage";
 import type { ProductCardModel } from "@/services/products/product.types";
 
-type Edition = {
-    id: string;
-    tag: string;
-    title: string;
-    description: string;
-};
+const EDITION_IDS = ["classic", "limited", "rare"] as const;
+type EditionId = (typeof EDITION_IDS)[number];
 
-const EDITIONS: Edition[] = [
-    {
-        id: "classic",
-        tag: "Timeless",
-        title: "Classic Edition",
-        description:
-            "Timeless Diamond Jewelry Crafted For Effortless elegance.",
-        // description:
-        //     "Essential Diamond Jewelry Designed For Daily Brilliance. Timeless Elegance Meets Modern Sustainability.",
-    },
-    {
-        id: "limited",
-        tag: "Exclusive",
-        title: "Limited Edition",
-        description:
-            "Individually numbered creations. Once sold, never reproduced",
-        // description:
-        //     "Curated High-Jewelry Concepts, Strictly Numbered. Once Sold Out, These Diamond Designs Will Never Return.",
-    },
-    {
-        id: "rare",
-        tag: "Signature",
-        title: "Rare Edition",
-        description:
-            "One-of-a-Kind masterpieces Featuring Our finest Lab-Grown Diamonds.",
-        // description:
-        //     "Masterpieces Featuring Our Most Unique, Individually Grown Stones. Distinctly Rare, Uniquely Yours.",
-    },
-];
-
-const ALL_CATEGORY = "ALL";
+const ALL_CATEGORY = "all";
 
 // Canonical sub-categories shown in the filter row. Matched against each
 // product's free-form `category` string with a case-insensitive substring
-// test, so "SET" still catches values like "NECKLACE + EARRING (SET)".
-const CATEGORIES = [
+// test, so "set" still catches values like "necklace + earring (set)".
+// These ids are match keys, never rendered directly and never sent to the
+// backend, so they stay in English/lowercase; only their display labels
+// (via the `categories` message keys below) are translated.
+const CATEGORY_IDS = [
     ALL_CATEGORY,
-    "BRACELET",
-    "EARRING",
-    "NECKLACE",
-    "PENDANT",
-    "RING",
-    "SET",
+    "bracelet",
+    "earring",
+    "necklace",
+    "pendant",
+    "ring",
+    "set",
 ] as const;
+type CategoryId = (typeof CATEGORY_IDS)[number];
 
 type ShopByEditionProps = {
     products: ProductCardModel[];
 };
 
 export function ShopByEdition({ products }: ShopByEditionProps) {
-    const [activeId, setActiveId] = useState(EDITIONS[0].id);
-    const [activeCategory, setActiveCategory] = useState<string>(ALL_CATEGORY);
+    const t = useTranslations("ShopByEdition");
+    const [activeId, setActiveId] = useState<EditionId>(EDITION_IDS[0]);
+    const [activeCategory, setActiveCategory] =
+        useState<CategoryId>(ALL_CATEGORY);
 
     const activeIndex = Math.max(
         0,
-        EDITIONS.findIndex((edition) => edition.id === activeId),
+        EDITION_IDS.findIndex((id) => id === activeId),
     );
 
     const categoryProducts = useMemo(() => {
@@ -98,27 +71,27 @@ export function ShopByEdition({ products }: ShopByEditionProps) {
                         className="inline-block h-px w-8 bg-gold"
                         aria-hidden="true"
                     />
-                    Curated For You
+                    {t("eyebrow")}
                 </p>
                 <h2 className="font-cormorant mt-4 text-5xl font-medium text-deep sm:text-6xl">
-                    Shop By Edition
+                    {t("heading")}
                 </h2>
             </div>
 
             <div
                 role="tablist"
-                aria-label="Choose a jewelry edition"
+                aria-label={t("editionsAriaLabel")}
                 className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5 lg:gap-6"
             >
-                {EDITIONS.map((edition) => {
-                    const active = edition.id === activeId;
+                {EDITION_IDS.map((id) => {
+                    const active = id === activeId;
                     return (
                         <button
-                            key={edition.id}
+                            key={id}
                             type="button"
                             role="tab"
                             aria-selected={active}
-                            onClick={() => setActiveId(edition.id)}
+                            onClick={() => setActiveId(id)}
                             className={`group flex flex-col items-start border-[1.5px] p-6 text-left transition duration-300 sm:p-7 ${
                                 active
                                     ? "border-gold bg-deep"
@@ -132,21 +105,21 @@ export function ShopByEdition({ products }: ShopByEditionProps) {
                                         : "border-gold/50 text-gold"
                                 }`}
                             >
-                                {edition.tag}
+                                {t(`editions.${id}.tag`)}
                             </span>
                             <h3
                                 className={`font-cormorant mt-5 text-3xl font-medium transition duration-300 sm:text-4xl ${
                                     active ? "text-white" : "text-deep"
                                 }`}
                             >
-                                {edition.title}
+                                {t(`editions.${id}.title`)}
                             </h3>
                             <p
                                 className={`font-jost mt-3 text-sm leading-relaxed transition duration-300 ${
                                     active ? "text-[#fdce77]" : "text-[#6b6b6b]"
                                 }`}
                             >
-                                {edition.description}
+                                {t(`editions.${id}.description`)}
                             </p>
                         </button>
                     );
@@ -155,25 +128,25 @@ export function ShopByEdition({ products }: ShopByEditionProps) {
 
             <div
                 role="tablist"
-                aria-label="Filter by category"
+                aria-label={t("categoryFilterAriaLabel")}
                 className="mt-8 flex flex-wrap gap-2.5 sm:gap-3"
             >
-                {CATEGORIES.map((category) => {
-                    const active = category === activeCategory;
+                {CATEGORY_IDS.map((id) => {
+                    const active = id === activeCategory;
                     return (
                         <button
-                            key={category}
+                            key={id}
                             type="button"
                             role="tab"
                             aria-selected={active}
-                            onClick={() => setActiveCategory(category)}
+                            onClick={() => setActiveCategory(id)}
                             className={`font-jost border px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.18em] transition duration-300 ${
                                 active
                                     ? "border-deep bg-deep text-white"
                                     : "border-deep/15 bg-transparent text-deep/70 hover:border-gold hover:text-deep"
                             }`}
                         >
-                            {category}
+                            {t(`categories.${id}`)}
                         </button>
                     );
                 })}
@@ -181,7 +154,7 @@ export function ShopByEdition({ products }: ShopByEditionProps) {
 
             {visibleProducts.length === 0 ? (
                 <p className="font-jost mt-12 text-center text-sm text-[#6b6b6b]">
-                    No pieces available in this category yet.
+                    {t("emptyState")}
                 </p>
             ) : null}
 
@@ -221,7 +194,7 @@ export function ShopByEdition({ products }: ShopByEditionProps) {
                     href="/shop"
                     className="font-jost inline-flex items-center justify-center bg-deep px-12 py-4 text-sm font-semibold uppercase tracking-[0.28em] text-white transition hover:bg-deep/90"
                 >
-                    View All Pieces
+                    {t("viewAllPieces")}
                 </Link>
             </div>
         </section>
