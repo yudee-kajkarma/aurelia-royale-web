@@ -1203,5 +1203,152 @@
     "inviteFailedFallback": "Failed to send invitation",
     "verifyFailedFallback": "OTP verification failed",
     "genericRequestFailed": "Something went wrong. Please try again."
+  },
+  "OrdersPage": {
+    "eyebrow": "Orders",
+    "heading": "Your Order History",
+    "subtitle": "Track placed orders, payment status, and shipping progress from one place.",
+    "continueShopping": "Continue Shopping",
+    "loading": "Loading orders...",
+    "loadError": "We couldn't load your orders. Please try again.",
+    "emptyTitle": "No orders yet",
+    "emptyBody": "Place your first order from the cart or buy directly from a product page.",
+    "shopNow": "Shop Now",
+    "orderForItems": "Order for {count, plural, one {# item} other {# items}}",
+    "defaultItemLabel": "Default item",
+    "qty": "Qty {quantity}",
+    "viewDetails": "View Details",
+    "paginationSummary": "Showing page {currentPage} of {totalPages} · {totalRecords, plural, one {# order} other {# orders}}",
+    "unableToLoadOrders": "Unable to load orders right now.",
+    "orderStatus": {
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "shipped": "Shipped",
+      "shipping": "Shipping",
+      "out_for_delivery": "Out for Delivery",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled",
+      "canceled": "Cancelled",
+      "fallback": "{status}"
+    },
+    "paymentStatus": {
+      "pending": "Pending",
+      "processing": "Processing",
+      "paid": "Paid",
+      "refunded": "Refunded",
+      "failed": "Failed",
+      "fallback": "{status}"
+    },
+    "paymentMethod": {
+      "ONLINE": "Online",
+      "COD": "Cash on Delivery",
+      "fallback": "{method}"
+    }
+  },
+  "OrderDetailPage": {
+    "loading": "Loading order...",
+    "loadError": "We couldn't load this order. Please try again.",
+    "breadcrumbOrders": "Orders",
+    "heading": "Order Details",
+    "placedOn": "Placed {date}",
+    "paymentHeading": "Payment",
+    "methodLabel": "Method:",
+    "statusLabel": "Status:",
+    "shippingAddressHeading": "Shipping Address",
+    "noShippingAddress": "No shipping address available.",
+    "orderSummaryHeading": "Order Summary",
+    "itemsLabel": "Items:",
+    "updatedLabel": "Updated:",
+    "refundStatusLabel": "Refund status:",
+    "defaultItemLabel": "Default item",
+    "skuLabel": "SKU: {sku}",
+    "notAvailable": "N/A",
+    "quantityLabel": "Quantity: {quantity}",
+    "openingPayment": "Opening Payment...",
+    "regeneratePayment": "Regenerate Payment",
+    "cancelling": "Cancelling...",
+    "cancelOrder": "Cancel Order",
+    "cannotCancelNotice": "This order can no longer be cancelled after it reaches shipped or delivered status.",
+    "orderCancelledSuccess": "Order cancelled successfully.",
+    "paymentCompletedSuccess": "Payment completed successfully. Order status has been updated.",
+    "paymentNotCompleted": "Payment was not completed. You can retry payment or cancel this order.",
+    "unableToLoadOrder": "Unable to load this order right now.",
+    "unableToCancelOrder": "Unable to cancel this order right now.",
+    "unableToStartPayment": "Unable to start payment right now. Please try again.",
+    "missingCheckoutSessionUrl": "Missing checkout session URL.",
+    "popupBlocked": "Popup was blocked by your browser. Please allow popups and try again.",
+    "orderStatus": {
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "shipped": "Shipped",
+      "shipping": "Shipping",
+      "out_for_delivery": "Out for Delivery",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled",
+      "canceled": "Cancelled",
+      "fallback": "{status}"
+    },
+    "paymentStatus": {
+      "pending": "Pending",
+      "processing": "Processing",
+      "paid": "Paid",
+      "refunded": "Refunded",
+      "failed": "Failed",
+      "fallback": "{status}"
+    },
+    "refundStatus": {
+      "none": "None",
+      "pending": "Pending",
+      "completed": "Completed",
+      "failed": "Failed",
+      "fallback": "{status}"
+    },
+    "paymentMethod": {
+      "ONLINE": "Online",
+      "COD": "Cash on Delivery",
+      "fallback": "{method}"
+    }
+  },
+  "PaymentsHistoryPage": {
+    "eyebrow": "Payments",
+    "heading": "Your Payment History",
+    "subtitle": "Review payment sessions, status updates, and linked orders in one place.",
+    "viewOrders": "View Orders",
+    "loading": "Loading payment history...",
+    "loadError": "Unable to load payment history right now.",
+    "emptyTitle": "No Payment History Yet",
+    "emptyBody": "Online payment attempts and completed payments will appear here after checkout.",
+    "shopNow": "Shop Now",
+    "paymentForOrder": "Payment for order {orderNumber}",
+    "sessionIdLabel": "Session ID",
+    "transactionIdLabel": "Transaction ID",
+    "notAvailableYet": "Not available yet",
+    "updatedOn": "Updated {date}",
+    "viewOrder": "View Order",
+    "paginationSummary": "Showing page {currentPage} of {totalPages} · {totalRecords, plural, one {# payment record} other {# payment records}}",
+    "paymentStatus": {
+      "pending": "Pending",
+      "processing": "Processing",
+      "paid": "Paid",
+      "refunded": "Refunded",
+      "failed": "Failed",
+      "fallback": "{status}"
+    },
+    "orderStatus": {
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "shipped": "Shipped",
+      "shipping": "Shipping",
+      "out_for_delivery": "Out for Delivery",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled",
+      "canceled": "Cancelled",
+      "fallback": "{status}"
+    },
+    "paymentMethod": {
+      "ONLINE": "Online",
+      "COD": "Cash on Delivery",
+      "fallback": "{method}"
+    }
   }
 }

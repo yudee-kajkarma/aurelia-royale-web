@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
+import { useFormatter, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { useParams } from "next/navigation";
 import { Ban, CreditCard, MapPinHouse, Package } from "lucide-react";
@@ -12,14 +13,33 @@ import { orderService } from "@/services/orders/order.service";
 import type { Order } from "@/services/orders/order.types";
 import { notifyError } from "@/utils/notify";
 
-function formatOrderDate(value: string) {
-  return new Intl.DateTimeFormat("en-IN", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  }).format(new Date(value));
+const ORDER_DATE_FORMAT_OPTIONS = {
+  day: "2-digit",
+  month: "short",
+  year: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+} as const;
+
+// Looks up the translated label for a raw status/method value, falling back
+// to the untranslated value itself (interpolated) for anything outside the
+// known set — mirrors `resolveCategoryLabel` for `shopCategories`. The raw
+// value used for styling/comparisons elsewhere is never altered.
+function resolveEnumLabel(
+  t: ReturnType<typeof useTranslations>,
+  scope: "orderStatus" | "paymentStatus" | "refundStatus",
+  rawValue: string,
+) {
+  const key = `${scope}.${rawValue.toLowerCase()}`;
+  return t.has(key) ? t(key) : t(`${scope}.fallback`, { status: rawValue });
+}
+
+function resolvePaymentMethodLabel(
+  t: ReturnType<typeof useTranslations>,
+  rawValue: string,
+) {
+  const key = `paymentMethod.${rawValue}`;
+  return t.has(key) ? t(key) : t("paymentMethod.fallback", { method: rawValue });
 }
 
 function getOrderStatusClass(status: string) {
@@ -64,6 +84,8 @@ function canRegeneratePayment(order: Order) {
 }
 
 export default function OrderDetailPage() {
+  const t = useTranslations("OrderDetailPage");
+  const format = useFormatter();
   const params = useParams<{ id: string | string[] }>();
   const orderId = typeof params.id === "string" ? params.id : "";
   const [order, setOrder] = useState<Order | null>(null);
@@ -87,7 +109,7 @@ export default function OrderDetailPage() {
     } catch (loadError) {
       setOrder(null);
       setHasLoadError(true);
-      notifyError(loadError, "Unable to load this order right now.");
+      notifyError(loadError, t("unableToLoadOrder"));
       return null;
     } finally {
       if (showLoader) {
@@ -132,9 +154,9 @@ export default function OrderDetailPage() {
     try {
       const response = await orderService.cancelOrder(order.id);
       setOrder(response.data);
-      setFeedback("Order cancelled successfully.");
+      setFeedback(t("orderCancelledSuccess"));
     } catch (cancelError) {
-      notifyError(cancelError, "Unable to cancel this order right now.");
+      notifyError(cancelError, t("unableToCancelOrder"));
     } finally {
       setIsCancelling(false);
     }
@@ -157,7 +179,7 @@ export default function OrderDetailPage() {
       const checkoutUrl = response.data.url;
 
       if (!checkoutUrl) {
-        throw new Error("Missing checkout session URL.");
+        throw new Error(t("missingCheckoutSessionUrl"));
       }
 
       const checkoutWindow = window.open(
@@ -167,7 +189,7 @@ export default function OrderDetailPage() {
       );
 
       if (!checkoutWindow) {
-        toast.error("Popup was blocked by your browser. Please allow popups and try again.");
+        toast.error(t("popupBlocked"));
         return;
       }
 
@@ -191,15 +213,15 @@ export default function OrderDetailPage() {
           }
 
           if (updatedOrder.paymentStatus.toLowerCase() === "paid") {
-            setFeedback("Payment completed successfully. Order status has been updated.");
+            setFeedback(t("paymentCompletedSuccess"));
             return;
           }
 
-          setFeedback("Payment was not completed. You can retry payment or cancel this order.");
+          setFeedback(t("paymentNotCompleted"));
         });
       }, 1500);
     } catch (paymentError) {
-      notifyError(paymentError, "Unable to start payment right now. Please try again.");
+      notifyError(paymentError, t("unableToStartPayment"));
     } finally {
       setIsRegeneratingPayment(false);
     }
@@ -209,15 +231,15 @@ export default function OrderDetailPage() {
     <AuthGuard allowedRoles={["USER", "ADMIN"]}>
       <main className="mx-auto min-h-[70vh] w-full max-w-[1480px] px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
         <nav className="mb-6 text-sm text-foreground/58">
-          <Link href="/orders" className="transition hover:text-deep">Orders</Link>
+          <Link href="/orders" className="transition hover:text-deep">{t("breadcrumbOrders")}</Link>
           <span>{" / "}</span>
           <span className="text-deep">{order?.orderNumber || orderId}</span>
         </nav>
 
-        {isLoading ? <p className="text-sm font-medium text-foreground/60">Loading order...</p> : null}
+        {isLoading ? <p className="text-sm font-medium text-foreground/60">{t("loading")}</p> : null}
         {!isLoading && hasLoadError ? (
           <div className="rounded-[28px] border border-rose-200 bg-rose-50 px-6 py-8 text-sm text-rose-700">
-            We couldn&apos;t load this order. Please try again.
+            {t("loadError")}
           </div>
         ) : null}
 
@@ -227,16 +249,16 @@ export default function OrderDetailPage() {
               <div className="flex flex-col gap-4 border-b border-foreground/10 pb-6 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.12em] text-foreground/42">{order.orderNumber}</p>
-                  <h1 className="display-font mt-3 text-4xl text-deep">Order Details</h1>
-                  <p className="mt-3 text-sm text-foreground/58">Placed {formatOrderDate(order.createdAt)}</p>
+                  <h1 className="display-font mt-3 text-4xl text-deep">{t("heading")}</h1>
+                  <p className="mt-3 text-sm text-foreground/58">{t("placedOn", { date: format.dateTime(new Date(order.createdAt), ORDER_DATE_FORMAT_OPTIONS) })}</p>
                 </div>
 
                 <div className="flex flex-wrap gap-2">
                   <span className={`inline-flex rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] ${getOrderStatusClass(order.orderStatus)}`}>
-                    {order.orderStatus}
+                    {resolveEnumLabel(t, "orderStatus", order.orderStatus)}
                   </span>
                   <span className={`inline-flex rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] ${getPaymentStatusClass(order.paymentStatus)}`}>
-                    {order.paymentStatus}
+                    {resolveEnumLabel(t, "paymentStatus", order.paymentStatus)}
                   </span>
                 </div>
               </div>
@@ -249,9 +271,9 @@ export default function OrderDetailPage() {
                     </div>
                     <div>
                       <p className="text-lg font-bold text-deep">{item.title}</p>
-                      <p className="mt-1 text-sm text-foreground/55">{item.variantName || "Default item"}</p>
-                      <p className="mt-1 text-sm text-foreground/55">SKU: {item.sku || "N/A"}</p>
-                      <p className="mt-1 text-sm text-foreground/55">Quantity: {item.quantity}</p>
+                      <p className="mt-1 text-sm text-foreground/55">{item.variantName || t("defaultItemLabel")}</p>
+                      <p className="mt-1 text-sm text-foreground/55">{t("skuLabel", { sku: item.sku || t("notAvailable") })}</p>
+                      <p className="mt-1 text-sm text-foreground/55">{t("quantityLabel", { quantity: item.quantity })}</p>
                     </div>
                     {/* <PriceDisplay value={item.price * item.quantity} className="text-lg font-bold text-deep" /> */}
                   </article>
@@ -264,11 +286,11 @@ export default function OrderDetailPage() {
                 <div className="rounded-[26px] border border-foreground/10 bg-surface p-5">
                   <div className="flex items-center gap-3 text-deep">
                     <CreditCard className="h-5 w-5" />
-                    <h2 className="text-xl font-bold">Payment</h2>
+                    <h2 className="text-xl font-bold">{t("paymentHeading")}</h2>
                   </div>
                   <div className="mt-4 space-y-2 text-sm text-foreground/62">
-                    <p>Method: <span className="font-semibold text-deep">{order.paymentMethod}</span></p>
-                    <p>Status: <span className="font-semibold text-deep">{order.paymentStatus}</span></p>
+                    <p>{t("methodLabel")} <span className="font-semibold text-deep">{resolvePaymentMethodLabel(t, order.paymentMethod)}</span></p>
+                    <p>{t("statusLabel")} <span className="font-semibold text-deep">{resolveEnumLabel(t, "paymentStatus", order.paymentStatus)}</span></p>
                     {/* <p>Total: <PriceDisplay value={order.totalAmount} className="font-semibold text-deep" /></p> */}
                   </div>
                 </div>
@@ -276,7 +298,7 @@ export default function OrderDetailPage() {
                 <div className="rounded-[26px] border border-foreground/10 bg-surface p-5">
                   <div className="flex items-center gap-3 text-deep">
                     <MapPinHouse className="h-5 w-5" />
-                    <h2 className="text-xl font-bold">Shipping Address</h2>
+                    <h2 className="text-xl font-bold">{t("shippingAddressHeading")}</h2>
                   </div>
                   {order.shippingAddress ? (
                     <div className="mt-4 text-sm leading-7 text-foreground/62">
@@ -285,19 +307,19 @@ export default function OrderDetailPage() {
                       <p>{order.shippingAddress.country}</p>
                     </div>
                   ) : (
-                    <p className="mt-4 text-sm text-foreground/55">No shipping address available.</p>
+                    <p className="mt-4 text-sm text-foreground/55">{t("noShippingAddress")}</p>
                   )}
                 </div>
 
                 <div className="rounded-[26px] border border-foreground/10 bg-surface p-5">
                   <div className="flex items-center gap-3 text-deep">
                     <Package className="h-5 w-5" />
-                    <h2 className="text-xl font-bold">Order Summary</h2>
+                    <h2 className="text-xl font-bold">{t("orderSummaryHeading")}</h2>
                   </div>
                   <div className="mt-4 space-y-2 text-sm text-foreground/62">
-                    <p>Items: <span className="font-semibold text-deep">{order.totalItems}</span></p>
-                    <p>Updated: <span className="font-semibold text-deep">{formatOrderDate(order.updatedAt)}</span></p>
-                    <p>Refund status: <span className="font-semibold text-deep">{order.refundStatus}</span></p>
+                    <p>{t("itemsLabel")} <span className="font-semibold text-deep">{order.totalItems}</span></p>
+                    <p>{t("updatedLabel")} <span className="font-semibold text-deep">{format.dateTime(new Date(order.updatedAt), ORDER_DATE_FORMAT_OPTIONS)}</span></p>
+                    <p>{t("refundStatusLabel")} <span className="font-semibold text-deep">{resolveEnumLabel(t, "refundStatus", order.refundStatus)}</span></p>
                   </div>
                 </div>
 
@@ -312,7 +334,7 @@ export default function OrderDetailPage() {
                   >
                     <span className="relative z-10 inline-flex items-center gap-2">
                       <CreditCard className="h-4 w-4" />
-                      {isRegeneratingPayment ? "Opening Payment..." : "Regenerate Payment"}
+                      {isRegeneratingPayment ? t("openingPayment") : t("regeneratePayment")}
                     </span>
                   </button>
                 ) : null}
@@ -325,11 +347,11 @@ export default function OrderDetailPage() {
                     className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-rose-200 px-6 py-4 text-sm font-bold uppercase tracking-[0.08em] text-rose-600 transition hover:bg-rose-600 hover:text-white disabled:opacity-60"
                   >
                     <Ban className="h-4 w-4" />
-                    {isCancelling ? "Cancelling..." : "Cancel Order"}
+                    {isCancelling ? t("cancelling") : t("cancelOrder")}
                   </button>
                 ) : (
                   <p className="text-sm leading-6 text-foreground/58">
-                    This order can no longer be cancelled after it reaches shipped or delivered status.
+                    {t("cannotCancelNotice")}
                   </p>
                 )}
               </div>
