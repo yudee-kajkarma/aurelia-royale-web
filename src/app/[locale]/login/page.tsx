@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useState } from "react";
 import Image from "next/image";
 import { ArrowLeft, Eye, EyeOff } from "lucide-react";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/navigation";
 import LoginImage from "@/assets/login-image.png";
 import { useAuth } from "@/providers/AuthProvider";
@@ -11,6 +12,7 @@ import { getSafeAuthRedirect } from "@/services/auth/auth.types";
 import { notifyError } from "@/utils/notify";
 
 export default function LoginPage() {
+    const t = useTranslations("LoginPage");
     const router = useRouter();
     const searchParams = useSearchParams();
     const { isAuthenticated, isReady, login, user } = useAuth();
@@ -56,7 +58,7 @@ export default function LoginPage() {
                 <div className="relative hidden md:block">
                     <Image
                         src={LoginImage}
-                        alt="Model wearing Aurelia Royale jewellery"
+                        alt={t("heroImageAlt")}
                         fill
                         sizes="50vw"
                         className="object-cover object-center"
@@ -73,18 +75,18 @@ export default function LoginPage() {
                             className="inline-flex items-center gap-2 font-[family-name:var(--font-jost)] text-xs font-semibold uppercase tracking-[0.16em] text-[#2a2a2a] transition hover:text-foreground"
                         >
                             <ArrowLeft size={16} />
-                            Back to Home
+                            {t("backToHome")}
                         </Link>
 
                         <div className="inline-flex border border-black/12">
                             <span className="bg-[#1f4a37] px-5 py-2.5 font-[family-name:var(--font-jost)] text-[11px] font-semibold uppercase tracking-[0.16em] text-white">
-                                Sign In
+                                {t("signInTab")}
                             </span>
                             <Link
                                 href="/register"
                                 className="bg-white px-5 py-2.5 font-[family-name:var(--font-jost)] text-[11px] font-semibold uppercase tracking-[0.16em] text-[#2a2a2a] transition hover:text-foreground"
                             >
-                                Register
+                                {t("registerTab")}
                             </Link>
                         </div>
                     </div>
@@ -94,17 +96,16 @@ export default function LoginPage() {
                         <div className="flex items-center gap-3">
                             <span className="h-px w-10 bg-gold" />
                             <p className="font-[family-name:var(--font-jost)] text-xs font-semibold uppercase tracking-[0.3em] text-gold">
-                                Welcome Back
+                                {t("welcomeBack")}
                             </p>
                         </div>
 
                         <h1 className="mt-5 font-[family-name:var(--font-cormorant)] text-6xl font-medium leading-[1.05] text-foreground">
-                            Sign Into Your Account.
+                            {t("title")}
                         </h1>
 
                         <p className="mt-5 font-[family-name:var(--font-jost)] text-[0.95rem] font-light leading-[1.7] text-[#5a5a5a]">
-                            Access your collection, track orders, and manage
-                            your bespoke commissions in one place.
+                            {t("subtitle")}
                         </p>
 
                         <form className="mt-10" onSubmit={handleSubmit}>
@@ -113,7 +114,7 @@ export default function LoginPage() {
                                     htmlFor="email"
                                     className="font-[family-name:var(--font-jost)] text-xs font-semibold uppercase tracking-[0.18em] text-[#2a2a2a]"
                                 >
-                                    Email Address
+                                    {t("emailLabel")}
                                 </label>
                                 <input
                                     id="email"
@@ -122,7 +123,7 @@ export default function LoginPage() {
                                     onChange={(event) =>
                                         setEmail(event.target.value)
                                     }
-                                    placeholder="you@example.com"
+                                    placeholder={t("emailPlaceholder")}
                                     autoComplete="email"
                                     required
                                     className="mt-3 w-full border-0 border-b border-[#d8c9a4] bg-transparent pb-3 font-[family-name:var(--font-jost)] text-base text-[#1f242b] outline-none transition placeholder:text-[#a6a6a6] focus:border-gold"
@@ -134,7 +135,7 @@ export default function LoginPage() {
                                     htmlFor="password"
                                     className="font-[family-name:var(--font-jost)] text-xs font-semibold uppercase tracking-[0.18em] text-[#2a2a2a]"
                                 >
-                                    Password
+                                    {t("passwordLabel")}
                                 </label>
                                 <div className="relative">
                                     <input
@@ -146,7 +147,7 @@ export default function LoginPage() {
                                         onChange={(event) =>
                                             setPassword(event.target.value)
                                         }
-                                        placeholder="Your Password"
+                                        placeholder={t("passwordPlaceholder")}
                                         autoComplete="current-password"
                                         required
                                         className="mt-3 w-full border-0 border-b border-[#d8c9a4] bg-transparent pb-3 pr-10 font-[family-name:var(--font-jost)] text-base text-[#1f242b] outline-none transition placeholder:text-[#a6a6a6] focus:border-gold"
@@ -161,8 +162,8 @@ export default function LoginPage() {
                                         className="absolute bottom-3 right-0 inline-flex items-center justify-center text-[#66707c] transition hover:text-foreground"
                                         aria-label={
                                             showPassword
-                                                ? "Hide password"
-                                                : "Show password"
+                                                ? t("hidePassword")
+                                                : t("showPassword")
                                         }
                                     >
                                         {showPassword ? (
@@ -179,7 +180,7 @@ export default function LoginPage() {
                                     href="/reset-password"
                                     className="font-[family-name:var(--font-jost)] text-sm font-bold text-foreground transition hover:text-gold"
                                 >
-                                    Forgot Password?
+                                    {t("forgotPassword")}
                                 </Link>
                             </div>
 
@@ -188,17 +189,17 @@ export default function LoginPage() {
                                 disabled={isSubmitting || !isReady}
                                 className="mt-8 w-full bg-[#1f4a37] py-4 font-[family-name:var(--font-jost)] text-sm font-semibold uppercase tracking-[0.2em] text-gold transition hover:bg-[#173a2b] disabled:opacity-60"
                             >
-                                {isSubmitting ? "Signing In..." : "Sign In"}
+                                {isSubmitting ? t("submitting") : t("submit")}
                             </button>
                         </form>
 
                         <p className="mt-7 text-center font-[family-name:var(--font-jost)] text-base font-medium text-[#1f242b]">
-                            Don&apos;t have an account?{" "}
+                            {t("noAccountText")}{" "}
                             <Link
                                 href="/register"
                                 className="font-bold text-foreground underline underline-offset-4"
                             >
-                                Create one
+                                {t("createOne")}
                             </Link>
                         </p>
                     </div>
@@ -207,7 +208,7 @@ export default function LoginPage() {
                     <div>
                         <div className="h-px w-full bg-black/10" />
                         <div className="mt-5 flex flex-col items-center gap-3 font-[family-name:var(--font-jost)] text-xs text-[#9a9a9a] sm:flex-row sm:justify-end">
-                            <span>© 2025 Aurelia Royale</span>
+                            <span>{t("copyright")}</span>
                             {/* <span className="flex gap-6">
                 <span>Privacy</span>
                 <span>Terms</span>

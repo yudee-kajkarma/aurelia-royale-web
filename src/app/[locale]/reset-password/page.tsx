@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/navigation";
 import { toast } from "sonner";
 import { BrandWordmark } from "@/components/brand/BrandWordmark";
@@ -9,6 +10,8 @@ import { authService } from "@/services/auth/auth.service";
 import { notifyError } from "@/utils/notify";
 
 export default function ResetPasswordPage() {
+  const t = useTranslations("ResetPasswordPage");
+  const tToasts = useTranslations("Toasts");
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
@@ -20,7 +23,7 @@ export default function ResetPasswordPage() {
 
   async function handleSendOtp() {
     if (!email.trim()) {
-      toast.error("Enter your email first.");
+      toast.error(tToasts("emailRequiredForOtp"));
       return;
     }
 
@@ -29,7 +32,7 @@ export default function ResetPasswordPage() {
 
     try {
       const response = await authService.sendOtp({ email: email.trim(), purpose: "password_reset" });
-      setSuccessMessage(response.message || "OTP sent to your email.");
+      setSuccessMessage(response.message || t("otpSentFallback"));
     } catch (error) {
       notifyError(error);
     } finally {
@@ -41,7 +44,7 @@ export default function ResetPasswordPage() {
     event.preventDefault();
 
     if (!email.trim() || !otp.trim() || !newPassword.trim()) {
-      toast.error("Email, OTP, and new password are required.");
+      toast.error(tToasts("resetPasswordFieldsRequired"));
       return;
     }
 
@@ -55,7 +58,7 @@ export default function ResetPasswordPage() {
         newPassword,
       });
 
-      setSuccessMessage(response.message || "Password reset successful. You can sign in now.");
+      setSuccessMessage(response.message || t("resetSuccessFallback"));
       router.replace("/login");
     } catch (error) {
       notifyError(error);
@@ -74,9 +77,9 @@ export default function ResetPasswordPage() {
                 <BrandWordmark size="hero" className="items-center text-center" />
               </div>
 
-              <h2 className="text-4xl font-bold leading-[1.08] text-gold sm:text-3xl lg:text-3xl">Recover Your Account</h2>
+              <h2 className="text-4xl font-bold leading-[1.08] text-gold sm:text-3xl lg:text-3xl">{t("heroTitle")}</h2>
               <p className="mx-auto mt-6 max-w-sm text-lg leading-[1.45] text-white/85 sm:mt-8 sm:text-xl lg:text-2xl">
-                Send an email OTP, verify it here, and set a new password securely.
+                {t("heroSubtitle")}
               </p>
             </div>
           </aside>
@@ -84,19 +87,19 @@ export default function ResetPasswordPage() {
           <div className="relative min-h-[520px] bg-[#f6f6f8] px-8 py-8 sm:px-12 sm:py-10">
             <div className="flex justify-end">
               <Link href="/login" className="inline-flex items-center rounded-full bg-deep px-5 py-2 text-sm font-bold text-white transition hover:bg-[#0a2e28]">
-                Back to Login
+                {t("backToLogin")}
               </Link>
             </div>
 
             <div className="mx-auto mt-10 max-w-lg sm:mt-16">
-              <h1 className="text-4xl font-bold text-[#0f1216] sm:text-3xl lg:text-3xl">Reset Password</h1>
+              <h1 className="text-4xl font-bold text-[#0f1216] sm:text-3xl lg:text-3xl">{t("title")}</h1>
               <p className="mt-3 text-sm leading-6 text-[#5a6370] sm:text-base">
-                Send an OTP to your email, then use it here with your new password to restore account access.
+                {t("subtitle")}
               </p>
 
               <form className="mt-8 grid gap-4" onSubmit={handleSubmit}>
                 <label className="block">
-                  <span className="mb-2 block text-sm font-semibold text-[#17110d]">Email Address</span>
+                  <span className="mb-2 block text-sm font-semibold text-[#17110d]">{t("emailLabel")}</span>
                   <div className="flex gap-2">
                     <input
                       type="email"
@@ -104,7 +107,7 @@ export default function ResetPasswordPage() {
                       value={email}
                       onChange={(event) => setEmail(event.target.value)}
                       className="h-14 w-full rounded-2xl border border-black/12 bg-white px-4 text-base outline-none transition focus:border-[#17110d]"
-                      placeholder="Enter your email"
+                      placeholder={t("emailPlaceholder")}
                     />
                     <button
                       type="button"
@@ -112,13 +115,13 @@ export default function ResetPasswordPage() {
                       disabled={isSendingOtp || isSubmitting}
                       className="shrink-0 rounded-full border border-gold bg-white px-4 text-xs font-bold tracking-[0.08em] text-deep transition hover:bg-[#fff6dd] disabled:opacity-60"
                     >
-                      {isSendingOtp ? "Sending..." : "Send OTP"}
+                      {isSendingOtp ? t("sendingOtp") : t("sendOtp")}
                     </button>
                   </div>
                 </label>
 
                 <label className="block">
-                  <span className="mb-2 block text-sm font-semibold text-[#17110d]">OTP Code</span>
+                  <span className="mb-2 block text-sm font-semibold text-[#17110d]">{t("otpLabel")}</span>
                   <input
                     type="text"
                     required
@@ -126,12 +129,12 @@ export default function ResetPasswordPage() {
                     onChange={(event) => setOtp(event.target.value)}
                     maxLength={6}
                     className="h-14 w-full rounded-2xl border border-black/12 bg-white px-4 text-base outline-none transition focus:border-[#17110d]"
-                    placeholder="Enter OTP"
+                    placeholder={t("otpPlaceholder")}
                   />
                 </label>
 
                 <label className="block">
-                  <span className="mb-2 block text-sm font-semibold text-[#17110d]">New Password</span>
+                  <span className="mb-2 block text-sm font-semibold text-[#17110d]">{t("newPasswordLabel")}</span>
                   <div className="relative">
                     <input
                       type={showPassword ? "text" : "password"}
@@ -139,12 +142,12 @@ export default function ResetPasswordPage() {
                       value={newPassword}
                       onChange={(event) => setNewPassword(event.target.value)}
                       className="h-14 w-full rounded-2xl border border-black/12 bg-white px-4 pr-14 text-base outline-none transition focus:border-[#17110d]"
-                      placeholder="Enter new password"
+                      placeholder={t("newPasswordPlaceholder")}
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword((currentValue) => !currentValue)}
-                      aria-label={showPassword ? "Hide password" : "Show password"}
+                      aria-label={showPassword ? t("hidePassword") : t("showPassword")}
                       className="absolute right-4 top-1/2 -translate-y-1/2 text-[#66707c] transition hover:text-[#0e5a47]"
                     >
                       {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
@@ -163,11 +166,11 @@ export default function ResetPasswordPage() {
                   disabled={isSubmitting || isSendingOtp}
                   className="mt-2 h-14 rounded-xl bg-gold text-base font-extrabold text-[#1a1710] transition hover:bg-[#b8972f] disabled:opacity-60 sm:text-sm"
                 >
-                  {isSubmitting ? "Resetting..." : "Reset Password"}
+                  {isSubmitting ? t("resetting") : t("submit")}
                 </button>
 
                 <p className="text-center text-base font-medium text-[#1f242b] sm:text-lg">
-                  Back to sign in? <Link href="/login" className="font-bold text-[#0e5a47]">Login here</Link>
+                  {t("backToSignIn")} <Link href="/login" className="font-bold text-[#0e5a47]">{t("loginHere")}</Link>
                 </p>
               </form>
             </div>

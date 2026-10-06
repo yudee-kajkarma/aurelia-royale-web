@@ -15,6 +15,21 @@ type ApiEnvelope<T> = {
   error?: { code: string; message: string };
 };
 
+// i18n note (Task 10a): "Request failed" below is the only string in this
+// file that is real user-facing copy (it becomes a FamilyApiError.message
+// shown in a toast) — the other "Empty ... response" strings are thrown
+// Errors for developers and intentionally stay English. This is a plain
+// .ts service module with no component tree or request scope, so it cannot
+// call useTranslations/getTranslations itself (same constraint documented
+// on header.data.ts). We keep this as literal English text rather than
+// swapping in a lookup key (the getCategory/header.data.ts pattern),
+// because the only call sites (src/components/profile/family/FamilySection.tsx,
+// src/services/family/useDiscount.ts) are outside this slice's scope —
+// shipping a bare key now would surface the raw key string in the toast for
+// every locale, including English, until those call sites are updated.
+// Whichever slice touches FamilySection.tsx / useDiscount.ts should
+// translate this exact string via the Toasts namespace at the point the
+// toast is rendered.
 function getFamilyError(error: unknown): { code?: string; message: string } {
   if (axios.isAxiosError(error)) {
     const body = error.response?.data as ApiEnvelope<unknown> | undefined;

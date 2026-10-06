@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { useAuth } from "@/providers/AuthProvider";
 import {
@@ -29,6 +30,7 @@ function isRoleAllowed(allowed: UserRole[], actual: UserRole): boolean {
 }
 
 export function AuthGuard({ children, allowedRoles }: AuthGuardProps) {
+  const t = useTranslations("AuthGuard");
   const pathname = usePathname();
   const router = useRouter();
   const { isAuthenticated, isReady, user } = useAuth();
@@ -53,9 +55,9 @@ export function AuthGuard({ children, allowedRoles }: AuthGuardProps) {
     return (
       <main className="grid min-h-[60vh] place-items-center px-6 py-16 text-center">
         <div>
-          <p className="display-font text-3xl text-foreground">Checking access</p>
+          <p className="display-font text-3xl text-foreground">{t("checkingAccess")}</p>
           <p className="mt-3 text-sm uppercase tracking-[0.2em] text-foreground/65">
-            Preparing your session
+            {t("preparingSession")}
           </p>
         </div>
       </main>

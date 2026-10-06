@@ -926,5 +926,70 @@
     "findUsEyebrow": "Find Us",
     "locationHeading": "Location Map",
     "mapTitle": "Aurelia Royale Location Map"
+  },
+  "LoginPage": {
+    "heroImageAlt": "Model wearing Aurelia Royale jewellery",
+    "backToHome": "Back to Home",
+    "signInTab": "Sign In",
+    "registerTab": "Register",
+    "welcomeBack": "Welcome Back",
+    "title": "Sign Into Your Account.",
+    "subtitle": "Access your collection, track orders, and manage your bespoke commissions in one place.",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "you@example.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Your Password",
+    "hidePassword": "Hide password",
+    "showPassword": "Show password",
+    "forgotPassword": "Forgot Password?",
+    "submitting": "Signing In...",
+    "submit": "Sign In",
+    "noAccountText": "Don't have an account?",
+    "createOne": "Create one",
+    "copyright": "© 2025 Aurelia Royale"
+  },
+  "VerifyOtpPage": {
+    "heroTitle": "One Final Verification",
+    "heroSubtitle": "Enter the OTP sent to your email and complete your account setup.",
+    "registerLink": "Register",
+    "title": "Verify OTP",
+    "subtitle": "Confirm your account using the OTP from your registration email, then continue by signing in.",
+    "emailPlaceholder": "Email",
+    "otpPlaceholder": "Enter OTP",
+    "submitting": "Verifying...",
+    "submitButton": "Verify OTP",
+    "needAnotherAccount": "Need another account?",
+    "registerAgain": "Register again"
+  },
+  "ResetPasswordPage": {
+    "heroTitle": "Recover Your Account",
+    "heroSubtitle": "Send an email OTP, verify it here, and set a new password securely.",
+    "backToLogin": "Back to Login",
+    "title": "Reset Password",
+    "subtitle": "Send an OTP to your email, then use it here with your new password to restore account access.",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "Enter your email",
+    "sendingOtp": "Sending...",
+    "sendOtp": "Send OTP",
+    "otpLabel": "OTP Code",
+    "otpPlaceholder": "Enter OTP",
+    "newPasswordLabel": "New Password",
+    "newPasswordPlaceholder": "Enter new password",
+    "hidePassword": "Hide password",
+    "showPassword": "Show password",
+    "resetting": "Resetting...",
+    "submit": "Reset Password",
+    "backToSignIn": "Back to sign in?",
+    "loginHere": "Login here",
+    "otpSentFallback": "OTP sent to your email.",
+    "resetSuccessFallback": "Password reset successful. You can sign in now."
+  },
+  "AuthGuard": {
+    "checkingAccess": "Checking access",
+    "preparingSession": "Preparing your session"
+  },
+  "Toasts": {
+    "emailRequiredForOtp": "Enter your email first.",
+    "resetPasswordFieldsRequired": "Email, OTP, and new password are required."
   }
 }

@@ -2,6 +2,7 @@
 
 import { FormEvent, Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/navigation";
 import { BrandWordmark } from "@/components/brand/BrandWordmark";
 import { authService } from "@/services/auth/auth.service";
@@ -69,6 +70,7 @@ function VerifyOtpPageShell({
   onOtpChange,
   onSubmit,
 }: VerifyOtpPageShellProps = {}) {
+  const t = useTranslations("VerifyOtpPage");
   const handleSubmit = onSubmit ?? ((event: FormEvent<HTMLFormElement>) => event.preventDefault());
 
   return (
@@ -81,9 +83,9 @@ function VerifyOtpPageShell({
                 <BrandWordmark size="hero" className="items-center text-center" />
               </div>
 
-              <h2 className="text-4xl font-bold leading-[1.08] text-gold sm:text-3xl lg:text-3xl">One Final Verification</h2>
+              <h2 className="text-4xl font-bold leading-[1.08] text-gold sm:text-3xl lg:text-3xl">{t("heroTitle")}</h2>
               <p className="mx-auto mt-6 max-w-sm text-lg leading-[1.45] text-white/85 sm:mt-8 sm:text-xl lg:text-2xl">
-                Enter the OTP sent to your email and complete your account setup.
+                {t("heroSubtitle")}
               </p>
             </div>
           </aside>
@@ -91,14 +93,14 @@ function VerifyOtpPageShell({
           <div className="relative min-h-[520px] bg-[#f6f6f8] px-8 py-8 sm:px-12 sm:py-10">
             <div className="flex justify-end">
               <Link href="/register" className="inline-flex items-center rounded-full bg-deep px-5 py-2 text-sm font-bold text-white transition hover:bg-[#0a2e28]">
-                Register
+                {t("registerLink")}
               </Link>
             </div>
 
             <div className="mx-auto mt-10 max-w-lg sm:mt-16">
-              <h1 className="text-4xl font-bold text-[#0f1216] sm:text-3xl lg:text-3xl">Verify OTP</h1>
+              <h1 className="text-4xl font-bold text-[#0f1216] sm:text-3xl lg:text-3xl">{t("title")}</h1>
               <p className="mt-3 text-sm leading-6 text-[#5a6370] sm:text-base">
-                Confirm your account using the OTP from your registration email, then continue by signing in.
+                {t("subtitle")}
               </p>
 
               <form className="mt-8 grid gap-4" onSubmit={handleSubmit}>
@@ -106,7 +108,7 @@ function VerifyOtpPageShell({
                   type="email"
                   value={email}
                   onChange={(event) => onEmailChange?.(event.target.value)}
-                  placeholder="Email"
+                  placeholder={t("emailPlaceholder")}
                   autoComplete="email"
                   required
                   className="h-14 rounded-xl border border-black/12 bg-white px-4 text-base font-semibold text-[#1f242b] outline-none placeholder:text-[#9ea3ad] sm:text-lg"
@@ -115,7 +117,7 @@ function VerifyOtpPageShell({
                   type="text"
                   value={otp}
                   onChange={(event) => onOtpChange?.(event.target.value)}
-                  placeholder="Enter OTP"
+                  placeholder={t("otpPlaceholder")}
                   required
                   maxLength={6}
                   className="h-14 rounded-xl border border-black/12 bg-white px-4 text-base font-semibold text-[#1f242b] outline-none placeholder:text-[#9ea3ad] sm:text-lg"
@@ -125,12 +127,12 @@ function VerifyOtpPageShell({
                   disabled={isSubmitting}
                   className="mt-2 h-14 rounded-xl bg-gold text-base font-extrabold text-[#1a1710] transition hover:bg-[#b8972f] disabled:opacity-60 sm:text-sm"
                 >
-                  {isSubmitting ? "Verifying..." : "Verify OTP"}
+                  {isSubmitting ? t("submitting") : t("submitButton")}
                 </button>
               </form>
 
               <p className="mt-6 text-base font-medium text-[#1f242b] sm:text-lg">
-                Need another account? <Link href="/register" className="font-bold text-[#0e5a47]">Register again</Link>
+                {t("needAnotherAccount")} <Link href="/register" className="font-bold text-[#0e5a47]">{t("registerAgain")}</Link>
               </p>
             </div>
           </div>
