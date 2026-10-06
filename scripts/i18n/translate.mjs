@@ -55,6 +55,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { collectAll, collectLeaves, setAtPath } from "./lib/leaves.mjs";
+import { hasTerm, hasSourceTerm, glossaryFor, systemPrompt } from "./lib/glossary-prompt.mjs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "../..");
@@ -287,74 +288,13 @@ function model() {
 }
 
 // ------------------------------------------------------------------ prompting
-
-const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-/**
- * Whole-word containment. Substring matching would fire "cut" inside "execute"
- * and "carat" inside "caratage", producing bogus glossary rules and warnings.
- */
-function hasTerm(text, term) {
-    return new RegExp(`(^|[^\\p{L}])${escapeRe(term)}([^\\p{L}]|$)`, "iu").test(text);
-}
-
-/**
- * Same, but tolerating a regular English plural. Without this, "retailers" and
- * "suppliers" never match their singular glossary entries and the terminology
- * rules silently fail to apply to most real sentences.
- */
-function hasSourceTerm(text, term) {
-    return new RegExp(`(^|[^\\p{L}])${escapeRe(term)}s?([^\\p{L}]|$)`, "iu").test(text);
-}
-
-function glossaryFor(locale, glossary, sourceText) {
-    // Only include terms that actually occur in this batch, so the prompt stays
-    // focused instead of carrying dozens of irrelevant rules.
-    const rows = [];
-    for (const entry of glossary.terms) {
-        if (!hasSourceTerm(sourceText, entry.en)) continue;
-        const target = entry[locale];
-        if (!target) continue;
-        const avoid = entry.avoid?.[locale];
-        rows.push(
-            `- "${entry.en}" -> "${target}"` +
-                (avoid?.length ? ` (never: ${avoid.map((a) => `"${a}"`).join(", ")})` : "")
-        );
-    }
-    return rows;
-}
-
-function systemPrompt(locale, glossaryRows, keepVerbatim) {
-    return [
-        `You are a professional translator localising website copy for Aurelia Royale,`,
-        `a fine lab-grown diamond jewellery brand, from English into ${LOCALE_NAMES[locale]}.`,
-        ``,
-        `You receive a JSON object mapping string ids to English strings. Return a JSON`,
-        `object with EXACTLY the same ids, where each value is the translation.`,
-        `Return nothing but that JSON object.`,
-        ``,
-        `Rules:`,
-        `1. Translate every string. Never merge, split, reorder or drop ids.`,
-        `2. Register: professional, warm retail/marketing prose. Match the source`,
-        `   tone; do not add enthusiasm, marketing filler, or new claims.`,
-        `3. Keep markdown links intact: in "[label](target)" translate only the label`,
-        `   text and reproduce "(target)" character for character.`,
-        `4. Reproduce verbatim, untranslated: brand names (Aurelia Royale, Aurelia),`,
-        `   laboratory names (GIA, IGI, HRD), proper nouns, product codes, prices,`,
-        `   measurements, times and dates in numeric form.`,
-        `5. Do not translate text inside quotation marks that names a product or SKU.`,
-        `6. Preserve the source's typographic characters (curly apostrophes, en dashes).`,
-        `7. Never output placeholder text, notes, or explanations.`,
-        glossaryRows.length
-            ? `\nRequired terminology — use these renderings exactly, including inflected forms:\n${glossaryRows.join("\n")}`
-            : ``,
-        keepVerbatim.length
-            ? `\nThese tokens appear in the source and must appear unchanged in your output:\n${keepVerbatim.map((t) => `- ${t}`).join("\n")}`
-            : ``,
-    ]
-        .filter(Boolean)
-        .join("\n");
-}
+//
+// hasTerm / hasSourceTerm / glossaryFor / systemPrompt live in
+// ./lib/glossary-prompt.mjs (see that file's header for the batch-wide-ban
+// bug this guards against, and scripts/i18n/lib/glossary-prompt.test.mjs for
+// the regression tests). Kept as a separate module so both pieces are
+// importable and unit-testable without pulling in this file's top-level CLI
+// dispatch (which runs unconditionally on import).
 
 /** Tokens that must survive translation untouched. */
 function verbatimTokens(strings) {
@@ -379,8 +319,8 @@ function verbatimTokens(strings) {
 
 async function translateBatch(locale, batch, glossary) {
     const payload = Object.fromEntries(batch.map((l, i) => [String(i), l.value]));
-    const joined = batch.map((l) => l.value).join("\n");
-    const rows = glossaryFor(locale, glossary, joined);
+    // Scoped per string id (not per joined batch) — see glossary-prompt.mjs.
+    const rows = glossaryFor(locale, glossary, payload);
     const keep = verbatimTokens(batch.map((l) => l.value));
 
     let lastError;
@@ -389,7 +329,7 @@ async function translateBatch(locale, batch, glossary) {
             const res = await openai("/chat/completions", {
                 model: model(),
                 messages: [
-                    { role: "system", content: systemPrompt(locale, rows, keep) },
+                    { role: "system", content: systemPrompt(locale, LOCALE_NAMES[locale], rows, keep) },
                     { role: "user", content: JSON.stringify(payload) },
                 ],
                 response_format: { type: "json_object" },
@@ -737,7 +677,8 @@ async function translateTarget(resolved, source, opts, glossary, { quiet = false
             console.log("  " + JSON.stringify(bySkipKey));
             const sampleSkipped = [...new Set(heldBack.map((l) => `${l.key}=${l.value}`))].slice(0, 6);
             console.log("  e.g. " + sampleSkipped.join(", "));
-            const rows = glossaryFor(locales[0], glossary, leaves.map((l) => l.value).join("\n"));
+            const previewPayload = Object.fromEntries(leaves.map((l, i) => [String(i), l.value]));
+            const rows = glossaryFor(locales[0], glossary, previewPayload);
             console.log(`\nglossary rules that would apply for ${locales[0]}: ${rows.length}`);
             rows.slice(0, 10).forEach((r) => console.log("  " + r));
             console.log(
