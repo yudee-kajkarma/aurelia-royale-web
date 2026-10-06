@@ -12,7 +12,8 @@
     "i18n:untranslated": "node scripts/i18n/find-untranslated.mjs",
     "i18n:check-nav": "node scripts/i18n/check-locale-navigation.mjs",
     "i18n:check-dates": "node scripts/i18n/check-date-formatting.mjs",
-    "i18n:dry": "node scripts/i18n/translate.mjs translate blogs --all --dry"
+    "i18n:dry": "node scripts/i18n/translate.mjs translate blogs --all --dry",
+    "i18n:check": "node scripts/i18n/check-i18n.mjs"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.2",
