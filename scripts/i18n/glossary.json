@@ -22,6 +22,19 @@
     "Spanish value here; see the report).",
     "",
     "Terms not found in the reference corpus; to be confirmed by a native speaker:",
+    "  - 'bail' (all five): uniglo's shipped corpus contains the concept ZERO times — no",
+    "    English 'bail'/'bale', and none of 'anilla'/'asa'/'argolla' (es), 'bélière' (fr),",
+    "    'anellino'/'contromaglia' (it), 'Öse' (de) or 'hangoog' (nl) appears anywhere in its",
+    "    140 JSON files. So unlike every term above, this row CANNOT cite the reference",
+    "    corpus. It records instead the dominant rendering already in Aurelia's own 107",
+    "    English 'bail' leaves (es anilla 41 occ / asa 30 / argolla 26; fr bélière 103;",
+    "    it anellino 30 / contromaglia 12; de Öse 56 / Anhängeröse 30; nl hangoog 47 /",
+    "    hangeroog 23) — machine output, so evidence of consistency, not of correctness.",
+    "    The `avoid` list is deliberately limited to 'reasa', which is not a Spanish word at",
+    "    all (a hallucination this row exists to prevent recurring). The real-word variants",
+    "    'asa' and 'argolla' are NOT banned: they are defensible Spanish, banning them would",
+    "    make `check` report ~50 violations nobody has reviewed, and a bad glossary row gets",
+    "    ENFORCED by `check` rather than caught. Marked `unvalidated` for all five.",
     "  - 'station necklace' (es): the ONLY 'station chain' sentence in uniglo's entire",
     "    corpus was translated into Spanish by avoiding the concept entirely ('cadena de",
     "    diamantes espaciada' — no 'station' word at all). fr/it/de/nl values for this term",
@@ -227,6 +240,18 @@
       "de": "Antwerpen",
       "es": "Amberes",
       "it": "Anversa"
+    },
+    {
+      "en": "bail",
+      "fr": "bélière",
+      "it": "anellino",
+      "de": "Öse",
+      "nl": "hangoog",
+      "es": "anilla",
+      "avoid": {
+        "es": ["reasa", "reasas"]
+      },
+      "unvalidated": ["fr", "it", "de", "nl", "es"]
     },
     {
       "en": "bezel",
