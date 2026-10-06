@@ -991,7 +991,9 @@
   "Toasts": {
     "emailRequiredForOtp": "Enter your email first.",
     "resetPasswordFieldsRequired": "Email, OTP, and new password are required.",
-    "changePasswordFieldsRequired": "Please fill old password, new password, and confirm password."
+    "changePasswordFieldsRequired": "Please fill old password, new password, and confirm password.",
+    "ticketSubjectAndMessageRequired": "Subject and message are required.",
+    "ticketReplyRequired": "Reply message is required."
   },
   "RegisterPage": {
     "heroImageAlt": "Model wearing Aurelia Royale jewellery",
@@ -1349,6 +1351,92 @@
       "ONLINE": "Online",
       "COD": "Cash on Delivery",
       "fallback": "{method}"
+    }
+  },
+  "TicketsPage": {
+    "eyebrow": "Support",
+    "heading": "Your Support Tickets",
+    "subtitle": "Track issues, delivery requests, payment concerns, and support replies in one place.",
+    "viewOrders": "View Orders",
+    "loading": "Loading tickets...",
+    "loadError": "Unable to load support tickets right now.",
+    "emptyTitle": "No Tickets Yet",
+    "emptyBody": "Create your first support ticket using the form on the right.",
+    "categoryPriority": "{category} · {priority} priority",
+    "escalatedBadge": "Escalated",
+    "noMessageAvailable": "No message available.",
+    "messageCount": "{count, plural, one {# message} other {# messages}}",
+    "updatedDate": "Updated {date}",
+    "paginationSummary": "Showing page {currentPage} of {totalPages} · {totalRecords, plural, one {# ticket} other {# tickets}}",
+    "createTicketEyebrow": "Create Ticket",
+    "createTicketHeading": "Need Help With an Order?",
+    "createTicketSubtitle": "Share the issue and your support thread will be created immediately.",
+    "subjectLabel": "Subject",
+    "subjectPlaceholder": "Order not delivered",
+    "categoryLabel": "Category",
+    "priorityLabel": "Priority",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Describe your issue and include your order number if available.",
+    "creating": "Creating...",
+    "createTicketButton": "Create Ticket",
+    "ticketCreatedSuccess": "Support ticket created successfully.",
+    "status": {
+      "open": "Open",
+      "closed": "Closed",
+      "fallback": "{status}"
+    },
+    "priority": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "urgent": "Urgent",
+      "fallback": "{status}"
+    },
+    "category": {
+      "delivery": "Delivery",
+      "order": "Order",
+      "payment": "Payment",
+      "product": "Product",
+      "general": "General",
+      "fallback": "{status}"
+    }
+  },
+  "TicketDetailPage": {
+    "breadcrumbTickets": "Support Tickets",
+    "loading": "Loading ticket...",
+    "loadError": "Unable to load this support ticket right now.",
+    "categoryPriority": "{category} · {priority} priority",
+    "escalatedBadge": "Escalated",
+    "replyEyebrow": "Reply",
+    "replyHeading": "Send a Message",
+    "replySubtitle": "Add more details or respond to the support team from here.",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Thanks for the quick response. Please expedite.",
+    "sending": "Sending...",
+    "sendReplyButton": "Send Reply",
+    "replySentSuccess": "Reply sent successfully.",
+    "createdDate": "Created {date}",
+    "lastUpdatedDate": "Last updated {date}",
+    "threadNotice": "Keep all order-related communication in this thread so the support team can resolve issues faster.",
+    "status": {
+      "open": "Open",
+      "closed": "Closed",
+      "fallback": "{status}"
+    },
+    "priority": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "urgent": "Urgent",
+      "fallback": "{status}"
+    },
+    "category": {
+      "delivery": "Delivery",
+      "order": "Order",
+      "payment": "Payment",
+      "product": "Product",
+      "general": "General",
+      "fallback": "{status}"
     }
   }
 }

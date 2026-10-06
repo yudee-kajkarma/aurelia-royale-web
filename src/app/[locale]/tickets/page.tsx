@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { useEffect, useState } from "react";
+import { useFormatter, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { LifeBuoy, Ticket as TicketIcon } from "lucide-react";
 import { toast } from "sonner";
@@ -16,14 +17,25 @@ const initialForm: CreateTicketPayload = {
   message: "",
 };
 
-function formatTicketDate(value: string) {
-  return new Intl.DateTimeFormat("en-IN", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  }).format(new Date(value));
+const TICKET_DATE_FORMAT_OPTIONS = {
+  day: "2-digit",
+  month: "short",
+  year: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+} as const;
+
+// Looks up the translated label for a raw status/priority/category value,
+// falling back to the untranslated value itself (interpolated) for anything
+// outside the known set — mirrors `resolveCategoryLabel` for `shopCategories`.
+// The raw value used for styling/comparisons elsewhere is never altered.
+function resolveEnumLabel(
+  t: ReturnType<typeof useTranslations>,
+  scope: "status" | "priority" | "category",
+  rawValue: string,
+) {
+  const key = `${scope}.${rawValue.toLowerCase()}`;
+  return t.has(key) ? t(key) : t(`${scope}.fallback`, { status: rawValue });
 }
 
 function getStatusClass(status: string) {
@@ -38,6 +50,9 @@ function getStatusClass(status: string) {
 }
 
 export default function TicketsPage() {
+  const t = useTranslations("TicketsPage");
+  const tToasts = useTranslations("Toasts");
+  const format = useFormatter();
   const [tickets, setTickets] = useState<Ticket[]>([]);
   const [pagination, setPagination] = useState<TicketsPagination | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -72,7 +87,7 @@ export default function TicketsPage() {
     event.preventDefault();
 
     if (!form.subject.trim() || !form.message.trim()) {
-      toast.error("Subject and message are required.");
+      toast.error(tToasts("ticketSubjectAndMessageRequired"));
       return;
     }
 
@@ -88,7 +103,7 @@ export default function TicketsPage() {
       });
 
       setForm(initialForm);
-      setSubmitFeedback("Support ticket created successfully.");
+      setSubmitFeedback(t("ticketCreatedSuccess"));
       await loadTickets();
 
       if (createdTicket?.ticketId) {
@@ -106,10 +121,10 @@ export default function TicketsPage() {
       <main className="mx-auto min-h-[70vh] w-full max-w-[1480px] px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-foreground/45">Support</p>
-            <h1 className="display-font mt-3 text-4xl text-deep sm:text-5xl">Your Support Tickets</h1>
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-foreground/45">{t("eyebrow")}</p>
+            <h1 className="display-font mt-3 text-4xl text-deep sm:text-5xl">{t("heading")}</h1>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-foreground/65">
-              Track issues, delivery requests, payment concerns, and support replies in one place.
+              {t("subtitle")}
             </p>
           </div>
 
@@ -117,16 +132,16 @@ export default function TicketsPage() {
             href="/orders"
             className="inline-flex items-center justify-center rounded-full border border-gold/35 bg-white px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-deep transition hover:border-deep hover:bg-deep hover:text-white"
           >
-            View Orders
+            {t("viewOrders")}
           </Link>
         </div>
 
         <div className="mt-8 grid gap-8 xl:grid-cols-[1fr_420px]">
           <section className="rounded-[34px] border border-foreground/10 bg-white/90 p-6 shadow-[0_20px_60px_rgba(55,31,10,0.06)] backdrop-blur-sm sm:p-8">
-            {isLoading ? <p className="text-sm font-medium text-foreground/60">Loading tickets...</p> : null}
+            {isLoading ? <p className="text-sm font-medium text-foreground/60">{t("loading")}</p> : null}
             {!isLoading && loadFailed ? (
               <div className="rounded-[28px] border border-rose-200 bg-rose-50 px-6 py-8 text-sm text-rose-700">
-                Unable to load support tickets right now.
+                {t("loadError")}
               </div>
             ) : null}
 
@@ -135,8 +150,8 @@ export default function TicketsPage() {
                 <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-gold/35 text-deep">
                   <TicketIcon className="h-6 w-6" />
                 </div>
-                <h2 className="display-font mt-5 text-3xl text-deep">No Tickets Yet</h2>
-                <p className="mt-3 text-sm leading-7 text-foreground/65">Create your first support ticket using the form on the right.</p>
+                <h2 className="display-font mt-5 text-3xl text-deep">{t("emptyTitle")}</h2>
+                <p className="mt-3 text-sm leading-7 text-foreground/65">{t("emptyBody")}</p>
               </div>
             ) : null}
 
@@ -150,26 +165,31 @@ export default function TicketsPage() {
                         <Link href={`/tickets/${ticket.ticketId}`} className="mt-2 block text-2xl font-bold text-deep transition hover:text-gold">
                           {ticket.subject}
                         </Link>
-                        <p className="mt-2 text-sm text-foreground/58">{ticket.category} · {ticket.priority} priority</p>
+                        <p className="mt-2 text-sm text-foreground/58">
+                          {t("categoryPriority", {
+                            category: resolveEnumLabel(t, "category", ticket.category),
+                            priority: resolveEnumLabel(t, "priority", ticket.priority),
+                          })}
+                        </p>
                       </div>
 
                       <div className="flex flex-wrap gap-2 sm:justify-end">
                         <span className={`inline-flex rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] ${getStatusClass(ticket.status)}`}>
-                          {ticket.status}
+                          {resolveEnumLabel(t, "status", ticket.status)}
                         </span>
                         {ticket.isEscalated ? (
                           <span className="inline-flex rounded-full border border-rose-200 bg-rose-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-rose-700">
-                            Escalated
+                            {t("escalatedBadge")}
                           </span>
                         ) : null}
                       </div>
                     </div>
 
-                    <p className="mt-4 line-clamp-2 text-sm leading-7 text-foreground/62">{ticket.messages[0]?.message ?? "No message available."}</p>
+                    <p className="mt-4 line-clamp-2 text-sm leading-7 text-foreground/62">{ticket.messages[0]?.message ?? t("noMessageAvailable")}</p>
 
                     <div className="mt-4 flex flex-col gap-3 border-t border-foreground/10 pt-4 text-sm text-foreground/58 sm:flex-row sm:items-center sm:justify-between">
-                      <span>{ticket.messages.length} message{ticket.messages.length === 1 ? "" : "s"}</span>
-                      <span>Updated {formatTicketDate(ticket.updatedAt)}</span>
+                      <span>{t("messageCount", { count: ticket.messages.length })}</span>
+                      <span>{t("updatedDate", { date: format.dateTime(new Date(ticket.updatedAt), TICKET_DATE_FORMAT_OPTIONS) })}</span>
                     </div>
                   </article>
                 ))}
@@ -178,67 +198,71 @@ export default function TicketsPage() {
 
             {pagination ? (
               <div className="mt-6 border-t border-foreground/10 pt-4 text-sm text-foreground/58">
-                Showing page {pagination.currentPage} of {pagination.totalPages} · {pagination.totalRecords} ticket{pagination.totalRecords === 1 ? "" : "s"}
+                {t("paginationSummary", {
+                  currentPage: pagination.currentPage,
+                  totalPages: pagination.totalPages,
+                  totalRecords: pagination.totalRecords,
+                })}
               </div>
             ) : null}
           </section>
 
           <aside className="rounded-[34px] border border-foreground/10 bg-white/90 p-6 shadow-[0_20px_60px_rgba(55,31,10,0.06)] backdrop-blur-sm sm:p-8">
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-foreground/45">Create Ticket</p>
-            <h2 className="display-font mt-3 text-3xl text-deep">Need Help With an Order?</h2>
-            <p className="mt-3 text-sm leading-7 text-foreground/65">Share the issue and your support thread will be created immediately.</p>
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-foreground/45">{t("createTicketEyebrow")}</p>
+            <h2 className="display-font mt-3 text-3xl text-deep">{t("createTicketHeading")}</h2>
+            <p className="mt-3 text-sm leading-7 text-foreground/65">{t("createTicketSubtitle")}</p>
 
             <form className="mt-6 grid gap-4" onSubmit={(event) => void handleSubmit(event)}>
               <label className="text-sm font-semibold text-deep">
-                Subject
+                {t("subjectLabel")}
                 <input
                   type="text"
                   value={form.subject}
                   onChange={(event) => setForm((current) => ({ ...current, subject: event.target.value }))}
                   className="mt-2 h-12 w-full rounded-xl border border-foreground/12 bg-white px-4 text-sm text-deep outline-none transition focus:border-deep"
-                  placeholder="Order not delivered"
+                  placeholder={t("subjectPlaceholder")}
                 />
               </label>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="text-sm font-semibold text-deep">
-                  Category
+                  {t("categoryLabel")}
                   <select
                     value={form.category}
                     onChange={(event) => setForm((current) => ({ ...current, category: event.target.value }))}
                     className="mt-2 h-12 w-full rounded-xl border border-foreground/12 bg-white px-4 text-sm text-deep outline-none transition focus:border-deep"
                   >
-                    <option value="delivery">Delivery</option>
-                    <option value="order">Order</option>
-                    <option value="payment">Payment</option>
-                    <option value="product">Product</option>
-                    <option value="general">General</option>
+                    <option value="delivery">{t("category.delivery")}</option>
+                    <option value="order">{t("category.order")}</option>
+                    <option value="payment">{t("category.payment")}</option>
+                    <option value="product">{t("category.product")}</option>
+                    <option value="general">{t("category.general")}</option>
                   </select>
                 </label>
 
                 <label className="text-sm font-semibold text-deep">
-                  Priority
+                  {t("priorityLabel")}
                   <select
                     value={form.priority}
                     onChange={(event) => setForm((current) => ({ ...current, priority: event.target.value }))}
                     className="mt-2 h-12 w-full rounded-xl border border-foreground/12 bg-white px-4 text-sm text-deep outline-none transition focus:border-deep"
                   >
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
-                    <option value="urgent">Urgent</option>
+                    <option value="low">{t("priority.low")}</option>
+                    <option value="medium">{t("priority.medium")}</option>
+                    <option value="high">{t("priority.high")}</option>
+                    <option value="urgent">{t("priority.urgent")}</option>
                   </select>
                 </label>
               </div>
 
               <label className="text-sm font-semibold text-deep">
-                Message
+                {t("messageLabel")}
                 <textarea
                   value={form.message}
                   onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))}
                   rows={6}
                   className="mt-2 w-full rounded-2xl border border-foreground/12 bg-white px-4 py-3 text-sm text-deep outline-none transition focus:border-deep"
-                  placeholder="Describe your issue and include your order number if available."
+                  placeholder={t("messagePlaceholder")}
                 />
               </label>
 
@@ -251,7 +275,7 @@ export default function TicketsPage() {
               >
                 <span className="relative z-10 inline-flex items-center gap-2">
                   <LifeBuoy className="h-4 w-4" />
-                  {isSubmitting ? "Creating..." : "Create Ticket"}
+                  {isSubmitting ? t("creating") : t("createTicketButton")}
                 </span>
               </button>
             </form>
