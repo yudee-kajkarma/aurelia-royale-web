@@ -13,7 +13,11 @@
     "i18n:check-nav": "node scripts/i18n/check-locale-navigation.mjs",
     "i18n:check-dates": "node scripts/i18n/check-date-formatting.mjs",
     "i18n:dry": "node scripts/i18n/translate.mjs translate blogs --all --dry",
-    "i18n:check": "node scripts/i18n/check-i18n.mjs"
+    "i18n:check": "node scripts/i18n/check-i18n.mjs",
+    "i18n:translate:messages": "node scripts/i18n/translate.mjs translate messages --all",
+    "i18n:translate:blogs": "node scripts/i18n/translate.mjs translate blogs --all",
+    "i18n:merge:messages": "node scripts/i18n/translate.mjs merge messages --all",
+    "i18n:merge:blogs": "node scripts/i18n/translate.mjs merge blogs --all"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.2",

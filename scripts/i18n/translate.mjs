@@ -6,11 +6,14 @@
  *   node scripts/i18n/translate.mjs models
  *   node scripts/i18n/translate.mjs terms "tennis bracelet"
  *   node scripts/i18n/translate.mjs translate <namespace> [--locales nl,fr] [--force] [--dry]
+ *   node scripts/i18n/translate.mjs translate messages --all [--force] [--dry]
  *   node scripts/i18n/translate.mjs translate blogs/<slug> [--locales nl,fr] [--force] [--dry]
  *   node scripts/i18n/translate.mjs translate blogs --all [--force] [--dry]
  *   node scripts/i18n/translate.mjs check [namespace]
  *   node scripts/i18n/translate.mjs merge <namespace> --after <existingKey>
+ *   node scripts/i18n/translate.mjs merge messages --all
  *   node scripts/i18n/translate.mjs merge blogs/<slug>
+ *   node scripts/i18n/translate.mjs merge blogs --all
  *
  * Design notes
  * ------------
@@ -31,9 +34,12 @@
  *
  * `merge` is a separate, deliberate step — nothing touches messages/*.json or
  * content/blogs/**\/<locale>.json until a human has looked at the staged
- * files. Namespace merges need `--after <key>` to place the key inside the
- * shared messages monolith; per-blog files have no such ordering problem
- * (each blog is its own file) so blog merges need no anchor.
+ * files. A single namespace merge needs `--after <key>` to place the key
+ * inside the shared messages monolith; `merge messages --all` needs no anchor
+ * because it reconstructs each locale file wholesale in messages/en.json's
+ * key order instead of inserting one key at a time. Per-blog files have no
+ * such ordering problem at all (each blog is its own file) so both
+ * `merge blogs/<slug>` and `merge blogs --all` need no anchor either.
  *
  * No API key is required for `--dry`. `requireKey()` (and therefore any
  * network call) is only reached from `translateBatch()` and from `models` —
@@ -662,11 +668,19 @@ async function translateTarget(resolved, source, opts, glossary, { quiet = false
 
 async function cmdTranslate(target, opts) {
     if (!target) {
-        throw new Error("usage: translate <namespace> | translate blogs/<slug> | translate blogs --all");
+        throw new Error(
+            "usage: translate <namespace> | translate messages --all | translate blogs/<slug> | translate blogs --all"
+        );
     }
 
+    if (target === "messages" && opts.all) {
+        return cmdTranslateAll("messages", opts);
+    }
+    if (target === "messages") {
+        throw new Error("usage: translate messages --all  (for a single namespace: translate <namespace>)");
+    }
     if (target === "blogs" && opts.all) {
-        return cmdTranslateAllBlogs(opts);
+        return cmdTranslateAll("blogs", opts);
     }
     if (target === "blogs") {
         throw new Error("usage: translate blogs/<slug>  (or: translate blogs --all)");
@@ -688,22 +702,40 @@ async function cmdTranslate(target, opts) {
 }
 
 /**
- * `translate blogs --all` — iterate every directory in content/blogs/,
- * skipping blogs already fully staged for every requested locale so an
- * interrupted run resumes without re-spending, and printing per-blog
- * progress plus a running character count and a rough estimated cost.
+ * `translate blogs --all` / `translate messages --all` — iterate every item
+ * of the given kind (every directory in content/blogs/, or every top-level
+ * namespace in messages/en.json, in en.json's own key order), skipping items
+ * already fully staged for every requested locale so an interrupted run
+ * resumes without re-spending, and printing per-item progress plus a running
+ * character count and a rough estimated cost.
+ *
+ * Shared between both kinds so "resume cleanly, tally cost, surface Review
+ * Focus 1 failures without aborting the scan" is implemented once.
  */
-async function cmdTranslateAllBlogs(opts) {
+async function cmdTranslateAll(kind, opts) {
     const glossary = readJson(GLOSSARY_PATH);
     const locales = opts.locales ?? TARGET_LOCALES;
-    const slugs = fs
-        .readdirSync(BLOGS_DIR, { withFileTypes: true })
-        .filter((d) => d.isDirectory())
-        .map((d) => d.name)
-        .sort();
+    const noun = kind === "messages" ? "namespace" : "blog";
+
+    let items; // [{ key, resolved, source }], source null means "nothing to translate"
+    if (kind === "messages") {
+        const en = readJson(path.join(MESSAGES, "en.json"));
+        items = Object.keys(en).map((ns) => ({ key: ns, resolved: resolveTarget(ns), source: en[ns] }));
+    } else {
+        const slugs = fs
+            .readdirSync(BLOGS_DIR, { withFileTypes: true })
+            .filter((d) => d.isDirectory())
+            .map((d) => d.name)
+            .sort();
+        items = slugs.map((slug) => {
+            const resolved = resolveTarget(`blogs/${slug}`);
+            const source = fs.existsSync(resolved.sourcePath) ? readJson(resolved.sourcePath) : null;
+            return { key: slug, resolved, source };
+        });
+    }
 
     console.log(
-        `translate blogs --all: ${slugs.length} blogs -> ${locales.join(", ")}` +
+        `translate ${kind} --all: ${items.length} ${noun}s -> ${locales.join(", ")}` +
             `${opts.dry ? " (DRY RUN)" : ""}\n`
     );
 
@@ -714,31 +746,29 @@ async function cmdTranslateAllBlogs(opts) {
     let skippedCount = 0;
     const reviewFocusFailures = [];
 
-    for (let i = 0; i < slugs.length; i++) {
-        const slug = slugs[i];
-        const progress = `[${i + 1}/${slugs.length}]`;
-        const resolved = resolveTarget(`blogs/${slug}`);
+    for (let i = 0; i < items.length; i++) {
+        const { key, resolved, source } = items[i];
+        const progress = `[${i + 1}/${items.length}]`;
 
-        if (!fs.existsSync(resolved.sourcePath)) {
-            console.log(`${progress} ${slug}: no en.json — skipping`);
+        if (source === null) {
+            console.log(`${progress} ${key}: no en.json — skipping`);
             continue;
         }
 
         if (!opts.dry && !opts.force && locales.every((l) => fs.existsSync(resolved.stagingPath(l)))) {
             skippedCount++;
-            console.log(`${progress} ${slug}: already staged for ${locales.join(", ")} — skipping`);
+            console.log(`${progress} ${key}: already staged for ${locales.join(", ")} — skipping`);
             continue;
         }
 
-        const source = readJson(resolved.sourcePath);
         let result;
         try {
             result = await translateTarget(resolved, source, opts, glossary, { quiet: true });
         } catch (err) {
             if (/Review Focus 1/.test(err.message)) {
                 const leaves = collectLeaves(source);
-                reviewFocusFailures.push({ slug, leaked: reviewFocus1Leaks(leaves) });
-                console.log(`${progress} ${slug}: REVIEW FOCUS 1 FAILURE — see summary below`);
+                reviewFocusFailures.push({ slug: key, leaked: reviewFocus1Leaks(leaves) });
+                console.log(`${progress} ${key}: REVIEW FOCUS 1 FAILURE — see summary below`);
                 continue; // keep scanning the rest for a full picture
             }
             throw err;
@@ -751,14 +781,14 @@ async function cmdTranslateAllBlogs(opts) {
         const est = estimateCost(totalChars, locales.length);
 
         console.log(
-            `${progress} ${slug}: ${result.leaves.length} translatable, ${result.heldBack.length} held back, ` +
+            `${progress} ${key}: ${result.leaves.length} translatable, ${result.heldBack.length} held back, ` +
                 `${result.chars.toLocaleString()} chars` +
                 ` (running total ${totalChars.toLocaleString()} chars, ~$${est.usd.toFixed(2)} est.)`
         );
     }
 
     console.log(
-        `\n${doneCount} blog(s) processed, ${skippedCount} already staged, ${slugs.length} total.\n` +
+        `\n${doneCount} ${noun}(s) processed, ${skippedCount} already staged, ${items.length} total.\n` +
             `TOTAL characters: ${totalChars.toLocaleString()} ` +
             `(${translatableCount.toLocaleString()} translatable strings, ${heldBackCount.toLocaleString()} held back)`
     );
@@ -770,18 +800,19 @@ async function cmdTranslateAllBlogs(opts) {
     );
 
     if (reviewFocusFailures.length) {
-        console.error(`\nREVIEW FOCUS 1: ${reviewFocusFailures.length} blog(s) leaked a protected value:`);
+        console.error(`\nREVIEW FOCUS 1: ${reviewFocusFailures.length} ${noun}(s) leaked a protected value:`);
         for (const f of reviewFocusFailures) {
             reportReviewFocus1(f.slug, f.leaked);
         }
-        throw new Error("Review Focus 1 assertion failed for one or more blogs — fix PROTECTED_KEYS before any paid run");
+        throw new Error(`Review Focus 1 assertion failed for one or more ${noun}s — fix PROTECTED_KEYS before any paid run`);
     }
 
     if (!opts.dry) {
-        console.log(
-            `\nReview the staged files, then merge each blog with:\n` +
-                `  node scripts/i18n/translate.mjs merge blogs/<slug>`
-        );
+        const mergeHint =
+            kind === "messages"
+                ? "  node scripts/i18n/translate.mjs merge messages --all"
+                : "  node scripts/i18n/translate.mjs merge blogs/<slug>  (or: merge blogs --all)";
+        console.log(`\nReview the staged files, then merge with:\n${mergeHint}`);
     }
 }
 
@@ -856,8 +887,158 @@ function mergeBlog(resolved, locales) {
     }
 }
 
+/**
+ * `merge messages --all` — merge every namespace that has at least one
+ * staged locale file, for ALL requested locales, WITHOUT requiring --after.
+ *
+ * Does it by RECONSTRUCTION rather than insertion: walks messages/en.json's
+ * own key order and, for each locale, builds the whole file fresh by taking
+ * each namespace from staging when a staged file exists for it, or from the
+ * existing target file otherwise. Key order therefore matches en.json by
+ * construction and there is no anchor to compute or get wrong.
+ *
+ * All-or-nothing: every staged namespace, for every locale, is shape-checked
+ * against English BEFORE anything is written. A single mismatch (or a
+ * namespace staged for some locales but not others) refuses the WHOLE merge
+ * so messages/*.json files are never left in a partially-merged state.
+ */
+function mergeAllMessages(opts) {
+    const locales = opts.locales ?? TARGET_LOCALES;
+    const en = readJson(path.join(MESSAGES, "en.json"));
+    const namespaces = Object.keys(en);
+
+    const errors = [];
+    const stagedNamespaces = [];
+
+    for (const ns of namespaces) {
+        const resolved = resolveTarget(ns);
+        const hasAnyStaged = locales.some((l) => fs.existsSync(resolved.stagingPath(l)));
+        if (!hasAnyStaged) continue; // nothing staged yet for this namespace — leave target files untouched
+
+        const shape = keyPaths(en[ns]).sort();
+        for (const locale of locales) {
+            const stagedPath = resolved.stagingPath(locale);
+            if (!fs.existsSync(stagedPath)) {
+                errors.push(`${ns} [${locale}]: staged for some locales but not "${locale}" — refusing (partial namespace)`);
+                continue;
+            }
+            const got = keyPaths(readJson(stagedPath)).sort();
+            if (JSON.stringify(got) !== JSON.stringify(shape)) {
+                errors.push(`${ns} [${locale}]: staged shape differs from en — refusing to merge`);
+            }
+        }
+        stagedNamespaces.push(ns);
+    }
+
+    if (errors.length) {
+        console.error(`merge messages --all: refusing — ${errors.length} problem(s), nothing written:`);
+        errors.forEach((e) => console.error("  " + e));
+        throw new Error("shape/staging problem(s) found — refusing the whole merge");
+    }
+
+    if (!stagedNamespaces.length) {
+        console.log("merge messages --all: nothing staged for any namespace — nothing to do");
+        return;
+    }
+
+    for (const locale of locales) {
+        const existing = readJson(path.join(MESSAGES, `${locale}.json`));
+        const rebuilt = {};
+        for (const ns of namespaces) {
+            const stagedPath = resolveTarget(ns).stagingPath(locale);
+            rebuilt[ns] = fs.existsSync(stagedPath) ? readJson(stagedPath) : existing[ns];
+        }
+        writeMessages(locale, rebuilt);
+        console.log(
+            `${locale}: reconstructed messages/${locale}.json — ${stagedNamespaces.length} namespace(s) from staging, ` +
+                `${namespaces.length - stagedNamespaces.length} kept from existing`
+        );
+    }
+}
+
+/**
+ * `merge blogs --all` — merge every blog that has at least one staged locale
+ * file, for ALL requested locales. Each blog is already its own file (no
+ * shared object, hence no anchor even in the single-blog `merge blogs/<slug>`
+ * path); this only adds "do every blog in one pass, skip ones not staged at
+ * all, and keep the same all-or-nothing shape guard as messages --all" — a
+ * single bad shape (or a blog staged for some locales but not others) refuses
+ * the WHOLE run before anything is written, not just that one blog.
+ */
+function mergeAllBlogs(opts) {
+    const locales = opts.locales ?? TARGET_LOCALES;
+    const slugs = fs
+        .readdirSync(BLOGS_DIR, { withFileTypes: true })
+        .filter((d) => d.isDirectory())
+        .map((d) => d.name)
+        .sort();
+
+    const errors = [];
+    const candidates = [];
+    let notStaged = 0;
+
+    for (const slug of slugs) {
+        const resolved = resolveTarget(`blogs/${slug}`);
+        if (!fs.existsSync(resolved.sourcePath)) continue;
+
+        const hasAnyStaged = locales.some((l) => fs.existsSync(resolved.stagingPath(l)));
+        if (!hasAnyStaged) {
+            notStaged++;
+            continue;
+        }
+
+        const shape = keyPaths(readJson(resolved.sourcePath)).sort();
+        for (const locale of locales) {
+            const stagedPath = resolved.stagingPath(locale);
+            if (!fs.existsSync(stagedPath)) {
+                errors.push(`${resolved.label} [${locale}]: staged for some locales but not "${locale}" — refusing (partial blog)`);
+                continue;
+            }
+            const got = keyPaths(readJson(stagedPath)).sort();
+            if (JSON.stringify(got) !== JSON.stringify(shape)) {
+                errors.push(`${resolved.label} [${locale}]: staged shape differs from en — refusing to merge`);
+            }
+        }
+        candidates.push(resolved);
+    }
+
+    if (errors.length) {
+        console.error(`merge blogs --all: refusing — ${errors.length} problem(s), nothing written:`);
+        errors.forEach((e) => console.error("  " + e));
+        throw new Error("shape/staging problem(s) found — refusing the whole merge");
+    }
+
+    if (!candidates.length) {
+        console.log(`merge blogs --all: nothing staged (${notStaged} blog(s) not yet staged) — nothing to do`);
+        return;
+    }
+
+    for (const resolved of candidates) {
+        mergeBlog(resolved, locales);
+    }
+    console.log(`\nmerged ${candidates.length} blog(s), ${notStaged} not yet staged, ${slugs.length} total.`);
+}
+
 function cmdMerge(target, opts) {
-    if (!target) throw new Error("usage: merge <namespace> --after <existingKey>  |  merge blogs/<slug>");
+    if (!target) {
+        throw new Error(
+            "usage: merge <namespace> --after <existingKey>  |  merge messages --all  |  merge blogs/<slug>  |  merge blogs --all"
+        );
+    }
+
+    if (target === "messages" && opts.all) {
+        return mergeAllMessages(opts);
+    }
+    if (target === "messages") {
+        throw new Error("usage: merge messages --all  (for a single namespace: merge <namespace> --after <existingKey>)");
+    }
+    if (target === "blogs" && opts.all) {
+        return mergeAllBlogs(opts);
+    }
+    if (target === "blogs") {
+        throw new Error("usage: merge blogs/<slug>  (or: merge blogs --all)");
+    }
+
     const resolved = resolveTarget(target);
     const locales = opts.locales ?? TARGET_LOCALES;
 
@@ -921,11 +1102,14 @@ try {
                     "  node scripts/i18n/translate.mjs models",
                     '  node scripts/i18n/translate.mjs terms "tennis bracelet"',
                     "  node scripts/i18n/translate.mjs translate <namespace> [--locales nl,fr] [--force] [--dry]",
+                    "  node scripts/i18n/translate.mjs translate messages --all [--force] [--dry]",
                     "  node scripts/i18n/translate.mjs translate blogs/<slug> [--locales nl,fr] [--force] [--dry]",
                     "  node scripts/i18n/translate.mjs translate blogs --all [--force] [--dry]",
                     "  node scripts/i18n/translate.mjs check [namespace]",
                     "  node scripts/i18n/translate.mjs merge <namespace> --after <existingKey>",
+                    "  node scripts/i18n/translate.mjs merge messages --all",
                     "  node scripts/i18n/translate.mjs merge blogs/<slug>",
+                    "  node scripts/i18n/translate.mjs merge blogs --all",
                 ].join("\n")
             );
     }
