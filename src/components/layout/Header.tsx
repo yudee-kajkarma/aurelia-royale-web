@@ -7,7 +7,7 @@ import {
   type Variants,
 } from "framer-motion";
 import { Heart, Menu, ShoppingBag, UserRound } from "lucide-react";
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { HeaderLogo } from "@/components/layout/header/HeaderLogo";
@@ -23,6 +23,7 @@ import { useAuth } from "@/providers/AuthProvider";
 import { isAdminRole } from "@/services/auth/auth.types";
 import { useCart } from "@/providers/CartProvider";
 import { useWishlist } from "@/providers/WishlistProvider";
+import { useDismiss } from "@/hooks/useDismiss";
 
 const shopDropdownVariants: Variants = {
   hidden: { opacity: 0, y: -10 },
@@ -79,6 +80,8 @@ export function Header({
     "category",
   );
   const closeShopTimerRef = useRef<number | null>(null);
+  const profileMenuRef = useRef<HTMLDivElement>(null);
+  const profileTriggerRef = useRef<HTMLButtonElement>(null);
   const reduceMotion = useReducedMotion();
   const pathname = usePathname();
   const router = useRouter();
@@ -112,6 +115,16 @@ export function Header({
       ? "/admin/products"
       : "/profile"
     : "/login";
+
+  // The profile popover had no dismiss behaviour at all: it stayed open until
+  // the trigger was pressed again, even after clicking elsewhere or pressing
+  // Escape. Same contract as the language menu.
+  useDismiss({
+    open: openProfileMenu,
+    onDismiss: useCallback(() => setOpenProfileMenu(false), []),
+    containerRef: profileMenuRef,
+    returnFocusRef: profileTriggerRef,
+  });
 
   function closeAllOverlays() {
     setOpenMenu(false);
@@ -255,10 +268,13 @@ export function Header({
           </div>
 
           <div className="flex items-center justify-end gap-1.5 sm:gap-4">
-            <div className="relative">
+            <div ref={profileMenuRef} className="relative">
               <button
+                ref={profileTriggerRef}
                 type="button"
                 onClick={handleProfileTrigger}
+                aria-haspopup="menu"
+                aria-expanded={openProfileMenu}
                 className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-gold/40 text-gold transition hover:border-gold hover:bg-gold/10 sm:h-11 sm:w-11"
                 aria-label={
                   isAuthenticated ? t("openProfileMenu") : t("openAccountMenu")

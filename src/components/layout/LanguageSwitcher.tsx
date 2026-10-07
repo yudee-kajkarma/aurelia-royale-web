@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState, useTransition } from "react";
+import { useCallback, useEffect, useRef, useState, useTransition } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Check } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import { LOCALE_LABELS } from "@/i18n/locale-labels";
+import { useDismiss } from "@/hooks/useDismiss";
 
 /**
  * Switches locale while staying on the same page. `usePathname` from our
@@ -55,30 +56,12 @@ export function LanguageSwitcher() {
         });
     }
 
-    // Dismiss on an outside press or Escape. Pointerdown rather than click so
-    // the menu closes before the press lands on whatever is underneath.
-    useEffect(() => {
-        if (!open) return;
-
-        function onPointerDown(event: PointerEvent) {
-            if (!containerRef.current?.contains(event.target as Node)) {
-                setOpen(false);
-            }
-        }
-        function onKeyDown(event: KeyboardEvent) {
-            if (event.key === "Escape") {
-                event.stopPropagation();
-                close();
-            }
-        }
-
-        document.addEventListener("pointerdown", onPointerDown);
-        document.addEventListener("keydown", onKeyDown);
-        return () => {
-            document.removeEventListener("pointerdown", onPointerDown);
-            document.removeEventListener("keydown", onKeyDown);
-        };
-    }, [open]);
+    useDismiss({
+        open,
+        onDismiss: useCallback(() => setOpen(false), []),
+        containerRef,
+        returnFocusRef: triggerRef,
+    });
 
     // Move real focus onto the highlighted option so screen readers announce it
     // and the visible ring follows the arrow keys.
