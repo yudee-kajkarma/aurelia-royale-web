@@ -156,6 +156,24 @@ asserting it equals `routing.locales` minus the default. That test cannot span
 repos, so the backend constant gets a comment naming the frontend file it must
 track, and adding a locale becomes a two-repo change by definition.
 
+**Credentials and model.** The backend uses the **same OpenAI key and model
+as the frontend** — `OPENAI_API_KEY` and `OPENAI_MODEL=gpt-6-luna`, the
+standard (non-reasoning) model chosen during the blog work for predictable
+cost and no hidden token burn. Same OpenAI account, so product translation
+bills alongside the blog spend.
+
+A practical caveat: the backend is a separate deployed service and cannot
+read the frontend's `.env.local` at runtime. "Use the frontend's key" means
+the same key *value*, which has to be present in two places — `backend/.env`
+for local work, and the deployed backend's own environment variables for
+production. Translation happens at runtime on save, so if the key is missing
+in the deployed environment the pipeline fails silently into English
+fallback. The backfill script's `--dry` mode doubles as the check that the
+key is actually wired up in a given environment.
+
+**Locales are exactly the five already live on the frontend** — fr, it, de,
+nl, es. No new languages are introduced by this project.
+
 **Backfill is an npm script**, `npm run translate:backfill`, taking an
 optional `--locale` and `--product` filter and a `--dry` flag that reports what
 it would call without spending anything. Not an HTTP endpoint: it is an
