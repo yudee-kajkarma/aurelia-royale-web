@@ -226,6 +226,15 @@ One endpoint: `PATCH /admin/products/:id/translations` taking
 `{ locale, field, value }`, behind the existing `authenticateToken` +
 `requireAdmin` middleware that already guards the product write routes.
 
+**It must reject an unsupported `locale` itself, with `isTargetLocale`.** This
+was verified during phase 1 rather than assumed: spelling the five locales out
+as explicit schema keys does NOT make mongoose validate them. Writing
+`translations: { "fr-FR": … }` returns no error from `validateSync()` — the key
+is silently stripped. Every phase-1 write path is a closed loop that composes
+the locale from `TARGET_LOCALES`, so nothing reaches the schema untrusted; this
+endpoint is the first that takes a locale from a request body. Without a
+boundary check it would accept a typo, save nothing, and report success.
+
 This is the largest piece of UI in the project — ten editable fields per
 product. The backend protections do not depend on it: `source` and `srcHash`
 work from day one, so shipping translations before the editing UI sequences
