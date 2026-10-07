@@ -210,8 +210,18 @@ export function Header({
   return (
     <>
       <header className="sticky top-0 z-20 border-b border-white/10 bg-[linear-gradient(90deg,#0a3525_0%)] text-white">
-        <div className="mx-auto grid h-24 max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-2 px-4 sm:h-28 sm:gap-4 sm:px-8 lg:grid-cols-3 lg:px-12">
-          <nav className="hidden lg:flex items-center gap-9 text-[0.78rem] font-semibold uppercase tracking-[0.22em] text-gold">
+        {/* Columns are [1fr auto 1fr], never equal thirds. `grid-cols-3` gave
+            the logo a full third (384px at max width) when it only needs
+            ~210px, capping the nav at 384px no matter how long the labels
+            are. English (24 chars) fitted; every translation (33-36 chars)
+            did not, so labels wrapped mid-item and the row spilled into the
+            centre column, where the logo <Link> — a later sibling, painted
+            above — swallowed the clicks on the last nav item. */}
+        <div className="mx-auto grid h-24 max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-2 px-4 sm:h-28 sm:gap-4 sm:px-8 lg:px-12">
+          {/* xl, not lg: below ~1180px even the roomier column cannot hold the
+              longest locale, and the hamburger overlay already carries the
+              same links in its sidebar from lg up. */}
+          <nav className="hidden min-w-0 xl:flex items-center gap-5 text-[0.74rem] font-semibold uppercase tracking-[0.14em] text-gold">
             {primaryNavLinks.map((link) => {
               const isShop = link.href === "/shop";
               return (
@@ -222,7 +232,7 @@ export function Header({
                 >
                   <Link
                     href={link.href}
-                    className="transition hover:text-white"
+                    className="whitespace-nowrap transition hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -234,7 +244,7 @@ export function Header({
           <button
             type="button"
             onClick={() => setOpenMenu(true)}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white transition hover:border-gold hover:text-gold sm:h-10 sm:w-10 lg:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white transition hover:border-gold hover:text-gold sm:h-10 sm:w-10 xl:hidden"
             aria-label={t("openMenu")}
           >
             <Menu size={18} className="sm:size-5" />
@@ -360,7 +370,7 @@ export function Header({
           {openShopDropdown ? (
             <motion.div
               key="shop-dropdown"
-              className="absolute inset-x-0 top-full hidden lg:block"
+              className="absolute inset-x-0 top-full hidden xl:block"
               initial="hidden"
               animate="visible"
               exit="exit"
