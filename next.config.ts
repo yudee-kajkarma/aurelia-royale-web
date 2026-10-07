@@ -28,6 +28,15 @@ const nextConfig: NextConfig = {
 	// locale-prefixed inbound link (e.g. /es/blog/old-slug/) redirects within
 	// its own locale instead of 404ing.
 	// ---------------------------------------------------------------------------
+	// Blog articles render on demand (see the [slug] route's
+	// generateStaticParams for why). `loadBlogContent` reads
+	// content/blogs/<slug>/<locale>.json through a path assembled at runtime,
+	// which Next's file tracing cannot follow statically — so without this the
+	// JSON would be left out of the server bundle and every article would 404
+	// in production while building perfectly well locally.
+	outputFileTracingIncludes: {
+		"/[locale]/blog/[slug]": ["content/blogs/**/*.json"],
+	},
 	async redirects() {
 		return withLocaleVariants(BLOG_REDIRECTS);
 	},

@@ -15,10 +15,27 @@ import { buildBlogSchema } from "@/lib/blogs/schema";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
+/**
+ * Deliberately empty: articles render on first request and are then cached,
+ * rather than all 588 of them (98 slugs x 6 locales) being baked at build
+ * time.
+ *
+ * Prerendering them produced 375 MB of .html/.rsc — 92% of the entire build
+ * output — and pushed the Amplify artifact to 559 MB against its 220 MB cap.
+ * A single article cost ~362 KB of output (221 KB .html + 141 KB .rsc) for a
+ * 40 KB source file, and most of that is prefetch payload nobody requests.
+ *
+ * The content still reaches the runtime: `loadBlogContent` reads
+ * content/blogs/<slug>/<locale>.json with a path built at runtime, which file
+ * tracing cannot see, so next.config.ts force-includes those files via
+ * `outputFileTracingIncludes`. Without that the first request to any article
+ * would 404 in production even though the build looked fine.
+ *
+ * `BLOG_SLUGS` still guards which slugs are real — `loadBlogContent` returns
+ * null for anything else and the page calls notFound().
+ */
 export function generateStaticParams() {
-    return routing.locales.flatMap((locale) =>
-        BLOG_SLUGS.map((slug) => ({ locale, slug })),
-    );
+    return [];
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
