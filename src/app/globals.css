@@ -117,6 +117,26 @@ input[type="reset"]:disabled {
     }
 }
 
+/* Glint riding the drawing tip of the special-date note's gold border (see
+   SpecialDateInfo). Its paths use pathLength="1", so offsets are fractions
+   of the path: a 0.06-long dash travels from the start to the end. */
+@keyframes special-date-glint {
+    0% {
+        stroke-dashoffset: 0.06;
+        opacity: 0;
+    }
+    12% {
+        opacity: 1;
+    }
+    72% {
+        opacity: 1;
+    }
+    100% {
+        stroke-dashoffset: -0.94;
+        opacity: 0;
+    }
+}
+
 /* ─────────────────────────────────────────────────────────────
    Sonner toast — Aurelia theme
    Dark-green gradient + gold accents, matching the brand palette

@@ -13,6 +13,8 @@ export const SHOP_CATEGORY_LIMIT = 6;
 // return these, so they are filtered out everywhere categories surface.
 const EXCLUDED_CATEGORY_ALIASES = ["watches", "watch"];
 
+const WATCH_CATEGORY_ALIASES = ["watches", "watch"];
+
 export const SHOP_CATEGORY_TILES: ShopCategoryTile[] = [
   {
     labelKey: "bracelets",
@@ -118,6 +120,13 @@ export function getPrimaryShopCategories(availableCategories: string[]) {
   });
 
   return selected.slice(0, SHOP_CATEGORY_LIMIT);
+}
+
+// Watches are not IGI certified, so IGI-specific offers must not appear on them.
+export function isWatchCategory(category: string | undefined) {
+  const normalizedValue = normalizeCategory(category ?? "");
+
+  return WATCH_CATEGORY_ALIASES.some((alias) => normalizeCategory(alias) === normalizedValue);
 }
 
 export function getCategoryLabelKey(category: string): string {

@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
     SHOP_CATEGORY_TILES,
     getCategoryLabelKey,
+    isWatchCategory,
 } from "@/services/products/product-category";
 
 describe("category label keys", () => {
@@ -26,5 +27,17 @@ describe("category label keys", () => {
 
     it("falls back to the raw category for an unknown value", () => {
         expect(getCategoryLabelKey("tiaras")).toBe("tiaras");
+    });
+});
+
+describe("isWatchCategory", () => {
+    it("matches the backend's watch category however it is cased", () => {
+        expect(isWatchCategory("Watch")).toBe(true);
+        expect(isWatchCategory("watches")).toBe(true);
+    });
+
+    it("leaves jewellery and missing categories alone", () => {
+        expect(isWatchCategory("Bracelet")).toBe(false);
+        expect(isWatchCategory(undefined)).toBe(false);
     });
 });

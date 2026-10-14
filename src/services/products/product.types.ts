@@ -35,7 +35,16 @@ export type ProductDetail = ProductListItem & {
   // Optional jewellery attributes — populated by the backend when available.
   // Rendered on the details page only when present (see shop-details page).
   typeOfGold?: string;
-  goldWeight?: string;
+  // Spec card (see ProductSpecCard). Not returned by the API yet — these names
+  // are the proposed contract for the backend. WLGD = white lab-grown
+  // diamonds, FLGD = fancy-colour lab-grown diamonds; weights in ct / grams.
+  certificateNo?: string;
+  wlgdPcs?: number;
+  wlgdCarat?: number;
+  flgdPcs?: number;
+  flgdCarat?: number;
+  goldWeight?: number;
+  goldKarat?: string;
   certificate: string;
   measurement: string;
   details: string;

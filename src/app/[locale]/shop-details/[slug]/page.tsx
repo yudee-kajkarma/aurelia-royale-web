@@ -9,6 +9,7 @@ import { ProductImage } from "@/components/shared/ProductImage";
 import { ProductPurchasePanel } from "@/components/shop/ProductPurchasePanel";
 import { WishlistToggleButton } from "@/components/wishlist/WishlistToggleButton";
 import { ProductDetailsTabs } from "@/components/shop/ProductDetailsTabs";
+import { ProductSpecCard } from "@/components/shop/ProductSpecCard";
 import { ComingSoonSignup } from "@/components/shop/ComingSoonSignup";
 import { ProductMediaGallery } from "@/components/shop/ProductMediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -20,10 +21,26 @@ import {
     getProductCategory,
     toProductCardModel,
 } from "@/services/products/product.service";
+import { isWatchCategory } from "@/services/products/product-category";
+import type { ProductDetail } from "@/services/products/product.types";
 import { reviewService } from "@/services/reviews/review.service";
 
 type ShopDetailsPageProps = {
     params: Promise<{ locale: string; slug: string }>;
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
+// The API does not return the spec-card fields yet. Under `next dev`, open a
+// product with ?specPreview to see the card filled with the client's mockup
+// values. Never applied in a production build.
+const SPEC_CARD_PREVIEW: Partial<ProductDetail> = {
+    certificateNo: "XXXXXXXXXXX",
+    wlgdPcs: 10,
+    wlgdCarat: 5.04,
+    flgdPcs: 30,
+    flgdCarat: 15.03,
+    goldWeight: 5.04,
+    goldKarat: "9K",
 };
 
 export async function generateMetadata({
@@ -59,6 +76,7 @@ export async function generateMetadata({
 
 export default async function ShopDetailsBySlugPage({
     params,
+    searchParams,
 }: ShopDetailsPageProps) {
     const { slug } = await params;
     const t = await getTranslations("ShopDetailsPage");
@@ -69,6 +87,11 @@ export default async function ShopDetailsBySlugPage({
     }
 
     const { product, recommendedProducts } = response;
+    const specCardProduct =
+        process.env.NODE_ENV === "development" &&
+        (await searchParams).specPreview !== undefined
+            ? { ...product, ...SPEC_CARD_PREVIEW }
+            : product;
     const reviewsData = await reviewService
         .getPublicReviews(product.id)
         .catch(() => ({
@@ -132,57 +155,6 @@ export default async function ShopDetailsBySlugPage({
                   0,
               ) / reviewCount
             : product.rating;
-
-    // Each row maps an image label/icon to a product field. Rows whose value is
-    // missing/blank are filtered out so they never render (per design).
-    const productDetails: Array<{
-        label: string;
-        value: string;
-        icon: string;
-    }> = [
-        // Temporarily showing only Stock No. and Certificate. The rest stay
-        // hidden until fresh product data is entered — restore by uncommenting.
-        {
-            label: "Stock No.",
-            value: product.sku ?? "",
-            icon: "/icons/stock-tag-icon.svg",
-        },
-        {
-            label: "Certificate",
-            // Use product.certificate when the backend populates this field.
-            // Hardcoded fallback removed — certification must come from the
-            // product record so it is accurate per item (e.g. watches are not
-            // IGI certified). TODO (business owner): ensure every product has
-            // the correct certificate value set in the backend.
-            value: product.certificate ?? "",
-            icon: "/icons/cert-icon.svg",
-        },
-        // {
-        //     label: "Carat",
-        //     value: product.carat ? `${product.carat.toFixed(2)} CT` : "",
-        //     icon: "/icons/diamond-icon.svg",
-        // },
-        // {
-        //     label: "Type of Gold",
-        //     value: product.typeOfGold ?? "",
-        //     icon: "/icons/gold-bars-icon.svg",
-        // },
-        // {
-        //     label: "Gold Weight",
-        //     value: product.goldWeight ?? "",
-        //     icon: "/icons/gold-weight-icon.svg",
-        // },
-        // {
-        //     label: "No. of Diamonds",
-        //     value: product.diamondPcs ? String(product.diamondPcs) : "",
-        //     icon: "/icons/diamonds-count-icon.svg",
-        // },
-        // {
-        //     label: "Measurement",
-        //     value: product.measurement ?? "",
-        //     icon: "/icons/measurement-icon.svg",
-        // },
-    ].filter((detail) => detail.value.trim().length > 0);
 
     return (
         <main className="min-h-screen overflow-x-clip bg-background">
@@ -271,10 +243,6 @@ export default async function ShopDetailsBySlugPage({
                         {getProductCategory(product)}
                     </p>
 
-                    <h2 className="font-cormorant mt-3 text-4xl font-medium uppercase tracking-[0.02em] text-deep sm:text-5xl sr-only">
-                        {product.title}
-                    </h2>
-
                     {/* <div className="mt-6 flex flex-wrap items-baseline gap-x-6 gap-y-3">
                         <DiscountedPrice
                             value={product.price}
@@ -306,40 +274,10 @@ export default async function ShopDetailsBySlugPage({
                         {product.description}
                     </p>
 
-                    {productDetails.length > 0 ? (
-                        <div className="mt-12">
-                            <h3 className="font-jost text-lg font-medium uppercase tracking-[0.2em] text-deep">
-                                {t("productDetails")}
-                            </h3>
-                            <div className="mt-3 h-px w-full bg-gold/60 to-transparent" />
-
-                            <dl className="mt-2">
-                                {productDetails.map((detail, index) => (
-                                    <div key={detail.label}>
-                                        {index > 0 ? (
-                                            <div className="h-px w-full bg-linear-to-r from-transparent via-deep/15 to-transparent" />
-                                        ) : null}
-                                        <div className="flex items-center justify-between gap-6 py-3">
-                                            <dt className="flex items-center gap-4">
-                                                <img
-                                                    src={detail.icon}
-                                                    alt=""
-                                                    aria-hidden="true"
-                                                    className="h-6 w-6 shrink-0 object-contain"
-                                                />
-                                                <span className="font-jost text-[0.95rem] leading-6 text-deep">
-                                                    {detail.label}
-                                                </span>
-                                            </dt>
-                                            <dd className="font-jost text-right text-[0.95rem] leading-6 text-deep">
-                                                {detail.value}
-                                            </dd>
-                                        </div>
-                                    </div>
-                                ))}
-                            </dl>
-                        </div>
-                    ) : null}
+                    <ProductSpecCard
+                        product={specCardProduct}
+                        showSpecialDate={!isWatchCategory(product.category)}
+                    />
 
                     <ComingSoonSignup />
 
