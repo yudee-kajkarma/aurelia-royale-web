@@ -22,25 +22,10 @@ import {
     toProductCardModel,
 } from "@/services/products/product.service";
 import { isWatchCategory } from "@/services/products/product-category";
-import type { ProductDetail } from "@/services/products/product.types";
 import { reviewService } from "@/services/reviews/review.service";
 
 type ShopDetailsPageProps = {
     params: Promise<{ locale: string; slug: string }>;
-    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-};
-
-// The API does not return the spec-card fields yet. Under `next dev`, open a
-// product with ?specPreview to see the card filled with the client's mockup
-// values. Never applied in a production build.
-const SPEC_CARD_PREVIEW: Partial<ProductDetail> = {
-    certificateNo: "XXXXXXXXXXX",
-    wlgdPcs: 10,
-    wlgdCarat: 5.04,
-    flgdPcs: 30,
-    flgdCarat: 15.03,
-    goldWeight: 5.04,
-    goldKarat: "9K",
 };
 
 export async function generateMetadata({
@@ -76,7 +61,6 @@ export async function generateMetadata({
 
 export default async function ShopDetailsBySlugPage({
     params,
-    searchParams,
 }: ShopDetailsPageProps) {
     const { slug } = await params;
     const t = await getTranslations("ShopDetailsPage");
@@ -87,11 +71,6 @@ export default async function ShopDetailsBySlugPage({
     }
 
     const { product, recommendedProducts } = response;
-    const specCardProduct =
-        process.env.NODE_ENV === "development" &&
-        (await searchParams).specPreview !== undefined
-            ? { ...product, ...SPEC_CARD_PREVIEW }
-            : product;
     const reviewsData = await reviewService
         .getPublicReviews(product.id)
         .catch(() => ({
@@ -275,7 +254,7 @@ export default async function ShopDetailsBySlugPage({
                     </p>
 
                     <ProductSpecCard
-                        product={specCardProduct}
+                        product={product}
                         showSpecialDate={!isWatchCategory(product.category)}
                     />
 
