@@ -80,7 +80,10 @@ export function ComingSoonSignup() {
                         onChange={(event) => setEmail(event.target.value)}
                         placeholder={t("emailPlaceholder")}
                         aria-label={t("emailLabel")}
-                        className="font-jost h-11 min-w-0 flex-1 bg-transparent px-3 text-xs text-deep placeholder:text-deep/45 focus:outline-none sm:h-14 sm:px-5 sm:text-sm"
+                        // w-0: drop the input's intrinsic ~20ch width, which
+                        // plus a long translated button (e.g. German) pushed
+                        // the whole details column past a phone's width.
+                        className="font-jost h-11 w-0 min-w-0 flex-1 bg-transparent px-3 text-xs text-deep placeholder:text-deep/45 focus:outline-none sm:h-14 sm:px-5 sm:text-sm"
                     />
                     <button
                         type="submit"
