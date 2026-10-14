@@ -22,10 +22,25 @@ import {
     toProductCardModel,
 } from "@/services/products/product.service";
 import { isWatchCategory } from "@/services/products/product-category";
+import type { ProductDetail } from "@/services/products/product.types";
 import { reviewService } from "@/services/reviews/review.service";
 
 type ShopDetailsPageProps = {
     params: Promise<{ locale: string; slug: string }>;
+};
+
+// DEV BRANCH ONLY — never merge this into main. The API does not return the
+// spec-card fields yet, so the dev deployment shows the client's mockup
+// values on every product for review. Any real value the API does send
+// takes precedence. main ships the card without these (feat/product-spec-card).
+const DEV_SPEC_CARD_VALUES: Partial<ProductDetail> = {
+    certificateNo: "XXXXXXXXXXX",
+    wlgdPcs: 10,
+    wlgdCarat: 5.04,
+    flgdPcs: 30,
+    flgdCarat: 15.03,
+    goldWeight: 5.04,
+    goldKarat: "9K",
 };
 
 export async function generateMetadata({
@@ -254,7 +269,7 @@ export default async function ShopDetailsBySlugPage({
                     </p>
 
                     <ProductSpecCard
-                        product={product}
+                        product={{ ...DEV_SPEC_CARD_VALUES, ...product }}
                         showSpecialDate={!isWatchCategory(product.category)}
                     />
 
