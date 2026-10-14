@@ -48,7 +48,7 @@ export async function generateMetadata({
 }: ShopDetailsPageProps): Promise<Metadata> {
     const { locale: raw, slug } = await params;
     const locale = assertLocale(raw);
-    const response = await getProductBySlug(slug);
+    const response = await getProductBySlug(slug, locale);
     const t = await getTranslations({ locale, namespace: "ShopDetailsPage" });
 
     if (!response) {
@@ -77,9 +77,10 @@ export async function generateMetadata({
 export default async function ShopDetailsBySlugPage({
     params,
 }: ShopDetailsPageProps) {
-    const { slug } = await params;
+    const { slug, locale: raw } = await params;
+    const locale = assertLocale(raw);
     const t = await getTranslations("ShopDetailsPage");
-    const response = await getProductBySlug(slug);
+    const response = await getProductBySlug(slug, locale);
 
     if (!response) {
         notFound();

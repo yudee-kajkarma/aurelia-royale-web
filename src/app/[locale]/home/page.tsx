@@ -39,11 +39,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
 }
 
-export default async function HomePage() {
+export default async function HomePage({ params }: PageProps) {
+    const { locale: raw } = await params;
+    const locale = assertLocale(raw);
     const t = await getTranslations("HomePage");
     const tCategories = await getTranslations("shopCategories");
     const [products, filterOptions] = await Promise.all([
-        getAllProducts()
+        getAllProducts(locale)
             .then((items) => items.map(toProductCardModel))
             .catch(() => []),
         getAllProductFilters().catch(() => ({

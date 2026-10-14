@@ -102,6 +102,7 @@ export default async function ShopPage({ params, searchParams }: ShopPageProps) 
             : null;
 
     const result = await getProducts({
+        locale,
         page,
         limit: 8,
         category: resolvedCategory ?? undefined,

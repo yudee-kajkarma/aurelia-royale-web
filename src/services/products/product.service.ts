@@ -26,6 +26,18 @@ function createApiUrl(path: string) {
   return new URL(path.replace(/^\//, ""), getApiBaseUrl()).toString();
 }
 
+/**
+ * Append `?locale=` only for a non-default locale.
+ *
+ * English adds nothing: the API defaults to English, so omitting the param
+ * keeps those URLs byte-identical to what they were before translation
+ * existed — which matters because Next caches on the URL.
+ */
+function withLocale(path: string, locale?: string): string {
+  if (!locale || locale === "en") return path;
+  return path + (path.includes("?") ? "&" : "?") + `locale=${encodeURIComponent(locale)}`;
+}
+
 async function getJson<T>(path: string) {
   const response = await fetch(createApiUrl(path), {
     cache: "no-store",
@@ -72,8 +84,10 @@ export function toProductCardModel(product: ProductListItem): ProductCardModel {
   };
 }
 
-export async function getProductsPage(page = 1, limit = DEFAULT_PAGE_SIZE) {
-  const response = await getJson<ProductsListResponse>(`/products?page=${page}&limit=${limit}`);
+export async function getProductsPage(page = 1, limit = DEFAULT_PAGE_SIZE, locale?: string) {
+  const response = await getJson<ProductsListResponse>(
+    withLocale(`/products?page=${page}&limit=${limit}`, locale),
+  );
 
   if (!response) {
     throw new Error("Products endpoint returned no data.");
@@ -154,7 +168,11 @@ export async function getProducts(params: GetProductsParams = {}): Promise<Produ
     requestParams.set("availability", String(params.availability));
   }
 
-  const response = await getJson<ProductsListResponse>(`/products?${requestParams.toString()}`);
+  // NB: the locale goes on the URL, never into requestParams — filter values
+  // stay English because the API matches them against stored data.
+  const response = await getJson<ProductsListResponse>(
+    withLocale(`/products?${requestParams.toString()}`, params.locale),
+  );
 
   if (!response) {
     throw new Error("Products endpoint returned no data.");
@@ -177,22 +195,26 @@ export async function getAllProductFilters(): Promise<ProductFilterOptions> {
   return response.data;
 }
 
-export async function getAllProducts() {
-  const firstPage = await getProductsPage(1, DEFAULT_PAGE_SIZE);
+export async function getAllProducts(locale?: string) {
+  const firstPage = await getProductsPage(1, DEFAULT_PAGE_SIZE, locale);
 
   if (firstPage.pagination.totalPages <= 1) {
     return firstPage.data;
   }
 
   const remainingPages = await Promise.all(
-    Array.from({ length: firstPage.pagination.totalPages - 1 }, (_, index) => getProductsPage(index + 2, DEFAULT_PAGE_SIZE)),
+    Array.from({ length: firstPage.pagination.totalPages - 1 }, (_, index) =>
+      getProductsPage(index + 2, DEFAULT_PAGE_SIZE, locale),
+    ),
   );
 
   return firstPage.data.concat(remainingPages.flatMap((page) => page.data));
 }
 
-export async function getProductBySlug(slug: string) {
-  const response = await getJson<ProductDetailResponse>(`/products/slug/${slug}`);
+export async function getProductBySlug(slug: string, locale?: string) {
+  const response = await getJson<ProductDetailResponse>(
+    withLocale(`/products/slug/${slug}`, locale),
+  );
 
   if (!response) {
     return null;

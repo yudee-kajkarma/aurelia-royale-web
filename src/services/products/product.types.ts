@@ -93,6 +93,8 @@ export type ProductFilterOptions = {
 };
 
 export type GetProductsParams = {
+  /** Active locale. Omitted or "en" leaves the request unchanged. */
+  locale?: string;
   page?: number;
   limit?: number;
   category?: string;
